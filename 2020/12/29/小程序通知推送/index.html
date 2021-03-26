@@ -10,23 +10,27 @@
   
   
   <meta name="keywords" content="小程序">
-  <meta name="description" content="小程序推送通知方式（订阅消息&amp;amp;消息模板）小程序发送小程序的订阅消息(推送到服务通知) 准备1：登录小程序-功能-订阅消息（未开通的，需要先开通）-从模板库中添加消息模板并获得模板ID（也可以申请消息模板）  步骤：  获取下发权限 （用户发生点击行为或者发起支付回调后）— 调用接口下发订阅消息 获取js_code 根据js_code获取OpenId和UnionID 获取小程序access_">
-<meta name="keywords" content="小程序">
+  <meta name="description" content="小程序推送通知方式（订阅消息&amp;消息模板）小程序发送小程序的订阅消息(推送到服务通知) 准备1：登录小程序-功能-订阅消息（未开通的，需要先开通）-从模板库中添加消息模板并获得模板ID（也可以申请消息模板）  步骤：  获取下发权限 （用户发生点击行为或者发起支付回调后）— 调用接口下发订阅消息 获取js_code 根据js_code获取OpenId和UnionID 获取小程序access_">
 <meta property="og:type" content="article">
 <meta property="og:title" content="小程序通知推送">
-<meta property="og:url" content="https:&#x2F;&#x2F;damao2250.github.io&#x2F;2020&#x2F;12&#x2F;29&#x2F;%E5%B0%8F%E7%A8%8B%E5%BA%8F%E9%80%9A%E7%9F%A5%E6%8E%A8%E9%80%81&#x2F;index.html">
+<meta property="og:url" content="https://damao2250.github.io/2020/12/29/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E9%80%9A%E7%9F%A5%E6%8E%A8%E9%80%81/index.html">
 <meta property="og:site_name" content="Damao Bolg">
-<meta property="og:description" content="小程序推送通知方式（订阅消息&amp;amp;消息模板）小程序发送小程序的订阅消息(推送到服务通知) 准备1：登录小程序-功能-订阅消息（未开通的，需要先开通）-从模板库中添加消息模板并获得模板ID（也可以申请消息模板）  步骤：  获取下发权限 （用户发生点击行为或者发起支付回调后）— 调用接口下发订阅消息 获取js_code 根据js_code获取OpenId和UnionID 获取小程序access_">
-<meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-12-29T09:16:51.693Z">
+<meta property="og:description" content="小程序推送通知方式（订阅消息&amp;消息模板）小程序发送小程序的订阅消息(推送到服务通知) 准备1：登录小程序-功能-订阅消息（未开通的，需要先开通）-从模板库中添加消息模板并获得模板ID（也可以申请消息模板）  步骤：  获取下发权限 （用户发生点击行为或者发起支付回调后）— 调用接口下发订阅消息 获取js_code 根据js_code获取OpenId和UnionID 获取小程序access_">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-12-29T09:14:48.000Z">
+<meta property="article:modified_time" content="2021-03-23T03:50:41.068Z">
+<meta property="article:author" content="Damao">
+<meta property="article:tag" content="小程序">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Damao Bolg" type="application/atom+xml">
   
   <meta name="summary" content="复制粘贴攻城狮">
   <link rel="shortcut icon" href="/favicon.ico">
-  <link rel="stylesheet" href="/css/style.css">
-</head>
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.1"></head>
 
 <body>
   <div id="loading" class="active"></div>
@@ -41,7 +45,7 @@
       <a href="https://github.com/Damao2250" target="_blank" rel="noopener" class="avatar"><img src="https://avatars.githubusercontent.com/damao2250"></a>
       <hgroup class="introduce">
         <h5 class="nickname">Damao</h5>
-        <a href="mailto:damao2250@gmail.com" target="_blank" rel="noopener" title="damao2250@gmail.com" class="mail">damao2250@gmail.com</a>
+        <a href="mailto:damao2250@gmail.com" title="damao2250@gmail.com" class="mail">damao2250@gmail.com</a>
       </hgroup>
     </div>
   </div>
@@ -80,7 +84,7 @@
 
     <footer class="footer">
   <p><a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAMAAABEF7i9AAAAllBMVEUAAAD///+rsapERER3d3eIiIjMzMzu7u4iIiKUmZO6v7rKzsoODg4RERFVVVUNDQ0NDg0PEA8zMzNLTEtbXltmZmZydnF9gn2AgICPkI+ZmZmqqqq7u7vFxsXIzMgNDQwZGRkgICAhISEkJSMnKCcuMC4xMzE5Ozk7PTtBQkFCQkJDQ0Nna2eGhoaHh4ezuLLGysbd3d1wVGpAAAAA4UlEQVR42q2T1xqCMAyFk7QsBQeKA9x7j/d/OSm22CpX0nzcpA1/T05aAOuBVkMAScQFHLnEwoCo2f1TnQIGoVMewjZEjVFN4GH1Ue1Cn2jWqwfsOOj6wDwGvotsl/c8lv7KIq1eLOsT0HMFHMIE/RZyHnlphryT9zyV+8WH5e8yQw3wnQvgAFxPTKUVi555SHR/lOfLMgVTeDlSfN+TaoUsiTyeIm+bCkHvCA2FUKG48LDtYBZBknsYP/G8NTw0gaaHyuQf4H5pecrB/FYCT2sL9zAfy1Xyjou6L8X2W7YcLyBZCRtnq/zfAAAAAElFTkSuQmCC" /></a></p>
-  <p>Damao Bolg &copy; 2020</p>
+  <p>Damao Bolg &copy; 2021</p>
   <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
   <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></p>
   <a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-2x icon-rss-square"></i></a>
@@ -93,13 +97,13 @@
   <main id="main">
     <header class="top-header" id="header">
     <div class="flex-row">
-        <a href="javascript:;" target="_blank" rel="noopener" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
         <div class="flex-col header-title ellipsis">小程序通知推送</div>
         
         <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" target="_blank" rel="noopener" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
             <input type="text" id="key" class="search-input " autocomplete="off" placeholder="输入感兴趣的关键字">
@@ -146,32 +150,32 @@
     <div class="tit">分享到：</div>
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" href="javascript:;" target="_blank" rel="noopener" data-title="微博" data-service="tsina">
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
       <li>
-        <a class="weixin share-sns" href="javascript:;" target="_blank" rel="noopener" data-title="微信" data-service="weixin">
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
           <i class="icon icon-weixin"></i>
         </a>
       </li>
       <li>
-        <a class="qq share-sns" href="javascript:;" target="_blank" rel="noopener" data-title=" QQ" data-service="cqq">
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" href="javascript:;" target="_blank" rel="noopener" data-title=" Facebook" data-service="fb">
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" href="javascript:;" target="_blank" rel="noopener" data-title=" Twitter" data-service="twitter">
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="douban share-sns" href="javascript:;" target="_blank" rel="noopener" data-title="豆瓣" data-service="douban">
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
           豆
         </a>
       </li>
@@ -182,7 +186,7 @@
 
             
             <nav class="post-toc-wrap" id="post-toc">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#小程序推送通知方式（订阅消息-amp-消息模板）"><span class="post-toc-number">1.</span> <span class="post-toc-text">小程序推送通知方式（订阅消息&amp;消息模板）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#小程序发送小程序的订阅消息-推送到服务通知"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">小程序发送小程序的订阅消息(推送到服务通知)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#小程序调用公众号的消息模板-推送到微信公众号"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">小程序调用公众号的消息模板(推送到微信公众号)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#下发统一服务消息（官方不支持了）"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">下发统一服务消息（官方不支持了）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#小程序消息模板（已废弃）"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">小程序消息模板（已废弃）</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#小程序推送通知方式（订阅消息-amp-消息模板）"><span class="post-toc-number">1.</span> <span class="post-toc-text">小程序推送通知方式（订阅消息&amp;消息模板）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#小程序发送小程序的订阅消息-推送到服务通知"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">小程序发送小程序的订阅消息(推送到服务通知)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#小程序调用公众号的消息模板-推送到微信公众号"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">小程序调用公众号的消息模板(推送到微信公众号)</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#下发统一服务消息（官方不支持了）"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">下发统一服务消息（官方不支持了）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#小程序消息模板（已废弃）"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">小程序消息模板（已废弃）</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#预备知识："><span class="post-toc-number">1.5.</span> <span class="post-toc-text">预备知识：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#开始开发"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">开始开发</span></a></li></ol></li></ol>
             </nav>
             
         </aside>
@@ -271,7 +275,59 @@
 <h2 id="下发统一服务消息（官方不支持了）"><a href="#下发统一服务消息（官方不支持了）" class="headerlink" title="下发统一服务消息（官方不支持了）"></a>下发统一服务消息（官方不支持了）</h2><ul>
 <li>下发小程序和公众号统一的服务消息（需要填小程序模板id和公众号模板id）</li>
 </ul>
-<h2 id="小程序消息模板（已废弃）"><a href="#小程序消息模板（已废弃）" class="headerlink" title="小程序消息模板（已废弃）"></a>小程序消息模板（已废弃）</h2><script>
+<h2 id="小程序消息模板（已废弃）"><a href="#小程序消息模板（已废弃）" class="headerlink" title="小程序消息模板（已废弃）"></a>小程序消息模板（已废弃）</h2><h2 id="预备知识："><a href="#预备知识：" class="headerlink" title="预备知识："></a>预备知识：</h2><ul>
+<li>小程序openid：小程序用户的唯一id</li>
+<li>公众号openid：公众号用户的唯一id</li>
+<li>unionid：同一用户，对同一个微信开放平台下的不同应用，unionid是相同的<ul>
+<li>准备：</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>将小程序与公众号绑定（绑定后才可获取unionid），官方文档：小程序与公众号绑定获取unionid</li>
+<li>接入微信公众平台开发，也就是给服务号配置一下开发者服务器。当有用户关注/取消服务号时，微信服务器会推送关注/取消的事件给我们的服务器。官方文档：接入微信公众平台开发</li>
+<li>获取公众号用户列表，即所有用户的公众号openid。官方文档：获取公众号用户列表</li>
+<li>通过公众号openid获取用户的unionid。官方文档：通过公众号openid获取unionid</li>
+<li>推送服务号消息。官方文档：公众号发送模版消息<ul>
+<li>注意：</li>
+</ul>
+</li>
+<li>在上述的一些接口中，需要获取access_token。小程序和公众号的access_token是不同的，需要用各自的appid和secret去获取。</li>
+<li>access_token每天只能获取200次，有效期是7200秒。所以应该把它加入缓存，而不是每次都去获取新的access_token。<h2 id="开始开发"><a href="#开始开发" class="headerlink" title="开始开发"></a>开始开发</h2></li>
+</ol>
+<ul>
+<li>将小程序用户与公众号用户关联：<ul>
+<li>小程序用户openid→unionid←公众号用户openid</li>
+<li>要想将小程序与公众号用户关联，第一件事就是获取用户的unionid。</li>
+</ul>
+<ul>
+<li>我们可以在两种情况下获取用户的unionid：</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>一、如果用户已经关注了公众号，那么在用户登录的时候，就可以获取到unionid</li>
+<li>二、如果用户没有关注公众号，那么得让前端调用wx.getUserInfo，把加密数据给后端解密拿到unionid。<ul>
+<li>解密需要session_key，而session_key又有有效期，得注意它过期的情况。</li>
+<li>当用户关注公众号时，微信会推送事件给我们（本文准备条件的第2条）。</li>
+<li>通过关注事件，我们可以拿到用户的公众号openid，再获取unionid（本文准备条件的第4条）。拿到unionid后，去数据库查询这个unionid的用户，并把公众号openid保存。</li>
+<li>但是，还有两个情况没有考虑到：</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>在我们开发之前，已经关注了公众号的用户没有去关联<ul>
+<li>解决方案：</li>
+<li>获取微信公众号的用户列表，再依次获取用户unionid（本文准备条件的第3、4条）。注意，此操作非常耗时。</li>
+</ul>
+</li>
+<li>用户先关注了公众号，但是从来没用过小程序（数据库里没有unionid，导致无法关联）<ul>
+<li>解决方案：</li>
+<li>新建一张表，把这个公众号用户先记录下来。当小程序用户登录时，先检查一遍这张表尝试关联。</li>
+</ul>
+</li>
+</ol>
+<script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -383,7 +439,7 @@
     </div>
   </main>
 <div class="mask" id="mask"></div>
-<a href="javascript:;" target="_blank" rel="noopener" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
 <script>
 var BLOG_SHARE = {
@@ -397,32 +453,32 @@ var BLOG_SHARE = {
     <div class="tit">分享到：</div>
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" href="javascript:;" target="_blank" rel="noopener" data-title="微博" data-service="tsina">
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
       <li>
-        <a class="weixin share-sns" href="javascript:;" target="_blank" rel="noopener" data-title="微信" data-service="weixin">
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
           <i class="icon icon-weixin"></i>
         </a>
       </li>
       <li>
-        <a class="qq share-sns" href="javascript:;" target="_blank" rel="noopener" data-title=" QQ" data-service="cqq">
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" href="javascript:;" target="_blank" rel="noopener" data-title=" Facebook" data-service="fb">
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" href="javascript:;" target="_blank" rel="noopener" data-title=" Twitter" data-service="twitter">
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="douban share-sns" href="javascript:;" target="_blank" rel="noopener" data-title="豆瓣" data-service="douban">
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
           豆
         </a>
       </li>
@@ -432,7 +488,9 @@ var BLOG_SHARE = {
 
 <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 
+
 <script src="/js/main.js"></script>
+
 
 
 
@@ -453,7 +511,9 @@ var BLOG_SHARE = {
 </li>
 </script>
 
+
 <script src="/js/search.js"></script>
+
 
 
 

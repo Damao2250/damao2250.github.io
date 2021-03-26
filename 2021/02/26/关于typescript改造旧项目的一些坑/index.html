@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>关于typescript改造旧项目的一些坑 | Damao Bolg | </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="theme-color" content="#3F51B5">
+  
+  
+  <meta name="keywords" content="typescript">
+  <meta name="description" content="‘@&#x2F;‘ 引入组件报红问题 使用 ‘@&#x2F;xxx&#x2F;xxx’ 引入组件，vetur报红 找不到module，但是可以正常运行问题 解决办法：1.把项目目录放工作区根目录；2.项目一定排列在第一位  引入第三方包报红 引入第三方库 报红找不到module，无法正常使用包，如qs、jQuery 解决办法1：使用@types进行包管理，然后正常引入123npm i @types&#x2F;qsimport qs fr">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于typescript改造旧项目的一些坑">
+<meta property="og:url" content="https://damao2250.github.io/2021/02/26/%E5%85%B3%E4%BA%8Etypescript%E6%94%B9%E9%80%A0%E6%97%A7%E9%A1%B9%E7%9B%AE%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9D%91/index.html">
+<meta property="og:site_name" content="Damao Bolg">
+<meta property="og:description" content="‘@&#x2F;‘ 引入组件报红问题 使用 ‘@&#x2F;xxx&#x2F;xxx’ 引入组件，vetur报红 找不到module，但是可以正常运行问题 解决办法：1.把项目目录放工作区根目录；2.项目一定排列在第一位  引入第三方包报红 引入第三方库 报红找不到module，无法正常使用包，如qs、jQuery 解决办法1：使用@types进行包管理，然后正常引入123npm i @types&#x2F;qsimport qs fr">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-02-26T07:27:52.000Z">
+<meta property="article:modified_time" content="2021-03-26T02:36:10.581Z">
+<meta property="article:author" content="Damao">
+<meta property="article:tag" content="typescript">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternative" href="/atom.xml" title="Damao Bolg" type="application/atom+xml">
+  
+  <meta name="summary" content="复制粘贴攻城狮">
+  <link rel="shortcut icon" href="/favicon.ico">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="loading" class="active"></div>
+
+  <nav id="menu" class="hide" >
+   <div class="inner flex-row-vertical">
+  <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off" target="">
+      <i class="icon icon-lg icon-close"></i>
+  </a>
+  <div class="brand-wrap">
+    <div class="brand">
+      <a href="https://github.com/Damao2250" target="_blank" rel="noopener" class="avatar"><img src="https://avatars.githubusercontent.com/damao2250"></a>
+      <hgroup class="introduce">
+        <h5 class="nickname">Damao</h5>
+        <a href="mailto:damao2250@gmail.com" title="damao2250@gmail.com" class="mail">damao2250@gmail.com</a>
+      </hgroup>
+    </div>
+  </div>
+  <div class="scroll-wrap flex-col">
+    <ul class="nav">
+      
+          <li class="waves-block waves-effect">
+            <a href="/"  >
+              <i class="icon icon-lg icon-home"></i>
+              主页
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="/archives"  >
+              <i class="icon icon-lg icon-archives"></i>
+              Archives
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="https://github.com/Damao2250" target="_blank" >
+              <i class="icon icon-lg icon-github"></i>
+              Github
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="https://weibo.com/damao2250" target="_blank" >
+              <i class="icon icon-lg icon-weibo"></i>
+              Weibo
+            </a>
+          </li>
+      
+    </ul>
+
+    <footer class="footer">
+  <p><a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAMAAABEF7i9AAAAllBMVEUAAAD///+rsapERER3d3eIiIjMzMzu7u4iIiKUmZO6v7rKzsoODg4RERFVVVUNDQ0NDg0PEA8zMzNLTEtbXltmZmZydnF9gn2AgICPkI+ZmZmqqqq7u7vFxsXIzMgNDQwZGRkgICAhISEkJSMnKCcuMC4xMzE5Ozk7PTtBQkFCQkJDQ0Nna2eGhoaHh4ezuLLGysbd3d1wVGpAAAAA4UlEQVR42q2T1xqCMAyFk7QsBQeKA9x7j/d/OSm22CpX0nzcpA1/T05aAOuBVkMAScQFHLnEwoCo2f1TnQIGoVMewjZEjVFN4GH1Ue1Cn2jWqwfsOOj6wDwGvotsl/c8lv7KIq1eLOsT0HMFHMIE/RZyHnlphryT9zyV+8WH5e8yQw3wnQvgAFxPTKUVi555SHR/lOfLMgVTeDlSfN+TaoUsiTyeIm+bCkHvCA2FUKG48LDtYBZBknsYP/G8NTw0gaaHyuQf4H5pecrB/FYCT2sL9zAfy1Xyjou6L8X2W7YcLyBZCRtnq/zfAAAAAElFTkSuQmCC" /></a></p>
+  <p>Damao Bolg &copy; 2021</p>
+  <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
+  <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></p>
+  <a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-2x icon-rss-square"></i></a>
+</footer>
+
+  </div>
+</div>
+
+  </nav>
+  <main id="main">
+    <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">关于typescript改造旧项目的一些坑</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input " autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search" target="">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-share" target="">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header">
+  <div class="container">
+    <h1 class="author">关于typescript改造旧项目的一些坑</h1>
+    <h5 class="subtitle">
+        
+            <time datetime="2021-02-26T07:27:52.000Z" itemprop="datePublished" class="page-time">
+  2021-02-26
+</time>
+
+
+        
+    </h5>
+  </div>
+</header>
+
+    <div class="container body-wrap">
+      <article id="post-关于typescript改造旧项目的一些坑" 
+  class="article article-type-post" itemprop="blogPost">
+    <div class="post-meta flex-row">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/typescript/" rel="tag">typescript</a></li></ul>
+
+    </div>
+    <div class="post-body">
+        <aside class="post-widget" id="post-widget">
+
+            
+            <div class="post-share" id="post-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+            
+
+            
+            <nav class="post-toc-wrap" id="post-toc">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#‘-‘-引入组件报红问题"><span class="post-toc-number">1.</span> <span class="post-toc-text">‘@&#x2F;‘ 引入组件报红问题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#引入第三方包报红"><span class="post-toc-number">2.</span> <span class="post-toc-text">引入第三方包报红</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#router配置里引入component组件的时候必须添加-vue后缀"><span class="post-toc-number">3.</span> <span class="post-toc-text">router配置里引入component组件的时候必须添加.vue后缀</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Element表单验证报红问题"><span class="post-toc-number">4.</span> <span class="post-toc-text">Element表单验证报红问题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用axios封装的请求，然后解构请求结果报错"><span class="post-toc-number">5.</span> <span class="post-toc-text">使用axios封装的请求，然后解构请求结果报错</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#typescript-esline-报错-xxx-x-is-not-in-camel-case"><span class="post-toc-number">6.</span> <span class="post-toc-text">@typescript&#x2F;esline 报错 xxx_x is not in camel case</span></a></li></ol>
+            </nav>
+            
+        </aside>
+
+        <div class="post-main">
+
+            <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="‘-‘-引入组件报红问题"><a href="#‘-‘-引入组件报红问题" class="headerlink" title="‘@/‘ 引入组件报红问题"></a>‘@/‘ 引入组件报红问题</h2><ul>
+<li>使用 ‘@/xxx/xxx’ 引入组件，vetur报红 找不到module，但是可以正常运行问题</li>
+<li>解决办法：1.把项目目录放工作区根目录；2.项目一定排列在第一位</li>
+</ul>
+<h2 id="引入第三方包报红"><a href="#引入第三方包报红" class="headerlink" title="引入第三方包报红"></a>引入第三方包报红</h2><ul>
+<li>引入第三方库 报红找不到module，无法正常使用包，如qs、jQuery</li>
+<li>解决办法1：使用@types进行包管理，然后正常引入<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm i @types/qs</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> qs <span class="keyword">from</span> <span class="string">'qs'</span></span><br></pre></td></tr></tbody></table></figure></li>
+<li>解决办法2：有些包不能用@types管理，自己写声明 XX.d.ts  不推荐</li>
+</ul>
+<h2 id="router配置里引入component组件的时候必须添加-vue后缀"><a href="#router配置里引入component组件的时候必须添加-vue后缀" class="headerlink" title="router配置里引入component组件的时候必须添加.vue后缀"></a>router配置里引入component组件的时候必须添加.vue后缀</h2><h2 id="Element表单验证报红问题"><a href="#Element表单验证报红问题" class="headerlink" title="Element表单验证报红问题"></a>Element表单验证报红问题</h2><figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 报错信息如下</span></span><br><span class="line"><span class="comment">// Property 'validate' does not exist on type 'Vue | Element | Vue[] | Element[]'.</span></span><br><span class="line"><span class="comment">// Property 'validate' does not exist on type 'Vue'.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 解决办法</span></span><br><span class="line"><span class="keyword">import</span> { Form } <span class="keyword">from</span> <span class="string">"element-ui"</span>;</span><br><span class="line"></span><br><span class="line">(&nbsp;<span class="keyword">this</span>.$refs.loginForm&nbsp;<span class="keyword">as</span>&nbsp;Form&nbsp;).validate(<span class="function">(<span class="params">valid:&nbsp;boolean&nbsp;</span>)&nbsp;=&gt;</span>&nbsp;{</span><br><span class="line">  ...</span><br><span class="line">&nbsp;});</span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果不引入Form，把Form换成any也可以，但是typescript会报警告⚠</span></span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="使用axios封装的请求，然后解构请求结果报错"><a href="#使用axios封装的请求，然后解构请求结果报错" class="headerlink" title="使用axios封装的请求，然后解构请求结果报错"></a>使用axios封装的请求，然后解构请求结果报错</h2><figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 报错信息</span></span><br><span class="line"><span class="comment">// Property 'XXX' does not exist on type 'AxiosResponse&lt;any&gt;'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 解决办法</span></span><br><span class="line"><span class="comment">// 新建axios.d.ts文案，添加如下内容，重启项目</span></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> axios <span class="keyword">from</span> <span class="string">'axios'</span></span><br><span class="line"></span><br><span class="line">declare <span class="built_in">module</span> <span class="string">'axios'</span> {</span><br><span class="line">  interface AxiosInstance {</span><br><span class="line">    (config: AxiosRequestConfig): <span class="built_in">Promise</span>&lt;any&gt;</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="typescript-esline-报错-xxx-x-is-not-in-camel-case"><a href="#typescript-esline-报错-xxx-x-is-not-in-camel-case" class="headerlink" title="@typescript/esline 报错 xxx_x is not in camel case"></a>@typescript/esline 报错 xxx_x is not in camel case</h2><figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 关闭esline驼峰校验</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 在.eslinetrc.js中配置如下：</span></span><br><span class="line"></span><br><span class="line">rules: {</span><br><span class="line">  ...</span><br><span class="line">  <span class="string">'@typescript-eslint/camelcase'</span>: <span class="string">'off'</span>,</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+
+            
+            <div class="post-reward">
+                <a id="rewardBtn" href="javascript:;" class="post-reward-btn waves-effect waves-circle waves-light" target="">赞赏</a>
+            </div>
+            
+            
+            <blockquote>
+                <p>
+                本文地址：
+                <a href="https://damao2250.github.io/2021/02/26/%E5%85%B3%E4%BA%8Etypescript%E6%94%B9%E9%80%A0%E6%97%A7%E9%A1%B9%E7%9B%AE%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9D%91/" target="_blank" rel="external">https://damao2250.github.io/2021/02/26/%E5%85%B3%E4%BA%8Etypescript%E6%94%B9%E9%80%A0%E6%97%A7%E9%A1%B9%E7%9B%AE%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9D%91/</a>
+                </p>
+                <footer><cite><a href="https://damao2250.github.io">@Damao Bolg</a></cite></footer>
+            </blockquote>
+            </div>
+            
+<nav class="post-nav">
+  
+    <div class="waves-block waves-effect prev fl">
+      <a href="/2021/03/26/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E7%BB%99%E7%B1%BB%E3%80%81%E5%87%BD%E6%95%B0%E5%92%8C%E5%8F%98%E9%87%8F%E5%91%BD%E5%90%8D/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">如何快速给类、函数和变量命名</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next fr">
+      <a href="/2021/02/26/Nginx%E5%9F%BA%E6%9C%AC%E5%8A%9F%E8%83%BD%E5%8F%8A%E9%85%8D%E7%BD%AE/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Nginx基本功能及配置</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+            
+            
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="关于typescript改造旧项目的一些坑" data-title="关于typescript改造旧项目的一些坑" data-url="https://damao2250.github.io/2021/02/26/%E5%85%B3%E4%BA%8Etypescript%E6%94%B9%E9%80%A0%E6%97%A7%E9%A1%B9%E7%9B%AE%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9D%91/index.html"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"ysblog"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+        </div>
+    </div>
+</article>
+
+<div id="reward" class="reward-lay">
+    <a class="reward-off" id="rewardOff" href="javascript:;" target=""><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        Thanks~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat.png" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.png" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+  </main>
+<div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+<script>
+var BLOG_SHARE = {
+    title: "关于typescript改造旧项目的一些坑",
+    pic: "https://avatars.githubusercontent.com/damao2250",
+    summary: document.getElementsByName('summary')[0].content,
+    url: "https://damao2250.github.io/2021/02/26/%E5%85%B3%E4%BA%8Etypescript%E6%94%B9%E9%80%A0%E6%97%A7%E9%A1%B9%E7%9B%AE%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9D%91/index.html"
+};
+</script>
+<div class="global-share" id="global-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<script type="text/template" id="search-tpl">
+<li class="item">
+    <a href="/{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</script>
+
+
+<script src="/js/search.js"></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
