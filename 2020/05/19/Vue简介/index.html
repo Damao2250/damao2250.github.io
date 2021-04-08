@@ -242,28 +242,10 @@
 </ul>
 </li>
 </ul>
-<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = {}</span><br><span class="line"><span class="built_in">Object</span>.defineProperty( obj, <span class="string">"greet"</span>, {</span><br><span class="line">  <span class="keyword">get</span>: function() {</span><br><span class="line">    <span class="built_in">console</span>.log( <span class="string">"调用 get 方法"</span> )</span><br><span class="line">  },</span><br><span class="line">  <span class="keyword">set</span>: function( newVal ) {</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"调用 set 方法，传入的值是："</span> + newVal );</span><br><span class="line">    obj.say = newVal;</span><br><span class="line">  }</span><br><span class="line">})</span><br><span class="line">obj.greet; <span class="comment">// 调用 get 方法</span></span><br><span class="line">obj.greet = <span class="string">"hello"</span>; <span class="comment">// 调用 set 方法，传入的值是：hello</span></span><br><span class="line"><span class="built_in">console</span>.log(obj) <span class="comment">// {say: "hello"}</span></span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;&#125;</span><br><span class="line"><span class="built_in">Object</span>.defineProperty( obj, <span class="string">"greet"</span>, &#123;</span><br><span class="line">  <span class="keyword">get</span>: function() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log( <span class="string">"调用 get 方法"</span> )</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="keyword">set</span>: function( newVal ) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">"调用 set 方法，传入的值是："</span> + newVal );</span><br><span class="line">    obj.say = newVal;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line">obj.greet; <span class="comment">// 调用 get 方法</span></span><br><span class="line">obj.greet = <span class="string">"hello"</span>; <span class="comment">// 调用 set 方法，传入的值是：hello</span></span><br><span class="line"><span class="built_in">console</span>.log(obj) <span class="comment">// &#123;say: "hello"&#125;</span></span><br></pre></td></tr></table></figure>
 <p><img src="https://raw.githubusercontent.com/Damao2250/FileTransfer/master/Object.defineProperty.png" alt="数据双向绑定"><br><img src="https://raw.githubusercontent.com/Damao2250/FileTransfer/master/Object.defineProperty1.jpg" alt=""><br><img src="https://raw.githubusercontent.com/Damao2250/FileTransfer/master/Object.defineProperty2.jpg" alt=""></p>
 <h2 id="Vue生命周期"><a href="#Vue生命周期" class="headerlink" title="Vue生命周期"></a>Vue生命周期</h2><p><img src="https://raw.githubusercontent.com/Damao2250/FileTransfer/master/lifecycle.png" alt="Vue生命周期"></p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+
 
             
             <div class="post-reward">

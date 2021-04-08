@@ -208,57 +208,39 @@
 </ul>
 <ol>
 <li>打开<code>themes\indigo\layout_partial\menu.ejs</code></li>
-<li>找到 <code>id="menu-off"</code> 的a标签</li>
-<li>在a标签上新增 <code>target=""</code></li>
+<li>找到 <code>id=&quot;menu-off&quot;</code> 的a标签</li>
+<li>在a标签上新增 <code>target=&quot;&quot;</code></li>
 </ol>
 <ul>
 <li>搜索图标菜单关闭按钮</li>
 </ul>
 <ol>
 <li>打开<code>themes\indigo\layout_partial\header.ejs</code></li>
-<li>找到 <code>id="search"</code> 的a标签</li>
-<li>在a标签上新增 <code>target=""</code></li>
+<li>找到 <code>id=&quot;search&quot;</code> 的a标签</li>
+<li>在a标签上新增 <code>target=&quot;&quot;</code></li>
 </ol>
 <ul>
 <li>右侧分享按钮</li>
 </ul>
 <ol>
 <li>打开 <code>themes\indigo\layout_partial\header.ejs</code></li>
-<li>找到 <code>id="menuShare"</code> 的a标签</li>
-<li>在a标签上新增 <code>target=""</code></li>
+<li>找到 <code>id=&quot;menuShare&quot;</code> 的a标签</li>
+<li>在a标签上新增 <code>target=&quot;&quot;</code></li>
 </ol>
 <ul>
 <li>点击赞赏按钮、关闭赞赏框</li>
 </ul>
 <ol>
 <li>打开 <code>themes\indigo\layout\_partial\post.ejs</code></li>
-<li>找到 <code>id="rewardBtn"</code> 的a标签</li>
-<li>在a标签上新增 <code>target=""</code></li>
+<li>找到 <code>id=&quot;rewardBtn&quot;</code> 的a标签</li>
+<li>在a标签上新增 <code>target=&quot;&quot;</code></li>
 <li>打开 <code>themes\indigo\layout\_partial\post\reward.ejs</code></li>
-<li>找到 <code>id="rewardOff"</code> 的a标签</li>
-<li>在a标签上新增 <code>target=""</code></li>
+<li>找到 <code>id=&quot;rewardOff&quot;</code> 的a标签</li>
+<li>在a标签上新增 <code>target=&quot;&quot;</code></li>
 </ol>
 </li>
 </ul>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+
 
             
             <div class="post-reward">

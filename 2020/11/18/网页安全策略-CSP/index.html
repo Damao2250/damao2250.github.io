@@ -200,18 +200,18 @@
 </li>
 <li><p>两种启用<code>CSP</code>方式</p>
 <ul>
-<li>①通过HTTP头部信息的<code>Content-Security-Policy</code>字段添加指定策略<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Content-Security-Policy: script-src <span class="string">'self'</span>; boject-src <span class="string">'none'</span>; style-src cdn.example.org third-party.org; child-src https:</span><br></pre></td></tr></tbody></table></figure></li>
-<li>②通过网页的<code>&lt;meta&gt;</code>标签<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">'Content-Security-Policy'</span> <span class="attr">content</span>=<span class="string">"script-src 'self'; boject-src 'none'; style-src cdn.example.org third-party.org; child-src https:"</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure></li>
+<li>①通过HTTP头部信息的<code>Content-Security-Policy</code>字段添加指定策略<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Content-Security-Policy: script-src <span class="string">'self'</span>; boject-src <span class="string">'none'</span>; style-src cdn.example.org third-party.org; child-src https:</span><br></pre></td></tr></table></figure></li>
+<li>②通过网页的<code>&lt;meta&gt;</code>标签<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">'Content-Security-Policy'</span> <span class="attr">content</span>=<span class="string">"script-src 'self'; boject-src 'none'; style-src cdn.example.org third-party.org; child-src https:"</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
 <li>以上代码的配置信息：</li>
 </ul>
 <ul>
 <li>脚本：只信任当前域名</li>
-<li><object>标签，不信任任何URL，即不加载任何资源
+<li><object>标签，不信任任何URL，即不加载任何资源</li>
 <li>样式表：只信任<code>cdn.example.org third-party.org</code></li>
 <li>框架(frame)：必须使用<code>HTTPS</code>协议加载</li>
 <li>其他资源：没有限制</li>
-
-
+</ul>
+</li>
 <li><p>资源限制选项</p>
 <ul>
 <li><code>script-src</code>: 外部脚本</li>
@@ -229,7 +229,7 @@
 </li>
 <li><p><code>default-src</code> 选项</p>
 <ul>
-<li>用来限制各个选项的默认值<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Content-Security-Policy: <span class="keyword">default</span>-src <span class="string">'self'</span></span><br></pre></td></tr></tbody></table></figure></li>
+<li>用来限制各个选项的默认值<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Content-Security-Policy: <span class="keyword">default</span>-src <span class="string">'self'</span></span><br></pre></td></tr></table></figure></li>
 <li>以上代码限制所有资源只能从当前域名加载</li>
 </ul>
 </li>
@@ -239,26 +239,8 @@
 <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/CSP" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/HTTP/CSP</a></li>
 </ul>
 </li>
+</ul>
 
-</object></li></ul></li></ul><script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
 
             
             <div class="post-reward">

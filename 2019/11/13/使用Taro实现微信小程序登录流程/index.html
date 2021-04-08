@@ -207,7 +207,7 @@
 </li>
 </ol>
 <ul>
-<li>获取用户信息一定要用户主动点击按钮授权<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;Button openType=<span class="string">"getUserInfo"</span> onGetUserInfo={<span class="keyword">this</span>.onGetUserInfo} type=<span class="string">"primary"</span>&gt;微信授权登录，获取用户信息&lt;<span class="regexp">/Button&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">onGetUserInfo(info) {</span></span><br><span class="line"><span class="regexp">    console.log(info.detail);</span></span><br><span class="line"><span class="regexp">    if (info.detail.errMsg === "getUserInfo:ok") {</span></span><br><span class="line"><span class="regexp">      Taro.showToast({</span></span><br><span class="line"><span class="regexp">        title: '授权成功，正在登录...',</span></span><br><span class="line"><span class="regexp">        icon: 'none',</span></span><br><span class="line"><span class="regexp">        mask: true</span></span><br><span class="line"><span class="regexp">      })</span></span><br><span class="line"><span class="regexp">    } else {</span></span><br><span class="line"><span class="regexp">      Taro.showToast({</span></span><br><span class="line"><span class="regexp">        title: '未授权,请授权登录！',</span></span><br><span class="line"><span class="regexp">        icon: 'none',</span></span><br><span class="line"><span class="regexp">        mask: true</span></span><br><span class="line"><span class="regexp">      })</span></span><br><span class="line"><span class="regexp">    }</span></span><br><span class="line"><span class="regexp">  }</span></span><br></pre></td></tr></tbody></table></figure>
+<li>获取用户信息一定要用户主动点击按钮授权<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;Button openType=<span class="string">"getUserInfo"</span> onGetUserInfo=&#123;<span class="keyword">this</span>.onGetUserInfo&#125; type=<span class="string">"primary"</span>&gt;微信授权登录，获取用户信息&lt;<span class="regexp">/Button&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">onGetUserInfo(info) &#123;</span></span><br><span class="line"><span class="regexp">    console.log(info.detail);</span></span><br><span class="line"><span class="regexp">    if (info.detail.errMsg === "getUserInfo:ok") &#123;</span></span><br><span class="line"><span class="regexp">      Taro.showToast(&#123;</span></span><br><span class="line"><span class="regexp">        title: '授权成功，正在登录...',</span></span><br><span class="line"><span class="regexp">        icon: 'none',</span></span><br><span class="line"><span class="regexp">        mask: true</span></span><br><span class="line"><span class="regexp">      &#125;)</span></span><br><span class="line"><span class="regexp">    &#125; else &#123;</span></span><br><span class="line"><span class="regexp">      Taro.showToast(&#123;</span></span><br><span class="line"><span class="regexp">        title: '未授权,请授权登录！',</span></span><br><span class="line"><span class="regexp">        icon: 'none',</span></span><br><span class="line"><span class="regexp">        mask: true</span></span><br><span class="line"><span class="regexp">      &#125;)</span></span><br><span class="line"><span class="regexp">    &#125;</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br></pre></td></tr></table></figure>
 
 
 
@@ -217,25 +217,7 @@
 <p>  $ yarn add @tarojs/async-await<br>  或者使用 npm<br>  $ npm install –save @tarojs/async-await<br>  随后在项目入口文件 app.js 中直接 import ，就可以开始使用 async functions 功能了</p>
 <p>  // src/app.js<br>  import ‘@tarojs/async-await’</p>
 <p>  值得注意的事，使用 @tarojs/async-await 一定要记得按照 开发前注意[<a href="https://taro-docs.jd.com/taro/docs/before-dev-remind.html]" target="_blank" rel="noopener">https://taro-docs.jd.com/taro/docs/before-dev-remind.html]</a> 中提示的内容进行操作，否则会出现报错</p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+
 
             
             <div class="post-reward">

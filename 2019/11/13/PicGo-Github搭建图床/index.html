@@ -235,25 +235,7 @@
 </ul>
 <p><img src="https://raw.githubusercontent.com/Damao2250/FileTransfer/master/%E8%AE%BE%E7%BD%AE1.jpg" alt=""></p>
 <p><img src="https://raw.githubusercontent.com/Damao2250/FileTransfer/master/%E8%AE%BE%E7%BD%AE3.jpg" alt=""></p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+
 
             
             <div class="post-reward">

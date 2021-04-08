@@ -222,12 +222,12 @@
 <li>如果您在UWP应用程序窗口中看到带有错误消息：的红色错误框，请 <code>ERROR: Instance failed to start. A connection with the server cannot be established</code> 确保您正在使用打包 <code>yarn start</code> 程序运行，然后再次运行该应用程序。</li>
 </ul>
 <h2 id="安装-React-Native-for-Windows"><a href="#安装-React-Native-for-Windows" class="headerlink" title="安装 React Native for Windows"></a>安装 React Native for Windows</h2><ul>
-<li>在需要创建项目的目录下面执行 <code>react-native init</code><figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npx react-native init &lt;project name&gt; --version ^<span class="number">0.61</span><span class="number">.5</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// npx 还能避免全局安装的模块,安装模块时会下载到一个临时目录，使用以后再删除</span></span><br><span class="line"><span class="comment">// --version ^0.61.5 指定版本号</span></span><br></pre></td></tr></tbody></table></figure>
+<li>在需要创建项目的目录下面执行 <code>react-native init</code><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npx react-native init &lt;project name&gt; --version ^<span class="number">0.61</span><span class="number">.5</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// npx 还能避免全局安装的模块,安装模块时会下载到一个临时目录，使用以后再删除</span></span><br><span class="line"><span class="comment">// --version ^0.61.5 指定版本号</span></span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
 <h2 id="安装-Windows-扩展"><a href="#安装-Windows-扩展" class="headerlink" title="安装 Windows 扩展"></a>安装 Windows 扩展</h2><ul>
-<li>安装 React Native for Windows 软件包<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd &lt;project name&gt; </span><br><span class="line">npx react-native-windows-init --overwrite</span><br><span class="line"></span><br><span class="line"><span class="comment">// 切换到创建项目的目录下面然后安装</span></span><br></pre></td></tr></tbody></table></figure>
+<li>安装 React Native for Windows 软件包<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd &lt;project name&gt; </span><br><span class="line">npx react-native-windows-init --overwrite</span><br><span class="line"></span><br><span class="line"><span class="comment">// 切换到创建项目的目录下面然后安装</span></span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
@@ -235,8 +235,8 @@
 <li>运行前确保浏览器已经打开</li>
 <li>在 VS Code 中运行<ul>
 <li>安装 VS Code 插件： <code>React Native Tools</code></li>
-<li>在应用程根目录创建文件 <code>.vscode/launch.json</code>，并粘贴如下内容<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line">  <span class="string">"version"</span>: <span class="string">"0.2.0"</span>,</span><br><span class="line">  <span class="string">"configurations"</span>: [</span><br><span class="line">      {</span><br><span class="line">          <span class="string">"name"</span>: <span class="string">"Debug Windows"</span>,</span><br><span class="line">          <span class="string">"cwd"</span>: <span class="string">"${workspaceFolder}"</span>,</span><br><span class="line">          <span class="string">"type"</span>: <span class="string">"reactnative"</span>,</span><br><span class="line">          <span class="string">"request"</span>: <span class="string">"launch"</span>,</span><br><span class="line">          <span class="string">"platform"</span>: <span class="string">"windows"</span></span><br><span class="line">      }</span><br><span class="line">  ]</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></li>
-<li>运行项目<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npx react-native run-windows</span><br><span class="line"></span><br><span class="line"><span class="comment">// 第一次启动会有点慢，安装后会淡出一个命令提示符窗口，请按回车以继续</span></span><br></pre></td></tr></tbody></table></figure></li>
+<li>在应用程根目录创建文件 <code>.vscode/launch.json</code>，并粘贴如下内容<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"version"</span>: <span class="string">"0.2.0"</span>,</span><br><span class="line">  <span class="string">"configurations"</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">          <span class="string">"name"</span>: <span class="string">"Debug Windows"</span>,</span><br><span class="line">          <span class="string">"cwd"</span>: <span class="string">"$&#123;workspaceFolder&#125;"</span>,</span><br><span class="line">          <span class="string">"type"</span>: <span class="string">"reactnative"</span>,</span><br><span class="line">          <span class="string">"request"</span>: <span class="string">"launch"</span>,</span><br><span class="line">          <span class="string">"platform"</span>: <span class="string">"windows"</span></span><br><span class="line">      &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>运行项目<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npx react-native run-windows</span><br><span class="line"></span><br><span class="line"><span class="comment">// 第一次启动会有点慢，安装后会淡出一个命令提示符窗口，请按回车以继续</span></span><br></pre></td></tr></table></figure></li>
 <li>按 “r” 键可以重载应用</li>
 </ul>
 </li>
@@ -251,25 +251,7 @@
 </li>
 </ul>
 <p><img src="https://raw.githubusercontent.com/Damao2250/FileTransfer/master/welcome-react-native-for-windows.png" alt="应用运行成功截图"></p>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+
 
             
             <div class="post-reward">

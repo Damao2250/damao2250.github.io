@@ -10,12 +10,12 @@
   
   
   <meta name="keywords" content="Element-ui">
-  <meta name="description" content="解决elment-ui折叠和收缩导航栏延时动画效果 解决方法：  最外层包一层div  通过div类名设置样式穿透  123456789101112131415.layout-aside-menu &#x2F;deep&#x2F; .collapse-transition {  -webkit-transition: 0s height, 0s padding-top, 0s padding-bottom;  tra">
+  <meta name="description" content="解决elment-ui折叠和收缩导航栏延时动画效果 解决方法：  最外层包一层div  通过div类名设置样式穿透  123456789101112131415.layout-aside-menu &#x2F;deep&#x2F; .collapse-transition &amp;#123;  -webkit-transition: 0s height, 0s padding-top, 0s padding-bottom;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="解决elment-ui折叠和收缩导航栏延时动画效果">
 <meta property="og:url" content="https://damao2250.github.io/2019/12/12/%E8%A7%A3%E5%86%B3elment-ui%E6%8A%98%E5%8F%A0%E5%92%8C%E6%94%B6%E7%BC%A9%E5%AF%BC%E8%88%AA%E6%A0%8F%E5%BB%B6%E6%97%B6%E5%8A%A8%E7%94%BB%E6%95%88%E6%9E%9C/index.html">
 <meta property="og:site_name" content="Damao Bolg">
-<meta property="og:description" content="解决elment-ui折叠和收缩导航栏延时动画效果 解决方法：  最外层包一层div  通过div类名设置样式穿透  123456789101112131415.layout-aside-menu &#x2F;deep&#x2F; .collapse-transition {  -webkit-transition: 0s height, 0s padding-top, 0s padding-bottom;  tra">
+<meta property="og:description" content="解决elment-ui折叠和收缩导航栏延时动画效果 解决方法：  最外层包一层div  通过div类名设置样式穿透  123456789101112131415.layout-aside-menu &#x2F;deep&#x2F; .collapse-transition &amp;#123;  -webkit-transition: 0s height, 0s padding-top, 0s padding-bottom;">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2019-12-12T07:03:04.000Z">
 <meta property="article:modified_time" content="2020-05-14T03:34:57.626Z">
@@ -200,7 +200,7 @@
 <li><p>最外层包一层div</p>
 </li>
 <li><p>通过div类名设置样式穿透</p>
- <figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">.layout-aside-menu /deep/ .collapse-transition {</span><br><span class="line">  <span class="selector-tag">-webkit-transition</span>: 0<span class="selector-tag">s</span> <span class="selector-tag">height</span>, 0<span class="selector-tag">s</span> <span class="selector-tag">padding-top</span>, 0<span class="selector-tag">s</span> <span class="selector-tag">padding-bottom</span>;</span><br><span class="line">  <span class="selector-tag">transition</span>: 0<span class="selector-tag">s</span> <span class="selector-tag">height</span>, 0<span class="selector-tag">s</span> <span class="selector-tag">padding-top</span>, 0<span class="selector-tag">s</span> <span class="selector-tag">padding-bottom</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">.layout-aside-menu /deep/ .horizontal-collapse-transition {</span><br><span class="line">  <span class="selector-tag">-webkit-transition</span>: 0<span class="selector-tag">s</span> <span class="selector-tag">width</span>, 0<span class="selector-tag">s</span> <span class="selector-tag">padding-left</span>, 0<span class="selector-tag">s</span> <span class="selector-tag">padding-right</span>;</span><br><span class="line">  <span class="selector-tag">transition</span>: 0<span class="selector-tag">s</span> <span class="selector-tag">width</span>, 0<span class="selector-tag">s</span> <span class="selector-tag">padding-left</span>, 0<span class="selector-tag">s</span> <span class="selector-tag">padding-right</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">.layout-aside-menu /deep/ .horizontal-collapse-transition .el-submenu__title .el-submenu__icon-arrow {</span><br><span class="line">  <span class="selector-tag">-webkit-transition</span>: 0<span class="selector-tag">s</span>;</span><br><span class="line">  <span class="selector-tag">transition</span>: 0<span class="selector-tag">s</span>;</span><br><span class="line">  <span class="selector-tag">opacity</span>: 0;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure></li>
+ <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">.layout-aside-menu /deep/ .collapse-transition &#123;</span><br><span class="line">  <span class="selector-tag">-webkit-transition</span>: 0<span class="selector-tag">s</span> <span class="selector-tag">height</span>, 0<span class="selector-tag">s</span> <span class="selector-tag">padding-top</span>, 0<span class="selector-tag">s</span> <span class="selector-tag">padding-bottom</span>;</span><br><span class="line">  <span class="selector-tag">transition</span>: 0<span class="selector-tag">s</span> <span class="selector-tag">height</span>, 0<span class="selector-tag">s</span> <span class="selector-tag">padding-top</span>, 0<span class="selector-tag">s</span> <span class="selector-tag">padding-bottom</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.layout-aside-menu /deep/ .horizontal-collapse-transition &#123;</span><br><span class="line">  <span class="selector-tag">-webkit-transition</span>: 0<span class="selector-tag">s</span> <span class="selector-tag">width</span>, 0<span class="selector-tag">s</span> <span class="selector-tag">padding-left</span>, 0<span class="selector-tag">s</span> <span class="selector-tag">padding-right</span>;</span><br><span class="line">  <span class="selector-tag">transition</span>: 0<span class="selector-tag">s</span> <span class="selector-tag">width</span>, 0<span class="selector-tag">s</span> <span class="selector-tag">padding-left</span>, 0<span class="selector-tag">s</span> <span class="selector-tag">padding-right</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.layout-aside-menu /deep/ .horizontal-collapse-transition .el-submenu__title .el-submenu__icon-arrow &#123;</span><br><span class="line">  <span class="selector-tag">-webkit-transition</span>: 0<span class="selector-tag">s</span>;</span><br><span class="line">  <span class="selector-tag">transition</span>: 0<span class="selector-tag">s</span>;</span><br><span class="line">  <span class="selector-tag">opacity</span>: 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ol>
 </li>
 <li><p>补充点：</p>
@@ -209,36 +209,18 @@
 <p> 外层 <code>&gt;&gt;&gt;</code> 第三方组件 {</p>
 <p>   样式</p>
 <p> }</p>
- <figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.wrapper</span> &gt;&gt;&gt; <span class="selector-class">.swiper-pagination-bullet-active</span></span><br><span class="line"><span class="selector-tag">background</span>: <span class="selector-id">#fff</span></span><br></pre></td></tr></tbody></table></figure>
+ <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.wrapper</span> &gt;&gt;&gt; <span class="selector-class">.swiper-pagination-bullet-active</span></span><br><span class="line"><span class="selector-tag">background</span>: <span class="selector-id">#fff</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p><code>sass</code>和<code>less</code>的样式穿透 使用 <code>/deep/</code></p>
 <p> 外层 <code>/deep/</code> 第三方组件 {</p>
 <p>   样式</p>
 <p> }</p>
- <figure class="highlight css"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.wrapper /deep/ .swiper-pagination-bullet-active{</span><br><span class="line">  <span class="selector-tag">background</span>: <span class="selector-id">#fff</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+ <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.wrapper /deep/ .swiper-pagination-bullet-active&#123;</span><br><span class="line">  <span class="selector-tag">background</span>: <span class="selector-id">#fff</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 </li>
 </ul>
-<script>
-        document.querySelectorAll('.github-emoji')
-          .forEach(el => {
-            if (!el.dataset.src) { return; }
-            const img = document.createElement('img');
-            img.style = 'display:none !important;';
-            img.src = el.dataset.src;
-            img.addEventListener('error', () => {
-              img.remove();
-              el.style.color = 'inherit';
-              el.style.backgroundImage = 'none';
-              el.style.background = 'none';
-            });
-            img.addEventListener('load', () => {
-              img.remove();
-            });
-            document.body.appendChild(img);
-          });
-      </script>
+
 
             
             <div class="post-reward">
