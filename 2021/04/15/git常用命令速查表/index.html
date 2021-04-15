@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>git常用命令速查表 | Damao Bolg | </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="theme-color" content="#3F51B5">
+  
+  
+  <meta name="keywords" content="git">
+  <meta name="description" content="Tips     master： 默认开发分支 Head：默认开发分支的指针（快照）   origin： 默认远程版本库 Head^：Head的父提交         创建版本库     $ git clone &lt;url&gt; #克隆远程版本库   $ git init #初始化本地版本库         修改和提交     $ git status #查看当前修改状况   $ gi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git常用命令速查表">
+<meta property="og:url" content="https://damao2250.github.io/2021/04/15/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E9%80%9F%E6%9F%A5%E8%A1%A8/index.html">
+<meta property="og:site_name" content="Damao Bolg">
+<meta property="og:description" content="Tips     master： 默认开发分支 Head：默认开发分支的指针（快照）   origin： 默认远程版本库 Head^：Head的父提交         创建版本库     $ git clone &lt;url&gt; #克隆远程版本库   $ git init #初始化本地版本库         修改和提交     $ git status #查看当前修改状况   $ gi">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-04-15T08:10:31.000Z">
+<meta property="article:modified_time" content="2021-04-15T10:12:13.517Z">
+<meta property="article:author" content="Damao">
+<meta property="article:tag" content="git">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternative" href="/atom.xml" title="Damao Bolg" type="application/atom+xml">
+  
+  <meta name="summary" content="复制粘贴攻城狮">
+  <link rel="shortcut icon" href="/favicon.ico">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="loading" class="active"></div>
+
+  <nav id="menu" class="hide" >
+   <div class="inner flex-row-vertical">
+  <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off" target="">
+      <i class="icon icon-lg icon-close"></i>
+  </a>
+  <div class="brand-wrap">
+    <div class="brand">
+      <a href="https://github.com/Damao2250" target="_blank" rel="noopener" class="avatar"><img src="https://avatars.githubusercontent.com/damao2250"></a>
+      <hgroup class="introduce">
+        <h5 class="nickname">Damao</h5>
+        <a href="mailto:damao2250@gmail.com" title="damao2250@gmail.com" class="mail">damao2250@gmail.com</a>
+      </hgroup>
+    </div>
+  </div>
+  <div class="scroll-wrap flex-col">
+    <ul class="nav">
+      
+          <li class="waves-block waves-effect">
+            <a href="/"  >
+              <i class="icon icon-lg icon-home"></i>
+              主页
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="/archives"  >
+              <i class="icon icon-lg icon-archives"></i>
+              Archives
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="https://github.com/Damao2250" target="_blank" >
+              <i class="icon icon-lg icon-github"></i>
+              Github
+            </a>
+          </li>
+      
+          <li class="waves-block waves-effect">
+            <a href="https://weibo.com/damao2250" target="_blank" >
+              <i class="icon icon-lg icon-weibo"></i>
+              Weibo
+            </a>
+          </li>
+      
+    </ul>
+
+    <footer class="footer">
+  <p><a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0;vertical-align:middle;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAAAPCAMAAABEF7i9AAAAllBMVEUAAAD///+rsapERER3d3eIiIjMzMzu7u4iIiKUmZO6v7rKzsoODg4RERFVVVUNDQ0NDg0PEA8zMzNLTEtbXltmZmZydnF9gn2AgICPkI+ZmZmqqqq7u7vFxsXIzMgNDQwZGRkgICAhISEkJSMnKCcuMC4xMzE5Ozk7PTtBQkFCQkJDQ0Nna2eGhoaHh4ezuLLGysbd3d1wVGpAAAAA4UlEQVR42q2T1xqCMAyFk7QsBQeKA9x7j/d/OSm22CpX0nzcpA1/T05aAOuBVkMAScQFHLnEwoCo2f1TnQIGoVMewjZEjVFN4GH1Ue1Cn2jWqwfsOOj6wDwGvotsl/c8lv7KIq1eLOsT0HMFHMIE/RZyHnlphryT9zyV+8WH5e8yQw3wnQvgAFxPTKUVi555SHR/lOfLMgVTeDlSfN+TaoUsiTyeIm+bCkHvCA2FUKG48LDtYBZBknsYP/G8NTw0gaaHyuQf4H5pecrB/FYCT2sL9zAfy1Xyjou6L8X2W7YcLyBZCRtnq/zfAAAAAElFTkSuQmCC" /></a></p>
+  <p>Damao Bolg &copy; 2021</p>
+  <p>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme
+  <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></p>
+  <a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-2x icon-rss-square"></i></a>
+</footer>
+
+  </div>
+</div>
+
+  </nav>
+  <main id="main">
+    <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">git常用命令速查表</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input " autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search" target="">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-share" target="">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header">
+  <div class="container">
+    <h1 class="author">git常用命令速查表</h1>
+    <h5 class="subtitle">
+        
+            <time datetime="2021-04-15T08:10:31.000Z" itemprop="datePublished" class="page-time">
+  2021-04-15
+</time>
+
+
+        
+    </h5>
+  </div>
+</header>
+
+    <div class="container body-wrap">
+      <article id="post-git常用命令速查表" 
+  class="article article-type-post" itemprop="blogPost">
+    <div class="post-meta flex-row">
+        
+	<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/" rel="tag">git</a></li></ul>
+
+    </div>
+    <div class="post-body">
+        <aside class="post-widget" id="post-widget">
+
+            
+            <div class="post-share" id="post-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+            
+
+            
+            <nav class="post-toc-wrap" id="post-toc">
+            
+            </nav>
+            
+        </aside>
+
+        <div class="post-main">
+
+            <div class="post-content" id="post-content" itemprop="postContent">
+            <table>
+<thead>
+<tr>
+<th align="left">Tips</th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>master：</code> <sapn style="color:#58bc58">默认开发分支</span></td>
+<td align="left"><code>Head：</code><sapn style="color:#58bc58">默认开发分支的指针（快照）</span></td>
+</tr>
+<tr>
+<td align="left"><code>origin：</code> <sapn style="color:#58bc58">默认远程版本库</span></td>
+<td align="left"><code>Head^：</code><sapn style="color:#58bc58">Head的父提交</span></td>
+</tr>
+</tbody></table>
+<br />
+<br />
+
+<table>
+<thead>
+<tr>
+<th align="left"><code>创建版本库</code></th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>$ git clone &lt;url&gt;</code></td>
+<td align="left"><sapn style="color:#58bc58">#克隆远程版本库</span></td>
+</tr>
+<tr>
+<td align="left"><code>$ git init</code></td>
+<td align="left"><sapn style="color:#58bc58">#初始化本地版本库</span></td>
+</tr>
+</tbody></table>
+<br />
+<br />
+
+<table>
+<thead>
+<tr>
+<th align="left"><code>修改和提交</code></th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>$ git status</code></td>
+<td align="left"><sapn style="color:#58bc58">#查看当前修改状况</span></td>
+</tr>
+<tr>
+<td align="left"><code>$ git diff</code></td>
+<td align="left"><sapn style="color:#58bc58">#查看变更的内容</span></td>
+</tr>
+<tr>
+<td align="left"><code>$ git add .</code></td>
+<td align="left"><sapn style="color:#58bc58">#把所有修改的文件添加到缓存（跟踪文件）</span></td>
+</tr>
+<tr>
+<td align="left"><code>$ git add &lt;file&gt;</code></td>
+<td align="left"><sapn style="color:#58bc58">#把指定的文件添加到缓存</span></td>
+</tr>
+<tr>
+<td align="left"><code>$ git mv &lt;old_file&gt; &lt;new_file&gt;</code></td>
+<td align="left"><sapn style="color:#58bc58">#修改文件名</span></td>
+</tr>
+<tr>
+<td align="left"><code>$ git rm &lt;file&gt;</code></td>
+<td align="left"><sapn style="color:#58bc58">#删除文件</span></td>
+</tr>
+<tr>
+<td align="left"><code>$ git rm --cached &lt;file&gt;</code></td>
+<td align="left"><sapn style="color:#58bc58">#停止跟踪文件但不删除</span></td>
+</tr>
+<tr>
+<td align="left"><code>$ git commit -m &quot;message&quot;</code></td>
+<td align="left"><sapn style="color:#58bc58">#提交所有更新过的文件</span></td>
+</tr>
+<tr>
+<td align="left"><code>$ git commit --amend</code></td>
+<td align="left"><sapn style="color:#58bc58">#修改最后一次提交</span></td>
+</tr>
+</tbody></table>
+<br />
+<br />
+
+<table>
+<thead>
+<tr>
+<th align="left"><code>查看提交历史</code></th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>$ git log</code></td>
+<td align="left"><sapn style="color:#58bc58">#查看提交历史</span></td>
+</tr>
+<tr>
+<td align="left"><code>$ git log -p &lt;file&gt;</code></td>
+<td align="left"><sapn style="color:#58bc58">#查看指定文件提交历史</span></td>
+</tr>
+<tr>
+<td align="left"><code>$ git blame &lt;file&gt;</code></td>
+<td align="left"><sapn style="color:#58bc58">#以列表的方式查看指定文件提交历史</span></td>
+</tr>
+</tbody></table>
+<br />
+<br />
+
+<table>
+<thead>
+<tr>
+<th align="left"><code>撤销</code></th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>$ git reset --hard HEAD</code></td>
+<td align="left"><sapn style="color:#58bc58">#撤销工作目录中所有未提交文件的修改内容</span></td>
+</tr>
+<tr>
+<td align="left"><code>$ git checkout HEAD &lt;file&gt;</code></td>
+<td align="left"><sapn style="color:#58bc58">#撤销指定未提交文件的修改内容</span></td>
+</tr>
+<tr>
+<td align="left"><code>$ git revert &lt;commit&gt;</code></td>
+<td align="left"><sapn style="color:#58bc58">#撤销指定的提交</span></td>
+</tr>
+</tbody></table>
+<br />
+<br />
+
+<table>
+<thead>
+<tr>
+<th align="left"><code>分支与标签</code></th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>$ git branch</code></td>
+<td align="left"><sapn style="color:#58bc58">#显示所有本地分支</span></td>
+</tr>
+<tr>
+<td align="left"><code>$ git branch -r</code></td>
+<td align="left"><sapn style="color:#58bc58">#显示所有远程分支</span></td>
+</tr>
+<tr>
+<td align="left"><code>$ git branch -a</code></td>
+<td align="left"><sapn style="color:#58bc58">#显示所有本地和远程分支</span></td>
+</tr>
+<tr>
+<td align="left"><code>$ git checkout &lt;branch/tag&gt;</code></td>
+<td align="left"><sapn style="color:#58bc58">#切换到指定分支或标签</span></td>
+</tr>
+<tr>
+<td align="left"><code>$ git branch &lt;new_branch&gt;</code></td>
+<td align="left"><sapn style="color:#58bc58">#创建新分支</span></td>
+</tr>
+<tr>
+<td align="left"><code>$ git checkout -b &lt;new_branch&gt;</code></td>
+<td align="left"><sapn style="color:#58bc58">#创建并切换到新分支</span></td>
+</tr>
+<tr>
+<td align="left"><code>$ git branch -d &lt;branch&gt;</code></td>
+<td align="left"><sapn style="color:#58bc58">#删除本地分支</span></td>
+</tr>
+<tr>
+<td align="left"><code>$ git tag</code></td>
+<td align="left"><sapn style="color:#58bc58">#显示所有本地标签</span></td>
+</tr>
+<tr>
+<td align="left"><code>$ git tag &lt;tagname&gt;</code></td>
+<td align="left"><sapn style="color:#58bc58">#基于最新提交创建标签</span></td>
+</tr>
+<tr>
+<td align="left"><code>$ git tag -d &lt;tagname&gt;</code></td>
+<td align="left"><sapn style="color:#58bc58">#删除标签</span></td>
+</tr>
+</tbody></table>
+<br />
+<br />
+
+<table>
+<thead>
+<tr>
+<th align="left"><code>合并与衍合</code></th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>$ git merge &lt;branch&gt;</code></td>
+<td align="left"><sapn style="color:#58bc58">#合并指定分支到当前分支</span></td>
+</tr>
+<tr>
+<td align="left"><code>$ git rebase &lt;branch&gt;</code></td>
+<td align="left"><sapn style="color:#58bc58">#衍合指定分支到当前分支</span></td>
+</tr>
+</tbody></table>
+<br />
+<br />
+
+<table>
+<thead>
+<tr>
+<th align="left"><code>远程操作</code></th>
+<th align="left"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>$ git remote -v</code></td>
+<td align="left"><sapn style="color:#58bc58">#查看远程版本库信息</span></td>
+</tr>
+<tr>
+<td align="left"><code>$ git remote show &lt;remote&gt;</code></td>
+<td align="left"><sapn style="color:#58bc58">#查看指定远程版本库信息</span></td>
+</tr>
+<tr>
+<td align="left"><code>$ git remote add &lt;remote&gt; &lt;url&gt;</code></td>
+<td align="left"><sapn style="color:#58bc58">#添加远程版本库</span></td>
+</tr>
+<tr>
+<td align="left"><code>$ git fetch &lt;remote&gt;</code></td>
+<td align="left"><sapn style="color:#58bc58">#从远程库获取代码</span></td>
+</tr>
+<tr>
+<td align="left"><code>$ git pull &lt;remote&gt; &lt;branch&gt;</code></td>
+<td align="left"><sapn style="color:#58bc58">#从远程库拉去代码并快速合并</span></td>
+</tr>
+<tr>
+<td align="left"><code>$ git push &lt;remote&gt; &lt;branch&gt;</code></td>
+<td align="left"><sapn style="color:#58bc58">#上传代码到远程库并快速合并</span></td>
+</tr>
+<tr>
+<td align="left"><code>$ git push &lt;remote&gt; -d &lt;branch/tag&gt;</code></td>
+<td align="left"><sapn style="color:#58bc58">#删除远程分支或标签</span></td>
+</tr>
+<tr>
+<td align="left"><code>$ git push --tags</code></td>
+<td align="left"><sapn style="color:#58bc58">#上传所有标签</span></td>
+</tr>
+</tbody></table>
+
+
+            
+            <div class="post-reward">
+                <a id="rewardBtn" href="javascript:;" class="post-reward-btn waves-effect waves-circle waves-light" target="">赞赏</a>
+            </div>
+            
+            
+            <blockquote>
+                <p>
+                本文地址：
+                <a href="https://damao2250.github.io/2021/04/15/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E9%80%9F%E6%9F%A5%E8%A1%A8/" target="_blank" rel="external">https://damao2250.github.io/2021/04/15/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E9%80%9F%E6%9F%A5%E8%A1%A8/</a>
+                </p>
+                <footer><cite><a href="https://damao2250.github.io">@Damao Bolg</a></cite></footer>
+            </blockquote>
+            </div>
+            
+<nav class="post-nav">
+  
+
+  
+    <div class="waves-block waves-effect next fr">
+      <a href="/2021/04/08/%E7%A7%BB%E5%8A%A8%E7%AB%AF1px%E9%97%AE%E9%A2%98/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">移动端1px问题</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+            
+            
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="git常用命令速查表" data-title="git常用命令速查表" data-url="https://damao2250.github.io/2021/04/15/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E9%80%9F%E6%9F%A5%E8%A1%A8/index.html"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"ysblog"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+        </div>
+    </div>
+</article>
+
+<div id="reward" class="reward-lay">
+    <a class="reward-off" id="rewardOff" href="javascript:;" target=""><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        Thanks~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechat.png" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.png" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+  </main>
+<div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+<script>
+var BLOG_SHARE = {
+    title: "git常用命令速查表",
+    pic: "https://avatars.githubusercontent.com/damao2250",
+    summary: document.getElementsByName('summary')[0].content,
+    url: "https://damao2250.github.io/2021/04/15/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E9%80%9F%E6%9F%A5%E8%A1%A8/index.html"
+};
+</script>
+<div class="global-share" id="global-share">
+    <div class="tit">分享到：</div>
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" href="javascript:;" data-title="微博" data-service="tsina">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns" href="javascript:;" data-title="微信" data-service="weixin">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" href="javascript:;" data-title=" QQ" data-service="cqq">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" href="javascript:;" data-title=" Facebook" data-service="fb">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" href="javascript:;" data-title=" Twitter" data-service="twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="douban share-sns" href="javascript:;" data-title="豆瓣" data-service="douban">
+          豆
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<script type="text/template" id="search-tpl">
+<li class="item">
+    <a href="/{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</script>
+
+
+<script src="/js/search.js"></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
