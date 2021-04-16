@@ -4,11 +4,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="Vuex官方例子解读, Damao">
-    <meta name="description" content="安装123npm i vuexoryarn add vuex
-
+    <meta name="description" content="安装npm i vuex
+or
+yarn add vuex
 Vuex 是什么
 Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。
-它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。">
+它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。
+
+">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -201,7 +204,7 @@ Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。
     }
 
     .github-corner svg {
-        color: #0f9d58;
+        color: #24292e;
         fill: #fff;
         height: 64px;
         width: 64px;
@@ -389,7 +392,7 @@ Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        449
+                        440
                     </div>
                     
 
@@ -407,8 +410,9 @@ Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm i vuex</span><br><span class="line">or</span><br><span class="line">yarn add vuex</span><br></pre></td></tr></table></figure>
-
+                <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><pre><code class="js">npm i vuex
+or
+yarn add vuex</code></pre>
 <h2 id="Vuex-是什么"><a href="#Vuex-是什么" class="headerlink" title="Vuex 是什么"></a>Vuex 是什么</h2><ul>
 <li><code>Vuex</code> 是一个专为 <code>Vue.js</code> 应用程序开发的状态管理模式。</li>
 <li>它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。</li>
@@ -443,22 +447,21 @@ Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。
 <ul>
 <li>将 <code>store</code> 分割成模块（module）。每个模块拥有自己的 <code>state、mutation、action、getter</code></li>
 </ul>
-<h2 id="官方购物车项目结构"><a href="#官方购物车项目结构" class="headerlink" title="官方购物车项目结构"></a>官方购物车项目结构</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">├── index.html</span><br><span class="line">├── main.js</span><br><span class="line">├── api</span><br><span class="line">│   └── ... # 抽取出API请求</span><br><span class="line">├── components</span><br><span class="line">│   ├── App.vue</span><br><span class="line">│   └── ...</span><br><span class="line">└── store</span><br><span class="line">    ├── index.js          # 我们组装模块并导出 store 的地方</span><br><span class="line">    ├── actions.js        # 根级别的 action</span><br><span class="line">    ├── mutations.js      # 根级别的 mutation</span><br><span class="line">    └── modules</span><br><span class="line">        ├── cart.js       # 购物车模块</span><br><span class="line">        └── products.js   # 产品模块</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<h2 id="官方购物车项目结构"><a href="#官方购物车项目结构" class="headerlink" title="官方购物车项目结构"></a>官方购物车项目结构</h2><pre><code class="js">├── index.html
+├── main.js
+├── api
+│   └── ... # 抽取出API请求
+├── components
+│   ├── App.vue
+│   └── ...
+└── store
+    ├── index.js          # 我们组装模块并导出 store 的地方
+    ├── actions.js        # 根级别的 action
+    ├── mutations.js      # 根级别的 mutation
+    └── modules
+        ├── cart.js       # 购物车模块
+        └── products.js   # 产品模块
+</code></pre>
 <h3 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h3><ol>
 <li></li>
 </ol>
@@ -466,10 +469,18 @@ Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。
 <li>在 <code>mutation-types.js</code> 中定义类型常量，默认全部大写 —&gt; 把常量放在单独的文件中可以让你的代码合作者或者迭代者对整个 app 包含的 mutation 一目了然</li>
 </ul>
 <ol start="2">
-<li>Vuex- Action的 { commit }<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Vuex 中 使用 Action 处理异步请求时，常规写法如下</span></span><br><span class="line">getMenuAction:<span class="function">(<span class="params">context</span>) =&gt;</span>&#123;</span><br><span class="line">    context.commit(<span class="string">'SET_MENU_LIST'</span>,[<span class="string">'承保2'</span>,<span class="string">'核保2'</span>])</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 我们也可以使用如下简化写法，如下</span></span><br><span class="line">actions:&#123;</span><br><span class="line">  getMenuAction:<span class="function">(<span class="params">&#123;commit&#125;</span>) =&gt;</span>&#123;</span><br><span class="line">      commit(<span class="string">'SET_MENU_LIST'</span>,[<span class="string">'承保2'</span>,<span class="string">'核保2'</span>])</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// &#123; commit &#125; 是变量解构赋值</span></span><br><span class="line">context = &#123; <span class="attr">dispatch</span>: local.dispatch,</span><br><span class="line">            commit: local.commit,</span><br><span class="line">            getters: local.getters,</span><br><span class="line">            state: local.state,</span><br><span class="line">            rootGetters: store.getters,</span><br><span class="line">            rootState: store.state</span><br><span class="line">            &#125;</span><br><span class="line"><span class="comment">// 常规写法 context.commit = context.local.commit</span></span><br><span class="line"><span class="comment">// 使用变量解构赋值后 &#123; commit &#125; 相当于 commit= context.commit</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// state 同理</span></span><br></pre></td></tr></table></figure>
+<li>Vuex- Action的 { commit }<pre><code class="js">// Vuex 中 使用 Action 处理异步请求时，常规写法如下
+getMenuAction:(context) =&gt;{
+ context.commit(&#39;SET_MENU_LIST&#39;,[&#39;承保2&#39;,&#39;核保2&#39;])
+}
+}
+</code></pre>
 </li>
 </ol>
-
+<p>// 我们也可以使用如下简化写法，如下<br>actions:{<br>  getMenuAction:({commit}) =&gt;{<br>      commit(‘SET_MENU_LIST’,[‘承保2’,’核保2’])<br>  }<br>}</p>
+<p>// { commit } 是变量解构赋值<br>context = { dispatch: local.dispatch,<br>            commit: local.commit,<br>            getters: local.getters,<br>            state: local.state,<br>            rootGetters: store.getters,<br>            rootState: store.state<br>            }<br>// 常规写法 context.commit = context.local.commit<br>// 使用变量解构赋值后 { commit } 相当于 commit= context.commit</p>
+<p>// state 同理</p>
+<pre><code></code></pre>
             </div>
             <hr/>
 
@@ -790,9 +801,11 @@ Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。
                         
                             打包优化
 路由懒加载
-12345&#123;  path: '/about',  name: 'about',  component: () =&gt; import('@/views/about/about'),&#125;,
-
-不生成.
+{
+path: &#39;/about&#39;,
+name: &#39;about&#39;,
+component: () =&gt; import(&#39;@/views/about/about&#39;),
+}
                         
                     </div>
                     <div class="publish-info">

@@ -202,7 +202,7 @@
     }
 
     .github-corner svg {
-        color: #0f9d58;
+        color: #24292e;
         fill: #fff;
         height: 64px;
         width: 64px;
@@ -390,7 +390,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        342
+                        356
                     </div>
                     
 
@@ -414,14 +414,51 @@
 </ul>
 <h2 id="引入第三方包报红"><a href="#引入第三方包报红" class="headerlink" title="引入第三方包报红"></a>引入第三方包报红</h2><ul>
 <li>引入第三方库 报红找不到module，无法正常使用包，如qs、jQuery</li>
-<li>解决办法1：使用@types进行包管理，然后正常引入<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm i @types/qs</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> qs <span class="keyword">from</span> <span class="string">'qs'</span></span><br></pre></td></tr></table></figure></li>
-<li>解决办法2：有些包不能用@types管理，自己写声明 XX.d.ts  不推荐</li>
+<li>解决办法1：使用@types进行包管理，然后正常引入<pre><code class="js">npm i @types/qs
+</code></pre>
+</li>
 </ul>
-<h2 id="router配置里引入component组件的时候必须添加-vue后缀"><a href="#router配置里引入component组件的时候必须添加-vue后缀" class="headerlink" title="router配置里引入component组件的时候必须添加.vue后缀"></a>router配置里引入component组件的时候必须添加.vue后缀</h2><h2 id="Element表单验证报红问题"><a href="#Element表单验证报红问题" class="headerlink" title="Element表单验证报红问题"></a>Element表单验证报红问题</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 报错信息如下</span></span><br><span class="line"><span class="comment">// Property 'validate' does not exist on type 'Vue | Element | Vue[] | Element[]'.</span></span><br><span class="line"><span class="comment">// Property 'validate' does not exist on type 'Vue'.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 解决办法</span></span><br><span class="line"><span class="keyword">import</span> &#123; Form &#125; <span class="keyword">from</span> <span class="string">"element-ui"</span>;</span><br><span class="line"></span><br><span class="line">( <span class="keyword">this</span>.$refs.loginForm <span class="keyword">as</span> Form ).validate(<span class="function">(<span class="params">valid: boolean </span>) =&gt;</span> &#123;</span><br><span class="line">  ...</span><br><span class="line"> &#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果不引入Form，把Form换成any也可以，但是typescript会报警告⚠</span></span><br></pre></td></tr></table></figure>
+<p>import qs from ‘qs’</p>
+<pre><code>+ 解决办法2：有些包不能用@types管理，自己写声明 XX.d.ts  不推荐
 
-<h2 id="使用axios封装的请求，然后解构请求结果报错"><a href="#使用axios封装的请求，然后解构请求结果报错" class="headerlink" title="使用axios封装的请求，然后解构请求结果报错"></a>使用axios封装的请求，然后解构请求结果报错</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 报错信息</span></span><br><span class="line"><span class="comment">// Property 'XXX' does not exist on type 'AxiosResponse&lt;any&gt;'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 解决办法</span></span><br><span class="line"><span class="comment">// 新建axios.d.ts文案，添加如下内容，重启项目</span></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> axios <span class="keyword">from</span> <span class="string">'axios'</span></span><br><span class="line"></span><br><span class="line">declare <span class="built_in">module</span> <span class="string">'axios'</span> &#123;</span><br><span class="line">  interface AxiosInstance &#123;</span><br><span class="line">    (config: AxiosRequestConfig): <span class="built_in">Promise</span>&lt;any&gt;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="typescript-esline-报错-xxx-x-is-not-in-camel-case"><a href="#typescript-esline-报错-xxx-x-is-not-in-camel-case" class="headerlink" title="@typescript/esline 报错 xxx_x is not in camel case"></a>@typescript/esline 报错 xxx_x is not in camel case</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 关闭esline驼峰校验</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 在.eslinetrc.js中配置如下：</span></span><br><span class="line"></span><br><span class="line">rules: &#123;</span><br><span class="line">  ...</span><br><span class="line">  <span class="string">'@typescript-eslint/camelcase'</span>: <span class="string">'off'</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+## router配置里引入component组件的时候必须添加.vue后缀
+
+## Element表单验证报红问题
+```js
+// 报错信息如下
+// Property &#39;validate&#39; does not exist on type &#39;Vue | Element | Vue[] | Element[]&#39;.
+// Property &#39;validate&#39; does not exist on type &#39;Vue&#39;.
+
+// 解决办法
+import { Form } from &quot;element-ui&quot;;
+
+( this.$refs.loginForm as Form ).validate((valid: boolean ) =&gt; {
+  ...
+ });
+
+// 如果不引入Form，把Form换成any也可以，但是typescript会报警告⚠
+</code></pre><h2 id="使用axios封装的请求，然后解构请求结果报错"><a href="#使用axios封装的请求，然后解构请求结果报错" class="headerlink" title="使用axios封装的请求，然后解构请求结果报错"></a>使用axios封装的请求，然后解构请求结果报错</h2><pre><code class="js">// 报错信息
+// Property &#39;XXX&#39; does not exist on type &#39;AxiosResponse&lt;any&gt;&#39;
+
+// 解决办法
+// 新建axios.d.ts文案，添加如下内容，重启项目
+import * as axios from &#39;axios&#39;
+
+declare module &#39;axios&#39; {
+  interface AxiosInstance {
+    (config: AxiosRequestConfig): Promise&lt;any&gt;
+  }
+}
+</code></pre>
+<h2 id="typescript-esline-报错-xxx-x-is-not-in-camel-case"><a href="#typescript-esline-报错-xxx-x-is-not-in-camel-case" class="headerlink" title="@typescript/esline 报错 xxx_x is not in camel case"></a>@typescript/esline 报错 xxx_x is not in camel case</h2><pre><code class="js">// 关闭esline驼峰校验
+
+// 在.eslinetrc.js中配置如下：
+
+rules: {
+  ...
+  &#39;@typescript-eslint/camelcase&#39;: &#39;off&#39;,
+}</code></pre>
 
             </div>
             <hr/>
@@ -741,9 +778,11 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            A/HC/LC 命名法(P)A/HC/LC是什么123prefix? (P) + action (A) + high context (HC) + low context? (LC)// 前缀 + 动作 + 高语境 + 低语境
+                            A/HC/LC 命名法(P)A/HC/LC是什么
+prefix? (P) + action (A) + high context (HC) + low context? (LC)
+// 前缀 + 动作 + 高语境 + 低语境
 
-Prefi
+Prefix
                         
                     </div>
                     <div class="publish-info">

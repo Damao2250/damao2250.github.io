@@ -197,7 +197,7 @@
     }
 
     .github-corner svg {
-        color: #0f9d58;
+        color: #24292e;
         fill: #fff;
         height: 64px;
         width: 64px;
@@ -344,7 +344,11 @@ https://github.com/yscoder/hexo-theme-indigo
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646
+                                
+/**
+ * @abstract  (同义：@virtual)
+ * 该成员必须由继承者实现（或重写）
+ * This member must be implemented (or overridden) by the inheritor
                             
                         </div>
                         <div class="publish-info">
@@ -435,9 +439,11 @@ git remote set-url --add htt
                             
                                 打包优化
 路由懒加载
-12345&#123;  path: '/about',  name: 'about',  component: () =&gt; import('@/views/about/about'),&#125;,
-
-不生成.
+{
+path: &#39;/about&#39;,
+name: &#39;about&#39;,
+component: () =&gt; import(&#39;@/views/about/about&#39;),
+}
                             
                         </div>
                         <div class="publish-info">
@@ -480,11 +486,14 @@ git remote set-url --add htt
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                安装123npm i vuexoryarn add vuex
-
+                                安装npm i vuex
+or
+yarn add vuex
 Vuex 是什么
 Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。
 它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。
+
+
                             
                         </div>
                         <div class="publish-info">
@@ -636,7 +645,8 @@ GG-editor 插件基于 React 框架，可以创建编辑思维导图、流程图
 
 
 安装所需依赖
-12345678910111213141
+// 初始化项目
+create-reac
                             
                         </div>
                         <div class="publish-info">
@@ -735,7 +745,8 @@ npm install -g hexo
 
 
 初始化项目
-1234// 构建 hexo 项目hexo 
+// 构建 hexo 项目
+hexo ini
                             
                         </div>
                         <div class="publish-info">

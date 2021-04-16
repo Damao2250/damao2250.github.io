@@ -203,7 +203,7 @@ Vue i">
     }
 
     .github-corner svg {
-        color: #0f9d58;
+        color: #24292e;
         fill: #fff;
         height: 64px;
         width: 64px;
@@ -391,7 +391,7 @@ Vue i">
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        301
+                        303
                     </div>
                     
 
@@ -455,7 +455,10 @@ Vue i">
 <li>git如何统计代码行数</li>
 </ol>
 <ul>
-<li>git中有个中自带的查询提交行数的命令<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">log</span> --since=2018-01-01 --until=2018-12-31 --author=<span class="string">"like"</span> --pretty=tformat: --numstat | gawk <span class="string">'&#123; add += $1 ; subs += $2 ; loc += $1 - $2 &#125; END &#123; printf "added lines: %s removed lines : %s total lines: %s\n",add,subs,loc &#125;'</span> -</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置对应时间段，--author后面改成自己的名字或空</span></span><br></pre></td></tr></table></figure>
+<li><p>git中有个中自带的查询提交行数的命令</p>
+<pre><code class="bash">$ git log --since=2018-01-01 --until=2018-12-31 --author=&quot;like&quot; --pretty=tformat: --numstat | gawk &#39;{ add += $1 ; subs += $2 ; loc += $1 - $2 } END { printf &quot;added lines: %s removed lines : %s total lines: %s\n&quot;,add,subs,loc }&#39; -
+
+# 设置对应时间段，--author后面改成自己的名字或空</code></pre>
 </li>
 </ul>
 
@@ -829,7 +832,12 @@ CSP的实质就是白名单制度
 GIF
 
 
-代码如下12345678910111213141516171819202122232425262728293031323334&lt;!-- index.html --&gt;&lt;!DOCTYPE html&gt
+代码如下&lt;!-- index.html --&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+  &lt;met
                         
                     </div>
                     <div class="publish-info">

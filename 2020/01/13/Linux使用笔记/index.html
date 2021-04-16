@@ -6,9 +6,9 @@
     <meta name="keywords" content="Linux使用笔记, Damao">
     <meta name="description" content="Linux 软件装在哪里？
 opt目录
-/opt 是用来安装附加软件包，是用户级程序目录，相当于 D:/soft，opt有可选的意思，安装到/opt目录下的程序，所有的数据、库文件都会放置在同一个目录下
+ /opt 是用来安装附加软件包，是用户级程序目录，相当于 D:/soft，opt有可选的意思，安装到/opt目录下的程序，所有的数据、库文件都会放置在同一个目录下
 /usr目录
-/usr: 相当于 C">
+ /usr: 相当于">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -201,7 +201,7 @@ opt目录
     }
 
     .github-corner svg {
-        color: #0f9d58;
+        color: #24292e;
         fill: #fff;
         height: 64px;
         width: 64px;
@@ -409,45 +409,304 @@ opt目录
             <div id="articleContent">
                 <h2 id="Linux-软件装在哪里？"><a href="#Linux-软件装在哪里？" class="headerlink" title="Linux 软件装在哪里？"></a>Linux 软件装在哪里？</h2><ol>
 <li><p><code>opt</code>目录</p>
-<pre><code>/opt 是用来安装附加软件包，是用户级程序目录，相当于 D:/soft，opt有可选的意思，安装到/opt目录下的程序，所有的数据、库文件都会放置在同一个目录下</code></pre></li>
+<pre><code> /opt 是用来安装附加软件包，是用户级程序目录，相当于 D:/soft，opt有可选的意思，安装到/opt目录下的程序，所有的数据、库文件都会放置在同一个目录下</code></pre></li>
 <li><p><code>/usr</code>目录</p>
-<pre><code>/usr: 相当于 C:/Windows
-/usr/lib: 相当于 C:/Windows/System32
-/usr/local: 相当于 C:/Progrem Files  是用户级程序目录，用户自己编译的软件默认会安装到此目录（存放手动安装的软件，即不是通过&apos;yum&apos;或&apos;apt-get&apos;安装的软件）
-它和/usr有相似的目录结构，让软件包管理器来管理/usr，而把自定义脚本放到/usr/local目录下</code></pre></li>
+<pre><code> /usr: 相当于 C:/Windows
+ /usr/lib: 相当于 C:/Windows/System32
+ /usr/local: 相当于 C:/Progrem Files  是用户级程序目录，用户自己编译的软件默认会安装到此目录（存放手动安装的软件，即不是通过&#39;yum&#39;或&#39;apt-get&#39;安装的软件）
+ 它和/usr有相似的目录结构，让软件包管理器来管理/usr，而把自定义脚本放到/usr/local目录下</code></pre></li>
 </ol>
 <p>##　源码放哪里</p>
 <ol>
 <li>/usr/src  系统级的源码目录</li>
 <li>/usr/local/src  用户级的源码目录</li>
 </ol>
-<h2 id="Linux软件包管理（安装、删除）"><a href="#Linux软件包管理（安装、删除）" class="headerlink" title="Linux软件包管理（安装、删除）"></a>Linux软件包管理（安装、删除）</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0.</span> 下载软件包：wget 软件包地址</span><br><span class="line"></span><br><span class="line"><span class="number">1.</span> 手动安装（tar.gz源、tar.bz2源）</span><br><span class="line">  ① 下载相应的软件包，如soft.tar.gz/soft.tar.bz2</span><br><span class="line">  ② cd soft.tar.gz/soft.tar.bz2所在的目录</span><br><span class="line">  ③ tar -xzvf soft.tar.gz     <span class="comment">//一般会生成一个soft目录</span></span><br><span class="line">  ④ cd soft </span><br><span class="line">  ⑤./configure      <span class="comment">// 为编译做准备</span></span><br><span class="line">  ⑥ make            <span class="comment">// 编译软件 （时间很久）</span></span><br><span class="line">  ⑦ make install    <span class="comment">// 安装软件</span></span><br><span class="line">  ⑧ make clean      <span class="comment">// 删除安装产生的临时文件  </span></span><br><span class="line"></span><br><span class="line"><span class="number">2.</span> rpm包安装</span><br><span class="line">  ① 下载相应的软件包，如soft.version.rpm</span><br><span class="line">  ② cd soft.version.rpm所在的目录</span><br><span class="line">  ③ rpm -ivh soft.version.rpm   <span class="comment">// -i 安装软件 -t 测试安装，不是真的安装 -p 显示安装进度 -f 忽略任何错误 -U 升级安装 -v 检测套件是否正确安装</span></span><br><span class="line">  ④ 卸载 rpm -e 软件名</span><br><span class="line"></span><br><span class="line"><span class="number">3.</span> dep包安装</span><br><span class="line">  ① 下载相应的软件包，如soft.version.dep</span><br><span class="line">  ② cd soft.version.dep所在目录</span><br><span class="line">  ③ dpkg -i soft.version.dep</span><br><span class="line">  ④ 卸载 dpkg -e 软件名</span><br><span class="line">  ⑤ 查看已安装的软件包 dpkg –l <span class="string">'*软件包名*'</span></span><br><span class="line"></span><br><span class="line"><span class="number">4.</span> apt方式安装（安装deb包）</span><br><span class="line">  ① apt-cache search 软件包</span><br><span class="line">  ② apt-<span class="keyword">get</span> install 软件包</span><br><span class="line">  ③ 删除（保留配置文件） apt-<span class="keyword">get</span> remove 软件名</span><br><span class="line">  ④ 删除（不保留配置文件） apt-<span class="keyword">get</span> --purge remove 软件名</span><br><span class="line">  ⑤ dpkg --force-all --purge packagename ——有些软件很难卸载，而且还阻止了别的软件的应用，就可以用这个，不过有点冒险。</span><br><span class="line">    apt-<span class="keyword">get</span> autoremove——因为apt会把已装或已卸的软件都备份在硬盘上，所以如果需要空间的话，可以让这个命令来删除你已经删掉的软件。</span><br><span class="line">    apt-<span class="keyword">get</span> autoclean——定期运行这个命令来清除那些已经卸载的软件包的.deb文件。通过这种方式，可以释放大量的磁盘空间。如果需求十分迫切，可以使用apt-<span class="keyword">get</span> clean以释放更多空间。这个命令会将已安装软件包裹的.deb文件一并删除。</span><br><span class="line">    apt-<span class="keyword">get</span> clean——这个命令会把安装的软件的备份也删除，不过这样不会影响软件的使用的。</span><br><span class="line">    apt-<span class="keyword">get</span> upgrade——更新所有已安装的软件包</span><br><span class="line">    apt-<span class="keyword">get</span> dist-upgrade——将系统升级到新版本</span><br><span class="line">    apt-cache search string——在软件包列表中搜索字符串</span><br><span class="line">    apt-cache showpkg pkgs——显示软件包信息。</span><br><span class="line">    apt-cache stats——查看库里有多少软件</span><br><span class="line">    apt-cache dumpavail——打印可用软件包列表。</span><br><span class="line">    apt-cache show pkgs——显示软件包记录，类似于dpkg –print-avail。</span><br><span class="line">    apt-cache pkgnames——打印软件包列表中所有软件包的名称</span><br><span class="line"></span><br><span class="line">5. yum方式安装</span><br><span class="line">  ① yum -y install 软件包</span><br><span class="line">  ② 卸载 yum remove 软件名</span><br><span class="line">  ③ 已安装列表 yum list all</span><br><span class="line">  ④ 查看软件包信息 yum info 软件名</span><br><span class="line">  ⑥ 升级所有的软件包 yum update 软件名 </span><br><span class="line">  ⑦ 清除所有包缓存  yum clean all </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 切换yum源</span><br><span class="line"></span><br><span class="line">// 首先备份/etc/yum.repos.d/CentOS-Base.repo</span><br><span class="line">// 重命名</span><br><span class="line">mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup</span><br><span class="line"></span><br><span class="line">// 下载对应版本 repo 文件, 放入 /etc/yum.repos.d/ (操作前请做好相应备份)</span><br><span class="line">// 163源</span><br><span class="line">CentOS5 ：http://mirrors.163.com/.help/CentOS5-Base-163.repo</span><br><span class="line">CentOS6 ：http://mirrors.163.com/.help/CentOS6-Base-163.repo</span><br><span class="line">CentOS7 ：http://mirrors.163.com/.help/CentOS7-Base-163.repo</span><br><span class="line"></span><br><span class="line">// 阿里云源</span><br><span class="line">CentOS5 ：http://mirrors.aliyun.com/repo/Centos-5.repo</span><br><span class="line">CentOS6 ：http://mirrors.aliyun.com/repo/Centos-6.repo</span><br><span class="line">CentOS7 ：http://mirrors.aliyun.com/repo/Centos-7.repo</span><br><span class="line"></span><br><span class="line">// 下载</span><br><span class="line">wget http://mirrors.163.com/.help/CentOS6-Base-163.repo</span><br><span class="line"></span><br><span class="line">//重命名</span><br><span class="line">mv CentOS6-Base-163.repo CentOS-Base.repo</span><br><span class="line"></span><br><span class="line">// 运行以下命令生成缓存</span><br><span class="line">yum clean all</span><br><span class="line">yum makecache</span><br></pre></td></tr></table></figure>
+<h2 id="Linux软件包管理（安装、删除）"><a href="#Linux软件包管理（安装、删除）" class="headerlink" title="Linux软件包管理（安装、删除）"></a>Linux软件包管理（安装、删除）</h2><pre><code class="js">0. 下载软件包：wget 软件包地址
+
+1. 手动安装（tar.gz源、tar.bz2源）
+  ① 下载相应的软件包，如soft.tar.gz/soft.tar.bz2
+  ② cd soft.tar.gz/soft.tar.bz2所在的目录
+  ③ tar -xzvf soft.tar.gz     //一般会生成一个soft目录
+  ④ cd soft 
+  ⑤./configure      // 为编译做准备
+  ⑥ make            // 编译软件 （时间很久）
+  ⑦ make install    // 安装软件
+  ⑧ make clean      // 删除安装产生的临时文件  
+
+2. rpm包安装
+  ① 下载相应的软件包，如soft.version.rpm
+  ② cd soft.version.rpm所在的目录
+  ③ rpm -ivh soft.version.rpm   // -i 安装软件 -t 测试安装，不是真的安装 -p 显示安装进度 -f 忽略任何错误 -U 升级安装 -v 检测套件是否正确安装
+  ④ 卸载 rpm -e 软件名
+
+3. dep包安装
+  ① 下载相应的软件包，如soft.version.dep
+  ② cd soft.version.dep所在目录
+  ③ dpkg -i soft.version.dep
+  ④ 卸载 dpkg -e 软件名
+  ⑤ 查看已安装的软件包 dpkg –l &#39;*软件包名*&#39;
+
+4. apt方式安装（安装deb包）
+  ① apt-cache search 软件包
+  ② apt-get install 软件包
+  ③ 删除（保留配置文件） apt-get remove 软件名
+  ④ 删除（不保留配置文件） apt-get --purge remove 软件名
+  ⑤ dpkg --force-all --purge packagename ——有些软件很难卸载，而且还阻止了别的软件的应用，就可以用这个，不过有点冒险。
+    apt-get autoremove——因为apt会把已装或已卸的软件都备份在硬盘上，所以如果需要空间的话，可以让这个命令来删除你已经删掉的软件。
+    apt-get autoclean——定期运行这个命令来清除那些已经卸载的软件包的.deb文件。通过这种方式，可以释放大量的磁盘空间。如果需求十分迫切，可以使用apt-get clean以释放更多空间。这个命令会将已安装软件包裹的.deb文件一并删除。
+    apt-get clean——这个命令会把安装的软件的备份也删除，不过这样不会影响软件的使用的。
+    apt-get upgrade——更新所有已安装的软件包
+    apt-get dist-upgrade——将系统升级到新版本
+    apt-cache search string——在软件包列表中搜索字符串
+    apt-cache showpkg pkgs——显示软件包信息。
+    apt-cache stats——查看库里有多少软件
+    apt-cache dumpavail——打印可用软件包列表。
+    apt-cache show pkgs——显示软件包记录，类似于dpkg –print-avail。
+    apt-cache pkgnames——打印软件包列表中所有软件包的名称
+
+5. yum方式安装
+  ① yum -y install 软件包
+  ② 卸载 yum remove 软件名
+  ③ 已安装列表 yum list all
+  ④ 查看软件包信息 yum info 软件名
+  ⑥ 升级所有的软件包 yum update 软件名 
+  ⑦ 清除所有包缓存  yum clean all 
 
 
+// 切换yum源
 
+// 首先备份/etc/yum.repos.d/CentOS-Base.repo
+// 重命名
+mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup
 
+// 下载对应版本 repo 文件, 放入 /etc/yum.repos.d/ (操作前请做好相应备份)
+// 163源
+CentOS5 ：http://mirrors.163.com/.help/CentOS5-Base-163.repo
+CentOS6 ：http://mirrors.163.com/.help/CentOS6-Base-163.repo
+CentOS7 ：http://mirrors.163.com/.help/CentOS7-Base-163.repo
 
+// 阿里云源
+CentOS5 ：http://mirrors.aliyun.com/repo/Centos-5.repo
+CentOS6 ：http://mirrors.aliyun.com/repo/Centos-6.repo
+CentOS7 ：http://mirrors.aliyun.com/repo/Centos-7.repo
 
+// 下载
+wget http://mirrors.163.com/.help/CentOS6-Base-163.repo
 
+//重命名
+mv CentOS6-Base-163.repo CentOS-Base.repo
 
-
+// 运行以下命令生成缓存
+yum clean all
+yum makecache
+</code></pre>
 <h2 id="自己在Linux-上的一些操作"><a href="#自己在Linux-上的一些操作" class="headerlink" title="自己在Linux 上的一些操作"></a>自己在Linux 上的一些操作</h2><ul>
-<li><p>安装 node </p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">node -v     <span class="comment">// 查看是否已安装</span></span><br><span class="line">yum install nodejs    <span class="comment">// 安装nodejs 询问时 输入 y</span></span><br><span class="line"></span><br><span class="line">rpm -qa | grep node   <span class="comment">// 查看是否已安装</span></span><br><span class="line"></span><br><span class="line">rpm -ql node    <span class="comment">// 查看安装路径</span></span><br></pre></td></tr></table></figure>
+<li>安装 node <pre><code class="js">node -v     // 查看是否已安装
+yum install nodejs    // 安装nodejs 询问时 输入 y
+</code></pre>
 </li>
-<li><p>安装 Nginx</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">yum install nginx   <span class="comment">// 安装nginx</span></span><br><span class="line"></span><br><span class="line">systemctl start nginx.service   <span class="comment">// 启动nginx</span></span><br><span class="line">systemctl enable nginx.service    <span class="comment">// 开机启动</span></span><br><span class="line">systemctl stop nginx.service    <span class="comment">// 停止nginx服务</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>配置Nginx</p>
-<ul>
-<li>配置两个ssl证书<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br></pre></td><td class="code"><pre><span class="line"># For more information on configuration, see:</span><br><span class="line">#   * Official English Documentation: http://nginx.org/en/docs/</span><br><span class="line">#   * Official Russian Documentation: http://nginx.org/ru/docs/</span><br><span class="line"></span><br><span class="line">user nginx;</span><br><span class="line">worker_processes auto;</span><br><span class="line">error_log /<span class="keyword">var</span>/log/nginx/error.log;</span><br><span class="line">pid /run/nginx.pid;</span><br><span class="line"></span><br><span class="line"># Load dynamic modules. See /usr/share/doc/nginx/README.dynamic.</span><br><span class="line">include /usr/share/nginx/modules<span class="comment">/*.conf;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">events &#123;</span></span><br><span class="line"><span class="comment">    worker_connections 1024;</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">http &#123;</span></span><br><span class="line"><span class="comment">    log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '</span></span><br><span class="line"><span class="comment">                      '$status $body_bytes_sent "$http_referer" '</span></span><br><span class="line"><span class="comment">                      '"$http_user_agent" "$http_x_forwarded_for"';</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    access_log  /var/log/nginx/access.log  main;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    sendfile            on;</span></span><br><span class="line"><span class="comment">    tcp_nopush          on;</span></span><br><span class="line"><span class="comment">    tcp_nodelay         on;</span></span><br><span class="line"><span class="comment">    keepalive_timeout   65;</span></span><br><span class="line"><span class="comment">    types_hash_max_size 2048;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    include             /etc/nginx/mime.types;</span></span><br><span class="line"><span class="comment">    default_type        application/octet-stream;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    # Load modular configuration files from the /etc/nginx/conf.d directory.</span></span><br><span class="line"><span class="comment">    # See http://nginx.org/en/docs/ngx_core_module.html#include</span></span><br><span class="line"><span class="comment">    # for more information.</span></span><br><span class="line"><span class="comment">    include /etc/nginx/conf.d/*.conf;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    server &#123;</span></span><br><span class="line"><span class="comment">        listen       80 default_server;</span></span><br><span class="line"><span class="comment">        listen       [::]:80 default_server;</span></span><br><span class="line"><span class="comment">        server_name  www.damao2250.com;</span></span><br><span class="line"><span class="comment">        root         /var/www/damao;</span></span><br><span class="line"><span class="comment">        #告诉浏览器有效期内只准用 https 访问</span></span><br><span class="line"><span class="comment">        add_header Strict-Transport-Security max-age=15768000;</span></span><br><span class="line"><span class="comment">        #永久重定向到 https 站点</span></span><br><span class="line"><span class="comment">        return 301 https://$server_name$request_uri;</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"># Settings for a TLS enabled server.</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">   server &#123;</span></span><br><span class="line"><span class="comment">       listen       443 ssl http2 default_server;</span></span><br><span class="line"><span class="comment">       listen       [::]:443 ssl http2 default_server;</span></span><br><span class="line"><span class="comment">       server_name  www.damao2250.com;</span></span><br><span class="line"><span class="comment">       root         /var/www/damao;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">       ssl_certificate "/opt/ssl/www.damao2250.com/www.damao2250.com.pem";</span></span><br><span class="line"><span class="comment">       ssl_certificate_key "/opt/ssl/www.damao2250.com/www.damao2250.com.key";</span></span><br><span class="line"><span class="comment">       ssl_session_cache shared:SSL:1m;</span></span><br><span class="line"><span class="comment">       ssl_session_timeout  10m;</span></span><br><span class="line"><span class="comment">       ssl_ciphers HIGH:!aNULL:!MD5;</span></span><br><span class="line"><span class="comment">       ssl_prefer_server_ciphers on;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">       # Load configuration files for the default server block.</span></span><br><span class="line"><span class="comment">       include /etc/nginx/default.d/*.conf;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">       location / &#123;</span></span><br><span class="line"><span class="comment">       &#125;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">       error_page 404 /404.html;</span></span><br><span class="line"><span class="comment">           location = /40x.html &#123;</span></span><br><span class="line"><span class="comment">       &#125;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">       error_page 500 502 503 504 /50x.html;</span></span><br><span class="line"><span class="comment">           location = /50x.html &#123;</span></span><br><span class="line"><span class="comment">       &#125;</span></span><br><span class="line"><span class="comment">   &#125;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    server &#123;</span></span><br><span class="line"><span class="comment">        listen       80;</span></span><br><span class="line"><span class="comment">        server_name  ycy.damao2250.com;</span></span><br><span class="line"><span class="comment">        #告诉浏览器有效期内只准用 https 访问</span></span><br><span class="line"><span class="comment">        add_header Strict-Transport-Security max-age=15768000;</span></span><br><span class="line"><span class="comment">        #永久重定向到 https 站点</span></span><br><span class="line"><span class="comment">        return 301 https://$server_name$request_uri;</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment"># Settings for a TLS enabled server.</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">   server &#123;</span></span><br><span class="line"><span class="comment">       listen       443 ssl http2;</span></span><br><span class="line"><span class="comment">       listen       [::]:443 ssl http2;</span></span><br><span class="line"><span class="comment">       server_name  ycy.damao2250.com;</span></span><br><span class="line"><span class="comment">       root         /var/www/ycy;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">       ssl_certificate "/opt/ssl/ycy.damao2250.com/ycy.damao2250.com.pem";</span></span><br><span class="line"><span class="comment">       ssl_certificate_key "/opt/ssl/ycy.damao2250.com/ycy.damao2250.com.key";</span></span><br><span class="line"><span class="comment">       ssl_session_cache shared:SSL:1m;</span></span><br><span class="line"><span class="comment">       ssl_session_timeout  10m;</span></span><br><span class="line"><span class="comment">       ssl_ciphers HIGH:!aNULL:!MD5;</span></span><br><span class="line"><span class="comment">       ssl_prefer_server_ciphers on;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">       # Load configuration files for the default server block.</span></span><br><span class="line"><span class="comment">       include /etc/nginx/default.d/*.conf;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">       location / &#123;</span></span><br><span class="line"><span class="comment">       &#125;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">       error_page 404 /404.html;</span></span><br><span class="line"><span class="comment">           location = /40x.html &#123;</span></span><br><span class="line"><span class="comment">       &#125;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">       error_page 500 502 503 504 /50x.html;</span></span><br><span class="line"><span class="comment">           location = /50x.html &#123;</span></span><br><span class="line"><span class="comment">       &#125;</span></span><br><span class="line"><span class="comment">   &#125;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">&#125;</span></span><br></pre></td></tr></table></figure>
+</ul>
+<p>rpm -qa | grep node   // 查看是否已安装</p>
+<p>rpm -ql node    // 查看安装路径</p>
+<pre><code>
++ 安装 Nginx
+```js
+yum install nginx   // 安装nginx
 
+systemctl start nginx.service   // 启动nginx
+systemctl enable nginx.service    // 开机启动
+systemctl stop nginx.service    // 停止nginx服务
 
+</code></pre><ul>
+<li>配置Nginx<ul>
+<li>配置两个ssl证书<pre><code class="js"># For more information on configuration, see:
+#   * Official English Documentation: http://nginx.org/en/docs/
+#   * Official Russian Documentation: http://nginx.org/ru/docs/
+</code></pre>
 </li>
 </ul>
 </li>
 </ul>
-<h2 id="部署Gitlab"><a href="#部署Gitlab" class="headerlink" title="部署Gitlab"></a>部署Gitlab</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 安装依赖软件</span></span><br><span class="line">yum -y install policycoreutils  policycoreutils-python openssh-server openssh-clients postfix</span><br><span class="line"><span class="comment">// but already installed and latest version  &amp;&amp;　Nothing to do</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 开启postfix， postfix支持gitlab发信功能，设置postfix开机自启</span></span><br><span class="line">systemctl enable postfix &amp;&amp; systemctl start postfix</span><br><span class="line"></span><br><span class="line"><span class="comment">// 如若 postfix 无法启动</span></span><br><span class="line"><span class="comment">// 修改 /etc/postfix/main.cf</span></span><br><span class="line">inet_interfaces = all</span><br><span class="line">inet_protocols = ipv4</span><br><span class="line">systemctl start postfix</span><br><span class="line">systemctl enable postfix</span><br><span class="line"></span><br><span class="line"><span class="comment">// 如无法ssh来远程连接主机的 开启 ssh </span></span><br><span class="line">systemctl enable sshd</span><br><span class="line">systemctl start sshd</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 安装防火墙</span></span><br><span class="line">yum install firewalld systemd -y</span><br><span class="line"><span class="comment">// 开启防火墙</span></span><br><span class="line">service firewalld start</span><br><span class="line"><span class="comment">// 添加http服务到firewalld,pemmanent表示永久生效，若不加--permanent系统下次启动后就会失效。</span></span><br><span class="line">firewall-cmd --permanent --add-service=http</span><br><span class="line"><span class="comment">// 重启防火墙</span></span><br><span class="line">systemctl reload firewalld</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 下载gitlab</span></span><br><span class="line">wget https:<span class="comment">//mirrors.tuna.tsinghua.edu.cn/gitlab-ce/yum/el7/gitlab-ce-12.5.0-ce.0.el7.x86_64.rpm</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 安装 ce代表社区版 ee代表企业版</span></span><br><span class="line">rpm -i gitlab-ce<span class="number">-12.5</span><span class="number">.0</span>-ce<span class="number">.0</span>.el7.x86_64.rpm</span><br><span class="line"></span><br><span class="line"><span class="comment">// 修改配置文件 gitlab.rb  使用外部nginx 不使用内部nginx</span></span><br><span class="line">vim /etc/gitlab/gitlab.rb</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">external_url <span class="string">'http://120.79.166.206:8888'</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 重置并启动gitlab</span></span><br><span class="line">gitlab-ctl stop</span><br><span class="line"></span><br><span class="line">gitlab-ctl reconfigure</span><br><span class="line"></span><br><span class="line">gitlab-ctl restart</span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果执行 gitlab-ctl reconfigure 卡死在 ruby_block[authorize Grafana with GitLab] action run   就强制结束  ctrl+c 然后</span></span><br><span class="line">systemctl restart gitlab-runsvdir</span><br><span class="line"><span class="comment">// 再</span></span><br><span class="line">gitlab-ctl stop</span><br><span class="line">gitlab-ctl reconfigure</span><br><span class="line">gitlab-ctl restart</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 访问报502。原因是nginx用户无法访问gitlab用户的socket文件。 重启gitlab需要重新授权</span></span><br><span class="line">chmod -R o+x /<span class="keyword">var</span>/opt/gitlab/gitlab-rails</span><br><span class="line"><span class="comment">// 访问502也可能是  内存太小 超时了</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 初始账户: root 密码:5iveL!fe</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 完全卸载GitLab</span></span><br><span class="line"><span class="comment">// 一. 停止gitlab</span></span><br><span class="line"><span class="comment">// 	sudo gitlab-ctl stop</span></span><br><span class="line"><span class="comment">// 二、卸载gitlab（这块注意了，看看是gitlab-ce版本还是gitlab-ee版本，别写错误了）</span></span><br><span class="line"><span class="comment">// 	sudo rpm -e gitlab-ce</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 三、查看gitlab进程</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 	ps -ef|grep gitlab</span></span><br><span class="line"><span class="comment">// 　    杀掉第一个守护进程(runsvdir -P /opt/gitlab/service log)</span></span><br><span class="line"><span class="comment">// 　    kill -9 4473</span></span><br><span class="line"><span class="comment">// 　    再次查看gitlab进程是否存在</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 四、删除gitlab文件</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//         find / -name *gitlab*|xargs rm -rf      删除所有包含gitlab的文件及目录</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//         find / -name gitlab |xargs rm -rf </span></span><br><span class="line"></span><br><span class="line"><span class="comment">//         删除gitlab-ctl uninstall时自动在root下备份的配置文件（ls /root/gitlab* 看看有没有，有也删除）</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过以上几步就可以彻底卸载gitlab</span></span><br></pre></td></tr></table></figure>
+<p>user nginx;<br>worker_processes auto;<br>error_log /var/log/nginx/error.log;<br>pid /run/nginx.pid;</p>
+<h1 id="Load-dynamic-modules-See-usr-share-doc-nginx-README-dynamic"><a href="#Load-dynamic-modules-See-usr-share-doc-nginx-README-dynamic" class="headerlink" title="Load dynamic modules. See /usr/share/doc/nginx/README.dynamic."></a>Load dynamic modules. See /usr/share/doc/nginx/README.dynamic.</h1><p>include /usr/share/nginx/modules/*.conf;</p>
+<p>events {<br>    worker_connections 1024;<br>}</p>
+<p>http {<br>    log_format  main  ‘$remote_addr - $remote_user [$time_local] “$request” ‘<br>                      ‘$status $body_bytes_sent “$http_referer” ‘<br>                      ‘“$http_user_agent” “$http_x_forwarded_for”‘;</p>
+<pre><code>access_log  /var/log/nginx/access.log  main;
+
+sendfile            on;
+tcp_nopush          on;
+tcp_nodelay         on;
+keepalive_timeout   65;
+types_hash_max_size 2048;
+
+include             /etc/nginx/mime.types;
+default_type        application/octet-stream;
+
+# Load modular configuration files from the /etc/nginx/conf.d directory.
+# See http://nginx.org/en/docs/ngx_core_module.html#include
+# for more information.
+include /etc/nginx/conf.d/*.conf;
+
+server {
+    listen       80 default_server;
+    listen       [::]:80 default_server;
+    server_name  www.damao2250.com;
+    root         /var/www/damao;
+    #告诉浏览器有效期内只准用 https 访问
+    add_header Strict-Transport-Security max-age=15768000;
+    #永久重定向到 https 站点
+    return 301 https://$server_name$request_uri;
+}</code></pre><h1 id="Settings-for-a-TLS-enabled-server"><a href="#Settings-for-a-TLS-enabled-server" class="headerlink" title="Settings for a TLS enabled server."></a>Settings for a TLS enabled server.</h1><p>   server {<br>       listen       443 ssl http2 default_server;<br>       listen       [::]:443 ssl http2 default_server;<br>       server_name  <a href="http://www.damao2250.com" target="_blank" rel="noopener">www.damao2250.com</a>;<br>       root         /var/www/damao;</p>
+<pre><code>   ssl_certificate &quot;/opt/ssl/www.damao2250.com/www.damao2250.com.pem&quot;;
+   ssl_certificate_key &quot;/opt/ssl/www.damao2250.com/www.damao2250.com.key&quot;;
+   ssl_session_cache shared:SSL:1m;
+   ssl_session_timeout  10m;
+   ssl_ciphers HIGH:!aNULL:!MD5;
+   ssl_prefer_server_ciphers on;
+
+   # Load configuration files for the default server block.
+   include /etc/nginx/default.d/*.conf;
+
+   location / {
+   }
+
+   error_page 404 /404.html;
+       location = /40x.html {
+   }
+
+   error_page 500 502 503 504 /50x.html;
+       location = /50x.html {
+   }</code></pre><p>   }</p>
+<pre><code>server {
+    listen       80;
+    server_name  ycy.damao2250.com;
+    #告诉浏览器有效期内只准用 https 访问
+    add_header Strict-Transport-Security max-age=15768000;
+    #永久重定向到 https 站点
+    return 301 https://$server_name$request_uri;
+}</code></pre><h1 id="Settings-for-a-TLS-enabled-server-1"><a href="#Settings-for-a-TLS-enabled-server-1" class="headerlink" title="Settings for a TLS enabled server."></a>Settings for a TLS enabled server.</h1><p>   server {<br>       listen       443 ssl http2;<br>       listen       [::]:443 ssl http2;<br>       server_name  ycy.damao2250.com;<br>       root         /var/www/ycy;</p>
+<pre><code>   ssl_certificate &quot;/opt/ssl/ycy.damao2250.com/ycy.damao2250.com.pem&quot;;
+   ssl_certificate_key &quot;/opt/ssl/ycy.damao2250.com/ycy.damao2250.com.key&quot;;
+   ssl_session_cache shared:SSL:1m;
+   ssl_session_timeout  10m;
+   ssl_ciphers HIGH:!aNULL:!MD5;
+   ssl_prefer_server_ciphers on;
+
+   # Load configuration files for the default server block.
+   include /etc/nginx/default.d/*.conf;
+
+   location / {
+   }
+
+   error_page 404 /404.html;
+       location = /40x.html {
+   }
+
+   error_page 500 502 503 504 /50x.html;
+       location = /50x.html {
+   }</code></pre><p>   }</p>
+<p>}</p>
+<pre><code>
+
+## 部署Gitlab
+```js
+// 安装依赖软件
+yum -y install policycoreutils  policycoreutils-python openssh-server openssh-clients postfix
+// but already installed and latest version  &amp;&amp;　Nothing to do
+
+// 开启postfix， postfix支持gitlab发信功能，设置postfix开机自启
+systemctl enable postfix &amp;&amp; systemctl start postfix
+
+// 如若 postfix 无法启动
+// 修改 /etc/postfix/main.cf
+inet_interfaces = all
+inet_protocols = ipv4
+systemctl start postfix
+systemctl enable postfix
+
+// 如无法ssh来远程连接主机的 开启 ssh 
+systemctl enable sshd
+systemctl start sshd
+
+
+// 安装防火墙
+yum install firewalld systemd -y
+// 开启防火墙
+service firewalld start
+// 添加http服务到firewalld,pemmanent表示永久生效，若不加--permanent系统下次启动后就会失效。
+firewall-cmd --permanent --add-service=http
+// 重启防火墙
+systemctl reload firewalld
+
+
+
+
+
+// 下载gitlab
+wget https://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/yum/el7/gitlab-ce-12.5.0-ce.0.el7.x86_64.rpm
+
+// 安装 ce代表社区版 ee代表企业版
+rpm -i gitlab-ce-12.5.0-ce.0.el7.x86_64.rpm
+
+// 修改配置文件 gitlab.rb  使用外部nginx 不使用内部nginx
+vim /etc/gitlab/gitlab.rb
+
+
+external_url &#39;http://120.79.166.206:8888&#39;
+
+
+
+// 重置并启动gitlab
+gitlab-ctl stop
+
+gitlab-ctl reconfigure
+
+gitlab-ctl restart
+
+// 如果执行 gitlab-ctl reconfigure 卡死在 ruby_block[authorize Grafana with GitLab] action run   就强制结束  ctrl+c 然后
+systemctl restart gitlab-runsvdir
+// 再
+gitlab-ctl stop
+gitlab-ctl reconfigure
+gitlab-ctl restart
+
+
+
+// 访问报502。原因是nginx用户无法访问gitlab用户的socket文件。 重启gitlab需要重新授权
+chmod -R o+x /var/opt/gitlab/gitlab-rails
+// 访问502也可能是  内存太小 超时了
+
+// 初始账户: root 密码:5iveL!fe
+
+
+
+
+// 完全卸载GitLab
+// 一. 停止gitlab
+//     sudo gitlab-ctl stop
+// 二、卸载gitlab（这块注意了，看看是gitlab-ce版本还是gitlab-ee版本，别写错误了）
+//     sudo rpm -e gitlab-ce
+
+// 三、查看gitlab进程
+
+//     ps -ef|grep gitlab
+// 　    杀掉第一个守护进程(runsvdir -P /opt/gitlab/service log)
+// 　    kill -9 4473
+// 　    再次查看gitlab进程是否存在
+
+// 四、删除gitlab文件
+
+//         find / -name *gitlab*|xargs rm -rf      删除所有包含gitlab的文件及目录
+
+//         find / -name gitlab |xargs rm -rf 
+
+//         删除gitlab-ctl uninstall时自动在root下备份的配置文件（ls /root/gitlab* 看看有没有，有也删除）
+
+// 通过以上几步就可以彻底卸载gitlab
+
+
+
+</code></pre>
             </div>
             <hr/>
 
@@ -811,7 +1070,16 @@ opt目录
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Nginx基础命令1234567891011121314151617181920212223242526272829// 启动start nginxnginx.exe// 停止nginx -s stop   // 快速停止，不保存信息ngi
+                            Nginx基础命令// 启动
+start nginx
+nginx.exe
+
+// 停止
+nginx -s stop   // 快速停止，不保存信息
+nginx -s quit   // 完整有序停止并保存信息
+
+// 重新载入
+nginx 
                         
                     </div>
                     <div class="publish-info">

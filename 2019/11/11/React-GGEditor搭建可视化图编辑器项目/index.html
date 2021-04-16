@@ -12,7 +12,8 @@ GG-editor 插件基于 React 框架，可以创建编辑思维导图、流程图
 
 
 安装所需依赖
-12345678910111213141">
+// 初始化项目
+create-reac">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -205,7 +206,7 @@ GG-editor 插件基于 React 框架，可以创建编辑思维导图、流程图
     }
 
     .github-corner svg {
-        color: #0f9d58;
+        color: #24292e;
         fill: #fff;
         height: 64px;
         width: 64px;
@@ -393,7 +394,7 @@ GG-editor 插件基于 React 框架，可以创建编辑思维导图、流程图
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        292
+                        302
                     </div>
                     
 
@@ -419,13 +420,76 @@ GG-editor 插件基于 React 框架，可以创建编辑思维导图、流程图
 </ul>
 </li>
 <li><p>安装所需依赖</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 初始化项目</span></span><br><span class="line">create-react-app ggeditore</span><br><span class="line"></span><br><span class="line"><span class="comment">// 安装依赖</span></span><br><span class="line">npm i react-router-dom</span><br><span class="line">npm i gg-editor</span><br><span class="line">npm i antd</span><br><span class="line">or</span><br><span class="line">yarn add react-router-dom</span><br><span class="line">yarn add gg-editor</span><br><span class="line">yarn add antd</span><br><span class="line"></span><br><span class="line"><span class="comment">// 安装 gg-editor</span></span><br><span class="line"><span class="comment">// 不要安装 bate 的版本</span></span><br><span class="line">npm i gg-editor@<span class="number">2.0</span><span class="number">.4</span></span><br><span class="line">or</span><br><span class="line">yarn add gg-editor@<span class="number">2.0</span><span class="number">.4</span></span><br></pre></td></tr></table></figure></li>
-<li><p>使用</p>
+<pre><code class="js">// 初始化项目
+create-react-app ggeditore
+</code></pre>
 </li>
 </ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Flow</span></span><br><span class="line"><span class="keyword">import</span> GGEditor, &#123; Flow &#125; <span class="keyword">from</span> <span class="string">'gg-editor'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> data = &#123;</span><br><span class="line">  nodes: [&#123;</span><br><span class="line">    type: <span class="string">'node'</span>,</span><br><span class="line">    size: <span class="string">'70*70'</span>,</span><br><span class="line">    shape: <span class="string">'flow-circle'</span>,</span><br><span class="line">    color: <span class="string">'#FA8C16'</span>,</span><br><span class="line">    label: <span class="string">'起止节点'</span>,</span><br><span class="line">    x: <span class="number">55</span>,</span><br><span class="line">    y: <span class="number">55</span>,</span><br><span class="line">    id: <span class="string">'ea1184e8'</span>,</span><br><span class="line">    index: <span class="number">0</span>,</span><br><span class="line">  &#125;, &#123;</span><br><span class="line">    type: <span class="string">'node'</span>,</span><br><span class="line">    size: <span class="string">'70*70'</span>,</span><br><span class="line">    shape: <span class="string">'flow-circle'</span>,</span><br><span class="line">    color: <span class="string">'#FA8C16'</span>,</span><br><span class="line">    label: <span class="string">'结束节点'</span>,</span><br><span class="line">    x: <span class="number">55</span>,</span><br><span class="line">    y: <span class="number">255</span>,</span><br><span class="line">    id: <span class="string">'481fbb1a'</span>,</span><br><span class="line">    index: <span class="number">2</span>,</span><br><span class="line">  &#125;],</span><br><span class="line">  edges: [&#123;</span><br><span class="line">    source: <span class="string">'ea1184e8'</span>,</span><br><span class="line">    sourceAnchor: <span class="number">2</span>,</span><br><span class="line">    target: <span class="string">'481fbb1a'</span>,</span><br><span class="line">    targetAnchor: <span class="number">0</span>,</span><br><span class="line">    id: <span class="string">'7989ac70'</span>,</span><br><span class="line">    index: <span class="number">1</span>,</span><br><span class="line">  &#125;],</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">&lt;GGEditor&gt;</span><br><span class="line">  &lt;Flow style=&#123;&#123; <span class="attr">width</span>: <span class="number">500</span>, <span class="attr">height</span>: <span class="number">500</span> &#125;&#125; data=&#123;data&#125; /&gt;</span><br><span class="line">&lt;<span class="regexp">/GGEditor&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/ Mind</span></span><br><span class="line"><span class="regexp">import GGEditor, &#123; Mind &#125; from 'gg-editor';</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">const data = &#123;</span></span><br><span class="line"><span class="regexp">  roots: [&#123;</span></span><br><span class="line"><span class="regexp">    label: '中心主题',</span></span><br><span class="line"><span class="regexp">    children: [&#123;</span></span><br><span class="line"><span class="regexp">      label: '分支主题 1',</span></span><br><span class="line"><span class="regexp">    &#125;, &#123;</span></span><br><span class="line"><span class="regexp">      label: '分支主题 2',</span></span><br><span class="line"><span class="regexp">    &#125;, &#123;</span></span><br><span class="line"><span class="regexp">      label: '分支主题 3',</span></span><br><span class="line"><span class="regexp">    &#125;],</span></span><br><span class="line"><span class="regexp">  &#125;],</span></span><br><span class="line"><span class="regexp">&#125;;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;GGEditor&gt;</span></span><br><span class="line"><span class="regexp">  &lt;Mind style=&#123;&#123; width: 500, height: 500 &#125;&#125; data=&#123;data&#125; /</span>&gt;</span><br><span class="line">&lt;<span class="regexp">/GGEditor&gt;</span></span><br></pre></td></tr></table></figure>
+<p>// 安装依赖<br>npm i react-router-dom<br>npm i gg-editor<br>npm i antd<br>or<br>yarn add react-router-dom<br>yarn add gg-editor<br>yarn add antd</p>
+<p>// 安装 gg-editor<br>// 不要安装 bate 的版本<br>npm i <a href="mailto:gg-editor@2.0.4">gg-editor@2.0.4</a><br>or<br>yarn add <a href="mailto:gg-editor@2.0.4">gg-editor@2.0.4</a></p>
+<pre><code>3. 使用
 
-<ol start="4">
+```js
+// Flow
+import GGEditor, { Flow } from &#39;gg-editor&#39;;
+
+const data = {
+  nodes: [{
+    type: &#39;node&#39;,
+    size: &#39;70*70&#39;,
+    shape: &#39;flow-circle&#39;,
+    color: &#39;#FA8C16&#39;,
+    label: &#39;起止节点&#39;,
+    x: 55,
+    y: 55,
+    id: &#39;ea1184e8&#39;,
+    index: 0,
+  }, {
+    type: &#39;node&#39;,
+    size: &#39;70*70&#39;,
+    shape: &#39;flow-circle&#39;,
+    color: &#39;#FA8C16&#39;,
+    label: &#39;结束节点&#39;,
+    x: 55,
+    y: 255,
+    id: &#39;481fbb1a&#39;,
+    index: 2,
+  }],
+  edges: [{
+    source: &#39;ea1184e8&#39;,
+    sourceAnchor: 2,
+    target: &#39;481fbb1a&#39;,
+    targetAnchor: 0,
+    id: &#39;7989ac70&#39;,
+    index: 1,
+  }],
+};
+
+&lt;GGEditor&gt;
+  &lt;Flow style={{ width: 500, height: 500 }} data={data} /&gt;
+&lt;/GGEditor&gt;
+
+
+// Mind
+import GGEditor, { Mind } from &#39;gg-editor&#39;;
+
+const data = {
+  roots: [{
+    label: &#39;中心主题&#39;,
+    children: [{
+      label: &#39;分支主题 1&#39;,
+    }, {
+      label: &#39;分支主题 2&#39;,
+    }, {
+      label: &#39;分支主题 3&#39;,
+    }],
+  }],
+};
+
+&lt;GGEditor&gt;
+  &lt;Mind style={{ width: 500, height: 500 }} data={data} /&gt;
+&lt;/GGEditor&gt;
+</code></pre><ol start="4">
 <li>高阶用法（可编辑）</li>
 </ol>
 <ul>

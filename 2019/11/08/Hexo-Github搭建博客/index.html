@@ -15,7 +15,8 @@ npm install -g hexo
 
 
 初始化项目
-1234// 构建 hexo 项目hexo ">
+// 构建 hexo 项目
+hexo ini">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -208,7 +209,7 @@ npm install -g hexo
     }
 
     .github-corner svg {
-        color: #0f9d58;
+        color: #24292e;
         fill: #fff;
         height: 64px;
         width: 64px;
@@ -396,7 +397,7 @@ npm install -g hexo
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        243
+                        245
                     </div>
                     
 
@@ -425,36 +426,61 @@ npm install -g hexo
 </ul>
 <ol start="3">
 <li><p>初始化项目</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 构建 hexo 项目</span></span><br><span class="line">hexo init</span><br><span class="line"><span class="comment">// 启动服务</span></span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<pre><code class="js">// 构建 hexo 项目
+hexo init
+// 启动服务
+hexo s</code></pre>
 </li>
 <li><p>连接到 GitHub</p>
 </li>
 </ol>
 <ul>
-<li>修改根目录下 _congif.yml <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: https://hexo.io/docs/deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: <span class="xml"><span class="tag">&lt;<span class="name">你的仓库地址</span>&gt;</span> #　如：https://github.com/Damao2250/damao2250.github.io</span></span><br><span class="line"><span class="xml">  branch: master</span></span><br></pre></td></tr></table></figure>
+<li>修改根目录下 _congif.yml <pre><code class="js"># Deployment
+## Docs: https://hexo.io/docs/deployment.html
+deploy:
+type: git
+repo: &lt;你的仓库地址&gt; #　如：https://github.com/Damao2250/damao2250.github.io
+branch: master
+</code></pre>
 </li>
 </ul>
-<ol start="5">
-<li><p>自动部署到 GitHub</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 安装部署工具</span></span><br><span class="line">npm install hexo-deployer-git --save</span><br><span class="line"></span><br><span class="line"><span class="comment">// 自动部署</span></span><br><span class="line">hexo clean</span><br><span class="line">hexo deploy</span><br><span class="line"></span><br><span class="line"><span class="comment">// 打开 &lt;github Name&gt;.github.io  查看效果</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>部署简化</p>
-</li>
+<pre><code>
+5. 自动部署到 GitHub
+```js
+// 安装部署工具
+npm install hexo-deployer-git --save
+
+// 自动部署
+hexo clean
+hexo deploy
+
+// 打开 &lt;github Name&gt;.github.io  查看效果</code></pre><ol start="6">
+<li>部署简化</li>
 </ol>
 <ul>
-<li>修改 package.json<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// package.json</span></span><br><span class="line"></span><br><span class="line"><span class="string">"build"</span>: <span class="string">"hexo clean &amp; hexo deploy"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 部署命令</span></span><br><span class="line"></span><br><span class="line">npm run build</span><br></pre></td></tr></table></figure>
+<li>修改 package.json<pre><code class="js">// package.json
+</code></pre>
 </li>
 </ul>
-<ol start="7">
-<li><p>发布新文章</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// [layout] 为布局，可选项为 `post`、`page`、`draft`，这将决定文章所在文件路径。</span></span><br><span class="line"><span class="comment">// &lt;title&gt; 为文章标题</span></span><br><span class="line"><span class="comment">// 如 hexo new post 这是一个文章标题</span></span><br><span class="line">hexo <span class="keyword">new</span> [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>更换主题</p>
-</li>
+<p>“build”: “hexo clean &amp; hexo deploy”</p>
+<p>// 部署命令</p>
+<p>npm run build</p>
+<pre><code>
+7. 发布新文章
+```js
+// [layout] 为布局，可选项为 `post`、`page`、`draft`，这将决定文章所在文件路径。
+// &lt;title&gt; 为文章标题
+// 如 hexo new post 这是一个文章标题
+hexo new [layout] &lt;title&gt;</code></pre><ol start="8">
+<li>更换主题</li>
 </ol>
 <ul>
-<li>下载主题 -&gt; 更换主题<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 下载到themes文件夹下</span></span><br><span class="line">git clone https:<span class="comment">//github.com/KevinOfNeu/hexo-theme-xoxo xoxo</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 修改 _config.yml 配置</span></span><br><span class="line">theme: xoxo</span><br></pre></td></tr></table></figure></li>
+<li>下载主题 -&gt; 更换主题<pre><code class="js">// 下载到themes文件夹下
+git clone https://github.com/KevinOfNeu/hexo-theme-xoxo xoxo
+</code></pre>
+</li>
 </ul>
+<p>// 修改 _config.yml 配置<br>theme: xoxo<br>```</p>
 
             </div>
             <hr/>

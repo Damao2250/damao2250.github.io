@@ -8,7 +8,7 @@
 注意代码不能直接使用，只是提供一种封装思路，其中 dSearchList 及样式需要自己重新写, dCountryList 来自 dropListMixin 
 还有很多方法并未加进来，可根据实际自行添加
 
-123456">
+// sel">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -201,7 +201,7 @@
     }
 
     .github-corner svg {
-        color: #0f9d58;
+        color: #24292e;
         fill: #fff;
         height: 64px;
         width: 64px;
@@ -389,7 +389,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        332
+                        345
                     </div>
                     
 
@@ -411,7 +411,108 @@
 <li>注意代码不能直接使用，只是提供一种封装思路，其中 <code>dSearchList</code> 及样式需要自己重新写, <code>dCountryList</code> 来自 <code>dropListMixin</code> </li>
 <li>还有很多方法并未加进来，可根据实际自行添加</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// select/index.vue</span></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;el-select</span><br><span class="line">      :value=<span class="string">"value"</span></span><br><span class="line">      :placeholder=<span class="string">"placeholder"</span></span><br><span class="line">      filterable</span><br><span class="line">      :style=<span class="string">"customStyle"</span></span><br><span class="line">      :<span class="class"><span class="keyword">class</span></span>=<span class="string">"customClass"</span></span><br><span class="line">      remote</span><br><span class="line">      :size=<span class="string">"size"</span></span><br><span class="line">      :remote-method=<span class="string">"dSearchList('countryList')"</span></span><br><span class="line">      :loading=<span class="string">"dLoading"</span></span><br><span class="line">      clearable</span><br><span class="line">      @input=<span class="string">"onChange($event)"</span></span><br><span class="line">      @change=<span class="string">"(val) =&gt; onSelectChange(val)"</span></span><br><span class="line">    &gt;</span><br><span class="line">      &lt;el-option</span><br><span class="line">        v-<span class="keyword">for</span>=<span class="string">"item in dCountryList"</span></span><br><span class="line">        :key=<span class="string">"item[optionKey]"</span></span><br><span class="line">        :label=<span class="string">"item[optionLabel]"</span></span><br><span class="line">        :value=<span class="string">"item[optionValue]"</span></span><br><span class="line">      &gt;</span><br><span class="line">        &lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"d-f f-jc-sb"</span>&gt;</span><br><span class="line">          &lt;span&gt;&#123;&#123; item.code || <span class="string">""</span> &#125;&#125;&lt;<span class="regexp">/span&gt;</span></span><br><span class="line"><span class="regexp">          &lt;span&gt;&#123;&#123; item.name || "" &#125;&#125;&lt;/</span>span&gt;</span><br><span class="line">          &lt;span&gt;&#123;&#123; item.numCode || <span class="string">""</span> &#125;&#125;&lt;<span class="regexp">/span&gt;</span></span><br><span class="line"><span class="regexp">        &lt;/</span>div&gt;</span><br><span class="line">      &lt;<span class="regexp">/el-option&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>el-select&gt;</span><br><span class="line">  &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">import</span> &#123; dropListMixin &#125; <span class="keyword">from</span> <span class="string">"@/mixins/drop_list_mixin"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  mixins: [dropListMixin],</span><br><span class="line">  props: &#123;</span><br><span class="line">    value: &#123;</span><br><span class="line">      type: <span class="built_in">String</span>,</span><br><span class="line">      <span class="keyword">default</span>: <span class="string">""</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    placeholder: &#123;</span><br><span class="line">      type: <span class="built_in">String</span>,</span><br><span class="line">      <span class="keyword">default</span>: <span class="string">"请输入"</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    customStyle: &#123;</span><br><span class="line">      type: <span class="built_in">String</span>,</span><br><span class="line">      <span class="keyword">default</span>: <span class="string">"width: 100%;"</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    customClass: &#123;</span><br><span class="line">      type: <span class="built_in">String</span>,</span><br><span class="line">      <span class="keyword">default</span>: <span class="string">""</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    clearable: &#123;</span><br><span class="line">      type: <span class="built_in">Boolean</span>,</span><br><span class="line">      <span class="keyword">default</span>: <span class="literal">true</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    size: &#123;</span><br><span class="line">      type: <span class="built_in">String</span>,</span><br><span class="line">      <span class="keyword">default</span>: <span class="string">"small"</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    optionKey: &#123;</span><br><span class="line">      type: <span class="built_in">String</span>,</span><br><span class="line">      <span class="keyword">default</span>: <span class="string">"code"</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    optionLabel: &#123;</span><br><span class="line">      type: <span class="built_in">String</span>,</span><br><span class="line">      <span class="keyword">default</span>: <span class="string">"name"</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    optionValue: &#123;</span><br><span class="line">      type: <span class="built_in">String</span>,</span><br><span class="line">      <span class="keyword">default</span>: <span class="string">"code"</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">  data() &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;&#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  created() &#123;</span><br><span class="line">    <span class="keyword">this</span>.dInit([<span class="string">"countryList"</span>]);</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    onChange(val) &#123;</span><br><span class="line">      <span class="keyword">this</span>.$emit(<span class="string">"input"</span>, val);</span><br><span class="line">    &#125;,</span><br><span class="line">    onSelectChange(val) &#123;</span><br><span class="line">      <span class="keyword">this</span>.$emit(<span class="string">"selectChange"</span>, val);</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/   使用示例 </span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">  &lt;country-select :size="medium" v-model="formData.countryCode" @selectChange="val =&gt; onCountrySelect(val,'countryCode')" &gt;&lt;/</span>country-select&gt; </span><br><span class="line"></span><br><span class="line"><span class="comment">//   使用示例</span></span><br></pre></td></tr></table></figure>
+<pre><code class="js">// select/index.vue
+&lt;template&gt;
+  &lt;div&gt;
+    &lt;el-select
+      :value=&quot;value&quot;
+      :placeholder=&quot;placeholder&quot;
+      filterable
+      :style=&quot;customStyle&quot;
+      :class=&quot;customClass&quot;
+      remote
+      :size=&quot;size&quot;
+      :remote-method=&quot;dSearchList(&#39;countryList&#39;)&quot;
+      :loading=&quot;dLoading&quot;
+      clearable
+      @input=&quot;onChange($event)&quot;
+      @change=&quot;(val) =&gt; onSelectChange(val)&quot;
+    &gt;
+      &lt;el-option
+        v-for=&quot;item in dCountryList&quot;
+        :key=&quot;item[optionKey]&quot;
+        :label=&quot;item[optionLabel]&quot;
+        :value=&quot;item[optionValue]&quot;
+      &gt;
+        &lt;div class=&quot;d-f f-jc-sb&quot;&gt;
+          &lt;span&gt;{{ item.code || "" }}&lt;/span&gt;
+          &lt;span&gt;{{ item.name || "" }}&lt;/span&gt;
+          &lt;span&gt;{{ item.numCode || "" }}&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/el-option&gt;
+    &lt;/el-select&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import { dropListMixin } from &quot;@/mixins/drop_list_mixin&quot;;
+
+export default {
+  mixins: [dropListMixin],
+  props: {
+    value: {
+      type: String,
+      default: &quot;&quot;,
+    },
+    placeholder: {
+      type: String,
+      default: &quot;请输入&quot;,
+    },
+    customStyle: {
+      type: String,
+      default: &quot;width: 100%;&quot;,
+    },
+    customClass: {
+      type: String,
+      default: &quot;&quot;,
+    },
+    clearable: {
+      type: Boolean,
+      default: true,
+    },
+    size: {
+      type: String,
+      default: &quot;small&quot;,
+    },
+    optionKey: {
+      type: String,
+      default: &quot;code&quot;,
+    },
+    optionLabel: {
+      type: String,
+      default: &quot;name&quot;,
+    },
+    optionValue: {
+      type: String,
+      default: &quot;code&quot;,
+    },
+  },
+  data() {
+    return {}
+  },
+  created() {
+    this.dInit([&quot;countryList&quot;]);
+  },
+  methods: {
+    onChange(val) {
+      this.$emit(&quot;input&quot;, val);
+    },
+    onSelectChange(val) {
+      this.$emit(&quot;selectChange&quot;, val);
+    },
+  },
+};
+&lt;/script&gt;
+
+
+
+//   使用示例 
+
+  &lt;country-select :size=&quot;medium&quot; v-model=&quot;formData.countryCode&quot; @selectChange=&quot;val =&gt; onCountrySelect(val,&#39;countryCode&#39;)&quot; &gt;&lt;/country-select&gt; 
+
+//   使用示例 
+</code></pre>
+
             </div>
             <hr/>
 
@@ -735,7 +836,12 @@
 GIF
 
 
-代码如下12345678910111213141516171819202122232425262728293031323334&lt;!-- index.html --&gt;&lt;!DOCTYPE html&gt
+代码如下&lt;!-- index.html --&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+  &lt;met
                         
                     </div>
                     <div class="publish-info">
@@ -781,7 +887,11 @@ GIF
                     <div class="summary block-with-text">
                         
                             在js的小数计算中，0.1+0.2=0.30000000000000004
-12345let num1 = 0.1;let num2 = 0.2;console.log( num1 + num2 );// 0.300000000000000
+let num1 = 0.1;
+let num2 = 0.2;
+
+console.log( num1 + num2 );
+// 0.3000000000000000
                         
                     </div>
                     <div class="publish-info">

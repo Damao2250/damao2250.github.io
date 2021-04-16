@@ -7,9 +7,10 @@
     <meta name="description" content="
 一份拷贝即用的axios封装代码
 
-安装Axios1npm install axios
+安装Axiosnpm install axios
+import axios, { AxiosRequestConfig, AxiosResponse } from &amp;#39;axios&amp;#39;
 
-12345678910111213141516171819202122232425262728293031323334353637383940414">
+co">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -202,7 +203,7 @@
     }
 
     .github-corner svg {
-        color: #0f9d58;
+        color: #24292e;
         fill: #fff;
         height: 64px;
         width: 64px;
@@ -390,7 +391,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        551
+                        554
                     </div>
                     
 
@@ -411,10 +412,114 @@
                 <ul>
 <li>一份拷贝即用的<code>axios</code>封装代码</li>
 </ul>
-<h2 id="安装Axios"><a href="#安装Axios" class="headerlink" title="安装Axios"></a>安装Axios</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install axios</span><br></pre></td></tr></table></figure>
+<h2 id="安装Axios"><a href="#安装Axios" class="headerlink" title="安装Axios"></a>安装Axios</h2><pre><code class="js">npm install axios</code></pre>
+<pre><code class="js">import axios, { AxiosRequestConfig, AxiosResponse } from &#39;axios&#39;
 
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> axios, &#123; AxiosRequestConfig, AxiosResponse &#125; <span class="keyword">from</span> <span class="string">'axios'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> showStatus = <span class="function">(<span class="params">status: number</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> message = <span class="string">''</span></span><br><span class="line">  <span class="keyword">switch</span> (status) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="number">400</span>:</span><br><span class="line">      message = <span class="string">'请求错误(400)'</span></span><br><span class="line">      <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">case</span> <span class="number">401</span>:</span><br><span class="line">      message = <span class="string">'未授权，请重新登录(401)'</span></span><br><span class="line">      <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">case</span> <span class="number">403</span>:</span><br><span class="line">      message = <span class="string">'拒绝访问(403)'</span></span><br><span class="line">      <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">case</span> <span class="number">404</span>:</span><br><span class="line">      message = <span class="string">'请求出错(404)'</span></span><br><span class="line">      <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">case</span> <span class="number">408</span>:</span><br><span class="line">      message = <span class="string">'请求超时(408)'</span></span><br><span class="line">      <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">case</span> <span class="number">500</span>:</span><br><span class="line">      message = <span class="string">'服务器错误(500)'</span></span><br><span class="line">      <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">case</span> <span class="number">501</span>:</span><br><span class="line">      message = <span class="string">'服务未实现(501)'</span></span><br><span class="line">      <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">case</span> <span class="number">502</span>:</span><br><span class="line">      message = <span class="string">'网络错误(502)'</span></span><br><span class="line">      <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">case</span> <span class="number">503</span>:</span><br><span class="line">      message = <span class="string">'服务不可用(503)'</span></span><br><span class="line">      <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">case</span> <span class="number">504</span>:</span><br><span class="line">      message = <span class="string">'网络超时(504)'</span></span><br><span class="line">      <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">case</span> <span class="number">505</span>:</span><br><span class="line">      message = <span class="string">'HTTP版本不受支持(505)'</span></span><br><span class="line">      <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">      message = <span class="string">`连接出错(<span class="subst">$&#123;status&#125;</span>)!`</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;message&#125;</span>，请检查网络或联系管理员！`</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> service = axios.create(&#123;</span><br><span class="line">  <span class="comment">// 联调</span></span><br><span class="line">  baseURL: process.env.NODE_ENV === <span class="string">'production'</span> ? <span class="string">`/`</span> : <span class="string">'/apis'</span>,</span><br><span class="line">  headers: &#123;</span><br><span class="line">    <span class="keyword">get</span>: &#123;</span><br><span class="line">      <span class="string">'Content-Type'</span>: <span class="string">'application/x-www-form-urlencoded;charset=utf-8'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    post: &#123;</span><br><span class="line">      <span class="string">'Content-Type'</span>: <span class="string">'application/json;charset=utf-8'</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// 是否跨站点访问控制请求</span></span><br><span class="line">  withCredentials: <span class="literal">true</span>,</span><br><span class="line">  timeout: <span class="number">30000</span>,</span><br><span class="line">  transformRequest: [<span class="function">(<span class="params">data</span>) =&gt;</span> &#123;</span><br><span class="line">    data = <span class="built_in">JSON</span>.stringify(data)</span><br><span class="line">    <span class="keyword">return</span> data</span><br><span class="line">  &#125;],</span><br><span class="line">  validateStatus () &#123;</span><br><span class="line">    <span class="comment">// 使用async-await，处理reject情况较为繁琐，所以全部返回resolve，在业务代码中处理异常</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">  &#125;,</span><br><span class="line">  transformResponse: [<span class="function">(<span class="params">data</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> data === <span class="string">'string'</span> &amp;&amp; data.startsWith(<span class="string">'&#123;'</span>)) &#123;</span><br><span class="line">      data = <span class="built_in">JSON</span>.parse(data)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> data</span><br><span class="line">  &#125;]</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 请求拦截器</span></span><br><span class="line">service.interceptors.request.use(<span class="function">(<span class="params">config: AxiosRequestConfig</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> config</span><br><span class="line">&#125;, (error) =&gt; &#123;</span><br><span class="line">    <span class="comment">// 错误抛到业务代码</span></span><br><span class="line">    error.data = &#123;&#125;</span><br><span class="line">    error.data.msg = <span class="string">'服务器异常，请联系管理员！'</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Promise</span>.resolve(error)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 响应拦截器</span></span><br><span class="line">service.interceptors.response.use(<span class="function">(<span class="params">response: AxiosResponse</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> status = response.status</span><br><span class="line">    <span class="keyword">let</span> msg = <span class="string">''</span></span><br><span class="line">    <span class="keyword">if</span> (status &lt; <span class="number">200</span> || status &gt;= <span class="number">300</span>) &#123;</span><br><span class="line">        <span class="comment">// 处理http错误，抛到业务代码</span></span><br><span class="line">        msg = showStatus(status)</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">typeof</span> response.data === <span class="string">'string'</span>) &#123;</span><br><span class="line">            response.data = &#123;msg&#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            response.data.msg = msg</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> response</span><br><span class="line">&#125;, (error) =&gt; &#123;</span><br><span class="line">    <span class="comment">// 错误抛到业务代码</span></span><br><span class="line">    error.data = &#123;&#125;</span><br><span class="line">    error.data.msg = <span class="string">'请求超时或服务器异常，请检查网络或联系管理员！'</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Promise</span>.resolve(error)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> service</span><br></pre></td></tr></table></figure>
+const showStatus = (status: number) =&gt; {
+  let message = &#39;&#39;
+  switch (status) {
+    case 400:
+      message = &#39;请求错误(400)&#39;
+      break
+    case 401:
+      message = &#39;未授权，请重新登录(401)&#39;
+      break
+    case 403:
+      message = &#39;拒绝访问(403)&#39;
+      break
+    case 404:
+      message = &#39;请求出错(404)&#39;
+      break
+    case 408:
+      message = &#39;请求超时(408)&#39;
+      break
+    case 500:
+      message = &#39;服务器错误(500)&#39;
+      break
+    case 501:
+      message = &#39;服务未实现(501)&#39;
+      break
+    case 502:
+      message = &#39;网络错误(502)&#39;
+      break
+    case 503:
+      message = &#39;服务不可用(503)&#39;
+      break
+    case 504:
+      message = &#39;网络超时(504)&#39;
+      break
+    case 505:
+      message = &#39;HTTP版本不受支持(505)&#39;
+      break
+    default:
+      message = `连接出错(${status})!`
+  }
+  return `${message}，请检查网络或联系管理员！`
+}
 
+const service = axios.create({
+  // 联调
+  baseURL: process.env.NODE_ENV === &#39;production&#39; ? `/` : &#39;/apis&#39;,
+  headers: {
+    get: {
+      &#39;Content-Type&#39;: &#39;application/x-www-form-urlencoded;charset=utf-8&#39;
+    },
+    post: {
+      &#39;Content-Type&#39;: &#39;application/json;charset=utf-8&#39;
+    }
+  },
+  // 是否跨站点访问控制请求
+  withCredentials: true,
+  timeout: 30000,
+  transformRequest: [(data) =&gt; {
+    data = JSON.stringify(data)
+    return data
+  }],
+  validateStatus () {
+    // 使用async-await，处理reject情况较为繁琐，所以全部返回resolve，在业务代码中处理异常
+    return true
+  },
+  transformResponse: [(data) =&gt; {
+    if (typeof data === &#39;string&#39; &amp;&amp; data.startsWith(&#39;{&#39;)) {
+      data = JSON.parse(data)
+    }
+    return data
+  }]
+})
+
+// 请求拦截器
+service.interceptors.request.use((config: AxiosRequestConfig) =&gt; {
+    return config
+}, (error) =&gt; {
+    // 错误抛到业务代码
+    error.data = {}
+    error.data.msg = &#39;服务器异常，请联系管理员！&#39;
+    return Promise.resolve(error)
+})
+
+// 响应拦截器
+service.interceptors.response.use((response: AxiosResponse) =&gt; {
+    const status = response.status
+    let msg = &#39;&#39;
+    if (status &lt; 200 || status &gt;= 300) {
+        // 处理http错误，抛到业务代码
+        msg = showStatus(status)
+        if (typeof response.data === &#39;string&#39;) {
+            response.data = {msg}
+        } else {
+            response.data.msg = msg
+        }
+    }
+    return response
+}, (error) =&gt; {
+    // 错误抛到业务代码
+    error.data = {}
+    error.data.msg = &#39;请求超时或服务器异常，请检查网络或联系管理员！&#39;
+    return Promise.resolve(error)
+})
+
+export default service
+</code></pre>
 <h2 id="一些关于Axios的注释"><a href="#一些关于Axios的注释" class="headerlink" title="一些关于Axios的注释"></a>一些关于Axios的注释</h2><ul>
 <li>请求方法应为小写：<code>method: get/post/put/delete</code>在axios内部全部转为小写</li>
 <li>Axios实现原理是基于 <code>XMLHttpRequest</code>  详细可见’axios/lib/adapters/xhr.js’#20</li>

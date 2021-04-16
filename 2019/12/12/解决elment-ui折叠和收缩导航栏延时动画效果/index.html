@@ -10,7 +10,8 @@
 最外层包一层div
 
 通过div类名设置样式穿透
- 123456789101112131415.layout-aside-menu /deep/ .collapse-tran">
+ .layout-aside-menu /deep/ .collapse-transition {
+   -webkit-t">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -203,7 +204,7 @@
     }
 
     .github-corner svg {
-        color: #0f9d58;
+        color: #24292e;
         fill: #fff;
         height: 64px;
         width: 64px;
@@ -391,7 +392,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        184
+                        174
                     </div>
                     
 
@@ -415,7 +416,22 @@
 <li><p>最外层包一层div</p>
 </li>
 <li><p>通过div类名设置样式穿透</p>
- <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">.layout-aside-menu /deep/ .collapse-transition &#123;</span><br><span class="line">  <span class="selector-tag">-webkit-transition</span>: 0<span class="selector-tag">s</span> <span class="selector-tag">height</span>, 0<span class="selector-tag">s</span> <span class="selector-tag">padding-top</span>, 0<span class="selector-tag">s</span> <span class="selector-tag">padding-bottom</span>;</span><br><span class="line">  <span class="selector-tag">transition</span>: 0<span class="selector-tag">s</span> <span class="selector-tag">height</span>, 0<span class="selector-tag">s</span> <span class="selector-tag">padding-top</span>, 0<span class="selector-tag">s</span> <span class="selector-tag">padding-bottom</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.layout-aside-menu /deep/ .horizontal-collapse-transition &#123;</span><br><span class="line">  <span class="selector-tag">-webkit-transition</span>: 0<span class="selector-tag">s</span> <span class="selector-tag">width</span>, 0<span class="selector-tag">s</span> <span class="selector-tag">padding-left</span>, 0<span class="selector-tag">s</span> <span class="selector-tag">padding-right</span>;</span><br><span class="line">  <span class="selector-tag">transition</span>: 0<span class="selector-tag">s</span> <span class="selector-tag">width</span>, 0<span class="selector-tag">s</span> <span class="selector-tag">padding-left</span>, 0<span class="selector-tag">s</span> <span class="selector-tag">padding-right</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.layout-aside-menu /deep/ .horizontal-collapse-transition .el-submenu__title .el-submenu__icon-arrow &#123;</span><br><span class="line">  <span class="selector-tag">-webkit-transition</span>: 0<span class="selector-tag">s</span>;</span><br><span class="line">  <span class="selector-tag">transition</span>: 0<span class="selector-tag">s</span>;</span><br><span class="line">  <span class="selector-tag">opacity</span>: 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<pre><code class="css"> .layout-aside-menu /deep/ .collapse-transition {
+   -webkit-transition: 0s height, 0s padding-top, 0s padding-bottom;
+   transition: 0s height, 0s padding-top, 0s padding-bottom;
+ }
+
+ .layout-aside-menu /deep/ .horizontal-collapse-transition {
+   -webkit-transition: 0s width, 0s padding-left, 0s padding-right;
+   transition: 0s width, 0s padding-left, 0s padding-right;
+ }
+
+ .layout-aside-menu /deep/ .horizontal-collapse-transition .el-submenu__title .el-submenu__icon-arrow {
+   -webkit-transition: 0s;
+   transition: 0s;
+   opacity: 0;
+ }</code></pre>
+</li>
 </ol>
 </li>
 <li><p>补充点：</p>
@@ -424,13 +440,16 @@
 <p> 外层 <code>&gt;&gt;&gt;</code> 第三方组件 {</p>
 <p>   样式</p>
 <p> }</p>
- <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.wrapper</span> &gt;&gt;&gt; <span class="selector-class">.swiper-pagination-bullet-active</span></span><br><span class="line"><span class="selector-tag">background</span>: <span class="selector-id">#fff</span></span><br></pre></td></tr></table></figure>
+<pre><code class="css"> .wrapper &gt;&gt;&gt; .swiper-pagination-bullet-active
+ background: #fff</code></pre>
 </li>
 <li><p><code>sass</code>和<code>less</code>的样式穿透 使用 <code>/deep/</code></p>
 <p> 外层 <code>/deep/</code> 第三方组件 {</p>
 <p>   样式</p>
 <p> }</p>
- <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.wrapper /deep/ .swiper-pagination-bullet-active&#123;</span><br><span class="line">  <span class="selector-tag">background</span>: <span class="selector-id">#fff</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="css"> .wrapper /deep/ .swiper-pagination-bullet-active{
+   background: #fff;
+ }</code></pre>
 </li>
 </ol>
 </li>

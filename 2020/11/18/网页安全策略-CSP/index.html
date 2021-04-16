@@ -199,7 +199,7 @@ CSP的实质就是白名单制度">
     }
 
     .github-corner svg {
-        color: #0f9d58;
+        color: #24292e;
         fill: #fff;
         height: 64px;
         width: 64px;
@@ -387,7 +387,7 @@ CSP的实质就是白名单制度">
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        412
+                        425
                     </div>
                     
 
@@ -411,8 +411,10 @@ CSP的实质就是白名单制度">
 </li>
 <li><p>两种启用<code>CSP</code>方式</p>
 <ul>
-<li>①通过HTTP头部信息的<code>Content-Security-Policy</code>字段添加指定策略<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Content-Security-Policy: script-src <span class="string">'self'</span>; boject-src <span class="string">'none'</span>; style-src cdn.example.org third-party.org; child-src https:</span><br></pre></td></tr></table></figure></li>
-<li>②通过网页的<code>&lt;meta&gt;</code>标签<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">'Content-Security-Policy'</span> <span class="attr">content</span>=<span class="string">"script-src 'self'; boject-src 'none'; style-src cdn.example.org third-party.org; child-src https:"</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li>①通过HTTP头部信息的<code>Content-Security-Policy</code>字段添加指定策略<pre><code class="js">Content-Security-Policy: script-src &#39;self&#39;; boject-src &#39;none&#39;; style-src cdn.example.org third-party.org; child-src https:</code></pre>
+</li>
+<li>②通过网页的<code>&lt;meta&gt;</code>标签<pre><code class="html">&lt;meta http-equiv=&#39;Content-Security-Policy&#39; content=&quot;script-src &#39;self&#39;; boject-src &#39;none&#39;; style-src cdn.example.org third-party.org; child-src https:&quot;&gt;</code></pre>
+</li>
 <li>以上代码的配置信息：</li>
 </ul>
 <ul>
@@ -440,7 +442,8 @@ CSP的实质就是白名单制度">
 </li>
 <li><p><code>default-src</code> 选项</p>
 <ul>
-<li>用来限制各个选项的默认值<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Content-Security-Policy: <span class="keyword">default</span>-src <span class="string">'self'</span></span><br></pre></td></tr></table></figure></li>
+<li>用来限制各个选项的默认值<pre><code class="js">Content-Security-Policy: default-src &#39;self&#39;</code></pre>
+</li>
 <li>以上代码限制所有资源只能从当前域名加载</li>
 </ul>
 </li>
@@ -773,9 +776,10 @@ CSP的实质就是白名单制度">
                             
 一份拷贝即用的axios封装代码
 
-安装Axios1npm install axios
+安装Axiosnpm install axios
+import axios, { AxiosRequestConfig, AxiosResponse } from &#39;axios&#39;
 
-12345678910111213141516171819202122232425262728293031323334353637383940414
+co
                         
                     </div>
                     <div class="publish-info">

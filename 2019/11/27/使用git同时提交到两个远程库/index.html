@@ -200,7 +200,7 @@ git remote set-url --add htt">
     }
 
     .github-corner svg {
-        color: #0f9d58;
+        color: #24292e;
         fill: #fff;
         height: 64px;
         width: 64px;
@@ -388,7 +388,7 @@ git remote set-url --add htt">
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        299
+                        305
                     </div>
                     
 
@@ -418,13 +418,50 @@ git remote set-url --add htt">
 <p>or</p>
 <p><code>git push</code></p>
 <p>==================================================================</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// tips：</span></span><br><span class="line"><span class="comment">// 打开.git/config，可以看到这样的配置：</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="string">`[remote "origin"]</span></span><br><span class="line"><span class="string">  url = https://gitlab.com/XXX/xxx.git</span></span><br><span class="line"><span class="string">  fetch = +refs/heads/*:refs/remotes/origin/*</span></span><br><span class="line"><span class="string">  url = https://github.com/XXX/xxx.git`</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 刚才的命令其实就是添加了这些配置,也可以不用命令行，可以直接编辑该文件，添加对应的url即可</span></span><br></pre></td></tr></table></figure>
+<pre><code class="js">// tips：
+// 打开.git/config，可以看到这样的配置：
 
 
+`[remote &quot;origin&quot;]
+  url = https://gitlab.com/XXX/xxx.git
+  fetch = +refs/heads/*:refs/remotes/origin/*
+  url = https://github.com/XXX/xxx.git`
+
+
+// 刚才的命令其实就是添加了这些配置,也可以不用命令行，可以直接编辑该文件，添加对应的url即可
+
+</code></pre>
 <h3 id="法2"><a href="#法2" class="headerlink" title="法2"></a>法2</h3><ol>
 <li>直接添加另一个远程仓库地址<br><code>git remote add [name] [远程库地址]</code><br><code>git push [name]</code></li>
 </ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// [name] 取个远程库名并连接远程地址  然后push上去      git默认的[name]为origin</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 如：</span></span><br><span class="line"><span class="comment">// git remote add test https://github.com/XXX/xxx.git</span></span><br><span class="line"><span class="comment">// git push test</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 但是想同步两个远程仓库必须同时push &amp;&amp; pull</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// git push origin</span></span><br><span class="line"><span class="comment">// git push test</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// git pull origin</span></span><br><span class="line"><span class="comment">// git pull test</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 查看.gigt中的config文件</span></span><br><span class="line"><span class="string">`[remote "origin"]</span></span><br><span class="line"><span class="string">	url = https://gitlab.com/XXX/xxx.git</span></span><br><span class="line"><span class="string">	fetch = +refs/heads/*:refs/remotes/origin/*</span></span><br><span class="line"><span class="string">[branch "master"]</span></span><br><span class="line"><span class="string">	remote = origin</span></span><br><span class="line"><span class="string">	merge = refs/heads/master</span></span><br><span class="line"><span class="string">[remote "test"]</span></span><br><span class="line"><span class="string">	url = https://github.com/XXX/xxx.git</span></span><br><span class="line"><span class="string">  fetch = +refs/heads/*:refs/remotes/test/*`</span></span><br></pre></td></tr></table></figure>
+<pre><code class="js">// [name] 取个远程库名并连接远程地址  然后push上去      git默认的[name]为origin
+
+
+// 如：
+// git remote add test https://github.com/XXX/xxx.git
+// git push test
+
+// 但是想同步两个远程仓库必须同时push &amp;&amp; pull
+
+// git push origin
+// git push test
+
+// git pull origin
+// git pull test
+
+
+
+// 查看.gigt中的config文件
+`[remote &quot;origin&quot;]
+    url = https://gitlab.com/XXX/xxx.git
+    fetch = +refs/heads/*:refs/remotes/origin/*
+[branch &quot;master&quot;]
+    remote = origin
+    merge = refs/heads/master
+[remote &quot;test&quot;]
+    url = https://github.com/XXX/xxx.git
+  fetch = +refs/heads/*:refs/remotes/test/*`
+</code></pre>
 
             </div>
             <hr/>
@@ -744,7 +781,11 @@ git remote set-url --add htt">
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646
+                            
+/**
+ * @abstract  (同义：@virtual)
+ * 该成员必须由继承者实现（或重写）
+ * This member must be implemented (or overridden) by the inheritor
                         
                     </div>
                     <div class="publish-info">
@@ -791,9 +832,11 @@ git remote set-url --add htt">
                         
                             打包优化
 路由懒加载
-12345&#123;  path: '/about',  name: 'about',  component: () =&gt; import('@/views/about/about'),&#125;,
-
-不生成.
+{
+path: &#39;/about&#39;,
+name: &#39;about&#39;,
+component: () =&gt; import(&#39;@/views/about/about&#39;),
+}
                         
                     </div>
                     <div class="publish-info">

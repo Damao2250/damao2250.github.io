@@ -6,9 +6,11 @@
     <meta name="keywords" content="vue的一些优化, Damao">
     <meta name="description" content="打包优化
 路由懒加载
-12345&amp;#123;  path: &#39;/about&#39;,  name: &#39;about&#39;,  component: () =&amp;gt; import(&#39;@/views/about/about&#39;),&amp;#125;,
-
-不生成.">
+{
+path: &amp;#39;/about&amp;#39;,
+name: &amp;#39;about&amp;#39;,
+component: () =&amp;gt; import(&amp;#39;@/views/about/about&amp;#39;),
+}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -201,7 +203,7 @@
     }
 
     .github-corner svg {
-        color: #0f9d58;
+        color: #24292e;
         fill: #fff;
         height: 64px;
         width: 64px;
@@ -389,7 +391,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        345
+                        379
                     </div>
                     
 
@@ -409,33 +411,110 @@
             <div id="articleContent">
                 <h1 id="打包优化"><a href="#打包优化" class="headerlink" title="打包优化"></a>打包优化</h1><ol>
 <li><p>路由懒加载</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  path: <span class="string">'/about'</span>,</span><br><span class="line">  name: <span class="string">'about'</span>,</span><br><span class="line">  component: <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="string">'@/views/about/about'</span>),</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+<pre><code class="js">{
+path: &#39;/about&#39;,
+name: &#39;about&#39;,
+component: () =&gt; import(&#39;@/views/about/about&#39;),
+},</code></pre>
 </li>
 <li><p>不生成.map 文件</p>
 </li>
 </ol>
 <ul>
-<li>webpack默认会生成map文件，map文件是用来调试代码的。此外，这里还要注意sourcemap的配置分 开发（dev）和线上（build）两个地方配置，开发我们就不管了，就用默认的，线上我们是不需要这个代码的。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 配置 vue.config.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  productionSourceMap: <span class="literal">false</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li>webpack默认会生成map文件，map文件是用来调试代码的。此外，这里还要注意sourcemap的配置分 开发（dev）和线上（build）两个地方配置，开发我们就不管了，就用默认的，线上我们是不需要这个代码的。<pre><code class="js">// 配置 vue.config.js
+module.exports = {
+productionSourceMap: false,
+}</code></pre>
 </li>
 </ul>
 <ol start="3">
-<li><p>Element组件按需加载</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 安装 babel-plugin-component：</span></span><br><span class="line">npm install babel-plugin-component -D</span><br><span class="line"><span class="comment">// 修改babel.config.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  presets: [</span><br><span class="line">    [</span><br><span class="line">      <span class="string">'@vue/app'</span>,</span><br><span class="line">      &#123;</span><br><span class="line">        useBuiltIns: <span class="string">"entry"</span></span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  ],</span><br><span class="line">  plugins: [</span><br><span class="line">    [</span><br><span class="line">      <span class="string">"component"</span>,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="string">"libraryName"</span>: <span class="string">"element-ui"</span>,</span><br><span class="line">        <span class="string">"styleLibraryName"</span>: <span class="string">"theme-chalk"</span></span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li>Element组件按需加载<pre><code class="js">// 安装 babel-plugin-component：
+npm install babel-plugin-component -D
+// 修改babel.config.js
+module.exports = {
+presets: [
+ [
+   &#39;@vue/app&#39;,
+   {
+     useBuiltIns: &quot;entry&quot;
+   }
+ ]
+],
+plugins: [
+ [
+   &quot;component&quot;,
+   {
+     &quot;libraryName&quot;: &quot;element-ui&quot;,
+     &quot;styleLibraryName&quot;: &quot;theme-chalk&quot;
+   }
+ ]
+]
+}
+</code></pre>
 </li>
-<li><p>echart优化</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 安装 babel-plugin-equire</span></span><br><span class="line">npm install babel-plugin-equire -D</span><br><span class="line"><span class="comment">// 修改babel.config.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="string">'equire'</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="comment">// others</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 新建echarts.js</span></span><br><span class="line"><span class="keyword">const</span> echarts = equire([</span><br><span class="line">  <span class="string">'title'</span>,</span><br><span class="line">  <span class="string">'legend'</span>,</span><br><span class="line">  <span class="string">'grid'</span>,</span><br><span class="line">  <span class="string">'line'</span>,</span><br><span class="line">  <span class="string">'bar'</span>,</span><br><span class="line">  <span class="string">'pie'</span>,</span><br><span class="line">  <span class="comment">// others</span></span><br><span class="line">])</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> echarts</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 或者</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 新建echarts.js</span></span><br><span class="line"><span class="keyword">import</span> echarts <span class="keyword">from</span> <span class="string">'echarts/lib/echarts'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">'echarts/lib/chart/line'</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'echarts/lib/chart/lines'</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'echarts/lib/chart/radar'</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'echarts/lib/component/legend'</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'echarts/lib/component/tooltip'</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'echarts/lib/component/grid'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> echarts</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 然后再到需要引用echarts的页面进行引入</span></span><br><span class="line"><span class="keyword">import</span> echarts <span class="keyword">from</span> <span class="string">'../echarts'</span>;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>图片的压缩合并</p>
-</li>
+</ol>
+<pre><code>
+4. echart优化
+```js
+// 安装 babel-plugin-equire
+npm install babel-plugin-equire -D
+// 修改babel.config.js
+module.exports = {
+  plugins: [
+    &#39;equire&#39;
+  ],
+  // others
+}
+
+
+// 新建echarts.js
+const echarts = equire([
+  &#39;title&#39;,
+  &#39;legend&#39;,
+  &#39;grid&#39;,
+  &#39;line&#39;,
+  &#39;bar&#39;,
+  &#39;pie&#39;,
+  // others
+])
+export default echarts
+
+
+
+// 或者
+
+// 新建echarts.js
+import echarts from &#39;echarts/lib/echarts&#39;
+
+import &#39;echarts/lib/chart/line&#39;
+import &#39;echarts/lib/chart/lines&#39;
+import &#39;echarts/lib/chart/radar&#39;
+import &#39;echarts/lib/component/legend&#39;
+import &#39;echarts/lib/component/tooltip&#39;
+import &#39;echarts/lib/component/grid&#39;
+
+export default echarts
+
+
+
+
+// 然后再到需要引用echarts的页面进行引入
+import echarts from &#39;../echarts&#39;;
+</code></pre><ol start="5">
+<li>图片的压缩合并</li>
 </ol>
 <ul>
 <li>无损压缩图片：<a href="https://tinypng.com/" target="_blank" rel="noopener">https://tinypng.com/</a></li>
 </ul>
 <ol start="6">
-<li>添加分析工具<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 安装</span></span><br><span class="line">npm i webpack-bundle-analyzer</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在 vue.config.js 中添加</span></span><br><span class="line"><span class="built_in">module</span>.exports=&#123;</span><br><span class="line">  chainWebpack: <span class="function">(<span class="params">config</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">/* 添加分析工具 */</span></span><br><span class="line">    <span class="keyword">if</span> (process.env.NODE_ENV === <span class="string">'production'</span>) &#123;</span><br><span class="line">      <span class="keyword">if</span> (process.env.npm_config_report) &#123;</span><br><span class="line">        config.</span><br><span class="line">          plugin(<span class="string">'webpack-bundle-analyzer'</span>)</span><br><span class="line">          .use(<span class="built_in">require</span>(<span class="string">'webpack-bundle-analyzer'</span>).BundleAnalyzerPlugin)</span><br><span class="line">          .end()</span><br><span class="line">        config.plugins.delete(<span class="string">'prefetch'</span>)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 启动</span></span><br><span class="line">npm run build --report</span><br></pre></td></tr></table></figure>
+<li>添加分析工具<pre><code class="js">// 安装
+npm i webpack-bundle-analyzer
+</code></pre>
 </li>
 </ol>
-
+<p>// 在 vue.config.js 中添加<br>module.exports={<br>  chainWebpack: (config) =&gt; {<br>    /* 添加分析工具 */<br>    if (process.env.NODE_ENV === ‘production’) {<br>      if (process.env.npm_config_report) {<br>        config.<br>          plugin(‘webpack-bundle-analyzer’)<br>          .use(require(‘webpack-bundle-analyzer’).BundleAnalyzerPlugin)<br>          .end()<br>        config.plugins.delete(‘prefetch’)<br>      }<br>    }<br>  },<br>}</p>
+<p>// 启动<br>npm run build –report</p>
+<pre><code></code></pre>
             </div>
             <hr/>
 
@@ -802,11 +881,14 @@ git remote set-url --add htt
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            安装123npm i vuexoryarn add vuex
-
+                            安装npm i vuex
+or
+yarn add vuex
 Vuex 是什么
 Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。
 它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。
+
+
                         
                     </div>
                     <div class="publish-info">
