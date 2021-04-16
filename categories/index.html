@@ -3,8 +3,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="分类, Damao">
-    <meta name="description" content="分类 | Damao Bolg">
+    <meta name="keywords" content="Damao">
+    <meta name="description" content="Damao Bolg">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -12,7 +12,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>分类 | Damao Bolg</title>
+    <title>Damao Bolg</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
     <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/materialize/1.0.0-rc.2/css/materialize.min.css">
@@ -242,645 +242,307 @@
 
 </header>
 
-
-
-
-
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/card-bg2.jpg')">
-    <div class="container">
-        <div class="row">
-            <div class="col s12 m12 l12">
-                <div class="brand">
-                    <div class="description center-align post-title">
-                        categories
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-<main class="post-container content">
-
-    
-    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
 <style>
-    #articleContent h1::before,
-    #articleContent h2::before,
-    #articleContent h3::before,
-    #articleContent h4::before,
-    #articleContent h5::before,
-    #articleContent h6::before {
-        display: block;
-        content: " ";
-        height: 100px;
-        margin-top: -100px;
-        visibility: hidden;
-    }
-
-    #articleContent :focus {
-        outline: none;
-    }
-
-    .toc-fixed {
-        position: fixed;
-        top: 64px;
-    }
-
-    .toc-widget {
-        padding-left: 20px;
-    }
-
-    .toc-widget .toc-title {
-        margin: 35px 0 15px 0;
-        padding-left: 17px;
-        font-size: 1.5rem;
-        font-weight: bold;
-        line-height: 1.5rem;
-    }
-
-    .toc-widget ol {
-        padding: 0;
-        list-style: none;
-    }
-
-    #toc-content ol {
-        padding-left: 10px;
-    }
-
-    #toc-content ol li {
-        padding-left: 10px;
-    }
-
-    #toc-content .toc-link:hover {
-        color: #42b983;
-        font-weight: 700;
-        text-decoration: underline;
-    }
-
-    #toc-content .toc-link::before {
-        background-color: transparent;
-        max-height: 25px;
-    }
-
-    #toc-content .is-active-link {
-        color: #42b983;
-    }
-
-    #toc-content .is-active-link::before {
-        background-color: #42b983;
-    }
-
-    #floating-toc-btn {
-        position: fixed;
-        right: 20px;
-        bottom: 76px;
-        padding-top: 15px;
-        margin-bottom: 0;
-        z-index: 998;
-    }
-
-    #floating-toc-btn .btn-floating {
-        width: 48px;
-        height: 48px;
-    }
-
-    #floating-toc-btn .btn-floating i {
-        line-height: 48px;
-        font-size: 1.4rem;
+    #tags{
+        margin-top: 0;
     }
 </style>
-<div class="row">
-    <div id="main-content" class="col s12 m12 l9">
-        <!-- 文章内容详情 -->
-<div id="artDetail">
+
+<div class="bg-cover pd-header about-cover rainbow">
+    <div class="container">
+    <div class="row">
+    <div class="col s12  m12  l12">
+        <div class="brand">
+            <div class="title center-align">
+                
+                    生活的意义在于不安现状
+                
+            </div>
+
+            <div class="description center-align">
+                
+                    Coding...
+                
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+// 每天切换 banner 图.  Switch banner image every day.
+$('.bg-cover').css('background-image', 'url(medias/banner/' + new Date().getDay() + '.jpg)');
+</script>
+
+    </div>
+</div>
+
+
+<main class="content">
+
+    
+
+<div id="category-cloud" class="container chip-container">
     <div class="card">
-        <div class="card-content article-info">
-            <div class="row tag-cate">
-                <div class="col s7">
-                    
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
-                    
-                </div>
-                <div class="col s5 right-align">
-                    
-                </div>
+        <div class="card-content">
+            <div class="tag-title center-align">
+                <i class="fa fa-bookmark"></i>&nbsp;&nbsp;文章分类
             </div>
-
-            <div class="post-info">
-                <div class="post-date info-break-policy">
-                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-04-16
-                </div>
-
+            <div class="tag-chips">
                 
-                    
-                    <div class="info-break-policy">
-                        <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        0
-                    </div>
-                    
-
-                    
-                    <div class="info-break-policy">
-                        <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        1 分
-                    </div>
-                    
-                
-				
-				
-            </div>
-        </div>
-        <hr class="clearfix">
-        <div class="card-content article-card-content">
-            <div id="articleContent">
+                你目前还没有对文章进行分类.
                 
             </div>
-            <hr/>
-
-            
-
-            <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/social-share.js/1.0.16/css/share.min.css">
-
-<div id="article-share">
-    
-    <div class="social-share" data-disabled="linkedin,facebook,twitter,google+,tencent,diandian" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
-    
-</div>
-
-<!--<script src="/libs/share/js/social-share.min.js"></script>-->
-<script src="https://cdn.staticfile.org/social-share.js/1.0.16/js/social-share.min.js"></script>
-
-
-            
-
-
         </div>
     </div>
+</div>
 
     
 
-    
+<div id="tags" class="container chip-container">
+    <div class="card">
+        <div class="card-content">
+            <div class="tag-title center-align">
+                <i class="fa fa-tags"></i>&nbsp;&nbsp;文章标签
+            </div>
+            <div class="tag-chips">
+                
+                
+                <a href="/tags/git/" title="git: 3">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="git" style="background-color: #F9EBEA;">git
+                        <span class="tag-length">(3)</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/React-Native-for-Windows/" title="React Native for Windows: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="React Native for Windows" style="background-color: #F5EEF8;">React Native for Windows
+                        <span class="tag-length">(1)</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/Github/" title="Github: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="Github" style="background-color: #D5F5E3;">Github
+                        <span class="tag-length">(1)</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E9%A1%B9%E7%9B%AE%E8%A7%84%E8%8C%83/" title="项目规范: 3">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="项目规范" style="background-color: #E8F8F5;">项目规范
+                        <span class="tag-length">(3)</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/Hexo/" title="Hexo: 2">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="Hexo" style="background-color: #FEF9E7;">Hexo
+                        <span class="tag-length">(2)</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/MongoDB/" title="MongoDB: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="MongoDB" style="background-color: #F8F9F9;">MongoDB
+                        <span class="tag-length">(1)</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/Linux/" title="Linux: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="Linux" style="background-color: #82E0AA;">Linux
+                        <span class="tag-length">(1)</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/Nginx/" title="Nginx: 2">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="Nginx" style="background-color: #D7BDE2;">Nginx
+                        <span class="tag-length">(2)</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/Vue3/" title="Vue3: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="Vue3" style="background-color: #A3E4D7;">Vue3
+                        <span class="tag-length">(1)</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/React/" title="React: 2">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="React" style="background-color: #85C1E9;">React
+                        <span class="tag-length">(2)</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/GitHub/" title="GitHub: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="GitHub" style="background-color: #F8C471;">GitHub
+                        <span class="tag-length">(1)</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/Vuex/" title="Vuex: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="Vuex" style="background-color: #F9E79F;">Vuex
+                        <span class="tag-length">(1)</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/Vue/" title="Vue: 3">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="Vue" style="background-color: #D5F5E3;">Vue
+                        <span class="tag-length">(3)</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/axios/" title="axios: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="axios" style="background-color: #F8C471;">axios
+                        <span class="tag-length">(1)</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/Taro/" title="Taro: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="Taro" style="background-color: #A3E4D7;">Taro
+                        <span class="tag-length">(1)</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/typescript/" title="typescript: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="typescript" style="background-color: #F5EEF8;">typescript
+                        <span class="tag-length">(1)</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/JS/" title="JS: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="JS" style="background-color: #F9E79F;">JS
+                        <span class="tag-length">(1)</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/SVG/" title="SVG: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="SVG" style="background-color: #D5F5E3;">SVG
+                        <span class="tag-length">(1)</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/Element-ui/" title="Element-ui: 3">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="Element-ui" style="background-color: #D5F5E3;">Element-ui
+                        <span class="tag-length">(3)</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" title="小程序: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="小程序" style="background-color: #F8C471;">小程序
+                        <span class="tag-length">(1)</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF/" title="移动端: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="移动端" style="background-color: #E8F8F5;">移动端
+                        <span class="tag-length">(1)</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/canvas/" title="canvas: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="canvas" style="background-color: #F8F9F9;">canvas
+                        <span class="tag-length">(1)</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/CSP/" title="CSP: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="CSP" style="background-color: #FFF;">CSP
+                        <span class="tag-length">(1)</span>
+                    </span>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</div>
 
-    
 
-    
-
-    
-        <style>
-    .valine-card {
-        margin: 1.5rem auto;
-    }
-
-    .valine-card .card-content {
-        padding: 20px 20px 5px 20px;
-    }
-
-    #vcomments input[type=text],
-    #vcomments input[type=email],
-    #vcomments input[type=url],
-    #vcomments textarea {
-        box-sizing: border-box;
-    }
-
-    #vcomments p {
-        margin: 2px 2px 10px;
-        font-size: 1.05rem;
-        line-height: 1.78rem;
-    }
-
-    #vcomments blockquote p {
-        text-indent: 0.2rem;
-    }
-
-    #vcomments a {
-        padding: 0 2px;
-        color: #42b983;
-        font-weight: 500;
-        text-decoration: underline;
-    }
-
-    #vcomments img {
-        max-width: 100%;
-        height: auto;
-        cursor: pointer;
-    }
-
-    #vcomments ol li {
-        list-style-type: decimal;
-    }
-
-    #vcomments ol,
-    ul {
-        display: block;
-        padding-left: 2em;
-        word-spacing: 0.05rem;
-    }
-
-    #vcomments ul li,
-    ol li {
-        display: list-item;
-        line-height: 1.8rem;
-        font-size: 1rem;
-    }
-
-    #vcomments ul li {
-        list-style-type: disc;
-    }
-
-    #vcomments ul ul li {
-        list-style-type: circle;
-    }
-
-    #vcomments table, th, td {
-        padding: 12px 13px;
-        border: 1px solid #dfe2e5;
-    }
-
-    #vcomments table, th, td {
-        border: 0;
-    }
-
-    table tr:nth-child(2n), thead {
-        background-color: #fafafa;
-    }
-
-    #vcomments table th {
-        background-color: #f2f2f2;
-        min-width: 80px;
-    }
-
-    #vcomments table td {
-        min-width: 80px;
-    }
-
-    #vcomments h1 {
-        font-size: 1.85rem;
-        font-weight: bold;
-        line-height: 2.2rem;
-    }
-
-    #vcomments h2 {
-        font-size: 1.65rem;
-        font-weight: bold;
-        line-height: 1.9rem;
-    }
-
-    #vcomments h3 {
-        font-size: 1.45rem;
-        font-weight: bold;
-        line-height: 1.7rem;
-    }
-
-    #vcomments h4 {
-        font-size: 1.25rem;
-        font-weight: bold;
-        line-height: 1.5rem;
-    }
-
-    #vcomments h5 {
-        font-size: 1.1rem;
-        font-weight: bold;
-        line-height: 1.4rem;
-    }
-
-    #vcomments h6 {
-        font-size: 1rem;
-        line-height: 1.3rem;
-    }
-
-    #vcomments p {
-        font-size: 1rem;
-        line-height: 1.5rem;
-    }
-
-    #vcomments hr {
-        margin: 12px 0;
-        border: 0;
-        border-top: 1px solid #ccc;
-    }
-
-    #vcomments blockquote {
-        margin: 15px 0;
-        border-left: 5px solid #42b983;
-        padding: 1rem 0.8rem 0.3rem 0.8rem;
-        color: #666;
-        background-color: rgba(66, 185, 131, .1);
-    }
-
-    #vcomments pre {
-        font-family: monospace, monospace;
-        padding: 1.2em;
-        margin: .5em 0;
-        background: #272822;
-        overflow: auto;
-        border-radius: 0.3em;
-        tab-size: 4;
-    }
-
-    #vcomments code {
-        font-family: monospace, monospace;
-        padding: 1px 3px;
-        font-size: 0.92rem;
-        color: #e96900;
-        background-color: #f8f8f8;
-        border-radius: 2px;
-    }
-
-    #vcomments pre code {
-        font-family: monospace, monospace;
-        padding: 0;
-        color: #e8eaf6;
-        background-color: #272822;
-    }
-
-    #vcomments pre[class*="language-"] {
-        padding: 1.2em;
-        margin: .5em 0;
-    }
-
-    #vcomments code[class*="language-"],
-    pre[class*="language-"] {
-        color: #e8eaf6;
-    }
-
-    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
-        position: inherit;
-        margin-left: -1.3rem;
-        margin-right: 0.4rem;
-        margin-top: -1px;
-        vertical-align: middle;
-        left: unset;
-        visibility: visible;
-    }
-
-    #vcomments b,
-    strong {
-        font-weight: bold;
-    }
-
-    #vcomments dfn {
-        font-style: italic;
-    }
-
-    #vcomments small {
-        font-size: 85%;
-    }
-
-    #vcomments cite {
-        font-style: normal;
-    }
-
-    #vcomments mark {
-        background-color: #fcf8e3;
-        padding: .2em;
-    }
-
-    #vcomments table, th, td {
-        padding: 12px 13px;
-        border: 1px solid #dfe2e5;
-    }
-
-    table tr:nth-child(2n), thead {
-        background-color: #fafafa;
-    }
-
-    #vcomments table th {
-        background-color: #f2f2f2;
-        min-width: 80px;
-    }
-
-    #vcomments table td {
-        min-width: 80px;
-    }
-
-    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
-        position: inherit;
-        margin-left: -1.3rem;
-        margin-right: 0.4rem;
-        margin-top: -1px;
-        vertical-align: middle;
-        left: unset;
-        visibility: visible;
-    }
-    .v .vwrap .vheader .vinput:focus {
-        border-bottom:1px dashed #eb5055;!important;
-        box-shadow: none;
+    <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/jqcloud/1.0.4/jqcloud.min.css">
+<style type="text/css">
+    #tag-wordcloud {
+        width: 100%;
+        height: 300px;
     }
 </style>
 
-<div class="card valine-card" data-aos="fade-up">
-    <div id="vcomments" class="card-content"></div>
+<div class="container" data-aos="fade-up">
+    <div class="card">
+        <div id="tag-wordcloud" class="card-content"></div>
+    </div>
 </div>
 
-<script src="https://cdn.staticfile.org/valine/1.3.9/Valine.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/jqcloud/1.0.4/jqcloud-1.0.4.min.js"></script>
+<script type="text/javascript">
+    
 
-<script>
-    new Valine({
-        el: '#vcomments',
-        appId: 'gE4XFMwC1Kq2wzKJNoHlmaYS-gzGzoHsz',
-        appKey: 'rrtA6uiEs1IdVW4qRLzEmTfB',
-        notify: 'false' === 'true',
-        verify: 'false' === 'true',
-        visitor: 'true' === 'true',
-        avatar: 'mm',
-        pageSize: '10',
-        lang: 'zh-cn',
-        placeholder: '欢迎留言\n评论功能以邮件作为通知方式\n如有必要请填写正确邮箱'
+    $('#tag-wordcloud').jQCloud([{"text":"git","weight":3,"link":"https://damao2250.github.io/tags/git/"},{"text":"React Native for Windows","weight":1,"link":"https://damao2250.github.io/tags/React-Native-for-Windows/"},{"text":"Github","weight":1,"link":"https://damao2250.github.io/tags/Github/"},{"text":"项目规范","weight":3,"link":"https://damao2250.github.io/tags/%E9%A1%B9%E7%9B%AE%E8%A7%84%E8%8C%83/"},{"text":"Hexo","weight":2,"link":"https://damao2250.github.io/tags/Hexo/"},{"text":"MongoDB","weight":1,"link":"https://damao2250.github.io/tags/MongoDB/"},{"text":"Linux","weight":1,"link":"https://damao2250.github.io/tags/Linux/"},{"text":"Nginx","weight":2,"link":"https://damao2250.github.io/tags/Nginx/"},{"text":"Vue3","weight":1,"link":"https://damao2250.github.io/tags/Vue3/"},{"text":"React","weight":2,"link":"https://damao2250.github.io/tags/React/"},{"text":"GitHub","weight":1,"link":"https://damao2250.github.io/tags/GitHub/"},{"text":"Vuex","weight":1,"link":"https://damao2250.github.io/tags/Vuex/"},{"text":"Vue","weight":3,"link":"https://damao2250.github.io/tags/Vue/"},{"text":"axios","weight":1,"link":"https://damao2250.github.io/tags/axios/"},{"text":"Taro","weight":1,"link":"https://damao2250.github.io/tags/Taro/"},{"text":"typescript","weight":1,"link":"https://damao2250.github.io/tags/typescript/"},{"text":"JS","weight":1,"link":"https://damao2250.github.io/tags/JS/"},{"text":"SVG","weight":1,"link":"https://damao2250.github.io/tags/SVG/"},{"text":"Element-ui","weight":3,"link":"https://damao2250.github.io/tags/Element-ui/"},{"text":"小程序","weight":1,"link":"https://damao2250.github.io/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"},{"text":"移动端","weight":1,"link":"https://damao2250.github.io/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF/"},{"text":"canvas","weight":1,"link":"https://damao2250.github.io/tags/canvas/"},{"text":"CSP","weight":1,"link":"https://damao2250.github.io/tags/CSP/"}], {
+        autoResize: true
     });
 </script>
 
-    
-
-    
-
-<article id="prenext-posts" class="prev-next articles">
-    <div class="row article-row">
-        
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">
-                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
-            </div>
-            <div class="card">
-                <a href="/categories/index.html">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/card-bg2.jpg" class="responsive-img" alt="categories">
-                        
-                        <span class="card-title">categories</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-04-16
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-user fa-fw"></i>
-                            Damao
-                            
-                        </span>
-                    </div>
-                </div>
-
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="fa fa-dot-circle-o"></i>
-            </div>
-            <div class="card">
-                <a href="/categories/index.html">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/card-bg2.jpg" class="responsive-img" alt="categories">
-                        
-                        <span class="card-title">categories</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-04-16
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-user fa-fw"></i>
-                            Damao
-                            
-                        </span>
-                    </div>
-                </div>
-
-                
-            </div>
-        </div>
-        
-    </div>
-</article>
-</div>
-
-
-
-    </div>
-    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
-        <div class="toc-widget">
-            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
-            <div id="toc-content"></div>
-        </div>
-    </div>
-</div>
-
-<!-- TOC 悬浮按钮. -->
-
-<div id="floating-toc-btn" class="hide-on-med-and-down">
-    <a class="btn-floating btn-large bg-color">
-        <i class="fa fa-list"></i>
-    </a>
-</div>
-
-
-<script src="/libs/tocbot/tocbot.min.js"></script>
-<script>
-    $(function () {
-        tocbot.init({
-            tocSelector: '#toc-content',
-            contentSelector: '#articleContent',
-            headingsOffset: -($(window).height() * 0.4 - 45),
-            // headingsOffset: -205,
-            headingSelector: 'h2, h3, h4'
-        });
-
-        // modify the toc link href to support Chinese.
-        let i = 0;
-        let tocHeading = 'toc-heading-';
-        $('#toc-content a').each(function () {
-            $(this).attr('href', '#' + tocHeading + (++i));
-        });
-
-        // modify the heading title id to support Chinese.
-        i = 0;
-        $('#articleContent').children('h2, h3, h4').each(function () {
-            $(this).attr('id', tocHeading + (++i));
-        });
-
-        // Set scroll toc fixed.
-        let tocHeight = parseInt($(window).height() * 0.4 - 64);
-        let $tocWidget = $('.toc-widget');
-        $(window).scroll(function () {
-            let scroll = $(window).scrollTop();
-            /* add post toc fixed. */
-            if (scroll > tocHeight) {
-                $tocWidget.addClass('toc-fixed');
-            } else {
-                $tocWidget.removeClass('toc-fixed');
-            }
-        });
-
-        
-        /* 修复文章卡片 div 的宽度. */
-        let fixPostCardWidth = function (srcId, targetId) {
-            let srcDiv = $('#' + srcId);
-            if (srcDiv.length === 0) {
-                return;
-            }
-
-            let w = srcDiv.width();
-            if (w >= 450) {
-                w = w + 21;
-            } else if (w >= 350 && w < 450) {
-                w = w + 18;
-            } else if (w >= 300 && w < 350) {
-                w = w + 16;
-            } else {
-                w = w + 14;
-            }
-            $('#' + targetId).width(w);
-        };
-
-        // 切换TOC目录展开收缩的相关操作.
-        const expandedClass = 'expanded';
-        let $tocAside = $('#toc-aside');
-        let $mainContent = $('#main-content');
-        $('#floating-toc-btn .btn-floating').click(function () {
-            if ($tocAside.hasClass(expandedClass)) {
-                $tocAside.removeClass(expandedClass).slideUp(500);
-                $mainContent.removeClass('l9');
-            } else {
-                $tocAside.addClass(expandedClass).slideDown(500);
-                $mainContent.addClass('l9');
-            }
-            fixPostCardWidth('artDetail', 'prenext-posts');
-        });
-        
-    });
-</script>
-    
 
 </main>
-
-
 
 <footer class="page-footer foot-bg-color">
     <div class="container row center-align">
