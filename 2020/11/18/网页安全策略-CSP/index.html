@@ -51,7 +51,7 @@ CSP的实质就是白名单制度">
     <script src="https://cdn.staticfile.org/jquery/2.2.0/jquery.min.js"></script>
     <script src=""></script>
 <meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Damao Bolg" type="application/atom+xml">
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -387,7 +387,7 @@ CSP的实质就是白名单制度">
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        425
+                        410
                     </div>
                     
 
@@ -411,9 +411,9 @@ CSP的实质就是白名单制度">
 </li>
 <li><p>两种启用<code>CSP</code>方式</p>
 <ul>
-<li>①通过HTTP头部信息的<code>Content-Security-Policy</code>字段添加指定策略<pre><code class="js">Content-Security-Policy: script-src &#39;self&#39;; boject-src &#39;none&#39;; style-src cdn.example.org third-party.org; child-src https:</code></pre>
+<li>①通过HTTP头部信息的<code>Content-Security-Policy</code>字段添加指定策略<pre class=" language-js"><code class="language-js">Content<span class="token operator">-</span>Security<span class="token operator">-</span>Policy<span class="token punctuation">:</span> script<span class="token operator">-</span>src <span class="token string">'self'</span><span class="token punctuation">;</span> boject<span class="token operator">-</span>src <span class="token string">'none'</span><span class="token punctuation">;</span> style<span class="token operator">-</span>src cdn<span class="token punctuation">.</span>example<span class="token punctuation">.</span>org third<span class="token operator">-</span>party<span class="token punctuation">.</span>org<span class="token punctuation">;</span> child<span class="token operator">-</span>src https<span class="token punctuation">:</span></code></pre>
 </li>
-<li>②通过网页的<code>&lt;meta&gt;</code>标签<pre><code class="html">&lt;meta http-equiv=&#39;Content-Security-Policy&#39; content=&quot;script-src &#39;self&#39;; boject-src &#39;none&#39;; style-src cdn.example.org third-party.org; child-src https:&quot;&gt;</code></pre>
+<li>②通过网页的<code>&lt;meta&gt;</code>标签<pre class=" language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">http-equiv</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">'</span>Content-Security-Policy<span class="token punctuation">'</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>script-src <span class="token punctuation">'</span>self<span class="token punctuation">'</span>; boject-src <span class="token punctuation">'</span>none<span class="token punctuation">'</span>; style-src cdn.example.org third-party.org; child-src https:<span class="token punctuation">"</span></span><span class="token punctuation">></span></span></code></pre>
 </li>
 <li>以上代码的配置信息：</li>
 </ul>
@@ -442,7 +442,7 @@ CSP的实质就是白名单制度">
 </li>
 <li><p><code>default-src</code> 选项</p>
 <ul>
-<li>用来限制各个选项的默认值<pre><code class="js">Content-Security-Policy: default-src &#39;self&#39;</code></pre>
+<li>用来限制各个选项的默认值<pre class=" language-js"><code class="language-js">Content<span class="token operator">-</span>Security<span class="token operator">-</span>Policy<span class="token punctuation">:</span> <span class="token keyword">default</span><span class="token operator">-</span>src <span class="token string">'self'</span></code></pre>
 </li>
 <li>以上代码限制所有资源只能从当前域名加载</li>
 </ul>
@@ -777,9 +777,9 @@ CSP的实质就是白名单制度">
 一份拷贝即用的axios封装代码
 
 安装Axiosnpm install axios
-import axios, { AxiosRequestConfig, AxiosResponse } from &#39;axios&#39;
+import axios, { AxiosRequestConfig, AxiosResponse } from 'axios'
 
-co
+const show
                         
                     </div>
                     <div class="publish-info">
@@ -971,7 +971,7 @@ Vue i
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">21.9k</span>
+                <span class="white-color">21k</span>
             
 
             

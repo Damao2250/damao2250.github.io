@@ -7,10 +7,16 @@
     <meta name="description" content="打包优化
 路由懒加载
 {
-path: &amp;#39;/about&amp;#39;,
-name: &amp;#39;about&amp;#39;,
-component: () =&amp;gt; import(&amp;#39;@/views/about/about&amp;#39;),
-}">
+path: &#39;/about&#39;,
+name: &#39;about&#39;,
+component: () =&gt; import(&#39;@/views/about/about&#39;),
+},
+
+不生成.map 文件
+
+
+
+webpack默认会">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -55,7 +61,7 @@ component: () =&amp;gt; import(&amp;#39;@/views/about/about&amp;#39;),
     <script src="https://cdn.staticfile.org/jquery/2.2.0/jquery.min.js"></script>
     <script src=""></script>
 <meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Damao Bolg" type="application/atom+xml">
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -391,7 +397,7 @@ component: () =&amp;gt; import(&amp;#39;@/views/about/about&amp;#39;),
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        379
+                        358
                     </div>
                     
 
@@ -411,45 +417,45 @@ component: () =&amp;gt; import(&amp;#39;@/views/about/about&amp;#39;),
             <div id="articleContent">
                 <h1 id="打包优化"><a href="#打包优化" class="headerlink" title="打包优化"></a>打包优化</h1><ol>
 <li><p>路由懒加载</p>
-<pre><code class="js">{
-path: &#39;/about&#39;,
-name: &#39;about&#39;,
-component: () =&gt; import(&#39;@/views/about/about&#39;),
-},</code></pre>
+<pre class=" language-js"><code class="language-js"><span class="token punctuation">{</span>
+path<span class="token punctuation">:</span> <span class="token string">'/about'</span><span class="token punctuation">,</span>
+name<span class="token punctuation">:</span> <span class="token string">'about'</span><span class="token punctuation">,</span>
+component<span class="token punctuation">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'@/views/about/about'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span></code></pre>
 </li>
 <li><p>不生成.map 文件</p>
 </li>
 </ol>
 <ul>
-<li>webpack默认会生成map文件，map文件是用来调试代码的。此外，这里还要注意sourcemap的配置分 开发（dev）和线上（build）两个地方配置，开发我们就不管了，就用默认的，线上我们是不需要这个代码的。<pre><code class="js">// 配置 vue.config.js
-module.exports = {
-productionSourceMap: false,
-}</code></pre>
+<li>webpack默认会生成map文件，map文件是用来调试代码的。此外，这里还要注意sourcemap的配置分 开发（dev）和线上（build）两个地方配置，开发我们就不管了，就用默认的，线上我们是不需要这个代码的。<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 配置 vue.config.js</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+productionSourceMap<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span></code></pre>
 </li>
 </ul>
 <ol start="3">
-<li>Element组件按需加载<pre><code class="js">// 安装 babel-plugin-component：
-npm install babel-plugin-component -D
-// 修改babel.config.js
-module.exports = {
-presets: [
- [
-   &#39;@vue/app&#39;,
-   {
-     useBuiltIns: &quot;entry&quot;
-   }
- ]
-],
-plugins: [
- [
-   &quot;component&quot;,
-   {
-     &quot;libraryName&quot;: &quot;element-ui&quot;,
-     &quot;styleLibraryName&quot;: &quot;theme-chalk&quot;
-   }
- ]
-]
-}
+<li>Element组件按需加载<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 安装 babel-plugin-component：</span>
+npm install babel<span class="token operator">-</span>plugin<span class="token operator">-</span>component <span class="token operator">-</span>D
+<span class="token comment" spellcheck="true">// 修改babel.config.js</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+presets<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+ <span class="token punctuation">[</span>
+   <span class="token string">'@vue/app'</span><span class="token punctuation">,</span>
+   <span class="token punctuation">{</span>
+     useBuiltIns<span class="token punctuation">:</span> <span class="token string">"entry"</span>
+   <span class="token punctuation">}</span>
+ <span class="token punctuation">]</span>
+<span class="token punctuation">]</span><span class="token punctuation">,</span>
+plugins<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+ <span class="token punctuation">[</span>
+   <span class="token string">"component"</span><span class="token punctuation">,</span>
+   <span class="token punctuation">{</span>
+     <span class="token string">"libraryName"</span><span class="token punctuation">:</span> <span class="token string">"element-ui"</span><span class="token punctuation">,</span>
+     <span class="token string">"styleLibraryName"</span><span class="token punctuation">:</span> <span class="token string">"theme-chalk"</span>
+   <span class="token punctuation">}</span>
+ <span class="token punctuation">]</span>
+<span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
 </code></pre>
 </li>
 </ol>
@@ -507,8 +513,8 @@ import echarts from &#39;../echarts&#39;;
 <li>无损压缩图片：<a href="https://tinypng.com/" target="_blank" rel="noopener">https://tinypng.com/</a></li>
 </ul>
 <ol start="6">
-<li>添加分析工具<pre><code class="js">// 安装
-npm i webpack-bundle-analyzer
+<li>添加分析工具<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 安装</span>
+npm i webpack<span class="token operator">-</span>bundle<span class="token operator">-</span>analyzer
 </code></pre>
 </li>
 </ol>
@@ -1029,7 +1035,7 @@ Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">21.9k</span>
+                <span class="white-color">21k</span>
             
 
             

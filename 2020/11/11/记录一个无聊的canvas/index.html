@@ -9,12 +9,13 @@
 GIF
 
 
-代码如下&amp;lt;!-- index.html --&amp;gt;
-&amp;lt;!DOCTYPE html&amp;gt;
-&amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt;
+代码如下&amp;lt;!-- index.html --&gt;
+&amp;lt;!DOCTYPE html&gt;
+&amp;lt;html lang=&#34;en&#34;&gt;
 
-&amp;lt;head&amp;gt;
-  &amp;lt;met">
+&amp;lt;head&gt;
+  &amp;lt;meta charset=&#34;UTF-8&#34;&gt;
+  &amp;">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -59,7 +60,7 @@ GIF
     <script src="https://cdn.staticfile.org/jquery/2.2.0/jquery.min.js"></script>
     <script src=""></script>
 <meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Damao Bolg" type="application/atom+xml">
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -418,376 +419,376 @@ GIF
 <li>GIF</li>
 </ul>
 <p><img src="https://raw.githubusercontent.com/Damao2250/FileTransfer/master/fish.gif" alt="flying-fish-gif"></p>
-<h2 id="代码如下"><a href="#代码如下" class="headerlink" title="代码如下"></a>代码如下</h2><pre><code class="html">&lt;!-- index.html --&gt;
-&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
+<h2 id="代码如下"><a href="#代码如下" class="headerlink" title="代码如下"></a>代码如下</h2><pre class=" language-html"><code class="language-html"><span class="token comment" spellcheck="true">&lt;!-- index.html --></span>
+<span class="token doctype">&lt;!DOCTYPE html></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
 
-&lt;head&gt;
-  &lt;meta charset=&quot;UTF-8&quot;&gt;
-  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-  &lt;title&gt;Document&lt;/title&gt;
-  &lt;style&gt;
-    * {
-      margin: 0;
-      padding: 0;
-    }
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>width<span class="token punctuation">=</span>device-width, initial-scale<span class="token punctuation">=</span>1.0<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>Document<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style language-css">
+    <span class="token selector">* </span><span class="token punctuation">{</span>
+      <span class="token property">margin</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+      <span class="token property">padding</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    #jsi-flying-fish-container {
-      width: 100%;
-      position: fixed;
-      z-index: 999;
-      bottom: 240px;
-      left: 0;
-      height: 250px;
-      max-height: 250px;
-    }
+    <span class="token selector"><span class="token id">#jsi-flying-fish-container</span> </span><span class="token punctuation">{</span>
+      <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">100%</span><span class="token punctuation">;</span>
+      <span class="token property">position</span><span class="token punctuation">:</span> fixed<span class="token punctuation">;</span>
+      <span class="token property">z-index</span><span class="token punctuation">:</span> <span class="token number">999</span><span class="token punctuation">;</span>
+      <span class="token property">bottom</span><span class="token punctuation">:</span> <span class="token number">240</span>px<span class="token punctuation">;</span>
+      <span class="token property">left</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+      <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">250</span>px<span class="token punctuation">;</span>
+      <span class="token property">max-height</span><span class="token punctuation">:</span> <span class="token number">250</span>px<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-  &lt;/style&gt;
-  &lt;script src=&quot;https://cdn.bootcdn.net/ajax/libs/jquery/2.2.0/jquery.min.js&quot;&gt;&lt;/script&gt;
-&lt;/head&gt;
+  </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>https://cdn.bootcdn.net/ajax/libs/jquery/2.2.0/jquery.min.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
 
-&lt;body&gt;
-  &lt;div id=&quot;jsi-flying-fish-container&quot; class=&quot;container&quot;&gt;&lt;canvas width=&quot;1221&quot; height=&quot;241&quot;&gt;&lt;/canvas&gt;&lt;/div&gt;
-  &lt;script src=&quot;./fish.js&quot;&gt;&lt;/script&gt;
-&lt;/body&gt;
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>jsi-flying-fish-container<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>container<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>canvas</span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>1221<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>241<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>canvas</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>./fish.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
 
-&lt;/html&gt;
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span>
 </code></pre>
-<pre><code class="js">// fish.js
-var RENDERER = {
-    POINT_INTERVAL : 5,
-    FISH_COUNT : 300,
-    MAX_INTERVAL_COUNT : 50,
-    INIT_HEIGHT_RATE : 0.5,
-    THRESHOLD : 50,
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// fish.js</span>
+<span class="token keyword">var</span> RENDERER <span class="token operator">=</span> <span class="token punctuation">{</span>
+    POINT_INTERVAL <span class="token punctuation">:</span> <span class="token number">5</span><span class="token punctuation">,</span>
+    FISH_COUNT <span class="token punctuation">:</span> <span class="token number">300</span><span class="token punctuation">,</span>
+    MAX_INTERVAL_COUNT <span class="token punctuation">:</span> <span class="token number">50</span><span class="token punctuation">,</span>
+    INIT_HEIGHT_RATE <span class="token punctuation">:</span> <span class="token number">0.5</span><span class="token punctuation">,</span>
+    THRESHOLD <span class="token punctuation">:</span> <span class="token number">50</span><span class="token punctuation">,</span>
 
-    init : function(){
-        this.setParameters();
-        this.reconstructMethods();
-        this.setup();
-        this.bindEvent();
-        this.render();
-    },
-    setParameters : function(){
-        this.$window = $(window);
-        this.$container = $(&#39;#jsi-flying-fish-container&#39;);
-        this.$canvas = $(&#39;&lt;canvas /&gt;&#39;);
-        this.context = this.$canvas.appendTo(this.$container).get(0).getContext(&#39;2d&#39;);
-        this.points = [];
-        this.fishes = [];
-        this.watchIds = [];
-    },
-    createSurfacePoints : function(){
-        var count = Math.round(this.width / this.POINT_INTERVAL);
-        this.pointInterval = this.width / (count - 1);
-        this.points.push(new SURFACE_POINT(this, 0));
+    init <span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setParameters</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">reconstructMethods</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">bindEvent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    setParameters <span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>$window <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span>window<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>$container <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'#jsi-flying-fish-container'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>$canvas <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'&lt;canvas />'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>context <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$canvas<span class="token punctuation">.</span><span class="token function">appendTo</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>$container<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getContext</span><span class="token punctuation">(</span><span class="token string">'2d'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>points <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>fishes <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>watchIds <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    createSurfacePoints <span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">var</span> count <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">round</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>width <span class="token operator">/</span> <span class="token keyword">this</span><span class="token punctuation">.</span>POINT_INTERVAL<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>pointInterval <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>width <span class="token operator">/</span> <span class="token punctuation">(</span>count <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>points<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">SURFACE_POINT</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        for(var i = 1; i &lt; count; i++){
-            var point = new SURFACE_POINT(this, i * this.pointInterval),
-                previous = this.points[i - 1];
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> count<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">var</span> point <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SURFACE_POINT</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> i <span class="token operator">*</span> <span class="token keyword">this</span><span class="token punctuation">.</span>pointInterval<span class="token punctuation">)</span><span class="token punctuation">,</span>
+                previous <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>points<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-            point.setPreviousPoint(previous);
-            previous.setNextPoint(point);
-            this.points.push(point);
-        }
-    },
-    reconstructMethods : function(){
-        this.watchWindowSize = this.watchWindowSize.bind(this);
-        this.jdugeToStopResize = this.jdugeToStopResize.bind(this);
-        this.startEpicenter = this.startEpicenter.bind(this);
-        this.moveEpicenter = this.moveEpicenter.bind(this);
-        this.reverseVertical = this.reverseVertical.bind(this);
-        this.render = this.render.bind(this);
-    },
-    setup : function(){
-        this.points.length = 0;
-        this.fishes.length = 0;
-        this.watchIds.length = 0;
-        this.intervalCount = this.MAX_INTERVAL_COUNT;
-        this.width = this.$container.width();
-        this.height = this.$container.height();
-        this.fishCount = this.FISH_COUNT * this.width / 500 * this.height / 500;
-        this.$canvas.attr({width : this.width, height : this.height});
-        this.reverse = false;
+            point<span class="token punctuation">.</span><span class="token function">setPreviousPoint</span><span class="token punctuation">(</span>previous<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            previous<span class="token punctuation">.</span><span class="token function">setNextPoint</span><span class="token punctuation">(</span>point<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>points<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>point<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    reconstructMethods <span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>watchWindowSize <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>watchWindowSize<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>jdugeToStopResize <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>jdugeToStopResize<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>startEpicenter <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>startEpicenter<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>moveEpicenter <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>moveEpicenter<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>reverseVertical <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>reverseVertical<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>render <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>render<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    setup <span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>points<span class="token punctuation">.</span>length <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>fishes<span class="token punctuation">.</span>length <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>watchIds<span class="token punctuation">.</span>length <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>intervalCount <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>MAX_INTERVAL_COUNT<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>width <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$container<span class="token punctuation">.</span><span class="token function">width</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>height <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$container<span class="token punctuation">.</span><span class="token function">height</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>fishCount <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>FISH_COUNT <span class="token operator">*</span> <span class="token keyword">this</span><span class="token punctuation">.</span>width <span class="token operator">/</span> <span class="token number">500</span> <span class="token operator">*</span> <span class="token keyword">this</span><span class="token punctuation">.</span>height <span class="token operator">/</span> <span class="token number">500</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>$canvas<span class="token punctuation">.</span><span class="token function">attr</span><span class="token punctuation">(</span><span class="token punctuation">{</span>width <span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>width<span class="token punctuation">,</span> height <span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>height<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>reverse <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
 
-        this.fishes.push(new FISH(this));
-        this.createSurfacePoints();
-    },
-    watchWindowSize : function(){
-        this.clearTimer();
-        this.tmpWidth = this.$window.width();
-        this.tmpHeight = this.$window.height();
-        this.watchIds.push(setTimeout(this.jdugeToStopResize, this.WATCH_INTERVAL));
-    },
-    clearTimer : function(){
-        while(this.watchIds.length &gt; 0){
-            clearTimeout(this.watchIds.pop());
-        }
-    },
-    jdugeToStopResize : function(){
-        var width = this.$window.width(),
-            height = this.$window.height(),
-            stopped = (width == this.tmpWidth &amp;&amp; height == this.tmpHeight);
+        <span class="token keyword">this</span><span class="token punctuation">.</span>fishes<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">FISH</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">createSurfacePoints</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    watchWindowSize <span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">clearTimer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>tmpWidth <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$window<span class="token punctuation">.</span><span class="token function">width</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>tmpHeight <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$window<span class="token punctuation">.</span><span class="token function">height</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>watchIds<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>jdugeToStopResize<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>WATCH_INTERVAL<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    clearTimer <span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>watchIds<span class="token punctuation">.</span>length <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token function">clearTimeout</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>watchIds<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    jdugeToStopResize <span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">var</span> width <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$window<span class="token punctuation">.</span><span class="token function">width</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            height <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$window<span class="token punctuation">.</span><span class="token function">height</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            stopped <span class="token operator">=</span> <span class="token punctuation">(</span>width <span class="token operator">==</span> <span class="token keyword">this</span><span class="token punctuation">.</span>tmpWidth <span class="token operator">&amp;&amp;</span> height <span class="token operator">==</span> <span class="token keyword">this</span><span class="token punctuation">.</span>tmpHeight<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        this.tmpWidth = width;
-        this.tmpHeight = height;
+        <span class="token keyword">this</span><span class="token punctuation">.</span>tmpWidth <span class="token operator">=</span> width<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>tmpHeight <span class="token operator">=</span> height<span class="token punctuation">;</span>
 
-        if(stopped){
-            this.setup();
-        }
-    },
-    bindEvent : function(){
-        this.$window.on(&#39;resize&#39;, this.watchWindowSize);
-        this.$container.on(&#39;mouseenter&#39;, this.startEpicenter);
-        this.$container.on(&#39;mousemove&#39;, this.moveEpicenter);
-        this.$container.on(&#39;click&#39;, this.reverseVertical);
-    },
-    getAxis : function(event){
-        var offset = this.$container.offset();
+        <span class="token keyword">if</span><span class="token punctuation">(</span>stopped<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    bindEvent <span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>$window<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'resize'</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>watchWindowSize<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>$container<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'mouseenter'</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>startEpicenter<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>$container<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'mousemove'</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>moveEpicenter<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>$container<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>reverseVertical<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    getAxis <span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">var</span> offset <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$container<span class="token punctuation">.</span><span class="token function">offset</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        return {
-            x : event.clientX - offset.left + this.$window.scrollLeft(),
-            y : event.clientY - offset.top + this.$window.scrollTop()
-        };
-    },
-    startEpicenter : function(event){
-        this.axis = this.getAxis(event);
-    },
-    moveEpicenter : function(event){
-        var axis = this.getAxis(event);
+        <span class="token keyword">return</span> <span class="token punctuation">{</span>
+            x <span class="token punctuation">:</span> event<span class="token punctuation">.</span>clientX <span class="token operator">-</span> offset<span class="token punctuation">.</span>left <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$window<span class="token punctuation">.</span><span class="token function">scrollLeft</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            y <span class="token punctuation">:</span> event<span class="token punctuation">.</span>clientY <span class="token operator">-</span> offset<span class="token punctuation">.</span>top <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$window<span class="token punctuation">.</span><span class="token function">scrollTop</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    startEpicenter <span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>axis <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getAxis</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    moveEpicenter <span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">var</span> axis <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getAxis</span><span class="token punctuation">(</span>event<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        if(!this.axis){
-            this.axis = axis;
-        }
-        this.generateEpicenter(axis.x, axis.y, axis.y - this.axis.y);
-        this.axis = axis;
-    },
-    generateEpicenter : function(x, y, velocity){
-        if(y &lt; this.height / 2 - this.THRESHOLD || y &gt; this.height / 2 + this.THRESHOLD){
-            return;
-        }
-        var index = Math.round(x / this.pointInterval);
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span>axis<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>axis <span class="token operator">=</span> axis<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">generateEpicenter</span><span class="token punctuation">(</span>axis<span class="token punctuation">.</span>x<span class="token punctuation">,</span> axis<span class="token punctuation">.</span>y<span class="token punctuation">,</span> axis<span class="token punctuation">.</span>y <span class="token operator">-</span> <span class="token keyword">this</span><span class="token punctuation">.</span>axis<span class="token punctuation">.</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>axis <span class="token operator">=</span> axis<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    generateEpicenter <span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> y<span class="token punctuation">,</span> velocity<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>y <span class="token operator">&lt;</span> <span class="token keyword">this</span><span class="token punctuation">.</span>height <span class="token operator">/</span> <span class="token number">2</span> <span class="token operator">-</span> <span class="token keyword">this</span><span class="token punctuation">.</span>THRESHOLD <span class="token operator">||</span> y <span class="token operator">></span> <span class="token keyword">this</span><span class="token punctuation">.</span>height <span class="token operator">/</span> <span class="token number">2</span> <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>THRESHOLD<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">var</span> index <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">round</span><span class="token punctuation">(</span>x <span class="token operator">/</span> <span class="token keyword">this</span><span class="token punctuation">.</span>pointInterval<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        if(index &lt; 0 || index &gt;= this.points.length){
-            return;
-        }
-        this.points[index].interfere(y, velocity);
-    },
-    reverseVertical : function(){
-        this.reverse = !this.reverse;
+        <span class="token keyword">if</span><span class="token punctuation">(</span>index <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token operator">||</span> index <span class="token operator">>=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>points<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>points<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">interfere</span><span class="token punctuation">(</span>y<span class="token punctuation">,</span> velocity<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    reverseVertical <span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>reverse <span class="token operator">=</span> <span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span>reverse<span class="token punctuation">;</span>
 
-        for(var i = 0, count = this.fishes.length; i &lt; count; i++){
-            this.fishes[i].reverseVertical();
-        }
-    },
-    controlStatus : function(){
-        for(var i = 0, count = this.points.length; i &lt; count; i++){
-            this.points[i].updateSelf();
-        }
-        for(var i = 0, count = this.points.length; i &lt; count; i++){
-            this.points[i].updateNeighbors();
-        }
-        if(this.fishes.length &lt; this.fishCount){
-            if(--this.intervalCount == 0){
-                this.intervalCount = this.MAX_INTERVAL_COUNT;
-                this.fishes.push(new FISH(this));
-            }
-        }
-    },
-    render : function(){
-        requestAnimationFrame(this.render);
-        this.controlStatus();
-        this.context.clearRect(0, 0, this.width, this.height);
-        this.context.fillStyle = &#39;#0184b2&#39;;
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> count <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>fishes<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i <span class="token operator">&lt;</span> count<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>fishes<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">reverseVertical</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    controlStatus <span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> count <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>points<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i <span class="token operator">&lt;</span> count<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>points<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">updateSelf</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> count <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>points<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i <span class="token operator">&lt;</span> count<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>points<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">updateNeighbors</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>fishes<span class="token punctuation">.</span>length <span class="token operator">&lt;</span> <span class="token keyword">this</span><span class="token punctuation">.</span>fishCount<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">--</span><span class="token keyword">this</span><span class="token punctuation">.</span>intervalCount <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token keyword">this</span><span class="token punctuation">.</span>intervalCount <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>MAX_INTERVAL_COUNT<span class="token punctuation">;</span>
+                <span class="token keyword">this</span><span class="token punctuation">.</span>fishes<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">FISH</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    render <span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token function">requestAnimationFrame</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>render<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">controlStatus</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>context<span class="token punctuation">.</span><span class="token function">clearRect</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>width<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>height<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>context<span class="token punctuation">.</span>fillStyle <span class="token operator">=</span> <span class="token string">'#0184b2'</span><span class="token punctuation">;</span>
 
-        for(var i = 0, count = this.fishes.length; i &lt; count; i++){
-            this.fishes[i].render(this.context);
-        }
-        this.context.save();
-        this.context.globalCompositeOperation = &#39;xor&#39;;
-        this.context.beginPath();
-        this.context.moveTo(0, this.reverse ? 0 : this.height);
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> count <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>fishes<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i <span class="token operator">&lt;</span> count<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>fishes<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>context<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>context<span class="token punctuation">.</span><span class="token function">save</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>context<span class="token punctuation">.</span>globalCompositeOperation <span class="token operator">=</span> <span class="token string">'xor'</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>context<span class="token punctuation">.</span><span class="token function">beginPath</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>context<span class="token punctuation">.</span><span class="token function">moveTo</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>reverse <span class="token operator">?</span> <span class="token number">0</span> <span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>height<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        for(var i = 0, count = this.points.length; i &lt; count; i++){
-            this.points[i].render(this.context);
-        }
-        this.context.lineTo(this.width, this.reverse ? 0 : this.height);
-        this.context.closePath();
-        this.context.fill();
-        this.context.restore();
-    }
-};
-var SURFACE_POINT = function(renderer, x){
-    this.renderer = renderer;
-    this.x = x;
-    this.init();
-};
-SURFACE_POINT.prototype = {
-    SPRING_CONSTANT : 0.03,
-    SPRING_FRICTION : 0.9,
-    WAVE_SPREAD : 0.3,
-    ACCELARATION_RATE : 0.01,
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> count <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>points<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i <span class="token operator">&lt;</span> count<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>points<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>context<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>context<span class="token punctuation">.</span><span class="token function">lineTo</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>width<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>reverse <span class="token operator">?</span> <span class="token number">0</span> <span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>height<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>context<span class="token punctuation">.</span><span class="token function">closePath</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>context<span class="token punctuation">.</span><span class="token function">fill</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>context<span class="token punctuation">.</span><span class="token function">restore</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> SURFACE_POINT <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>renderer<span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>renderer <span class="token operator">=</span> renderer<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>x <span class="token operator">=</span> x<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+SURFACE_POINT<span class="token punctuation">.</span>prototype <span class="token operator">=</span> <span class="token punctuation">{</span>
+    SPRING_CONSTANT <span class="token punctuation">:</span> <span class="token number">0.03</span><span class="token punctuation">,</span>
+    SPRING_FRICTION <span class="token punctuation">:</span> <span class="token number">0.9</span><span class="token punctuation">,</span>
+    WAVE_SPREAD <span class="token punctuation">:</span> <span class="token number">0.3</span><span class="token punctuation">,</span>
+    ACCELARATION_RATE <span class="token punctuation">:</span> <span class="token number">0.01</span><span class="token punctuation">,</span>
 
-    init : function(){
-        this.initHeight = this.renderer.height * this.renderer.INIT_HEIGHT_RATE;
-        this.height = this.initHeight;
-        this.fy = 0;
-        this.force = {previous : 0, next : 0};
-    },
-    setPreviousPoint : function(previous){
-        this.previous = previous;
-    },
-    setNextPoint : function(next){
-        this.next = next;
-    },
-    interfere : function(y, velocity){
-        this.fy = this.renderer.height * this.ACCELARATION_RATE * ((this.renderer.height - this.height - y) &gt;= 0 ? -1 : 1) * Math.abs(velocity);
-    },
-    updateSelf : function(){
-        this.fy += this.SPRING_CONSTANT * (this.initHeight - this.height);
-        this.fy *= this.SPRING_FRICTION;
-        this.height += this.fy;
-    },
-    updateNeighbors : function(){
-        if(this.previous){
-            this.force.previous = this.WAVE_SPREAD * (this.height - this.previous.height);
-        }
-        if(this.next){
-            this.force.next = this.WAVE_SPREAD * (this.height - this.next.height);
-        }
-    },
-    render : function(context){
-        if(this.previous){
-            this.previous.height += this.force.previous;
-            this.previous.fy += this.force.previous;
-        }
-        if(this.next){
-            this.next.height += this.force.next;
-            this.next.fy += this.force.next;
-        }
-        context.lineTo(this.x, this.renderer.height - this.height);
-    }
-};
-var FISH = function(renderer){
-    this.renderer = renderer;
-    this.init();
-};
-FISH.prototype = {
-    GRAVITY : 0.4,
+    init <span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>initHeight <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>renderer<span class="token punctuation">.</span>height <span class="token operator">*</span> <span class="token keyword">this</span><span class="token punctuation">.</span>renderer<span class="token punctuation">.</span>INIT_HEIGHT_RATE<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>height <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>initHeight<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>fy <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>force <span class="token operator">=</span> <span class="token punctuation">{</span>previous <span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span> next <span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    setPreviousPoint <span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>previous<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>previous <span class="token operator">=</span> previous<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    setNextPoint <span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>next<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>next <span class="token operator">=</span> next<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    interfere <span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>y<span class="token punctuation">,</span> velocity<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>fy <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>renderer<span class="token punctuation">.</span>height <span class="token operator">*</span> <span class="token keyword">this</span><span class="token punctuation">.</span>ACCELARATION_RATE <span class="token operator">*</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>renderer<span class="token punctuation">.</span>height <span class="token operator">-</span> <span class="token keyword">this</span><span class="token punctuation">.</span>height <span class="token operator">-</span> y<span class="token punctuation">)</span> <span class="token operator">>=</span> <span class="token number">0</span> <span class="token operator">?</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">*</span> Math<span class="token punctuation">.</span><span class="token function">abs</span><span class="token punctuation">(</span>velocity<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    updateSelf <span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>fy <span class="token operator">+</span><span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>SPRING_CONSTANT <span class="token operator">*</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>initHeight <span class="token operator">-</span> <span class="token keyword">this</span><span class="token punctuation">.</span>height<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>fy <span class="token operator">*</span><span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>SPRING_FRICTION<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>height <span class="token operator">+</span><span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>fy<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    updateNeighbors <span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>previous<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>force<span class="token punctuation">.</span>previous <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>WAVE_SPREAD <span class="token operator">*</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>height <span class="token operator">-</span> <span class="token keyword">this</span><span class="token punctuation">.</span>previous<span class="token punctuation">.</span>height<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>next<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>force<span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>WAVE_SPREAD <span class="token operator">*</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>height <span class="token operator">-</span> <span class="token keyword">this</span><span class="token punctuation">.</span>next<span class="token punctuation">.</span>height<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    render <span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>previous<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>previous<span class="token punctuation">.</span>height <span class="token operator">+</span><span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>force<span class="token punctuation">.</span>previous<span class="token punctuation">;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>previous<span class="token punctuation">.</span>fy <span class="token operator">+</span><span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>force<span class="token punctuation">.</span>previous<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>next<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>next<span class="token punctuation">.</span>height <span class="token operator">+</span><span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>force<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>next<span class="token punctuation">.</span>fy <span class="token operator">+</span><span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>force<span class="token punctuation">.</span>next<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        context<span class="token punctuation">.</span><span class="token function">lineTo</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>x<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>renderer<span class="token punctuation">.</span>height <span class="token operator">-</span> <span class="token keyword">this</span><span class="token punctuation">.</span>height<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> FISH <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span>renderer<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>renderer <span class="token operator">=</span> renderer<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+FISH<span class="token punctuation">.</span>prototype <span class="token operator">=</span> <span class="token punctuation">{</span>
+    GRAVITY <span class="token punctuation">:</span> <span class="token number">0.4</span><span class="token punctuation">,</span>
 
-    init : function(){
-        this.direction = Math.random() &lt; 0.5;
-        this.x = this.direction ? (this.renderer.width + this.renderer.THRESHOLD) : -this.renderer.THRESHOLD;
-        this.previousY = this.y;
-        this.vx = this.getRandomValue(4, 10) * (this.direction ? -1 : 1);
+    init <span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>direction <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">0.5</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>x <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>direction <span class="token operator">?</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>renderer<span class="token punctuation">.</span>width <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>renderer<span class="token punctuation">.</span>THRESHOLD<span class="token punctuation">)</span> <span class="token punctuation">:</span> <span class="token operator">-</span><span class="token keyword">this</span><span class="token punctuation">.</span>renderer<span class="token punctuation">.</span>THRESHOLD<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>previousY <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>y<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>vx <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getRandomValue</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>direction <span class="token operator">?</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        if(this.renderer.reverse){
-            this.y = this.getRandomValue(this.renderer.height * 1 / 10, this.renderer.height * 4 / 10);
-            this.vy = this.getRandomValue(2, 5);
-            this.ay = this.getRandomValue(0.05, 0.2);
-        }else{
-            this.y = this.getRandomValue(this.renderer.height * 6 / 10, this.renderer.height * 9 / 10);
-            this.vy = this.getRandomValue(-5, -2);
-            this.ay = this.getRandomValue(-0.2, -0.05);
-        }
-        this.isOut = false;
-        this.theta = 0;
-        this.phi = 0;
-    },
-    getRandomValue : function(min, max){
-        return min + (max - min) * Math.random();
-    },
-    reverseVertical : function(){
-        this.isOut = !this.isOut;
-        this.ay *= -1;
-    },
-    controlStatus : function(context){
-        this.previousY = this.y;
-        this.x += this.vx;
-        this.y += this.vy;
-        this.vy += this.ay;
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>renderer<span class="token punctuation">.</span>reverse<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>y <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getRandomValue</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>renderer<span class="token punctuation">.</span>height <span class="token operator">*</span> <span class="token number">1</span> <span class="token operator">/</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>renderer<span class="token punctuation">.</span>height <span class="token operator">*</span> <span class="token number">4</span> <span class="token operator">/</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>vy <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getRandomValue</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>ay <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getRandomValue</span><span class="token punctuation">(</span><span class="token number">0.05</span><span class="token punctuation">,</span> <span class="token number">0.2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>y <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getRandomValue</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>renderer<span class="token punctuation">.</span>height <span class="token operator">*</span> <span class="token number">6</span> <span class="token operator">/</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>renderer<span class="token punctuation">.</span>height <span class="token operator">*</span> <span class="token number">9</span> <span class="token operator">/</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>vy <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getRandomValue</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>ay <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getRandomValue</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">0.2</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">0.05</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>isOut <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>theta <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>phi <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    getRandomValue <span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>min<span class="token punctuation">,</span> max<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">return</span> min <span class="token operator">+</span> <span class="token punctuation">(</span>max <span class="token operator">-</span> min<span class="token punctuation">)</span> <span class="token operator">*</span> Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    reverseVertical <span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>isOut <span class="token operator">=</span> <span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span>isOut<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>ay <span class="token operator">*</span><span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    controlStatus <span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>previousY <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>y<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>x <span class="token operator">+</span><span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>vx<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>y <span class="token operator">+</span><span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>vy<span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>vy <span class="token operator">+</span><span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>ay<span class="token punctuation">;</span>
 
-        if(this.renderer.reverse){
-            if(this.y &gt; this.renderer.height * this.renderer.INIT_HEIGHT_RATE){
-                this.vy -= this.GRAVITY;
-                this.isOut = true;
-            }else{
-                if(this.isOut){
-                    this.ay = this.getRandomValue(0.05, 0.2);
-                }
-                this.isOut = false;
-            }
-        }else{
-            if(this.y &lt; this.renderer.height * this.renderer.INIT_HEIGHT_RATE){
-                this.vy += this.GRAVITY;
-                this.isOut = true;
-            }else{
-                if(this.isOut){
-                    this.ay = this.getRandomValue(-0.2, -0.05);
-                }
-                this.isOut = false;
-            }
-        }
-        if(!this.isOut){
-            this.theta += Math.PI / 20;
-            this.theta %= Math.PI * 2;
-            this.phi += Math.PI / 30;
-            this.phi %= Math.PI * 2;
-        }
-        this.renderer.generateEpicenter(this.x + (this.direction ? -1 : 1) * this.renderer.THRESHOLD, this.y, this.y - this.previousY);
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>renderer<span class="token punctuation">.</span>reverse<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>y <span class="token operator">></span> <span class="token keyword">this</span><span class="token punctuation">.</span>renderer<span class="token punctuation">.</span>height <span class="token operator">*</span> <span class="token keyword">this</span><span class="token punctuation">.</span>renderer<span class="token punctuation">.</span>INIT_HEIGHT_RATE<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token keyword">this</span><span class="token punctuation">.</span>vy <span class="token operator">-</span><span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>GRAVITY<span class="token punctuation">;</span>
+                <span class="token keyword">this</span><span class="token punctuation">.</span>isOut <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>isOut<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    <span class="token keyword">this</span><span class="token punctuation">.</span>ay <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getRandomValue</span><span class="token punctuation">(</span><span class="token number">0.05</span><span class="token punctuation">,</span> <span class="token number">0.2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                <span class="token keyword">this</span><span class="token punctuation">.</span>isOut <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>y <span class="token operator">&lt;</span> <span class="token keyword">this</span><span class="token punctuation">.</span>renderer<span class="token punctuation">.</span>height <span class="token operator">*</span> <span class="token keyword">this</span><span class="token punctuation">.</span>renderer<span class="token punctuation">.</span>INIT_HEIGHT_RATE<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token keyword">this</span><span class="token punctuation">.</span>vy <span class="token operator">+</span><span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>GRAVITY<span class="token punctuation">;</span>
+                <span class="token keyword">this</span><span class="token punctuation">.</span>isOut <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+                <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>isOut<span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    <span class="token keyword">this</span><span class="token punctuation">.</span>ay <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getRandomValue</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">0.2</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">0.05</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                <span class="token keyword">this</span><span class="token punctuation">.</span>isOut <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token keyword">this</span><span class="token punctuation">.</span>isOut<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>theta <span class="token operator">+</span><span class="token operator">=</span> Math<span class="token punctuation">.</span>PI <span class="token operator">/</span> <span class="token number">20</span><span class="token punctuation">;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>theta <span class="token operator">%</span><span class="token operator">=</span> Math<span class="token punctuation">.</span>PI <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>phi <span class="token operator">+</span><span class="token operator">=</span> Math<span class="token punctuation">.</span>PI <span class="token operator">/</span> <span class="token number">30</span><span class="token punctuation">;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>phi <span class="token operator">%</span><span class="token operator">=</span> Math<span class="token punctuation">.</span>PI <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>renderer<span class="token punctuation">.</span><span class="token function">generateEpicenter</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>x <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>direction <span class="token operator">?</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token keyword">this</span><span class="token punctuation">.</span>renderer<span class="token punctuation">.</span>THRESHOLD<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>y<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>y <span class="token operator">-</span> <span class="token keyword">this</span><span class="token punctuation">.</span>previousY<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        if(this.vx &gt; 0 &amp;&amp; this.x &gt; this.renderer.width + this.renderer.THRESHOLD || this.vx &lt; 0 &amp;&amp; this.x &lt; -this.renderer.THRESHOLD){
-            this.init();
-        }
-    },
-    render : function(context){
-        context.save();
-        context.translate(this.x, this.y);
-        context.rotate(Math.PI + Math.atan2(this.vy, this.vx));
-        context.scale(1, this.direction ? 1 : -1);
-        context.beginPath();
-        context.moveTo(-30, 0);
-        context.bezierCurveTo(-20, 15, 15, 10, 40, 0);
-        context.bezierCurveTo(15, -10, -20, -15, -30, 0);
-        context.fill();
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>vx <span class="token operator">></span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> <span class="token keyword">this</span><span class="token punctuation">.</span>x <span class="token operator">></span> <span class="token keyword">this</span><span class="token punctuation">.</span>renderer<span class="token punctuation">.</span>width <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>renderer<span class="token punctuation">.</span>THRESHOLD <span class="token operator">||</span> <span class="token keyword">this</span><span class="token punctuation">.</span>vx <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> <span class="token keyword">this</span><span class="token punctuation">.</span>x <span class="token operator">&lt;</span> <span class="token operator">-</span><span class="token keyword">this</span><span class="token punctuation">.</span>renderer<span class="token punctuation">.</span>THRESHOLD<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    render <span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        context<span class="token punctuation">.</span><span class="token function">save</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        context<span class="token punctuation">.</span><span class="token function">translate</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>x<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        context<span class="token punctuation">.</span><span class="token function">rotate</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span>PI <span class="token operator">+</span> Math<span class="token punctuation">.</span><span class="token function">atan2</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>vy<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>vx<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        context<span class="token punctuation">.</span><span class="token function">scale</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>direction <span class="token operator">?</span> <span class="token number">1</span> <span class="token punctuation">:</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        context<span class="token punctuation">.</span><span class="token function">beginPath</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        context<span class="token punctuation">.</span><span class="token function">moveTo</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">30</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        context<span class="token punctuation">.</span><span class="token function">bezierCurveTo</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">40</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        context<span class="token punctuation">.</span><span class="token function">bezierCurveTo</span><span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">20</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">15</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">30</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        context<span class="token punctuation">.</span><span class="token function">fill</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        context.save();
-        context.translate(40, 0);
-        context.scale(0.9 + 0.2 * Math.sin(this.theta), 1);
-        context.beginPath();
-        context.moveTo(0, 0);
-        context.quadraticCurveTo(5, 10, 20, 8);
-        context.quadraticCurveTo(12, 5, 10, 0);
-        context.quadraticCurveTo(12, -5, 20, -8);
-        context.quadraticCurveTo(5, -10, 0, 0);
-        context.fill();
-        context.restore();
+        context<span class="token punctuation">.</span><span class="token function">save</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        context<span class="token punctuation">.</span><span class="token function">translate</span><span class="token punctuation">(</span><span class="token number">40</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        context<span class="token punctuation">.</span><span class="token function">scale</span><span class="token punctuation">(</span><span class="token number">0.9</span> <span class="token operator">+</span> <span class="token number">0.2</span> <span class="token operator">*</span> Math<span class="token punctuation">.</span><span class="token function">sin</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>theta<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        context<span class="token punctuation">.</span><span class="token function">beginPath</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        context<span class="token punctuation">.</span><span class="token function">moveTo</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        context<span class="token punctuation">.</span><span class="token function">quadraticCurveTo</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        context<span class="token punctuation">.</span><span class="token function">quadraticCurveTo</span><span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        context<span class="token punctuation">.</span><span class="token function">quadraticCurveTo</span><span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        context<span class="token punctuation">.</span><span class="token function">quadraticCurveTo</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        context<span class="token punctuation">.</span><span class="token function">fill</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        context<span class="token punctuation">.</span><span class="token function">restore</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        context.save();
-        context.translate(-3, 0);
-        context.rotate((Math.PI / 3 + Math.PI / 10 * Math.sin(this.phi)) * (this.renderer.reverse ? -1 : 1));
+        context<span class="token punctuation">.</span><span class="token function">save</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        context<span class="token punctuation">.</span><span class="token function">translate</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        context<span class="token punctuation">.</span><span class="token function">rotate</span><span class="token punctuation">(</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span>PI <span class="token operator">/</span> <span class="token number">3</span> <span class="token operator">+</span> Math<span class="token punctuation">.</span>PI <span class="token operator">/</span> <span class="token number">10</span> <span class="token operator">*</span> Math<span class="token punctuation">.</span><span class="token function">sin</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>phi<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>renderer<span class="token punctuation">.</span>reverse <span class="token operator">?</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        context.beginPath();
+        context<span class="token punctuation">.</span><span class="token function">beginPath</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        if(this.renderer.reverse){
-            context.moveTo(5, 0);
-            context.bezierCurveTo(10, 10, 10, 30, 0, 40);
-            context.bezierCurveTo(-12, 25, -8, 10, 0, 0);
-        }else{
-            context.moveTo(-5, 0);
-            context.bezierCurveTo(-10, -10, -10, -30, 0, -40);
-            context.bezierCurveTo(12, -25, 8, -10, 0, 0);
-        }
-        context.closePath();
-        context.fill();
-        context.restore();
-        context.restore();
-        this.controlStatus(context);
-    }
-};
-$(function(){
-    RENDERER.init();
-});
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>renderer<span class="token punctuation">.</span>reverse<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            context<span class="token punctuation">.</span><span class="token function">moveTo</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            context<span class="token punctuation">.</span><span class="token function">bezierCurveTo</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">40</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            context<span class="token punctuation">.</span><span class="token function">bezierCurveTo</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">12</span><span class="token punctuation">,</span> <span class="token number">25</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+            context<span class="token punctuation">.</span><span class="token function">moveTo</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            context<span class="token punctuation">.</span><span class="token function">bezierCurveTo</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">30</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">40</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            context<span class="token punctuation">.</span><span class="token function">bezierCurveTo</span><span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">25</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        context<span class="token punctuation">.</span><span class="token function">closePath</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        context<span class="token punctuation">.</span><span class="token function">fill</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        context<span class="token punctuation">.</span><span class="token function">restore</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        context<span class="token punctuation">.</span><span class="token function">restore</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">controlStatus</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token function">$</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    RENDERER<span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 </code></pre>
 
@@ -1305,7 +1306,7 @@ Vue i
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">21.9k</span>
+                <span class="white-color">21k</span>
             
 
             

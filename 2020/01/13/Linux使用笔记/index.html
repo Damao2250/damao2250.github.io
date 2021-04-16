@@ -53,7 +53,7 @@ opt目录
     <script src="https://cdn.staticfile.org/jquery/2.2.0/jquery.min.js"></script>
     <script src=""></script>
 <meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Damao Bolg" type="application/atom+xml">
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -421,51 +421,51 @@ opt目录
 <li>/usr/src  系统级的源码目录</li>
 <li>/usr/local/src  用户级的源码目录</li>
 </ol>
-<h2 id="Linux软件包管理（安装、删除）"><a href="#Linux软件包管理（安装、删除）" class="headerlink" title="Linux软件包管理（安装、删除）"></a>Linux软件包管理（安装、删除）</h2><pre><code class="js">0. 下载软件包：wget 软件包地址
+<h2 id="Linux软件包管理（安装、删除）"><a href="#Linux软件包管理（安装、删除）" class="headerlink" title="Linux软件包管理（安装、删除）"></a>Linux软件包管理（安装、删除）</h2><pre class=" language-js"><code class="language-js"><span class="token number">0</span><span class="token punctuation">.</span> 下载软件包：wget 软件包地址
 
-1. 手动安装（tar.gz源、tar.bz2源）
-  ① 下载相应的软件包，如soft.tar.gz/soft.tar.bz2
-  ② cd soft.tar.gz/soft.tar.bz2所在的目录
-  ③ tar -xzvf soft.tar.gz     //一般会生成一个soft目录
+<span class="token number">1</span><span class="token punctuation">.</span> 手动安装（tar<span class="token punctuation">.</span>gz源、tar<span class="token punctuation">.</span>bz2源）
+  ① 下载相应的软件包，如soft<span class="token punctuation">.</span>tar<span class="token punctuation">.</span>gz<span class="token operator">/</span>soft<span class="token punctuation">.</span>tar<span class="token punctuation">.</span>bz2
+  ② cd soft<span class="token punctuation">.</span>tar<span class="token punctuation">.</span>gz<span class="token operator">/</span>soft<span class="token punctuation">.</span>tar<span class="token punctuation">.</span>bz2所在的目录
+  ③ tar <span class="token operator">-</span>xzvf soft<span class="token punctuation">.</span>tar<span class="token punctuation">.</span>gz     <span class="token comment" spellcheck="true">//一般会生成一个soft目录</span>
   ④ cd soft 
-  ⑤./configure      // 为编译做准备
-  ⑥ make            // 编译软件 （时间很久）
-  ⑦ make install    // 安装软件
-  ⑧ make clean      // 删除安装产生的临时文件  
+  ⑤<span class="token punctuation">.</span><span class="token operator">/</span>configure      <span class="token comment" spellcheck="true">// 为编译做准备</span>
+  ⑥ make            <span class="token comment" spellcheck="true">// 编译软件 （时间很久）</span>
+  ⑦ make install    <span class="token comment" spellcheck="true">// 安装软件</span>
+  ⑧ make clean      <span class="token comment" spellcheck="true">// 删除安装产生的临时文件  </span>
 
-2. rpm包安装
-  ① 下载相应的软件包，如soft.version.rpm
-  ② cd soft.version.rpm所在的目录
-  ③ rpm -ivh soft.version.rpm   // -i 安装软件 -t 测试安装，不是真的安装 -p 显示安装进度 -f 忽略任何错误 -U 升级安装 -v 检测套件是否正确安装
-  ④ 卸载 rpm -e 软件名
+<span class="token number">2</span><span class="token punctuation">.</span> rpm包安装
+  ① 下载相应的软件包，如soft<span class="token punctuation">.</span>version<span class="token punctuation">.</span>rpm
+  ② cd soft<span class="token punctuation">.</span>version<span class="token punctuation">.</span>rpm所在的目录
+  ③ rpm <span class="token operator">-</span>ivh soft<span class="token punctuation">.</span>version<span class="token punctuation">.</span>rpm   <span class="token comment" spellcheck="true">// -i 安装软件 -t 测试安装，不是真的安装 -p 显示安装进度 -f 忽略任何错误 -U 升级安装 -v 检测套件是否正确安装</span>
+  ④ 卸载 rpm <span class="token operator">-</span>e 软件名
 
-3. dep包安装
-  ① 下载相应的软件包，如soft.version.dep
-  ② cd soft.version.dep所在目录
-  ③ dpkg -i soft.version.dep
-  ④ 卸载 dpkg -e 软件名
-  ⑤ 查看已安装的软件包 dpkg –l &#39;*软件包名*&#39;
+<span class="token number">3</span><span class="token punctuation">.</span> dep包安装
+  ① 下载相应的软件包，如soft<span class="token punctuation">.</span>version<span class="token punctuation">.</span>dep
+  ② cd soft<span class="token punctuation">.</span>version<span class="token punctuation">.</span>dep所在目录
+  ③ dpkg <span class="token operator">-</span>i soft<span class="token punctuation">.</span>version<span class="token punctuation">.</span>dep
+  ④ 卸载 dpkg <span class="token operator">-</span>e 软件名
+  ⑤ 查看已安装的软件包 dpkg –l <span class="token string">'*软件包名*'</span>
 
-4. apt方式安装（安装deb包）
-  ① apt-cache search 软件包
-  ② apt-get install 软件包
-  ③ 删除（保留配置文件） apt-get remove 软件名
-  ④ 删除（不保留配置文件） apt-get --purge remove 软件名
-  ⑤ dpkg --force-all --purge packagename ——有些软件很难卸载，而且还阻止了别的软件的应用，就可以用这个，不过有点冒险。
-    apt-get autoremove——因为apt会把已装或已卸的软件都备份在硬盘上，所以如果需要空间的话，可以让这个命令来删除你已经删掉的软件。
-    apt-get autoclean——定期运行这个命令来清除那些已经卸载的软件包的.deb文件。通过这种方式，可以释放大量的磁盘空间。如果需求十分迫切，可以使用apt-get clean以释放更多空间。这个命令会将已安装软件包裹的.deb文件一并删除。
-    apt-get clean——这个命令会把安装的软件的备份也删除，不过这样不会影响软件的使用的。
-    apt-get upgrade——更新所有已安装的软件包
-    apt-get dist-upgrade——将系统升级到新版本
-    apt-cache search string——在软件包列表中搜索字符串
-    apt-cache showpkg pkgs——显示软件包信息。
-    apt-cache stats——查看库里有多少软件
-    apt-cache dumpavail——打印可用软件包列表。
-    apt-cache show pkgs——显示软件包记录，类似于dpkg –print-avail。
-    apt-cache pkgnames——打印软件包列表中所有软件包的名称
+<span class="token number">4</span><span class="token punctuation">.</span> apt方式安装（安装deb包）
+  ① apt<span class="token operator">-</span>cache search 软件包
+  ② apt<span class="token operator">-</span><span class="token keyword">get</span> install 软件包
+  ③ 删除（保留配置文件） apt<span class="token operator">-</span><span class="token keyword">get</span> remove 软件名
+  ④ 删除（不保留配置文件） apt<span class="token operator">-</span><span class="token keyword">get</span> <span class="token operator">--</span>purge remove 软件名
+  ⑤ dpkg <span class="token operator">--</span>force<span class="token operator">-</span>all <span class="token operator">--</span>purge packagename ——有些软件很难卸载，而且还阻止了别的软件的应用，就可以用这个，不过有点冒险。
+    apt<span class="token operator">-</span><span class="token keyword">get</span> autoremove——因为apt会把已装或已卸的软件都备份在硬盘上，所以如果需要空间的话，可以让这个命令来删除你已经删掉的软件。
+    apt<span class="token operator">-</span><span class="token keyword">get</span> autoclean——定期运行这个命令来清除那些已经卸载的软件包的<span class="token punctuation">.</span>deb文件。通过这种方式，可以释放大量的磁盘空间。如果需求十分迫切，可以使用apt<span class="token operator">-</span><span class="token keyword">get</span> clean以释放更多空间。这个命令会将已安装软件包裹的<span class="token punctuation">.</span>deb文件一并删除。
+    apt<span class="token operator">-</span><span class="token keyword">get</span> clean——这个命令会把安装的软件的备份也删除，不过这样不会影响软件的使用的。
+    apt<span class="token operator">-</span><span class="token keyword">get</span> upgrade——更新所有已安装的软件包
+    apt<span class="token operator">-</span><span class="token keyword">get</span> dist<span class="token operator">-</span>upgrade——将系统升级到新版本
+    apt<span class="token operator">-</span>cache search string——在软件包列表中搜索字符串
+    apt<span class="token operator">-</span>cache showpkg pkgs——显示软件包信息。
+    apt<span class="token operator">-</span>cache stats——查看库里有多少软件
+    apt<span class="token operator">-</span>cache dumpavail——打印可用软件包列表。
+    apt<span class="token operator">-</span>cache show pkgs——显示软件包记录，类似于dpkg –print<span class="token operator">-</span>avail。
+    apt<span class="token operator">-</span>cache pkgnames——打印软件包列表中所有软件包的名称
 
-5. yum方式安装
-  ① yum -y install 软件包
+<span class="token number">5</span><span class="token punctuation">.</span> yum方式安装
+  ① yum <span class="token operator">-</span>y install 软件包
   ② 卸载 yum remove 软件名
   ③ 已安装列表 yum list all
   ④ 查看软件包信息 yum info 软件名
@@ -473,36 +473,36 @@ opt目录
   ⑦ 清除所有包缓存  yum clean all 
 
 
-// 切换yum源
+<span class="token comment" spellcheck="true">// 切换yum源</span>
 
-// 首先备份/etc/yum.repos.d/CentOS-Base.repo
-// 重命名
-mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup
+<span class="token comment" spellcheck="true">// 首先备份/etc/yum.repos.d/CentOS-Base.repo</span>
+<span class="token comment" spellcheck="true">// 重命名</span>
+mv <span class="token regex">/etc/yum</span><span class="token punctuation">.</span>repos<span class="token punctuation">.</span>d<span class="token operator">/</span>CentOS<span class="token operator">-</span>Base<span class="token punctuation">.</span>repo <span class="token regex">/etc/yum</span><span class="token punctuation">.</span>repos<span class="token punctuation">.</span>d<span class="token operator">/</span>CentOS<span class="token operator">-</span>Base<span class="token punctuation">.</span>repo<span class="token punctuation">.</span>backup
 
-// 下载对应版本 repo 文件, 放入 /etc/yum.repos.d/ (操作前请做好相应备份)
-// 163源
-CentOS5 ：http://mirrors.163.com/.help/CentOS5-Base-163.repo
-CentOS6 ：http://mirrors.163.com/.help/CentOS6-Base-163.repo
-CentOS7 ：http://mirrors.163.com/.help/CentOS7-Base-163.repo
+<span class="token comment" spellcheck="true">// 下载对应版本 repo 文件, 放入 /etc/yum.repos.d/ (操作前请做好相应备份)</span>
+<span class="token comment" spellcheck="true">// 163源</span>
+CentOS5 ：http<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>mirrors<span class="token number">.163</span><span class="token punctuation">.</span>com<span class="token operator">/</span><span class="token punctuation">.</span>help<span class="token operator">/</span>CentOS5<span class="token operator">-</span>Base<span class="token number">-163</span><span class="token punctuation">.</span>repo
+CentOS6 ：http<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>mirrors<span class="token number">.163</span><span class="token punctuation">.</span>com<span class="token operator">/</span><span class="token punctuation">.</span>help<span class="token operator">/</span>CentOS6<span class="token operator">-</span>Base<span class="token number">-163</span><span class="token punctuation">.</span>repo
+CentOS7 ：http<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>mirrors<span class="token number">.163</span><span class="token punctuation">.</span>com<span class="token operator">/</span><span class="token punctuation">.</span>help<span class="token operator">/</span>CentOS7<span class="token operator">-</span>Base<span class="token number">-163</span><span class="token punctuation">.</span>repo
 
-// 阿里云源
-CentOS5 ：http://mirrors.aliyun.com/repo/Centos-5.repo
-CentOS6 ：http://mirrors.aliyun.com/repo/Centos-6.repo
-CentOS7 ：http://mirrors.aliyun.com/repo/Centos-7.repo
+<span class="token comment" spellcheck="true">// 阿里云源</span>
+CentOS5 ：http<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>mirrors<span class="token punctuation">.</span>aliyun<span class="token punctuation">.</span>com<span class="token operator">/</span>repo<span class="token operator">/</span>Centos<span class="token number">-5</span><span class="token punctuation">.</span>repo
+CentOS6 ：http<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>mirrors<span class="token punctuation">.</span>aliyun<span class="token punctuation">.</span>com<span class="token operator">/</span>repo<span class="token operator">/</span>Centos<span class="token number">-6</span><span class="token punctuation">.</span>repo
+CentOS7 ：http<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>mirrors<span class="token punctuation">.</span>aliyun<span class="token punctuation">.</span>com<span class="token operator">/</span>repo<span class="token operator">/</span>Centos<span class="token number">-7</span><span class="token punctuation">.</span>repo
 
-// 下载
-wget http://mirrors.163.com/.help/CentOS6-Base-163.repo
+<span class="token comment" spellcheck="true">// 下载</span>
+wget http<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>mirrors<span class="token number">.163</span><span class="token punctuation">.</span>com<span class="token operator">/</span><span class="token punctuation">.</span>help<span class="token operator">/</span>CentOS6<span class="token operator">-</span>Base<span class="token number">-163</span><span class="token punctuation">.</span>repo
 
-//重命名
-mv CentOS6-Base-163.repo CentOS-Base.repo
+<span class="token comment" spellcheck="true">//重命名</span>
+mv CentOS6<span class="token operator">-</span>Base<span class="token number">-163</span><span class="token punctuation">.</span>repo CentOS<span class="token operator">-</span>Base<span class="token punctuation">.</span>repo
 
-// 运行以下命令生成缓存
+<span class="token comment" spellcheck="true">// 运行以下命令生成缓存</span>
 yum clean all
 yum makecache
 </code></pre>
 <h2 id="自己在Linux-上的一些操作"><a href="#自己在Linux-上的一些操作" class="headerlink" title="自己在Linux 上的一些操作"></a>自己在Linux 上的一些操作</h2><ul>
-<li>安装 node <pre><code class="js">node -v     // 查看是否已安装
-yum install nodejs    // 安装nodejs 询问时 输入 y
+<li>安装 node <pre class=" language-js"><code class="language-js">node <span class="token operator">-</span>v     <span class="token comment" spellcheck="true">// 查看是否已安装</span>
+yum install nodejs    <span class="token comment" spellcheck="true">// 安装nodejs 询问时 输入 y</span>
 </code></pre>
 </li>
 </ul>
@@ -519,9 +519,9 @@ systemctl stop nginx.service    // 停止nginx服务
 
 </code></pre><ul>
 <li>配置Nginx<ul>
-<li>配置两个ssl证书<pre><code class="js"># For more information on configuration, see:
-#   * Official English Documentation: http://nginx.org/en/docs/
-#   * Official Russian Documentation: http://nginx.org/ru/docs/
+<li>配置两个ssl证书<pre class=" language-js"><code class="language-js"># For more information on configuration<span class="token punctuation">,</span> see<span class="token punctuation">:</span>
+#   <span class="token operator">*</span> Official English Documentation<span class="token punctuation">:</span> http<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>nginx<span class="token punctuation">.</span>org<span class="token operator">/</span>en<span class="token regex">/docs/</span>
+#   <span class="token operator">*</span> Official Russian Documentation<span class="token punctuation">:</span> http<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>nginx<span class="token punctuation">.</span>org<span class="token operator">/</span>ru<span class="token regex">/docs/</span>
 </code></pre>
 </li>
 </ul>
@@ -1220,7 +1220,7 @@ nginx
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">21.9k</span>
+                <span class="white-color">21k</span>
             
 
             

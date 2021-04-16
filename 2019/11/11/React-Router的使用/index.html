@@ -51,7 +51,7 @@ React Router 包含3个库, react-router、react-router-dom、和 react-router-n
     <script src="https://cdn.staticfile.org/jquery/2.2.0/jquery.min.js"></script>
     <script src=""></script>
 <meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Damao Bolg" type="application/atom+xml">
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -387,14 +387,14 @@ React Router 包含3个库, react-router、react-router-dom、和 react-router-n
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        837
+                        705
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        4 分
+                        3 分
                     </div>
                     
                 
@@ -421,129 +421,129 @@ yarn add react-router-dom</code></pre></li>
 </ul>
 <p>简易使用示例</p>
 <p>1.新建一个 <code>router/index.js</code> 文件</p>
-<pre><code class="js">//  router/index.js
-import React from &#39;react&#39;
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">//  router/index.js</span>
+<span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">'react'</span>
 
-// 引入一些模块
-import { BrowserRouter as Router, Route, Redirect } from &#39;react-router-dom&#39;
+<span class="token comment" spellcheck="true">// 引入一些模块</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> BrowserRouter <span class="token keyword">as</span> Router<span class="token punctuation">,</span> Route<span class="token punctuation">,</span> Redirect <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react-router-dom'</span>
 
-//引入需要用到的页面组件 
-import Home from &#39;./../views/home/home&#39;
-import About from &#39;./../views/about/about&#39;
+<span class="token comment" spellcheck="true">//引入需要用到的页面组件 </span>
+<span class="token keyword">import</span> Home <span class="token keyword">from</span> <span class="token string">'./../views/home/home'</span>
+<span class="token keyword">import</span> About <span class="token keyword">from</span> <span class="token string">'./../views/about/about'</span>
 
-function router() {
-  return (
-    // Route 路由
-    // Redirect 重定向
-    &lt;Router&gt;
-      &lt;Route path=&quot;/home&quot; component={Home} /&gt;
-      &lt;Route path=&quot;/&quot; render={
-        () =&gt; &lt;Redirect to=&quot;/home&quot; /&gt;}&gt;
-      &lt;/Route&gt;
-      &lt;Route path=&quot;/about&quot; component={About}&gt;&lt;/Route&gt;
-    &lt;/Router&gt;
-  )
-}
-export default router
+<span class="token keyword">function</span> <span class="token function">router</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token comment" spellcheck="true">// Route 路由</span>
+    <span class="token comment" spellcheck="true">// Redirect 重定向</span>
+    <span class="token operator">&lt;</span>Router<span class="token operator">></span>
+      <span class="token operator">&lt;</span>Route path<span class="token operator">=</span><span class="token string">"/home"</span> component<span class="token operator">=</span><span class="token punctuation">{</span>Home<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span>
+      <span class="token operator">&lt;</span>Route path<span class="token operator">=</span><span class="token string">"/"</span> render<span class="token operator">=</span><span class="token punctuation">{</span>
+        <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">&lt;</span>Redirect to<span class="token operator">=</span><span class="token string">"/home"</span> <span class="token operator">/</span><span class="token operator">></span><span class="token punctuation">}</span><span class="token operator">></span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>Route<span class="token operator">></span>
+      <span class="token operator">&lt;</span>Route path<span class="token operator">=</span><span class="token string">"/about"</span> component<span class="token operator">=</span><span class="token punctuation">{</span>About<span class="token punctuation">}</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>Route<span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>Router<span class="token operator">></span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> router
 </code></pre>
 <p>2.home组件</p>
-<pre><code class="js">//home.js
-import React, { Component } from &#39;react&#39;;
-import { Link } from &#39;react-router-dom&#39;
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">//home.js</span>
+<span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Link <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react-router-dom'</span>
 
-export default class Home extends Component {
-  render() {
-    // Link 路由跳转
-    return (
-      &lt;div&gt;
-        &lt;ul&gt;
-          &lt;li&gt;&lt;Link to=&quot;/home&quot;&gt;Home&lt;/Link&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;Link to=&quot;/about&quot;&gt;About&lt;/Link&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-        &lt;h1&gt;home&lt;/h1&gt;
-      &lt;/div&gt;
-    )
-  }
-}
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">Home</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// Link 路由跳转</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      <span class="token operator">&lt;</span>div<span class="token operator">></span>
+        <span class="token operator">&lt;</span>ul<span class="token operator">></span>
+          <span class="token operator">&lt;</span>li<span class="token operator">></span><span class="token operator">&lt;</span>Link to<span class="token operator">=</span><span class="token string">"/home"</span><span class="token operator">></span>Home<span class="token operator">&lt;</span><span class="token operator">/</span>Link<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>li<span class="token operator">></span>
+          <span class="token operator">&lt;</span>li<span class="token operator">></span><span class="token operator">&lt;</span>Link to<span class="token operator">=</span><span class="token string">"/about"</span><span class="token operator">></span>About<span class="token operator">&lt;</span><span class="token operator">/</span>Link<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>li<span class="token operator">></span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>ul<span class="token operator">></span>
+        <span class="token operator">&lt;</span>h1<span class="token operator">></span>home<span class="token operator">&lt;</span><span class="token operator">/</span>h1<span class="token operator">></span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+    <span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <p>3.about组件</p>
-<pre><code class="js">//about.js
-import React, { Component } from &#39;react&#39;;
-import { Link } from &#39;react-router-dom&#39;
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">//about.js</span>
+<span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Link <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react-router-dom'</span>
 
-export default class About extends Component {
-  render() {
-    // Link 路由跳转
-    return (
-      &lt;div&gt;
-        &lt;ul&gt;
-          &lt;li&gt;&lt;Link to=&quot;/home&quot;&gt;Home&lt;/Link&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;Link to=&quot;/about&quot;&gt;About&lt;/Link&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-        &lt;h1&gt;about&lt;/h1&gt;
-      &lt;/div&gt;
-    )
-  }
-}
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">About</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// Link 路由跳转</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      <span class="token operator">&lt;</span>div<span class="token operator">></span>
+        <span class="token operator">&lt;</span>ul<span class="token operator">></span>
+          <span class="token operator">&lt;</span>li<span class="token operator">></span><span class="token operator">&lt;</span>Link to<span class="token operator">=</span><span class="token string">"/home"</span><span class="token operator">></span>Home<span class="token operator">&lt;</span><span class="token operator">/</span>Link<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>li<span class="token operator">></span>
+          <span class="token operator">&lt;</span>li<span class="token operator">></span><span class="token operator">&lt;</span>Link to<span class="token operator">=</span><span class="token string">"/about"</span><span class="token operator">></span>About<span class="token operator">&lt;</span><span class="token operator">/</span>Link<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>li<span class="token operator">></span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>ul<span class="token operator">></span>
+        <span class="token operator">&lt;</span>h1<span class="token operator">></span>about<span class="token operator">&lt;</span><span class="token operator">/</span>h1<span class="token operator">></span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+    <span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <p>4.app.js中引入<code>router</code></p>
-<pre><code class="js">import React, { Component } from &#39;react&#39;;
-import Router from &#39;./router&#39;
+<pre class=" language-js"><code class="language-js"><span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> Router <span class="token keyword">from</span> <span class="token string">'./router'</span>
 
-export default class App extends Component  {
-  render(){
-    return (
-      &lt;div&gt;
-        &lt;Router /&gt;
-      &lt;/div&gt;
-    )
-  }
-}
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">App</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span>  <span class="token punctuation">{</span>
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      <span class="token operator">&lt;</span>div<span class="token operator">></span>
+        <span class="token operator">&lt;</span>Router <span class="token operator">/</span><span class="token operator">></span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+    <span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <p>5.嵌套路由</p>
-<pre><code class="js">// about.js
-import React, { Component } from &#39;react&#39;;
-import { Link } from &#39;react-router-dom&#39;
-export default class About extends Component {
-  render() {
-    return (
-      // {this.props.children}  ==&gt; 显示嵌套路由
-      &lt;div&gt;
-        &lt;ul&gt;
-          &lt;li&gt;&lt;Link to=&quot;/home&quot;&gt;Home&lt;/Link&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;Link to=&quot;/about&quot;&gt;About&lt;/Link&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-        &lt;h1&gt;about&lt;/h1&gt;
-        {this.props.children}
-      &lt;/div&gt;
-    )
-  }
-}
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// about.js</span>
+<span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Link <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react-router-dom'</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">About</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      <span class="token comment" spellcheck="true">// {this.props.children}  ==> 显示嵌套路由</span>
+      <span class="token operator">&lt;</span>div<span class="token operator">></span>
+        <span class="token operator">&lt;</span>ul<span class="token operator">></span>
+          <span class="token operator">&lt;</span>li<span class="token operator">></span><span class="token operator">&lt;</span>Link to<span class="token operator">=</span><span class="token string">"/home"</span><span class="token operator">></span>Home<span class="token operator">&lt;</span><span class="token operator">/</span>Link<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>li<span class="token operator">></span>
+          <span class="token operator">&lt;</span>li<span class="token operator">></span><span class="token operator">&lt;</span>Link to<span class="token operator">=</span><span class="token string">"/about"</span><span class="token operator">></span>About<span class="token operator">&lt;</span><span class="token operator">/</span>Link<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>li<span class="token operator">></span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>ul<span class="token operator">></span>
+        <span class="token operator">&lt;</span>h1<span class="token operator">></span>about<span class="token operator">&lt;</span><span class="token operator">/</span>h1<span class="token operator">></span>
+        <span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span>children<span class="token punctuation">}</span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+    <span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
 
-//  router/index.js
-import React from &#39;react&#39;
-import { BrowserRouter as Router, Route, Redirect } from &#39;react-router-dom&#39;
-import Home from &#39;./../views/home/home&#39;
-import About from &#39;./../views/about/about&#39;
-import somePage from &#39;./../views/somePage/somePage&#39;
-function router() {
-  return (
-    &lt;Router&gt;
-      &lt;Route path=&quot;/home&quot; component={Home} /&gt;
-      &lt;Route path=&quot;/&quot; render={
-        () =&gt; &lt;Redirect to=&quot;/home&quot; /&gt;}&gt;
-      &lt;/Route&gt;
-      &lt;Route path=&quot;/about&quot; render={()=&gt;(
-          &lt;About&gt;
-            &lt;Route path=&quot;/about/somePage&quot; component={somePage} /&gt;
-          &lt;/About&gt;
-        )}&gt;
-      &lt;/Route&gt;
-    &lt;/Router&gt;
-  )
-}
-export default router</code></pre>
+<span class="token comment" spellcheck="true">//  router/index.js</span>
+<span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">'react'</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> BrowserRouter <span class="token keyword">as</span> Router<span class="token punctuation">,</span> Route<span class="token punctuation">,</span> Redirect <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react-router-dom'</span>
+<span class="token keyword">import</span> Home <span class="token keyword">from</span> <span class="token string">'./../views/home/home'</span>
+<span class="token keyword">import</span> About <span class="token keyword">from</span> <span class="token string">'./../views/about/about'</span>
+<span class="token keyword">import</span> somePage <span class="token keyword">from</span> <span class="token string">'./../views/somePage/somePage'</span>
+<span class="token keyword">function</span> <span class="token function">router</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>Router<span class="token operator">></span>
+      <span class="token operator">&lt;</span>Route path<span class="token operator">=</span><span class="token string">"/home"</span> component<span class="token operator">=</span><span class="token punctuation">{</span>Home<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span>
+      <span class="token operator">&lt;</span>Route path<span class="token operator">=</span><span class="token string">"/"</span> render<span class="token operator">=</span><span class="token punctuation">{</span>
+        <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token operator">&lt;</span>Redirect to<span class="token operator">=</span><span class="token string">"/home"</span> <span class="token operator">/</span><span class="token operator">></span><span class="token punctuation">}</span><span class="token operator">></span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>Route<span class="token operator">></span>
+      <span class="token operator">&lt;</span>Route path<span class="token operator">=</span><span class="token string">"/about"</span> render<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">(</span>
+          <span class="token operator">&lt;</span>About<span class="token operator">></span>
+            <span class="token operator">&lt;</span>Route path<span class="token operator">=</span><span class="token string">"/about/somePage"</span> component<span class="token operator">=</span><span class="token punctuation">{</span>somePage<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span>
+          <span class="token operator">&lt;</span><span class="token operator">/</span>About<span class="token operator">></span>
+        <span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token operator">></span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>Route<span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>Router<span class="token operator">></span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> router</code></pre>
 <ul>
 <li>参考[<a href="https://segmentfault.com/a/1190000016421036]" target="_blank" rel="noopener">https://segmentfault.com/a/1190000016421036]</a></li>
 </ul>
@@ -1073,7 +1073,7 @@ hexo ini
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">21.9k</span>
+                <span class="white-color">21k</span>
             
 
             

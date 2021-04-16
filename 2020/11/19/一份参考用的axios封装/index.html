@@ -8,9 +8,9 @@
 一份拷贝即用的axios封装代码
 
 安装Axiosnpm install axios
-import axios, { AxiosRequestConfig, AxiosResponse } from &amp;#39;axios&amp;#39;
+import axios, { AxiosRequestConfig, AxiosResponse } from &#39;axios&#39;
 
-co">
+const show">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -55,7 +55,7 @@ co">
     <script src="https://cdn.staticfile.org/jquery/2.2.0/jquery.min.js"></script>
     <script src=""></script>
 <meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Damao Bolg" type="application/atom+xml">
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -391,7 +391,7 @@ co">
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        554
+                        496
                     </div>
                     
 
@@ -412,113 +412,113 @@ co">
                 <ul>
 <li>一份拷贝即用的<code>axios</code>封装代码</li>
 </ul>
-<h2 id="安装Axios"><a href="#安装Axios" class="headerlink" title="安装Axios"></a>安装Axios</h2><pre><code class="js">npm install axios</code></pre>
-<pre><code class="js">import axios, { AxiosRequestConfig, AxiosResponse } from &#39;axios&#39;
+<h2 id="安装Axios"><a href="#安装Axios" class="headerlink" title="安装Axios"></a>安装Axios</h2><pre class=" language-js"><code class="language-js">npm install axios</code></pre>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">import</span> axios<span class="token punctuation">,</span> <span class="token punctuation">{</span> AxiosRequestConfig<span class="token punctuation">,</span> AxiosResponse <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'axios'</span>
 
-const showStatus = (status: number) =&gt; {
-  let message = &#39;&#39;
-  switch (status) {
-    case 400:
-      message = &#39;请求错误(400)&#39;
-      break
-    case 401:
-      message = &#39;未授权，请重新登录(401)&#39;
-      break
-    case 403:
-      message = &#39;拒绝访问(403)&#39;
-      break
-    case 404:
-      message = &#39;请求出错(404)&#39;
-      break
-    case 408:
-      message = &#39;请求超时(408)&#39;
-      break
-    case 500:
-      message = &#39;服务器错误(500)&#39;
-      break
-    case 501:
-      message = &#39;服务未实现(501)&#39;
-      break
-    case 502:
-      message = &#39;网络错误(502)&#39;
-      break
-    case 503:
-      message = &#39;服务不可用(503)&#39;
-      break
-    case 504:
-      message = &#39;网络超时(504)&#39;
-      break
-    case 505:
-      message = &#39;HTTP版本不受支持(505)&#39;
-      break
-    default:
-      message = `连接出错(${status})!`
-  }
-  return `${message}，请检查网络或联系管理员！`
-}
+<span class="token keyword">const</span> showStatus <span class="token operator">=</span> <span class="token punctuation">(</span>status<span class="token punctuation">:</span> number<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> message <span class="token operator">=</span> <span class="token string">''</span>
+  <span class="token keyword">switch</span> <span class="token punctuation">(</span>status<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">case</span> <span class="token number">400</span><span class="token punctuation">:</span>
+      message <span class="token operator">=</span> <span class="token string">'请求错误(400)'</span>
+      <span class="token keyword">break</span>
+    <span class="token keyword">case</span> <span class="token number">401</span><span class="token punctuation">:</span>
+      message <span class="token operator">=</span> <span class="token string">'未授权，请重新登录(401)'</span>
+      <span class="token keyword">break</span>
+    <span class="token keyword">case</span> <span class="token number">403</span><span class="token punctuation">:</span>
+      message <span class="token operator">=</span> <span class="token string">'拒绝访问(403)'</span>
+      <span class="token keyword">break</span>
+    <span class="token keyword">case</span> <span class="token number">404</span><span class="token punctuation">:</span>
+      message <span class="token operator">=</span> <span class="token string">'请求出错(404)'</span>
+      <span class="token keyword">break</span>
+    <span class="token keyword">case</span> <span class="token number">408</span><span class="token punctuation">:</span>
+      message <span class="token operator">=</span> <span class="token string">'请求超时(408)'</span>
+      <span class="token keyword">break</span>
+    <span class="token keyword">case</span> <span class="token number">500</span><span class="token punctuation">:</span>
+      message <span class="token operator">=</span> <span class="token string">'服务器错误(500)'</span>
+      <span class="token keyword">break</span>
+    <span class="token keyword">case</span> <span class="token number">501</span><span class="token punctuation">:</span>
+      message <span class="token operator">=</span> <span class="token string">'服务未实现(501)'</span>
+      <span class="token keyword">break</span>
+    <span class="token keyword">case</span> <span class="token number">502</span><span class="token punctuation">:</span>
+      message <span class="token operator">=</span> <span class="token string">'网络错误(502)'</span>
+      <span class="token keyword">break</span>
+    <span class="token keyword">case</span> <span class="token number">503</span><span class="token punctuation">:</span>
+      message <span class="token operator">=</span> <span class="token string">'服务不可用(503)'</span>
+      <span class="token keyword">break</span>
+    <span class="token keyword">case</span> <span class="token number">504</span><span class="token punctuation">:</span>
+      message <span class="token operator">=</span> <span class="token string">'网络超时(504)'</span>
+      <span class="token keyword">break</span>
+    <span class="token keyword">case</span> <span class="token number">505</span><span class="token punctuation">:</span>
+      message <span class="token operator">=</span> <span class="token string">'HTTP版本不受支持(505)'</span>
+      <span class="token keyword">break</span>
+    <span class="token keyword">default</span><span class="token punctuation">:</span>
+      message <span class="token operator">=</span> <span class="token template-string"><span class="token string">`连接出错(</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>status<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">)!`</span></span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> <span class="token template-string"><span class="token string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>message<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">，请检查网络或联系管理员！`</span></span>
+<span class="token punctuation">}</span>
 
-const service = axios.create({
-  // 联调
-  baseURL: process.env.NODE_ENV === &#39;production&#39; ? `/` : &#39;/apis&#39;,
-  headers: {
-    get: {
-      &#39;Content-Type&#39;: &#39;application/x-www-form-urlencoded;charset=utf-8&#39;
-    },
-    post: {
-      &#39;Content-Type&#39;: &#39;application/json;charset=utf-8&#39;
-    }
-  },
-  // 是否跨站点访问控制请求
-  withCredentials: true,
-  timeout: 30000,
-  transformRequest: [(data) =&gt; {
-    data = JSON.stringify(data)
-    return data
-  }],
-  validateStatus () {
-    // 使用async-await，处理reject情况较为繁琐，所以全部返回resolve，在业务代码中处理异常
-    return true
-  },
-  transformResponse: [(data) =&gt; {
-    if (typeof data === &#39;string&#39; &amp;&amp; data.startsWith(&#39;{&#39;)) {
-      data = JSON.parse(data)
-    }
-    return data
-  }]
-})
+<span class="token keyword">const</span> service <span class="token operator">=</span> axios<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// 联调</span>
+  baseURL<span class="token punctuation">:</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span>NODE_ENV <span class="token operator">===</span> <span class="token string">'production'</span> <span class="token operator">?</span> <span class="token template-string"><span class="token string">`/`</span></span> <span class="token punctuation">:</span> <span class="token string">'/apis'</span><span class="token punctuation">,</span>
+  headers<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token keyword">get</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      <span class="token string">'Content-Type'</span><span class="token punctuation">:</span> <span class="token string">'application/x-www-form-urlencoded;charset=utf-8'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    post<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      <span class="token string">'Content-Type'</span><span class="token punctuation">:</span> <span class="token string">'application/json;charset=utf-8'</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token comment" spellcheck="true">// 是否跨站点访问控制请求</span>
+  withCredentials<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  timeout<span class="token punctuation">:</span> <span class="token number">30000</span><span class="token punctuation">,</span>
+  transformRequest<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    data <span class="token operator">=</span> JSON<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> data
+  <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  validateStatus <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 使用async-await，处理reject情况较为繁琐，所以全部返回resolve，在业务代码中处理异常</span>
+    <span class="token keyword">return</span> <span class="token boolean">true</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  transformResponse<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> data <span class="token operator">===</span> <span class="token string">'string'</span> <span class="token operator">&amp;&amp;</span> data<span class="token punctuation">.</span><span class="token function">startsWith</span><span class="token punctuation">(</span><span class="token string">'{'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      data <span class="token operator">=</span> JSON<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> data
+  <span class="token punctuation">}</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
 
-// 请求拦截器
-service.interceptors.request.use((config: AxiosRequestConfig) =&gt; {
-    return config
-}, (error) =&gt; {
-    // 错误抛到业务代码
-    error.data = {}
-    error.data.msg = &#39;服务器异常，请联系管理员！&#39;
-    return Promise.resolve(error)
-})
+<span class="token comment" spellcheck="true">// 请求拦截器</span>
+service<span class="token punctuation">.</span>interceptors<span class="token punctuation">.</span>request<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token punctuation">(</span>config<span class="token punctuation">:</span> AxiosRequestConfig<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> config
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>error<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 错误抛到业务代码</span>
+    error<span class="token punctuation">.</span>data <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    error<span class="token punctuation">.</span>data<span class="token punctuation">.</span>msg <span class="token operator">=</span> <span class="token string">'服务器异常，请联系管理员！'</span>
+    <span class="token keyword">return</span> Promise<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
 
-// 响应拦截器
-service.interceptors.response.use((response: AxiosResponse) =&gt; {
-    const status = response.status
-    let msg = &#39;&#39;
-    if (status &lt; 200 || status &gt;= 300) {
-        // 处理http错误，抛到业务代码
-        msg = showStatus(status)
-        if (typeof response.data === &#39;string&#39;) {
-            response.data = {msg}
-        } else {
-            response.data.msg = msg
-        }
-    }
-    return response
-}, (error) =&gt; {
-    // 错误抛到业务代码
-    error.data = {}
-    error.data.msg = &#39;请求超时或服务器异常，请检查网络或联系管理员！&#39;
-    return Promise.resolve(error)
-})
+<span class="token comment" spellcheck="true">// 响应拦截器</span>
+service<span class="token punctuation">.</span>interceptors<span class="token punctuation">.</span>response<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token punctuation">(</span>response<span class="token punctuation">:</span> AxiosResponse<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> status <span class="token operator">=</span> response<span class="token punctuation">.</span>status
+    <span class="token keyword">let</span> msg <span class="token operator">=</span> <span class="token string">''</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>status <span class="token operator">&lt;</span> <span class="token number">200</span> <span class="token operator">||</span> status <span class="token operator">>=</span> <span class="token number">300</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// 处理http错误，抛到业务代码</span>
+        msg <span class="token operator">=</span> <span class="token function">showStatus</span><span class="token punctuation">(</span>status<span class="token punctuation">)</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> response<span class="token punctuation">.</span>data <span class="token operator">===</span> <span class="token string">'string'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            response<span class="token punctuation">.</span>data <span class="token operator">=</span> <span class="token punctuation">{</span>msg<span class="token punctuation">}</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            response<span class="token punctuation">.</span>data<span class="token punctuation">.</span>msg <span class="token operator">=</span> msg
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> response
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>error<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">// 错误抛到业务代码</span>
+    error<span class="token punctuation">.</span>data <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    error<span class="token punctuation">.</span>data<span class="token punctuation">.</span>msg <span class="token operator">=</span> <span class="token string">'请求超时或服务器异常，请检查网络或联系管理员！'</span>
+    <span class="token keyword">return</span> Promise<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
 
-export default service
+<span class="token keyword">export</span> <span class="token keyword">default</span> service
 </code></pre>
 <h2 id="一些关于Axios的注释"><a href="#一些关于Axios的注释" class="headerlink" title="一些关于Axios的注释"></a>一些关于Axios的注释</h2><ul>
 <li>请求方法应为小写：<code>method: get/post/put/delete</code>在axios内部全部转为小写</li>
@@ -1040,7 +1040,7 @@ CSP的实质就是白名单制度
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">21.9k</span>
+                <span class="white-color">21k</span>
             
 
             

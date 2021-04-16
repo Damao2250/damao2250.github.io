@@ -53,7 +53,7 @@ Prefix">
     <script src="https://cdn.staticfile.org/jquery/2.2.0/jquery.min.js"></script>
     <script src=""></script>
 <meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Damao Bolg" type="application/atom+xml">
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -389,7 +389,7 @@ Prefix">
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        1.1k
+                        1k
                     </div>
                     
 
@@ -407,15 +407,15 @@ Prefix">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="A-HC-LC-命名法"><a href="#A-HC-LC-命名法" class="headerlink" title="A/HC/LC 命名法"></a>A/HC/LC 命名法</h1><h2 id="P-A-HC-LC是什么"><a href="#P-A-HC-LC是什么" class="headerlink" title="(P)A/HC/LC是什么"></a>(P)A/HC/LC是什么</h2><pre><code class="js">
-prefix? (P) + action (A) + high context (HC) + low context? (LC)
-// 前缀 + 动作 + 高语境 + 低语境
+                <h1 id="A-HC-LC-命名法"><a href="#A-HC-LC-命名法" class="headerlink" title="A/HC/LC 命名法"></a>A/HC/LC 命名法</h1><h2 id="P-A-HC-LC是什么"><a href="#P-A-HC-LC是什么" class="headerlink" title="(P)A/HC/LC是什么"></a>(P)A/HC/LC是什么</h2><pre class=" language-js"><code class="language-js">
+prefix<span class="token operator">?</span> <span class="token punctuation">(</span>P<span class="token punctuation">)</span> <span class="token operator">+</span> action <span class="token punctuation">(</span>A<span class="token punctuation">)</span> <span class="token operator">+</span> high context <span class="token punctuation">(</span>HC<span class="token punctuation">)</span> <span class="token operator">+</span> low context<span class="token operator">?</span> <span class="token punctuation">(</span>LC<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// 前缀 + 动作 + 高语境 + 低语境</span>
 </code></pre>
 <h2 id="Prefix"><a href="#Prefix" class="headerlink" title="Prefix"></a><code>Prefix</code></h2><ul>
 <li>prefix（<code>前缀</code>）增加函数的可读性</li>
 </ul>
 <h3 id="is"><a href="#is" class="headerlink" title="- is"></a>- is</h3><ul>
-<li>描述当前上下文（语境）的特征或状态,通常为布尔值。<pre><code class="js"></code></pre>
+<li>描述当前上下文（语境）的特征或状态,通常为布尔值。<pre class=" language-js"><code class="language-js"></code></pre>
 </li>
 </ul>
 <p>const color = ‘blue’<br>const isBlue = ( color === ‘blue’ ) // 特征<br>const isPresent = true // 状态</p>
@@ -432,7 +432,7 @@ const areProductsPresent = (productsCount &gt; 0)
 /* Good */
 const hasProducts = (productsCount &gt; 0)
 </code></pre><h3 id="should"><a href="#should" class="headerlink" title="- should"></a>- should</h3><ul>
-<li>映射具有明确动作的条件语句，通常为布尔值<pre><code class="js"></code></pre>
+<li>映射具有明确动作的条件语句，通常为布尔值<pre class=" language-js"><code class="language-js"></code></pre>
 </li>
 </ul>
 <p>function shouldUpdateUrl(url, expectedUrl) {<br>  return (url !== expectedUrl)<br>}</p>
@@ -450,7 +450,7 @@ function getFruitsCount() {
   return this.fruits.length;
 }
 </code></pre><h3 id="set"><a href="#set" class="headerlink" title="- set"></a>- set</h3><ul>
-<li>设置数据<pre><code class="js"></code></pre>
+<li>设置数据<pre class=" language-js"><code class="language-js"></code></pre>
 </li>
 </ul>
 <p>// 将某个变量的值由A变为B<br>let fruits = 0</p>
@@ -477,7 +477,7 @@ console.log(fruits) // 5
 <li><p>请求数据</p>
 </li>
 <li><p>通常为一个比较耗时的操作，如：异步请求</p>
-<pre><code class="js"></code></pre>
+<pre class=" language-js"><code class="language-js"></code></pre>
 </li>
 </ul>
 <p>function fetchPosts(postCount) {<br>  return fetch(‘<a href="https://api.dev/posts&#39;" target="_blank" rel="noopener">https://api.dev/posts&#39;</a>, {…})<br>}</p>
@@ -504,16 +504,16 @@ removeFilter(&#39;price&#39;, selectedFilters)
 <li><p>假设你是一个文章审核员, 看到一篇不合规的文章, 当你想彻底删除这篇文章并点击 <code>删除文章</code> 按钮的时候, 执行的应该是一个 <code>deletePost</code> 的删除动作, 而不是 <code>removePost</code></p>
 </li>
 </ul>
-<pre><code class="js">
-function deletePost(id) {
-  return database.find({ id }).delete()
-}
+<pre class=" language-js"><code class="language-js">
+<span class="token keyword">function</span> <span class="token function">deletePost</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> database<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token punctuation">{</span> id <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">delete</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <h3 id="compose"><a href="#compose" class="headerlink" title="- compose"></a>- compose</h3><ul>
 <li><p>组合数据</p>
 </li>
 <li><p>基于现有的数据来创建一个新的数据, 适用于字符串、对象和函数</p>
-<pre><code class="js"></code></pre>
+<pre class=" language-js"><code class="language-js"></code></pre>
 </li>
 </ul>
 <p>function composePageUrl(pageName, pageId) {<br>  return <code>${pageName.toLowerCase()}-${pageId}</code><br>}</p>
@@ -534,7 +534,7 @@ link.addEventListener(&#39;click&#39;, handleLinkClick)
 <li><p>context 是一个域, 指代当前函数的执行环境</p>
 </li>
 <li><p>函数通常是处理某件事的一个动作, 所以注明函数所属的域, 或者至少注明一个预期的数据类型是很重要的</p>
-<pre><code class="js"></code></pre>
+<pre class=" language-js"><code class="language-js"></code></pre>
 </li>
 </ul>
 <p>/* 基于内置方法的纯函数 <em>/<br>function filter(predicate, list) {<br>  return list.filter(predicate)<br>}<br>/</em> 确切的表明这个函数是处理 posts 的 <em>/<br>function getRecentPosts(posts) {<br>  return filter(posts, (post) =&gt; post.date === Date.now())<br>}<br>/</em><br>一些编程语言允许你省略 context, 比如在 JavaScript 中 filter 方法只存在于数组上, 所以没必要给函数添加 context.<br>*/</p>
@@ -570,12 +570,12 @@ const shouldDisplayPagination = (postsCount &gt; 10) // alternatively
 <ul>
 <li>不要使用缩写形式, 这会降低代码可读性. 起一个简短并且语义化的名称可能有点难度, 但是不要让这成为你使用缩写的借口</li>
 </ul>
-<pre><code class="js">
-/* Bad */
-const onItmClk = () =&gt; {}
+<pre class=" language-js"><code class="language-js">
+<span class="token comment" spellcheck="true">/* Bad */</span>
+<span class="token keyword">const</span> onItmClk <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
 
-/* Good */
-const onItemClick = () =&gt; {}
+<span class="token comment" spellcheck="true">/* Good */</span>
+<span class="token keyword">const</span> onItemClick <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
 </code></pre>
 <ol start="3">
 <li>避免重复的上下文</li>
@@ -583,26 +583,26 @@ const onItemClick = () =&gt; {}
 <ul>
 <li>如果命名中的 context 存在与否不会降低其可读性的话, 最好还是移除它:</li>
 </ul>
-<pre><code class="js">
-class MenuItem {
-  /* 命名中的 &quot;MenuItem&quot; 与类名的域重复 */
-  handleMenuItemClick = (event) =&gt; { ... }
+<pre class=" language-js"><code class="language-js">
+<span class="token keyword">class</span> <span class="token class-name">MenuItem</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">/* 命名中的 "MenuItem" 与类名的域重复 */</span>
+  handleMenuItemClick <span class="token operator">=</span> <span class="token punctuation">(</span>event<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span> <span class="token operator">...</span> <span class="token punctuation">}</span>
 
-  /* 去掉 &quot;MenuItem&quot;, 看起来更简洁 */
-  handleClick = (event) =&gt; { ... }
-}
+  <span class="token comment" spellcheck="true">/* 去掉 "MenuItem", 看起来更简洁 */</span>
+  handleClick <span class="token operator">=</span> <span class="token punctuation">(</span>event<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span> <span class="token operator">...</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <ol start="4">
 <li>应该映射预期结果</li>
 </ol>
-<pre><code class="js">
-/* Bad */
-const isEnabled = (itemsCount &gt; 3)
-return &lt;Button disabled={!isEnabled} /&gt;
+<pre class=" language-js"><code class="language-js">
+<span class="token comment" spellcheck="true">/* Bad */</span>
+<span class="token keyword">const</span> isEnabled <span class="token operator">=</span> <span class="token punctuation">(</span>itemsCount <span class="token operator">></span> <span class="token number">3</span><span class="token punctuation">)</span>
+<span class="token keyword">return</span> <span class="token operator">&lt;</span>Button disabled<span class="token operator">=</span><span class="token punctuation">{</span><span class="token operator">!</span>isEnabled<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span>
 
-/* Good */
-const isDisabled = (itemsCount &lt;= 3)
-return &lt;Button disabled={isDisabled} /&gt;
+<span class="token comment" spellcheck="true">/* Good */</span>
+<span class="token keyword">const</span> isDisabled <span class="token operator">=</span> <span class="token punctuation">(</span>itemsCount <span class="token operator">&lt;=</span> <span class="token number">3</span><span class="token punctuation">)</span>
+<span class="token keyword">return</span> <span class="token operator">&lt;</span>Button disabled<span class="token operator">=</span><span class="token punctuation">{</span>isDisabled<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span>
 </code></pre>
 <ol start="5">
 <li>考虑单数和复数形式</li>
@@ -1128,7 +1128,7 @@ return &lt;Button disabled={isDisabled} /&gt;
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">21.9k</span>
+                <span class="white-color">21k</span>
             
 
             

@@ -10,7 +10,8 @@
 封装还可以优化
 直接看代码吧
 
-slider组件// slider/index.vue&amp;#39;">
+slider组件// slider/index.vue&#39;
+&amp;lt">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -55,7 +56,7 @@ slider组件// slider/index.vue&amp;#39;">
     <script src="https://cdn.staticfile.org/jquery/2.2.0/jquery.min.js"></script>
     <script src=""></script>
 <meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Damao Bolg" type="application/atom+xml">
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -391,14 +392,14 @@ slider组件// slider/index.vue&amp;#39;">
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        920
+                        820
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        5 分
+                        4 分
                     </div>
                     
                 
@@ -415,282 +416,282 @@ slider组件// slider/index.vue&amp;#39;">
 <li>封装还可以优化</li>
 <li>直接看代码吧</li>
 </ul>
-<h3 id="slider组件"><a href="#slider组件" class="headerlink" title="slider组件"></a>slider组件</h3><pre><code class="js">// slider/index.vue&#39;
-&lt;template&gt;
-  &lt;div class=&quot;bar&quot; ref=&quot;bar&quot;&gt;
-    &lt;el-slider
-      class=&quot;slider&quot;
-      ref=&quot;slider&quot;
-      v-model=&quot;value&quot;
-      :show-tooltip=&quot;false&quot;
-      @change=&quot;sliderChange&quot;
-      :disabled=&quot;sliderDisabled&quot;
-    &gt;&lt;/el-slider&gt;
-    &lt;div class=&quot;slider-text-before&quot; ref=&quot;barText&quot;&gt;
-      &lt;div :class=&quot;noReset?&#39;run run-no-slider&#39;:&#39;run&#39;&quot; v-if=&quot;!isSuccess&quot;&gt;拖动滑块验证&lt;/div&gt;
-      &lt;span v-else style=&quot;color:#fff;&quot;&gt;验证通过&lt;/span&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/template&gt;
-&lt;script&gt;
-export default {
-  name: &quot;slider&quot;,
-  props: {
-    reset: {
-      type: Boolean,
-      default: false
-    },
-    noReset: {
-      type: Boolean,
-      default: false,
-    }
-  },
-  data() {
-    return {
-      value: 0,
-      isSuccess: false,
-      sliderDisabled: false
-    };
-  },
-  watch: {
-    reset: function(val) {
-      if (val) {
-        this.sliderReset();
-      }
-    },
-    noReset(val){
-      if(val){
-        this.$refs.bar.classList.add(&quot;no-slider&quot;)
-      }else{
-        this.$refs.bar.classList.remove(&quot;no-slider&quot;)
-      }
-    },
-    value(val){
-      this.$emit(&quot;value&quot;,val)
-    }
-  },
-  created() {
-    },
-  mounted() {
-    console.log(this.$refs.slider.$refs.button1.$refs.button)
+<h3 id="slider组件"><a href="#slider组件" class="headerlink" title="slider组件"></a>slider组件</h3><pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// slider/index.vue'</span>
+<span class="token operator">&lt;</span>template<span class="token operator">></span>
+  <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"bar"</span> ref<span class="token operator">=</span><span class="token string">"bar"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>el<span class="token operator">-</span>slider
+      <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"slider"</span>
+      ref<span class="token operator">=</span><span class="token string">"slider"</span>
+      v<span class="token operator">-</span>model<span class="token operator">=</span><span class="token string">"value"</span>
+      <span class="token punctuation">:</span>show<span class="token operator">-</span>tooltip<span class="token operator">=</span><span class="token string">"false"</span>
+      @change<span class="token operator">=</span><span class="token string">"sliderChange"</span>
+      <span class="token punctuation">:</span>disabled<span class="token operator">=</span><span class="token string">"sliderDisabled"</span>
+    <span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>el<span class="token operator">-</span>slider<span class="token operator">></span>
+    <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"slider-text-before"</span> ref<span class="token operator">=</span><span class="token string">"barText"</span><span class="token operator">></span>
+      <span class="token operator">&lt;</span>div <span class="token punctuation">:</span><span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"noReset?'run run-no-slider':'run'"</span> v<span class="token operator">-</span><span class="token keyword">if</span><span class="token operator">=</span><span class="token string">"!isSuccess"</span><span class="token operator">></span>拖动滑块验证<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+      <span class="token operator">&lt;</span>span v<span class="token operator">-</span><span class="token keyword">else</span> style<span class="token operator">=</span><span class="token string">"color:#fff;"</span><span class="token operator">></span>验证通过<span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">></span>
+<span class="token operator">&lt;</span>script<span class="token operator">></span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  name<span class="token punctuation">:</span> <span class="token string">"slider"</span><span class="token punctuation">,</span>
+  props<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    reset<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      type<span class="token punctuation">:</span> Boolean<span class="token punctuation">,</span>
+      <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token boolean">false</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    noReset<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      type<span class="token punctuation">:</span> Boolean<span class="token punctuation">,</span>
+      <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      value<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+      isSuccess<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+      sliderDisabled<span class="token punctuation">:</span> <span class="token boolean">false</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  watch<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    reset<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>val<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">sliderReset</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token function">noReset</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">{</span>
+      <span class="token keyword">if</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>$refs<span class="token punctuation">.</span>bar<span class="token punctuation">.</span>classList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">"no-slider"</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>$refs<span class="token punctuation">.</span>bar<span class="token punctuation">.</span>classList<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token string">"no-slider"</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token function">value</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$emit</span><span class="token punctuation">(</span><span class="token string">"value"</span><span class="token punctuation">,</span>val<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function">created</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function">mounted</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>$refs<span class="token punctuation">.</span>slider<span class="token punctuation">.</span>$refs<span class="token punctuation">.</span>button1<span class="token punctuation">.</span>$refs<span class="token punctuation">.</span>button<span class="token punctuation">)</span>
 
 
-    // this.$refs.slider.$refs.button1.$refs.button.style = &quot;&quot;
-    this.$refs.slider.$refs.button1.$refs.button.lastChild.innerHTML =
-      &quot;&lt;i class=&#39;el-icon-d-arrow-right icon-arrow-right&#39;&gt;&lt;/i&gt;&quot;;
+    <span class="token comment" spellcheck="true">// this.$refs.slider.$refs.button1.$refs.button.style = ""</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>$refs<span class="token punctuation">.</span>slider<span class="token punctuation">.</span>$refs<span class="token punctuation">.</span>button1<span class="token punctuation">.</span>$refs<span class="token punctuation">.</span>button<span class="token punctuation">.</span>lastChild<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span>
+      <span class="token string">"&lt;i class='el-icon-d-arrow-right icon-arrow-right'>&lt;/i>"</span><span class="token punctuation">;</span>
 
-  },
-  methods: {
-    sliderChange(val) {
-      if (val === 100) {
-        this.sliderSucceed();
-      } else {
-        this.sliderReset();
-      }
-    },
-    sliderSucceed() {
-      this.isSuccess = true;
-      this.$refs.slider.$refs.button1.$refs.button.lastChild.innerHTML =
-        &quot;&lt;i class=&#39;el-icon-success icon-success&#39;&gt;&lt;/i&gt;&quot;;
-      this.sliderDisabled = true;
-      this.$emit(&quot;success&quot;, true);
-    },
-    sliderReset() {
-      this.isSuccess = false;
-      this.value = 0;
-      this.sliderDisabled = false;
-      this.$emit(&quot;update:reset&quot;, false);
-      this.$refs.slider.$refs.button1.$refs.button.lastChild.innerHTML =
-        &quot;&lt;i class=&#39;el-icon-d-arrow-right icon-arrow-right&#39;&gt;&lt;/i&gt;&quot;;
-    }
-  }
-};
-&lt;/script&gt;
-&lt;style lang=&quot;scss&quot; scoped&gt;
-$color: #67c23a;
-// $color: #409EFF;
-$slider_button_width: 60px;
-$slider_button_height: 40px;
-.bar {
-  position: relative;
-  width: 100%;
-  background-color: #e4e7ed;
-  border-radius: 3px;
-  .slider-text-before {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 16px;
-    letter-spacing: 2px;
-    user-select: none;
-    .run {
-      padding: 0 30px;
-      color: transparent;
-      -moz-user-select: none;
-      -webkit-user-select: none;
-      user-select: none;
-      -o-user-select: none;
-      -ms-user-select: none;
-      background: -webkit-gradient(
-        linear,
-        left top,
-        right top,
-        color-stop(0, #333),
-        color-stop(0.3, #333),
-        color-stop(0.5, #fff),
-        color-stop(0.7, #333),
-        color-stop(1, #333)
-      );
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      -webkit-text-size-adjust: none;
-      -webkit-animation: slidetounlock 3s infinite;
-      animation: slidetounlock 3s infinite;
-    }
-    .run-no-slider{
-      background: -webkit-gradient(
-        linear,
-        left top,
-        right top,
-        color-stop(0, #F56C6C),
-        color-stop(0.3, #F56C6C),
-        color-stop(0.5, #fff),
-        color-stop(0.7, #F56C6C),
-        color-stop(1, #F56C6C)
-      );
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      -webkit-text-size-adjust: none;
-      -webkit-animation: slidetounlock 3s infinite;
-      animation: slidetounlock 3s infinite;
-    }
-  }
-  .slider-text-after {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 10;
-    color: #fff;
-  }
-  .slider {
-    width: calc(100% - #{$slider_button_width});
-    /deep/.el-slider__runway {
-      margin: 0;
-    }
-    /deep/.el-slider__bar {
-      height: 40px;
-      background-color: $color;
-      border-top-left-radius: 0px;
-      border-bottom-left-radius: 0px;
-    }
-    /deep/.el-slider__runway {
-      height: 40px;
-    }
-    /deep/.el-slider__button-wrapper {
-      top: 0;
-      width: $slider_button_width;
-      height: 40px;
-      margin-left: ($slider_button_width/2);
-      :hover {
-        transform: none;
-      }
-    }
-    /deep/.el-slider__button {
-      width: $slider_button_width;
-      height: 40px;
-      border-radius: 0;
-      border-color: #dcdfe6;
-      :hover {
-        transform: none;
-      }
-    }
-    /deep/.el-slider__button.dragging,
-    .el-slider__button.hover,
-    .el-slider__button:hover {
-      -webkit-transform: none !important;
-      transform: none !important;
-    }
-    /deep/.el-slider__runway.disabled .el-slider__button:hover {
-      cursor: grab !important;
-    }
-    /deep/.icon-arrow-right {
-      line-height: ($slider_button_height - 4px);
-      font-size: 18px;
-      color: #4c4c4c;
-    }
-    /deep/.icon-success {
-      line-height: ($slider_button_height - 4px);
-      font-size: 20px;
-      color: $color;
-    }
-  }
-}
-@-webkit-keyframes slidetounlock {
-  from {
-    background-position: -70px 100%;
-  }
-  to {
-    background-position: 80px 0;
-  }
-}
-.no-slider{
-  animation: shake 800ms ease-in-out;
-}
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  methods<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token function">sliderChange</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>val <span class="token operator">===</span> <span class="token number">100</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">sliderSucceed</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">sliderReset</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token function">sliderSucceed</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>isSuccess <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>$refs<span class="token punctuation">.</span>slider<span class="token punctuation">.</span>$refs<span class="token punctuation">.</span>button1<span class="token punctuation">.</span>$refs<span class="token punctuation">.</span>button<span class="token punctuation">.</span>lastChild<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span>
+        <span class="token string">"&lt;i class='el-icon-success icon-success'>&lt;/i>"</span><span class="token punctuation">;</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>sliderDisabled <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$emit</span><span class="token punctuation">(</span><span class="token string">"success"</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token function">sliderReset</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>isSuccess <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>value <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>sliderDisabled <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$emit</span><span class="token punctuation">(</span><span class="token string">"update:reset"</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>$refs<span class="token punctuation">.</span>slider<span class="token punctuation">.</span>$refs<span class="token punctuation">.</span>button1<span class="token punctuation">.</span>$refs<span class="token punctuation">.</span>button<span class="token punctuation">.</span>lastChild<span class="token punctuation">.</span>innerHTML <span class="token operator">=</span>
+        <span class="token string">"&lt;i class='el-icon-d-arrow-right icon-arrow-right'>&lt;/i>"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+<span class="token operator">&lt;</span>style lang<span class="token operator">=</span><span class="token string">"scss"</span> scoped<span class="token operator">></span>
+$color<span class="token punctuation">:</span> #67c23a<span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// $color: #409EFF;</span>
+$slider_button_width<span class="token punctuation">:</span> 60px<span class="token punctuation">;</span>
+$slider_button_height<span class="token punctuation">:</span> 40px<span class="token punctuation">;</span>
+<span class="token punctuation">.</span>bar <span class="token punctuation">{</span>
+  position<span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
+  width<span class="token punctuation">:</span> <span class="token number">100</span><span class="token operator">%</span><span class="token punctuation">;</span>
+  background<span class="token operator">-</span>color<span class="token punctuation">:</span> #e4e7ed<span class="token punctuation">;</span>
+  border<span class="token operator">-</span>radius<span class="token punctuation">:</span> 3px<span class="token punctuation">;</span>
+  <span class="token punctuation">.</span>slider<span class="token operator">-</span>text<span class="token operator">-</span>before <span class="token punctuation">{</span>
+    position<span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+    left<span class="token punctuation">:</span> <span class="token number">50</span><span class="token operator">%</span><span class="token punctuation">;</span>
+    top<span class="token punctuation">:</span> <span class="token number">50</span><span class="token operator">%</span><span class="token punctuation">;</span>
+    transform<span class="token punctuation">:</span> <span class="token function">translate</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">50</span><span class="token operator">%</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">50</span><span class="token operator">%</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    font<span class="token operator">-</span>size<span class="token punctuation">:</span> 16px<span class="token punctuation">;</span>
+    letter<span class="token operator">-</span>spacing<span class="token punctuation">:</span> 2px<span class="token punctuation">;</span>
+    user<span class="token operator">-</span>select<span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+    <span class="token punctuation">.</span>run <span class="token punctuation">{</span>
+      padding<span class="token punctuation">:</span> <span class="token number">0</span> 30px<span class="token punctuation">;</span>
+      color<span class="token punctuation">:</span> transparent<span class="token punctuation">;</span>
+      <span class="token operator">-</span>moz<span class="token operator">-</span>user<span class="token operator">-</span>select<span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+      <span class="token operator">-</span>webkit<span class="token operator">-</span>user<span class="token operator">-</span>select<span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+      user<span class="token operator">-</span>select<span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+      <span class="token operator">-</span>o<span class="token operator">-</span>user<span class="token operator">-</span>select<span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+      <span class="token operator">-</span>ms<span class="token operator">-</span>user<span class="token operator">-</span>select<span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+      background<span class="token punctuation">:</span> <span class="token operator">-</span>webkit<span class="token operator">-</span><span class="token function">gradient</span><span class="token punctuation">(</span>
+        linear<span class="token punctuation">,</span>
+        left top<span class="token punctuation">,</span>
+        right top<span class="token punctuation">,</span>
+        color<span class="token operator">-</span><span class="token function">stop</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> #<span class="token number">333</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        color<span class="token operator">-</span><span class="token function">stop</span><span class="token punctuation">(</span><span class="token number">0.3</span><span class="token punctuation">,</span> #<span class="token number">333</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        color<span class="token operator">-</span><span class="token function">stop</span><span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">,</span> #fff<span class="token punctuation">)</span><span class="token punctuation">,</span>
+        color<span class="token operator">-</span><span class="token function">stop</span><span class="token punctuation">(</span><span class="token number">0.7</span><span class="token punctuation">,</span> #<span class="token number">333</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        color<span class="token operator">-</span><span class="token function">stop</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> #<span class="token number">333</span><span class="token punctuation">)</span>
+      <span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token operator">-</span>webkit<span class="token operator">-</span>background<span class="token operator">-</span>clip<span class="token punctuation">:</span> text<span class="token punctuation">;</span>
+      <span class="token operator">-</span>webkit<span class="token operator">-</span>text<span class="token operator">-</span>fill<span class="token operator">-</span>color<span class="token punctuation">:</span> transparent<span class="token punctuation">;</span>
+      <span class="token operator">-</span>webkit<span class="token operator">-</span>text<span class="token operator">-</span>size<span class="token operator">-</span>adjust<span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+      <span class="token operator">-</span>webkit<span class="token operator">-</span>animation<span class="token punctuation">:</span> slidetounlock 3s infinite<span class="token punctuation">;</span>
+      animation<span class="token punctuation">:</span> slidetounlock 3s infinite<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token punctuation">.</span>run<span class="token operator">-</span>no<span class="token operator">-</span>slider<span class="token punctuation">{</span>
+      background<span class="token punctuation">:</span> <span class="token operator">-</span>webkit<span class="token operator">-</span><span class="token function">gradient</span><span class="token punctuation">(</span>
+        linear<span class="token punctuation">,</span>
+        left top<span class="token punctuation">,</span>
+        right top<span class="token punctuation">,</span>
+        color<span class="token operator">-</span><span class="token function">stop</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> #F56C6C<span class="token punctuation">)</span><span class="token punctuation">,</span>
+        color<span class="token operator">-</span><span class="token function">stop</span><span class="token punctuation">(</span><span class="token number">0.3</span><span class="token punctuation">,</span> #F56C6C<span class="token punctuation">)</span><span class="token punctuation">,</span>
+        color<span class="token operator">-</span><span class="token function">stop</span><span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">,</span> #fff<span class="token punctuation">)</span><span class="token punctuation">,</span>
+        color<span class="token operator">-</span><span class="token function">stop</span><span class="token punctuation">(</span><span class="token number">0.7</span><span class="token punctuation">,</span> #F56C6C<span class="token punctuation">)</span><span class="token punctuation">,</span>
+        color<span class="token operator">-</span><span class="token function">stop</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> #F56C6C<span class="token punctuation">)</span>
+      <span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token operator">-</span>webkit<span class="token operator">-</span>background<span class="token operator">-</span>clip<span class="token punctuation">:</span> text<span class="token punctuation">;</span>
+      <span class="token operator">-</span>webkit<span class="token operator">-</span>text<span class="token operator">-</span>fill<span class="token operator">-</span>color<span class="token punctuation">:</span> transparent<span class="token punctuation">;</span>
+      <span class="token operator">-</span>webkit<span class="token operator">-</span>text<span class="token operator">-</span>size<span class="token operator">-</span>adjust<span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+      <span class="token operator">-</span>webkit<span class="token operator">-</span>animation<span class="token punctuation">:</span> slidetounlock 3s infinite<span class="token punctuation">;</span>
+      animation<span class="token punctuation">:</span> slidetounlock 3s infinite<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token punctuation">.</span>slider<span class="token operator">-</span>text<span class="token operator">-</span>after <span class="token punctuation">{</span>
+    position<span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+    left<span class="token punctuation">:</span> <span class="token number">50</span><span class="token operator">%</span><span class="token punctuation">;</span>
+    top<span class="token punctuation">:</span> <span class="token number">50</span><span class="token operator">%</span><span class="token punctuation">;</span>
+    transform<span class="token punctuation">:</span> <span class="token function">translate</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">50</span><span class="token operator">%</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">50</span><span class="token operator">%</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    z<span class="token operator">-</span>index<span class="token punctuation">:</span> <span class="token number">10</span><span class="token punctuation">;</span>
+    color<span class="token punctuation">:</span> #fff<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token punctuation">.</span>slider <span class="token punctuation">{</span>
+    width<span class="token punctuation">:</span> <span class="token function">calc</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token operator">%</span> <span class="token operator">-</span> #<span class="token punctuation">{</span>$slider_button_width<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token regex">/deep/</span><span class="token punctuation">.</span>el<span class="token operator">-</span>slider__runway <span class="token punctuation">{</span>
+      margin<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token regex">/deep/</span><span class="token punctuation">.</span>el<span class="token operator">-</span>slider__bar <span class="token punctuation">{</span>
+      height<span class="token punctuation">:</span> 40px<span class="token punctuation">;</span>
+      background<span class="token operator">-</span>color<span class="token punctuation">:</span> $color<span class="token punctuation">;</span>
+      border<span class="token operator">-</span>top<span class="token operator">-</span>left<span class="token operator">-</span>radius<span class="token punctuation">:</span> 0px<span class="token punctuation">;</span>
+      border<span class="token operator">-</span>bottom<span class="token operator">-</span>left<span class="token operator">-</span>radius<span class="token punctuation">:</span> 0px<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token regex">/deep/</span><span class="token punctuation">.</span>el<span class="token operator">-</span>slider__runway <span class="token punctuation">{</span>
+      height<span class="token punctuation">:</span> 40px<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token regex">/deep/</span><span class="token punctuation">.</span>el<span class="token operator">-</span>slider__button<span class="token operator">-</span>wrapper <span class="token punctuation">{</span>
+      top<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+      width<span class="token punctuation">:</span> $slider_button_width<span class="token punctuation">;</span>
+      height<span class="token punctuation">:</span> 40px<span class="token punctuation">;</span>
+      margin<span class="token operator">-</span>left<span class="token punctuation">:</span> <span class="token punctuation">(</span>$slider_button_width<span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">:</span>hover <span class="token punctuation">{</span>
+        transform<span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token regex">/deep/</span><span class="token punctuation">.</span>el<span class="token operator">-</span>slider__button <span class="token punctuation">{</span>
+      width<span class="token punctuation">:</span> $slider_button_width<span class="token punctuation">;</span>
+      height<span class="token punctuation">:</span> 40px<span class="token punctuation">;</span>
+      border<span class="token operator">-</span>radius<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+      border<span class="token operator">-</span>color<span class="token punctuation">:</span> #dcdfe6<span class="token punctuation">;</span>
+      <span class="token punctuation">:</span>hover <span class="token punctuation">{</span>
+        transform<span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token regex">/deep/</span><span class="token punctuation">.</span>el<span class="token operator">-</span>slider__button<span class="token punctuation">.</span>dragging<span class="token punctuation">,</span>
+    <span class="token punctuation">.</span>el<span class="token operator">-</span>slider__button<span class="token punctuation">.</span>hover<span class="token punctuation">,</span>
+    <span class="token punctuation">.</span>el<span class="token operator">-</span>slider__button<span class="token punctuation">:</span>hover <span class="token punctuation">{</span>
+      <span class="token operator">-</span>webkit<span class="token operator">-</span>transform<span class="token punctuation">:</span> none <span class="token operator">!</span>important<span class="token punctuation">;</span>
+      transform<span class="token punctuation">:</span> none <span class="token operator">!</span>important<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token regex">/deep/</span><span class="token punctuation">.</span>el<span class="token operator">-</span>slider__runway<span class="token punctuation">.</span>disabled <span class="token punctuation">.</span>el<span class="token operator">-</span>slider__button<span class="token punctuation">:</span>hover <span class="token punctuation">{</span>
+      cursor<span class="token punctuation">:</span> grab <span class="token operator">!</span>important<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token regex">/deep/</span><span class="token punctuation">.</span>icon<span class="token operator">-</span>arrow<span class="token operator">-</span>right <span class="token punctuation">{</span>
+      line<span class="token operator">-</span>height<span class="token punctuation">:</span> <span class="token punctuation">(</span>$slider_button_height <span class="token operator">-</span> 4px<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      font<span class="token operator">-</span>size<span class="token punctuation">:</span> 18px<span class="token punctuation">;</span>
+      color<span class="token punctuation">:</span> #4c4c4c<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token regex">/deep/</span><span class="token punctuation">.</span>icon<span class="token operator">-</span>success <span class="token punctuation">{</span>
+      line<span class="token operator">-</span>height<span class="token punctuation">:</span> <span class="token punctuation">(</span>$slider_button_height <span class="token operator">-</span> 4px<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      font<span class="token operator">-</span>size<span class="token punctuation">:</span> 20px<span class="token punctuation">;</span>
+      color<span class="token punctuation">:</span> $color<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+@<span class="token operator">-</span>webkit<span class="token operator">-</span>keyframes slidetounlock <span class="token punctuation">{</span>
+  <span class="token keyword">from</span> <span class="token punctuation">{</span>
+    background<span class="token operator">-</span>position<span class="token punctuation">:</span> <span class="token operator">-</span>70px <span class="token number">100</span><span class="token operator">%</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  to <span class="token punctuation">{</span>
+    background<span class="token operator">-</span>position<span class="token punctuation">:</span> 80px <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token punctuation">.</span>no<span class="token operator">-</span>slider<span class="token punctuation">{</span>
+  animation<span class="token punctuation">:</span> shake 800ms ease<span class="token operator">-</span><span class="token keyword">in</span><span class="token operator">-</span>out<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-@keyframes shake {
-    10%, 90% { transform: translate3d(-1px, 0, 0); }
-    20%, 80% { transform: translate3d(+2px, 0, 0); }
-    30%, 70% { transform: translate3d(-4px, 0, 0); }
-    40%, 60% { transform: translate3d(+4px, 0, 0); }
-    50% { transform: translate3d(-4px, 0, 0); }
-}
-&lt;/style&gt;
+@keyframes shake <span class="token punctuation">{</span>
+    <span class="token number">10</span><span class="token operator">%</span><span class="token punctuation">,</span> <span class="token number">90</span><span class="token operator">%</span> <span class="token punctuation">{</span> transform<span class="token punctuation">:</span> <span class="token function">translate3d</span><span class="token punctuation">(</span><span class="token operator">-</span>1px<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+    <span class="token number">20</span><span class="token operator">%</span><span class="token punctuation">,</span> <span class="token number">80</span><span class="token operator">%</span> <span class="token punctuation">{</span> transform<span class="token punctuation">:</span> <span class="token function">translate3d</span><span class="token punctuation">(</span><span class="token operator">+</span>2px<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+    <span class="token number">30</span><span class="token operator">%</span><span class="token punctuation">,</span> <span class="token number">70</span><span class="token operator">%</span> <span class="token punctuation">{</span> transform<span class="token punctuation">:</span> <span class="token function">translate3d</span><span class="token punctuation">(</span><span class="token operator">-</span>4px<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+    <span class="token number">40</span><span class="token operator">%</span><span class="token punctuation">,</span> <span class="token number">60</span><span class="token operator">%</span> <span class="token punctuation">{</span> transform<span class="token punctuation">:</span> <span class="token function">translate3d</span><span class="token punctuation">(</span><span class="token operator">+</span>4px<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+    <span class="token number">50</span><span class="token operator">%</span> <span class="token punctuation">{</span> transform<span class="token punctuation">:</span> <span class="token function">translate3d</span><span class="token punctuation">(</span><span class="token operator">-</span>4px<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">></span>
 </code></pre>
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><pre><code class="js">// 引入
-import slider from &#39;./slider&#39;
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 引入</span>
+<span class="token keyword">import</span> slider <span class="token keyword">from</span> <span class="token string">'./slider'</span>
 
-// 使用
- &lt;slider v-bind:reset.sync=&quot;isResetSlider&quot; :noReset=&quot;isNoReset&quot; @value=&quot;sliderValue&quot; @success=&quot;sliderSuccess&quot;&gt;&lt;/slider&gt;
+<span class="token comment" spellcheck="true">// 使用</span>
+ <span class="token operator">&lt;</span>slider v<span class="token operator">-</span>bind<span class="token punctuation">:</span>reset<span class="token punctuation">.</span>sync<span class="token operator">=</span><span class="token string">"isResetSlider"</span> <span class="token punctuation">:</span>noReset<span class="token operator">=</span><span class="token string">"isNoReset"</span> @value<span class="token operator">=</span><span class="token string">"sliderValue"</span> @success<span class="token operator">=</span><span class="token string">"sliderSuccess"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>slider<span class="token operator">></span>
 
-components:{
+components<span class="token punctuation">:</span><span class="token punctuation">{</span>
   slider
-},
-data() {
-  return {
-    isResetSlider: false,
-    isSeccess: false,
-    sliderVal: &quot;&quot;,
-    isNoReset: false
-  };
-}
+<span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">{</span>
+    isResetSlider<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+    isSeccess<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+    sliderVal<span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
+    isNoReset<span class="token punctuation">:</span> <span class="token boolean">false</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-methods: {
-  // 滑动验证
-  sliderSuccess(val){
-    this.isSeccess = val
-  },
-  sliderValue(val){
-    this.sliderVal = val
-  },
-  submitForm() {
-    if(this.sliderVal == 0){
-      this.isNoReset = true
-      setTimeout(() =&gt; {
-        this.isNoReset = false
-      }, 900);
-      return
-    }
-    if(this.isSeccess){
-      console.log(&quot;submit&quot;);
-      this.isResetSlider = true
-      this.isSeccess = false
-    }else{
-      console.log(&quot;请滑动滑块验证&quot;);
-    }
-  }
-}
+methods<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// 滑动验证</span>
+  <span class="token function">sliderSuccess</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>isSeccess <span class="token operator">=</span> val
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function">sliderValue</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>sliderVal <span class="token operator">=</span> val
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function">submitForm</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>sliderVal <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>isNoReset <span class="token operator">=</span> <span class="token boolean">true</span>
+      <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>isNoReset <span class="token operator">=</span> <span class="token boolean">false</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">900</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">return</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>isSeccess<span class="token punctuation">)</span><span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"submit"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>isResetSlider <span class="token operator">=</span> <span class="token boolean">true</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>isSeccess <span class="token operator">=</span> <span class="token boolean">false</span>
+    <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"请滑动滑块验证"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <h3 id="效果截图"><a href="#效果截图" class="headerlink" title="效果截图"></a>效果截图</h3><ul>
 <li><p>滑动验证-未滑动</p>
@@ -1220,7 +1221,7 @@ Vue (读音 /vjuː/，类似于 view) 是一套用于构建用户界面的渐进
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">21.9k</span>
+                <span class="white-color">21k</span>
             
 
             

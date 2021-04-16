@@ -59,7 +59,7 @@
     <script src="https://cdn.staticfile.org/jquery/2.2.0/jquery.min.js"></script>
     <script src=""></script>
 <meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Damao Bolg" type="application/atom+xml">
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -395,14 +395,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        667
+                        614
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        3 分
+                        2 分
                     </div>
                     
                 
@@ -427,135 +427,135 @@
 </ul>
 </li>
 </ul>
-<h2 id="Vue实现函数防抖组件"><a href="#Vue实现函数防抖组件" class="headerlink" title="Vue实现函数防抖组件"></a>Vue实现函数防抖组件</h2><pre><code class="js">
-// 组件
+<h2 id="Vue实现函数防抖组件"><a href="#Vue实现函数防抖组件" class="headerlink" title="Vue实现函数防抖组件"></a>Vue实现函数防抖组件</h2><pre class=" language-js"><code class="language-js">
+<span class="token comment" spellcheck="true">// 组件</span>
 
-const throttle = function (fn, wait = 50, isDebounce, ctx) {
-  let timer
-  let lastCall = 0
-  return function (...params) {
-    if (isDebounce) {
-      if (timer) clearTimeout(timer)
-      timer = setTimeout(() =&gt; {
-        fn.apply(ctx, params)
-      }, wait);
-    } else {
-      const now = new Date().getTime()
-      if (now - lastCall &lt; wait) return
-      lastCall = now
-      fn.apply(ctx, params)
-    }
-  }
-}
+<span class="token keyword">const</span> throttle <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>fn<span class="token punctuation">,</span> wait <span class="token operator">=</span> <span class="token number">50</span><span class="token punctuation">,</span> isDebounce<span class="token punctuation">,</span> ctx<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> timer
+  <span class="token keyword">let</span> lastCall <span class="token operator">=</span> <span class="token number">0</span>
+  <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token operator">...</span>params<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>isDebounce<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>timer<span class="token punctuation">)</span> <span class="token function">clearTimeout</span><span class="token punctuation">(</span>timer<span class="token punctuation">)</span>
+      timer <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+        fn<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>ctx<span class="token punctuation">,</span> params<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span> wait<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> now <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>now <span class="token operator">-</span> lastCall <span class="token operator">&lt;</span> wait<span class="token punctuation">)</span> <span class="token keyword">return</span>
+      lastCall <span class="token operator">=</span> now
+      fn<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>ctx<span class="token punctuation">,</span> params<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-export default {
-  name: &quot;Throttle&quot;,
-  abstract: true,
-  props: {
-    time: Number,
-    events: String,
-    isDebounce: {
-      type: Boolean,
-      default: false
-    }
-  },
-  created() {
-    this.eventKeys = this.events.split(&quot;,&quot;)
-    this.originMap = {}
-    this.throttledMap = {}
-  },
-  render() {
-    const vnode = this.$slots.default[0]
-    this.eventKeys.forEach(key =&gt; {
-      const target = vnode.data.on[key]
-      if (target === this.originMap[key] &amp;&amp; this.throttledMap[key]) {
-        vnode.data.on[key] = this.throttledMap[key]
-      } else if (target) {
-        this.originMap[key] = target
-        this.throttledMap[key] = throttle(target, this.time, this.isDebounce, vnode)
-        vnode.data.on[key] = this.throttledMap[key]
-      }
-    });
-    return vnode
-  }
-}
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  name<span class="token punctuation">:</span> <span class="token string">"Throttle"</span><span class="token punctuation">,</span>
+  abstract<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  props<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    time<span class="token punctuation">:</span> Number<span class="token punctuation">,</span>
+    events<span class="token punctuation">:</span> String<span class="token punctuation">,</span>
+    isDebounce<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      type<span class="token punctuation">:</span> Boolean<span class="token punctuation">,</span>
+      <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token boolean">false</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function">created</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>eventKeys <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>events<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">","</span><span class="token punctuation">)</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>originMap <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>throttledMap <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> vnode <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$slots<span class="token punctuation">.</span><span class="token keyword">default</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>eventKeys<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>key <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> target <span class="token operator">=</span> vnode<span class="token punctuation">.</span>data<span class="token punctuation">.</span>on<span class="token punctuation">[</span>key<span class="token punctuation">]</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>target <span class="token operator">===</span> <span class="token keyword">this</span><span class="token punctuation">.</span>originMap<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token keyword">this</span><span class="token punctuation">.</span>throttledMap<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        vnode<span class="token punctuation">.</span>data<span class="token punctuation">.</span>on<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>throttledMap<span class="token punctuation">[</span>key<span class="token punctuation">]</span>
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>originMap<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> target
+        <span class="token keyword">this</span><span class="token punctuation">.</span>throttledMap<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">throttle</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>time<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>isDebounce<span class="token punctuation">,</span> vnode<span class="token punctuation">)</span>
+        vnode<span class="token punctuation">.</span>data<span class="token punctuation">.</span>on<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>throttledMap<span class="token punctuation">[</span>key<span class="token punctuation">]</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> vnode
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
-<pre><code class="js">// 通过第三个参数 isDebounce来控制切换防抖节流
-// 在 main.js 引入
-import Throttle from &quot;./Throttle&quot;
-Vue.component(&quot;Throttle&quot;, Throttle)
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 通过第三个参数 isDebounce来控制切换防抖节流</span>
+<span class="token comment" spellcheck="true">// 在 main.js 引入</span>
+<span class="token keyword">import</span> Throttle <span class="token keyword">from</span> <span class="token string">"./Throttle"</span>
+Vue<span class="token punctuation">.</span><span class="token function">component</span><span class="token punctuation">(</span><span class="token string">"Throttle"</span><span class="token punctuation">,</span> Throttle<span class="token punctuation">)</span>
 
-// 使用
-&lt;div id=&quot;app&quot;&gt;
-  &lt;Throttle :timer=&quot;1000&quot; events=&quot;click&quot;&gt;
-    &lt;botton @click=&quot;onClick($event, 1)&quot;&gt;click + 1 {{val}}&lt;/botton&gt;
-  &lt;/Throttle&gt;
-  &lt;Throttle :timer=&quot;1000&quot; events=&quot;click&quot; :isDebounce=&quot;true&quot;&gt;
-    &lt;botton @click=&quot;onAdd&quot;&gt;click + 3 {{val}}&lt;/botton&gt;
-  &lt;/Throttle&gt;
-  &lt;Throttle :timer=&quot;3300&quot; events=&quot;mouseleave&quot; :isDebounce=&quot;true&quot;&gt;
-    &lt;botton @mouseleave.prevent=&quot;onAdd&quot;&gt;click + 3 {{val}}&lt;/botton&gt;
-  &lt;/Throttle&gt;
-&lt;/div&gt;
+<span class="token comment" spellcheck="true">// 使用</span>
+<span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"app"</span><span class="token operator">></span>
+  <span class="token operator">&lt;</span>Throttle <span class="token punctuation">:</span>timer<span class="token operator">=</span><span class="token string">"1000"</span> events<span class="token operator">=</span><span class="token string">"click"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>botton @click<span class="token operator">=</span><span class="token string">"onClick($event, 1)"</span><span class="token operator">></span>click <span class="token operator">+</span> <span class="token number">1</span> <span class="token punctuation">{</span><span class="token punctuation">{</span>val<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>botton<span class="token operator">></span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>Throttle<span class="token operator">></span>
+  <span class="token operator">&lt;</span>Throttle <span class="token punctuation">:</span>timer<span class="token operator">=</span><span class="token string">"1000"</span> events<span class="token operator">=</span><span class="token string">"click"</span> <span class="token punctuation">:</span>isDebounce<span class="token operator">=</span><span class="token string">"true"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>botton @click<span class="token operator">=</span><span class="token string">"onAdd"</span><span class="token operator">></span>click <span class="token operator">+</span> <span class="token number">3</span> <span class="token punctuation">{</span><span class="token punctuation">{</span>val<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>botton<span class="token operator">></span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>Throttle<span class="token operator">></span>
+  <span class="token operator">&lt;</span>Throttle <span class="token punctuation">:</span>timer<span class="token operator">=</span><span class="token string">"3300"</span> events<span class="token operator">=</span><span class="token string">"mouseleave"</span> <span class="token punctuation">:</span>isDebounce<span class="token operator">=</span><span class="token string">"true"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>botton @mouseleave<span class="token punctuation">.</span>prevent<span class="token operator">=</span><span class="token string">"onAdd"</span><span class="token operator">></span>click <span class="token operator">+</span> <span class="token number">3</span> <span class="token punctuation">{</span><span class="token punctuation">{</span>val<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>botton<span class="token operator">></span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>Throttle<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
 
-const app = new Vue({
-  el: &quot;#app&quot;,
-  data() {
-    return {
-      val: 0
-    },
-    methods: {
-      onClick($ev,val) {
-        this.val = val
-      },
-      onAdd() {
-        this.val += 3
-      }
-    }
-  }
-})
+<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  el<span class="token punctuation">:</span> <span class="token string">"#app"</span><span class="token punctuation">,</span>
+  <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      val<span class="token punctuation">:</span> <span class="token number">0</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    methods<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      <span class="token function">onClick</span><span class="token punctuation">(</span>$ev<span class="token punctuation">,</span>val<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>val <span class="token operator">=</span> val
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token function">onAdd</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>val <span class="token operator">+</span><span class="token operator">=</span> <span class="token number">3</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
 </code></pre>
-<h2 id="实现一个防抖函数"><a href="#实现一个防抖函数" class="headerlink" title="实现一个防抖函数"></a>实现一个防抖函数</h2><pre><code class="js">// 在第一次触发事件时，不立即执行，而是在给定的时间值后，如果没有再次触发就执行，如果触发了，就取消当前的计时，然后重新计时
+<h2 id="实现一个防抖函数"><a href="#实现一个防抖函数" class="headerlink" title="实现一个防抖函数"></a>实现一个防抖函数</h2><pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 在第一次触发事件时，不立即执行，而是在给定的时间值后，如果没有再次触发就执行，如果触发了，就取消当前的计时，然后重新计时</span>
 
-/**
+<span class="token comment" spellcheck="true">/**
  * 
  * @param {Function} fn 需要防抖的函数
  * @param {Number} delay 毫秒，防抖时间值
- */
-function debounce(fn, delay=300){
-  let timer = null
-  return () =&gt; {
-    if(timer){
-      clearTimeout(timer)
-    }
-    timer = setTimeout(fn, delay)
-  }
-}
+ */</span>
+<span class="token keyword">function</span> <span class="token function">debounce</span><span class="token punctuation">(</span>fn<span class="token punctuation">,</span> delay<span class="token operator">=</span><span class="token number">300</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token keyword">let</span> timer <span class="token operator">=</span> <span class="token keyword">null</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>timer<span class="token punctuation">)</span><span class="token punctuation">{</span>
+      <span class="token function">clearTimeout</span><span class="token punctuation">(</span>timer<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    timer <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span>fn<span class="token punctuation">,</span> delay<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
 </code></pre>
-<h2 id="实现一个节流函数"><a href="#实现一个节流函数" class="headerlink" title="实现一个节流函数"></a>实现一个节流函数</h2><pre><code class="js">
-// 类似控制阀门定期开放的函数，即让函数执行一次后，在间隔的时间里暂时失效不能再次执行，等过了间隔时间又重新激活（相当于冷却时间）
+<h2 id="实现一个节流函数"><a href="#实现一个节流函数" class="headerlink" title="实现一个节流函数"></a>实现一个节流函数</h2><pre class=" language-js"><code class="language-js">
+<span class="token comment" spellcheck="true">// 类似控制阀门定期开放的函数，即让函数执行一次后，在间隔的时间里暂时失效不能再次执行，等过了间隔时间又重新激活（相当于冷却时间）</span>
 
-/**
+<span class="token comment" spellcheck="true">/**
  * 
  * @param {Function} fn 需要节流的函数
  * @param {Number} delay 毫秒，节流间隔时间值
- */
-function throttle(fn, delay=300) {
-  let valid = true
-  return () =&gt; {
-    if(!valid) {
-      // 休息时间，不执行函数
-      return false
-    }
-    // 工作时间，执行函数，并且在间隔期间内把状态设为无效
-    valid = false
-    setTimeout(() =&gt; {
-      fn()
-      valid = true
-    }, delay);
-  }
-}
+ */</span>
+<span class="token keyword">function</span> <span class="token function">throttle</span><span class="token punctuation">(</span>fn<span class="token punctuation">,</span> delay<span class="token operator">=</span><span class="token number">300</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> valid <span class="token operator">=</span> <span class="token boolean">true</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>valid<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment" spellcheck="true">// 休息时间，不执行函数</span>
+      <span class="token keyword">return</span> <span class="token boolean">false</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">// 工作时间，执行函数，并且在间隔期间内把状态设为无效</span>
+    valid <span class="token operator">=</span> <span class="token boolean">false</span>
+    <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+      <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+      valid <span class="token operator">=</span> <span class="token boolean">true</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> delay<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 
             </div>
@@ -1070,7 +1070,7 @@ Git主分支的名字，默认叫做Master。它是自动建立的，版本库�
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">21.9k</span>
+                <span class="white-color">21k</span>
             
 
             

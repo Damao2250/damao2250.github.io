@@ -56,7 +56,7 @@
     <script src="https://cdn.staticfile.org/jquery/2.2.0/jquery.min.js"></script>
     <script src=""></script>
 <meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Damao Bolg" type="application/atom+xml">
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -392,7 +392,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        174
+                        171
                     </div>
                     
 
@@ -416,21 +416,21 @@
 <li><p>最外层包一层div</p>
 </li>
 <li><p>通过div类名设置样式穿透</p>
-<pre><code class="css"> .layout-aside-menu /deep/ .collapse-transition {
-   -webkit-transition: 0s height, 0s padding-top, 0s padding-bottom;
-   transition: 0s height, 0s padding-top, 0s padding-bottom;
- }
+<pre class=" language-css"><code class="language-css"> <span class="token selector"><span class="token class">.layout-aside-menu</span> /deep/ <span class="token class">.collapse-transition</span> </span><span class="token punctuation">{</span>
+   <span class="token property">-webkit-transition</span><span class="token punctuation">:</span> <span class="token number">0</span>s height, <span class="token number">0</span>s padding-top, <span class="token number">0</span>s padding-bottom<span class="token punctuation">;</span>
+   <span class="token property">transition</span><span class="token punctuation">:</span> <span class="token number">0</span>s height, <span class="token number">0</span>s padding-top, <span class="token number">0</span>s padding-bottom<span class="token punctuation">;</span>
+ <span class="token punctuation">}</span>
 
- .layout-aside-menu /deep/ .horizontal-collapse-transition {
-   -webkit-transition: 0s width, 0s padding-left, 0s padding-right;
-   transition: 0s width, 0s padding-left, 0s padding-right;
- }
+ <span class="token selector"><span class="token class">.layout-aside-menu</span> /deep/ <span class="token class">.horizontal-collapse-transition</span> </span><span class="token punctuation">{</span>
+   <span class="token property">-webkit-transition</span><span class="token punctuation">:</span> <span class="token number">0</span>s width, <span class="token number">0</span>s padding-left, <span class="token number">0</span>s padding-right<span class="token punctuation">;</span>
+   <span class="token property">transition</span><span class="token punctuation">:</span> <span class="token number">0</span>s width, <span class="token number">0</span>s padding-left, <span class="token number">0</span>s padding-right<span class="token punctuation">;</span>
+ <span class="token punctuation">}</span>
 
- .layout-aside-menu /deep/ .horizontal-collapse-transition .el-submenu__title .el-submenu__icon-arrow {
-   -webkit-transition: 0s;
-   transition: 0s;
-   opacity: 0;
- }</code></pre>
+ <span class="token selector"><span class="token class">.layout-aside-menu</span> /deep/ <span class="token class">.horizontal-collapse-transition</span> <span class="token class">.el-submenu__title</span> <span class="token class">.el-submenu__icon-arrow</span> </span><span class="token punctuation">{</span>
+   <span class="token property">-webkit-transition</span><span class="token punctuation">:</span> <span class="token number">0</span>s<span class="token punctuation">;</span>
+   <span class="token property">transition</span><span class="token punctuation">:</span> <span class="token number">0</span>s<span class="token punctuation">;</span>
+   <span class="token property">opacity</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+ <span class="token punctuation">}</span></code></pre>
 </li>
 </ol>
 </li>
@@ -440,16 +440,16 @@
 <p> 外层 <code>&gt;&gt;&gt;</code> 第三方组件 {</p>
 <p>   样式</p>
 <p> }</p>
-<pre><code class="css"> .wrapper &gt;&gt;&gt; .swiper-pagination-bullet-active
- background: #fff</code></pre>
+<pre class=" language-css"><code class="language-css"> <span class="token number">.</span>wrapper >>> <span class="token number">.</span>swiper-pagination-bullet-active
+ <span class="token property">background</span><span class="token punctuation">:</span> <span class="token hexcode">#fff</span></code></pre>
 </li>
 <li><p><code>sass</code>和<code>less</code>的样式穿透 使用 <code>/deep/</code></p>
 <p> 外层 <code>/deep/</code> 第三方组件 {</p>
 <p>   样式</p>
 <p> }</p>
-<pre><code class="css"> .wrapper /deep/ .swiper-pagination-bullet-active{
-   background: #fff;
- }</code></pre>
+<pre class=" language-css"><code class="language-css"> <span class="token selector"><span class="token class">.wrapper</span> /deep/ <span class="token class">.swiper-pagination-bullet-active</span></span><span class="token punctuation">{</span>
+   <span class="token property">background</span><span class="token punctuation">:</span> <span class="token hexcode">#fff</span><span class="token punctuation">;</span>
+ <span class="token punctuation">}</span></code></pre>
 </li>
 </ol>
 </li>
@@ -963,7 +963,7 @@ https://github.com/yscoder/hexo-theme-indigo
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">21.9k</span>
+                <span class="white-color">21k</span>
             
 
             

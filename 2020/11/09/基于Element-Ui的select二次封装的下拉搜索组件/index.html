@@ -53,7 +53,7 @@
     <script src="https://cdn.staticfile.org/jquery/2.2.0/jquery.min.js"></script>
     <script src=""></script>
 <meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Damao Bolg" type="application/atom+xml">
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -389,7 +389,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        345
+                        261
                     </div>
                     
 
@@ -411,106 +411,106 @@
 <li>注意代码不能直接使用，只是提供一种封装思路，其中 <code>dSearchList</code> 及样式需要自己重新写, <code>dCountryList</code> 来自 <code>dropListMixin</code> </li>
 <li>还有很多方法并未加进来，可根据实际自行添加</li>
 </ul>
-<pre><code class="js">// select/index.vue
-&lt;template&gt;
-  &lt;div&gt;
-    &lt;el-select
-      :value=&quot;value&quot;
-      :placeholder=&quot;placeholder&quot;
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// select/index.vue</span>
+<span class="token operator">&lt;</span>template<span class="token operator">></span>
+  <span class="token operator">&lt;</span>div<span class="token operator">></span>
+    <span class="token operator">&lt;</span>el<span class="token operator">-</span>select
+      <span class="token punctuation">:</span>value<span class="token operator">=</span><span class="token string">"value"</span>
+      <span class="token punctuation">:</span>placeholder<span class="token operator">=</span><span class="token string">"placeholder"</span>
       filterable
-      :style=&quot;customStyle&quot;
-      :class=&quot;customClass&quot;
+      <span class="token punctuation">:</span>style<span class="token operator">=</span><span class="token string">"customStyle"</span>
+      <span class="token punctuation">:</span><span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"customClass"</span>
       remote
-      :size=&quot;size&quot;
-      :remote-method=&quot;dSearchList(&#39;countryList&#39;)&quot;
-      :loading=&quot;dLoading&quot;
+      <span class="token punctuation">:</span>size<span class="token operator">=</span><span class="token string">"size"</span>
+      <span class="token punctuation">:</span>remote<span class="token operator">-</span>method<span class="token operator">=</span><span class="token string">"dSearchList('countryList')"</span>
+      <span class="token punctuation">:</span>loading<span class="token operator">=</span><span class="token string">"dLoading"</span>
       clearable
-      @input=&quot;onChange($event)&quot;
-      @change=&quot;(val) =&gt; onSelectChange(val)&quot;
-    &gt;
-      &lt;el-option
-        v-for=&quot;item in dCountryList&quot;
-        :key=&quot;item[optionKey]&quot;
-        :label=&quot;item[optionLabel]&quot;
-        :value=&quot;item[optionValue]&quot;
-      &gt;
-        &lt;div class=&quot;d-f f-jc-sb&quot;&gt;
-          &lt;span&gt;{{ item.code || "" }}&lt;/span&gt;
-          &lt;span&gt;{{ item.name || "" }}&lt;/span&gt;
-          &lt;span&gt;{{ item.numCode || "" }}&lt;/span&gt;
-        &lt;/div&gt;
-      &lt;/el-option&gt;
-    &lt;/el-select&gt;
-  &lt;/div&gt;
-&lt;/template&gt;
+      @input<span class="token operator">=</span><span class="token string">"onChange($event)"</span>
+      @change<span class="token operator">=</span><span class="token string">"(val) => onSelectChange(val)"</span>
+    <span class="token operator">></span>
+      <span class="token operator">&lt;</span>el<span class="token operator">-</span>option
+        v<span class="token operator">-</span><span class="token keyword">for</span><span class="token operator">=</span><span class="token string">"item in dCountryList"</span>
+        <span class="token punctuation">:</span>key<span class="token operator">=</span><span class="token string">"item[optionKey]"</span>
+        <span class="token punctuation">:</span>label<span class="token operator">=</span><span class="token string">"item[optionLabel]"</span>
+        <span class="token punctuation">:</span>value<span class="token operator">=</span><span class="token string">"item[optionValue]"</span>
+      <span class="token operator">></span>
+        <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"d-f f-jc-sb"</span><span class="token operator">></span>
+          <span class="token operator">&lt;</span>span<span class="token operator">></span><span class="token punctuation">{</span><span class="token punctuation">{</span> item<span class="token punctuation">.</span>code <span class="token operator">||</span> <span class="token string">""</span> <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span>
+          <span class="token operator">&lt;</span>span<span class="token operator">></span><span class="token punctuation">{</span><span class="token punctuation">{</span> item<span class="token punctuation">.</span>name <span class="token operator">||</span> <span class="token string">""</span> <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span>
+          <span class="token operator">&lt;</span>span<span class="token operator">></span><span class="token punctuation">{</span><span class="token punctuation">{</span> item<span class="token punctuation">.</span>numCode <span class="token operator">||</span> <span class="token string">""</span> <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>el<span class="token operator">-</span>option<span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>el<span class="token operator">-</span>select<span class="token operator">></span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">></span>
 
-&lt;script&gt;
-import { dropListMixin } from &quot;@/mixins/drop_list_mixin&quot;;
+<span class="token operator">&lt;</span>script<span class="token operator">></span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> dropListMixin <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"@/mixins/drop_list_mixin"</span><span class="token punctuation">;</span>
 
-export default {
-  mixins: [dropListMixin],
-  props: {
-    value: {
-      type: String,
-      default: &quot;&quot;,
-    },
-    placeholder: {
-      type: String,
-      default: &quot;请输入&quot;,
-    },
-    customStyle: {
-      type: String,
-      default: &quot;width: 100%;&quot;,
-    },
-    customClass: {
-      type: String,
-      default: &quot;&quot;,
-    },
-    clearable: {
-      type: Boolean,
-      default: true,
-    },
-    size: {
-      type: String,
-      default: &quot;small&quot;,
-    },
-    optionKey: {
-      type: String,
-      default: &quot;code&quot;,
-    },
-    optionLabel: {
-      type: String,
-      default: &quot;name&quot;,
-    },
-    optionValue: {
-      type: String,
-      default: &quot;code&quot;,
-    },
-  },
-  data() {
-    return {}
-  },
-  created() {
-    this.dInit([&quot;countryList&quot;]);
-  },
-  methods: {
-    onChange(val) {
-      this.$emit(&quot;input&quot;, val);
-    },
-    onSelectChange(val) {
-      this.$emit(&quot;selectChange&quot;, val);
-    },
-  },
-};
-&lt;/script&gt;
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  mixins<span class="token punctuation">:</span> <span class="token punctuation">[</span>dropListMixin<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  props<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    value<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      type<span class="token punctuation">:</span> String<span class="token punctuation">,</span>
+      <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    placeholder<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      type<span class="token punctuation">:</span> String<span class="token punctuation">,</span>
+      <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token string">"请输入"</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    customStyle<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      type<span class="token punctuation">:</span> String<span class="token punctuation">,</span>
+      <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token string">"width: 100%;"</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    customClass<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      type<span class="token punctuation">:</span> String<span class="token punctuation">,</span>
+      <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    clearable<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      type<span class="token punctuation">:</span> Boolean<span class="token punctuation">,</span>
+      <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    size<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      type<span class="token punctuation">:</span> String<span class="token punctuation">,</span>
+      <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token string">"small"</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    optionKey<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      type<span class="token punctuation">:</span> String<span class="token punctuation">,</span>
+      <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token string">"code"</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    optionLabel<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      type<span class="token punctuation">:</span> String<span class="token punctuation">,</span>
+      <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token string">"name"</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    optionValue<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      type<span class="token punctuation">:</span> String<span class="token punctuation">,</span>
+      <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token string">"code"</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function">created</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">dInit</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">"countryList"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  methods<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token function">onChange</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$emit</span><span class="token punctuation">(</span><span class="token string">"input"</span><span class="token punctuation">,</span> val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token function">onSelectChange</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$emit</span><span class="token punctuation">(</span><span class="token string">"selectChange"</span><span class="token punctuation">,</span> val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
 
 
 
-//   使用示例 
+<span class="token comment" spellcheck="true">//   使用示例 </span>
 
-  &lt;country-select :size=&quot;medium&quot; v-model=&quot;formData.countryCode&quot; @selectChange=&quot;val =&gt; onCountrySelect(val,&#39;countryCode&#39;)&quot; &gt;&lt;/country-select&gt; 
+  <span class="token operator">&lt;</span>country<span class="token operator">-</span>select <span class="token punctuation">:</span>size<span class="token operator">=</span><span class="token string">"medium"</span> v<span class="token operator">-</span>model<span class="token operator">=</span><span class="token string">"formData.countryCode"</span> @selectChange<span class="token operator">=</span><span class="token string">"val => onCountrySelect(val,'countryCode')"</span> <span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>country<span class="token operator">-</span>select<span class="token operator">></span> 
 
-//   使用示例 
+<span class="token comment" spellcheck="true">//   使用示例 </span>
 </code></pre>
 
             </div>
@@ -836,12 +836,13 @@ export default {
 GIF
 
 
-代码如下&lt;!-- index.html --&gt;
-&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
+代码如下&lt;!-- index.html -->
+&lt;!DOCTYPE html>
+&lt;html lang="en">
 
-&lt;head&gt;
-  &lt;met
+&lt;head>
+  &lt;meta charset="UTF-8">
+  &
                         
                     </div>
                     <div class="publish-info">
@@ -1032,7 +1033,7 @@ console.log( num1 + num2 );
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">21.9k</span>
+                <span class="white-color">21k</span>
             
 
             

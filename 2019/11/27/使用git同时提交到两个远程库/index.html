@@ -52,7 +52,7 @@ git remote set-url --add htt">
     <script src="https://cdn.staticfile.org/jquery/2.2.0/jquery.min.js"></script>
     <script src=""></script>
 <meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Damao Bolg" type="application/atom+xml">
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -388,7 +388,7 @@ git remote set-url --add htt">
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        305
+                        297
                     </div>
                     
 
@@ -418,49 +418,49 @@ git remote set-url --add htt">
 <p>or</p>
 <p><code>git push</code></p>
 <p>==================================================================</p>
-<pre><code class="js">// tips：
-// 打开.git/config，可以看到这样的配置：
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// tips：</span>
+<span class="token comment" spellcheck="true">// 打开.git/config，可以看到这样的配置：</span>
 
 
-`[remote &quot;origin&quot;]
+<span class="token template-string"><span class="token string">`[remote "origin"]
   url = https://gitlab.com/XXX/xxx.git
   fetch = +refs/heads/*:refs/remotes/origin/*
-  url = https://github.com/XXX/xxx.git`
+  url = https://github.com/XXX/xxx.git`</span></span>
 
 
-// 刚才的命令其实就是添加了这些配置,也可以不用命令行，可以直接编辑该文件，添加对应的url即可
+<span class="token comment" spellcheck="true">// 刚才的命令其实就是添加了这些配置,也可以不用命令行，可以直接编辑该文件，添加对应的url即可</span>
 
 </code></pre>
 <h3 id="法2"><a href="#法2" class="headerlink" title="法2"></a>法2</h3><ol>
 <li>直接添加另一个远程仓库地址<br><code>git remote add [name] [远程库地址]</code><br><code>git push [name]</code></li>
 </ol>
-<pre><code class="js">// [name] 取个远程库名并连接远程地址  然后push上去      git默认的[name]为origin
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// [name] 取个远程库名并连接远程地址  然后push上去      git默认的[name]为origin</span>
 
 
-// 如：
-// git remote add test https://github.com/XXX/xxx.git
-// git push test
+<span class="token comment" spellcheck="true">// 如：</span>
+<span class="token comment" spellcheck="true">// git remote add test https://github.com/XXX/xxx.git</span>
+<span class="token comment" spellcheck="true">// git push test</span>
 
-// 但是想同步两个远程仓库必须同时push &amp;&amp; pull
+<span class="token comment" spellcheck="true">// 但是想同步两个远程仓库必须同时push &amp;&amp; pull</span>
 
-// git push origin
-// git push test
+<span class="token comment" spellcheck="true">// git push origin</span>
+<span class="token comment" spellcheck="true">// git push test</span>
 
-// git pull origin
-// git pull test
+<span class="token comment" spellcheck="true">// git pull origin</span>
+<span class="token comment" spellcheck="true">// git pull test</span>
 
 
 
-// 查看.gigt中的config文件
-`[remote &quot;origin&quot;]
+<span class="token comment" spellcheck="true">// 查看.gigt中的config文件</span>
+<span class="token template-string"><span class="token string">`[remote "origin"]
     url = https://gitlab.com/XXX/xxx.git
     fetch = +refs/heads/*:refs/remotes/origin/*
-[branch &quot;master&quot;]
+[branch "master"]
     remote = origin
     merge = refs/heads/master
-[remote &quot;test&quot;]
+[remote "test"]
     url = https://github.com/XXX/xxx.git
-  fetch = +refs/heads/*:refs/remotes/test/*`
+  fetch = +refs/heads/*:refs/remotes/test/*`</span></span>
 </code></pre>
 
             </div>
@@ -833,10 +833,16 @@ git remote set-url --add htt">
                             打包优化
 路由懒加载
 {
-path: &#39;/about&#39;,
-name: &#39;about&#39;,
-component: () =&gt; import(&#39;@/views/about/about&#39;),
-}
+path: '/about',
+name: 'about',
+component: () => import('@/views/about/about'),
+},
+
+不生成.map 文件
+
+
+
+webpack默认会
                         
                     </div>
                     <div class="publish-info">
@@ -977,7 +983,7 @@ component: () =&gt; import(&#39;@/views/about/about&#39;),
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">21.9k</span>
+                <span class="white-color">21k</span>
             
 
             

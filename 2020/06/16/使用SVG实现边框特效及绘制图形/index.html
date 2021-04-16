@@ -54,7 +54,7 @@ SVG 是万维">
     <script src="https://cdn.staticfile.org/jquery/2.2.0/jquery.min.js"></script>
     <script src=""></script>
 <meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Damao Bolg" type="application/atom+xml">
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -390,14 +390,14 @@ SVG 是万维">
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        1.8k
+                        1.6k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        10 分
+                        9 分
                     </div>
                     
                 
@@ -687,287 +687,287 @@ SVG 是万维">
   </main>
 </div>
 
-<h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><pre><code class="html">&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
+<h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><pre class=" language-html"><code class="language-html"><span class="token doctype">&lt;!DOCTYPE html></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
 
-&lt;head&gt;
-  &lt;meta charset=&quot;UTF-8&quot;&gt;
-  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-  &lt;title&gt;Document&lt;/title&gt;
-  &lt;style&gt;
-    body,
-    html {
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: #696969;
-    }
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>width<span class="token punctuation">=</span>device-width, initial-scale<span class="token punctuation">=</span>1.0<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>Document<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style language-css">
+    <span class="token selector">body,
+    html </span><span class="token punctuation">{</span>
+      <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">100%</span><span class="token punctuation">;</span>
+      <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+      <span class="token property">justify-content</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+      <span class="token property">align-items</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+      <span class="token property">background</span><span class="token punctuation">:</span> <span class="token hexcode">#696969</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    main {
-      width: 200px;
-    }
+    <span class="token selector">main </span><span class="token punctuation">{</span>
+      <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">200</span>px<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    svg {
-      width: 200px;
-      height: 50px;
-      margin-bottom: 20px;
-      background: #444;
+    <span class="token selector">svg </span><span class="token punctuation">{</span>
+      <span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">200</span>px<span class="token punctuation">;</span>
+      <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">50</span>px<span class="token punctuation">;</span>
+      <span class="token property">margin-bottom</span><span class="token punctuation">:</span> <span class="token number">20</span>px<span class="token punctuation">;</span>
+      <span class="token property">background</span><span class="token punctuation">:</span> <span class="token hexcode">#444</span><span class="token punctuation">;</span>
 
-      cursor: default;
-    }
+      <span class="token property">cursor</span><span class="token punctuation">:</span> default<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    rect#shape {
-      fill: transparent;
-      stroke: white;
-      stroke-width: 6px;
-      stroke-dasharray: 0 500;
-      stroke-dashoffset: 0;
-      transition: 0.5s ease;
-      /* animation:dong 2s ease-in-out infinite alternate;
-    */
-    }
+    <span class="token selector">rect<span class="token id">#shape</span> </span><span class="token punctuation">{</span>
+      <span class="token property">fill</span><span class="token punctuation">:</span> transparent<span class="token punctuation">;</span>
+      <span class="token property">stroke</span><span class="token punctuation">:</span> white<span class="token punctuation">;</span>
+      <span class="token property">stroke-width</span><span class="token punctuation">:</span> <span class="token number">6</span>px<span class="token punctuation">;</span>
+      <span class="token property">stroke-dasharray</span><span class="token punctuation">:</span> <span class="token number">0</span> <span class="token number">500</span><span class="token punctuation">;</span>
+      <span class="token property">stroke-dashoffset</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+      <span class="token property">transition</span><span class="token punctuation">:</span> <span class="token number">0.5</span>s ease<span class="token punctuation">;</span>
+      <span class="token comment" spellcheck="true">/* animation:dong 2s ease-in-out infinite alternate;
+    */</span>
+    <span class="token punctuation">}</span>
 
-    svg:hover #shape {
-      stroke-dasharray: 500 0;
-      stroke-width: 6px;
-      stroke: rgb(32, 213, 226);
-    }
+    <span class="token selector">svg<span class="token pseudo-class">:hover</span> <span class="token id">#shape</span> </span><span class="token punctuation">{</span>
+      <span class="token property">stroke-dasharray</span><span class="token punctuation">:</span> <span class="token number">500</span> <span class="token number">0</span><span class="token punctuation">;</span>
+      <span class="token property">stroke-width</span><span class="token punctuation">:</span> <span class="token number">6</span>px<span class="token punctuation">;</span>
+      <span class="token property">stroke</span><span class="token punctuation">:</span> <span class="token function">rgb</span><span class="token punctuation">(</span><span class="token number">32</span>, <span class="token number">213</span>, <span class="token number">226</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    @keyframes dong {
-      100% {
-        stroke-dasharray: 500 0;
-        stroke-width: 6px;
-        /* stroke-dashoffset:-250;
-    */
-        stroke: white;
-      }
-    }
+    <span class="token atrule"><span class="token rule">@keyframes</span> dong</span> <span class="token punctuation">{</span>
+      <span class="token selector">100% </span><span class="token punctuation">{</span>
+        <span class="token property">stroke-dasharray</span><span class="token punctuation">:</span> <span class="token number">500</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token property">stroke-width</span><span class="token punctuation">:</span> <span class="token number">6</span>px<span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">/* stroke-dashoffset:-250;
+    */</span>
+        <span class="token property">stroke</span><span class="token punctuation">:</span> white<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
 
-    rect#one {
-      fill: transparent;
-      stroke: yellowgreen;
-      stroke-width: 6px;
-      stroke-dasharray: 0 500;
-      stroke-dashoffset: 250;
-      animation: dong1 2s ease-in-out infinite alternate;
-    }
+    <span class="token selector">rect<span class="token id">#one</span> </span><span class="token punctuation">{</span>
+      <span class="token property">fill</span><span class="token punctuation">:</span> transparent<span class="token punctuation">;</span>
+      <span class="token property">stroke</span><span class="token punctuation">:</span> yellowgreen<span class="token punctuation">;</span>
+      <span class="token property">stroke-width</span><span class="token punctuation">:</span> <span class="token number">6</span>px<span class="token punctuation">;</span>
+      <span class="token property">stroke-dasharray</span><span class="token punctuation">:</span> <span class="token number">0</span> <span class="token number">500</span><span class="token punctuation">;</span>
+      <span class="token property">stroke-dashoffset</span><span class="token punctuation">:</span> <span class="token number">250</span><span class="token punctuation">;</span>
+      <span class="token property">animation</span><span class="token punctuation">:</span> dong<span class="token number">1</span> <span class="token number">2</span>s ease-in-out infinite alternate<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    @keyframes dong1 {
-      100% {
-        stroke-dasharray: 500 0;
-        stroke-width: 6px;
-        /* stroke-dashoffset:0;
-    */
-        stroke: greenyellow;
-      }
-    }
+    <span class="token atrule"><span class="token rule">@keyframes</span> dong1</span> <span class="token punctuation">{</span>
+      <span class="token selector">100% </span><span class="token punctuation">{</span>
+        <span class="token property">stroke-dasharray</span><span class="token punctuation">:</span> <span class="token number">500</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token property">stroke-width</span><span class="token punctuation">:</span> <span class="token number">6</span>px<span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">/* stroke-dashoffset:0;
+    */</span>
+        <span class="token property">stroke</span><span class="token punctuation">:</span> greenyellow<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
 
-    rect#two {
-      fill: transparent;
-      stroke: rgb(233, 43, 43);
-      stroke-width: 6px;
-      stroke-dasharray: 200 300;
-      stroke-dashoffset: 250;
-      animation: dong2 2s ease-in-out infinite alternate;
-    }
+    <span class="token selector">rect<span class="token id">#two</span> </span><span class="token punctuation">{</span>
+      <span class="token property">fill</span><span class="token punctuation">:</span> transparent<span class="token punctuation">;</span>
+      <span class="token property">stroke</span><span class="token punctuation">:</span> <span class="token function">rgb</span><span class="token punctuation">(</span><span class="token number">233</span>, <span class="token number">43</span>, <span class="token number">43</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token property">stroke-width</span><span class="token punctuation">:</span> <span class="token number">6</span>px<span class="token punctuation">;</span>
+      <span class="token property">stroke-dasharray</span><span class="token punctuation">:</span> <span class="token number">200</span> <span class="token number">300</span><span class="token punctuation">;</span>
+      <span class="token property">stroke-dashoffset</span><span class="token punctuation">:</span> <span class="token number">250</span><span class="token punctuation">;</span>
+      <span class="token property">animation</span><span class="token punctuation">:</span> dong<span class="token number">2</span> <span class="token number">2</span>s ease-in-out infinite alternate<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    @keyframes dong2 {
-      100% {
-        stroke-dasharray: 200 0;
-        stroke-width: 6px;
-        /* stroke-dashoffset:0;
-    */
-        stroke: rgb(233, 43, 43);
-      }
-    }
+    <span class="token atrule"><span class="token rule">@keyframes</span> dong2</span> <span class="token punctuation">{</span>
+      <span class="token selector">100% </span><span class="token punctuation">{</span>
+        <span class="token property">stroke-dasharray</span><span class="token punctuation">:</span> <span class="token number">200</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token property">stroke-width</span><span class="token punctuation">:</span> <span class="token number">6</span>px<span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">/* stroke-dashoffset:0;
+    */</span>
+        <span class="token property">stroke</span><span class="token punctuation">:</span> <span class="token function">rgb</span><span class="token punctuation">(</span><span class="token number">233</span>, <span class="token number">43</span>, <span class="token number">43</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
 
-    rect#three {
-      fill: transparent;
-      stroke: rgb(233, 220, 43);
-      stroke-width: 6px;
-      stroke-dasharray: 50 450;
-      stroke-dashoffset: 50;
-      animation: dong3 2s ease-in-out infinite alternate;
-    }
+    <span class="token selector">rect<span class="token id">#three</span> </span><span class="token punctuation">{</span>
+      <span class="token property">fill</span><span class="token punctuation">:</span> transparent<span class="token punctuation">;</span>
+      <span class="token property">stroke</span><span class="token punctuation">:</span> <span class="token function">rgb</span><span class="token punctuation">(</span><span class="token number">233</span>, <span class="token number">220</span>, <span class="token number">43</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token property">stroke-width</span><span class="token punctuation">:</span> <span class="token number">6</span>px<span class="token punctuation">;</span>
+      <span class="token property">stroke-dasharray</span><span class="token punctuation">:</span> <span class="token number">50</span> <span class="token number">450</span><span class="token punctuation">;</span>
+      <span class="token property">stroke-dashoffset</span><span class="token punctuation">:</span> <span class="token number">50</span><span class="token punctuation">;</span>
+      <span class="token property">animation</span><span class="token punctuation">:</span> dong<span class="token number">3</span> <span class="token number">2</span>s ease-in-out infinite alternate<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    rect#threes {
-      fill: transparent;
-      stroke: rgb(233, 103, 43);
-      stroke-width: 6px;
-      stroke-dasharray: 50 450;
-      stroke-dashoffset: -200;
-      animation: dong3 2s ease-in-out infinite alternate;
-    }
+    <span class="token selector">rect<span class="token id">#threes</span> </span><span class="token punctuation">{</span>
+      <span class="token property">fill</span><span class="token punctuation">:</span> transparent<span class="token punctuation">;</span>
+      <span class="token property">stroke</span><span class="token punctuation">:</span> <span class="token function">rgb</span><span class="token punctuation">(</span><span class="token number">233</span>, <span class="token number">103</span>, <span class="token number">43</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token property">stroke-width</span><span class="token punctuation">:</span> <span class="token number">6</span>px<span class="token punctuation">;</span>
+      <span class="token property">stroke-dasharray</span><span class="token punctuation">:</span> <span class="token number">50</span> <span class="token number">450</span><span class="token punctuation">;</span>
+      <span class="token property">stroke-dashoffset</span><span class="token punctuation">:</span> -<span class="token number">200</span><span class="token punctuation">;</span>
+      <span class="token property">animation</span><span class="token punctuation">:</span> dong<span class="token number">3</span> <span class="token number">2</span>s ease-in-out infinite alternate<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    @keyframes dong3 {
-      100% {
-        stroke-dasharray: 500 0;
-        stroke-width: 6px;
-        /* stroke-dashoffset:-250;
-    */
-        stroke: rgb(233, 220, 43);
-      }
-    }
+    <span class="token atrule"><span class="token rule">@keyframes</span> dong3</span> <span class="token punctuation">{</span>
+      <span class="token selector">100% </span><span class="token punctuation">{</span>
+        <span class="token property">stroke-dasharray</span><span class="token punctuation">:</span> <span class="token number">500</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token property">stroke-width</span><span class="token punctuation">:</span> <span class="token number">6</span>px<span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">/* stroke-dashoffset:-250;
+    */</span>
+        <span class="token property">stroke</span><span class="token punctuation">:</span> <span class="token function">rgb</span><span class="token punctuation">(</span><span class="token number">233</span>, <span class="token number">220</span>, <span class="token number">43</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
 
-    rect#four {
-      fill: transparent;
-      stroke: skyblue;
-      stroke-width: 6px;
-      stroke-dasharray: 50 450;
-      stroke-dashoffset: 150;
-      transition: 0.5s ease;
-      /* animation:dong4 2s ease infinite alternate;
-    */
-    }
+    <span class="token selector">rect<span class="token id">#four</span> </span><span class="token punctuation">{</span>
+      <span class="token property">fill</span><span class="token punctuation">:</span> transparent<span class="token punctuation">;</span>
+      <span class="token property">stroke</span><span class="token punctuation">:</span> skyblue<span class="token punctuation">;</span>
+      <span class="token property">stroke-width</span><span class="token punctuation">:</span> <span class="token number">6</span>px<span class="token punctuation">;</span>
+      <span class="token property">stroke-dasharray</span><span class="token punctuation">:</span> <span class="token number">50</span> <span class="token number">450</span><span class="token punctuation">;</span>
+      <span class="token property">stroke-dashoffset</span><span class="token punctuation">:</span> <span class="token number">150</span><span class="token punctuation">;</span>
+      <span class="token property">transition</span><span class="token punctuation">:</span> <span class="token number">0.5</span>s ease<span class="token punctuation">;</span>
+      <span class="token comment" spellcheck="true">/* animation:dong4 2s ease infinite alternate;
+    */</span>
+    <span class="token punctuation">}</span>
 
-    svg:hover #four {
-      stroke-dasharray: 250 250;
-    }
+    <span class="token selector">svg<span class="token pseudo-class">:hover</span> <span class="token id">#four</span> </span><span class="token punctuation">{</span>
+      <span class="token property">stroke-dasharray</span><span class="token punctuation">:</span> <span class="token number">250</span> <span class="token number">250</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    rect#fours {
-      fill: transparent;
-      stroke: blue;
-      stroke-width: 6px;
-      stroke-dasharray: 50 450;
-      stroke-dashoffset: 200;
-      transition: 0.5s ease;
-      /* animation:dong4s 2s ease infinite alternate;
-    */
-    }
+    <span class="token selector">rect<span class="token id">#fours</span> </span><span class="token punctuation">{</span>
+      <span class="token property">fill</span><span class="token punctuation">:</span> transparent<span class="token punctuation">;</span>
+      <span class="token property">stroke</span><span class="token punctuation">:</span> blue<span class="token punctuation">;</span>
+      <span class="token property">stroke-width</span><span class="token punctuation">:</span> <span class="token number">6</span>px<span class="token punctuation">;</span>
+      <span class="token property">stroke-dasharray</span><span class="token punctuation">:</span> <span class="token number">50</span> <span class="token number">450</span><span class="token punctuation">;</span>
+      <span class="token property">stroke-dashoffset</span><span class="token punctuation">:</span> <span class="token number">200</span><span class="token punctuation">;</span>
+      <span class="token property">transition</span><span class="token punctuation">:</span> <span class="token number">0.5</span>s ease<span class="token punctuation">;</span>
+      <span class="token comment" spellcheck="true">/* animation:dong4s 2s ease infinite alternate;
+    */</span>
+    <span class="token punctuation">}</span>
 
-    svg:hover #fours {
-      stroke-dasharray: 250 50;
-    }
+    <span class="token selector">svg<span class="token pseudo-class">:hover</span> <span class="token id">#fours</span> </span><span class="token punctuation">{</span>
+      <span class="token property">stroke-dasharray</span><span class="token punctuation">:</span> <span class="token number">250</span> <span class="token number">50</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    @keyframes dong4 {
-      100% {
-        stroke-dasharray: 250 250;
-      }
-    }
+    <span class="token atrule"><span class="token rule">@keyframes</span> dong4</span> <span class="token punctuation">{</span>
+      <span class="token selector">100% </span><span class="token punctuation">{</span>
+        <span class="token property">stroke-dasharray</span><span class="token punctuation">:</span> <span class="token number">250</span> <span class="token number">250</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
 
-    @keyframes dong4s {
-      100% {
-        stroke-dasharray: 250 50;
-      }
-    }
+    <span class="token atrule"><span class="token rule">@keyframes</span> dong4s</span> <span class="token punctuation">{</span>
+      <span class="token selector">100% </span><span class="token punctuation">{</span>
+        <span class="token property">stroke-dasharray</span><span class="token punctuation">:</span> <span class="token number">250</span> <span class="token number">50</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
 
-    text {
-      fill: white;
-      font-size: 30px;
-      transition: 0.5s linear;
-    }
+    <span class="token selector">text </span><span class="token punctuation">{</span>
+      <span class="token property">fill</span><span class="token punctuation">:</span> white<span class="token punctuation">;</span>
+      <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token number">30</span>px<span class="token punctuation">;</span>
+      <span class="token property">transition</span><span class="token punctuation">:</span> <span class="token number">0.5</span>s linear<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    svg:hover text {
-      fill: rgb(30, 129, 223);
-    }
+    <span class="token selector">svg<span class="token pseudo-class">:hover</span> text </span><span class="token punctuation">{</span>
+      <span class="token property">fill</span><span class="token punctuation">:</span> <span class="token function">rgb</span><span class="token punctuation">(</span><span class="token number">30</span>, <span class="token number">129</span>, <span class="token number">223</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    svg:hover .four {
-      fill: rgb(231, 105, 21);
-    }
+    <span class="token selector">svg<span class="token pseudo-class">:hover</span> <span class="token class">.four</span> </span><span class="token punctuation">{</span>
+      <span class="token property">fill</span><span class="token punctuation">:</span> <span class="token function">rgb</span><span class="token punctuation">(</span><span class="token number">231</span>, <span class="token number">105</span>, <span class="token number">21</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    #five {
-      fill: transparent;
-      stroke: rgb(255, 0, 179);
-      stroke-width: 6px;
-      stroke-dasharray: 50 400;
-      stroke-dashoffset: -75;
-      stroke-opacity: 0;
-      animation: dong5 1s linear infinite alternate;
-    }
+    <span class="token selector"><span class="token id">#five</span> </span><span class="token punctuation">{</span>
+      <span class="token property">fill</span><span class="token punctuation">:</span> transparent<span class="token punctuation">;</span>
+      <span class="token property">stroke</span><span class="token punctuation">:</span> <span class="token function">rgb</span><span class="token punctuation">(</span><span class="token number">255</span>, <span class="token number">0</span>, <span class="token number">179</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token property">stroke-width</span><span class="token punctuation">:</span> <span class="token number">6</span>px<span class="token punctuation">;</span>
+      <span class="token property">stroke-dasharray</span><span class="token punctuation">:</span> <span class="token number">50</span> <span class="token number">400</span><span class="token punctuation">;</span>
+      <span class="token property">stroke-dashoffset</span><span class="token punctuation">:</span> -<span class="token number">75</span><span class="token punctuation">;</span>
+      <span class="token property">stroke-opacity</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+      <span class="token property">animation</span><span class="token punctuation">:</span> dong<span class="token number">5</span> <span class="token number">1</span>s linear infinite alternate<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    @keyframes dong5 {
-      100% {
-        stroke-opacity: 1;
-        stroke: rgb(192, 44, 180);
-        stroke-dasharray: 50 20;
-      }
-    }
+    <span class="token atrule"><span class="token rule">@keyframes</span> dong5</span> <span class="token punctuation">{</span>
+      <span class="token selector">100% </span><span class="token punctuation">{</span>
+        <span class="token property">stroke-opacity</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token property">stroke</span><span class="token punctuation">:</span> <span class="token function">rgb</span><span class="token punctuation">(</span><span class="token number">192</span>, <span class="token number">44</span>, <span class="token number">180</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token property">stroke-dasharray</span><span class="token punctuation">:</span> <span class="token number">50</span> <span class="token number">20</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
 
-    #six {
-      fill: transparent;
-      stroke: rgb(0, 255, 21);
-      stroke-width: 6px;
-      stroke-dasharray: 50 400;
-      stroke-dashoffset: 50;
-      animation: dong6 1s linear infinite alternate;
-    }
+    <span class="token selector"><span class="token id">#six</span> </span><span class="token punctuation">{</span>
+      <span class="token property">fill</span><span class="token punctuation">:</span> transparent<span class="token punctuation">;</span>
+      <span class="token property">stroke</span><span class="token punctuation">:</span> <span class="token function">rgb</span><span class="token punctuation">(</span><span class="token number">0</span>, <span class="token number">255</span>, <span class="token number">21</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token property">stroke-width</span><span class="token punctuation">:</span> <span class="token number">6</span>px<span class="token punctuation">;</span>
+      <span class="token property">stroke-dasharray</span><span class="token punctuation">:</span> <span class="token number">50</span> <span class="token number">400</span><span class="token punctuation">;</span>
+      <span class="token property">stroke-dashoffset</span><span class="token punctuation">:</span> <span class="token number">50</span><span class="token punctuation">;</span>
+      <span class="token property">animation</span><span class="token punctuation">:</span> dong<span class="token number">6</span> <span class="token number">1</span>s linear infinite alternate<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    @keyframes dong6 {
-      100% {
-        stroke: rgb(231, 250, 59);
-        stroke-dasharray: 20 1;
-      }
-    }
+    <span class="token atrule"><span class="token rule">@keyframes</span> dong6</span> <span class="token punctuation">{</span>
+      <span class="token selector">100% </span><span class="token punctuation">{</span>
+        <span class="token property">stroke</span><span class="token punctuation">:</span> <span class="token function">rgb</span><span class="token punctuation">(</span><span class="token number">231</span>, <span class="token number">250</span>, <span class="token number">59</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token property">stroke-dasharray</span><span class="token punctuation">:</span> <span class="token number">20</span> <span class="token number">1</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
 
-    rect#svg-border {
-      fill: transparent;
-      stroke: white;
-      stroke-width: 6px;
-      stroke-dasharray: 0, 200, 0, 50, 0, 200, 0, 50;
-      stroke-dashoffset: 0;
-      transition: all .3s ease;
-    }
+    <span class="token selector">rect<span class="token id">#svg-border</span> </span><span class="token punctuation">{</span>
+      <span class="token property">fill</span><span class="token punctuation">:</span> transparent<span class="token punctuation">;</span>
+      <span class="token property">stroke</span><span class="token punctuation">:</span> white<span class="token punctuation">;</span>
+      <span class="token property">stroke-width</span><span class="token punctuation">:</span> <span class="token number">6</span>px<span class="token punctuation">;</span>
+      <span class="token property">stroke-dasharray</span><span class="token punctuation">:</span> <span class="token number">0</span>, <span class="token number">200</span>, <span class="token number">0</span>, <span class="token number">50</span>, <span class="token number">0</span>, <span class="token number">200</span>, <span class="token number">0</span>, <span class="token number">50</span><span class="token punctuation">;</span>
+      <span class="token property">stroke-dashoffset</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+      <span class="token property">transition</span><span class="token punctuation">:</span> all <span class="token number">.3</span>s ease<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    svg:hover #svg-border {
-      stroke-dasharray: 200, 0, 50, 0, 200, 0, 50, 0;
-      stroke-width: 6px;
-      stroke: #58bc58;
-    }
-  &lt;/style&gt;
-&lt;/head&gt;
+    <span class="token selector">svg<span class="token pseudo-class">:hover</span> <span class="token id">#svg-border</span> </span><span class="token punctuation">{</span>
+      <span class="token property">stroke-dasharray</span><span class="token punctuation">:</span> <span class="token number">200</span>, <span class="token number">0</span>, <span class="token number">50</span>, <span class="token number">0</span>, <span class="token number">200</span>, <span class="token number">0</span>, <span class="token number">50</span>, <span class="token number">0</span><span class="token punctuation">;</span>
+      <span class="token property">stroke-width</span><span class="token punctuation">:</span> <span class="token number">6</span>px<span class="token punctuation">;</span>
+      <span class="token property">stroke</span><span class="token punctuation">:</span> <span class="token hexcode">#58bc58</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
 
-&lt;body&gt;
-  &lt;main&gt;
-    &lt;svg&gt;
-      &lt;rect id=&quot;shape&quot; height=&quot;50&quot; width=&quot;200&quot;&gt;&lt;/rect&gt;
-      &lt;text x=&quot;70&quot; y=&quot;35&quot;&gt;&lt;a href=&quot;###&quot;&gt;百度&lt;/a&gt;&lt;/text&gt;
-    &lt;/svg&gt;
-    &lt;svg&gt;
-      &lt;rect id=&quot;one&quot; height=&quot;50&quot; width=&quot;200&quot;&gt;&lt;/rect&gt;
-    &lt;/svg&gt;
-    &lt;svg&gt;
-      &lt;rect id=&quot;two&quot; height=&quot;50&quot; width=&quot;200&quot;&gt;&lt;/rect&gt;
-    &lt;/svg&gt;
-    &lt;svg&gt;
-      &lt;rect id=&quot;three&quot; height=&quot;50&quot; width=&quot;200&quot;&gt;&lt;/rect&gt;
-      &lt;rect id=&quot;threes&quot; height=&quot;50&quot; width=&quot;200&quot;&gt;&lt;/rect&gt;
-    &lt;/svg&gt;
-    &lt;svg&gt;
-      &lt;rect id=&quot;fours&quot; height=&quot;50&quot; width=&quot;200&quot;&gt;&lt;/rect&gt;
-      &lt;rect id=&quot;four&quot; height=&quot;50&quot; width=&quot;200&quot;&gt;&lt;/rect&gt;
-      &lt;text class=&quot;four&quot; x=&quot;70&quot; y=&quot;35&quot;&gt;&lt;a href=&quot;###&quot;&gt;淘宝&lt;/a&gt;&lt;/text&gt;
-    &lt;/svg&gt;
-    &lt;svg&gt;
-      &lt;rect id=&quot;five&quot; height=&quot;50&quot; width=&quot;200&quot;&gt;&lt;/rect&gt;
-    &lt;/svg&gt;
-    &lt;svg&gt;
-      &lt;rect id=&quot;six&quot; height=&quot;50&quot; width=&quot;200&quot;&gt;&lt;/rect&gt;
-    &lt;/svg&gt;
-    &lt;svg&gt;
-      &lt;rect id=&quot;svg-border&quot; height=&quot;50&quot; width=&quot;200&quot;&gt;&lt;/rect&gt;
-      &lt;text x=&quot;55&quot; y=&quot;35&quot;&gt;&lt;a href=&quot;###&quot;&gt;四边框&lt;/a&gt;&lt;/text&gt;
-    &lt;/svg&gt;
-    &lt;svg&gt;
-      &lt;circle cx=&quot;100&quot; cy=&quot;25&quot; r=&quot;20&quot; stroke=&quot;orange&quot; stroke-width=&quot;6&quot; fill=&quot;#ff5&quot; /&gt;
-    &lt;/svg&gt;
-    &lt;svg&gt;
-      &lt;rect x=&quot;25&quot; y=&quot;10&quot; width=&quot;150&quot; height=&quot;30&quot; style=&quot;fill:#ccc; stroke:orange; stroke-width:5px;&quot; /&gt;
-    &lt;/svg&gt;
-    &lt;svg&gt;
-      &lt;rect x=&quot;25&quot; y=&quot;10&quot; rx=&quot;15&quot; ry=&quot;15&quot; width=&quot;150&quot; height=&quot;30&quot;
-        style=&quot;fill:#ccc; stroke:orange; stroke-width:5px; stroke-opacity:.5; fill-opacity:.9;&quot; /&gt;
-    &lt;/svg&gt;
-    &lt;svg &gt; 
-      &lt;line x1=&quot;5&quot; y1=&quot;5&quot; x2=&quot;190&quot; y2=&quot;40&quot; style=&quot;stroke:rgba(255, 0, 0, .5); stroke-width:5px;&quot; /&gt; 
-    &lt;/svg&gt;
-    &lt;svg&gt; 
-      &lt;ellipse cx=&quot;100&quot; cy=&quot;25&quot; rx=&quot;50&quot; ry=&quot;15&quot; stroke=&quot;orange&quot; stroke-width=&quot;5&quot; fill=&quot;#000&quot; fill-opacity=&quot;.5&quot; /&gt; 
-    &lt;/svg&gt;
-  &lt;/main&gt;
-&lt;/body&gt;
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>main</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>rect</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>shape<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>50<span class="token punctuation">"</span></span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>200<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>rect</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>text</span> <span class="token attr-name">x</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>70<span class="token punctuation">"</span></span> <span class="token attr-name">y</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>35<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>###<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>百度<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>text</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>rect</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>one<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>50<span class="token punctuation">"</span></span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>200<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>rect</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>rect</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>two<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>50<span class="token punctuation">"</span></span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>200<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>rect</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>rect</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>three<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>50<span class="token punctuation">"</span></span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>200<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>rect</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>rect</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>threes<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>50<span class="token punctuation">"</span></span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>200<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>rect</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>rect</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>fours<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>50<span class="token punctuation">"</span></span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>200<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>rect</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>rect</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>four<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>50<span class="token punctuation">"</span></span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>200<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>rect</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>text</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>four<span class="token punctuation">"</span></span> <span class="token attr-name">x</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>70<span class="token punctuation">"</span></span> <span class="token attr-name">y</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>35<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>###<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>淘宝<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>text</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>rect</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>five<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>50<span class="token punctuation">"</span></span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>200<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>rect</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>rect</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>six<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>50<span class="token punctuation">"</span></span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>200<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>rect</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>rect</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>svg-border<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>50<span class="token punctuation">"</span></span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>200<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>rect</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>text</span> <span class="token attr-name">x</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>55<span class="token punctuation">"</span></span> <span class="token attr-name">y</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>35<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>###<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>四边框<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>text</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>circle</span> <span class="token attr-name">cx</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>100<span class="token punctuation">"</span></span> <span class="token attr-name">cy</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>25<span class="token punctuation">"</span></span> <span class="token attr-name">r</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>20<span class="token punctuation">"</span></span> <span class="token attr-name">stroke</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>orange<span class="token punctuation">"</span></span> <span class="token attr-name">stroke-width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>6<span class="token punctuation">"</span></span> <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>#ff5<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>rect</span> <span class="token attr-name">x</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>25<span class="token punctuation">"</span></span> <span class="token attr-name">y</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>10<span class="token punctuation">"</span></span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>150<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>30<span class="token punctuation">"</span></span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">="</span><span class="token attr-value"><span class="token property">fill</span><span class="token punctuation">:</span><span class="token hexcode">#ccc</span><span class="token punctuation">;</span> <span class="token property">stroke</span><span class="token punctuation">:</span>orange<span class="token punctuation">;</span> <span class="token property">stroke-width</span><span class="token punctuation">:</span><span class="token number">5</span>px<span class="token punctuation">;</span></span><span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>rect</span> <span class="token attr-name">x</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>25<span class="token punctuation">"</span></span> <span class="token attr-name">y</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>10<span class="token punctuation">"</span></span> <span class="token attr-name">rx</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>15<span class="token punctuation">"</span></span> <span class="token attr-name">ry</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>15<span class="token punctuation">"</span></span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>150<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>30<span class="token punctuation">"</span></span><span class="token style-attr language-css"><span class="token attr-name">
+        <span class="token attr-name">style</span></span><span class="token punctuation">="</span><span class="token attr-value"><span class="token property">fill</span><span class="token punctuation">:</span><span class="token hexcode">#ccc</span><span class="token punctuation">;</span> <span class="token property">stroke</span><span class="token punctuation">:</span>orange<span class="token punctuation">;</span> <span class="token property">stroke-width</span><span class="token punctuation">:</span><span class="token number">5</span>px<span class="token punctuation">;</span> <span class="token property">stroke-opacity</span><span class="token punctuation">:</span><span class="token number">.5</span><span class="token punctuation">;</span> <span class="token property">fill-opacity</span><span class="token punctuation">:</span><span class="token number">.9</span><span class="token punctuation">;</span></span><span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span> <span class="token punctuation">></span></span> 
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>line</span> <span class="token attr-name">x1</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>5<span class="token punctuation">"</span></span> <span class="token attr-name">y1</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>5<span class="token punctuation">"</span></span> <span class="token attr-name">x2</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>190<span class="token punctuation">"</span></span> <span class="token attr-name">y2</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>40<span class="token punctuation">"</span></span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">="</span><span class="token attr-value"><span class="token property">stroke</span><span class="token punctuation">:</span><span class="token function">rgba</span><span class="token punctuation">(</span><span class="token number">255</span>, <span class="token number">0</span>, <span class="token number">0</span>, <span class="token number">.5</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token property">stroke-width</span><span class="token punctuation">:</span><span class="token number">5</span>px<span class="token punctuation">;</span></span><span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span> 
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>svg</span><span class="token punctuation">></span></span> 
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ellipse</span> <span class="token attr-name">cx</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>100<span class="token punctuation">"</span></span> <span class="token attr-name">cy</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>25<span class="token punctuation">"</span></span> <span class="token attr-name">rx</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>50<span class="token punctuation">"</span></span> <span class="token attr-name">ry</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>15<span class="token punctuation">"</span></span> <span class="token attr-name">stroke</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>orange<span class="token punctuation">"</span></span> <span class="token attr-name">stroke-width</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>5<span class="token punctuation">"</span></span> <span class="token attr-name">fill</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>#000<span class="token punctuation">"</span></span> <span class="token attr-name">fill-opacity</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>.5<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span> 
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>svg</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>main</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
 
-&lt;/html&gt;
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span>
 </code></pre>
 
             </div>
@@ -1344,7 +1344,8 @@ console.log( num1 + num2 );
 封装还可以优化
 直接看代码吧
 
-slider组件// slider/index.vue&#39;
+slider组件// slider/index.vue'
+&lt
                         
                     </div>
                     <div class="publish-info">
@@ -1485,7 +1486,7 @@ slider组件// slider/index.vue&#39;
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">21.9k</span>
+                <span class="white-color">21k</span>
             
 
             

@@ -53,7 +53,7 @@
     <script src="https://cdn.staticfile.org/jquery/2.2.0/jquery.min.js"></script>
     <script src=""></script>
 <meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Damao Bolg" type="application/atom+xml">
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -389,7 +389,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        532
+                        528
                     </div>
                     
 
@@ -431,55 +431,55 @@
 <li><p>transform: scale(0.5) 方案</p>
 <ol>
 <li><p>设置height: 1px，根据媒体查询结合transform缩放为相应尺寸</p>
-<pre><code class="css">div {
-height:1px;
-background:#000;
--webkit-transform: scaleY(0.5);
--webkit-transform-origin:0 0;
-overflow: hidden;
-}</code></pre>
+<pre class=" language-css"><code class="language-css"><span class="token selector">div </span><span class="token punctuation">{</span>
+<span class="token property">height</span><span class="token punctuation">:</span><span class="token number">1</span>px<span class="token punctuation">;</span>
+<span class="token property">background</span><span class="token punctuation">:</span><span class="token hexcode">#000</span><span class="token punctuation">;</span>
+<span class="token property">-webkit-transform</span><span class="token punctuation">:</span> <span class="token function">scaleY</span><span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token property">-webkit-transform-origin</span><span class="token punctuation">:</span><span class="token number">0</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token property">overflow</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
 </li>
 <li><p>用::after和::befor,设置border-bottom：1px solid #000,然后在缩放-webkit-transform: scaleY(0.5);可以实现两根边线的需求</p>
-<pre><code class="css">div::after{
-content:&#39;&#39;;
-width:100%;
-border-bottom:1px solid #000;
-transform: scaleY(0.5);
-}</code></pre>
+<pre class=" language-css"><code class="language-css"><span class="token selector">div<span class="token pseudo-element">::after</span></span><span class="token punctuation">{</span>
+<span class="token property">content</span><span class="token punctuation">:</span><span class="token string">''</span><span class="token punctuation">;</span>
+<span class="token property">width</span><span class="token punctuation">:</span><span class="token number">100%</span><span class="token punctuation">;</span>
+<span class="token property">border-bottom</span><span class="token punctuation">:</span><span class="token number">1</span>px solid <span class="token hexcode">#000</span><span class="token punctuation">;</span>
+<span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">scaleY</span><span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
 </li>
 <li><p>用::after设置border：1px solid #000; width:200%; height:200%,然后再缩放scaleY(0.5); 优点可以实现圆角，京东就是这么实现的，缺点是按钮添加active比较麻烦</p>
-<pre><code class="css">.div::after {
-content: &#39;&#39;;
-width: 200%;
-height: 200%;
-position: absolute;
-top: 0;
-left: 0;
-border: 1px solid #bfbfbf;
-border-radius: 4px;
--webkit-transform: scale(0.5,0.5);
-transform: scale(0.5,0.5);
--webkit-transform-origin: top left;
-}</code></pre>
+<pre class=" language-css"><code class="language-css"><span class="token selector"><span class="token class">.div</span><span class="token pseudo-element">::after</span> </span><span class="token punctuation">{</span>
+<span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">;</span>
+<span class="token property">width</span><span class="token punctuation">:</span> <span class="token number">200%</span><span class="token punctuation">;</span>
+<span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">200%</span><span class="token punctuation">;</span>
+<span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+<span class="token property">top</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token property">left</span><span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token property">border</span><span class="token punctuation">:</span> <span class="token number">1</span>px solid <span class="token hexcode">#bfbfbf</span><span class="token punctuation">;</span>
+<span class="token property">border-radius</span><span class="token punctuation">:</span> <span class="token number">4</span>px<span class="token punctuation">;</span>
+<span class="token property">-webkit-transform</span><span class="token punctuation">:</span> <span class="token function">scale</span><span class="token punctuation">(</span><span class="token number">0.5</span>,<span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">scale</span><span class="token punctuation">(</span><span class="token number">0.5</span>,<span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token property">-webkit-transform-origin</span><span class="token punctuation">:</span> top left<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
 </li>
 </ol>
 <ul>
 <li>媒体查询 + transfrom </li>
 </ul>
-<pre><code class="css">/* 2倍屏 */
-@media only screen and (-webkit-min-device-pixel-ratio: 2.0) {
-    .border-bottom::after {
-        -webkit-transform: scaleY(0.5);
-        transform: scaleY(0.5);
-    }
-}
-/* 3倍屏 */
-@media only screen and (-webkit-min-device-pixel-ratio: 3.0) {
-    .border-bottom::after {
-        -webkit-transform: scaleY(0.33);
-        transform: scaleY(0.33);
-    }
-}</code></pre>
+<pre class=" language-css"><code class="language-css"><span class="token comment" spellcheck="true">/* 2倍屏 */</span>
+<span class="token atrule"><span class="token rule">@media</span> only screen and <span class="token punctuation">(</span><span class="token property">-webkit-min-device-pixel-ratio</span><span class="token punctuation">:</span> 2.0<span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+    <span class="token selector"><span class="token class">.border-bottom</span><span class="token pseudo-element">::after</span> </span><span class="token punctuation">{</span>
+        <span class="token property">-webkit-transform</span><span class="token punctuation">:</span> <span class="token function">scaleY</span><span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">scaleY</span><span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">/* 3倍屏 */</span>
+<span class="token atrule"><span class="token rule">@media</span> only screen and <span class="token punctuation">(</span><span class="token property">-webkit-min-device-pixel-ratio</span><span class="token punctuation">:</span> 3.0<span class="token punctuation">)</span></span> <span class="token punctuation">{</span>
+    <span class="token selector"><span class="token class">.border-bottom</span><span class="token pseudo-element">::after</span> </span><span class="token punctuation">{</span>
+        <span class="token property">-webkit-transform</span><span class="token punctuation">:</span> <span class="token function">scaleY</span><span class="token punctuation">(</span><span class="token number">0.33</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">scaleY</span><span class="token punctuation">(</span><span class="token number">0.33</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 </li>
 </ul>
 
@@ -1018,7 +1018,7 @@ Prefix
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">21.9k</span>
+                <span class="white-color">21k</span>
             
 
             

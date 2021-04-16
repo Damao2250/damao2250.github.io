@@ -54,7 +54,7 @@ console.log( num1 + num2 );
     <script src="https://cdn.staticfile.org/jquery/2.2.0/jquery.min.js"></script>
     <script src=""></script>
 <meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Damao Bolg" type="application/atom+xml">
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -409,30 +409,30 @@ console.log( num1 + num2 );
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>在js的小数计算中，<code>0.1+0.2=0.30000000000000004</code></p>
-<pre><code class="js">let num1 = 0.1;
-let num2 = 0.2;
+<pre class=" language-js"><code class="language-js"><span class="token keyword">let</span> num1 <span class="token operator">=</span> <span class="token number">0.1</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> num2 <span class="token operator">=</span> <span class="token number">0.2</span><span class="token punctuation">;</span>
 
-console.log( num1 + num2 );
-// 0.30000000000000004 
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span> num1 <span class="token operator">+</span> num2 <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// 0.30000000000000004 </span>
 </code></pre>
 <p>为什么出现这样的结果，我们把小数转换成计算机能读得懂的二进制就比较明了了</p>
 <p>0.1 -&gt; 0.1.toString(2) -&gt; 0.0001100110011001100110011001100110011001100110011001101(无限循环…)<br>0.2 -&gt; 0.1.toString(2) -&gt; 0.001100110011001100110011001100110011001100110011001101(无限循环…)</p>
 <p>双精度浮点数的小数部分最多支持 52 位，所以两者相加之后得到这么一串 0.0100110011001100110011001100110011001100110011001100 因浮点数小数位的限制而截断的二进制数字，这时候，我们再把它转换为十进制，就成了 0.30000000000000004。</p>
 <p>所以我们该如何处理此类问题？</p>
 <p>为了避免产生精度差异，我们要把需要计算的数字乘以 10 的 n 次幂，换算成计算机能够精确识别的整数，然后再除以 10 的 n 次幂，大部分编程语言都是这样处理精度差异的，我们就借用过来处理一下 JS 中的浮点数精度误差。</p>
-<pre><code class="js">
-formatNum = function( num, digit ) {
-  let m = Math.pow( 10, digit );
-  return parseInt( num * m, 10 ) / m;
-}
-let num1 = 0.1;
-let num2 = 0.2;
-console.log( num1 + num2 );
-console.log( formatNum( num1 + num2, 1) );
+<pre class=" language-js"><code class="language-js">
+formatNum <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span> num<span class="token punctuation">,</span> digit <span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> m <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">pow</span><span class="token punctuation">(</span> <span class="token number">10</span><span class="token punctuation">,</span> digit <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token function">parseInt</span><span class="token punctuation">(</span> num <span class="token operator">*</span> m<span class="token punctuation">,</span> <span class="token number">10</span> <span class="token punctuation">)</span> <span class="token operator">/</span> m<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">let</span> num1 <span class="token operator">=</span> <span class="token number">0.1</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> num2 <span class="token operator">=</span> <span class="token number">0.2</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span> num1 <span class="token operator">+</span> num2 <span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span> <span class="token function">formatNum</span><span class="token punctuation">(</span> num1 <span class="token operator">+</span> num2<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<pre><code class="js">// Tips:
-// pow() 方法可返回 x 的 y 次幂的值。
-// parseInt() 函数可解析一个字符串，并返回一个整数。（第二个参数取值2-36，省略该参数或其值为 0，则数字将以 10 为基础来解析。如果它以 “0x” 或 “0X” 开头，将以 16 为基数。）</code></pre>
+<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// Tips:</span>
+<span class="token comment" spellcheck="true">// pow() 方法可返回 x 的 y 次幂的值。</span>
+<span class="token comment" spellcheck="true">// parseInt() 函数可解析一个字符串，并返回一个整数。（第二个参数取值2-36，省略该参数或其值为 0，则数字将以 10 为基础来解析。如果它以 “0x” 或 “0X” 开头，将以 16 为基数。）</span></code></pre>
 
             </div>
             <hr/>
@@ -947,7 +947,7 @@ SVG 是万维
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">21.9k</span>
+                <span class="white-color">21k</span>
             
 
             

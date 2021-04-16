@@ -56,7 +56,7 @@ Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。
     <script src="https://cdn.staticfile.org/jquery/2.2.0/jquery.min.js"></script>
     <script src=""></script>
 <meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Damao Bolg" type="application/atom+xml">
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -392,7 +392,7 @@ Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        440
+                        433
                     </div>
                     
 
@@ -410,7 +410,7 @@ Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><pre><code class="js">npm i vuex
+                <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><pre class=" language-js"><code class="language-js">npm i vuex
 or
 yarn add vuex</code></pre>
 <h2 id="Vuex-是什么"><a href="#Vuex-是什么" class="headerlink" title="Vuex 是什么"></a>Vuex 是什么</h2><ul>
@@ -447,20 +447,20 @@ yarn add vuex</code></pre>
 <ul>
 <li>将 <code>store</code> 分割成模块（module）。每个模块拥有自己的 <code>state、mutation、action、getter</code></li>
 </ul>
-<h2 id="官方购物车项目结构"><a href="#官方购物车项目结构" class="headerlink" title="官方购物车项目结构"></a>官方购物车项目结构</h2><pre><code class="js">├── index.html
-├── main.js
+<h2 id="官方购物车项目结构"><a href="#官方购物车项目结构" class="headerlink" title="官方购物车项目结构"></a>官方购物车项目结构</h2><pre class=" language-js"><code class="language-js">├── index<span class="token punctuation">.</span>html
+├── main<span class="token punctuation">.</span>js
 ├── api
-│   └── ... # 抽取出API请求
+│   └── <span class="token operator">...</span> # 抽取出API请求
 ├── components
-│   ├── App.vue
-│   └── ...
+│   ├── App<span class="token punctuation">.</span>vue
+│   └── <span class="token operator">...</span>
 └── store
-    ├── index.js          # 我们组装模块并导出 store 的地方
-    ├── actions.js        # 根级别的 action
-    ├── mutations.js      # 根级别的 mutation
+    ├── index<span class="token punctuation">.</span>js          # 我们组装模块并导出 store 的地方
+    ├── actions<span class="token punctuation">.</span>js        # 根级别的 action
+    ├── mutations<span class="token punctuation">.</span>js      # 根级别的 mutation
     └── modules
-        ├── cart.js       # 购物车模块
-        └── products.js   # 产品模块
+        ├── cart<span class="token punctuation">.</span>js       # 购物车模块
+        └── products<span class="token punctuation">.</span>js   # 产品模块
 </code></pre>
 <h3 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h3><ol>
 <li></li>
@@ -469,11 +469,11 @@ yarn add vuex</code></pre>
 <li>在 <code>mutation-types.js</code> 中定义类型常量，默认全部大写 —&gt; 把常量放在单独的文件中可以让你的代码合作者或者迭代者对整个 app 包含的 mutation 一目了然</li>
 </ul>
 <ol start="2">
-<li>Vuex- Action的 { commit }<pre><code class="js">// Vuex 中 使用 Action 处理异步请求时，常规写法如下
-getMenuAction:(context) =&gt;{
- context.commit(&#39;SET_MENU_LIST&#39;,[&#39;承保2&#39;,&#39;核保2&#39;])
-}
-}
+<li>Vuex- Action的 { commit }<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// Vuex 中 使用 Action 处理异步请求时，常规写法如下</span>
+getMenuAction<span class="token punctuation">:</span><span class="token punctuation">(</span>context<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
+ context<span class="token punctuation">.</span><span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">'SET_MENU_LIST'</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token string">'承保2'</span><span class="token punctuation">,</span><span class="token string">'核保2'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 </li>
 </ol>
@@ -802,10 +802,16 @@ getMenuAction:(context) =&gt;{
                             打包优化
 路由懒加载
 {
-path: &#39;/about&#39;,
-name: &#39;about&#39;,
-component: () =&gt; import(&#39;@/views/about/about&#39;),
-}
+path: '/about',
+name: 'about',
+component: () => import('@/views/about/about'),
+},
+
+不生成.map 文件
+
+
+
+webpack默认会
                         
                     </div>
                     <div class="publish-info">
@@ -1001,7 +1007,7 @@ component: () =&gt; import(&#39;@/views/about/about&#39;),
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">21.9k</span>
+                <span class="white-color">21k</span>
             
 
             

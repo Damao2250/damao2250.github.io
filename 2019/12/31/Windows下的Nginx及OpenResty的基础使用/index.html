@@ -58,7 +58,7 @@ nginx ">
     <script src="https://cdn.staticfile.org/jquery/2.2.0/jquery.min.js"></script>
     <script src=""></script>
 <meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Damao Bolg" type="application/atom+xml">
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -394,7 +394,7 @@ nginx ">
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        936
+                        932
                     </div>
                     
 
@@ -412,92 +412,92 @@ nginx ">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Nginx基础命令"><a href="#Nginx基础命令" class="headerlink" title="Nginx基础命令"></a>Nginx基础命令</h2><pre><code class="js">// 启动
+                <h2 id="Nginx基础命令"><a href="#Nginx基础命令" class="headerlink" title="Nginx基础命令"></a>Nginx基础命令</h2><pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 启动</span>
 start nginx
-nginx.exe
+nginx<span class="token punctuation">.</span>exe
 
-// 停止
-nginx -s stop   // 快速停止，不保存信息
-nginx -s quit   // 完整有序停止并保存信息
+<span class="token comment" spellcheck="true">// 停止</span>
+nginx <span class="token operator">-</span>s stop   <span class="token comment" spellcheck="true">// 快速停止，不保存信息</span>
+nginx <span class="token operator">-</span>s quit   <span class="token comment" spellcheck="true">// 完整有序停止并保存信息</span>
 
-// 重新载入
-nginx -s reload
+<span class="token comment" spellcheck="true">// 重新载入</span>
+nginx <span class="token operator">-</span>s reload
 
-// 重新打开日志文件
-nginx -s reopen
+<span class="token comment" spellcheck="true">// 重新打开日志文件</span>
+nginx <span class="token operator">-</span>s reopen
 
-// 查看 Nginx 版本
-nginx -v  // 简单
-nginx -V  // 详细
+<span class="token comment" spellcheck="true">// 查看 Nginx 版本</span>
+nginx <span class="token operator">-</span>v  <span class="token comment" spellcheck="true">// 简单</span>
+nginx <span class="token operator">-</span>V  <span class="token comment" spellcheck="true">// 详细</span>
 
-// 查看 Nginx 是否正常启动
-tasklist/fi &quot;imagename eq nginx.exe&quot;
+<span class="token comment" spellcheck="true">// 查看 Nginx 是否正常启动</span>
+tasklist<span class="token operator">/</span>fi <span class="token string">"imagename eq nginx.exe"</span>
 
-// 杀对应pid进程
-taskklii /pid {pid}
+<span class="token comment" spellcheck="true">// 杀对应pid进程</span>
+taskklii <span class="token operator">/</span>pid <span class="token punctuation">{</span>pid<span class="token punctuation">}</span>
 
-// 强制杀对应pid进程
-taskklii /pid {pid} /f
+<span class="token comment" spellcheck="true">// 强制杀对应pid进程</span>
+taskklii <span class="token operator">/</span>pid <span class="token punctuation">{</span>pid<span class="token punctuation">}</span> <span class="token operator">/</span>f
 
-// 杀nginx全部进程
-taskkill /im nginx.exe /f
+<span class="token comment" spellcheck="true">// 杀nginx全部进程</span>
+taskkill <span class="token operator">/</span>im nginx<span class="token punctuation">.</span>exe <span class="token operator">/</span>f
 </code></pre>
-<h2 id="Nginx配置详解"><a href="#Nginx配置详解" class="headerlink" title="Nginx配置详解"></a>Nginx配置详解</h2><pre><code class="js">// ########### 每个指令必须有分号结束。#################
-// #user administrator administrators;  #配置用户或者组，默认为nobody nobody。
-// #worker_processes 2;  #允许生成的进程数，默认为1
-// #pid /nginx/pid/nginx.pid;   #指定nginx进程运行文件存放地址
-// error_log log/error.log debug;  #制定日志路径，级别。这个设置可以放入全局块，http块，server块，级别以此为：debug|info|notice|warn|error|crit|alert|emerg
-// events {
-//     accept_mutex on;   #设置网路连接序列化，防止惊群现象发生，默认为on
-//     multi_accept on;  #设置一个进程是否同时接受多个网络连接，默认为off
-//     #use epoll;      #事件驱动模型，select|poll|kqueue|epoll|resig|/dev/poll|eventport
-//     worker_connections  1024;    #最大连接数，默认为512
-// }
-// http {
-//     include       mime.types;   #文件扩展名与文件类型映射表
-//     default_type  application/octet-stream; #默认文件类型，默认为text/plain
-//     #access_log off; #取消服务日志    
-//     log_format myFormat &#39;$remote_addr–$remote_user [$time_local] $request $status $body_bytes_sent $http_referer $http_user_agent $http_x_forwarded_for&#39;; #自定义格式
-//     access_log log/access.log myFormat;  #combined为日志格式的默认值
-//     sendfile on;   #允许sendfile方式传输文件，默认为off，可以在http块，server块，location块。
-//     sendfile_max_chunk 100k;  #每个进程每次调用传输数量不能大于设定的值，默认为0，即不设上限。
-//     keepalive_timeout 65;  #连接超时时间，默认为75s，可以在http，server，location块。
+<h2 id="Nginx配置详解"><a href="#Nginx配置详解" class="headerlink" title="Nginx配置详解"></a>Nginx配置详解</h2><pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// ########### 每个指令必须有分号结束。#################</span>
+<span class="token comment" spellcheck="true">// #user administrator administrators;  #配置用户或者组，默认为nobody nobody。</span>
+<span class="token comment" spellcheck="true">// #worker_processes 2;  #允许生成的进程数，默认为1</span>
+<span class="token comment" spellcheck="true">// #pid /nginx/pid/nginx.pid;   #指定nginx进程运行文件存放地址</span>
+<span class="token comment" spellcheck="true">// error_log log/error.log debug;  #制定日志路径，级别。这个设置可以放入全局块，http块，server块，级别以此为：debug|info|notice|warn|error|crit|alert|emerg</span>
+<span class="token comment" spellcheck="true">// events {</span>
+<span class="token comment" spellcheck="true">//     accept_mutex on;   #设置网路连接序列化，防止惊群现象发生，默认为on</span>
+<span class="token comment" spellcheck="true">//     multi_accept on;  #设置一个进程是否同时接受多个网络连接，默认为off</span>
+<span class="token comment" spellcheck="true">//     #use epoll;      #事件驱动模型，select|poll|kqueue|epoll|resig|/dev/poll|eventport</span>
+<span class="token comment" spellcheck="true">//     worker_connections  1024;    #最大连接数，默认为512</span>
+<span class="token comment" spellcheck="true">// }</span>
+<span class="token comment" spellcheck="true">// http {</span>
+<span class="token comment" spellcheck="true">//     include       mime.types;   #文件扩展名与文件类型映射表</span>
+<span class="token comment" spellcheck="true">//     default_type  application/octet-stream; #默认文件类型，默认为text/plain</span>
+<span class="token comment" spellcheck="true">//     #access_log off; #取消服务日志    </span>
+<span class="token comment" spellcheck="true">//     log_format myFormat '$remote_addr–$remote_user [$time_local] $request $status $body_bytes_sent $http_referer $http_user_agent $http_x_forwarded_for'; #自定义格式</span>
+<span class="token comment" spellcheck="true">//     access_log log/access.log myFormat;  #combined为日志格式的默认值</span>
+<span class="token comment" spellcheck="true">//     sendfile on;   #允许sendfile方式传输文件，默认为off，可以在http块，server块，location块。</span>
+<span class="token comment" spellcheck="true">//     sendfile_max_chunk 100k;  #每个进程每次调用传输数量不能大于设定的值，默认为0，即不设上限。</span>
+<span class="token comment" spellcheck="true">//     keepalive_timeout 65;  #连接超时时间，默认为75s，可以在http，server，location块。</span>
 
-//     upstream mysvr {   
-//       server 127.0.0.1:7878;
-//       server 192.168.10.121:3333 backup;  #热备
-//     }
-//     error_page 404 https://www.baidu.com; #错误页
-//     server {
-//         keepalive_requests 120; #单连接请求上限次数。
-//         listen       4545;   #监听端口
-//         server_name  127.0.0.1;   #监听地址       
-//         location  ~*^.+$ {       #请求的url过滤，正则匹配，~为区分大小写，~*为不区分大小写。
-//            #root path;  #根目录
-//            #index vv.txt;  #设置默认页
-//            proxy_pass  http://mysvr;  #请求转向mysvr 定义的服务器列表
-//            deny 127.0.0.1;  #拒绝的ip
-//            allow 172.18.5.54; #允许的ip           
-//         } 
-//     }
-// }
+<span class="token comment" spellcheck="true">//     upstream mysvr {   </span>
+<span class="token comment" spellcheck="true">//       server 127.0.0.1:7878;</span>
+<span class="token comment" spellcheck="true">//       server 192.168.10.121:3333 backup;  #热备</span>
+<span class="token comment" spellcheck="true">//     }</span>
+<span class="token comment" spellcheck="true">//     error_page 404 https://www.baidu.com; #错误页</span>
+<span class="token comment" spellcheck="true">//     server {</span>
+<span class="token comment" spellcheck="true">//         keepalive_requests 120; #单连接请求上限次数。</span>
+<span class="token comment" spellcheck="true">//         listen       4545;   #监听端口</span>
+<span class="token comment" spellcheck="true">//         server_name  127.0.0.1;   #监听地址       </span>
+<span class="token comment" spellcheck="true">//         location  ~*^.+$ {       #请求的url过滤，正则匹配，~为区分大小写，~*为不区分大小写。</span>
+<span class="token comment" spellcheck="true">//            #root path;  #根目录</span>
+<span class="token comment" spellcheck="true">//            #index vv.txt;  #设置默认页</span>
+<span class="token comment" spellcheck="true">//            proxy_pass  http://mysvr;  #请求转向mysvr 定义的服务器列表</span>
+<span class="token comment" spellcheck="true">//            deny 127.0.0.1;  #拒绝的ip</span>
+<span class="token comment" spellcheck="true">//            allow 172.18.5.54; #允许的ip           </span>
+<span class="token comment" spellcheck="true">//         } </span>
+<span class="token comment" spellcheck="true">//     }</span>
+<span class="token comment" spellcheck="true">// }</span>
 
-// # 1.$remote_addr 与 $http_x_forwarded_for 用以记录客户端的ip地址；
-// # 2.$remote_user ：用来记录客户端用户名称；
-// # 3.$time_local ： 用来记录访问时间与时区；
-// # 4.$request ： 用来记录请求的url与http协议；
-// # 5.$status ： 用来记录请求状态；成功是200；
-// # 6.$body_bytes_s ent ：记录发送给客户端文件主体内容大小；
-// # 7.$http_referer ：用来记录从那个页面链接访问过来的；
-// # 8.$http_user_agent ：记录客户端浏览器的相关信息；
+<span class="token comment" spellcheck="true">// # 1.$remote_addr 与 $http_x_forwarded_for 用以记录客户端的ip地址；</span>
+<span class="token comment" spellcheck="true">// # 2.$remote_user ：用来记录客户端用户名称；</span>
+<span class="token comment" spellcheck="true">// # 3.$time_local ： 用来记录访问时间与时区；</span>
+<span class="token comment" spellcheck="true">// # 4.$request ： 用来记录请求的url与http协议；</span>
+<span class="token comment" spellcheck="true">// # 5.$status ： 用来记录请求状态；成功是200；</span>
+<span class="token comment" spellcheck="true">// # 6.$body_bytes_s ent ：记录发送给客户端文件主体内容大小；</span>
+<span class="token comment" spellcheck="true">// # 7.$http_referer ：用来记录从那个页面链接访问过来的；</span>
+<span class="token comment" spellcheck="true">// # 8.$http_user_agent ：记录客户端浏览器的相关信息；</span>
 
 
 
-// # 1、全局块（events块之前）：配置影响nginx全局的指令。一般有运行nginx服务器的用户组，nginx进程pid存放路径，日志存放路径，配置文件引入，允许生成worker process数等。
-// # 2、events块：配置影响nginx服务器或与用户的网络连接。有每个进程的最大连接数，选取哪种事件驱动模型处理连接请求，是否允许同时接受多个网路连接，开启多个网络连接序列化等。
-// # 3、http块：可以嵌套多个server，配置代理，缓存，日志定义等绝大多数功能和第三方模块的配置。如文件引入，mime-type定义，日志自定义，是否使用sendfile传输文件，连接超时时间，单连接请求数等。
-// # 4、server块：配置虚拟主机的相关参数，一个http中可以有多个server。
-// # 5、location块：配置请求的路由，以及各种页面的处理情况。
+<span class="token comment" spellcheck="true">// # 1、全局块（events块之前）：配置影响nginx全局的指令。一般有运行nginx服务器的用户组，nginx进程pid存放路径，日志存放路径，配置文件引入，允许生成worker process数等。</span>
+<span class="token comment" spellcheck="true">// # 2、events块：配置影响nginx服务器或与用户的网络连接。有每个进程的最大连接数，选取哪种事件驱动模型处理连接请求，是否允许同时接受多个网路连接，开启多个网络连接序列化等。</span>
+<span class="token comment" spellcheck="true">// # 3、http块：可以嵌套多个server，配置代理，缓存，日志定义等绝大多数功能和第三方模块的配置。如文件引入，mime-type定义，日志自定义，是否使用sendfile传输文件，连接超时时间，单连接请求数等。</span>
+<span class="token comment" spellcheck="true">// # 4、server块：配置虚拟主机的相关参数，一个http中可以有多个server。</span>
+<span class="token comment" spellcheck="true">// # 5、location块：配置请求的路由，以及各种页面的处理情况。</span>
 </code></pre>
 
             </div>
@@ -1008,7 +1008,7 @@ opt目录
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">21.9k</span>
+                <span class="white-color">21k</span>
             
 
             

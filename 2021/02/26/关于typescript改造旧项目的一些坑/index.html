@@ -54,7 +54,7 @@
     <script src="https://cdn.staticfile.org/jquery/2.2.0/jquery.min.js"></script>
     <script src=""></script>
 <meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="Damao Bolg" type="application/atom+xml">
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -390,7 +390,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        356
+                        342
                     </div>
                     
 
@@ -414,7 +414,7 @@
 </ul>
 <h2 id="引入第三方包报红"><a href="#引入第三方包报红" class="headerlink" title="引入第三方包报红"></a>引入第三方包报红</h2><ul>
 <li>引入第三方库 报红找不到module，无法正常使用包，如qs、jQuery</li>
-<li>解决办法1：使用@types进行包管理，然后正常引入<pre><code class="js">npm i @types/qs
+<li>解决办法1：使用@types进行包管理，然后正常引入<pre class=" language-js"><code class="language-js">npm i @types<span class="token operator">/</span>qs
 </code></pre>
 </li>
 </ul>
@@ -438,27 +438,27 @@ import { Form } from &quot;element-ui&quot;;
  });
 
 // 如果不引入Form，把Form换成any也可以，但是typescript会报警告⚠
-</code></pre><h2 id="使用axios封装的请求，然后解构请求结果报错"><a href="#使用axios封装的请求，然后解构请求结果报错" class="headerlink" title="使用axios封装的请求，然后解构请求结果报错"></a>使用axios封装的请求，然后解构请求结果报错</h2><pre><code class="js">// 报错信息
-// Property &#39;XXX&#39; does not exist on type &#39;AxiosResponse&lt;any&gt;&#39;
+</code></pre><h2 id="使用axios封装的请求，然后解构请求结果报错"><a href="#使用axios封装的请求，然后解构请求结果报错" class="headerlink" title="使用axios封装的请求，然后解构请求结果报错"></a>使用axios封装的请求，然后解构请求结果报错</h2><pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 报错信息</span>
+<span class="token comment" spellcheck="true">// Property 'XXX' does not exist on type 'AxiosResponse&lt;any>'</span>
 
-// 解决办法
-// 新建axios.d.ts文案，添加如下内容，重启项目
-import * as axios from &#39;axios&#39;
+<span class="token comment" spellcheck="true">// 解决办法</span>
+<span class="token comment" spellcheck="true">// 新建axios.d.ts文案，添加如下内容，重启项目</span>
+<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> axios <span class="token keyword">from</span> <span class="token string">'axios'</span>
 
-declare module &#39;axios&#39; {
-  interface AxiosInstance {
-    (config: AxiosRequestConfig): Promise&lt;any&gt;
-  }
-}
+declare module <span class="token string">'axios'</span> <span class="token punctuation">{</span>
+  <span class="token keyword">interface</span> <span class="token class-name">AxiosInstance</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">(</span>config<span class="token punctuation">:</span> AxiosRequestConfig<span class="token punctuation">)</span><span class="token punctuation">:</span> Promise<span class="token operator">&lt;</span>any<span class="token operator">></span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
-<h2 id="typescript-esline-报错-xxx-x-is-not-in-camel-case"><a href="#typescript-esline-报错-xxx-x-is-not-in-camel-case" class="headerlink" title="@typescript/esline 报错 xxx_x is not in camel case"></a>@typescript/esline 报错 xxx_x is not in camel case</h2><pre><code class="js">// 关闭esline驼峰校验
+<h2 id="typescript-esline-报错-xxx-x-is-not-in-camel-case"><a href="#typescript-esline-报错-xxx-x-is-not-in-camel-case" class="headerlink" title="@typescript/esline 报错 xxx_x is not in camel case"></a>@typescript/esline 报错 xxx_x is not in camel case</h2><pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 关闭esline驼峰校验</span>
 
-// 在.eslinetrc.js中配置如下：
+<span class="token comment" spellcheck="true">// 在.eslinetrc.js中配置如下：</span>
 
-rules: {
-  ...
-  &#39;@typescript-eslint/camelcase&#39;: &#39;off&#39;,
-}</code></pre>
+rules<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+  <span class="token operator">...</span>
+  <span class="token string">'@typescript-eslint/camelcase'</span><span class="token punctuation">:</span> <span class="token string">'off'</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span></code></pre>
 
             </div>
             <hr/>
@@ -968,7 +968,7 @@ Prefix
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">21.9k</span>
+                <span class="white-color">21k</span>
             
 
             
