@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Damao Bolg</title>
   
-  
+  <subtitle>生活的意义在于不安现状</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://damao2250.github.io/"/>
