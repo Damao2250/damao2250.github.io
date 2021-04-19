@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>一个简单的柯里化函数示例</title>
+      <link href="2021/04/19/%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E6%9F%AF%E9%87%8C%E5%8C%96%E5%87%BD%E6%95%B0%E7%A4%BA%E4%BE%8B/"/>
+      <url>2021/04/19/%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E6%9F%AF%E9%87%8C%E5%8C%96%E5%87%BD%E6%95%B0%E7%A4%BA%E4%BE%8B/</url>
+      
+        <content type="html"><![CDATA[<h2 id="什么是柯里化"><a href="#什么是柯里化" class="headerlink" title="什么是柯里化"></a>什么是柯里化</h2><ul><li>柯里化就是把一个多参数的函数转换为一系列只带单个参数的函数</li></ul><h2 id="未柯里化前的函数"><a href="#未柯里化前的函数" class="headerlink" title="未柯里化前的函数"></a>未柯里化前的函数</h2><pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">multiply</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">,</span> c<span class="token punctuation">)</span><span class="token punctuation">{</span>  <span class="token keyword">return</span> a <span class="token operator">*</span> b <span class="token operator">*</span> c<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token keyword">let</span> res <span class="token operator">=</span> <span class="token function">multiply</span><span class="token punctuation">(</span><span class="token number">1</span>，<span class="token number">2</span>，<span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 6</span></code></pre><h2 id="柯里化后的函数"><a href="#柯里化后的函数" class="headerlink" title="柯里化后的函数"></a>柯里化后的函数</h2><pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">multiply</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">{</span>  <span class="token keyword">return</span> b <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>    <span class="token keyword">return</span> c <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>      <span class="token keyword">return</span> a <span class="token operator">*</span> b <span class="token operator">*</span> c<span class="token punctuation">;</span>    <span class="token punctuation">}</span>  <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token keyword">let</span> res <span class="token operator">=</span> <span class="token function">multiply</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><h2 id="柯里化过程"><a href="#柯里化过程" class="headerlink" title="柯里化过程"></a>柯里化过程</h2><ul><li>将 <code>multiply(1，2，3)</code> 函数调用转换为 <code>multiply(1)(2)(3)</code> 调用</li><li>拆分<code>multiply(1)(2)(3)</code>便于理解<pre class=" language-js"><code class="language-js"><span class="token keyword">const</span> multiply1 <span class="token operator">=</span> <span class="token function">multiplytiply</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">const</span> multiply2 <span class="token operator">=</span> <span class="token function">multiply1</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">const</span> multiply3 <span class="token operator">=</span> <span class="token function">multiply2</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>multiply3<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 6</span></code></pre></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> JavaScript </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 柯里化函数 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>git常用命令速查表</title>
       <link href="2021/04/15/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E9%80%9F%E6%9F%A5%E8%A1%A8/"/>
       <url>2021/04/15/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E9%80%9F%E6%9F%A5%E8%A1%A8/</url>
@@ -84,7 +109,7 @@
       <link href="2021/02/26/Nginx%E5%9F%BA%E6%9C%AC%E5%8A%9F%E8%83%BD%E5%8F%8A%E9%85%8D%E7%BD%AE/"/>
       <url>2021/02/26/Nginx%E5%9F%BA%E6%9C%AC%E5%8A%9F%E8%83%BD%E5%8F%8A%E9%85%8D%E7%BD%AE/</url>
       
-        <content type="html"><![CDATA[<h1 id="Nginx的基本功能及配置"><a href="#Nginx的基本功能及配置" class="headerlink" title="Nginx的基本功能及配置"></a>Nginx的基本功能及配置</h1>]]></content>
+        <content type="html"><![CDATA[<h1 id="Nginx的基本功能及配置"><a href="#Nginx的基本功能及配置" class="headerlink" title="Nginx的基本功能及配置"></a>Nginx的基本功能及配置</h1><h2 id="查找-Nginx-安装目录"><a href="#查找-Nginx-安装目录" class="headerlink" title="查找 Nginx 安装目录"></a>查找 Nginx 安装目录</h2><pre class=" language-js"><code class="language-js">ps aux <span class="token operator">|</span> grep Nginx</code></pre>]]></content>
       
       
       
@@ -238,6 +263,12 @@
       
         <content type="html"><![CDATA[<p>在js的小数计算中，<code>0.1+0.2=0.30000000000000004</code></p><pre class=" language-js"><code class="language-js"><span class="token keyword">let</span> num1 <span class="token operator">=</span> <span class="token number">0.1</span><span class="token punctuation">;</span><span class="token keyword">let</span> num2 <span class="token operator">=</span> <span class="token number">0.2</span><span class="token punctuation">;</span>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span> num1 <span class="token operator">+</span> num2 <span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">// 0.30000000000000004 </span></code></pre><p>为什么出现这样的结果，我们把小数转换成计算机能读得懂的二进制就比较明了了</p><p>0.1 -&gt; 0.1.toString(2) -&gt; 0.0001100110011001100110011001100110011001100110011001101(无限循环…)<br>0.2 -&gt; 0.1.toString(2) -&gt; 0.001100110011001100110011001100110011001100110011001101(无限循环…)</p><p>双精度浮点数的小数部分最多支持 52 位，所以两者相加之后得到这么一串 0.0100110011001100110011001100110011001100110011001100 因浮点数小数位的限制而截断的二进制数字，这时候，我们再把它转换为十进制，就成了 0.30000000000000004。</p><p>所以我们该如何处理此类问题？</p><p>为了避免产生精度差异，我们要把需要计算的数字乘以 10 的 n 次幂，换算成计算机能够精确识别的整数，然后再除以 10 的 n 次幂，大部分编程语言都是这样处理精度差异的，我们就借用过来处理一下 JS 中的浮点数精度误差。</p><pre class=" language-js"><code class="language-js">formatNum <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span> num<span class="token punctuation">,</span> digit <span class="token punctuation">)</span> <span class="token punctuation">{</span>  <span class="token keyword">let</span> m <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">pow</span><span class="token punctuation">(</span> <span class="token number">10</span><span class="token punctuation">,</span> digit <span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token keyword">return</span> <span class="token function">parseInt</span><span class="token punctuation">(</span> num <span class="token operator">*</span> m<span class="token punctuation">,</span> <span class="token number">10</span> <span class="token punctuation">)</span> <span class="token operator">/</span> m<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token keyword">let</span> num1 <span class="token operator">=</span> <span class="token number">0.1</span><span class="token punctuation">;</span><span class="token keyword">let</span> num2 <span class="token operator">=</span> <span class="token number">0.2</span><span class="token punctuation">;</span>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span> num1 <span class="token operator">+</span> num2 <span class="token punctuation">)</span><span class="token punctuation">;</span>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span> <span class="token function">formatNum</span><span class="token punctuation">(</span> num1 <span class="token operator">+</span> num2<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// Tips:</span><span class="token comment" spellcheck="true">// pow() 方法可返回 x 的 y 次幂的值。</span><span class="token comment" spellcheck="true">// parseInt() 函数可解析一个字符串，并返回一个整数。（第二个参数取值2-36，省略该参数或其值为 0，则数字将以 10 为基础来解析。如果它以 “0x” 或 “0X” 开头，将以 16 为基数。）</span></code></pre>]]></content>
       
+      
+      <categories>
+          
+          <category> JavaScript </category>
+          
+      </categories>
       
       
         <tags>
