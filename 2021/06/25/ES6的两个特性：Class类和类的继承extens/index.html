@@ -397,7 +397,7 @@ ES6引入Class(类)的概念，让类的写法更接近传统语言的写法，E
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        638
+                        635
                     </div>
                     
 
@@ -479,39 +479,49 @@ console<span class="token punctuation">.</span><span class="token function">log<
 Person<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>getName <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
 <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-</code></pre>
+<span class="token keyword">function</span> <span class="token function">SuperPerson</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">this</span><span class="token punctuation">.</span>superName <span class="token operator">=</span> <span class="token string">"Damao2250"</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">// 继承 Person</span>
+SuperPerson<span class="token punctuation">.</span>prototype <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+SuperPerson<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>constructor <span class="token operator">=</span> SuperPerson<span class="token punctuation">;</span>
+SuperPerson<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>getSuperName <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>superName<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">const</span> superPerson <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SuperPerson</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>superPerson<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Damao</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>superPerson<span class="token punctuation">.</span><span class="token function">getSuperName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Damao2250</span>
+<span class="token comment" spellcheck="true">// ================= ES5 end =================</span></code></pre>
+</li>
+<li><pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// ================= ES6 start =================</span>
+<span class="token keyword">class</span> <span class="token class-name">Person</span> <span class="token punctuation">{</span>
+<span class="token function">constructor</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> age<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 构造函数</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> age<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 原型方法（无需加function）</span>
+  <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">class</span> <span class="token class-name">SuperPerson</span> <span class="token keyword">extends</span> <span class="token class-name">Person</span> <span class="token punctuation">{</span>
+<span class="token function">constructor</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> age<span class="token punctuation">,</span> superName<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// 在继承的构造函数中，必须调用一次super方法，它表示构造函数的继承；必须在this前调用</span>
+  <span class="token keyword">super</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>superName <span class="token operator">=</span> superName<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token function">superGetName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// super 直接调用父级的原型方法</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>superName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">const</span> person <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SuperPerson</span><span class="token punctuation">(</span><span class="token string">"Damao"</span><span class="token punctuation">,</span> <span class="token number">18</span><span class="token punctuation">,</span> <span class="token string">"Damao2250"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>person<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Damao</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>person<span class="token punctuation">.</span><span class="token function">superGetName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Damao  Damao2250</span>
+<span class="token comment" spellcheck="true">// ================= ES6 end =================</span></code></pre>
 </li>
 </ul>
-<p>function SuperPerson() {<br>  this.superName = “Damao2250”;<br>}<br>// 继承 Person<br>SuperPerson.prototype = new Person();<br>SuperPerson.prototype.constructor = SuperPerson;<br>SuperPerson.prototype.getSuperName = function() {<br>  return this.superName;<br>}</p>
-<p>const superPerson = new SuperPerson();<br>console.log(superPerson.getName()); // Damao<br>console.log(superPerson.getSuperName()); // Damao2250<br>// ================= ES5 end =================</p>
-<pre><code>+ 
-```js
-// ================= ES6 start =================
-class Person {
-  constructor(name, age) { // 构造函数
-    this.name = name;
-    this.age = age;
-  }
-  getName() { // 原型方法（无需加function）
-    return this.name;
-  }
-}
-class SuperPerson extends Person {
-  constructor(name, age, superName) {
-    // 在继承的构造函数中，必须调用一次super方法，它表示构造函数的继承；必须在this前调用
-    super(name,age);
-    this.superName = superName;
-  }
-  superGetName() {
-    // super 直接调用父级的原型方法
-    console.log(super.getName());
-    console.log(this.superName);
-  }
-}
-const person = new SuperPerson(&quot;Damao&quot;, 18, &quot;Damao2250&quot;);
-console.log(person.getName()); // Damao
-console.log(person.superGetName()); // Damao  Damao2250
-// ================= ES6 end =================</code></pre>
+
             </div>
             <hr/>
 
