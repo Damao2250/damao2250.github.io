@@ -3,11 +3,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="ES6的两个特性：Class类和类的继承extens, Damao">
-    <meta name="description" content="Class类
-ES6引入Class(类)的概念，让类的写法更接近传统语言的写法，ES6的类可以看作是语法糖，它的绝大部分功能，ES5都可以做得到，新的class写法只是让对象原型的写法更加清晰、更像面向对象编程的语法
+    <meta name="keywords" content="uni-app, Damao">
+    <meta name="description" content="Taro和uni-app的介绍
+Taro的介绍
 
-对比ES5和ES6创">
+Taro 是一个开放式跨端跨框架解决方案，支持使用 React/Vue/Nerv 等框架来开发 微信 / 京东 / 百度 / 支付宝 / 字节跳动 / QQ 小程序 / H5 / RN 等应">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -15,7 +15,7 @@ ES6引入Class(类)的概念，让类的写法更接近传统语言的写法，E
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>ES6的两个特性：Class类和类的继承extens | Damao Bolg</title>
+    <title>uni-app | Damao Bolg</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
     <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/materialize/1.0.0-rc.2/css/materialize.min.css">
@@ -249,13 +249,13 @@ ES6引入Class(类)的概念，让类的写法更接近传统语言的写法，E
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/card-bg15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/card-bg11.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        ES6的两个特性：Class类和类的继承extens
+                        uni-app
                     </div>
                 </div>
             </div>
@@ -366,8 +366,8 @@ ES6引入Class(类)的概念，让类的写法更接近传统语言的写法，E
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/ES6/" target="_blank">
-                                <span class="chip bg-color">ES6</span>
+                            <a href="/tags/%E6%A1%86%E6%9E%B6/" target="_blank">
+                                <span class="chip bg-color">框架</span>
                             </a>
                         
                     </div>
@@ -375,36 +375,27 @@ ES6引入Class(类)的概念，让类的写法更接近传统语言的写法，E
                 </div>
                 <div class="col s5 right-align">
                     
-                    <div class="post-cate">
-                        <i class="fa fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/JavaScript/" class="post-category" target="_blank">
-                                JavaScript
-                            </a>
-                        
-                    </div>
-                    
                 </div>
             </div>
 
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-06-25
+                    2021-07-25
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        650
+                        856
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        2 分
+                        3 分
                     </div>
                     
                 
@@ -415,114 +406,134 @@ ES6引入Class(类)的概念，让类的写法更接近传统语言的写法，E
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Class类"><a href="#Class类" class="headerlink" title="Class类"></a>Class类</h2><ul>
-<li><p><code>ES6</code>引入<code>Class</code>(类)的概念，让类的写法更接近传统语言的写法，<code>ES6</code>的类可以看作是语法糖，它的绝大部分功能，<code>ES5</code>都可以做得到，新的<code>class</code>写法只是让对象原型的写法更加清晰、更像面向对象编程的语法</p>
-</li>
-<li><p>对比<code>ES5</code>和<code>ES6</code>创建<code>class</code>的写法</p>
-<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// ================= ES5 start =================</span>
-<span class="token comment" spellcheck="true">// ES5 -> 构造函数、原型方法、静态属性</span>
-<span class="token comment" spellcheck="true">// 构造函数</span>
-<span class="token keyword">function</span> <span class="token function">Person</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> age<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-<span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
-<span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> age<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true">// 原型方法</span>
-Person<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>getName <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-<span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true">// 静态属性</span>
-Person<span class="token punctuation">.</span>info <span class="token operator">=</span> <span class="token string">"Person的静态属性"</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> person <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token string">"Damao"</span><span class="token punctuation">,</span> <span class="token number">18</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>person<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Damao</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>Person<span class="token punctuation">.</span>info<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Person的静态属性</span>
-<span class="token comment" spellcheck="true">// ================= ES5 end =================</span></code></pre>
-</li>
-<li><pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// ================= ES6 start =================</span>
-<span class="token comment" spellcheck="true">// ES6 -> 构造函数、原型方法、静态属性</span>
-<span class="token keyword">class</span> <span class="token class-name">Person</span> <span class="token punctuation">{</span>
-<span class="token function">constructor</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> age<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 构造函数</span>
-  <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
-  <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> age<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 原型方法（无需加function）</span>
-  <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true">// 静态属性</span>
-Person<span class="token punctuation">.</span>info <span class="token operator">=</span> <span class="token string">"Person的静态属性"</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> person <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token string">"Damao"</span><span class="token punctuation">,</span> <span class="token number">18</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>person<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Damao</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>Person<span class="token punctuation">.</span>info<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Person的静态属性</span>
-<span class="token comment" spellcheck="true">// ================= ES6 end =================</span></code></pre>
-</li>
-<li><p><code>ES6 class</code>中，用<code>static</code>修饰即为类的静态方法（可以直接用类名访问），即在这个类（构造函数）对象本身上的方法，加上<code>static</code>表示该方法不会被实例继承</p>
-<pre class=" language-js"><code class="language-js"><span class="token keyword">class</span> <span class="token class-name">Person</span> <span class="token punctuation">{</span>
-<span class="token keyword">static</span> <span class="token function">classMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">return</span> <span class="token string">"this is static method"</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>Person<span class="token punctuation">.</span><span class="token function">classMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// this is static method</span>
-<span class="token comment" spellcheck="true">//</span>
-<span class="token comment" spellcheck="true">// 静态方法不可以通过实例来即成，即不能通过实例调用，如</span>
-<span class="token keyword">let</span> person <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>person<span class="token punctuation">.</span><span class="token function">classMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// TypeError: person.classMethod is not a function</span></code></pre>
-</li>
+                <h2 id="Taro和uni-app的介绍"><a href="#Taro和uni-app的介绍" class="headerlink" title="Taro和uni-app的介绍"></a>Taro和uni-app的介绍</h2><ol>
+<li><p><code>Taro</code>的介绍</p>
+<ul>
+<li><code>Taro</code> 是一个开放式跨端跨框架解决方案，支持使用 <code>React/Vue/Nerv</code> 等框架来开发 微信 / 京东 / 百度 / 支付宝 / 字节跳动 / QQ 小程序 / H5 / RN 等应用。</li>
+<li>官方文档：<a href="https://nervjs.github.io/taro" target="_blank" rel="noopener">https://nervjs.github.io/taro</a></li>
+<li>Github地址：<a href="https://github.com/nervjs/taro" target="_blank" rel="noopener">https://github.com/nervjs/taro</a></li>
 </ul>
-<h2 id="类的继承extends"><a href="#类的继承extends" class="headerlink" title="类的继承extends"></a>类的继承extends</h2><ul>
-<li><code>Class</code>可以通过<code>extends</code>关键字来实现继承，而<code>ES5</code>则需要通过修改原型链来实现继承</li>
-<li>对比<code>ES5</code>和<code>ES6</code>继承的写法<pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// ================= ES5 start =================</span>
-<span class="token comment" spellcheck="true">// ES5 -> 利用原型让一个引用类型继承另一个引用类型的属性和方法，即让原型对象等于另一个类型的实例</span>
-<span class="token comment" spellcheck="true">// 原型继承缺点：父类公有和私有属性方法都为子类公有</span>
-<span class="token comment" spellcheck="true">// </span>
-<span class="token keyword">function</span> <span class="token function">Person</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-<span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">"Damao"</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-Person<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>getName <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-<span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token keyword">function</span> <span class="token function">SuperPerson</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-<span class="token keyword">this</span><span class="token punctuation">.</span>superName <span class="token operator">=</span> <span class="token string">"Damao2250"</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true">// 继承 Person</span>
-SuperPerson<span class="token punctuation">.</span>prototype <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-SuperPerson<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>constructor <span class="token operator">=</span> SuperPerson<span class="token punctuation">;</span>
-SuperPerson<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>getSuperName <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-<span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>superName<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token keyword">const</span> superPerson <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SuperPerson</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>superPerson<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Damao</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>superPerson<span class="token punctuation">.</span><span class="token function">getSuperName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Damao2250</span>
-<span class="token comment" spellcheck="true">// ================= ES5 end =================</span></code></pre>
 </li>
-<li><pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// ================= ES6 start =================</span>
-<span class="token keyword">class</span> <span class="token class-name">Person</span> <span class="token punctuation">{</span>
-<span class="token function">constructor</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> age<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 构造函数</span>
-  <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
-  <span class="token keyword">this</span><span class="token punctuation">.</span>age <span class="token operator">=</span> age<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 原型方法（无需加function）</span>
-  <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-<span class="token keyword">class</span> <span class="token class-name">SuperPerson</span> <span class="token keyword">extends</span> <span class="token class-name">Person</span> <span class="token punctuation">{</span>
-<span class="token function">constructor</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span> age<span class="token punctuation">,</span> superName<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token comment" spellcheck="true">// 在继承的构造函数中，必须调用一次super方法，它表示构造函数的继承；必须在this前调用</span>
-  <span class="token comment" spellcheck="true">// super()是将父类中的this对象继承给子类</span>
-  <span class="token keyword">super</span><span class="token punctuation">(</span>name<span class="token punctuation">,</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token keyword">this</span><span class="token punctuation">.</span>superName <span class="token operator">=</span> superName<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token function">superGetName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token comment" spellcheck="true">// super 直接调用父级的原型方法</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>superName<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-<span class="token keyword">const</span> person <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SuperPerson</span><span class="token punctuation">(</span><span class="token string">"Damao"</span><span class="token punctuation">,</span> <span class="token number">18</span><span class="token punctuation">,</span> <span class="token string">"Damao2250"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>person<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Damao</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>person<span class="token punctuation">.</span><span class="token function">superGetName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// Damao  Damao2250</span>
-<span class="token comment" spellcheck="true">// ================= ES6 end =================</span></code></pre>
-</li>
+<li><p><code>uni-app</code>的介绍</p>
+<ul>
+<li><code>uni-app</code> 是一个使用 <code>Vue.js</code> 开发所有前端应用的框架，开发者编写一套代码，可发布到iOS、Android、Web（响应式）、以及各种小程序（微信/支付宝/百度/头条/QQ/钉钉/淘宝）、快应用等多个平台。</li>
+<li>官方文档：<a href="https://uniapp.dcloud.io" target="_blank" rel="noopener">https://uniapp.dcloud.io</a></li>
+<li>Github地址：<a href="https://github.com/dcloudio/uni-app" target="_blank" rel="noopener">https://github.com/dcloudio/uni-app</a></li>
 </ul>
+</li>
+</ol>
+<h2 id="两者的对比"><a href="#两者的对比" class="headerlink" title="两者的对比"></a>两者的对比</h2><ol>
+<li><p>共同点</p>
+<ul>
+<li>两者都是用主流框架开发的</li>
+<li>都能支持微信、百度、支付宝、今日头条等小程序，H5，以及iOS和Android的App</li>
+<li>均支持使用<code>npm/yarn</code>安装管理第三方依赖</li>
+<li>均支持使用<code>ES6</code>甚至更新的ES规范</li>
+<li>均支持使用<code>less/scss/ts</code>等预编译器</li>
+<li>均支持进行应用状态管理，<code>taro</code>支持<code>Redux</code>，<code>uni-app</code>支持<code>vuex</code></li>
+</ul>
+</li>
+<li><p>差异点</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Taro</th>
+<th>uni-app</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>开发技术栈</td>
+<td><code>React</code>框架开发</td>
+<td><code>Vue</code>框架开发</td>
+</tr>
+<tr>
+<td>开发工具</td>
+<td>官方未特别推荐IDE</td>
+<td>官方推荐<code>HBuilderX</code>,开发工具可视化的方式比较简单，HBuilderX内置相关环境，开箱即用，无需配置nodejs</td>
+</tr>
+<tr>
+<td>跨端程度</td>
+<td>微信 / 京东 / 百度 / 支付宝 / 字节跳动 / QQ 小程序 / H5 / RN</td>
+<td>微信/支付宝/百度/头条/QQ/钉钉/淘宝小程序、快应用、iOS、Android、Web（响应式）</td>
+</tr>
+<tr>
+<td>版本升级差异</td>
+<td>1.X与2.X之间没有做平滑升级，版本差异太大，升级版本会导致各种不兼容的bug；3.X则属于开放式架构的改动，采用了重运行时的架构</td>
+<td>无版本升级影响</td>
+</tr>
+<tr>
+<td>物料市场</td>
+<td>NutUI、Taro UI；物料市场活跃度低，更新速度慢</td>
+<td>uni-ui、uView UI、mui；插件市场活跃度高，插件数量多，更新速度快</td>
+</tr>
+<tr>
+<td>社区活跃度</td>
+<td>GitHub Issuse、Discussions</td>
+<td>GitHub Issuse、官网社区问答</td>
+</tr>
+<tr>
+<td>学习维护成本</td>
+<td>高</td>
+<td>低</td>
+</tr>
+<tr>
+<td>云开发支持</td>
+<td>无</td>
+<td>uniCloud</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<h2 id="Taro-amp-amp-DCloud-amp-amp-uni-app-amp-amp-微信小程序诞生节点"><a href="#Taro-amp-amp-DCloud-amp-amp-uni-app-amp-amp-微信小程序诞生节点" class="headerlink" title="Taro &amp;&amp; DCloud &amp;&amp; uni-app &amp;&amp; 微信小程序诞生节点"></a>Taro &amp;&amp; DCloud &amp;&amp; uni-app &amp;&amp; 微信小程序诞生节点</h2><ol>
+<li><p>Taro 2018年4月8日发布0.0.1版本</p>
+<ul>
+<li><a href="https://github.com/NervJS/taro/releases?after=v0.0.5" target="_blank" rel="noopener">https://github.com/NervJS/taro/releases?after=v0.0.5</a></li>
+</ul>
+</li>
+<li><p>DCloud于2012年开始研发小程序技术，优化webview的功能和性能，并加入W3C和HTML5中国产业联盟，推出了HBuilder开发工具，为后续产业化做准备</p>
+<ul>
+<li><a href="https://uniapp.dcloud.io/history" target="_blank" rel="noopener">https://uniapp.dcloud.io/history</a></li>
+</ul>
+</li>
+<li><p>uni-app 2019年1月11日发布1.4.0.20181227 版本</p>
+<ul>
+<li><a href="https://github.com/dcloudio/uni-app/releases?after=1.8.0.20190330" target="_blank" rel="noopener">https://github.com/dcloudio/uni-app/releases?after=1.8.0.20190330</a></li>
+</ul>
+</li>
+<li><p>微信团队于2016年初决定上线小程序业务，但其没有接入联盟标准，而是订制了自己的标准。2017年1月9日，张小龙在2017微信公开课Pro上发布的微信小程序正式上线</p>
+<ul>
+<li><img src="https://raw.githubusercontent.com/Damao2250/FileTransfer/master/e1fd563ba0301f44e923d9b9ae67b59.png" alt=""></li>
+</ul>
+</li>
+</ol>
+<h2 id="安装及使用"><a href="#安装及使用" class="headerlink" title="安装及使用"></a>安装及使用</h2><ol>
+<li>Taro<pre class=" language-ps"><code class="language-ps"># 全局安装 @tarojs/cli
+$ npm install -g @tarojs/cli
+# 创建 taro 项目
+$ taro init myApp
+# 进入项目目录
+$ cd myApp
+# 运行到微信小程序，调试模式
+$ npm run dev:weapp
+# 发行到微信小程序
+$ npm run build:weapp</code></pre>
+</li>
+<li>uni-app<pre class=" language-ps"><code class="language-ps"># 全局安装 vue-cli
+$ npm install -g @vue/cli
+# 创建uni-app项目
+$ vue create -p dcloudio/uni-preset-vue my-project
+# 进入项目目录
+$ cd my-project
+# 运行到微信小程序，调试模式
+$ npm run dev:mp-weixin
+# 发行到微信小程序
+$ npm run build:mp-weixin</code></pre>
+<ul>
+<li>或者直接通过HBuilderX可视化界面</li>
+</ul>
+</li>
+</ol>
 
             </div>
             <hr/>
@@ -950,48 +961,47 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/07/08/%E5%85%B3%E4%BA%8EReact%E4%B8%89%E5%8D%83%E9%97%AE/">
+                <a href="/2021/07/25/uni-app/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/card-bg11.jpg" class="responsive-img" alt="关于React三千问">
+                        <img src="/medias/card-bg11.jpg" class="responsive-img" alt="uni-app">
                         
-                        <span class="card-title">关于React三千问</span>
+                        <span class="card-title">uni-app</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            如何理解React？有哪些新特性？一、是什么React，用于构建用户界面的 JavaScript 库，提供了 UI 层面的解决方案
-遵循组件设计模式、声明式编程范式和函数式编程概念，以使前端应用程序更高效
-使用虚拟DOM来有效地操作真实DO
+                            Taro和uni-app的介绍
+Taro的介绍
+
+Taro 是一个开放式跨端跨框架解决方案，支持使用 React/Vue/Nerv 等框架来开发 微信 / 京东 / 百度 / 支付宝 / 字节跳动 / QQ 小程序 / H5 / RN 等应
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2021-07-08
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-07-25
+                            </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/React/" class="post-category" target="_blank">
-                                    React
-                                </a>
-                            
+                            <i class="fa fa-user fa-fw"></i>
+                            Damao
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/React/" target="_blank">
-                        <span class="chip bg-color">React</span>
+                    <a href="/tags/%E6%A1%86%E6%9E%B6/" target="_blank">
+                        <span class="chip bg-color">框架</span>
                     </a>
                     
                 </div>
@@ -1005,38 +1015,35 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/05/11/%E4%B8%80%E9%81%93%E5%9F%BA%E7%A1%80Vue%E7%9A%84%E9%9D%A2%E8%AF%95%E9%A2%98/">
+                <a href="/2021/07/09/JS%E4%B8%AD%E7%9A%84call-%E3%80%81apply-%E3%80%81bind-%E7%9A%84%E7%94%A8%E6%B3%95/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/card-bg15.jpg" class="responsive-img" alt="一道基础Vue的面试题">
+                        <img src="/medias/card-bg6.jpg" class="responsive-img" alt="JS中的call()、apply()、bind()的用法">
                         
-                        <span class="card-title">一道基础Vue的面试题</span>
+                        <span class="card-title">JS中的call()、apply()、bind()的用法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            根据Vue的生命周期说出console打印出来的值export default {
-  data() {
-    num1: 1,
-    num2: 2,
-  },
-  computed: {
-    sum() {
-      retu
+                            其实是一个很简单的东西，认真看十分钟就从一脸懵B 到完全 理解！
+先看明白下面：
+// 例1
+// 注意是var不是let  如果使用let的话，obj.objAge 为undefined
+var name = '小王', age = 17
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-05-11
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-07-09
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="post-category" target="_blank">
-                                    面试题
+                            <a href="/categories/JavaScript/" class="post-category" target="_blank">
+                                    JavaScript
                                 </a>
                             
                             
@@ -1046,8 +1053,8 @@ console<span class="token punctuation">.</span><span class="token function">log<
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Vue/" target="_blank">
-                        <span class="chip bg-color">Vue</span>
+                    <a href="/tags/JS/" target="_blank">
+                        <span class="chip bg-color">JS</span>
                     </a>
                     
                 </div>
