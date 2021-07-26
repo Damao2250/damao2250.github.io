@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://damao2250.github.io/"/>
-  <updated>2021-07-25T04:53:40.466Z</updated>
+  <updated>2021-07-26T02:28:43.493Z</updated>
   <id>https://damao2250.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JS实现杨辉三角</title>
+    <link href="https://damao2250.github.io/2021/07/26/JS%E5%AE%9E%E7%8E%B0%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92/"/>
+    <id>https://damao2250.github.io/2021/07/26/JS%E5%AE%9E%E7%8E%B0%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92/</id>
+    <published>2021-07-26T02:22:46.000Z</published>
+    <updated>2021-07-26T02:28:43.493Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="杨辉三角"><a href="#杨辉三角" class="headerlink" title="杨辉三角"></a>杨辉三角</h2><p><img src="https://raw.githubusercontent.com/Damao2250/FileTransfer/master/%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92.png" alt="杨辉三角"></p><h2 id="给定一个函数-function-triangle-n-实现输入n就返回杨辉三角的第n行"><a href="#给定一个函数-function-triangle-n-实现输入n就返回杨辉三角的第n行" class="headerlink" title="给定一个函数 function triangle(n){} ,实现输入n就返回杨辉三角的第n行"></a>给定一个函数 function triangle(n){} ,实现输入n就返回杨辉三角的第n行</h2><pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">triangle</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span></code></pre><h2 id="给定一个函数-function-triangle-n-实现输入n就返回杨辉三角的前n行"><a href="#给定一个函数-function-triangle-n-实现输入n就返回杨辉三角的前n行" class="headerlink" title="给定一个函数 function triangle(n){} ,实现输入n就返回杨辉三角的前n行"></a>给定一个函数 function triangle(n){} ,实现输入n就返回杨辉三角的前n行</h2><pre class=" language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">triangle</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span></code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;杨辉三角&quot;&gt;&lt;a href=&quot;#杨辉三角&quot; class=&quot;headerlink&quot; title=&quot;杨辉三角&quot;&gt;&lt;/a&gt;杨辉三角&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/Damao2250/FileTran
+      
+    
+    </summary>
+    
+    
+      <category term="JavaScript" scheme="https://damao2250.github.io/categories/JavaScript/"/>
+    
+    
+      <category term="JS" scheme="https://damao2250.github.io/tags/JS/"/>
+    
+  </entry>
   
   <entry>
     <title>Taro与uni-app对比</title>
@@ -508,33 +534,6 @@
     
     
       <category term="Element-ui" scheme="https://damao2250.github.io/tags/Element-ui/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>关于js中对小数的计算</title>
-    <link href="https://damao2250.github.io/2020/10/03/%E5%85%B3%E4%BA%8Ejs%E4%B8%AD%E5%AF%B9%E5%B0%8F%E6%95%B0%E7%9A%84%E8%AE%A1%E7%AE%97/"/>
-    <id>https://damao2250.github.io/2020/10/03/%E5%85%B3%E4%BA%8Ejs%E4%B8%AD%E5%AF%B9%E5%B0%8F%E6%95%B0%E7%9A%84%E8%AE%A1%E7%AE%97/</id>
-    <published>2020-10-03T13:12:01.000Z</published>
-    <updated>2021-04-19T08:37:27.148Z</updated>
-    
-    <content type="html"><![CDATA[<p>在js的小数计算中，<code>0.1+0.2=0.30000000000000004</code></p><pre class=" language-js"><code class="language-js"><span class="token keyword">let</span> num1 <span class="token operator">=</span> <span class="token number">0.1</span><span class="token punctuation">;</span><span class="token keyword">let</span> num2 <span class="token operator">=</span> <span class="token number">0.2</span><span class="token punctuation">;</span>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span> num1 <span class="token operator">+</span> num2 <span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">// 0.30000000000000004 </span></code></pre><p>为什么出现这样的结果，我们把小数转换成计算机能读得懂的二进制就比较明了了</p><p>0.1 -&gt; 0.1.toString(2) -&gt; 0.0001100110011001100110011001100110011001100110011001101(无限循环…)<br>0.2 -&gt; 0.1.toString(2) -&gt; 0.001100110011001100110011001100110011001100110011001101(无限循环…)</p><p>双精度浮点数的小数部分最多支持 52 位，所以两者相加之后得到这么一串 0.0100110011001100110011001100110011001100110011001100 因浮点数小数位的限制而截断的二进制数字，这时候，我们再把它转换为十进制，就成了 0.30000000000000004。</p><p>所以我们该如何处理此类问题？</p><p>为了避免产生精度差异，我们要把需要计算的数字乘以 10 的 n 次幂，换算成计算机能够精确识别的整数，然后再除以 10 的 n 次幂，大部分编程语言都是这样处理精度差异的，我们就借用过来处理一下 JS 中的浮点数精度误差。</p><pre class=" language-js"><code class="language-js">formatNum <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span> num<span class="token punctuation">,</span> digit <span class="token punctuation">)</span> <span class="token punctuation">{</span>  <span class="token keyword">let</span> m <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">pow</span><span class="token punctuation">(</span> <span class="token number">10</span><span class="token punctuation">,</span> digit <span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token keyword">return</span> <span class="token function">parseInt</span><span class="token punctuation">(</span> num <span class="token operator">*</span> m<span class="token punctuation">,</span> <span class="token number">10</span> <span class="token punctuation">)</span> <span class="token operator">/</span> m<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token keyword">let</span> num1 <span class="token operator">=</span> <span class="token number">0.1</span><span class="token punctuation">;</span><span class="token keyword">let</span> num2 <span class="token operator">=</span> <span class="token number">0.2</span><span class="token punctuation">;</span>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span> num1 <span class="token operator">+</span> num2 <span class="token punctuation">)</span><span class="token punctuation">;</span>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span> <span class="token function">formatNum</span><span class="token punctuation">(</span> num1 <span class="token operator">+</span> num2<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// Tips:</span><span class="token comment" spellcheck="true">// pow() 方法可返回 x 的 y 次幂的值。</span><span class="token comment" spellcheck="true">// parseInt() 函数可解析一个字符串，并返回一个整数。（第二个参数取值2-36，省略该参数或其值为 0，则数字将以 10 为基础来解析。如果它以 “0x” 或 “0X” 开头，将以 16 为基数。）</span></code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;在js的小数计算中，&lt;code&gt;0.1+0.2=0.30000000000000004&lt;/code&gt;&lt;/p&gt;
-&lt;pre class=&quot; language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;le
-      
-    
-    </summary>
-    
-    
-      <category term="JavaScript" scheme="https://damao2250.github.io/categories/JavaScript/"/>
-    
-    
-      <category term="JS" scheme="https://damao2250.github.io/tags/JS/"/>
     
   </entry>
   
