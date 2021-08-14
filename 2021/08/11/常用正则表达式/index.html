@@ -3,35 +3,13 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="git常用命令速查表, Damao">
-    <meta name="description" content="
+    <meta name="keywords" content="常用正则表达式, Damao">
+    <meta name="description" content="匹配数字或版本号// a.b（eg: 1.0, 1.100, 甚至 1.1000）
+// a.b.c (eg: 1.1.1, 1.12.1, 甚至 1.121.1)
+// a（a可能&gt;5位）
 
-
-Tips
-
-
-
-
-master： 默认开发分支
-Head：默认开发分支的指针（快照）
-
-
-origin： 默认远程版本库
-Head^：Head的父提交
-
-
-
-
-
-
-
-
-创建版本库
-
-
-
-
-$ git clone &amp;lt;url&amp;gt;">
+// 不限长度版本
+var Reg = /^\">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -39,7 +17,7 @@ $ git clone &amp;lt;url&amp;gt;">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>git常用命令速查表 | Damao Bolg</title>
+    <title>常用正则表达式 | Damao Bolg</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
     <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/materialize/1.0.0-rc.2/css/materialize.min.css">
@@ -273,13 +251,13 @@ $ git clone &amp;lt;url&amp;gt;">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/card-bg19.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/card-bg24.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        git常用命令速查表
+                        常用正则表达式
                     </div>
                 </div>
             </div>
@@ -388,13 +366,9 @@ $ git clone &amp;lt;url&amp;gt;">
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/git/" target="_blank">
-                                <span class="chip bg-color">git</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -405,21 +379,21 @@ $ git clone &amp;lt;url&amp;gt;">
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-04-15
+                    2021-08-11
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        590
+                        80
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        2 分
+                        1 分
                     </div>
                     
                 
@@ -430,247 +404,14 @@ $ git clone &amp;lt;url&amp;gt;">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <table>
-<thead>
-<tr>
-<th align="left">Tips</th>
-<th align="left"></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><code>master：</code> <sapn style="color:#58bc58">默认开发分支</span></td>
-<td align="left"><code>Head：</code><sapn style="color:#58bc58">默认开发分支的指针（快照）</span></td>
-</tr>
-<tr>
-<td align="left"><code>origin：</code> <sapn style="color:#58bc58">默认远程版本库</span></td>
-<td align="left"><code>Head^：</code><sapn style="color:#58bc58">Head的父提交</span></td>
-</tr>
-</tbody></table>
-<br />
-<br />
+                <h2 id="匹配数字或版本号"><a href="#匹配数字或版本号" class="headerlink" title="匹配数字或版本号"></a>匹配数字或版本号</h2><pre class=" language-js"><code class="language-js"><span class="token comment" spellcheck="true">// a.b（eg: 1.0, 1.100, 甚至 1.1000）</span>
+<span class="token comment" spellcheck="true">// a.b.c (eg: 1.1.1, 1.12.1, 甚至 1.121.1)</span>
+<span class="token comment" spellcheck="true">// a（a可能>5位）</span>
 
-<table>
-<thead>
-<tr>
-<th align="left"><code>创建版本库</code></th>
-<th align="left"></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><code>$ git clone &lt;url&gt;</code></td>
-<td align="left"><sapn style="color:#58bc58">#克隆远程版本库</span></td>
-</tr>
-<tr>
-<td align="left"><code>$ git init</code></td>
-<td align="left"><sapn style="color:#58bc58">#初始化本地版本库</span></td>
-</tr>
-</tbody></table>
-<br />
-<br />
-
-<table>
-<thead>
-<tr>
-<th align="left"><code>修改和提交</code></th>
-<th align="left"></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><code>$ git status</code></td>
-<td align="left"><sapn style="color:#58bc58">#查看当前修改状况</span></td>
-</tr>
-<tr>
-<td align="left"><code>$ git diff</code></td>
-<td align="left"><sapn style="color:#58bc58">#查看变更的内容</span></td>
-</tr>
-<tr>
-<td align="left"><code>$ git add .</code></td>
-<td align="left"><sapn style="color:#58bc58">#把所有修改的文件添加到缓存（跟踪文件）</span></td>
-</tr>
-<tr>
-<td align="left"><code>$ git add &lt;file&gt;</code></td>
-<td align="left"><sapn style="color:#58bc58">#把指定的文件添加到缓存</span></td>
-</tr>
-<tr>
-<td align="left"><code>$ git mv &lt;old_file&gt; &lt;new_file&gt;</code></td>
-<td align="left"><sapn style="color:#58bc58">#修改文件名</span></td>
-</tr>
-<tr>
-<td align="left"><code>$ git rm &lt;file&gt;</code></td>
-<td align="left"><sapn style="color:#58bc58">#删除文件</span></td>
-</tr>
-<tr>
-<td align="left"><code>$ git rm --cached &lt;file&gt;</code></td>
-<td align="left"><sapn style="color:#58bc58">#停止跟踪文件但不删除</span></td>
-</tr>
-<tr>
-<td align="left"><code>$ git commit -m &quot;message&quot;</code></td>
-<td align="left"><sapn style="color:#58bc58">#提交所有更新过的文件</span></td>
-</tr>
-<tr>
-<td align="left"><code>$ git commit --amend</code></td>
-<td align="left"><sapn style="color:#58bc58">#修改最后一次提交</span></td>
-</tr>
-</tbody></table>
-<br />
-<br />
-
-<table>
-<thead>
-<tr>
-<th align="left"><code>查看提交历史</code></th>
-<th align="left"></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><code>$ git log</code></td>
-<td align="left"><sapn style="color:#58bc58">#查看提交历史</span></td>
-</tr>
-<tr>
-<td align="left"><code>$ git log -p &lt;file&gt;</code></td>
-<td align="left"><sapn style="color:#58bc58">#查看指定文件提交历史</span></td>
-</tr>
-<tr>
-<td align="left"><code>$ git blame &lt;file&gt;</code></td>
-<td align="left"><sapn style="color:#58bc58">#以列表的方式查看指定文件提交历史</span></td>
-</tr>
-</tbody></table>
-<br />
-<br />
-
-<table>
-<thead>
-<tr>
-<th align="left"><code>撤销</code></th>
-<th align="left"></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><code>$ git reset --hard HEAD</code></td>
-<td align="left"><sapn style="color:#58bc58">#撤销工作目录中所有未提交文件的修改内容</span></td>
-</tr>
-<tr>
-<td align="left"><code>$ git checkout HEAD &lt;file&gt;</code></td>
-<td align="left"><sapn style="color:#58bc58">#撤销指定未提交文件的修改内容</span></td>
-</tr>
-<tr>
-<td align="left"><code>$ git revert &lt;commit&gt;</code></td>
-<td align="left"><sapn style="color:#58bc58">#撤销指定的提交</span></td>
-</tr>
-</tbody></table>
-<br />
-<br />
-
-<table>
-<thead>
-<tr>
-<th align="left"><code>分支与标签</code></th>
-<th align="left"></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><code>$ git branch</code></td>
-<td align="left"><sapn style="color:#58bc58">#显示所有本地分支</span></td>
-</tr>
-<tr>
-<td align="left"><code>$ git branch -r</code></td>
-<td align="left"><sapn style="color:#58bc58">#显示所有远程分支</span></td>
-</tr>
-<tr>
-<td align="left"><code>$ git branch -a</code></td>
-<td align="left"><sapn style="color:#58bc58">#显示所有本地和远程分支</span></td>
-</tr>
-<tr>
-<td align="left"><code>$ git checkout &lt;branch/tag&gt;</code></td>
-<td align="left"><sapn style="color:#58bc58">#切换到指定分支或标签</span></td>
-</tr>
-<tr>
-<td align="left"><code>$ git branch &lt;new_branch&gt;</code></td>
-<td align="left"><sapn style="color:#58bc58">#创建新分支</span></td>
-</tr>
-<tr>
-<td align="left"><code>$ git checkout -b &lt;new_branch&gt;</code></td>
-<td align="left"><sapn style="color:#58bc58">#创建并切换到新分支</span></td>
-</tr>
-<tr>
-<td align="left"><code>$ git branch -d &lt;branch&gt;</code></td>
-<td align="left"><sapn style="color:#58bc58">#删除本地分支</span></td>
-</tr>
-<tr>
-<td align="left"><code>$ git tag</code></td>
-<td align="left"><sapn style="color:#58bc58">#显示所有本地标签</span></td>
-</tr>
-<tr>
-<td align="left"><code>$ git tag &lt;tagname&gt;</code></td>
-<td align="left"><sapn style="color:#58bc58">#基于最新提交创建标签</span></td>
-</tr>
-<tr>
-<td align="left"><code>$ git tag -d &lt;tagname&gt;</code></td>
-<td align="left"><sapn style="color:#58bc58">#删除标签</span></td>
-</tr>
-</tbody></table>
-<br />
-<br />
-
-<table>
-<thead>
-<tr>
-<th align="left"><code>合并与衍合</code></th>
-<th align="left"></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><code>$ git merge &lt;branch&gt;</code></td>
-<td align="left"><sapn style="color:#58bc58">#合并指定分支到当前分支</span></td>
-</tr>
-<tr>
-<td align="left"><code>$ git rebase &lt;branch&gt;</code></td>
-<td align="left"><sapn style="color:#58bc58">#衍合指定分支到当前分支</span></td>
-</tr>
-</tbody></table>
-<br />
-<br />
-
-<table>
-<thead>
-<tr>
-<th align="left"><code>远程操作</code></th>
-<th align="left"></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><code>$ git remote -v</code></td>
-<td align="left"><sapn style="color:#58bc58">#查看远程版本库信息</span></td>
-</tr>
-<tr>
-<td align="left"><code>$ git remote show &lt;remote&gt;</code></td>
-<td align="left"><sapn style="color:#58bc58">#查看指定远程版本库信息</span></td>
-</tr>
-<tr>
-<td align="left"><code>$ git remote add &lt;remote&gt; &lt;url&gt;</code></td>
-<td align="left"><sapn style="color:#58bc58">#添加远程版本库</span></td>
-</tr>
-<tr>
-<td align="left"><code>$ git fetch &lt;remote&gt;</code></td>
-<td align="left"><sapn style="color:#58bc58">#从远程库获取代码</span></td>
-</tr>
-<tr>
-<td align="left"><code>$ git pull &lt;remote&gt; &lt;branch&gt;</code></td>
-<td align="left"><sapn style="color:#58bc58">#从远程库拉去代码并快速合并</span></td>
-</tr>
-<tr>
-<td align="left"><code>$ git push &lt;remote&gt; &lt;branch&gt;</code></td>
-<td align="left"><sapn style="color:#58bc58">#上传代码到远程库并快速合并</span></td>
-</tr>
-<tr>
-<td align="left"><code>$ git push &lt;remote&gt; -d &lt;branch/tag&gt;</code></td>
-<td align="left"><sapn style="color:#58bc58">#删除远程分支或标签</span></td>
-</tr>
-<tr>
-<td align="left"><code>$ git push --tags</code></td>
-<td align="left"><sapn style="color:#58bc58">#上传所有标签</span></td>
-</tr>
-</tbody></table>
+<span class="token comment" spellcheck="true">// 不限长度版本</span>
+<span class="token keyword">var</span> Reg <span class="token operator">=</span> <span class="token regex">/^\d+$|^\d+\.\d+$|^\d+(\.\d+){1,2}$/</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// 限制长度（每一位版本号应该是一位数）</span>
+<span class="token keyword">var</span> Reg <span class="token operator">=</span> <span class="token regex">/^\d$|^\d\.\d$|^\d(\.\d){1,2}$/</span><span class="token punctuation">;</span></code></pre>
 
             </div>
             <hr/>
@@ -1098,36 +839,77 @@ $ git clone &amp;lt;url&amp;gt;">
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/04/19/%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E6%9F%AF%E9%87%8C%E5%8C%96%E5%87%BD%E6%95%B0%E7%A4%BA%E4%BE%8B/">
+                <a href="/2021/08/11/%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/card-bg15.jpg" class="responsive-img" alt="一个简单的柯里化函数示例">
+                        <img src="/medias/card-bg24.jpg" class="responsive-img" alt="常用正则表达式">
                         
-                        <span class="card-title">一个简单的柯里化函数示例</span>
+                        <span class="card-title">常用正则表达式</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            什么是柯里化
-柯里化就是把一个多参数的函数转换为一系列只带单个参数的函数
+                            匹配数字或版本号// a.b（eg: 1.0, 1.100, 甚至 1.1000）
+// a.b.c (eg: 1.1.1, 1.12.1, 甚至 1.121.1)
+// a（a可能>5位）
 
-未柯里化前的函数ufunction multiply(a, b, c){
-  return a * b * c;
-}
-
-let res = multiply(1，2
+// 不限长度版本
+var Reg = /^\
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2021-04-19
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-08-11
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            Damao
+                            
                         </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/07/26/JS%E5%AE%9E%E7%8E%B0%E6%9D%A8%E8%BE%89%E4%B8%89%E8%A7%92/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/card-bg10.jpg" class="responsive-img" alt="JS实现杨辉三角">
+                        
+                        <span class="card-title">JS实现杨辉三角</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            杨辉三角
+给定一个函数 function triangle(n){} ,实现输入n就返回杨辉三角的第n行function triangle(n) {
+  let arr1 = []
+  let arr2 = []
+  for (var i 
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-07-26
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -1143,57 +925,8 @@ let res = multiply(1，2
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%9F%AF%E9%87%8C%E5%8C%96%E5%87%BD%E6%95%B0/" target="_blank">
-                        <span class="chip bg-color">柯里化函数</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/04/08/%E7%A7%BB%E5%8A%A8%E7%AB%AF1px%E9%97%AE%E9%A2%98/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/card-bg12.jpg" class="responsive-img" alt="移动端1px问题">
-                        
-                        <span class="card-title">移动端1px问题</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            为什么会出现？
-首先了解两个像素：设备的 物理像素[设备像素] &amp; 虚拟像素[CSS像素] &amp; 逻辑像素[设备独立像素]
-
-物理像素：移动设备出厂时，不同设备的屏幕自带的不同屏幕像素，也称硬件像素；
-虚拟像素：即css中记录
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-04-08
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-user fa-fw"></i>
-                            Damao
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF/" target="_blank">
-                        <span class="chip bg-color">移动端</span>
+                    <a href="/tags/JS/" target="_blank">
+                        <span class="chip bg-color">JS</span>
                     </a>
                     
                 </div>
