@@ -3,12 +3,21 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="JSDoc注释规范, Damao">
-    <meta name="description" content="
-/**
- * @abstract  (同义：@virtual)
- * 该成员必须由继承者实现（或重写）
- * This member must be implemented (or overridden) by the inheritor">
+    <meta name="keywords" content="Git分支建立及提交规范, Damao">
+    <meta name="description" content="分支建立规范Git主要分支说明：
+Master
+
+主分支，维护发布产品的代码，存储了正式发布的历史
+
+
+Develop
+
+开发分支，作为功能的集成分支，维护开发中的代码，代码最终要合入Master分支
+
+
+Feature    
+
+开自De">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +25,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>JSDoc注释规范 | Damao Bolg</title>
+    <title>Git分支建立及提交规范 | Damao Bolg</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
     <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/materialize/1.0.0-rc.2/css/materialize.min.css">
@@ -250,13 +259,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/card-bg19.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/card-bg7.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        JSDoc注释规范
+                        Git分支建立及提交规范
                     </div>
                 </div>
             </div>
@@ -367,8 +376,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E9%A1%B9%E7%9B%AE%E8%A7%84%E8%8C%83/" target="_blank">
-                                <span class="chip bg-color">项目规范</span>
+                            <a href="/tags/git/" target="_blank">
+                                <span class="chip bg-color">git</span>
                             </a>
                         
                     </div>
@@ -376,13 +385,22 @@
                 </div>
                 <div class="col s5 right-align">
                     
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7/" class="post-category" target="_blank">
+                                版本控制工具
+                            </a>
+                        
+                    </div>
+                    
                 </div>
             </div>
 
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-12-02
+                    2021-08-20
                 </div>
 
                 
@@ -396,7 +414,7 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        5 分
+                        4 分
                     </div>
                     
                 
@@ -407,278 +425,70 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <pre class=" language-js"><code class="language-js">
-<span class="token comment" spellcheck="true">/**
- * @abstract  (同义：@virtual)
- * 该成员必须由继承者实现（或重写）
- * This member must be implemented (or overridden) by the inheritor.
- * 
- * @access
- * 指定此成员的访问级别（私有，程序包私有，公共或受保护）。
- * Specify the access level of this member (private, package-private, public, or protected).
- * 
- * @alias
- * 将成员视为具有不同的名称。
- * Treat a member as if it had a different name.
- * 
- * @async
- * 表示一个函数是异步的。
- * Indicate that a function is asynchronous.
- * 
- * @augments
- * 指示符号从父符号继承并添加到父符号。
- * Indicate that a symbol inherits from, and adds to, a parent symbol.
- * 
- * @author
- * 标识项目的作者。
- * Identify the author of an item.
- * 
- * @borrows
- * 该对象使用来自另一个对象的东西
- * This object uses something from another object.
- * 
- * @callback
- * 记录回调函数。
- * Document a callback function.
- * 
- * @class (同义：@constructor)
- * 该功能旨在通过"new"关键字来调用。
- * This function is intended to be called with the "new" keyword.
- * 
- * @classdesc
- * 使用以下文本描述整个类
- * Use the following text to describe the entire class.
- * 
- * @constant (同义：@const)
- * 将对象记录为常量
- * Document an object as a constant.
- * 
- * @constructs
- * 该函数成员将是上一类的构造函数
- * This function member will be the constructor for the previous class.
- * 
- * @copyright
- * 记录一些版权信息
- * Document some copyright information.
- * 
- * @default
- * 记录默认值
- * Document the default value.
- * 
- * @deprecated
- * 记录这不再是首选方法
- * Document that this is no longer the preferred way.
- * 
- * @description (同义：@desc)
- * 描述一个符号
- * Describe a symbol.
- * 
- * @enum
- * 记录相关属性的集合
- * Document a collection of related properties.
- * 
- * @event
- * 记录事件
- * Document an event.
- * 
- * @example
- * 提供有关如何使用已记录项目的示例
- * Provide an example of how to use a documented item.
- * 
- * @exports
- * 标识由JavaScript模块导出的成员
- * Identify the member that is exported by a JavaScript module.
- * 
- * @external(同义：@host)
- * 标识外部类，名称空间或模块
- * Identifies an external class, namespace, or module.
- * 
- * @file(同义：@fileoverview,@overview)
- * 描述一个文件
- * Describe a file.
- * 
- * @fires(同义：@emits)
- * 描述此方法可能触发的事件
- * Describe the events this method may fire.
- * 
- * @function(同义：@function,@method)
- * 描述一个函数或方法
- * Describe a function or method.
- * 
- * @generator
- * 表示函数是生成器函数
- * Indicate that a function is a generator function.
- * 
- * @global
- * 记录全局对象
- * Document a global object.
- * 
- * @hideconstructor
- * 指示不应显示构造函数
- * Indicate that the constructor should not be displayed.
- * 
- * @ignore
- * 省略文档中的符号
- * Omit a symbol from the documentation.
- * 
- * @implements
- * 该符号实现一个​​接口
- * This symbol implements an interface.
- * 
- * @inheritdoc
- * 指示符号应继承其父级的文档
- * Indicate that a symbol should inherit its parent's documentation.
- * 
- * @inner
- * 记录内部对象
- * Document an inner object.
- * 
- * @instance
- * 记录实例成员
- * Document an instance member.
- * 
- * @interface
- * 此符号是其他人可以实现的接口
- * This symbol is an interface that others can implement.
- * 
- * @kind
- * 这是什么符号 
- * What kind of symbol is this?
- * 
- * @lends
- * 在对象文字上记录属性，就好像它们属于具有给定名称的符号一样
- * Document properties on an object literal as if they belonged to a symbol with a given name.
- * 
- * @license
- * 标识适用于此代码的许可证
- * Identify the license that applies to this code.
- * 
- * @listens
- * 列出符号侦听的事件
- * List the events that a symbol listens for.
- * 
- * @member
- * 记录成员
- * Document a member.
- * 
- * @memberof
- * 该符号属于父符号 
- * This symbol belongs to a parent symbol.
- * 
- * @mixes
- * 该对象混合了另一个对象的所有成员
- * This object mixes in all the members from another object.
- * 
- * @mixin
- * 记录一个混合对象
- * Document a mixin object.
- * 
- * @module
- * 编写一个JavaScript模块
- * Document a JavaScript module.
- * 
- * @name
- * 记录对象的名称
- * Document the name of an object.
- * 
- * @namespace
- * 记录名称空间对象
- * Document a namespace object.
- * 
- * @override
- * 指示符号覆盖其父代
- * Indicate that a symbol overrides its parent.
- * 
- * @package
- * 此符号是软件包专用的
- * This symbol is meant to be package-private.
- * 
- * @param(同义：@arg,@argument)
- * 将参数记录到函数中
- * Document the parameter to a function.
- * 
- * @private
- * 此符号是专用的
- * This symbol is meant to be private.
- * 
- * @property(同义：@prop)
- * 记录对象的属性
- * Document a property of an object.
- * 
- * @protected
- * 此符号用于保护
- * This symbol is meant to be protected.
- * 
- * @public
- * 此符号是公开的
- * This symbol is meant to be public.
- * 
- * @readonly
- * 该符号是只读的
- * This symbol is meant to be read-only.
- * 
- * @requires
- * 该文件需要一个JavaScript模块
- * This file requires a JavaScript module.
- * 
- * @returns
- * 记录函数的返回值
- * Document the return value of a function.
- * 
- * @see
- * 有关更多信息，请参考其他一些文档
- * Refer to some other documentation for more information.
- * 
- * @since
- * 何时添加此功能
- * When was this feature added?
- * 
- * @static
- * 记录静态成员
- * Document a static member.
- * 
- * @summary
- * 完整说明的简短版本
- * A shorter version of the full description.
- * 
- * @this
- * "this"关键字在这里指的是什么
- * What does the 'this' keyword refer to here?
- * 
- * @throws(同义：@exception)
- * 描述可能引发的错误
- * Describe what errors could be thrown.
- * 
- * @todo
- * 记录要完成的任务
- * Document tasks to be completed.
- * 
- * @tutorial(教程)
- * 插入指向随附的教程文件的链接
- * Insert a link to an included tutorial file.
- * 
- * @type
- * 记录对象的类型
- * Document the type of an object.
- * 
- * @typedef
- * 记录自定义类型
- * Document a custom type.
- * 
- * @variation
- * 区分具有相同名称的不同对象
- * Distinguish different objects with the same name.
- * 
- * @version
- * 记录项目的版本号
- * Documents the version number of an item.
- * 
- * @yields(同义：@yield)
- * 记录生成器函数产生的值
- * Document the value yielded by a generator function.
- * 
- */</span>
-</code></pre>
+                <h2 id="分支建立规范"><a href="#分支建立规范" class="headerlink" title="分支建立规范"></a>分支建立规范</h2><h3 id="Git主要分支说明："><a href="#Git主要分支说明：" class="headerlink" title="Git主要分支说明："></a>Git主要分支说明：</h3><ul>
+<li><p><code>Master</code></p>
+<ul>
+<li>主分支，维护发布产品的代码，存储了正式发布的历史</li>
+</ul>
+</li>
+<li><p><code>Develop</code></p>
+<ul>
+<li>开发分支，作为功能的集成分支，维护开发中的代码，代码最终要合入Master分支</li>
+</ul>
+</li>
+<li><p><code>Feature</code>    </p>
+<ul>
+<li>开自<code>Develop</code>分支，主要用于开发新功能，开发者根据自己负责模块自行维护，模块开发完成并自测通过后，代码合入Develop分支，新功能提交应该从不直接与master分支交互</li>
+<li>命名规范为：<code>feature/#...</code>，每一个功能都应对应一个issue，…即为issue号</li>
+<li>开发中的合并代码采用<code>rebase</code>方法（可以使分支的提交历史看上去更简洁，详细可见<code>rebase</code>与<code>merge</code>的对比），具体方法如下：<ul>
+<li>新建feature分支：<code>git checkout develop</code>， <code>git branch feature/#...</code>， <code>git checkout feature/#...</code></li>
+<li>feature分支开发一段功能后：<code>git add.</code>， <code>git commit -m &quot;...&quot;</code>， <code>git checkout develop</code>， <code>git pull origin develop</code>， <code>git checkout feature/#...</code>， <code>git rebase develop</code>（代码依次为提交本次代码，添加提交信息，切换到develop分支并拉取最新分支，切换回feature分支，rebase develop分支）</li>
+<li>在rebase develop分支时，可能会产生conflict，此时仍在rebase过程中，这时需要手动修改代码解决冲突，然后解决完该次冲突（rebase会对比每次未合入develop分支的提交，可能每次提交都会有冲突）后，再执行<code>git add.</code>，<code>git rebase --continue</code>命令，rebase完成后，即可push代码。</li>
+<li>多个分支同时开发时，应当频繁地将测试后可运行的feature分支更新到dev分支，每次更新dev分支时通知其他开发人员，拉取最新的dev分支，将自己正在开发的分支rebase dev分支。这样可以避免较长时间没有进行rebase而导致的冲突较多问题。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code>Bugfix</code>    </p>
+<ul>
+<li>开自Develop分支或者Release分支，主要用于修复当前开发中的功能的已知bug；每一个已发现的bug都应该在gitlab中记录issue，并定期更新当前解决进展，如有有价值的思考或独特的解决方法，可以在issue中评论并在wiki的技术知识库或个人空间博文中进行记录。</li>
+<li>命名规范为：<code>bugfix/#...</code></li>
+</ul>
+</li>
+<li><p><code>Hotfix</code>    </p>
+<ul>
+<li>开自Master分支，主要用于修复当前已发布版本的已知bug；解决bug时注意事项参考Bugfix。这是唯一可以直接从master分支fork出来的分支。修复完成，修改应该马上合并回master分支和develop分支（当前的发布分支），master分支应该用新的版本号打好Tag。为Bug修复使用专门分支，让团队可以处理掉问题而不用打断其它工作或是等待下一个发布循环。你可以把它想成是一个直接在master分支上处理的临时发布。</li>
+<li>命名规范为：<code>hotfix/#...</code></li>
+</ul>
+</li>
+<li><p><code>Release</code>    </p>
+<ul>
+<li>开自Develop分支，主要用于发布版本，一旦develop分支上有了做一次发布（或者说快到了既定的发布日）的足够功能，就从develop分支上fork一个发布分支。新建的分支用于开始发布循环，所以从这个时间点开始之后新的功能不能再加到这个分支上 —— 这个分支只应该做Bug修复、文档生成和其它面向发布任务。一旦对外发布的工作都完成了，执行以下三个操作：</li>
+<li>合并Release分支到Master；</li>
+<li>给Master打上对应版本的标签tag；</li>
+<li>Release回归，这些从新建发布分支以来的做的修改要合并回develop分支。</li>
+<li>命名规范为：<code>release/...</code>，…即为版本号</li>
+</ul>
+</li>
+</ul>
+<h2 id="代码提交规范"><a href="#代码提交规范" class="headerlink" title="代码提交规范"></a>代码提交规范</h2><ul>
+<li>建议经常用命令<code>git status</code>查看当前所在分支并用<code>git log</code>查看当前分支记录，每次提交前与checkout分支时都先查看当前分支再进行下一步操作</li>
+<li>提交信息的说明，禁止无意义的日志语言，如<code>modify</code>，<code>修改xxx文件</code>等，任何修改都应该简要说明</li>
+<li>Commit message格式 <code>&lt;type&gt;: &lt;subject&gt;</code>      注意冒号后面有空格</li>
+<li>type  用于说明 commit 的类别，只允许使用下面7个标识<ul>
+<li>feat：新功能（feature）</li>
+<li>fix：修补bug</li>
+<li>docs：文档（documentation）</li>
+<li>style： 格式（不影响代码运行的变动）</li>
+<li>refactor：重构（即不是新增功能，也不是修改bug的代码变动）</li>
+<li>test：增加测试</li>
+<li>chore：构建过程或辅助工具的变动</li>
+</ul>
+</li>
+<li>subject</li>
+<li>subject是 commit 目的的简短描述，不超过50个字符，且结尾不加句号（.）。</li>
+<li>提交分支合并请求之前的基础原则，如本地编译通过、手工或者自动化验收的测试通过</li>
+</ul>
 
             </div>
             <hr/>
@@ -1106,80 +916,42 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/12/11/hexo-theme-indigo%E4%BD%BF%E7%94%A8%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/">
+                <a href="/2021/08/20/Git%E5%88%86%E6%94%AF%E5%BB%BA%E7%AB%8B%E5%8F%8A%E6%8F%90%E4%BA%A4%E8%A7%84%E8%8C%83/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/card-bg20.jpg" class="responsive-img" alt="hexo-theme-indigo使用遇到的问题">
+                        <img src="/medias/card-bg7.jpg" class="responsive-img" alt="Git分支建立及提交规范">
                         
-                        <span class="card-title">hexo-theme-indigo使用遇到的问题</span>
+                        <span class="card-title">Git分支建立及提交规范</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Hexo 主题地址
-https://github.com/yscoder/hexo-theme-indigo
+                            分支建立规范Git主要分支说明：
+Master
 
-问题
-主页的导航栏关闭的×按钮，以及搜索按钮，分享按钮，每次点击出现动画前都会新打开一个about:blank#blocked页
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-12-11
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-user fa-fw"></i>
-                            Damao
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Hexo/" target="_blank">
-                        <span class="chip bg-color">Hexo</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2019/11/27/%E4%BD%BF%E7%94%A8git%E5%90%8C%E6%97%B6%E6%8F%90%E4%BA%A4%E5%88%B0%E4%B8%A4%E4%B8%AA%E8%BF%9C%E7%A8%8B%E5%BA%93/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/card-bg10.jpg" class="responsive-img" alt="使用git同时提交到两个远程库">
-                        
-                        <span class="card-title">使用git同时提交到两个远程库</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            使用git同时提交到多个远程库法11、添加第一个仓库：
-git remote add origin https://gitlab.com/XXX/xxx.git
-2、添加第二个仓库：
-git remote set-url --add ori
+主分支，维护发布产品的代码，存储了正式发布的历史
+
+
+Develop
+
+开发分支，作为功能的集成分支，维护开发中的代码，代码最终要合入Master分支
+
+
+Feature    
+
+开自De
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-27
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-08-20
                             </span>
                         <span class="publish-author">
                             
@@ -1193,6 +965,7 @@ git remote set-url --add ori
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1200,6 +973,48 @@ git remote set-url --add ori
                         <span class="chip bg-color">git</span>
                     </a>
                     
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/08/11/%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/card-bg24.jpg" class="responsive-img" alt="常用正则表达式">
+                        
+                        <span class="card-title">常用正则表达式</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            匹配数字或版本号// a.b（eg: 1.0, 1.100, 甚至 1.1000）
+// a.b.c (eg: 1.1.1, 1.12.1, 甚至 1.121.1)
+// a（a可能>5位）
+
+// 不限长度版本
+var Reg = /^\
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-08-11
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            Damao
+                            
+                        </span>
+                    </div>
                 </div>
                 
             </div>
