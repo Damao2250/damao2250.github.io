@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://damao2250.github.io/"/>
-  <updated>2021-08-20T07:45:01.052Z</updated>
+  <updated>2021-08-31T02:06:44.604Z</updated>
   <id>https://damao2250.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>docker起步教程</title>
+    <link href="https://damao2250.github.io/2021/08/31/docker%E8%B5%B7%E6%AD%A5%E6%95%99%E7%A8%8B/"/>
+    <id>https://damao2250.github.io/2021/08/31/docker%E8%B5%B7%E6%AD%A5%E6%95%99%E7%A8%8B/</id>
+    <published>2021-08-31T01:33:07.000Z</published>
+    <updated>2021-08-31T02:06:44.604Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h2><pre class=" language-shell"><code class="language-shell">## 安装dockeryum install docker -y## 查看docker版本docker -v</code></pre><h2 id="自动部署时需要的Dockerfile"><a href="#自动部署时需要的Dockerfile" class="headerlink" title="自动部署时需要的Dockerfile"></a>自动部署时需要的Dockerfile</h2><ul><li>编写Dockerfile时文件名就为Dockerfile，不需要要任何后缀，编写完后放到项目根目录下</li><li>版本1<pre class=" language-js"><code class="language-js">FROM docker<span class="token punctuation">.</span>dm<span class="token operator">-</span>ai<span class="token punctuation">.</span>cn<span class="token operator">/</span><span class="token keyword">public</span><span class="token operator">/</span>node<span class="token punctuation">:</span><span class="token number">10</span><span class="token operator">-</span>frontend<span class="token number">-0.01</span></code></pre></li></ul><p>WORKDIR /app<br>ADD . .<br>RUN npm config set registry <a href="https://npm.dm-ai.cn/repository/npm" target="_blank" rel="noopener">https://npm.dm-ai.cn/repository/npm</a> &amp;&amp; npm i &amp;&amp; npm run build</p><p>FROM docker.dm-ai.cn/public/nginx:1.17<br>ENV TZ=Asia/Shanghai<br>WORKDIR /www<br>COPY –from=0 /app/dist /www<br>COPY –from=0 /app/nginx.conf /etc/nginx/conf.d/default.conf<br>EXPOSE 80</p><pre><code>+ 版本2（嘉熙版本）```jsFROM docker.dm-ai.cn/public/node:14WORKDIR /appCOPY . .RUN npm config set registry https://npm.dm-ai.cn/repository/npm/ \  &amp;&amp; npm config set sass_binary_site https://npm.taobao.org/mirrors/node-sass/ \  &amp;&amp; npm i &amp;&amp; npm run buildFROM docker.dm-ai.cn/public/nginx:1.17ENV TZ=Asia/ShanghaiCOPY --from=0 /app/dist /usr/share/nginx/htmlCOPY --from=0 /app/nginx.conf /etc/nginx/conf.d/default.confEXPOSE 80CMD nginx -g &quot;daemon off;&quot;</code></pre><ul><li><p>npm config set registry <a href="https://xxx" target="_blank" rel="noopener">https://xxx</a>   —&gt;  设置镜像源地址</p></li><li><p>COPY –from=0 &lt;源路径&gt; &lt;目标路径&gt;   —&gt;   从指定目录复制文件到指定路径</p></li><li><p>EXPOSE   —&gt;  声明端口</p></li><li><p>使用nginx -g “daemon off;”启动nginx容器的原因</p><ul><li>背景：Docker 容器启动时，默认会把容器内部第一个进程，也就是pid=1的程序，作为docker容器是否正在运行的依据，如果 docker 容器pid=1的进程挂了，那么docker容器便会直接退出。</li><li>原因：nginx默认是以后台模式启动的，Docker未执行自定义的CMD之前，nginx的pid是1，执行到CMD之后，nginx就在后台运行，bash或sh脚本的pid变成了1。所以一旦执行完自定义CMD，nginx容器也就退出了。为了保持nginx的容器不退出，应该关闭nginx后台运行</li></ul></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;安装docker&quot;&gt;&lt;a href=&quot;#安装docker&quot; class=&quot;headerlink&quot; title=&quot;安装docker&quot;&gt;&lt;/a&gt;安装docker&lt;/h2&gt;&lt;pre class=&quot; language-shell&quot;&gt;&lt;code class=&quot;languag
+      
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="https://damao2250.github.io/categories/Linux/"/>
+    
+    
+      <category term="docker" scheme="https://damao2250.github.io/tags/docker/"/>
+    
+  </entry>
   
   <entry>
     <title>Git分支建立及提交规范</title>
@@ -392,7 +418,7 @@
     <link href="https://damao2250.github.io/2021/02/26/Nginx%E5%9F%BA%E6%9C%AC%E5%8A%9F%E8%83%BD%E5%8F%8A%E9%85%8D%E7%BD%AE/"/>
     <id>https://damao2250.github.io/2021/02/26/Nginx%E5%9F%BA%E6%9C%AC%E5%8A%9F%E8%83%BD%E5%8F%8A%E9%85%8D%E7%BD%AE/</id>
     <published>2021-02-26T03:09:10.000Z</published>
-    <updated>2021-08-30T03:51:31.568Z</updated>
+    <updated>2021-08-31T01:34:50.475Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Nginx的基本功能及配置"><a href="#Nginx的基本功能及配置" class="headerlink" title="Nginx的基本功能及配置"></a>Nginx的基本功能及配置</h1><h2 id="查找-Nginx-安装目录"><a href="#查找-Nginx-安装目录" class="headerlink" title="查找 Nginx 安装目录"></a>查找 Nginx 安装目录</h2><pre class=" language-js"><code class="language-js">ps aux <span class="token operator">|</span> grep Nginx</code></pre><h2 id="默认的-nginx-配置文件-nginx-conf-内容"><a href="#默认的-nginx-配置文件-nginx-conf-内容" class="headerlink" title="默认的 nginx 配置文件 nginx.conf 内容"></a>默认的 nginx 配置文件 nginx.conf 内容</h2><pre class=" language-powershell"><code class="language-powershell"><span class="token comment" spellcheck="true">#user  nobody;</span>worker_processes  1<span class="token punctuation">;</span><span class="token comment" spellcheck="true">#error_log  logs/error.log;</span><span class="token comment" spellcheck="true">#error_log  logs/error.log  notice;</span><span class="token comment" spellcheck="true">#error_log  logs/error.log  info;</span><span class="token comment" spellcheck="true">#pid        logs/nginx.pid;</span>events <span class="token punctuation">{</span>    worker_connections  1024<span class="token punctuation">;</span><span class="token punctuation">}</span>http <span class="token punctuation">{</span>    include       mime<span class="token punctuation">.</span>types<span class="token punctuation">;</span>    default_type  application<span class="token operator">/</span>octet<span class="token operator">-</span>stream<span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">#log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '</span>    <span class="token comment" spellcheck="true">#                  '$status $body_bytes_sent "$http_referer" '</span>    <span class="token comment" spellcheck="true">#                  '"$http_user_agent" "$http_x_forwarded_for"';</span>    <span class="token comment" spellcheck="true">#access_log  logs/access.log  main;</span>    sendfile        on<span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">#tcp_nopush     on;</span>    <span class="token comment" spellcheck="true">#keepalive_timeout  0;</span>    keepalive_timeout  65<span class="token punctuation">;</span>    <span class="token comment" spellcheck="true">#gzip  on;</span>    server <span class="token punctuation">{</span>        listen       80<span class="token punctuation">;</span>        server_name  localhost<span class="token punctuation">;</span>        <span class="token comment" spellcheck="true">#charset koi8-r;</span>        <span class="token comment" spellcheck="true">#access_log  logs/host.access.log  main;</span>        location <span class="token operator">/</span> <span class="token punctuation">{</span>            root   html<span class="token punctuation">;</span>            index  index<span class="token punctuation">.</span>html index<span class="token punctuation">.</span>htm<span class="token punctuation">;</span>        <span class="token punctuation">}</span>        <span class="token comment" spellcheck="true">#error_page  404              /404.html;</span>        <span class="token comment" spellcheck="true"># redirect server error pages to the static page /50x.html</span>        <span class="token comment" spellcheck="true">#</span>        error_page   500 502 503 504  <span class="token operator">/</span>50x<span class="token punctuation">.</span>html<span class="token punctuation">;</span>        location = <span class="token operator">/</span>50x<span class="token punctuation">.</span>html <span class="token punctuation">{</span>            root   html<span class="token punctuation">;</span>        <span class="token punctuation">}</span>        <span class="token comment" spellcheck="true"># proxy the PHP scripts to Apache listening on 127.0.0.1:80</span>        <span class="token comment" spellcheck="true">#</span>        <span class="token comment" spellcheck="true">#location ~ \.php$ {</span>        <span class="token comment" spellcheck="true">#    proxy_pass   http://127.0.0.1;</span>        <span class="token comment" spellcheck="true">#}</span>        <span class="token comment" spellcheck="true"># pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000</span>        <span class="token comment" spellcheck="true">#</span>        <span class="token comment" spellcheck="true">#location ~ \.php$ {</span>        <span class="token comment" spellcheck="true">#    root           html;</span>        <span class="token comment" spellcheck="true">#    fastcgi_pass   127.0.0.1:9000;</span>        <span class="token comment" spellcheck="true">#    fastcgi_index  index.php;</span>        <span class="token comment" spellcheck="true">#    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;</span>        <span class="token comment" spellcheck="true">#    include        fastcgi_params;</span>        <span class="token comment" spellcheck="true">#}</span>        <span class="token comment" spellcheck="true"># deny access to .htaccess files, if Apache's document root</span>        <span class="token comment" spellcheck="true"># concurs with nginx's one</span>        <span class="token comment" spellcheck="true">#</span>        <span class="token comment" spellcheck="true">#location ~ /\.ht {</span>        <span class="token comment" spellcheck="true">#    deny  all;</span>        <span class="token comment" spellcheck="true">#}</span>    <span class="token punctuation">}</span>    <span class="token comment" spellcheck="true"># another virtual host using mix of IP-, name-, and port-based configuration</span>    <span class="token comment" spellcheck="true">#</span>    <span class="token comment" spellcheck="true">#server {</span>    <span class="token comment" spellcheck="true">#    listen       8000;</span>    <span class="token comment" spellcheck="true">#    listen       somename:8080;</span>    <span class="token comment" spellcheck="true">#    server_name  somename  alias  another.alias;</span>    <span class="token comment" spellcheck="true">#    location / {</span>    <span class="token comment" spellcheck="true">#        root   html;</span>    <span class="token comment" spellcheck="true">#        index  index.html index.htm;</span>    <span class="token comment" spellcheck="true">#    }</span>    <span class="token comment" spellcheck="true">#}</span>    <span class="token comment" spellcheck="true"># HTTPS server</span>    <span class="token comment" spellcheck="true">#</span>    <span class="token comment" spellcheck="true">#server {</span>    <span class="token comment" spellcheck="true">#    listen       443 ssl;</span>    <span class="token comment" spellcheck="true">#    server_name  localhost;</span>    <span class="token comment" spellcheck="true">#    ssl_certificate      cert.pem;</span>    <span class="token comment" spellcheck="true">#    ssl_certificate_key  cert.key;</span>    <span class="token comment" spellcheck="true">#    ssl_session_cache    shared:SSL:1m;</span>    <span class="token comment" spellcheck="true">#    ssl_session_timeout  5m;</span>    <span class="token comment" spellcheck="true">#    ssl_ciphers  HIGH:!aNULL:!MD5;</span>    <span class="token comment" spellcheck="true">#    ssl_prefer_server_ciphers  on;</span>    <span class="token comment" spellcheck="true">#    location / {</span>    <span class="token comment" spellcheck="true">#        root   html;</span>    <span class="token comment" spellcheck="true">#        index  index.html index.htm;</span>    <span class="token comment" spellcheck="true">#    }</span>    <span class="token comment" spellcheck="true">#}</span><span class="token punctuation">}</span></code></pre><h2 id="nginx-文件结构"><a href="#nginx-文件结构" class="headerlink" title="nginx 文件结构"></a>nginx 文件结构</h2><pre class=" language-powershell"><code class="language-powershell"><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>              <span class="token comment" spellcheck="true">#全局块</span>events <span class="token punctuation">{</span>         <span class="token comment" spellcheck="true">#events块</span>  <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">}</span>http      <span class="token comment" spellcheck="true">#http块</span><span class="token punctuation">{</span>    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>   <span class="token comment" spellcheck="true">#http全局块</span>    server        <span class="token comment" spellcheck="true">#server块</span>    <span class="token punctuation">{</span>         <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>       <span class="token comment" spellcheck="true">#server全局块</span>        location <span class="token namespace">[PATTERN]</span>   <span class="token comment" spellcheck="true">#location块</span>        <span class="token punctuation">{</span>            <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>        <span class="token punctuation">}</span>        location <span class="token namespace">[PATTERN]</span>         <span class="token punctuation">{</span>            <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>        <span class="token punctuation">}</span>    <span class="token punctuation">}</span>    server    <span class="token punctuation">{</span>      <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>    <span class="token punctuation">}</span>    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>     <span class="token comment" spellcheck="true">#http全局块</span><span class="token punctuation">}</span><span class="token comment" spellcheck="true">### 1、全局块：配置影响nginx全局的指令。一般有运行nginx服务器的用户组，nginx进程pid存放路径，日志存放路径，配置文件引入，允许生成worker process数等。</span><span class="token comment" spellcheck="true">### 2、events块：配置影响nginx服务器或与用户的网络连接。有每个进程的最大连接数，选取哪种事件驱动模型处理连接请求，是否允许同时接受多个网路连接，开启多个网络连接序列化等。</span><span class="token comment" spellcheck="true">### 3、http块：可以嵌套多个server，配置代理，缓存，日志定义等绝大多数功能和第三方模块的配置。如文件引入，mime-type定义，日志自定义，是否使用sendfile传输文件，连接超时时间，单连接请求数等。</span><span class="token comment" spellcheck="true">### 4、server块：配置虚拟主机的相关参数，一个http中可以有多个server。</span><span class="token comment" spellcheck="true">### 5、location块：配置请求的路由，以及各种页面的处理情况。</span></code></pre>]]></content>
     
@@ -405,6 +431,8 @@
     
     </summary>
     
+    
+      <category term="Linux" scheme="https://damao2250.github.io/categories/Linux/"/>
     
     
       <category term="Nginx" scheme="https://damao2250.github.io/tags/Nginx/"/>
@@ -509,36 +537,6 @@
     
     
       <category term="CSP" scheme="https://damao2250.github.io/tags/CSP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Github搜索技巧</title>
-    <link href="https://damao2250.github.io/2020/11/12/Github%E6%90%9C%E7%B4%A2%E6%8A%80%E5%B7%A7/"/>
-    <id>https://damao2250.github.io/2020/11/12/Github%E6%90%9C%E7%B4%A2%E6%8A%80%E5%B7%A7/</id>
-    <published>2020-11-12T01:13:22.000Z</published>
-    <updated>2021-08-20T07:34:43.255Z</updated>
-    
-    <content type="html"><![CDATA[<ol><li><p>搜索关键字</p><ul><li><code>Vue in:name</code> 表示在项目名称中搜索 <code>Vue</code> 关键字</li><li><code>Vue in:readme</code> 表示在项目readme中搜索 <code>Vue</code> 关键字</li><li><code>Vue in:description</code> 表示在 项目描述中搜索 <code>Vue</code> 关键字</li><li><code>Vue in:USERNAME</code> 表示在USERNAME中搜索 <code>Vue</code> 关键字</li><li><code>Vue in:ORGNAME</code> 表示在组织或机构名中搜索 <code>Vue</code> 关键字</li></ul></li><li><p>按照项目大小搜索</p></li></ol><ul><li><code>size:&gt;=5000 Vue</code> 搜索大小超过5M 的包含 <code>Vue</code> 关键字项目</li></ul><ol start="3"><li>按照Stars量搜索</li></ol><ul><li><code>stars:&gt;1000</code> 搜索Stars量大于1000的项目</li><li><code>Vue stars:&gt;1000</code> 搜索Stars量大于1000的<code>Vue</code>项目</li><li><code>language:Vue stars:&gt;10000</code>搜索开发语言为<code>Vue</code>且stars数大于10000的所有项目</li></ul><ol start="4"><li>按照语言搜索</li></ol><ul><li><code>language:Vue location:china</code> 搜索国内的开发者，语言限定为<code>Vue</code></li></ul><ol start="5"><li>Github高级搜索</li></ol><ul><li><a href="https://github.com/search/advanced" target="_blank" rel="noopener">https://github.com/search/advanced</a></li></ul><ol start="6"><li>每天/每周/每月热门</li></ol><ul><li><a href="https://github.com/trending" target="_blank" rel="noopener">https://github.com/trending</a></li></ul><ol start="7"><li>git如何统计代码行数</li></ol><ul><li><p>git中有个中自带的查询提交行数的命令</p><pre class=" language-bash"><code class="language-bash">$ <span class="token function">git</span> log --since<span class="token operator">=</span>2018-01-01 --until<span class="token operator">=</span>2018-12-31 --author<span class="token operator">=</span><span class="token string">"like"</span> --pretty<span class="token operator">=</span>tformat: --numstat <span class="token operator">|</span> <span class="token function">gawk</span> <span class="token string">'{ add += <span class="token variable">$1</span> ; subs += <span class="token variable">$2</span> ; loc += <span class="token variable">$1</span> - <span class="token variable">$2</span> } END { printf "added lines: %s removed lines : %s total lines: %s\n",add,subs,loc }'</span> -<span class="token comment" spellcheck="true"># 设置对应时间段，--author后面改成自己的名字或空</span></code></pre></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;搜索关键字&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;Vue in:name&lt;/code&gt; 表示在项目名称中搜索 &lt;code&gt;Vue&lt;/code&gt; 关键字&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Vue in:readme&lt;/code&gt; 表示在项目readme中搜索 &lt;
-      
-    
-    </summary>
-    
-    
-      <category term="版本控制工具" scheme="https://damao2250.github.io/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7/"/>
-    
-    
-      <category term="git" scheme="https://damao2250.github.io/tags/git/"/>
     
   </entry>
   

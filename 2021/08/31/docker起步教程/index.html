@@ -3,12 +3,14 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Linux使用笔记, Damao">
-    <meta name="description" content="Linux 软件装在哪里？
-opt目录
- /opt 是用来安装附加软件包，是用户级程序目录，相当于 D:/soft，opt有可选的意思，安装到/opt目录下的程序，所有的数据、库文件都会放置在同一个目录下
-/usr目录
- /usr: 相当于">
+    <meta name="keywords" content="docker起步教程, Damao">
+    <meta name="description" content="安装docker## 安装docker
+yum install docker -y
+
+## 查看docker版本
+docker -v
+自动部署时需要的Dockerfile
+编写Dockerfile时文件名就为Dockerfile，不需要要任">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +18,7 @@ opt目录
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Linux使用笔记 | Damao Bolg</title>
+    <title>docker起步教程 | Damao Bolg</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
     <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/materialize/1.0.0-rc.2/css/materialize.min.css">
@@ -250,13 +252,13 @@ opt目录
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/card-bg7.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/card-bg18.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Linux使用笔记
+                        docker起步教程
                     </div>
                 </div>
             </div>
@@ -367,8 +369,8 @@ opt目录
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/linux/" target="_blank">
-                                <span class="chip bg-color">linux</span>
+                            <a href="/tags/docker/" target="_blank">
+                                <span class="chip bg-color">docker</span>
                             </a>
                         
                     </div>
@@ -391,21 +393,21 @@ opt目录
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-01-13
+                    2021-08-31
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        2.1k
+                        433
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        9 分
+                        2 分
                     </div>
                     
                 
@@ -416,306 +418,49 @@ opt目录
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Linux-软件装在哪里？"><a href="#Linux-软件装在哪里？" class="headerlink" title="Linux 软件装在哪里？"></a>Linux 软件装在哪里？</h2><ol>
-<li><p><code>opt</code>目录</p>
-<pre><code> /opt 是用来安装附加软件包，是用户级程序目录，相当于 D:/soft，opt有可选的意思，安装到/opt目录下的程序，所有的数据、库文件都会放置在同一个目录下</code></pre></li>
-<li><p><code>/usr</code>目录</p>
-<pre><code> /usr: 相当于 C:/Windows
- /usr/lib: 相当于 C:/Windows/System32
- /usr/local: 相当于 C:/Progrem Files  是用户级程序目录，用户自己编译的软件默认会安装到此目录（存放手动安装的软件，即不是通过&#39;yum&#39;或&#39;apt-get&#39;安装的软件）
- 它和/usr有相似的目录结构，让软件包管理器来管理/usr，而把自定义脚本放到/usr/local目录下</code></pre></li>
-</ol>
-<p>##　源码放哪里</p>
-<ol>
-<li>/usr/src  系统级的源码目录</li>
-<li>/usr/local/src  用户级的源码目录</li>
-</ol>
-<h2 id="Linux软件包管理（安装、删除）"><a href="#Linux软件包管理（安装、删除）" class="headerlink" title="Linux软件包管理（安装、删除）"></a>Linux软件包管理（安装、删除）</h2><pre class=" language-js"><code class="language-js"><span class="token number">0</span><span class="token punctuation">.</span> 下载软件包：wget 软件包地址
+                <h2 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h2><pre class=" language-shell"><code class="language-shell">## 安装docker
+yum install docker -y
 
-<span class="token number">1</span><span class="token punctuation">.</span> 手动安装（tar<span class="token punctuation">.</span>gz源、tar<span class="token punctuation">.</span>bz2源）
-  ① 下载相应的软件包，如soft<span class="token punctuation">.</span>tar<span class="token punctuation">.</span>gz<span class="token operator">/</span>soft<span class="token punctuation">.</span>tar<span class="token punctuation">.</span>bz2
-  ② cd soft<span class="token punctuation">.</span>tar<span class="token punctuation">.</span>gz<span class="token operator">/</span>soft<span class="token punctuation">.</span>tar<span class="token punctuation">.</span>bz2所在的目录
-  ③ tar <span class="token operator">-</span>xzvf soft<span class="token punctuation">.</span>tar<span class="token punctuation">.</span>gz     <span class="token comment" spellcheck="true">//一般会生成一个soft目录</span>
-  ④ cd soft 
-  ⑤<span class="token punctuation">.</span><span class="token operator">/</span>configure      <span class="token comment" spellcheck="true">// 为编译做准备</span>
-  ⑥ make            <span class="token comment" spellcheck="true">// 编译软件 （时间很久）</span>
-  ⑦ make install    <span class="token comment" spellcheck="true">// 安装软件</span>
-  ⑧ make clean      <span class="token comment" spellcheck="true">// 删除安装产生的临时文件  </span>
-
-<span class="token number">2</span><span class="token punctuation">.</span> rpm包安装
-  ① 下载相应的软件包，如soft<span class="token punctuation">.</span>version<span class="token punctuation">.</span>rpm
-  ② cd soft<span class="token punctuation">.</span>version<span class="token punctuation">.</span>rpm所在的目录
-  ③ rpm <span class="token operator">-</span>ivh soft<span class="token punctuation">.</span>version<span class="token punctuation">.</span>rpm   <span class="token comment" spellcheck="true">// -i 安装软件 -t 测试安装，不是真的安装 -p 显示安装进度 -f 忽略任何错误 -U 升级安装 -v 检测套件是否正确安装</span>
-  ④ 卸载 rpm <span class="token operator">-</span>e 软件名
-
-<span class="token number">3</span><span class="token punctuation">.</span> dep包安装
-  ① 下载相应的软件包，如soft<span class="token punctuation">.</span>version<span class="token punctuation">.</span>dep
-  ② cd soft<span class="token punctuation">.</span>version<span class="token punctuation">.</span>dep所在目录
-  ③ dpkg <span class="token operator">-</span>i soft<span class="token punctuation">.</span>version<span class="token punctuation">.</span>dep
-  ④ 卸载 dpkg <span class="token operator">-</span>e 软件名
-  ⑤ 查看已安装的软件包 dpkg –l <span class="token string">'*软件包名*'</span>
-
-<span class="token number">4</span><span class="token punctuation">.</span> apt方式安装（安装deb包）
-  ① apt<span class="token operator">-</span>cache search 软件包
-  ② apt<span class="token operator">-</span><span class="token keyword">get</span> install 软件包
-  ③ 删除（保留配置文件） apt<span class="token operator">-</span><span class="token keyword">get</span> remove 软件名
-  ④ 删除（不保留配置文件） apt<span class="token operator">-</span><span class="token keyword">get</span> <span class="token operator">--</span>purge remove 软件名
-  ⑤ dpkg <span class="token operator">--</span>force<span class="token operator">-</span>all <span class="token operator">--</span>purge packagename ——有些软件很难卸载，而且还阻止了别的软件的应用，就可以用这个，不过有点冒险。
-    apt<span class="token operator">-</span><span class="token keyword">get</span> autoremove——因为apt会把已装或已卸的软件都备份在硬盘上，所以如果需要空间的话，可以让这个命令来删除你已经删掉的软件。
-    apt<span class="token operator">-</span><span class="token keyword">get</span> autoclean——定期运行这个命令来清除那些已经卸载的软件包的<span class="token punctuation">.</span>deb文件。通过这种方式，可以释放大量的磁盘空间。如果需求十分迫切，可以使用apt<span class="token operator">-</span><span class="token keyword">get</span> clean以释放更多空间。这个命令会将已安装软件包裹的<span class="token punctuation">.</span>deb文件一并删除。
-    apt<span class="token operator">-</span><span class="token keyword">get</span> clean——这个命令会把安装的软件的备份也删除，不过这样不会影响软件的使用的。
-    apt<span class="token operator">-</span><span class="token keyword">get</span> upgrade——更新所有已安装的软件包
-    apt<span class="token operator">-</span><span class="token keyword">get</span> dist<span class="token operator">-</span>upgrade——将系统升级到新版本
-    apt<span class="token operator">-</span>cache search string——在软件包列表中搜索字符串
-    apt<span class="token operator">-</span>cache showpkg pkgs——显示软件包信息。
-    apt<span class="token operator">-</span>cache stats——查看库里有多少软件
-    apt<span class="token operator">-</span>cache dumpavail——打印可用软件包列表。
-    apt<span class="token operator">-</span>cache show pkgs——显示软件包记录，类似于dpkg –print<span class="token operator">-</span>avail。
-    apt<span class="token operator">-</span>cache pkgnames——打印软件包列表中所有软件包的名称
-
-<span class="token number">5</span><span class="token punctuation">.</span> yum方式安装
-  ① yum <span class="token operator">-</span>y install 软件包
-  ② 卸载 yum remove 软件名
-  ③ 已安装列表 yum list all
-  ④ 查看软件包信息 yum info 软件名
-  ⑥ 升级所有的软件包 yum update 软件名 
-  ⑦ 清除所有包缓存  yum clean all 
-
-
-<span class="token comment" spellcheck="true">// 切换yum源</span>
-
-<span class="token comment" spellcheck="true">// 首先备份/etc/yum.repos.d/CentOS-Base.repo</span>
-<span class="token comment" spellcheck="true">// 重命名</span>
-mv <span class="token regex">/etc/yum</span><span class="token punctuation">.</span>repos<span class="token punctuation">.</span>d<span class="token operator">/</span>CentOS<span class="token operator">-</span>Base<span class="token punctuation">.</span>repo <span class="token regex">/etc/yum</span><span class="token punctuation">.</span>repos<span class="token punctuation">.</span>d<span class="token operator">/</span>CentOS<span class="token operator">-</span>Base<span class="token punctuation">.</span>repo<span class="token punctuation">.</span>backup
-
-<span class="token comment" spellcheck="true">// 下载对应版本 repo 文件, 放入 /etc/yum.repos.d/ (操作前请做好相应备份)</span>
-<span class="token comment" spellcheck="true">// 163源</span>
-CentOS5 ：http<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>mirrors<span class="token number">.163</span><span class="token punctuation">.</span>com<span class="token operator">/</span><span class="token punctuation">.</span>help<span class="token operator">/</span>CentOS5<span class="token operator">-</span>Base<span class="token number">-163</span><span class="token punctuation">.</span>repo
-CentOS6 ：http<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>mirrors<span class="token number">.163</span><span class="token punctuation">.</span>com<span class="token operator">/</span><span class="token punctuation">.</span>help<span class="token operator">/</span>CentOS6<span class="token operator">-</span>Base<span class="token number">-163</span><span class="token punctuation">.</span>repo
-CentOS7 ：http<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>mirrors<span class="token number">.163</span><span class="token punctuation">.</span>com<span class="token operator">/</span><span class="token punctuation">.</span>help<span class="token operator">/</span>CentOS7<span class="token operator">-</span>Base<span class="token number">-163</span><span class="token punctuation">.</span>repo
-
-<span class="token comment" spellcheck="true">// 阿里云源</span>
-CentOS5 ：http<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>mirrors<span class="token punctuation">.</span>aliyun<span class="token punctuation">.</span>com<span class="token operator">/</span>repo<span class="token operator">/</span>Centos<span class="token number">-5</span><span class="token punctuation">.</span>repo
-CentOS6 ：http<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>mirrors<span class="token punctuation">.</span>aliyun<span class="token punctuation">.</span>com<span class="token operator">/</span>repo<span class="token operator">/</span>Centos<span class="token number">-6</span><span class="token punctuation">.</span>repo
-CentOS7 ：http<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>mirrors<span class="token punctuation">.</span>aliyun<span class="token punctuation">.</span>com<span class="token operator">/</span>repo<span class="token operator">/</span>Centos<span class="token number">-7</span><span class="token punctuation">.</span>repo
-
-<span class="token comment" spellcheck="true">// 下载</span>
-wget http<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>mirrors<span class="token number">.163</span><span class="token punctuation">.</span>com<span class="token operator">/</span><span class="token punctuation">.</span>help<span class="token operator">/</span>CentOS6<span class="token operator">-</span>Base<span class="token number">-163</span><span class="token punctuation">.</span>repo
-
-<span class="token comment" spellcheck="true">//重命名</span>
-mv CentOS6<span class="token operator">-</span>Base<span class="token number">-163</span><span class="token punctuation">.</span>repo CentOS<span class="token operator">-</span>Base<span class="token punctuation">.</span>repo
-
-<span class="token comment" spellcheck="true">// 运行以下命令生成缓存</span>
-yum clean all
-yum makecache
-</code></pre>
-<h2 id="自己在Linux-上的一些操作"><a href="#自己在Linux-上的一些操作" class="headerlink" title="自己在Linux 上的一些操作"></a>自己在Linux 上的一些操作</h2><ul>
-<li>安装 node <pre class=" language-js"><code class="language-js">node <span class="token operator">-</span>v     <span class="token comment" spellcheck="true">// 查看是否已安装</span>
-yum install nodejs    <span class="token comment" spellcheck="true">// 安装nodejs 询问时 输入 y</span>
+## 查看docker版本
+docker -v</code></pre>
+<h2 id="自动部署时需要的Dockerfile"><a href="#自动部署时需要的Dockerfile" class="headerlink" title="自动部署时需要的Dockerfile"></a>自动部署时需要的Dockerfile</h2><ul>
+<li>编写Dockerfile时文件名就为Dockerfile，不需要要任何后缀，编写完后放到项目根目录下</li>
+<li>版本1<pre class=" language-js"><code class="language-js">FROM docker<span class="token punctuation">.</span>dm<span class="token operator">-</span>ai<span class="token punctuation">.</span>cn<span class="token operator">/</span><span class="token keyword">public</span><span class="token operator">/</span>node<span class="token punctuation">:</span><span class="token number">10</span><span class="token operator">-</span>frontend<span class="token number">-0.01</span>
 </code></pre>
 </li>
 </ul>
-<p>rpm -qa | grep node   // 查看是否已安装</p>
-<p>rpm -ql node    // 查看安装路径</p>
-<pre><code>
-+ 安装 Nginx
+<p>WORKDIR /app<br>ADD . .<br>RUN npm config set registry <a href="https://npm.dm-ai.cn/repository/npm" target="_blank" rel="noopener">https://npm.dm-ai.cn/repository/npm</a> &amp;&amp; npm i &amp;&amp; npm run build</p>
+<p>FROM docker.dm-ai.cn/public/nginx:1.17<br>ENV TZ=Asia/Shanghai<br>WORKDIR /www<br>COPY –from=0 /app/dist /www<br>COPY –from=0 /app/nginx.conf /etc/nginx/conf.d/default.conf<br>EXPOSE 80</p>
+<pre><code>+ 版本2（嘉熙版本）
 ```js
-yum install nginx   // 安装nginx
+FROM docker.dm-ai.cn/public/node:14
 
-systemctl start nginx.service   // 启动nginx
-systemctl enable nginx.service    // 开机启动
-systemctl stop nginx.service    // 停止nginx服务
+WORKDIR /app
+COPY . .
+RUN npm config set registry https://npm.dm-ai.cn/repository/npm/ \
+  &amp;&amp; npm config set sass_binary_site https://npm.taobao.org/mirrors/node-sass/ \
+  &amp;&amp; npm i &amp;&amp; npm run build
 
-</code></pre><ul>
-<li>配置Nginx<ul>
-<li>配置两个ssl证书<pre class=" language-js"><code class="language-js"># For more information on configuration<span class="token punctuation">,</span> see<span class="token punctuation">:</span>
-#   <span class="token operator">*</span> Official English Documentation<span class="token punctuation">:</span> http<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>nginx<span class="token punctuation">.</span>org<span class="token operator">/</span>en<span class="token regex">/docs/</span>
-#   <span class="token operator">*</span> Official Russian Documentation<span class="token punctuation">:</span> http<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>nginx<span class="token punctuation">.</span>org<span class="token operator">/</span>ru<span class="token regex">/docs/</span>
-</code></pre>
+FROM docker.dm-ai.cn/public/nginx:1.17
+ENV TZ=Asia/Shanghai
+COPY --from=0 /app/dist /usr/share/nginx/html
+COPY --from=0 /app/nginx.conf /etc/nginx/conf.d/default.conf
+EXPOSE 80
+CMD nginx -g &quot;daemon off;&quot;</code></pre><ul>
+<li><p>npm config set registry <a href="https://xxx" target="_blank" rel="noopener">https://xxx</a>   —&gt;  设置镜像源地址</p>
 </li>
+<li><p>COPY –from=0 &lt;源路径&gt; &lt;目标路径&gt;   —&gt;   从指定目录复制文件到指定路径</p>
+</li>
+<li><p>EXPOSE   —&gt;  声明端口</p>
+</li>
+<li><p>使用nginx -g “daemon off;”启动nginx容器的原因</p>
+<ul>
+<li>背景：Docker 容器启动时，默认会把容器内部第一个进程，也就是pid=1的程序，作为docker容器是否正在运行的依据，如果 docker 容器pid=1的进程挂了，那么docker容器便会直接退出。</li>
+<li>原因：nginx默认是以后台模式启动的，Docker未执行自定义的CMD之前，nginx的pid是1，执行到CMD之后，nginx就在后台运行，bash或sh脚本的pid变成了1。所以一旦执行完自定义CMD，nginx容器也就退出了。为了保持nginx的容器不退出，应该关闭nginx后台运行</li>
 </ul>
 </li>
 </ul>
-<p>user nginx;<br>worker_processes auto;<br>error_log /var/log/nginx/error.log;<br>pid /run/nginx.pid;</p>
-<h1 id="Load-dynamic-modules-See-usr-share-doc-nginx-README-dynamic"><a href="#Load-dynamic-modules-See-usr-share-doc-nginx-README-dynamic" class="headerlink" title="Load dynamic modules. See /usr/share/doc/nginx/README.dynamic."></a>Load dynamic modules. See /usr/share/doc/nginx/README.dynamic.</h1><p>include /usr/share/nginx/modules/*.conf;</p>
-<p>events {<br>    worker_connections 1024;<br>}</p>
-<p>http {<br>    log_format  main  ‘$remote_addr - $remote_user [$time_local] “$request” ‘<br>                      ‘$status $body_bytes_sent “$http_referer” ‘<br>                      ‘“$http_user_agent” “$http_x_forwarded_for”‘;</p>
-<pre><code>access_log  /var/log/nginx/access.log  main;
 
-sendfile            on;
-tcp_nopush          on;
-tcp_nodelay         on;
-keepalive_timeout   65;
-types_hash_max_size 2048;
-
-include             /etc/nginx/mime.types;
-default_type        application/octet-stream;
-
-# Load modular configuration files from the /etc/nginx/conf.d directory.
-# See http://nginx.org/en/docs/ngx_core_module.html#include
-# for more information.
-include /etc/nginx/conf.d/*.conf;
-
-server {
-    listen       80 default_server;
-    listen       [::]:80 default_server;
-    server_name  www.damao2250.com;
-    root         /var/www/damao;
-    #告诉浏览器有效期内只准用 https 访问
-    add_header Strict-Transport-Security max-age=15768000;
-    #永久重定向到 https 站点
-    return 301 https://$server_name$request_uri;
-}</code></pre><h1 id="Settings-for-a-TLS-enabled-server"><a href="#Settings-for-a-TLS-enabled-server" class="headerlink" title="Settings for a TLS enabled server."></a>Settings for a TLS enabled server.</h1><p>   server {<br>       listen       443 ssl http2 default_server;<br>       listen       [::]:443 ssl http2 default_server;<br>       server_name  <a href="http://www.damao2250.com" target="_blank" rel="noopener">www.damao2250.com</a>;<br>       root         /var/www/damao;</p>
-<pre><code>   ssl_certificate &quot;/opt/ssl/www.damao2250.com/www.damao2250.com.pem&quot;;
-   ssl_certificate_key &quot;/opt/ssl/www.damao2250.com/www.damao2250.com.key&quot;;
-   ssl_session_cache shared:SSL:1m;
-   ssl_session_timeout  10m;
-   ssl_ciphers HIGH:!aNULL:!MD5;
-   ssl_prefer_server_ciphers on;
-
-   # Load configuration files for the default server block.
-   include /etc/nginx/default.d/*.conf;
-
-   location / {
-   }
-
-   error_page 404 /404.html;
-       location = /40x.html {
-   }
-
-   error_page 500 502 503 504 /50x.html;
-       location = /50x.html {
-   }</code></pre><p>   }</p>
-<pre><code>server {
-    listen       80;
-    server_name  ycy.damao2250.com;
-    #告诉浏览器有效期内只准用 https 访问
-    add_header Strict-Transport-Security max-age=15768000;
-    #永久重定向到 https 站点
-    return 301 https://$server_name$request_uri;
-}</code></pre><h1 id="Settings-for-a-TLS-enabled-server-1"><a href="#Settings-for-a-TLS-enabled-server-1" class="headerlink" title="Settings for a TLS enabled server."></a>Settings for a TLS enabled server.</h1><p>   server {<br>       listen       443 ssl http2;<br>       listen       [::]:443 ssl http2;<br>       server_name  ycy.damao2250.com;<br>       root         /var/www/ycy;</p>
-<pre><code>   ssl_certificate &quot;/opt/ssl/ycy.damao2250.com/ycy.damao2250.com.pem&quot;;
-   ssl_certificate_key &quot;/opt/ssl/ycy.damao2250.com/ycy.damao2250.com.key&quot;;
-   ssl_session_cache shared:SSL:1m;
-   ssl_session_timeout  10m;
-   ssl_ciphers HIGH:!aNULL:!MD5;
-   ssl_prefer_server_ciphers on;
-
-   # Load configuration files for the default server block.
-   include /etc/nginx/default.d/*.conf;
-
-   location / {
-   }
-
-   error_page 404 /404.html;
-       location = /40x.html {
-   }
-
-   error_page 500 502 503 504 /50x.html;
-       location = /50x.html {
-   }</code></pre><p>   }</p>
-<p>}</p>
-<pre><code>
-
-## 部署Gitlab
-```js
-// 安装依赖软件
-yum -y install policycoreutils  policycoreutils-python openssh-server openssh-clients postfix
-// but already installed and latest version  &amp;&amp;　Nothing to do
-
-// 开启postfix， postfix支持gitlab发信功能，设置postfix开机自启
-systemctl enable postfix &amp;&amp; systemctl start postfix
-
-// 如若 postfix 无法启动
-// 修改 /etc/postfix/main.cf
-inet_interfaces = all
-inet_protocols = ipv4
-systemctl start postfix
-systemctl enable postfix
-
-// 如无法ssh来远程连接主机的 开启 ssh 
-systemctl enable sshd
-systemctl start sshd
-
-
-// 安装防火墙
-yum install firewalld systemd -y
-// 开启防火墙
-service firewalld start
-// 添加http服务到firewalld,pemmanent表示永久生效，若不加--permanent系统下次启动后就会失效。
-firewall-cmd --permanent --add-service=http
-// 重启防火墙
-systemctl reload firewalld
-
-
-
-
-
-// 下载gitlab
-wget https://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/yum/el7/gitlab-ce-12.5.0-ce.0.el7.x86_64.rpm
-
-// 安装 ce代表社区版 ee代表企业版
-rpm -i gitlab-ce-12.5.0-ce.0.el7.x86_64.rpm
-
-// 修改配置文件 gitlab.rb  使用外部nginx 不使用内部nginx
-vim /etc/gitlab/gitlab.rb
-
-
-external_url &#39;http://120.79.166.206:8888&#39;
-
-
-
-// 重置并启动gitlab
-gitlab-ctl stop
-
-gitlab-ctl reconfigure
-
-gitlab-ctl restart
-
-// 如果执行 gitlab-ctl reconfigure 卡死在 ruby_block[authorize Grafana with GitLab] action run   就强制结束  ctrl+c 然后
-systemctl restart gitlab-runsvdir
-// 再
-gitlab-ctl stop
-gitlab-ctl reconfigure
-gitlab-ctl restart
-
-
-
-// 访问报502。原因是nginx用户无法访问gitlab用户的socket文件。 重启gitlab需要重新授权
-chmod -R o+x /var/opt/gitlab/gitlab-rails
-// 访问502也可能是  内存太小 超时了
-
-// 初始账户: root 密码:5iveL!fe
-
-
-
-
-// 完全卸载GitLab
-// 一. 停止gitlab
-//     sudo gitlab-ctl stop
-// 二、卸载gitlab（这块注意了，看看是gitlab-ce版本还是gitlab-ee版本，别写错误了）
-//     sudo rpm -e gitlab-ce
-
-// 三、查看gitlab进程
-
-//     ps -ef|grep gitlab
-// 　    杀掉第一个守护进程(runsvdir -P /opt/gitlab/service log)
-// 　    kill -9 4473
-// 　    再次查看gitlab进程是否存在
-
-// 四、删除gitlab文件
-
-//         find / -name *gitlab*|xargs rm -rf      删除所有包含gitlab的文件及目录
-
-//         find / -name gitlab |xargs rm -rf 
-
-//         删除gitlab-ctl uninstall时自动在root下备份的配置文件（ls /root/gitlab* 看看有没有，有也删除）
-
-// 通过以上几步就可以彻底卸载gitlab
-
-
-
-</code></pre>
             </div>
             <hr/>
 
@@ -1142,42 +887,54 @@ chmod -R o+x /var/opt/gitlab/gitlab-rails
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/02/13/%E4%B8%80%E4%BA%9B%E8%87%AA%E5%B7%B1%E7%9A%84%E9%A1%B9%E7%9B%AE%E8%A7%84%E8%8C%83/">
+                <a href="/2021/08/31/docker%E8%B5%B7%E6%AD%A5%E6%95%99%E7%A8%8B/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/card-bg4.jpg" class="responsive-img" alt="一些自己的项目规范">
+                        <img src="/medias/card-bg18.jpg" class="responsive-img" alt="docker起步教程">
                         
-                        <span class="card-title">一些自己的项目规范</span>
+                        <span class="card-title">docker起步教程</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            项目目录规范└─Code    ├─www.github.com    │  ├─project1    │  ├─project2    │  └─project3    └─www.xxx1.com        ├─project1 
+                            安装docker## 安装docker
+yum install docker -y
+
+## 查看docker版本
+docker -v
+自动部署时需要的Dockerfile
+编写Dockerfile时文件名就为Dockerfile，不需要要任
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-02-13
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-08-31
+                            </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-user fa-fw"></i>
-                            Damao
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Linux/" class="post-category" target="_blank">
+                                    Linux
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E9%A1%B9%E7%9B%AE%E8%A7%84%E8%8C%83/" target="_blank">
-                        <span class="chip bg-color">项目规范</span>
+                    <a href="/tags/docker/" target="_blank">
+                        <span class="chip bg-color">docker</span>
                     </a>
                     
                 </div>
@@ -1191,38 +948,46 @@ chmod -R o+x /var/opt/gitlab/gitlab-rails
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/12/31/Windows%E4%B8%8B%E7%9A%84Nginx%E5%8F%8AOpenResty%E7%9A%84%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8/">
+                <a href="/2021/08/20/Git%E5%88%86%E6%94%AF%E5%BB%BA%E7%AB%8B%E5%8F%8A%E6%8F%90%E4%BA%A4%E8%A7%84%E8%8C%83/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/card-bg16.jpg" class="responsive-img" alt="Windows下的Nginx及OpenResty的基础使用">
+                        <img src="/medias/card-bg7.jpg" class="responsive-img" alt="Git分支建立及提交规范">
                         
-                        <span class="card-title">Windows下的Nginx及OpenResty的基础使用</span>
+                        <span class="card-title">Git分支建立及提交规范</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Nginx基础命令// 启动
-start nginx
-nginx.exe
+                            分支建立规范Git主要分支说明：
+Master
 
-// 停止
-nginx -s stop   // 快速停止，不保存信息
-nginx -s quit   // 完整有序停止并保存信息
+主分支，维护发布产品的代码，存储了正式发布的历史
 
-// 重新载入
-nginx 
+
+Develop
+
+开发分支，作为功能的集成分支，维护开发中的代码，代码最终要合入Master分支
+
+
+Feature    
+
+开自De
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-12-31
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-08-20
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-user fa-fw"></i>
-                            Damao
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7/" class="post-category" target="_blank">
+                                    版本控制工具
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -1230,8 +995,8 @@ nginx
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Nginx/" target="_blank">
-                        <span class="chip bg-color">Nginx</span>
+                    <a href="/tags/git/" target="_blank">
+                        <span class="chip bg-color">git</span>
                     </a>
                     
                 </div>
