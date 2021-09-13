@@ -3,13 +3,14 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Vue3的setup函数, Damao">
-    <meta name="description" content="setup函数
-setup用于定义变量和方法
-ref用于声明简单数据类型，如：String Number Boolean
-reactive用来声明复杂数据类型，如：Array Objec
-是使用Composition API的入口
-Comp">
+    <meta name="keywords" content="git之多SSH-key配置, Damao">
+    <meta name="description" content="1. 生成SSH-Key
+Windows系统请使用Git bash操作
+
+# 生成第一个SSH-Key
+$ ssh-keygen -t rsa -C &#34;你的邮箱” -f ~/.ssh/id_rsa_one
+# 生成第二个SSH-Key
+$ ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +18,7 @@ Comp">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Vue3的setup函数 | Damao Bolg</title>
+    <title>git之多SSH-key配置 | Damao Bolg</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
     <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.staticfile.org/materialize/1.0.0-rc.2/css/materialize.min.css">
@@ -251,13 +252,13 @@ Comp">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/card-bg24.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/card-bg17.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Vue3的setup函数
+                        git之多SSH-key配置
                     </div>
                 </div>
             </div>
@@ -368,8 +369,8 @@ Comp">
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Vue3/" target="_blank">
-                                <span class="chip bg-color">Vue3</span>
+                            <a href="/tags/git/" target="_blank">
+                                <span class="chip bg-color">git</span>
                             </a>
                         
                     </div>
@@ -377,20 +378,29 @@ Comp">
                 </div>
                 <div class="col s5 right-align">
                     
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7/" class="post-category" target="_blank">
+                                版本控制工具
+                            </a>
+                        
+                    </div>
+                    
                 </div>
             </div>
 
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-12-30
+                    2021-09-13
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        433
+                        413
                     </div>
                     
 
@@ -408,57 +418,61 @@ Comp">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="setup函数"><a href="#setup函数" class="headerlink" title="setup函数"></a>setup函数</h2><ul>
-<li>setup用于定义变量和方法</li>
-<li>ref用于声明简单数据类型，如：String Number Boolean</li>
-<li>reactive用来声明复杂数据类型，如：Array Objec</li>
-<li>是使用Composition API的入口<ul>
-<li>Composition API的主要思想，将它们定义为从新的setup函数返回的JavaScript变量，而不是从组件的功能（如：data、methods、computed等）定义为对象的属性</li>
-<li>Composition API 代替 Vue Mixins （解决命名冲突、隐式依赖、代码重用等问题）</li>
+                <h1 id="1-生成SSH-Key"><a href="#1-生成SSH-Key" class="headerlink" title="1. 生成SSH-Key"></a>1. 生成SSH-Key</h1><ul>
+<li>Windows系统请使用<code>Git bash</code>操作</li>
+</ul>
+<pre class=" language-ps"><code class="language-ps"># 生成第一个SSH-Key
+$ ssh-keygen -t rsa -C "你的邮箱” -f ~/.ssh/id_rsa_one
+# 生成第二个SSH-Key
+$ ssh-keygen -t rsa -C ""你的邮箱”” -f ~/.ssh/id_rsa_two</code></pre>
+<ul>
+<li>创建完成之后 我们在.ssh的根目录下可以看到文件<ul>
+<li><code>C:\Users\Administrator\.ssh</code> 或者 <code>C:\Users\电脑用户名\.ssh</code></li>
 </ul>
 </li>
-<li>在生命周期beforeCreate前被调用（执行setup时，组件实例尚未被创建）</li>
-<li>可以返回一个对象，这个对象的属性会被合并到渲染上下文，可以在模板中直接使用</li>
-<li>也可以返回一个渲染函数，如：<code>return () =&gt; h(&#39;div&#39;, [count.value, object.foo])</code></li>
-<li>在setup中没有this</li>
-<li>接收props作为第一个参数，如果props为对象，可通过watchEffect监视其变化</li>
-<li>接收context作为第二个参数，这个对象包含attrs、slots、emit三个属性</li>
-<li>context非响应式，可以直接解构使用 <code>setup(props,{attr,slots,emit}){}</code></li>
-<li>执行setup函数时可以访问：props、attrs、slots、emit，不可以访问：data、computed、methods</li>
 </ul>
-<pre class=" language-js"><code class="language-js">
-<span class="token keyword">import</span> <span class="token punctuation">{</span> ref<span class="token punctuation">,</span> reactive<span class="token punctuation">,</span> toRefs<span class="token punctuation">,</span> isRef <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'vue'</span>
+<h1 id="2-添加私钥"><a href="#2-添加私钥" class="headerlink" title="2. 添加私钥"></a>2. 添加私钥</h1><pre class=" language-ps"><code class="language-ps"># 在终端中执行
 
-<span class="token keyword">export</span> defalut <span class="token punctuation">{</span>
-  props<span class="token punctuation">:</span><span class="token punctuation">{</span>
-    title<span class="token punctuation">:</span> String
-  <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token function">setup</span><span class="token punctuation">(</span> props<span class="token punctuation">,</span> context <span class="token punctuation">)</span><span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>props<span class="token punctuation">.</span>title<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 不能直接解构</span>
-    <span class="token keyword">const</span> <span class="token punctuation">{</span> title <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">toRefs</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span>
-    <span class="token keyword">let</span> count <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 声明简单数据类型</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>count<span class="token punctuation">.</span>valeu<span class="token punctuation">)</span><span class="token punctuation">;</span> 
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">isRef</span><span class="token punctuation">(</span>count<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 判断是否为ref创建出来的对象</span>
-    <span class="token keyword">let</span> arr <span class="token operator">=</span> <span class="token function">reactive</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// 声明复杂数据类型</span>
-    <span class="token keyword">let</span> addOne <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-      count<span class="token punctuation">.</span>value<span class="token operator">++</span> <span class="token comment" spellcheck="true">// 想改变或获取值 必须 xxx.value</span>
-    <span class="token punctuation">}</span>
+$ ssh-add ~/.ssh/id_rsa_gitlab
+$ ssh-add ~/.ssh/id_rsa_github
 
-    <span class="token comment" spellcheck="true">// Attribute(非响应式对象)</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>context<span class="token punctuation">.</span>attrs<span class="token punctuation">)</span>
+# 如果执行ssh-add时提示 Could not open a connection to your authentication agent
 
-    <span class="token comment" spellcheck="true">// 插槽(非响应式对象)</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>context<span class="token punctuation">.</span>slots<span class="token punctuation">)</span>
+# 可以先执行命令:
+$ ssh-agent bash
 
-    <span class="token comment" spellcheck="true">// 触发时间（方法）</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>content<span class="token punctuation">.</span>emit<span class="token punctuation">)</span>
+# 然后再重新运行ssh-add命令即可
+# 添加成功会出现提示：
+# Identity added 等字样</code></pre>
+<h1 id="3-查看私钥列表是否存在"><a href="#3-查看私钥列表是否存在" class="headerlink" title="3. 查看私钥列表是否存在"></a>3. 查看私钥列表是否存在</h1><pre class=" language-ps"><code class="language-ps">$ ssh-add -l
 
-    <span class="token keyword">return</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 必须返回 模板中才能使用</span>
-      count<span class="token punctuation">,</span> arr<span class="token punctuation">,</span> addOne
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-</code></pre>
+# 当我们可以看到2条私钥的时候就证明安装成功了</code></pre>
+<h1 id="4-修改配置文件config"><a href="#4-修改配置文件config" class="headerlink" title="4. 修改配置文件config"></a>4. 修改配置文件config</h1><ul>
+<li>若.ssh目录(就是私钥所在的文件夹)下无config文件，那就需要自己创建config文件（可用vs code创建）</li>
+<li>创建后添加一下内容：<pre class=" language-ps"><code class="language-ps"># giglab
+Host giglab.com
+HostName giglab.com
+PreferredAuthentications publickey
+IdentityFile ~/.ssh/id_rsa_gitlab
+# github
+Host github.com
+HostName github.com
+PreferredAuthentications publickey
+IdentityFile ~/.ssh/id_rsa_github</code></pre>
+</li>
+</ul>
+<h1 id="5-在gitlab、github网站中设置SSH-keys"><a href="#5-在gitlab、github网站中设置SSH-keys" class="headerlink" title="5. 在gitlab、github网站中设置SSH keys"></a>5. 在gitlab、github网站中设置SSH keys</h1><ul>
+<li>在gitlab、github网站中找到用户设置，找到SSH keys</li>
+<li>在.ssh的根目录中找到对应网站的<code>.pub</code>结尾的文件，用记事本打开，然后复制内容到对应网站保存即可</li>
+</ul>
+<h1 id="6-用ssh命令测试验证"><a href="#6-用ssh命令测试验证" class="headerlink" title="6. 用ssh命令测试验证"></a>6. 用ssh命令测试验证</h1><pre class=" language-ps"><code class="language-ps">$ ssh -T git@gitlab.com
+$ ssh -T git@github.com
+
+# 如果出现 Are you sure you want to continue connecting? 
+# 直接输入 yes
+# 然后重复上面的命令
+# 验证通过会有类似“Welconme”或者“Hi”的欢迎字样</code></pre>
+<h1 id="7-清空私钥列表"><a href="#7-清空私钥列表" class="headerlink" title="7. 清空私钥列表"></a>7. 清空私钥列表</h1><pre class=" language-ps"><code class="language-ps">$ ssh-add -D</code></pre>
 
             </div>
             <hr/>
@@ -886,33 +900,92 @@ Comp">
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/02/26/Nginx%E5%9F%BA%E6%9C%AC%E5%8A%9F%E8%83%BD%E5%8F%8A%E9%85%8D%E7%BD%AE/">
+                <a href="/2021/09/13/git%E4%B9%8B%E5%A4%9ASSH-key%E9%85%8D%E7%BD%AE/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/card-bg3.jpg" class="responsive-img" alt="Nginx基本功能及配置">
+                        <img src="/medias/card-bg17.jpg" class="responsive-img" alt="git之多SSH-key配置">
                         
-                        <span class="card-title">Nginx基本功能及配置</span>
+                        <span class="card-title">git之多SSH-key配置</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Nginx的基本功能及配置查找 Nginx 安装目录ps aux | grep Nginx
-默认的 nginx 配置文件 nginx.conf 内容#user  nobody;
-worker_processes  1;
+                            1. 生成SSH-Key
+Windows系统请使用Git bash操作
 
-#error_lo
+# 生成第一个SSH-Key
+$ ssh-keygen -t rsa -C "你的邮箱” -f ~/.ssh/id_rsa_one
+# 生成第二个SSH-Key
+$ 
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2021-02-26
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-09-13
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7/" class="post-category" target="_blank">
+                                    版本控制工具
+                                </a>
+                            
+                            
                         </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/git/" target="_blank">
+                        <span class="chip bg-color">git</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/08/31/docker%E8%B5%B7%E6%AD%A5%E6%95%99%E7%A8%8B/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/card-bg18.jpg" class="responsive-img" alt="docker起步教程">
+                        
+                        <span class="card-title">docker起步教程</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            安装docker## 安装docker
+yum install docker -y
+
+## 查看docker版本
+docker -v
+自动部署时需要的Dockerfile
+编写Dockerfile时文件名就为Dockerfile，不需要要任
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-08-31
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -928,58 +1001,8 @@ worker_processes  1;
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Nginx/" target="_blank">
-                        <span class="chip bg-color">Nginx</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/12/29/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E9%80%9A%E7%9F%A5%E6%8E%A8%E9%80%81/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/card-bg23.jpg" class="responsive-img" alt="小程序通知推送">
-                        
-                        <span class="card-title">小程序通知推送</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            小程序推送通知方式（订阅消息&amp;消息模板）小程序发送小程序的订阅消息(推送到服务通知)
-准备1：登录小程序-功能-订阅消息（未开通的，需要先开通）-从模板库中添加消息模板并获得模板ID（也可以申请消息模板）
-
-步骤：
-
-获取下发权限 
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-12-29
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-user fa-fw"></i>
-                            Damao
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" target="_blank">
-                        <span class="chip bg-color">小程序</span>
+                    <a href="/tags/docker/" target="_blank">
+                        <span class="chip bg-color">docker</span>
                     </a>
                     
                 </div>

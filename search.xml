@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>git之多SSH-key配置</title>
+      <link href="2021/09/13/git%E4%B9%8B%E5%A4%9ASSH-key%E9%85%8D%E7%BD%AE/"/>
+      <url>2021/09/13/git%E4%B9%8B%E5%A4%9ASSH-key%E9%85%8D%E7%BD%AE/</url>
+      
+        <content type="html"><![CDATA[<h1 id="1-生成SSH-Key"><a href="#1-生成SSH-Key" class="headerlink" title="1. 生成SSH-Key"></a>1. 生成SSH-Key</h1><ul><li>Windows系统请使用<code>Git bash</code>操作</li></ul><pre class=" language-ps"><code class="language-ps"># 生成第一个SSH-Key$ ssh-keygen -t rsa -C "你的邮箱” -f ~/.ssh/id_rsa_one# 生成第二个SSH-Key$ ssh-keygen -t rsa -C ""你的邮箱”” -f ~/.ssh/id_rsa_two</code></pre><ul><li>创建完成之后 我们在.ssh的根目录下可以看到文件<ul><li><code>C:\Users\Administrator\.ssh</code> 或者 <code>C:\Users\电脑用户名\.ssh</code></li></ul></li></ul><h1 id="2-添加私钥"><a href="#2-添加私钥" class="headerlink" title="2. 添加私钥"></a>2. 添加私钥</h1><pre class=" language-ps"><code class="language-ps"># 在终端中执行$ ssh-add ~/.ssh/id_rsa_gitlab$ ssh-add ~/.ssh/id_rsa_github# 如果执行ssh-add时提示 Could not open a connection to your authentication agent# 可以先执行命令:$ ssh-agent bash# 然后再重新运行ssh-add命令即可# 添加成功会出现提示：# Identity added 等字样</code></pre><h1 id="3-查看私钥列表是否存在"><a href="#3-查看私钥列表是否存在" class="headerlink" title="3. 查看私钥列表是否存在"></a>3. 查看私钥列表是否存在</h1><pre class=" language-ps"><code class="language-ps">$ ssh-add -l# 当我们可以看到2条私钥的时候就证明安装成功了</code></pre><h1 id="4-修改配置文件config"><a href="#4-修改配置文件config" class="headerlink" title="4. 修改配置文件config"></a>4. 修改配置文件config</h1><ul><li>若.ssh目录(就是私钥所在的文件夹)下无config文件，那就需要自己创建config文件（可用vs code创建）</li><li>创建后添加一下内容：<pre class=" language-ps"><code class="language-ps"># giglabHost giglab.comHostName giglab.comPreferredAuthentications publickeyIdentityFile ~/.ssh/id_rsa_gitlab# githubHost github.comHostName github.comPreferredAuthentications publickeyIdentityFile ~/.ssh/id_rsa_github</code></pre></li></ul><h1 id="5-在gitlab、github网站中设置SSH-keys"><a href="#5-在gitlab、github网站中设置SSH-keys" class="headerlink" title="5. 在gitlab、github网站中设置SSH keys"></a>5. 在gitlab、github网站中设置SSH keys</h1><ul><li>在gitlab、github网站中找到用户设置，找到SSH keys</li><li>在.ssh的根目录中找到对应网站的<code>.pub</code>结尾的文件，用记事本打开，然后复制内容到对应网站保存即可</li></ul><h1 id="6-用ssh命令测试验证"><a href="#6-用ssh命令测试验证" class="headerlink" title="6. 用ssh命令测试验证"></a>6. 用ssh命令测试验证</h1><pre class=" language-ps"><code class="language-ps">$ ssh -T git@gitlab.com$ ssh -T git@github.com# 如果出现 Are you sure you want to continue connecting? # 直接输入 yes# 然后重复上面的命令# 验证通过会有类似“Welconme”或者“Hi”的欢迎字样</code></pre><h1 id="7-清空私钥列表"><a href="#7-清空私钥列表" class="headerlink" title="7. 清空私钥列表"></a>7. 清空私钥列表</h1><pre class=" language-ps"><code class="language-ps">$ ssh-add -D</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 版本控制工具 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>docker起步教程</title>
       <link href="2021/08/31/docker%E8%B5%B7%E6%AD%A5%E6%95%99%E7%A8%8B/"/>
       <url>2021/08/31/docker%E8%B5%B7%E6%AD%A5%E6%95%99%E7%A8%8B/</url>
