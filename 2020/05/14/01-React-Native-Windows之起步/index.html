@@ -476,6 +476,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
@@ -509,18 +512,34 @@
 <li><p>如果您在UWP应用程序窗口中看到带有错误消息：的红色错误框，请 ERROR: Instance failed to start. A connection with the server cannot be established 确保您正在使用打包 yarn start 程序运行，然后再次运行该应用程序。</p>
 <h1 id="安装-React-Native-for-Windows"><a href="#安装-React-Native-for-Windows" class="headerlink" title="安装 React Native for Windows"></a>安装 React Native for Windows</h1></li>
 <li><p>在需要创建项目的目录下面执行 <code>react-native init</code></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npx react-native init &lt;project name&gt; --version ^<span class="number">0.61</span><span class="number">.5</span></span><br><span class="line"><span class="comment">// npx 还能避免全局安装的模块,安装模块时会下载到一个临时目录，使用以后再删除</span></span><br><span class="line"><span class="comment">// –version ^0.61.5 指定版本号</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">npx react<span class="token operator">-</span>native init <span class="token operator">&lt;</span>project name<span class="token operator">></span> <span class="token operator">--</span>version <span class="token operator">^</span><span class="token number">0.61</span><span class="token number">.5</span>
+<span class="token comment">// npx 还能避免全局安装的模块,安装模块时会下载到一个临时目录，使用以后再删除</span>
+<span class="token comment">// –version ^0.61.5 指定版本号</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h1 id="安装-Windows-扩展"><a href="#安装-Windows-扩展" class="headerlink" title="安装 Windows 扩展"></a>安装 Windows 扩展</h1></li>
 <li><p>安装 React Native for Windows 软件包</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd &lt;project name&gt; </span><br><span class="line">npx react-native-windows-init --overwrite</span><br><span class="line"><span class="comment">// 切换到创建项目的目录下面然后安装</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">cd <span class="token operator">&lt;</span>project name<span class="token operator">></span> 
+npx react<span class="token operator">-</span>native<span class="token operator">-</span>windows<span class="token operator">-</span>init <span class="token operator">--</span>overwrite
+<span class="token comment">// 切换到创建项目的目录下面然后安装</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h1 id="运行-React-Native-Windows-应用"><a href="#运行-React-Native-Windows-应用" class="headerlink" title="运行 React Native Windows 应用"></a>运行 React Native Windows 应用</h1></li>
 <li><p>运行前确保浏览器已经打开</p>
 </li>
 <li><p>在 VS Code 中运行</p>
 <ul>
 <li>安装 VS Code 插件： React Native Tools</li>
-<li>在应用程根目录创建文件 .vscode/launch.json，并粘贴如下内容<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">&quot;version&quot;</span>: <span class="string">&quot;0.2.0&quot;</span>,</span><br><span class="line">    <span class="string">&quot;configurations&quot;</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">&quot;name&quot;</span>: <span class="string">&quot;Debug Windows&quot;</span>,</span><br><span class="line">            <span class="string">&quot;cwd&quot;</span>: <span class="string">&quot;$&#123;workspaceFolder&#125;&quot;</span>,</span><br><span class="line">            <span class="string">&quot;type&quot;</span>: <span class="string">&quot;reactnative&quot;</span>,</span><br><span class="line">            <span class="string">&quot;request&quot;</span>: <span class="string">&quot;launch&quot;</span>,</span><br><span class="line">            <span class="string">&quot;platform&quot;</span>: <span class="string">&quot;windows&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="运行项目"><a href="#运行项目" class="headerlink" title="运行项目"></a>运行项目</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npx react-native run-windows</span><br><span class="line"><span class="comment">// 第一次启动会有点慢，安装后会淡出一个命令提示符窗口，请按回车以继续</span></span><br></pre></td></tr></table></figure></li>
+<li>在应用程根目录创建文件 .vscode/launch.json，并粘贴如下内容<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token punctuation">&#123;</span>
+    <span class="token string">"version"</span><span class="token operator">:</span> <span class="token string">"0.2.0"</span><span class="token punctuation">,</span>
+    <span class="token string">"configurations"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">&#123;</span>
+            <span class="token string">"name"</span><span class="token operator">:</span> <span class="token string">"Debug Windows"</span><span class="token punctuation">,</span>
+            <span class="token string">"cwd"</span><span class="token operator">:</span> <span class="token string">"$&#123;workspaceFolder&#125;"</span><span class="token punctuation">,</span>
+            <span class="token string">"type"</span><span class="token operator">:</span> <span class="token string">"reactnative"</span><span class="token punctuation">,</span>
+            <span class="token string">"request"</span><span class="token operator">:</span> <span class="token string">"launch"</span><span class="token punctuation">,</span>
+            <span class="token string">"platform"</span><span class="token operator">:</span> <span class="token string">"windows"</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="运行项目"><a href="#运行项目" class="headerlink" title="运行项目"></a>运行项目</h1><pre class="line-numbers language-js" data-language="js"><code class="language-js">npx react<span class="token operator">-</span>native run<span class="token operator">-</span>windows
+<span class="token comment">// 第一次启动会有点慢，安装后会淡出一个命令提示符窗口，请按回车以继续</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
 </ul>
 </li>
 <li><p>按 “r” 键可以重载应用</p>
