@@ -546,12 +546,10 @@ header .go-back i {
 }
 
 .index-cover {
-    padding-top: 64px;
     height: 55vh;
 }
 
 .post-cover {
-    padding-top: 64px;
     height: 40vh !important;
 }
 
