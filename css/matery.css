@@ -546,11 +546,11 @@ header .go-back i {
 }
 
 .index-cover {
-    height: 50vh;
+    height: 60vh;
 }
 
 .post-cover {
-    height: 40vh !important;
+    height: 45vh !important;
 }
 
 .bg-cover:after {
