@@ -373,6 +373,7 @@ header .side-nav .social-link {
     position: relative;
     top: 10vh;
     text-align: center;
+    display: none;
 }
 
 .cover-btns a {
@@ -545,7 +546,7 @@ header .go-back i {
 }
 
 .index-cover {
-    height: 100vh;
+    height: 50vh;
 }
 
 .post-cover {
