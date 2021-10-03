@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="_posts, Damao">
+    <meta name="keywords" content="关于typescript改造旧项目的一些坑, Damao">
     <meta name="description" content="Coding...">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>_posts | Damao</title>
+    <title>关于typescript改造旧项目的一些坑 | Damao</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -245,12 +245,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">_posts</h1>
+                    <h1 class="description center-align post-title">关于typescript改造旧项目的一些坑</h1>
                 </div>
             </div>
         </div>
@@ -364,12 +364,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/typescript/">
+                                <span class="chip bg-color">typescript</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/JavaScript/" class="post-category">
+                                JavaScript
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -378,28 +391,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-10-03
+                    2021-02-26
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-10-03
+                    2021-10-04
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    467
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -422,7 +435,60 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h2 id="‘-‘-引入组件报红问题"><a href="#‘-‘-引入组件报红问题" class="headerlink" title="‘@/‘ 引入组件报红问题"></a>‘@/‘ 引入组件报红问题</h2><ul>
+<li>使用 ‘@/xxx/xxx’ 引入组件，vetur报红 找不到module，但是可以正常运行问题</li>
+<li>解决办法：1.把项目目录放工作区根目录；2.项目一定排列在第一位<h2 id="引入第三方包报红"><a href="#引入第三方包报红" class="headerlink" title="引入第三方包报红"></a>引入第三方包报红</h2></li>
+<li>引入第三方库 报红找不到module，无法正常使用包，如qs、jQuery</li>
+<li>解决办法1：使用@types进行包管理，然后正常引入<pre class="line-numbers language-js" data-language="js"><code class="language-js">npm i @types<span class="token operator">/</span>qs
+<span class="token keyword">import</span> qs <span class="token keyword">from</span> <span class="token string">'qs'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li>解决办法2：有些包不能用@types管理，自己写声明 XX.d.ts  不推荐</li>
+</ul>
+<h2 id="router配置里引入component组件的时候必须添加-vue后缀"><a href="#router配置里引入component组件的时候必须添加-vue后缀" class="headerlink" title="router配置里引入component组件的时候必须添加.vue后缀"></a>router配置里引入component组件的时候必须添加.vue后缀</h2><h2 id="Element表单验证报红问题"><a href="#Element表单验证报红问题" class="headerlink" title="Element表单验证报红问题"></a>Element表单验证报红问题</h2><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 报错信息如下</span>
+<span class="token comment">// Property 'validate' does not exist on type 'Vue | Element | Vue[] | Element[]'.</span>
+<span class="token comment">// Property 'validate' does not exist on type 'Vue'.</span>
+
+<span class="token comment">// 解决办法</span>
+<span class="token keyword">import</span> <span class="token punctuation">&#123;</span> Form <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">"element-ui"</span><span class="token punctuation">;</span>
+<span class="token punctuation">(</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$refs<span class="token punctuation">.</span>loginForm <span class="token keyword">as</span> Form <span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">validate</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">valid<span class="token operator">:</span> boolean</span> <span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  <span class="token operator">...</span>
+ <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 如果不引入Form，把Form换成any也可以，但是typescript会报警告⚠</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>使用axios封装的请求，然后解构请求结果报错<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 报错信息</span>
+<span class="token comment">// Property 'XXX' does not exist on type 'AxiosResponse&lt;any>'</span>
+
+<span class="token comment">// 解决办法</span>
+<span class="token comment">// 新建axios.d.ts文案，添加如下内容，重启项目</span>
+<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> axios <span class="token keyword">from</span> <span class="token string">'axios'</span>
+
+declare module <span class="token string">'axios'</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">interface</span> <span class="token class-name">AxiosInstance</span> <span class="token punctuation">&#123;</span>
+    <span class="token punctuation">(</span>config<span class="token operator">:</span> AxiosRequestConfig<span class="token punctuation">)</span><span class="token operator">:</span> Promise<span class="token operator">&lt;</span>any<span class="token operator">></span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+@typescript<span class="token operator">/</span>esline 报错 xxx_x is not <span class="token keyword">in</span> camel <span class="token keyword">case</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="关闭esline驼峰校验"><a href="#关闭esline驼峰校验" class="headerlink" title="关闭esline驼峰校验"></a>关闭esline驼峰校验</h2><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 在.eslinetrc.js中配置如下：</span>
+rules<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+  <span class="token operator">...</span>
+  <span class="token string">'@typescript-eslint/camelcase'</span><span class="token operator">:</span> <span class="token string">'off'</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="TS使用”require”报错"><a href="#TS使用”require”报错" class="headerlink" title="TS使用”require”报错"></a>TS使用”require”报错</h2></li>
+<li>提示报错信息：Cannot find name ‘require’. Do you need to install type definitions for node? Try ‘npm i –save-dev @types/node’</li>
+<li>解决方案：<ul>
+<li>1.安装@types/node，npm i –save-dev @types/node；</li>
+<li>2.在tsconfig.json中的compilerOptions中的types添加”node”；</li>
+<li>3.在使用require前面添加declare var require:any<h2 id="TS使用”this-xxx”报错"><a href="#TS使用”this-xxx”报错" class="headerlink" title="TS使用”this.xxx”报错"></a>TS使用”this.xxx”报错</h2><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 使用"this.$router.push("/xxx")" => Property '$router' does not exist on type 'Experiment'.</span>
+<span class="token comment">// 解决：</span>
+<span class="token punctuation">(</span><span class="token keyword">this</span> <span class="token keyword">as</span> any<span class="token punctuation">)</span><span class="token punctuation">.</span>$router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">"/xxx"</span><span class="token punctuation">)</span>
+<span class="token keyword">this</span><span class="token punctuation">.</span>$refs<span class="token punctuation">.</span><span class="token parameter">mainVideo</span> <span class="token operator">=></span> Property <span class="token string">'clientWidth'</span> does not exist on type <span class="token string">'Vue | Element | Vue[] | Element[]'</span><span class="token punctuation">.</span>
+<span class="token comment">// Property 'clientWidth' does not exist on type 'Vue'</span>
+<span class="token comment">// 解决：</span>
+<span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>$refs<span class="token punctuation">.</span>mainVideo <span class="token keyword">as</span> any<span class="token punctuation">)</span><span class="token punctuation">.</span>clientWidth<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+</li>
+</ul>
+
                 
             </div>
             <hr/>
@@ -448,7 +514,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://damao2250.com/2021/10/03/index/">http://damao2250.com/2021/10/03/index/</a>
+                    <a href="http://damao2250.com/2021/02/26/%E5%85%B3%E4%BA%8Etypescript%E6%94%B9%E9%80%A0%E6%97%A7%E9%A1%B9%E7%9B%AE%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9D%91/">http://damao2250.com/2021/02/26/%E5%85%B3%E4%BA%8Etypescript%E6%94%B9%E9%80%A0%E6%97%A7%E9%A1%B9%E7%9B%AE%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9D%91/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -485,7 +551,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/typescript/">
+                                    <span class="chip bg-color">typescript</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -659,43 +729,6 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/10/03/hello-world/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
-                        
-                        <span class="card-title">Hello World</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-10-03
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            Damao
-                            
-                        </span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
                 <a href="/2021/07/08/%E5%85%B3%E4%BA%8EReact'%E4%B8%89%E5%8D%83%E9%97%AE'/">
                     <div class="card-image">
                         
@@ -712,9 +745,9 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-08
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-07-08
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -732,6 +765,59 @@
                     
                     <a href="/tags/React/">
                         <span class="chip bg-color">React</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/11/09/%E5%9F%BA%E4%BA%8EElement-Ui%E7%9A%84select%E4%BA%8C%E6%AC%A1%E5%B0%81%E8%A3%85%E7%9A%84%E4%B8%8B%E6%8B%89%E6%90%9C%E7%B4%A2%E7%BB%84%E4%BB%B6/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="基于Element-Ui的select二次封装的下拉搜索组件">
+                        
+                        <span class="card-title">基于Element-Ui的select二次封装的下拉搜索组件</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-09
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/JavaScript/" class="post-category">
+                                    JavaScript
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Element-ui/">
+                        <span class="chip bg-color">Element-ui</span>
+                    </a>
+                    
+                    <a href="/tags/UI%E6%A1%86%E6%9E%B6/">
+                        <span class="chip bg-color">UI框架</span>
                     </a>
                     
                 </div>

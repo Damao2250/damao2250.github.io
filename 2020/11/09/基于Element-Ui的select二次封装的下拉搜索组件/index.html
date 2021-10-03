@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="_posts, Damao">
+    <meta name="keywords" content="基于Element-Ui的select二次封装的下拉搜索组件, Damao">
     <meta name="description" content="Coding...">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>_posts | Damao</title>
+    <title>基于Element-Ui的select二次封装的下拉搜索组件 | Damao</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -245,12 +245,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">_posts</h1>
+                    <h1 class="description center-align post-title">基于Element-Ui的select二次封装的下拉搜索组件</h1>
                 </div>
             </div>
         </div>
@@ -364,12 +364,29 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Element-ui/">
+                                <span class="chip bg-color">Element-ui</span>
+                            </a>
+                        
+                            <a href="/tags/UI%E6%A1%86%E6%9E%B6/">
+                                <span class="chip bg-color">UI框架</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/JavaScript/" class="post-category">
+                                JavaScript
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -378,21 +395,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-10-03
+                    2020-11-09
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-10-03
+                    2021-10-04
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    312
                 </div>
                 
 
@@ -422,7 +439,109 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h2 id="少了罗嗦，直接看代码"><a href="#少了罗嗦，直接看代码" class="headerlink" title="少了罗嗦，直接看代码"></a>少了罗嗦，直接看代码</h2><ul>
+<li>注意代码不能直接使用，只是提供一种封装思路，其中 dSearchList 及样式需要自己重新写, dCountryList 来自 dropListMixin</li>
+<li>还有很多方法并未加进来，可根据实际自行添加<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// select/index.vue</span>
+<span class="token operator">&lt;</span>template<span class="token operator">></span>
+  <span class="token operator">&lt;</span>div<span class="token operator">></span>
+    <span class="token operator">&lt;</span>el<span class="token operator">-</span>select
+      <span class="token operator">:</span>value<span class="token operator">=</span><span class="token string">"value"</span>
+      <span class="token operator">:</span>placeholder<span class="token operator">=</span><span class="token string">"placeholder"</span>
+      <span class="token operator">:</span>filterable<span class="token operator">=</span><span class="token string">"true"</span>
+      <span class="token operator">:</span>style<span class="token operator">=</span><span class="token string">"customStyle"</span>
+      <span class="token operator">:</span><span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"customClass"</span>
+      <span class="token operator">:</span>remote<span class="token operator">=</span><span class="token string">"true"</span>
+      <span class="token operator">:</span>size<span class="token operator">=</span><span class="token string">"size"</span>
+      <span class="token operator">:</span>remote<span class="token operator">-</span>method<span class="token operator">=</span><span class="token string">"dSearchList('countryList')"</span>
+      <span class="token operator">:</span>loading<span class="token operator">=</span><span class="token string">"dLoading"</span>
+      <span class="token operator">:</span>clearable<span class="token operator">=</span><span class="token string">"true"</span>
+      @input<span class="token operator">=</span><span class="token string">"onChange($event)"</span>
+      @change<span class="token operator">=</span><span class="token string">"(val) => onSelectChange(val)"</span>
+    <span class="token operator">></span>
+      <span class="token operator">&lt;</span>el<span class="token operator">-</span>option
+        v<span class="token operator">-</span><span class="token keyword">for</span><span class="token operator">=</span><span class="token string">"item in dCountryList"</span>
+        <span class="token operator">:</span>key<span class="token operator">=</span><span class="token string">"item[optionKey]"</span>
+        <span class="token operator">:</span>label<span class="token operator">=</span><span class="token string">"item[optionLabel]"</span>
+        <span class="token operator">:</span>value<span class="token operator">=</span><span class="token string">"item[optionValue]"</span>
+      <span class="token operator">></span>
+        <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"d-f f-jc-sb"</span><span class="token operator">></span>
+          <span class="token operator">&lt;</span>span<span class="token operator">></span><span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span> item<span class="token punctuation">.</span>code <span class="token operator">||</span> <span class="token string">""</span> <span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span>
+          <span class="token operator">&lt;</span>span<span class="token operator">></span><span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span> item<span class="token punctuation">.</span>name <span class="token operator">||</span> <span class="token string">""</span> <span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span>
+          <span class="token operator">&lt;</span>span<span class="token operator">></span><span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span> item<span class="token punctuation">.</span>numCode <span class="token operator">||</span> <span class="token string">""</span> <span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>el<span class="token operator">-</span>option<span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>el<span class="token operator">-</span>select<span class="token operator">></span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">></span>
+
+<span class="token operator">&lt;</span>script<span class="token operator">></span>
+<span class="token keyword">import</span> <span class="token punctuation">&#123;</span> dropListMixin <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">"@/mixins/drop_list_mixin"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">&#123;</span>
+  mixins<span class="token operator">:</span> <span class="token punctuation">[</span>dropListMixin<span class="token punctuation">]</span><span class="token punctuation">,</span>
+  props<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    value<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      type<span class="token operator">:</span> String<span class="token punctuation">,</span>
+      <span class="token keyword">default</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    placeholder<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      type<span class="token operator">:</span> String<span class="token punctuation">,</span>
+      <span class="token keyword">default</span><span class="token operator">:</span> <span class="token string">"请输入"</span><span class="token punctuation">,</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    customStyle<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      type<span class="token operator">:</span> String<span class="token punctuation">,</span>
+      <span class="token keyword">default</span><span class="token operator">:</span> <span class="token string">"width: 100%;"</span><span class="token punctuation">,</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    customClass<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      type<span class="token operator">:</span> String<span class="token punctuation">,</span>
+      <span class="token keyword">default</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    clearable<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      type<span class="token operator">:</span> Boolean<span class="token punctuation">,</span>
+      <span class="token keyword">default</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    size<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      type<span class="token operator">:</span> String<span class="token punctuation">,</span>
+      <span class="token keyword">default</span><span class="token operator">:</span> <span class="token string">"small"</span><span class="token punctuation">,</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    optionKey<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      type<span class="token operator">:</span> String<span class="token punctuation">,</span>
+      <span class="token keyword">default</span><span class="token operator">:</span> <span class="token string">"code"</span><span class="token punctuation">,</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    optionLabel<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      type<span class="token operator">:</span> String<span class="token punctuation">,</span>
+      <span class="token keyword">default</span><span class="token operator">:</span> <span class="token string">"name"</span><span class="token punctuation">,</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    optionValue<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      type<span class="token operator">:</span> String<span class="token punctuation">,</span>
+      <span class="token keyword">default</span><span class="token operator">:</span> <span class="token string">"code"</span><span class="token punctuation">,</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token function">created</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">dInit</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">"countryList"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  methods<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token function">onChange</span><span class="token punctuation">(</span><span class="token parameter">val</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$emit</span><span class="token punctuation">(</span><span class="token string">"input"</span><span class="token punctuation">,</span> val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token function">onSelectChange</span><span class="token punctuation">(</span><span class="token parameter">val</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$emit</span><span class="token punctuation">(</span><span class="token string">"selectChange"</span><span class="token punctuation">,</span> val<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+
+
+<span class="token comment">//   使用示例 </span>
+
+  <span class="token operator">&lt;</span>country<span class="token operator">-</span>select <span class="token operator">:</span>size<span class="token operator">=</span><span class="token string">"medium"</span> v<span class="token operator">-</span>model<span class="token operator">=</span><span class="token string">"formData.countryCode"</span> @selectChange<span class="token operator">=</span><span class="token string">"val => onCountrySelect(val,'countryCode')"</span> <span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>country<span class="token operator">-</span>select<span class="token operator">></span> 
+
+<span class="token comment">//   使用示例 </span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+
                 
             </div>
             <hr/>
@@ -448,7 +567,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://damao2250.com/2021/10/03/index/">http://damao2250.com/2021/10/03/index/</a>
+                    <a href="http://damao2250.com/2020/11/09/%E5%9F%BA%E4%BA%8EElement-Ui%E7%9A%84select%E4%BA%8C%E6%AC%A1%E5%B0%81%E8%A3%85%E7%9A%84%E4%B8%8B%E6%8B%89%E6%90%9C%E7%B4%A2%E7%BB%84%E4%BB%B6/">http://damao2250.com/2020/11/09/%E5%9F%BA%E4%BA%8EElement-Ui%E7%9A%84select%E4%BA%8C%E6%AC%A1%E5%B0%81%E8%A3%85%E7%9A%84%E4%B8%8B%E6%8B%89%E6%90%9C%E7%B4%A2%E7%BB%84%E4%BB%B6/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -485,7 +604,15 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/Element-ui/">
+                                    <span class="chip bg-color">Element-ui</span>
+                                </a>
+                            
+                                <a href="/tags/UI%E6%A1%86%E6%9E%B6/">
+                                    <span class="chip bg-color">UI框架</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -659,13 +786,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/10/03/hello-world/">
+                <a href="/2021/02/26/%E5%85%B3%E4%BA%8Etypescript%E6%94%B9%E9%80%A0%E6%97%A7%E9%A1%B9%E7%9B%AE%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9D%91/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="关于typescript改造旧项目的一些坑">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">关于typescript改造旧项目的一些坑</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -676,15 +803,27 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-10-03
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-26
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Damao
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/JavaScript/" class="post-category">
+                                    JavaScript
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/typescript/">
+                        <span class="chip bg-color">typescript</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -696,13 +835,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/07/08/%E5%85%B3%E4%BA%8EReact'%E4%B8%89%E5%8D%83%E9%97%AE'/">
+                <a href="/2020/10/03/%E5%85%B3%E4%BA%8Ejs%E4%B8%AD%E5%AF%B9%E5%B0%8F%E6%95%B0%E7%9A%84%E8%AE%A1%E7%AE%97/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="关于React&#39;三千问&#39;">
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="关于js中对小数的计算">
                         
-                        <span class="card-title">关于React&#39;三千问&#39;</span>
+                        <span class="card-title">关于js中对小数的计算</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -713,7 +852,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-08
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-03
                             </span>
                         <span class="publish-author">
                             
@@ -730,8 +869,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/React/">
-                        <span class="chip bg-color">React</span>
+                    <a href="/tags/JS/">
+                        <span class="chip bg-color">JS</span>
                     </a>
                     
                 </div>

@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="_posts, Damao">
+    <meta name="keywords" content="抽象组件实现节流/防抖, Damao">
     <meta name="description" content="Coding...">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>_posts | Damao</title>
+    <title>抽象组件实现节流/防抖 | Damao</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -245,12 +245,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">_posts</h1>
+                    <h1 class="description center-align post-title">抽象组件实现节流/防抖</h1>
                 </div>
             </div>
         </div>
@@ -364,12 +364,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E8%8A%82%E6%B5%81-%E9%98%B2%E6%8A%96/">
+                                <span class="chip bg-color">节流/防抖</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/JavaScript/" class="post-category">
+                                JavaScript
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -378,28 +391,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-10-03
+                    2020-05-04
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-10-03
+                    2021-10-04
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    689
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    3 分
                 </div>
                 
 
@@ -422,7 +435,139 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="节流-防抖"><a href="#节流-防抖" class="headerlink" title="节流/防抖"></a>节流/防抖</h1><ul>
+<li>节流：<ul>
+<li>一个函数执行一行后，只有大于设定的执行周期后才会被执行第二次(点击事件)</li>
+<li>有个需要频繁触发的函数，出于优化性能角度，在规定时间内，只让函数触发的第一次生效后面不生效</li>
+</ul>
+</li>
+<li>防抖：<ul>
+<li>一个需要频繁触发的函数，在规定时间内，只让最后一次生效，前面不生效<h1 id="Vue实现函数防抖组件"><a href="#Vue实现函数防抖组件" class="headerlink" title="Vue实现函数防抖组件"></a>Vue实现函数防抖组件</h1><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 组件</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">throttle</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">,</span> wait <span class="token operator">=</span> <span class="token number">50</span><span class="token punctuation">,</span> isDebounce<span class="token punctuation">,</span> ctx</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">let</span> timer
+  <span class="token keyword">let</span> lastCall <span class="token operator">=</span> <span class="token number">0</span>
+  <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>params</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>isDebounce<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>timer<span class="token punctuation">)</span> <span class="token function">clearTimeout</span><span class="token punctuation">(</span>timer<span class="token punctuation">)</span>
+      timer <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+        <span class="token function">fn</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>ctx<span class="token punctuation">,</span> params<span class="token punctuation">)</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> wait<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">const</span> now <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>now <span class="token operator">-</span> lastCall <span class="token operator">&lt;</span> wait<span class="token punctuation">)</span> <span class="token keyword">return</span>
+      lastCall <span class="token operator">=</span> now
+      <span class="token function">fn</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>ctx<span class="token punctuation">,</span> params<span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">&#123;</span>
+  name<span class="token operator">:</span> <span class="token string">"Throttle"</span><span class="token punctuation">,</span>
+  abstract<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  props<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    time<span class="token operator">:</span> Number<span class="token punctuation">,</span>
+    events<span class="token operator">:</span> String<span class="token punctuation">,</span>
+    isDebounce<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      type<span class="token operator">:</span> Boolean<span class="token punctuation">,</span>
+      <span class="token keyword">default</span><span class="token operator">:</span> <span class="token boolean">false</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token function">created</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>eventKeys <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>events<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">","</span><span class="token punctuation">)</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>originMap <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>throttledMap <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">const</span> vnode <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$slots<span class="token punctuation">.</span>default<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>eventKeys<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">key</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">const</span> target <span class="token operator">=</span> vnode<span class="token punctuation">.</span>data<span class="token punctuation">.</span>on<span class="token punctuation">[</span>key<span class="token punctuation">]</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>target <span class="token operator">===</span> <span class="token keyword">this</span><span class="token punctuation">.</span>originMap<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> <span class="token keyword">this</span><span class="token punctuation">.</span>throttledMap<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        vnode<span class="token punctuation">.</span>data<span class="token punctuation">.</span>on<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>throttledMap<span class="token punctuation">[</span>key<span class="token punctuation">]</span>
+      <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>target<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>originMap<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> target
+        <span class="token keyword">this</span><span class="token punctuation">.</span>throttledMap<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">throttle</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>time<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>isDebounce<span class="token punctuation">,</span> vnode<span class="token punctuation">)</span>
+        vnode<span class="token punctuation">.</span>data<span class="token punctuation">.</span>on<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>throttledMap<span class="token punctuation">[</span>key<span class="token punctuation">]</span>
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> vnode
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 通过第三个参数 isDebounce来控制切换防抖节流</span>
+<span class="token comment">// 在 main.js 引入</span>
+<span class="token keyword">import</span> Throttle <span class="token keyword">from</span> <span class="token string">"./Throttle"</span>
+Vue<span class="token punctuation">.</span><span class="token function">component</span><span class="token punctuation">(</span><span class="token string">"Throttle"</span><span class="token punctuation">,</span> Throttle<span class="token punctuation">)</span>
+
+<span class="token comment">// 使用</span>
+<span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"app"</span><span class="token operator">></span>
+  <span class="token operator">&lt;</span>Throttle <span class="token operator">:</span>timer<span class="token operator">=</span><span class="token string">"1000"</span> events<span class="token operator">=</span><span class="token string">"click"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>botton @click<span class="token operator">=</span><span class="token string">"onClick($event, 1)"</span><span class="token operator">></span>click <span class="token operator">+</span> <span class="token number">1</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span>val<span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token operator">&lt;</span><span class="token operator">/</span>botton<span class="token operator">></span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>Throttle<span class="token operator">></span>
+  <span class="token operator">&lt;</span>Throttle <span class="token operator">:</span>timer<span class="token operator">=</span><span class="token string">"1000"</span> events<span class="token operator">=</span><span class="token string">"click"</span> <span class="token operator">:</span>isDebounce<span class="token operator">=</span><span class="token string">"true"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>botton @click<span class="token operator">=</span><span class="token string">"onAdd"</span><span class="token operator">></span>click <span class="token operator">+</span> <span class="token number">3</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span>val<span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token operator">&lt;</span><span class="token operator">/</span>botton<span class="token operator">></span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>Throttle<span class="token operator">></span>
+  <span class="token operator">&lt;</span>Throttle <span class="token operator">:</span>timer<span class="token operator">=</span><span class="token string">"3300"</span> events<span class="token operator">=</span><span class="token string">"mouseleave"</span> <span class="token operator">:</span>isDebounce<span class="token operator">=</span><span class="token string">"true"</span><span class="token operator">></span>
+    <span class="token operator">&lt;</span>botton @mouseleave<span class="token punctuation">.</span>prevent<span class="token operator">=</span><span class="token string">"onAdd"</span><span class="token operator">></span>click <span class="token operator">+</span> <span class="token number">3</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span>val<span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token operator">&lt;</span><span class="token operator">/</span>botton<span class="token operator">></span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>Throttle<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+
+<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+  el<span class="token operator">:</span> <span class="token string">"#app"</span><span class="token punctuation">,</span>
+  <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
+      val<span class="token operator">:</span> <span class="token number">0</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    methods<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      <span class="token function">onClick</span><span class="token punctuation">(</span><span class="token parameter">$ev<span class="token punctuation">,</span>val</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>val <span class="token operator">=</span> val
+      <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+      <span class="token function">onAdd</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>val <span class="token operator">+=</span> <span class="token number">3</span>
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="实现一个防抖函数"><a href="#实现一个防抖函数" class="headerlink" title="实现一个防抖函数"></a>实现一个防抖函数</h1><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 在第一次触发事件时，不立即执行，而是在给定的时间值后，如果没有再次触发就执行，如果触发了，就取消当前的计时，然后重新计时</span>
+
+<span class="token comment">/**
+ * 
+ * @param &#123;Function&#125; fn 需要防抖的函数
+ * @param &#123;Number&#125; delay 毫秒，防抖时间值
+ */</span>
+<span class="token keyword">function</span> <span class="token function">debounce</span><span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">,</span> delay<span class="token operator">=</span><span class="token number">300</span></span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+  <span class="token keyword">let</span> timer <span class="token operator">=</span> <span class="token keyword">null</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>timer<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+      <span class="token function">clearTimeout</span><span class="token punctuation">(</span>timer<span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+    timer <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span>fn<span class="token punctuation">,</span> delay<span class="token punctuation">)</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+</li>
+</ul>
+<h1 id="实现一个节流函数"><a href="#实现一个节流函数" class="headerlink" title="实现一个节流函数"></a>实现一个节流函数</h1><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 类似控制阀门定期开放的函数，即让函数执行一次后，在间隔的时间里暂时失效不能再次执行，等过了间隔时间又重新激活（相当于冷却时间）</span>
+
+<span class="token comment">/**
+ * 
+ * @param &#123;Function&#125; fn 需要节流的函数
+ * @param &#123;Number&#125; delay 毫秒，节流间隔时间值
+ */</span>
+<span class="token keyword">function</span> <span class="token function">throttle</span><span class="token punctuation">(</span><span class="token parameter">fn<span class="token punctuation">,</span> delay<span class="token operator">=</span><span class="token number">300</span></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">let</span> valid <span class="token operator">=</span> <span class="token boolean">true</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>valid<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token comment">// 休息时间，不执行函数</span>
+      <span class="token keyword">return</span> <span class="token boolean">false</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token comment">// 工作时间，执行函数，并且在间隔期间内把状态设为无效</span>
+    valid <span class="token operator">=</span> <span class="token boolean">false</span>
+    <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+      <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+      valid <span class="token operator">=</span> <span class="token boolean">true</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> delay<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
                 
             </div>
             <hr/>
@@ -448,7 +593,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://damao2250.com/2021/10/03/index/">http://damao2250.com/2021/10/03/index/</a>
+                    <a href="http://damao2250.com/2020/05/04/%E6%8A%BD%E8%B1%A1%E7%BB%84%E4%BB%B6%E5%AE%9E%E7%8E%B0%E8%8A%82%E6%B5%81and%E9%98%B2%E6%8A%96/">http://damao2250.com/2020/05/04/%E6%8A%BD%E8%B1%A1%E7%BB%84%E4%BB%B6%E5%AE%9E%E7%8E%B0%E8%8A%82%E6%B5%81and%E9%98%B2%E6%8A%96/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -485,7 +630,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/%E8%8A%82%E6%B5%81-%E9%98%B2%E6%8A%96/">
+                                    <span class="chip bg-color">节流/防抖</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -659,13 +808,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/10/03/hello-world/">
+                <a href="/2020/05/14/%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="常用正则表达式">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">常用正则表达式</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -676,15 +825,27 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-10-03
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-14
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Damao
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%AD%A3%E5%88%99/" class="post-category">
+                                    正则
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
+                        <span class="chip bg-color">正则表达式</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -693,16 +854,16 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+                本篇&nbsp;<i class="far fa-dot-circle"></i>
             </div>
             <div class="card">
-                <a href="/2021/07/08/%E5%85%B3%E4%BA%8EReact'%E4%B8%89%E5%8D%83%E9%97%AE'/">
+                <a href="/2020/05/04/%E6%8A%BD%E8%B1%A1%E7%BB%84%E4%BB%B6%E5%AE%9E%E7%8E%B0%E8%8A%82%E6%B5%81and%E9%98%B2%E6%8A%96/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="关于React&#39;三千问&#39;">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="抽象组件实现节流/防抖">
                         
-                        <span class="card-title">关于React&#39;三千问&#39;</span>
+                        <span class="card-title">抽象组件实现节流/防抖</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -713,7 +874,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-08
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-04
                             </span>
                         <span class="publish-author">
                             
@@ -727,11 +888,12 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/React/">
-                        <span class="chip bg-color">React</span>
+                    <a href="/tags/%E8%8A%82%E6%B5%81-%E9%98%B2%E6%8A%96/">
+                        <span class="chip bg-color">节流/防抖</span>
                     </a>
                     
                 </div>
