@@ -546,11 +546,13 @@ header .go-back i {
 }
 
 .index-cover {
-    height: 60vh;
+    margin-top: 64px;
+    height: 55vh;
 }
 
 .post-cover {
-    height: 45vh !important;
+    margin-top: 64px;
+    height: 40vh !important;
 }
 
 .bg-cover:after {
