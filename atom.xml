@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Damao</title>
+  
+  <subtitle>乐躬耕于陇亩兮，吾爱吾庐。聊寄傲于琴书兮，以待天时。</subtitle>
+  <link href="http://damao2250.com/atom.xml" rel="self"/>
+  
+  <link href="http://damao2250.com/"/>
+  <updated>2021-09-22T01:33:37.903Z</updated>
+  <id>http://damao2250.com/</id>
+  
+  <author>
+    <name>Damao</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://damao2250.com/2021/10/03/hello-world/"/>
+    <id>http://damao2250.com/2021/10/03/hello-world/</id>
+    <published>2021-10-03T03:02:58.833Z</published>
+    <updated>2021-09-22T01:33:37.903Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>_posts</title>
+    <link href="http://damao2250.com/2021/10/03/index/"/>
+    <id>http://damao2250.com/2021/10/03/index/</id>
+    <published>2021-10-03T03:02:30.000Z</published>
+    <updated>2021-10-03T03:02:30.758Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>React Native for Windows 0.61 起步</title>
+    <link href="http://damao2250.com/2020/05/14/01-React-Native-Windows%E4%B9%8B%E8%B5%B7%E6%AD%A5/"/>
+    <id>http://damao2250.com/2020/05/14/01-React-Native-Windows%E4%B9%8B%E8%B5%B7%E6%AD%A5/</id>
+    <published>2020-05-14T01:25:00.000Z</published>
+    <updated>2021-10-02T09:08:04.637Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="系统要求"><a href="#系统要求" class="headerlink" title="系统要求"></a>系统要求</h1><ul><li><p>Windows 10</p><h1 id="开发依赖"><a href="#开发依赖" class="headerlink" title="开发依赖"></a>开发依赖</h1></li><li><p>安装 Visual Studio 2019</p></li><li><p>安装 Visual Studio 2019 的这些选项</p><ul><li>工作负载 -&gt; 通用 Windows 平台开发 -&gt; 勾选可选项里的 “C++ (v141)通用 Windows 平台工具”</li><li>工作负载 -&gt; 使用 C++ 的桌面开发</li><li>单个组件 -&gt; 编译器、生成工具和运行时 -&gt; MSVC v141 – VS 2017 C++ x64/x86 生成工具(v14.16)</li><li>单个组件 -&gt; 编译器、生成工具和运行时 -&gt; MSVC v141 – VS 2017 C++ ARM64 生成工具(v14.16)</li><li>单个组件 -&gt; 开发活动 -&gt; Node.js 开发工具</li><li>预计安装所需空间大小：21.64GB<h1 id="安装-React-Native-的开发依赖"><a href="#安装-React-Native-的开发依赖" class="headerlink" title="安装 React Native 的开发依赖"></a>安装 React Native 的开发依赖</h1></li></ul></li><li><p>安装标准的 React Native 开发依赖，中文文档</p></li><li><p>安装 node.js，确保node的版本是12.9.1或是更高，12.9.1是构建 React Native for Windows 推荐的版本</p></li><li><p>安装 Chrome，用于调式JS,可选</p></li><li><p>安装 Yarn，可选安装，如果你想为 react-native-windows 添砖加瓦则续安装</p><h1 id="故障排除"><a href="#故障排除" class="headerlink" title="故障排除"></a>故障排除</h1></li><li><p>如果在运行应用程序后，打包程序未更新或应用程序未显示 React Native 内容-请关闭打包程序命令提示符窗口，并确保该应用程序已打开，然后运行 yarn start 并再次从 Visual Studio 运行该应用程序。</p></li><li><p>如果您在UWP应用程序窗口中看到带有错误消息：的红色错误框，请 ERROR: Instance failed to start. A connection with the server cannot be established 确保您正在使用打包 yarn start 程序运行，然后再次运行该应用程序。</p><h1 id="安装-React-Native-for-Windows"><a href="#安装-React-Native-for-Windows" class="headerlink" title="安装 React Native for Windows"></a>安装 React Native for Windows</h1></li><li><p>在需要创建项目的目录下面执行 <code>react-native init</code></p><pre class="line-numbers language-js" data-language="js"><code class="language-js">npx react<span class="token operator">-</span>native init <span class="token operator">&lt;</span>project name<span class="token operator">></span> <span class="token operator">--</span>version <span class="token operator">^</span><span class="token number">0.61</span><span class="token number">.5</span><span class="token comment">// npx 还能避免全局安装的模块,安装模块时会下载到一个临时目录，使用以后再删除</span><span class="token comment">// –version ^0.61.5 指定版本号</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><h1 id="安装-Windows-扩展"><a href="#安装-Windows-扩展" class="headerlink" title="安装 Windows 扩展"></a>安装 Windows 扩展</h1></li><li><p>安装 React Native for Windows 软件包</p><pre class="line-numbers language-js" data-language="js"><code class="language-js">cd <span class="token operator">&lt;</span>project name<span class="token operator">></span> npx react<span class="token operator">-</span>native<span class="token operator">-</span>windows<span class="token operator">-</span>init <span class="token operator">--</span>overwrite<span class="token comment">// 切换到创建项目的目录下面然后安装</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><h1 id="运行-React-Native-Windows-应用"><a href="#运行-React-Native-Windows-应用" class="headerlink" title="运行 React Native Windows 应用"></a>运行 React Native Windows 应用</h1></li><li><p>运行前确保浏览器已经打开</p></li><li><p>在 VS Code 中运行</p><ul><li>安装 VS Code 插件： React Native Tools</li><li>在应用程根目录创建文件 .vscode/launch.json，并粘贴如下内容<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token punctuation">&#123;</span>    <span class="token string">"version"</span><span class="token operator">:</span> <span class="token string">"0.2.0"</span><span class="token punctuation">,</span>    <span class="token string">"configurations"</span><span class="token operator">:</span> <span class="token punctuation">[</span>        <span class="token punctuation">&#123;</span>            <span class="token string">"name"</span><span class="token operator">:</span> <span class="token string">"Debug Windows"</span><span class="token punctuation">,</span>            <span class="token string">"cwd"</span><span class="token operator">:</span> <span class="token string">"$&#123;workspaceFolder&#125;"</span><span class="token punctuation">,</span>            <span class="token string">"type"</span><span class="token operator">:</span> <span class="token string">"reactnative"</span><span class="token punctuation">,</span>            <span class="token string">"request"</span><span class="token operator">:</span> <span class="token string">"launch"</span><span class="token punctuation">,</span>            <span class="token string">"platform"</span><span class="token operator">:</span> <span class="token string">"windows"</span>        <span class="token punctuation">&#125;</span>    <span class="token punctuation">]</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h1 id="运行项目"><a href="#运行项目" class="headerlink" title="运行项目"></a>运行项目</h1><pre class="line-numbers language-js" data-language="js"><code class="language-js">npx react<span class="token operator">-</span>native run<span class="token operator">-</span>windows<span class="token comment">// 第一次启动会有点慢，安装后会淡出一个命令提示符窗口，请按回车以继续</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li></ul></li><li><p>按 “r” 键可以重载应用</p></li></ul><h1 id="在-Visual-Studio-中运行"><a href="#在-Visual-Studio-中运行" class="headerlink" title="在 Visual Studio 中运行"></a>在 Visual Studio 中运行</h1><ul><li>在 Visual Studio 中打开解决方案文件（如：”\windowsAppDemo\windows\windowsAppDemo.sln”）</li><li>如果 Visual Studio 显示无法加载，可以关闭 Visual Studio 然后重新打开</li><li>在项目目录项目下打开命令行提示符运行yarn start</li><li>在 Visual Studio 中的菜单下面选 Debug -&gt; x64 -&gt; 本地计算机（点击绿色三角按钮启动）<br><img src="https://raw.githubusercontent.com/Damao2250/FileTransfer/master/welcome-react-native-for-windows.png" alt="应用运行成功截图"><!-- 应用运行成功截图 --></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;系统要求&quot;&gt;&lt;a href=&quot;#系统要求&quot; class=&quot;headerlink&quot; title=&quot;系统要求&quot;&gt;&lt;/a&gt;系统要求&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Windows 10&lt;/p&gt;
+&lt;h1 id=&quot;开发依赖&quot;&gt;&lt;a href=&quot;#开发依赖&quot; class=&quot;h</summary>
+      
+    
+    
+    
+    <category term="React" scheme="http://damao2250.com/categories/React/"/>
+    
+    
+    <category term="React Native" scheme="http://damao2250.com/tags/React-Native/"/>
+    
+    <category term="React-Native-Windows" scheme="http://damao2250.com/tags/React-Native-Windows/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>常用正则表达式</title>
+    <link href="http://damao2250.com/2020/05/14/%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    <id>http://damao2250.com/2020/05/14/%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</id>
+    <published>2020-05-14T01:25:00.000Z</published>
+    <updated>2021-10-02T14:28:15.038Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="匹配数字或版本号"><a href="#匹配数字或版本号" class="headerlink" title="匹配数字或版本号"></a>匹配数字或版本号</h1><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// a.b（eg: 1.0, 1.100, 甚至 1.1000）</span><span class="token comment">// a.b.c (eg: 1.1.1, 1.12.1, 甚至 1.121.1)</span><span class="token comment">// a（a可能>5位）</span><span class="token comment">// 不限长度版本</span><span class="token keyword">var</span> Reg <span class="token operator">=</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">^\d+$|^\d+\.\d+$|^\d+(\.\d+)&#123;1,2&#125;$</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">;</span><span class="token comment">// 限制长度（每一位版本号应该是一位数）</span><span class="token keyword">var</span> Reg <span class="token operator">=</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">^\d$|^\d\.\d$|^\d(\.\d)&#123;1,2&#125;$</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h1 id="正数的正则表达式"><a href="#正数的正则表达式" class="headerlink" title="正数的正则表达式"></a>正数的正则表达式</h1><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 正数的正则表达式(包括0，小数保留两位)：</span><span class="token keyword">var</span> Reg <span class="token operator">=</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">^((0&#123;1&#125;\.\d&#123;1,2&#125;)|([1-9]\d*\.&#123;1&#125;\d&#123;1,2&#125;)|([1-9]+\d*)|0)$</span><span class="token regex-delimiter">/</span></span><span class="token comment">// 正数的正则表达式(不包括0，小数保留两位)：</span><span class="token keyword">var</span> Reg <span class="token operator">=</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">^((0&#123;1&#125;\.\d&#123;1,2&#125;)|([1-9]\d*\.&#123;1&#125;\d&#123;1,2&#125;)|([1-9]+\d*))$</span><span class="token regex-delimiter">/</span></span><span class="token comment">// 正整数的正则表达式(包括0)：</span><span class="token keyword">var</span> Reg <span class="token operator">=</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">^[+]&#123;0,1&#125;(\d+)$</span><span class="token regex-delimiter">/</span></span><span class="token comment">// 正整数的正则表达式(不包括0)：</span><span class="token keyword">var</span> Reg <span class="token operator">=</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">^[1-9]\d*$</span><span class="token regex-delimiter">/</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h1 id="折扣正则表达式"><a href="#折扣正则表达式" class="headerlink" title="折扣正则表达式"></a>折扣正则表达式</h1><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 折扣（0-1）的小数的正则表达式(包括1)：</span><span class="token keyword">var</span> Reg <span class="token operator">=</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">^(0\.\d+|1)$</span><span class="token regex-delimiter">/</span></span><span class="token comment">// 折扣（0-1）的小数的正则表达式(不包括1)：</span><span class="token keyword">var</span> Reg <span class="token operator">=</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">^(0\.\d+)$</span><span class="token regex-delimiter">/</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;匹配数字或版本号&quot;&gt;&lt;a href=&quot;#匹配数字或版本号&quot; class=&quot;headerlink&quot; title=&quot;匹配数字或版本号&quot;&gt;&lt;/a&gt;匹配数字或版本号&lt;/h1&gt;&lt;pre class=&quot;line-numbers language-js&quot; data-langua</summary>
+      
+    
+    
+    
+    <category term="正则" scheme="http://damao2250.com/categories/%E6%AD%A3%E5%88%99/"/>
+    
+    
+    <category term="正则表达式" scheme="http://damao2250.com/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    
+  </entry>
+  
+</feed>
