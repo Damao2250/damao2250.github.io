@@ -44,30 +44,6 @@
   </entry>
   
   <entry>
-    <title>Hello World</title>
-    <link href="http://damao2250.com/2021/10/03/hello-world/"/>
-    <id>http://damao2250.com/2021/10/03/hello-world/</id>
-    <published>2021-10-03T03:02:58.833Z</published>
-    <updated>2021-10-04T06:15:00.231Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
-      
-    
-    
-    
-    <category term="Hexo" scheme="http://damao2250.com/categories/Hexo/"/>
-    
-    
-    <category term="Hexo" scheme="http://damao2250.com/tags/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
     <title>git之多SSH-key配置</title>
     <link href="http://damao2250.com/2021/09/13/git%E4%B9%8B%E5%A4%9ASSH-key%E9%85%8D%E7%BD%AE/"/>
     <id>http://damao2250.com/2021/09/13/git%E4%B9%8B%E5%A4%9ASSH-key%E9%85%8D%E7%BD%AE/</id>
@@ -522,6 +498,30 @@
     <category term="Vue3" scheme="http://damao2250.com/tags/Vue3/"/>
     
     <category term="setup" scheme="http://damao2250.com/tags/setup/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>小程序通知推送</title>
+    <link href="http://damao2250.com/2020/12/29/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E9%80%9A%E7%9F%A5%E6%8E%A8%E9%80%81/"/>
+    <id>http://damao2250.com/2020/12/29/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E9%80%9A%E7%9F%A5%E6%8E%A8%E9%80%81/</id>
+    <published>2020-12-29T01:25:00.000Z</published>
+    <updated>2021-10-04T04:10:29.234Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="小程序推送通知方式（订阅消息-amp-消息模板）"><a href="#小程序推送通知方式（订阅消息-amp-消息模板）" class="headerlink" title="小程序推送通知方式（订阅消息&amp;消息模板）"></a>小程序推送通知方式（订阅消息&amp;消息模板）</h1><h2 id="小程序发送小程序的订阅消息-推送到服务通知"><a href="#小程序发送小程序的订阅消息-推送到服务通知" class="headerlink" title="小程序发送小程序的订阅消息(推送到服务通知)"></a>小程序发送小程序的订阅消息(推送到服务通知)</h2><ul><li>准备1：登录小程序-功能-订阅消息（未开通的，需要先开通）-从模板库中添加消息模板并获得模板ID（也可以申请消息模板）</li><li>步骤：<ul><li>获取下发权限 （用户发生点击行为或者发起支付回调后）— 调用接口下发订阅消息</li><li>获取js_code</li><li>根据js_code获取OpenId和UnionID</li><li>获取小程序access_token</li><li>根据access_token调用接口下发订阅消息</li></ul></li><li>参考的开发文档<br>  -<a href="https://developers.weixin.qq.com/miniprogram/dev/api/open-api/subscribe-message/wx.requestSubscribeMessage.html">获取下发权限</a><br>  -<a href="https://developers.weixin.qq.com/miniprogram/dev/api-backend/open-api/subscribe-message/subscribeMessage.send.html">调用接口下发订阅消息</a><h2 id="小程序调用公众号的消息模板-推送到微信公众号"><a href="#小程序调用公众号的消息模板-推送到微信公众号" class="headerlink" title="小程序调用公众号的消息模板(推送到微信公众号)"></a>小程序调用公众号的消息模板(推送到微信公众号)</h2></li><li>准备1：注册微信开放平台，将微信公众号和小程序绑定到微信开放平台（目的：获取UnionID）</li><li>准备2：微信公众号添加消息模板功能，从模板库中添加消息模板并获得模板ID，也可以申请模板</li><li>步骤：(根据用户唯一的UnionID去寻找用户在公众号的OpenId,再根据微信公众号的OpenId发送通知到相应的用户)<ul><li>批量获取微信公众号关注的用户Openid</li><li>根据用户Openid获取微信公众号关注的用户UnionID</li><li>将微信公众号关注的用户Openid、UnionID保存到数据库</li><li>两种方式获取小程序用户UnionID<ul><li>根据js_code获取小程序的OpenId和UnionID</li><li>根据小程序的OpenId、access_token获取用户信息UserInfo，根据UserInfo的encryptedData字段解密出小程序的UnionID（不推荐）</li></ul></li><li>根据小程序appid、secret获取小程序access_token</li><li>根据小程序的UnionID去数据库匹配用户在公众号的OpenId</li><li>根据用户在公众号的OpenId、access_token发送消息模板到对应用户</li></ul></li><li>参考的开发文档<ul><li><a href="https://open.weixin.qq.com/">微信开放平台登录</a></li><li><a href="https://mp.weixin.qq.com/">微信公众号登录</a></li><li><a href="https://mp.weixin.qq.com/">微信小程序登录</a></li><li><a href="https://developers.weixin.qq.com/doc/offiaccount/Message_Management/Template_Message_Interface.html">公众号消息模板接口</a></li><li><a href="https://developers.weixin.qq.com/doc/offiaccount/Message_Management/Receiving_event_pushes.html">公众号关注/取消关注事件</a>：微信公众号-开发-基本配置-服务器配置-启用</li><li><a href="https://developers.weixin.qq.com/doc/offiaccount/Basic_Information/Access_Overview.html">服务器配置</a></li><li>[公众号获取用户列表/获取OpenId]<a href="https://developers.weixin.qq.com/doc/offiaccount/User_Management/Getting_a_User_List.html">https://developers.weixin.qq.com/doc/offiaccount/User_Management/Getting_a_User_List.html</a>)</li><li><a href="https://developers.weixin.qq.com/doc/offiaccount/User_Management/Get_users_basic_information_UnionID.html#UinonId">公众号获取用户基本信息(UnionID)</a></li><li><a href="https://developers.weixin.qq.com/doc/offiaccount/Basic_Information/Get_access_token.html">公众号获取Access token</a></li><li><a href="https://developers.weixin.qq.com/miniprogram/dev/api/open-api/login/wx.login.html">小程序获取js_code</a></li><li><a href="https://developers.weixin.qq.com/miniprogram/dev/api-backend/open-api/login/auth.code2Session.html">小程序获取OpenId和UnionID/获取code2Session</a></li><li><a href="https://developers.weixin.qq.com/miniprogram/dev/api-backend/open-api/access-token/auth.getAccessToken.html">小程序获取access_token</a></li><li><a href="https://developers.weixin.qq.com/miniprogram/dev/api/open-api/user-info/wx.getUserInfo.html">小程序获取用户信息UserInfo</a></li><li><a href="https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/signature.html#%E5%8A%A0%E5%AF%86%E6%95%B0%E6%8D%AE%E8%A7%A3%E5%AF%86%E7%AE%97%E6%B3%95">UserInfo解密算法解密</a></li><li><a href="https://developers.weixin.qq.com/doc/offiaccount/Message_Management/Template_Message_Interface.html#5">公众号消息模板发送</a></li></ul></li></ul><h2 id="下发统一服务消息（官方不支持了）"><a href="#下发统一服务消息（官方不支持了）" class="headerlink" title="下发统一服务消息（官方不支持了）"></a>下发统一服务消息（官方不支持了）</h2><ul><li>下发小程序和公众号统一的服务消息（需要填小程序模板id和公众号模板id）<h2 id="小程序消息模板（已废弃）"><a href="#小程序消息模板（已废弃）" class="headerlink" title="小程序消息模板（已废弃）"></a>小程序消息模板（已废弃）</h2><h2 id="预备知识："><a href="#预备知识：" class="headerlink" title="预备知识："></a>预备知识：</h2></li><li>小程序openid：小程序用户的唯一id</li><li>公众号openid：公众号用户的唯一id</li><li>unionid：同一用户，对同一个微信开放平台下的不同应用，unionid是相同的</li><li>准备：<ol><li>将小程序与公众号绑定（绑定后才可获取unionid），官方文档：小程序与公众号绑定获取unionid</li><li>接入微信公众平台开发，也就是给服务号配置一下开发者服务器。当有用户关注/取消服务号时，微信服务器会推送关注/取消的事件给我们的服务器。官方文档：接入微信公众平台开发</li><li>获取公众号用户列表，即所有用户的公众号openid。官方文档：获取公众号用户列表</li><li>通过公众号openid获取用户的unionid。官方文档：通过公众号openid获取unionid</li><li>推送服务号消息。官方文档：公众号发送模版消息</li></ol><ul><li>注意：</li></ul><ol start="6"><li>在上述的一些接口中，需要获取access_token。小程序和公众号的access_token是不同的，需要用各自的appid和secret去获取。</li><li>access_token每天只能获取200次，有效期是7200秒。所以应该把它加入缓存，而不是每次都去获取新的access_token。<h2 id="开始开发"><a href="#开始开发" class="headerlink" title="开始开发"></a>开始开发</h2></li></ol></li><li>将小程序用户与公众号用户关联：<ul><li>小程序用户openid→unionid←公众号用户openid</li><li>要想将小程序与公众号用户关联，第一件事就是获取用户的unionid。</li><li>我们可以在两种情况下获取用户的unionid：</li></ul></li><li>一、如果用户已经关注了公众号，那么在用户登录的时候，就可以获取到unionid</li><li>二、如果用户没有关注公众号，那么得让前端调用wx.getUserInfo，把加密数据给后端解密拿到unionid。<ul><li>解密需要session_key，而session_key又有有效期，得注意它过期的情况。</li><li>当用户关注公众号时，微信会推送事件给我们（本文准备条件的第2条）。</li><li>通过关注事件，我们可以拿到用户的公众号openid，再获取unionid（本文准备条件的第4条）。拿到unionid后，去数据库查询这个unionid的用户，并把公众号openid保存。</li><li>但是，还有两个情况没有考虑到：<ol><li>在我们开发之前，已经关注了公众号的用户没有去关联<ul><li>解决方案：</li><li>获取微信公众号的用户列表，再依次获取用户unionid（本文准备条件的第3、4条）。注意，此操作非常耗时。</li></ul></li><li>用户先关注了公众号，但是从来没用过小程序（数据库里没有unionid，导致无法关联）<ul><li>解决方案：</li><li>新建一张表，把这个公众号用户先记录下来。当小程序用户登录时，先检查一遍这张表尝试关联。</li></ul></li></ol></li></ul></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;小程序推送通知方式（订阅消息-amp-消息模板）&quot;&gt;&lt;a href=&quot;#小程序推送通知方式（订阅消息-amp-消息模板）&quot; class=&quot;headerlink&quot; title=&quot;小程序推送通知方式（订阅消息&amp;amp;消息模板）&quot;&gt;&lt;/a&gt;小程序推送通知方式（订阅消息</summary>
+      
+    
+    
+    
+    <category term="小程序" scheme="http://damao2250.com/categories/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    
+    
+    <category term="小程序" scheme="http://damao2250.com/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
     
   </entry>
   
