@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="git常用命令速查表, Damao">
+    <meta name="keywords" content="Vue项目中应用TypeScript, Damao">
     <meta name="description" content="Coding...">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>git常用命令速查表 | Damao</title>
+    <title>Vue项目中应用TypeScript | Damao</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -245,12 +245,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">git常用命令速查表</h1>
+                    <h1 class="description center-align post-title">Vue项目中应用TypeScript</h1>
                 </div>
             </div>
         </div>
@@ -366,8 +366,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/git/">
-                                <span class="chip bg-color">git</span>
+                            <a href="/tags/TypeScript/">
+                                <span class="chip bg-color">TypeScript</span>
                             </a>
                         
                     </div>
@@ -378,8 +378,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7/" class="post-category">
-                                版本控制工具
+                            <a href="/categories/Vue/" class="post-category">
+                                Vue
                             </a>
                         
                     </div>
@@ -391,28 +391,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-04-15
+                    2021-10-08
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-10-04
+                    2021-10-08
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    525
+                    662
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    3 分
                 </div>
                 
 
@@ -435,226 +435,130 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h1><table>
-<thead>
-<tr>
-<th align="left">Tips</th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">master：</td>
-<td>默认开发分支</td>
-</tr>
-<tr>
-<td align="left">origin：</td>
-<td>默认远程版本库</td>
-</tr>
-</tbody></table>
-<h1 id="创建版本库"><a href="#创建版本库" class="headerlink" title="创建版本库"></a>创建版本库</h1><table>
-<thead>
-<tr>
-<th align="left">创建版本库</th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">$ git clone <url></td>
-<td>#克隆远程版本库</td>
-</tr>
-<tr>
-<td align="left">$ git init</td>
-<td>#初始化本地版本库</td>
-</tr>
-</tbody></table>
-<h1 id="修改和提交"><a href="#修改和提交" class="headerlink" title="修改和提交"></a>修改和提交</h1><table>
-<thead>
-<tr>
-<th align="left">修改和提交</th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">$ git status</td>
-<td>#查看当前修改状况</td>
-</tr>
-<tr>
-<td align="left">$ git diff</td>
-<td>#查看变更的内容</td>
-</tr>
-<tr>
-<td align="left">$ git add .</td>
-<td>#把所有修改的文件添加到缓存（跟踪文件）</td>
-</tr>
-<tr>
-<td align="left">$ git add <file></td>
-<td>#把指定的文件添加到缓存</td>
-</tr>
-<tr>
-<td align="left">$ git mv <old_file> <new_file></td>
-<td>#修改文件名</td>
-</tr>
-<tr>
-<td align="left">$ git rm <file></td>
-<td>#删除文件</td>
-</tr>
-<tr>
-<td align="left">$ git rm –cached <file></td>
-<td>#停止跟踪文件但不删除</td>
-</tr>
-<tr>
-<td align="left">$ git commit -m “message”</td>
-<td>#提交所有更新过的文件</td>
-</tr>
-<tr>
-<td align="left">$ git commit –amend</td>
-<td>#修改最后一次提交</td>
-</tr>
-</tbody></table>
-<h1 id="查看提交历史"><a href="#查看提交历史" class="headerlink" title="查看提交历史"></a>查看提交历史</h1><table>
-<thead>
-<tr>
-<th align="left">查看提交历史</th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">$ git log</td>
-<td>#查看提交历史</td>
-</tr>
-<tr>
-<td align="left">$ git log -p <file></td>
-<td>#查看指定文件提交历史</td>
-</tr>
-<tr>
-<td align="left">$ git blame <file></td>
-<td>#以列表的方式查看指定文件提交历史</td>
-</tr>
-</tbody></table>
-<h1 id="撤销"><a href="#撤销" class="headerlink" title="撤销"></a>撤销</h1><table>
-<thead>
-<tr>
-<th align="left">撤销</th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">$ git reset –hard HEAD</td>
-<td>#撤销工作目录中所有未提交文件的修改内容</td>
-</tr>
-<tr>
-<td align="left">$ git checkout HEAD <file></td>
-<td>#撤销指定未提交文件的修改内容</td>
-</tr>
-<tr>
-<td align="left">$ git revert <commit></td>
-<td>#撤销指定的提交</td>
-</tr>
-</tbody></table>
-<h1 id="分支与标签"><a href="#分支与标签" class="headerlink" title="分支与标签"></a>分支与标签</h1><table>
-<thead>
-<tr>
-<th align="left">分支与标签</th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">$ git branch</td>
-<td>#显示所有本地分支</td>
-</tr>
-<tr>
-<td align="left">$ git branch -r</td>
-<td>#显示所有远程分支</td>
-</tr>
-<tr>
-<td align="left">$ git branch -a</td>
-<td>#显示所有本地和远程分支</td>
-</tr>
-<tr>
-<td align="left">$ git checkout &lt;branch/tag&gt;</td>
-<td>#切换到指定分支或标签</td>
-</tr>
-<tr>
-<td align="left">$ git branch <new_branch></td>
-<td>#创建新分支</td>
-</tr>
-<tr>
-<td align="left">$ git checkout -b <new_branch></td>
-<td>#创建并切换到新分支</td>
-</tr>
-<tr>
-<td align="left">$ git branch -d <branch></td>
-<td>#删除本地分支</td>
-</tr>
-<tr>
-<td align="left">$ git tag</td>
-<td>#显示所有本地标签</td>
-</tr>
-<tr>
-<td align="left">$ git tag <tagname></td>
-<td>#基于最新提交创建标签</td>
-</tr>
-<tr>
-<td align="left">$ git tag -d <tagname></td>
-<td>#删除标签</td>
-</tr>
-</tbody></table>
-<h1 id="合并与衍合"><a href="#合并与衍合" class="headerlink" title="合并与衍合"></a>合并与衍合</h1><table>
-<thead>
-<tr>
-<th align="left">合并与衍合</th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">$ git merge <branch></td>
-<td>#合并指定分支到当前分支</td>
-</tr>
-<tr>
-<td align="left">$ git rebase <branch></td>
-<td>#衍合指定分支到当前分支</td>
-</tr>
-</tbody></table>
-<h1 id="远程操作"><a href="#远程操作" class="headerlink" title="远程操作"></a>远程操作</h1><table>
-<thead>
-<tr>
-<th align="left">远程操作</th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">$ git remote -v</td>
-<td>#查看远程版本库信息</td>
-</tr>
-<tr>
-<td align="left">$ git remote show <remote></td>
-<td>#查看指定远程版本库信息</td>
-</tr>
-<tr>
-<td align="left">$ git remote add <remote> <url></td>
-<td>#添加远程版本库</td>
-</tr>
-<tr>
-<td align="left">$ git fetch <remote></td>
-<td>#从远程库获取代码</td>
-</tr>
-<tr>
-<td align="left">$ git pull <remote> <branch></td>
-<td>#从远程库拉去代码并快速合并</td>
-</tr>
-<tr>
-<td align="left">$ git push <remote> <branch></td>
-<td>#上传代码到远程库并快速合并</td>
-</tr>
-<tr>
-<td align="left">$ git push <remote> -d &lt;branch/tag&gt;</td>
-<td>#删除远程分支或标签</td>
-</tr>
-<tr>
-<td align="left">$ git push –tags</td>
-<td>#上传所有标签</td>
-</tr>
-</tbody></table>
+                <h2 id="起步"><a href="#起步" class="headerlink" title="起步"></a>起步</h2><ul>
+<li>在VUE项目中应用typescript，我们需要引入一个库<code>vue-property-decorator</code>，</li>
+<li><code>vue-property-decorator</code>是基于<code>vue-class-component</code>库而来，这个库vue官方推出的一个支持使用class方式来开发vue单文件组件的库</li>
+<li>主要的功能如下：<ul>
+<li>methods 可以直接声明为类的成员方法</li>
+<li>计算属性可以被声明为类的属性访问器</li>
+<li>初始化的 data 可以被声明为类属性</li>
+<li>data、render 以及所有的 Vue 生命周期钩子可以直接作为类的成员方法</li>
+<li>所有其他属性，需要放在装饰器中<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2></li>
+</ul>
+</li>
+<li><code>vue-property-decorator</code> 主要提供了以下装饰器<ul>
+<li>@Prop</li>
+<li>@PropSync</li>
+<li>@Model</li>
+<li>@Watch</li>
+<li>@Provide</li>
+<li>@Inject</li>
+<li>@ProvideReactive</li>
+<li>@InjectReactive</li>
+<li>@Emit</li>
+<li>@Ref</li>
+<li>@Component (由 <code>vue-class-component</code> 提供)</li>
+<li>Mixins (由 <code>vue-class-component</code> 提供)<h3 id="Component"><a href="#Component" class="headerlink" title="@Component"></a>@Component</h3></li>
+</ul>
+</li>
+<li>Component装饰器它注明了此类为一个Vue组件，因此即使没有设置选项也不能省略</li>
+<li>如果需要定义比如 name、components、filters、directives以及自定义属性，就可以在Component装饰器中定义，如下：<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">&#123;</span>Component<span class="token punctuation">,</span>Vue<span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'vue-property-decorator'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">&#123;</span>componentA<span class="token punctuation">,</span>componentB<span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'@/components'</span><span class="token punctuation">;</span>
+
+ @<span class="token function">Component</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+    components<span class="token operator">:</span><span class="token punctuation">&#123;</span>
+        componentA<span class="token punctuation">,</span>
+        componentB<span class="token punctuation">,</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    directives<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+        focus<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+            <span class="token comment">// 指令的定义</span>
+            <span class="token function-variable function">inserted</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">el</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                el<span class="token punctuation">.</span><span class="token function">focus</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">YourCompoent</span> <span class="token keyword">extends</span> <span class="token class-name">Vue</span><span class="token punctuation">&#123;</span>
+   
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="computed、data、methods"><a href="#computed、data、methods" class="headerlink" title="computed、data、methods"></a>computed、data、methods</h3></li>
+<li>这里取消了组件的data和methods属性，以往data返回对象中的属性、methods中的方法需要直接定义在Class中，当做类的属性和方法<pre class="line-numbers language-js" data-language="js"><code class="language-js">@Component
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">HelloDecorator</span> <span class="token keyword">extends</span> <span class="token class-name">Vue</span> <span class="token punctuation">&#123;</span>
+    count<span class="token operator">:</span> number <span class="token operator">=</span> <span class="token number">123</span> <span class="token comment">// 类属性相当于以前的 data</span>
+
+    <span class="token function">add</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> number <span class="token punctuation">&#123;</span> <span class="token comment">// 类方法就是以前的方法</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>count <span class="token operator">+</span> <span class="token number">1</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token comment">// 获取计算属性</span>
+    <span class="token keyword">get</span> <span class="token function">total</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> number <span class="token punctuation">&#123;</span>
+      <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>count <span class="token operator">+</span> <span class="token number">1</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token comment">// 设置计算属性</span>
+    <span class="token keyword">set</span> <span class="token function">total</span><span class="token punctuation">(</span>param<span class="token operator">:</span>number<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>count <span class="token operator">=</span> param
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="props"><a href="#props" class="headerlink" title="@props"></a>@props</h3></li>
+<li>组件接收属性的装饰器，如下使用：<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">&#123;</span>Component<span class="token punctuation">,</span>Vue<span class="token punctuation">,</span>Prop<span class="token punctuation">&#125;</span> from vue<span class="token operator">-</span>property<span class="token operator">-</span>decorator<span class="token punctuation">;</span>
+
+@Component
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">YourComponent</span> <span class="token keyword">extends</span> <span class="token class-name">Vue</span> <span class="token punctuation">&#123;</span>
+    @<span class="token function">Prop</span><span class="token punctuation">(</span>String<span class="token punctuation">)</span>
+    propA<span class="token operator">:</span>string<span class="token punctuation">;</span>
+    
+    @<span class="token function">Prop</span><span class="token punctuation">(</span><span class="token punctuation">[</span>String<span class="token punctuation">,</span>Number<span class="token punctuation">]</span><span class="token punctuation">)</span>
+    propB<span class="token operator">:</span>string<span class="token operator">|</span>number<span class="token punctuation">;</span>
+    
+    @<span class="token function">Prop</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+     type<span class="token operator">:</span> String<span class="token punctuation">,</span> <span class="token comment">// type: [String , Number]</span>
+     <span class="token keyword">default</span><span class="token operator">:</span> <span class="token string">'default value'</span><span class="token punctuation">,</span> <span class="token comment">// 一般为String或Number</span>
+      <span class="token comment">//如果是对象或数组的话。默认值从一个工厂函数中返回</span>
+      <span class="token comment">// defatult: () => &#123;</span>
+      <span class="token comment">//     return ['a','b']</span>
+      <span class="token comment">// &#125;</span>
+     required<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+     <span class="token function-variable function">validator</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">value</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token punctuation">[</span>
+          <span class="token string">'InProcess'</span><span class="token punctuation">,</span>
+          <span class="token string">'Settled'</span>
+        <span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token operator">!==</span> <span class="token operator">-</span><span class="token number">1</span>
+     <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+    propC<span class="token operator">:</span>string<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="watch"><a href="#watch" class="headerlink" title="@watch"></a>@watch</h3></li>
+<li>实际就是Vue中的监听器，如下：<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">&#123;</span> Vue<span class="token punctuation">,</span> Component<span class="token punctuation">,</span> Watch <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'vue-property-decorator'</span>
+
+@Component
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">YourComponent</span> <span class="token keyword">extends</span> <span class="token class-name">Vue</span> <span class="token punctuation">&#123;</span>
+  @<span class="token function">Watch</span><span class="token punctuation">(</span><span class="token string">'child'</span><span class="token punctuation">)</span>
+  <span class="token function">onChildChanged</span><span class="token punctuation">(</span><span class="token parameter">val<span class="token operator">:</span> string<span class="token punctuation">,</span> oldVal<span class="token operator">:</span> string</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+
+  @<span class="token function">Watch</span><span class="token punctuation">(</span><span class="token string">'person'</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> immediate<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> deep<span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+  <span class="token function">onPersonChanged1</span><span class="token punctuation">(</span><span class="token parameter">val<span class="token operator">:</span> Person<span class="token punctuation">,</span> oldVal<span class="token operator">:</span> Person</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+
+  @<span class="token function">Watch</span><span class="token punctuation">(</span><span class="token string">'person'</span><span class="token punctuation">)</span>
+  <span class="token function">onPersonChanged2</span><span class="token punctuation">(</span><span class="token parameter">val<span class="token operator">:</span> Person<span class="token punctuation">,</span> oldVal<span class="token operator">:</span> Person</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="emit"><a href="#emit" class="headerlink" title="@emit"></a>@emit</h3></li>
+<li>vue-property-decorator 提供的 @Emit 装饰器就是代替Vue中的事件的触发$emit，如下：<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">&#123;</span>Vue<span class="token punctuation">,</span> Component<span class="token punctuation">,</span> Emit<span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'vue-property-decorator'</span><span class="token punctuation">;</span>
+    @<span class="token function">Component</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+    <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">Some</span> <span class="token keyword">extends</span> <span class="token class-name">Vue</span><span class="token punctuation">&#123;</span>
+        <span class="token function">mounted</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$on</span><span class="token punctuation">(</span><span class="token string">'emit-todo'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">n</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span>
+            <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">emitTodo</span><span class="token punctuation">(</span><span class="token string">'world'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        @<span class="token function">Emit</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token function">emitTodo</span><span class="token punctuation">(</span><span class="token parameter">n<span class="token operator">:</span> string</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'hello'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
 
                 
             </div>
@@ -681,7 +585,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://damao2250.com/2021/04/15/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E9%80%9F%E6%9F%A5%E8%A1%A8/">http://damao2250.com/2021/04/15/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E9%80%9F%E6%9F%A5%E8%A1%A8/</a>
+                    <a href="http://damao2250.com/2021/10/08/Vue%E9%A1%B9%E7%9B%AE%E4%B8%AD%E5%BA%94%E7%94%A8TypeScript/">http://damao2250.com/2021/10/08/Vue%E9%A1%B9%E7%9B%AE%E4%B8%AD%E5%BA%94%E7%94%A8TypeScript/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -719,8 +623,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/git/">
-                                    <span class="chip bg-color">git</span>
+                                <a href="/tags/TypeScript/">
+                                    <span class="chip bg-color">TypeScript</span>
                                 </a>
                             
                         </div>
@@ -892,17 +796,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/04/19/%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E6%9F%AF%E9%87%8C%E5%8C%96%E5%87%BD%E6%95%B0%E7%A4%BA%E4%BE%8B/">
+                <a href="/2021/10/08/Vue%E9%A1%B9%E7%9B%AE%E4%B8%AD%E5%BA%94%E7%94%A8TypeScript/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="一个简单的柯里化函数示例">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Vue项目中应用TypeScript">
                         
-                        <span class="card-title">一个简单的柯里化函数示例</span>
+                        <span class="card-title">Vue项目中应用TypeScript</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -912,9 +817,59 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-19
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-08
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Vue/" class="post-category">
+                                    Vue
+                                </a>
+                            
+                            
                         </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/TypeScript/">
+                        <span class="chip bg-color">TypeScript</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/10/07/js%E4%B8%AD%E7%9A%84this/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="js中的this">
+                        
+                        <span class="card-title">js中的this</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-07
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -930,57 +885,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%87%BD%E6%95%B0/">
-                        <span class="chip bg-color">函数</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/04/08/%E7%A7%BB%E5%8A%A8%E7%AB%AF1px%E9%97%AE%E9%A2%98/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="移动端1px问题">
-                        
-                        <span class="card-title">移动端1px问题</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-08
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E7%A7%BB%E5%8A%A8%E7%AB%AF/" class="post-category">
-                                    移动端
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF1px/">
-                        <span class="chip bg-color">移动端1px</span>
+                    <a href="/tags/this/">
+                        <span class="chip bg-color">this</span>
                     </a>
                     
                 </div>
