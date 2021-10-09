@@ -398,21 +398,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-10-04
+                    2021-10-09
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    689
+                    991
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    4 分
                 </div>
                 
 
@@ -568,6 +568,127 @@ Vue<span class="token punctuation">.</span><span class="token function">componen
     <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> delay<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="防抖函数的图形化表述"><a href="#防抖函数的图形化表述" class="headerlink" title="防抖函数的图形化表述"></a>防抖函数的图形化表述</h2><ul>
+<li><p>防抖函数</p>
+<style>
+  .con {
+      box-sizing: border-box !important;
+      width: 600px;
+      height: 200px;
+      background: #eeeeee;
+      padding: 20px;
+  }
+
+  .rate-con {
+      width: 500px;
+      height: 46px;
+      position: relative;
+      margin: 20px;
+      border: 1px solid #000;
+  }
+
+  .rate {
+      box-sizing: border-box !important;
+      border: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      width: 500px !important;
+      height: 45px !important;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 16px !important;
+      color: red;
+      z-index: 99;
+      background: none !important;
+      padding-left: 10px !important;
+  }
+
+  .rate-bg {
+    box-sizing: border-box !important;
+      position: absolute;
+      width: 0px;
+      height: 42px;
+      left: 1px;
+      top: 1px;
+      background: #58bc58;
+  }
+
+  .btn-list {
+      width: 500px;
+      text-align: center;
+      padding: 20px;
+  }
+
+  .btn-list button {
+      padding: 10px 30px;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+  }
+
+  .install {
+      background: #58bc58;
+  }
+
+  .reset {
+      background: #ccc;
+  }
+</style>
+<div class="con">
+  <div class="rate-con" id="">
+      <input type="text" value="0%" class="rate" id="rate">
+      <div class="rate-bg" id="rateBg"></div>
+  </div>
+  <div class="btn-list">
+      <button class="install" id="install">安装</button>
+      <button class="reset" id="reset">重置</button>
+  </div>
+</div>
+<script>
+  let rateTimer = null
+  let installBtn = document.getElementById('install')
+  let resetBtn = document.getElementById('reset')
+  let rateBg = document.getElementById('rateBg')
+  let rateInput = document.getElementById('rate')
+  let defaultWidth = 0
+  installBtn.onclick = () => {
+      if (defaultWidth > 494) {
+          alert("已经安装完成啦，请重置或刷新")
+      } else {
+          defaultWidth = 0
+          rateing()
+      }
+  }
+  resetBtn.onclick = () => {
+      defaultWidth = 0
+      rateBg.style.width = 0 + "px"
+      rateInput.value = "0%"
+      clearInterval(rateTimer)
+  }
+  function rateing() {
+      if (rateTimer) {
+          clearInterval(rateTimer)
+      }
+      rateTimer = setInterval(() => {
+          console.log();
+          if (defaultWidth > 494) {
+              clearInterval(rateTimer)
+              alert("安装完成啦")
+          }
+          let w = defaultWidth + 1
+          rateBg.style.width = w + 'px'
+          defaultWidth = w
+          rateInput.value = ((defaultWidth / 494) * 100).toFixed(0) + "%"
+      }, 10)
+  }
+</script></li>
+<li><p>防抖函数类似此安装，只要进度没到100%，重新点击安装按钮他就会从头开始安装，直到安装进度能达到100%的时候才会触发事件，否则就不会触发</p>
+</li>
+</ul>
+
                 
             </div>
             <hr/>
