@@ -476,15 +476,17 @@ IdentityFile ~/.ssh/id_rsa_github<span aria-hidden="true" class="line-numbers-ro
 </ul>
 <h1 id="5-在gitlab、github网站中设置SSH-keys"><a href="#5-在gitlab、github网站中设置SSH-keys" class="headerlink" title="5. 在gitlab、github网站中设置SSH keys"></a>5. 在gitlab、github网站中设置SSH keys</h1><ul>
 <li>在gitlab、github网站中找到用户设置，找到SSH keys</li>
-<li>在.ssh的根目录中找到对应网站的.pub结尾的文件，用记事本打开，然后复制内容到对应网站保存即可<h1 id="6-用ssh命令测试验证"><a href="#6-用ssh命令测试验证" class="headerlink" title="6. 用ssh命令测试验证"></a>6. 用ssh命令测试验证</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">ssh</span> -T git@gitlab.com
+<li>在.ssh的根目录中找到对应网站的.pub结尾的文件，用记事本打开，然后复制内容到对应网站保存即可</li>
+</ul>
+<h1 id="6-用ssh命令测试验证"><a href="#6-用ssh命令测试验证" class="headerlink" title="6. 用ssh命令测试验证"></a>6. 用ssh命令测试验证</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">ssh</span> -T git@gitlab.com
 $ <span class="token function">ssh</span> -T git@github.com
 
 <span class="token comment"># 如果出现 Are you sure you want to continue connecting? </span>
 <span class="token comment"># 直接输入 yes</span>
 <span class="token comment"># 然后重复上面的命令</span>
 <span class="token comment"># 验证通过会有类似“Welconme”或者“Hi”的欢迎字样</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="7-清空私钥列表"><a href="#7-清空私钥列表" class="headerlink" title="7. 清空私钥列表"></a>7. 清空私钥列表</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ ssh-add -D<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-</ul>
+
+<h1 id="7-清空私钥列表"><a href="#7-清空私钥列表" class="headerlink" title="7. 清空私钥列表"></a>7. 清空私钥列表</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ ssh-add -D<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
                 
             </div>
