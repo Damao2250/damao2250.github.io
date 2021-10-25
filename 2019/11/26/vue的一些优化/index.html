@@ -444,7 +444,8 @@ name<span class="token operator">:</span> <span class="token string">'about'</sp
 <li>webpack默认会生成map文件，map文件是用来调试代码的。此外，这里还要注意sourcemap的配置分 开发（dev）和线上（build）两个地方配置，开发我们就不管了，就用默认的，线上我们是不需要这个代码的。<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 配置 vue.config.js</span>
 module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
   productionSourceMap<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
 <h2 id="3-Element组件按需加载"><a href="#3-Element组件按需加载" class="headerlink" title="3. Element组件按需加载"></a>3. Element组件按需加载</h2><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 安装 babel-plugin-component：</span>
 npm install babel<span class="token operator">-</span>plugin<span class="token operator">-</span>component <span class="token operator">-</span><span class="token constant">D</span>
 <span class="token comment">// 修改babel.config.js</span>
@@ -486,7 +487,8 @@ module<span class="token punctuation">.</span>exports <span class="token operato
   <span class="token string">'pie'</span><span class="token punctuation">,</span>
   <span class="token comment">// others</span>
 <span class="token punctuation">]</span><span class="token punctuation">)</span>
-<span class="token keyword">export</span> <span class="token keyword">default</span> echarts<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<span class="token keyword">export</span> <span class="token keyword">default</span> echarts<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
 <li>或者<pre class="line-numbers language-js" data-language="js"><code class="language-js">
 <span class="token comment">// 新建echarts.js</span>
 <span class="token keyword">import</span> echarts <span class="token keyword">from</span> <span class="token string">'echarts/lib/echarts'</span>
@@ -510,8 +512,8 @@ module<span class="token punctuation">.</span>exports<span class="token operator
     <span class="token comment">/* 添加分析工具 */</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span>process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">NODE_ENV</span> <span class="token operator">===</span> <span class="token string">'production'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">if</span> <span class="token punctuation">(</span>process<span class="token punctuation">.</span>env<span class="token punctuation">.</span>npm_config_report<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-      config<span class="token punctuation">.</span>
-      <span class="token function">plugin</span><span class="token punctuation">(</span><span class="token string">'webpack-bundle-analyzer'</span><span class="token punctuation">)</span>
+      config
+      <span class="token punctuation">.</span><span class="token function">plugin</span><span class="token punctuation">(</span><span class="token string">'webpack-bundle-analyzer'</span><span class="token punctuation">)</span>
       <span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'webpack-bundle-analyzer'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>BundleAnalyzerPlugin<span class="token punctuation">)</span>
       <span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
       config<span class="token punctuation">.</span>plugins<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span><span class="token string">'prefetch'</span><span class="token punctuation">)</span>
