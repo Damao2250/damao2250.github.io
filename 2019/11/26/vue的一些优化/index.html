@@ -444,9 +444,10 @@ name<span class="token operator">:</span> <span class="token string">'about'</sp
 <li>webpack默认会生成map文件，map文件是用来调试代码的。此外，这里还要注意sourcemap的配置分 开发（dev）和线上（build）两个地方配置，开发我们就不管了，就用默认的，线上我们是不需要这个代码的。<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 配置 vue.config.js</span>
 module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
   productionSourceMap<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<br /></li>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ul>
+<br />
+
 <h2 id="3-Element组件按需加载"><a href="#3-Element组件按需加载" class="headerlink" title="3. Element组件按需加载"></a>3. Element组件按需加载</h2><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 安装 babel-plugin-component：</span>
 npm install babel<span class="token operator">-</span>plugin<span class="token operator">-</span>component <span class="token operator">-</span><span class="token constant">D</span>
 <span class="token comment">// 修改babel.config.js</span>
