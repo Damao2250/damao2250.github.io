@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="青龙面板搭建, Damao">
+    <meta name="keywords" content="css实现打字效果, Damao">
     <meta name="description" content="Coding...">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>青龙面板搭建 | Damao</title>
+    <title>css实现打字效果 | Damao</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -245,12 +245,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/37.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">青龙面板搭建</h1>
+                    <h1 class="description center-align post-title">css实现打字效果</h1>
                 </div>
             </div>
         </div>
@@ -366,8 +366,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF/">
-                                <span class="chip bg-color">青龙面板</span>
+                            <a href="/tags/CSS/">
+                                <span class="chip bg-color">CSS</span>
+                            </a>
+                        
+                            <a href="/tags/HTML/">
+                                <span class="chip bg-color">HTML</span>
                             </a>
                         
                     </div>
@@ -378,8 +382,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Linux/" class="post-category">
-                                Linux
+                            <a href="/categories/CSS/" class="post-category">
+                                CSS
                             </a>
                         
                     </div>
@@ -391,28 +395,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-04-27
+                    2022-06-09
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-05-13
+                    2022-06-09
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    716
+                    313
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    1 分
                 </div>
                 
 
@@ -435,98 +439,93 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="青龙"><a href="#青龙" class="headerlink" title="青龙"></a>青龙</h2><ul>
-<li>支持python3、javaScript、shell、typescript 的定时任务管理面板（A timed task management panel that supports typescript, javaScript, python3, and shell）</li>
-</ul>
-<h2 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/whyour/qinglong">青龙Github</a></li>
-</ul>
-<h2 id="docker-部署"><a href="#docker-部署" class="headerlink" title="docker 部署"></a>docker 部署</h2><ul>
-<li>青龙正版docker镜像: <code>whyour/qinglong:latest</code></li>
-</ul>
-<ol>
-<li>docker 安装<ul>
-<li>确保docker已经安装，详细安装docker看<a target="_blank" rel="noopener" href="https://damao2250.github.io/2022/04/01/docker%E7%9A%84%E7%AE%80%E6%98%93%E4%BD%BF%E7%94%A8/">docker的简易使用</a></li>
-</ul>
-</li>
-<li>拉取并启动容器 <pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">docker run -dit \
-  -v $PWD&#x2F;ql&#x2F;config:&#x2F;ql&#x2F;config \
-  -v $PWD&#x2F;ql&#x2F;log:&#x2F;ql&#x2F;log \
-  -v $PWD&#x2F;ql&#x2F;db:&#x2F;ql&#x2F;db \
-  -p 5700:5700 \
-  --name qinglong \
-  --hostname qinglong \
-  --restart always \
-  whyour&#x2F;qinglong:latest<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ol>
-<h2 id="项目指南"><a href="#项目指南" class="headerlink" title="项目指南"></a>项目指南</h2><ol>
-<li>拉取镜像/更新镜像<pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">docker pull whyour&#x2F;qinglong:latest<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>删除镜像<pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">docker rmi whyour&#x2F;qinglong:latest<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>启动容器 </li>
-</ol>
-<ul>
-<li>普通服务器<pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">docker run -dit \
-  -v $PWD&#x2F;ql&#x2F;config:&#x2F;ql&#x2F;config \
-  -v $PWD&#x2F;ql&#x2F;log:&#x2F;ql&#x2F;log \
-  -v $PWD&#x2F;ql&#x2F;db:&#x2F;ql&#x2F;db \
-  -p 5700:5700 \
-  --name qinglong \
-  --hostname qinglong \
-  --restart always \
-  whyour&#x2F;qinglong:latest<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li>n1等路由器<pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">docker run -dit \
-  -v $PWD&#x2F;ql&#x2F;config:&#x2F;ql&#x2F;config \
-  -v $PWD&#x2F;ql&#x2F;log:&#x2F;ql&#x2F;log \
-  -v $PWD&#x2F;ql&#x2F;db:&#x2F;ql&#x2F;db \
-  --net host \
-  --name qinglong \
-  --hostname qinglong \
-  --restart always \
-  whyour&#x2F;qinglong:latest<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ul>
-<ol start="4">
-<li>删除容器 <pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">docker rm -f qinglong<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>初次登陆</li>
-</ol>
-<ul>
-<li>初次访问 http://&lt;自己ip&gt;:5700</li>
-<li>使用 admin/adminadmin 登陆，提示已初始化密码</li>
-<li>去自己映射目录config下找 auth.json，查看里面的 password<pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">docker exec -it qinglong cat &#x2F;ql&#x2F;config&#x2F;auth.json<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-</ul>
-<ol start="6">
-<li>Cookie管理</li>
-</ol>
-<ul>
-<li>登陆成功进入Cookie管理页面，右上角新增Cookie(最新版已加Cookie格式验证)</li>
-<li>添加成功，可在Cookie列表更新Cookie，删除Cookie</li>
-</ul>
-<ol start="7">
-<li>基本命令</li>
-</ol>
-<ul>
-<li>(容器内执行或者新建定时任务时忽略docker exec -it qinglong)</li>
-<li>更新青龙<pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">docker exec -it qinglong ql update<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>更新青龙并编译<pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">docker exec -it qinglong ql restart<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>拉取自定义仓库<pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">&lt;!-- 示例 --&gt;
-docker exec -it qinglong ql repo https:&#x2F;&#x2F;ghproxy.com&#x2F;https:&#x2F;&#x2F;github.com&#x2F;whyour&#x2F;hundun.git &quot;quanx&quot; &quot;tokens|caiyun|didi|donate|fold|Env&quot;
+                <h2 id="css实现打字效果"><a href="#css实现打字效果" class="headerlink" title="css实现打字效果"></a>css实现打字效果</h2><pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token comment">&lt;!-- 中文 --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text/css<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
+  <span class="token selector">.typing-cn</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> 15.1em<span class="token punctuation">;</span>
+    <span class="token property">white-space</span><span class="token punctuation">:</span> nowrap<span class="token punctuation">;</span>
+    <span class="token property">border-right</span><span class="token punctuation">:</span> 2px solid transparent<span class="token punctuation">;</span>
+    <span class="token property">animation</span><span class="token punctuation">:</span> typing 3.0s <span class="token function">steps</span><span class="token punctuation">(</span>15<span class="token punctuation">,</span> end<span class="token punctuation">)</span><span class="token punctuation">,</span> blink-caret .75s step-end infinite<span class="token punctuation">;</span>
+    <span class="token property">overflow</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token comment">/* 打印效果 */</span>
+  <span class="token atrule"><span class="token rule">@keyframes</span> typing</span> <span class="token punctuation">&#123;</span>
+    <span class="token selector">from</span> <span class="token punctuation">&#123;</span> <span class="token property">width</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span> <span class="token punctuation">&#125;</span>
+    <span class="token selector">to</span> <span class="token punctuation">&#123;</span> <span class="token property">width</span><span class="token punctuation">:</span> 15.1em<span class="token punctuation">;</span> <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token comment">/* 光标 */</span>
+  <span class="token atrule"><span class="token rule">@keyframes</span> blink-caret</span> <span class="token punctuation">&#123;</span>
+    <span class="token selector">from, to</span> <span class="token punctuation">&#123;</span> <span class="token property">box-shadow</span><span class="token punctuation">:</span> 1px 0 0 0 transparent<span class="token punctuation">;</span> <span class="token punctuation">&#125;</span>
+    <span class="token selector">50%</span> <span class="token punctuation">&#123;</span> <span class="token property">box-shadow</span><span class="token punctuation">:</span> 1px 0 0 0<span class="token punctuation">;</span> <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
 
-&lt;!-- 可用 --&gt;
-docker exec -it qinglong ql repo https:&#x2F;&#x2F;github.com&#x2F;6dylan6&#x2F;jdpro.git &quot;jd_|jx_|jddj_&quot; &quot;backUp&quot; &quot;^jd[^_]|USER|JD|function|sendNotify&quot;
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li>拉取单个脚本<pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">docker exec -it qinglong ql raw https:&#x2F;&#x2F;ghproxy.com&#x2F;https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;moposmall&#x2F;Script&#x2F;main&#x2F;Me&#x2F;jx_cfd.js<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>删除7天前的所有日志<pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">docker exec -it qinglong ql rmlog 7<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>启动bot<pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">docker exec -it qinglong ql bot<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>导出互助码<pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">docker exec -it qinglong ql code<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>通知测试<pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">docker exec -it qinglong notify test test<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>立即执行脚本<pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">docker exec -it qinglong task test.js now<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>并行执行脚本<pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">docker exec -it qinglong task test.js conc<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-</ul>
-<p>利用谷歌浏览器获取京东Cookie抓取，cookie值千万不能泄露，设置环境变量，环境变量—&gt;添加变量</p>
-<h1 id="tg机器人获取通知"><a href="#tg机器人获取通知" class="headerlink" title="tg机器人获取通知"></a>tg机器人获取通知</h1><h2 id="生成tg机器人"><a href="#生成tg机器人" class="headerlink" title="生成tg机器人"></a>生成tg机器人</h2><ul>
-<li>搜索<code>@BotFather</code>，进入对话框输入<code>/newbot</code>，输入机器人呢称，输入机器人username（以bot结尾）</li>
-<li>生成机器人成功后会发送 user token ，类似：539****961:AAgVexxxxxxxxxqfa</li>
-<li>在搜索栏搜索<code>@userinfobot</code>,点击 Start,第二行Id即为您的UserID（telegramBotUserId）</li>
-</ul>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>typing-cn<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>简易中文打字效果，简易打字效果<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+
+
+<span class="token comment">&lt;!-- 英文 --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text/css<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">
+  <span class="token selector">.typing-en</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> 22ch<span class="token punctuation">;</span>
+    <span class="token property">white-space</span><span class="token punctuation">:</span> nowrap<span class="token punctuation">;</span>
+    <span class="token property">overflow</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
+    <span class="token property">border-right</span><span class="token punctuation">:</span> 3px solid<span class="token punctuation">;</span>
+    <span class="token property">font-family</span><span class="token punctuation">:</span> monospace<span class="token punctuation">;</span>
+    <span class="token property">font-size</span><span class="token punctuation">:</span> 2em<span class="token punctuation">;</span>
+    <span class="token property">animation</span><span class="token punctuation">:</span> typing 2s <span class="token function">steps</span><span class="token punctuation">(</span>22<span class="token punctuation">)</span> infinite<span class="token punctuation">,</span> effect .5s step-end infinite alternate<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token atrule"><span class="token rule">@keyframes</span> typing</span> <span class="token punctuation">&#123;</span>
+    <span class="token selector">from</span> <span class="token punctuation">&#123;</span> <span class="token property">width</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span> <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token atrule"><span class="token rule">@keyframes</span> effect</span> <span class="token punctuation">&#123;</span>
+    <span class="token selector">50%</span> <span class="token punctuation">&#123;</span> <span class="token property">border-color</span><span class="token punctuation">:</span> transparent<span class="token punctuation">;</span> <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>typing-en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Typing effect for text<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="效果如下"><a href="#效果如下" class="headerlink" title="效果如下"></a>效果如下</h2><style type="text/css">
+  .typing-cn {
+    width: 15.1em;
+    white-space: nowrap;
+    border-right: 2px solid transparent;
+    animation: typing 3.5s steps(15, end), blink-caret .75s step-end infinite;
+    overflow: hidden;
+  }
+  /* 打印效果 */
+  @keyframes typing {
+    from { width: 0; }
+    to { width: 15.1em; }
+  }
+  /* 光标 */
+  @keyframes blink-caret {
+    from, to { box-shadow: 1px 0 0 0 transparent; }
+    50% { box-shadow: 1px 0 0 0; }
+  }
+</style>
+
+<div class="typing-cn">简易中文打字效果，简易打字效果</div>
+
+<style type="text/css">
+  .typing-en {
+    width: 23ch;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid;
+    font-family: monospace;
+    font-size: 2em;
+    animation: typing1 2s steps(23) infinite, effect .5s step-end infinite alternate;
+  }
+  @keyframes typing1 {
+    from { width: 0; }
+  }
+  @keyframes effect {
+    50% { border-color: transparent; }
+  }
+</style>
+
+<div class="typing-en">Typing effect for text </div>
 
                 
             </div>
@@ -553,7 +552,7 @@ docker exec -it qinglong ql repo https:&#x2F;&#x2F;github.com&#x2F;6dylan6&#x2F;
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://damao2250.com/2022/04/27/%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF%E6%90%AD%E5%BB%BA/">http://damao2250.com/2022/04/27/%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF%E6%90%AD%E5%BB%BA/</a>
+                    <a href="http://damao2250.com/2022/06/09/css%E5%AE%9E%E7%8E%B0%E6%89%93%E5%AD%97%E6%95%88%E6%9E%9C/">http://damao2250.com/2022/06/09/css%E5%AE%9E%E7%8E%B0%E6%89%93%E5%AD%97%E6%95%88%E6%9E%9C/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -591,8 +590,12 @@ docker exec -it qinglong ql repo https:&#x2F;&#x2F;github.com&#x2F;6dylan6&#x2F;
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF/">
-                                    <span class="chip bg-color">青龙面板</span>
+                                <a href="/tags/CSS/">
+                                    <span class="chip bg-color">CSS</span>
+                                </a>
+                            
+                                <a href="/tags/HTML/">
+                                    <span class="chip bg-color">HTML</span>
                                 </a>
                             
                         </div>
@@ -764,9 +767,10 @@ docker exec -it qinglong ql repo https:&#x2F;&#x2F;github.com&#x2F;6dylan6&#x2F;
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2022/06/09/css%E5%AE%9E%E7%8E%B0%E6%89%93%E5%AD%97%E6%95%88%E6%9E%9C/">
                     <div class="card-image">
@@ -784,9 +788,9 @@ docker exec -it qinglong ql repo https:&#x2F;&#x2F;github.com&#x2F;6dylan6&#x2F;
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-06-09
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-09
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -799,6 +803,7 @@ docker exec -it qinglong ql repo https:&#x2F;&#x2F;github.com&#x2F;6dylan6&#x2F;
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -821,13 +826,13 @@ docker exec -it qinglong ql repo https:&#x2F;&#x2F;github.com&#x2F;6dylan6&#x2F;
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/04/01/docker%E7%9A%84%E7%AE%80%E6%98%93%E4%BD%BF%E7%94%A8/">
+                <a href="/2022/04/27/%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF%E6%90%AD%E5%BB%BA/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="docker的简易使用">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="青龙面板搭建">
                         
-                        <span class="card-title">docker的简易使用</span>
+                        <span class="card-title">青龙面板搭建</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -838,14 +843,14 @@ docker exec -it qinglong ql repo https:&#x2F;&#x2F;github.com&#x2F;6dylan6&#x2F;
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-27
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Docker/" class="post-category">
-                                    Docker
+                            <a href="/categories/Linux/" class="post-category">
+                                    Linux
                                 </a>
                             
                             
@@ -855,12 +860,8 @@ docker exec -it qinglong ql repo https:&#x2F;&#x2F;github.com&#x2F;6dylan6&#x2F;
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Docker/">
-                        <span class="chip bg-color">Docker</span>
-                    </a>
-                    
-                    <a href="/tags/CentOS/">
-                        <span class="chip bg-color">CentOS</span>
+                    <a href="/tags/%E9%9D%92%E9%BE%99%E9%9D%A2%E6%9D%BF/">
+                        <span class="chip bg-color">青龙面板</span>
                     </a>
                     
                 </div>
