@@ -6,7 +6,7 @@
   <link href="http://damao2250.com/atom.xml" rel="self"/>
   
   <link href="http://damao2250.com/"/>
-  <updated>2022-06-09T01:44:01.305Z</updated>
+  <updated>2022-06-11T01:47:37.962Z</updated>
   <id>http://damao2250.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>git远程已经删除的分支本地环境仍能看到远程分支</title>
+    <link href="http://damao2250.com/2022/06/11/git%E8%BF%9C%E7%A8%8B%E5%B7%B2%E7%BB%8F%E5%88%A0%E9%99%A4%E7%9A%84%E5%88%86%E6%94%AF%E6%9C%AC%E5%9C%B0%E7%8E%AF%E5%A2%83%E4%BB%8D%E8%83%BD%E7%9C%8B%E5%88%B0%E8%BF%9C%E7%A8%8B%E5%88%86%E6%94%AF/"/>
+    <id>http://damao2250.com/2022/06/11/git%E8%BF%9C%E7%A8%8B%E5%B7%B2%E7%BB%8F%E5%88%A0%E9%99%A4%E7%9A%84%E5%88%86%E6%94%AF%E6%9C%AC%E5%9C%B0%E7%8E%AF%E5%A2%83%E4%BB%8D%E8%83%BD%E7%9C%8B%E5%88%B0%E8%BF%9C%E7%A8%8B%E5%88%86%E6%94%AF/</id>
+    <published>2022-06-11T01:39:58.000Z</published>
+    <updated>2022-06-11T01:47:37.962Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="git远程已经删除的分支，在本地环境仍能看到远程分支"><a href="#git远程已经删除的分支，在本地环境仍能看到远程分支" class="headerlink" title="git远程已经删除的分支，在本地环境仍能看到远程分支"></a>git远程已经删除的分支，在本地环境仍能看到远程分支</h2><ol><li><p>使用命令查看本地分支及远程分支</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">git</span> bransh -a<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li><li><p>查看remote远程分支，还有本地分支与之对应的关系</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">git</span> remote show origin<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li></ol><ul><li>远程不存在的分支会提示：<code> stale (use &#39;git remote prune&#39; to remove)</code></li></ul><ol start="3"><li>在本地删除远程不存在的分支<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">git</span> remote prune origin<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>or<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">git</span> remote prune origin <span class="token operator">&lt;</span>name<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;git远程已经删除的分支，在本地环境仍能看到远程分支&quot;&gt;&lt;a href=&quot;#git远程已经删除的分支，在本地环境仍能看到远程分支&quot; class=&quot;headerlink&quot; title=&quot;git远程已经删除的分支，在本地环境仍能看到远程分支&quot;&gt;&lt;/a&gt;git远程已经删</summary>
+      
+    
+    
+    
+    <category term="版本控制工具" scheme="http://damao2250.com/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7/"/>
+    
+    
+    <category term="git" scheme="http://damao2250.com/tags/git/"/>
+    
+  </entry>
   
   <entry>
     <title>css实现打字效果</title>
@@ -505,31 +529,6 @@
     <category term="TS" scheme="http://damao2250.com/tags/TS/"/>
     
     <category term="tsconfig" scheme="http://damao2250.com/tags/tsconfig/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>git之多SSH-key配置</title>
-    <link href="http://damao2250.com/2021/09/13/git%E4%B9%8B%E5%A4%9ASSH-key%E9%85%8D%E7%BD%AE/"/>
-    <id>http://damao2250.com/2021/09/13/git%E4%B9%8B%E5%A4%9ASSH-key%E9%85%8D%E7%BD%AE/</id>
-    <published>2021-09-13T01:25:00.000Z</published>
-    <updated>2021-10-20T10:19:14.791Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="1-生成SSH-Key"><a href="#1-生成SSH-Key" class="headerlink" title="1. 生成SSH-Key"></a>1. 生成SSH-Key</h1><ul><li>Windows系统请使用Git bash操作<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 生成第一个SSH-Key</span>$ ssh-keygen -t rsa -C <span class="token string">"你的邮箱” -f ~/.ssh/id_rsa_one# 生成第二个SSH-Key$ ssh-keygen -t rsa -C "</span>"你的邮箱”” -f ~/.ssh/id_rsa_two<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li><li>创建完成之后 我们在.ssh的根目录下可以看到文件<ul><li>C:\Users\Administrator.ssh 或者 C:\Users\电脑用户名.ssh</li></ul></li></ul><h1 id="2-添加私钥"><a href="#2-添加私钥" class="headerlink" title="2. 添加私钥"></a>2. 添加私钥</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 在终端中执行</span>$ ssh-add ~/.ssh/id_rsa_gitlab$ ssh-add ~/.ssh/id_rsa_github<span class="token comment"># 如果执行ssh-add时提示 Could not open a connection to your authentication agent</span><span class="token comment"># 可以先执行命令:</span>$ ssh-agent <span class="token function">bash</span><span class="token comment"># 然后再重新运行ssh-add命令即可</span><span class="token comment"># 添加成功会出现提示：</span><span class="token comment"># Identity added 等字样</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h1 id="3-查看私钥列表是否存在"><a href="#3-查看私钥列表是否存在" class="headerlink" title="3. 查看私钥列表是否存在"></a>3. 查看私钥列表是否存在</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ ssh-add -l<span class="token comment"># 当我们可以看到2条私钥的时候就证明安装成功了</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><h1 id="4-修改配置文件config"><a href="#4-修改配置文件config" class="headerlink" title="4. 修改配置文件config"></a>4. 修改配置文件config</h1><ul><li>若.ssh目录(就是私钥所在的文件夹)下无config文件，那就需要自己创建config文件（可用vs code创建）</li><li>创建后添加一下内容：<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># giglab</span>Host giglab.comHostName giglab.comPreferredAuthentications publickeyIdentityFile ~/.ssh/id_rsa_gitlab<span class="token comment"># github</span>Host github.comHostName github.comPreferredAuthentications publickeyIdentityFile ~/.ssh/id_rsa_github<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li></ul><h1 id="5-在gitlab、github网站中设置SSH-keys"><a href="#5-在gitlab、github网站中设置SSH-keys" class="headerlink" title="5. 在gitlab、github网站中设置SSH keys"></a>5. 在gitlab、github网站中设置SSH keys</h1><ul><li>在gitlab、github网站中找到用户设置，找到SSH keys</li><li>在.ssh的根目录中找到对应网站的.pub结尾的文件，用记事本打开，然后复制内容到对应网站保存即可</li></ul><h1 id="6-用ssh命令测试验证"><a href="#6-用ssh命令测试验证" class="headerlink" title="6. 用ssh命令测试验证"></a>6. 用ssh命令测试验证</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">ssh</span> -T git@gitlab.com$ <span class="token function">ssh</span> -T git@github.com<span class="token comment"># 如果出现 Are you sure you want to continue connecting? </span><span class="token comment"># 直接输入 yes</span><span class="token comment"># 然后重复上面的命令</span><span class="token comment"># 验证通过会有类似“Welconme”或者“Hi”的欢迎字样</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h1 id="7-清空私钥列表"><a href="#7-清空私钥列表" class="headerlink" title="7. 清空私钥列表"></a>7. 清空私钥列表</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ ssh-add -D<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;1-生成SSH-Key&quot;&gt;&lt;a href=&quot;#1-生成SSH-Key&quot; class=&quot;headerlink&quot; title=&quot;1. 生成SSH-Key&quot;&gt;&lt;/a&gt;1. 生成SSH-Key&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;Windows系统请使用Git bash操作&lt;pre</summary>
-      
-    
-    
-    
-    <category term="版本控制工具" scheme="http://damao2250.com/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7/"/>
-    
-    
-    <category term="git" scheme="http://damao2250.com/tags/git/"/>
     
   </entry>
   
