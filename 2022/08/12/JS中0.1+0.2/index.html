@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Vue3组合式API使用示例, Damao">
+    <meta name="keywords" content="JS中0.1+0.2, Damao">
     <meta name="description" content="Coding...">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Vue3组合式API使用示例 | Damao</title>
+    <title>JS中0.1+0.2 | Damao</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -245,12 +245,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/31.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Vue3组合式API使用示例</h1>
+                    <h1 class="description center-align post-title">JS中0.1+0.2</h1>
                 </div>
             </div>
         </div>
@@ -366,8 +366,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Vue3/">
-                                <span class="chip bg-color">Vue3</span>
+                            <a href="/tags/js/">
+                                <span class="chip bg-color">js</span>
                             </a>
                         
                     </div>
@@ -378,8 +378,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Vue/" class="post-category">
-                                Vue
+                            <a href="/categories/JavaScript/" class="post-category">
+                                JavaScript
                             </a>
                         
                     </div>
@@ -391,28 +391,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-08-08
+                    2022-08-12
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-10
+                    2022-08-12
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    589
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    2 分
                 </div>
                 
 
@@ -435,111 +435,68 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="API一览"><a href="#API一览" class="headerlink" title="API一览"></a>API一览</h2><h3 id="setup"><a href="#setup" class="headerlink" title="setup()"></a>setup()</h3><h3 id="响应式-核心"><a href="#响应式-核心" class="headerlink" title="响应式: 核心"></a>响应式: 核心</h3><ul>
-<li>ref() - 接受一个内部值，返回一个响应式的、可更改的 ref 对象</li>
-<li>computed () - 接受一个 getter 函数，返回一个只读的响应式 ref 对象(计算属性)</li>
-<li>reactive() - 返回一个对象的响应式代理</li>
-<li>readonly() - 接受一个对象 (不论是响应式还是普通的) 或是一个 ref，返回一个原值的只读代理</li>
-<li>watchEffect() - 立即运行一个函数，同时响应式地追踪其依赖，并在依赖更改时重新执行</li>
-<li>watchPostEffect() - watchEffect() 使用 flush: ‘post’ 选项时的别名</li>
-<li>watchSyncEffect() - watchEffect() 使用 flush: ‘sync’ 选项时的别名</li>
-<li>watch() - 侦听一个或多个响应式数据源，并在数据源变化时调用所给的回调函数<h3 id="响应式-工具"><a href="#响应式-工具" class="headerlink" title="响应式: 工具"></a>响应式: 工具</h3></li>
-<li>isRef() - 检查某个值是否为 ref</li>
-<li>unref() - 如果参数是 ref，则返回内部值，否则返回参数本身</li>
-<li>toRef() - 基于响应式对象上的一个属性，创建一个对应的 ref</li>
-<li>toRefs() - 将一个响应式对象转换为一个普通对象，这个普通对象的每个属性都是指向源对象相应属性的 ref</li>
-<li>isProxy() - 检查一个对象是否是由 reactive()、readonly()、shallowReactive() 或 shallowReadonly() 创建的代理</li>
-<li>isReactive() - 检查一个对象是否是由 reactive() 或 shallowReactive() 创建的代理</li>
-<li>isReadonly() - 检查一个对象是否是由 readonly() 或 shallowReadonly() 创建的代理<h3 id="响应式-进阶"><a href="#响应式-进阶" class="headerlink" title="响应式: 进阶"></a>响应式: 进阶</h3></li>
-<li>shallowRef() - ref() 的浅层作用形式</li>
-<li>triggerRef() - 强制触发依赖于一个浅层 ref 的副作用，这通常在对浅引用的内部值进行深度变更后使用</li>
-<li>customRef() - 创建一个自定义的 ref，显式声明对其依赖追踪和更新触发的控制方式</li>
-<li>shallowReactive() - reactive() 的浅层作用形式</li>
-<li>shallowReadonly() - readonly() 的浅层作用形式</li>
-<li>toRaw() - 根据一个 Vue 创建的代理返回其原始对象</li>
-<li>markRaw() - 将一个对象标记为不可被转为代理。返回该对象本身</li>
-<li>effectScope() - 创建一个 effect 作用域，可以捕获其中所创建的响应式副作用 (即计算属性和侦听器)，这样捕获到的副作用可以一起处理</li>
-<li>getCurrentScope() - 如果有的话，返回当前活跃的 effect 作用域</li>
-<li>onScopeDispose() - 在当前活跃的 effect 作用域上注册一个处理回调函数<h3 id="生命周期钩子"><a href="#生命周期钩子" class="headerlink" title="生命周期钩子"></a>生命周期钩子</h3></li>
-<li>onMounted() - 组件挂载完成后执行</li>
-<li>onUpdated() - 更新 DOM 树之后调用</li>
-<li>onUnmounted() - 组件实例被卸载之后调用</li>
-<li>onBeforeMount() - 组件被挂载之前被调用</li>
-<li>onBeforeUpdate() - 更新 DOM 树之前调用</li>
-<li>onBeforeUnmount() - 组件实例被卸载之前调用</li>
-<li>onErrorCaptured() - 捕获了后代组件传递的错误时调用</li>
-<li>onRenderTracked() - 组件渲染过程中追踪到响应式依赖时调用</li>
-<li>onRenderTriggered() - 响应式依赖的变更触发了组件渲染时调用</li>
-<li>onActivated() - 若组件实例是 <KeepAlive> 缓存树的一部分，当组件被插入到 DOM 中时调用</li>
-<li>onDeactivated() - 若组件实例是 <KeepAlive> 缓存树的一部分，当组件从 DOM 中被移除时调用</li>
-<li>onServerPrefetch() - 组件实例在服务器上被渲染之前调用<h3 id="依赖注入"><a href="#依赖注入" class="headerlink" title="依赖注入"></a>依赖注入</h3></li>
-<li>provide() - 提供一个值，可以被后代组件注入</li>
-<li>inject() - 注入一个由祖先组件或整个应用 (通过 app.provide()) 提供的值</li>
+                <h1 id="js中0-1-0-2的问题（作者：老司机）"><a href="#js中0-1-0-2的问题（作者：老司机）" class="headerlink" title="js中0.1+0.2的问题（作者：老司机）"></a>js中0.1+0.2的问题（作者：老司机）</h1><h2 id="一、前提："><a href="#一、前提：" class="headerlink" title="一、前提："></a>一、前提：</h2><ul>
+<li><p>0.1或0.2等一些小数，转换为二进制格式时，是一个无限循环的小数，因此最终得到的结果是一个近似值（保留52位小数），在计算过程中，有可能会发生位数的变化，在进行舍取的过程中，导致精度丢失</p>
+</li>
+<li><p>js的浮点数在计算机底层的存储格式为：符号位（1） + 阶码（11）+ 尾数（52）</p>
+</li>
+<li><p>符号位：0表示正数，1表示负数</p>
+</li>
+<li><p>阶码：指数+1023（最后转为二进制格式，若不足11位，则在前面补0）</p>
+</li>
+<li><p>1023称为偏移量：2 ^ (位数-1) - 1，此处js浮点数的阶码位数为11，所以：2 ^ 10 - 1 = 1023</p>
+</li>
+<li><p>以0.1为例：</p>
+<ul>
+<li>科学记数法格式（乘二取整，顺序排序）：1.1 00110011 00110011 00110011 00110011 00110011 00110011 010 x 2 ^ -4</li>
+<li>二进制格式：0 01111111011 1001100110011001100110011001100110011001100110011010【省略了整数1，作为一个隐藏位】</li>
 </ul>
-<h2 id="使用示例"><a href="#使用示例" class="headerlink" title="使用示例"></a>使用示例</h2><pre class="line-numbers language-Vue" data-language="Vue"><code class="language-Vue">&lt;script setup lang&#x3D;&quot;ts&quot;&gt;
-  import &#123; ref, Ref, reactive, isRef, unref, toRef, computed &#125; from &#39;vue&#39;;
-  const msg &#x3D; ref(&quot;Hello World&quot;);
-  const initial &#x3D; ref(10);
-  const count &#x3D; ref(0);
+</li>
+</ul>
+<h2 id="二、实现-0-1-0-2-0-3"><a href="#二、实现-0-1-0-2-0-3" class="headerlink" title="二、实现 0.1+0.2===0.3"></a>二、实现 0.1+0.2===0.3</h2><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">binaryStrToNum</span><span class="token punctuation">(</span><span class="token parameter">str</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> 
+    <span class="token comment">// 1、获取符号位</span>
+    <span class="token keyword">let</span> sign <span class="token operator">=</span> str<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// 2、获取阶码（1~11【包含11】）</span>
+    <span class="token keyword">let</span> exponent <span class="token operator">=</span> str<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">12</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// 3、获取小数位</span>
+    <span class="token keyword">let</span> m <span class="token operator">=</span> str<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
 
+    <span class="token comment">// 注意：在尾数中，计算是从第一位开始的，一共有52位，其实还包含一个隐藏位（上面已经提了），这个隐藏位的计算结果始终是1（计算方式：1 * 2 ^ 0），这个也必须累加到计算结果中</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>m<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">let</span> c <span class="token operator">=</span> m<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>c <span class="token operator">==</span> <span class="token string">"1"</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            sum <span class="token operator">+=</span> Math<span class="token punctuation">.</span><span class="token function">pow</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token punctuation">(</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
 
-  &#x2F;&#x2F; 更新 ref
-  function update(value) &#123;
-    count.value &#x3D; value;
-  &#125;
+    <span class="token comment">// 4、计算结果，公式为：-1 ^ 符号 * 2 ^ (阶码-1023) * sum</span>
+    <span class="token keyword">return</span> Math<span class="token punctuation">.</span><span class="token function">pow</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">+</span>sign<span class="token punctuation">)</span> <span class="token operator">*</span> Math<span class="token punctuation">.</span><span class="token function">pow</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token function">parseInt</span><span class="token punctuation">(</span>exponent<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1023</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">+</span> sum<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
 
-  &#x2F;&#x2F; 检查&#96;count&#96;是否为一个 ref 对象
-  console.log(isRef(count) ? &#39;是ref对象&#39; : &#39;非ref对象&#39;);
+<span class="token comment">// 《0.1》</span>
+<span class="token comment">// const r1 = binaryStrToNum("0011111110111001100110011001100110011001100110011001100110011010");</span>
+<span class="token comment">// console.log(r1);</span>
 
-  &#x2F;&#x2F; 如果参数是一个ref，则返回内部值，否则返回参数本身
-  function initialCount(value: number | Ref&lt;number&gt;) &#123;
-    console.log(unref(value) &#x3D;&#x3D;&#x3D; 10); &#x2F;&#x2F; 打印true
-  &#125;
-  initialCount(initial);
+<span class="token comment">// 《0.2》</span>
+<span class="token comment">// 1.1 00110011 00110011 00110011 00110011 00110011 00110011 010 x 2 ^ -3 = 0 01111111100 1001100110011001100110011001100110011001100110011010</span>
+<span class="token comment">// const r2 = binaryStrToNum("0011111111001001100110011001100110011001100110011001100110011010");</span>
+<span class="token comment">// console.log(r2);</span>
 
-  &#x2F;**
-   * 为源响应式对象上的某个 &#96;property&#96; 新创建一个 &#96;ref&#96;。
-   * 然后,&#96;ref&#96; 可以被传递，它会保持对其源&#96;property&#96;的响应式连接。
-   * 确保以下输出为true
-   *&#x2F;
-  const state &#x3D; reactive(&#123;
-    foo: 1,
-    bar: 2,
-  &#125;);
-  const fooRef &#x3D; toRef(state, &#39;foo&#39;);
-  &#x2F;&#x2F; 修改引用将更新原引用
-  fooRef.value++;
-  console.log(state.foo &#x3D;&#x3D;&#x3D; 2); &#x2F;&#x2F; 打印true
-  &#x2F;&#x2F; 修改原引用也会更新&#96;ref&#96;
-  state.foo++;
-  console.log(fooRef.value &#x3D;&#x3D;&#x3D; 3); &#x2F;&#x2F; 打印true
+<span class="token comment">/**
+ *《0.1 + 0.2》
+ * 先对其进行计算（保留52位，第53位为0时，舍弃；为1时，进1）：
+ * 0.00011 00110011 00110011 00110011 00110011 00110011 00110011 010 + 0.00110 01100110 01100110 01100110 01100110 01100110 01100110 10
+ * = 0.01001 10011001 10011001 10011001 10011001 10011001 10011001 110
+ * = 1.001 10011001 10011001 10011001 10011001 10011001 10011001 110 x 2 ^ -2【在此次计算中，尾数变成了53位，因此要进行舍取】
+ * = 1.001 10011001 10011001 10011001 10011001 10011001 10011010 0 x 2 ^ -2【取小数52位】
+ * 转为二进制格式 =>：0 01111111101 0011001100110011001100110011001100110011001100110100
+ */</span>
+<span class="token keyword">const</span> r3 <span class="token operator">=</span> <span class="token function">binaryStrToNum</span><span class="token punctuation">(</span><span class="token string">"0011111111010011001100110011001100110011001100110011001100110100"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-  &#x2F;&#x2F;computed 接受一个具有 get 和 set 函数的对象，用来创建可写的 ref 对象。
-  const plusOne &#x3D; computed(&#123;
-    get: ()&#x3D;&gt;&#123;
-    return count.value + 1;
-    &#125;,
-    set: val&#x3D;&gt;&#123; 
-    count.value ++;
-    &#125;
-  &#125;)
-  plusOne.value++;
-
-&lt;&#x2F;script&gt;
-
-&lt;template&gt;
-  &lt;div&gt;
-    &lt;h1&gt;&#123;&#123;msg&#125;&#125;&lt;&#x2F;h1&gt;
-    &lt;p&gt;
-      &lt;span @click&#x3D;&quot;update(count - 1)&quot;&gt;-&lt;&#x2F;span&gt;
-      &#123;&#123; count &#125;&#125;
-      &lt;span @click&#x3D;&quot;update(count + 1)&quot;&gt;+&lt;&#x2F;span&gt;
-    &lt;&#x2F;p&gt;
-    &lt;p&gt;
-      count：&#123;&#123; count &#125;&#125;，plusOne：&#123;&#123; plusOne &#125;&#125;
-    &lt;&#x2F;p&gt;
-  &lt;&#x2F;div&gt;
-&lt;&#x2F;template&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>r3<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 0.30000000000000004</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>r3 <span class="token operator">==</span> <span class="token punctuation">(</span><span class="token number">0.1</span> <span class="token operator">+</span> <span class="token number">0.2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -566,7 +523,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://damao2250.com/2022/08/08/Vue3%E7%BB%84%E5%90%88%E5%BC%8FAPI%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B/">http://damao2250.com/2022/08/08/Vue3%E7%BB%84%E5%90%88%E5%BC%8FAPI%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B/</a>
+                    <a href="http://damao2250.com/2022/08/12/JS%E4%B8%AD0.1+0.2/">http://damao2250.com/2022/08/12/JS%E4%B8%AD0.1+0.2/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -604,8 +561,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Vue3/">
-                                    <span class="chip bg-color">Vue3</span>
+                                <a href="/tags/js/">
+                                    <span class="chip bg-color">js</span>
                                 </a>
                             
                         </div>
@@ -777,9 +734,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2022/08/12/JS%E4%B8%AD0.1+0.2/">
                     <div class="card-image">
@@ -797,9 +755,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-08-12
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-12
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -812,6 +770,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -830,13 +789,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/07/25/%E5%8F%B2%E8%92%82%E5%A4%AB%C2%B7%E4%B9%94%E5%B8%83%E6%96%AF%E5%9C%A8%E6%96%AF%E5%9D%A6%E7%A6%8F%E5%A4%A7%E5%AD%A6%E7%9A%84%E6%BC%94%E8%AE%B2/">
+                <a href="/2022/08/08/Vue3%E7%BB%84%E5%90%88%E5%BC%8FAPI%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="史蒂夫·乔布斯在斯坦福大学的演讲">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="Vue3组合式API使用示例">
                         
-                        <span class="card-title">史蒂夫·乔布斯在斯坦福大学的演讲</span>
+                        <span class="card-title">Vue3组合式API使用示例</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -847,14 +806,14 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-25
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-08
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%96%87%E6%91%98/" class="post-category">
-                                    文摘
+                            <a href="/categories/Vue/" class="post-category">
+                                    Vue
                                 </a>
                             
                             
@@ -864,12 +823,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%8F%B2%E8%92%82%E5%A4%AB%C2%B7%E4%B9%94%E5%B8%83%E6%96%AF/">
-                        <span class="chip bg-color">史蒂夫·乔布斯</span>
-                    </a>
-                    
-                    <a href="/tags/Steve-Jobs/">
-                        <span class="chip bg-color">Steve Jobs</span>
+                    <a href="/tags/Vue3/">
+                        <span class="chip bg-color">Vue3</span>
                     </a>
                     
                 </div>
