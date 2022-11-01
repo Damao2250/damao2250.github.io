@@ -398,21 +398,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-05-13
+                    2022-11-01
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    716
+                    955
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    4 分
                 </div>
                 
 
@@ -486,13 +486,34 @@
 </ul>
 <ol start="4">
 <li>删除容器 <pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">docker rm -f qinglong<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>初次登陆</li>
+<li>初次登陆(网页访问)</li>
 </ol>
 <ul>
 <li>初次访问 http://&lt;自己ip&gt;:5700</li>
 <li>使用 admin/adminadmin 登陆，提示已初始化密码</li>
 <li>去自己映射目录config下找 auth.json，查看里面的 password<pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">docker exec -it qinglong cat &#x2F;ql&#x2F;config&#x2F;auth.json<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ul>
+<p>===================== 京东脚本参考==========================================</p>
+<ul>
+<li>第五步初始密码后<ul>
+<li>在面板选择 定时任务-新建任务-填写如下（命令可自行github查找）</li>
+<li>名称：自定义填写    命令：ql repo <a target="_blank" rel="noopener" href="https://ghproxy.com/https://github.com/shufflewzc/faker2.git">https://ghproxy.com/https://github.com/shufflewzc/faker2.git</a> “jd_|jx_|getJDCookie” “activity|backUp” “^jd[^_]|USER|ZooFaker_Necklace”      定时规则：可填写0    </li>
+<li>填写完后点击“运行”，运行完后刷新就可以看到所有的任务列表</li>
+</ul>
+</li>
+<li>获取京东cookie<ul>
+<li>网页打开京东手机版：m.jd.com，打开F12，切换手机模式，使用验证码登录京东账号</li>
+<li>在Application出找到Cookie，找到pt_key和pt_pin，复制相应的值，然后手动拼接如下：pt_key=xxxx;pt_pin=xxxx;  (xxxx为对应的值)</li>
+</ul>
+</li>
+<li>回到青龙面板<ul>
+<li>环境变量-新建环境变量</li>
+<li>名称：JD_COOKIE    （注意名称不能变）   自动拆分：否    值：pt_key=xxxx;pt_pin=xxxx;</li>
+<li>定时任务-勾选任务执行测试是否成功</li>
+</ul>
+</li>
+</ul>
+<p>===================== 只做京东的一下可不理会 ================================</p>
 <ol start="6">
 <li>Cookie管理</li>
 </ol>
