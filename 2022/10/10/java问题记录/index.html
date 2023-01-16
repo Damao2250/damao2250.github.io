@@ -398,14 +398,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-10-17
+                    2023-01-16
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    32
+                    113
                 </div>
                 
 
@@ -439,6 +439,16 @@
 <span class="token comment">// module/src/main/resources/application-xxx.yml</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <h2 id="查找启动类"><a href="#查找启动类" class="headerlink" title="查找启动类"></a>查找启动类</h2><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// module/src/main/java/org.xxx/xxxSystemApplication</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="linux-java重启"><a href="#linux-java重启" class="headerlink" title="linux java重启"></a>linux java重启</h2><ul>
+<li>进入jar包所在的目录下<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">cd usr<span class="token operator">/</span>local<span class="token operator">/</span>platform<span class="token operator">/</span>java<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>查看进程<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"><span class="token function">ps</span> <span class="token operator">-</span>ef<span class="token punctuation">|</span>grpe java<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>杀死进程<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"><span class="token function">kill</span> <span class="token operator">-</span>9 31189
+<span class="token comment"># 31189为进程号</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li>重启进程（在Java路径下，可用ls查看对应的启动shell文件，后缀名为.sh）<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"><span class="token punctuation">.</span><span class="token operator">/</span><span class="token function">start</span><span class="token punctuation">.</span>sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>检查进程是否已重启成功<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"><span class="token function">ps</span> <span class="token operator">-</span>ef<span class="token punctuation">|</span>grpe java<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ul>
+
                 
             </div>
             <hr/>
