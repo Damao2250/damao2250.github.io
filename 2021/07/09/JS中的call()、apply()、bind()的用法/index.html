@@ -406,21 +406,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-10-04
+                    2023-02-07
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    602
+                    767
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    3 分
                 </div>
                 
 
@@ -503,9 +503,7 @@ obj<span class="token punctuation">.</span><span class="token function">myFun</s
 obj<span class="token punctuation">.</span><span class="token function">myFun</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>db<span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token string">'广州'</span><span class="token punctuation">,</span><span class="token string">'上海'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>          <span class="token comment">// 玛丽年龄18 -> 来自广州去往上海</span>
 obj<span class="token punctuation">.</span><span class="token function">myFun</span><span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>db<span class="token punctuation">,</span><span class="token string">'广州'</span><span class="token punctuation">,</span><span class="token string">'上海'</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>           <span class="token comment">// 玛丽年龄18 -> 来自广州去往上海</span>
 obj<span class="token punctuation">.</span><span class="token function">myFun</span><span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>db<span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token string">'广州'</span><span class="token punctuation">,</span><span class="token string">'上海'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>　　     <span class="token comment">// 玛丽年龄18 -> 来自广州,上海去往undefined</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<ul>
-<li><p>微妙的差距</p>
-</li>
+<h3 id="微妙的差距"><a href="#微妙的差距" class="headerlink" title="微妙的差距"></a>微妙的差距</h3><ul>
 <li><p>从上面四个结果不难看出 call 、bind 、 apply 这三个函数的第一个参数都是 this 的指向对象，第二个参数差别就来了：</p>
 <ul>
 <li>call的参数是直接放进去的，第二第三第n个参数全都用逗号分隔，直接放到后面obj.myFun.call(db,’成都’, … ,’string’);</li>
@@ -514,6 +512,20 @@ obj<span class="token punctuation">.</span><span class="token function">myFun</s
 </ul>
 </li>
 <li><p>当然，三者的参数不限定是string类型，允许是各种类型，包括函数、object等等</p>
+</li>
+</ul>
+<h3 id="异同"><a href="#异同" class="headerlink" title="异同"></a>异同</h3><ul>
+<li>在 JavaScript 中，call、apply 和 bind 是 Function 对象自带的三个方法，这三个方法的主要作用是改变函数中的 this 指向</li>
+<li>共同点：<ul>
+<li>apply 、 call 、bind 三者都是用来改变函数的 this 对象指向</li>
+<li>apply 、 call 、bind 三者第一个参数都是 this 要指向的对象，也就是想指定的上下文。（函数的每次调用都会拥有一个特殊值——本次调用的上下文（context），这就是 this 关键字的值）</li>
+<li>apply 、 call 、bind 三者都可以利用后续参数传参</li>
+</ul>
+</li>
+<li>区别：<ul>
+<li>bind 是返回对应函数，便于稍后调用</li>
+<li>apply 、call 则是立即调用</li>
+</ul>
 </li>
 </ul>
 
