@@ -366,12 +366,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/AJAX/">
-                                <span class="chip bg-color">AJAX</span>
-                            </a>
-                        
                             <a href="/tags/Axios/">
                                 <span class="chip bg-color">Axios</span>
+                            </a>
+                        
+                            <a href="/tags/AJAX/">
+                                <span class="chip bg-color">AJAX</span>
                             </a>
                         
                             <a href="/tags/Fetch/">
@@ -406,21 +406,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-02-14
+                    2023-02-18
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.3k
+                    1.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    8 分
                 </div>
                 
 
@@ -508,9 +508,104 @@
 </ul>
 <h2 id="Fetch"><a href="#Fetch" class="headerlink" title="Fetch"></a>Fetch</h2><ul>
 <li>Fetch是浏览器内置API，在浏览器环境中，可以通过顶层对象window获取</li>
-<li></li>
+<li>fetch()是XMLHttpRequest(ajax使用的就是XMLHttpRequest)的升级版，用于在JavaScript脚本里面发出HTTP请求</li>
 </ul>
-<h2 id="Axios"><a href="#Axios" class="headerlink" title="Axios"></a>Axios</h2><h3 id="GET请求"><a href="#GET请求" class="headerlink" title="GET请求"></a>GET请求</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// get请求携带参数</span>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">let</span> promise <span class="token operator">=</span> <span class="token function">fetch</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span> <span class="token punctuation">[</span>options<span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token comment">// 完整options对象</span>
+<span class="token comment">/**
+  &#123;
+    method: "GET", // HTTP 请求的方法，POST、DELETE、PUT等
+    headers: &#123; // 请求头
+      "Content-Type": "text/plain;charset=UTF-8"
+    &#125;,
+    body: undefined, // POST 请求体
+    referrer: "about:client",
+    referrerPolicy: "no-referrer-when-downgrade", // 指定了 HTTP 头部 referer 字段的值
+    mode: "cors", // 请求的模式
+    credentials: "same-origin",
+    cache: "default", // 请求的 cache 模式
+    redirect: "follow", // 可用的 redirect 模式
+    integrity: "",
+    keepalive: false,
+    signal: undefined
+  &#125;
+*/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="GET请求"><a href="#GET请求" class="headerlink" title="GET请求"></a>GET请求</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token function">fetch</span><span class="token punctuation">(</span><span class="token constant">URL</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">response</span> <span class="token operator">=></span> response<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">json</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>json<span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token parameter">err</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Request Failed'</span><span class="token punctuation">,</span> err<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="使用await语法"><a href="#使用await语法" class="headerlink" title="使用await语法"></a>使用await语法</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">fetchText</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">let</span> response <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token constant">URL</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>status<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>statusText<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="POST请求"><a href="#POST请求" class="headerlink" title="POST请求"></a>POST请求</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> response <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token constant">URL</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span>
+  method<span class="token operator">:</span> <span class="token string">'POST'</span><span class="token punctuation">,</span>
+  headers<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token string">"Content-type"</span><span class="token operator">:</span> <span class="token string">"application/x-www-form-urlencoded; charset=UTF-8"</span><span class="token punctuation">,</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  body<span class="token operator">:</span> <span class="token string">'foo=bar&amp;lorem=ipsum'</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> json <span class="token operator">=</span> <span class="token keyword">await</span> response<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="POST提交JSON数据"><a href="#POST提交JSON数据" class="headerlink" title="POST提交JSON数据"></a>POST提交JSON数据</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> user <span class="token operator">=</span>  <span class="token punctuation">&#123;</span> name<span class="token operator">:</span>  <span class="token string">'John'</span><span class="token punctuation">,</span> surname<span class="token operator">:</span>  <span class="token string">'Smith'</span>  <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> response <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token constant">URL</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span>
+  method<span class="token operator">:</span> <span class="token string">'POST'</span><span class="token punctuation">,</span>
+  headers<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+   <span class="token string">'Content-Type'</span><span class="token operator">:</span> <span class="token string">'application/json;charset=utf-8'</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> 
+  body<span class="token operator">:</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span> 
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="POST提交表单数据"><a href="#POST提交表单数据" class="headerlink" title="POST提交表单数据"></a>POST提交表单数据</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> form <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'form'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> response <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token constant">URL</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span>
+  method<span class="token operator">:</span> <span class="token string">'POST'</span><span class="token punctuation">,</span>
+  body<span class="token operator">:</span> <span class="token keyword">new</span> <span class="token class-name">FormData</span><span class="token punctuation">(</span>form<span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> input <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'input[type="file"]'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> data <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FormData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+data<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">'file'</span><span class="token punctuation">,</span> input<span class="token punctuation">.</span>files<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+data<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">'user'</span><span class="token punctuation">,</span> <span class="token string">'foo'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">fetch</span><span class="token punctuation">(</span><span class="token constant">URL</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span>
+  method<span class="token operator">:</span> <span class="token string">'POST'</span><span class="token punctuation">,</span>
+  body<span class="token operator">:</span> data
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="上传二进制数据"><a href="#上传二进制数据" class="headerlink" title="上传二进制数据"></a>上传二进制数据</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">let</span> blob <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token parameter">resolve</span> <span class="token operator">=></span>   
+  canvasElem<span class="token punctuation">.</span><span class="token function">toBlob</span><span class="token punctuation">(</span>resolve<span class="token punctuation">,</span>  <span class="token string">'image/png'</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> response <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token constant">URL</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span>
+  method<span class="token operator">:</span>  <span class="token string">'POST'</span><span class="token punctuation">,</span>
+  body<span class="token operator">:</span> blob
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="取消fetch-请求"><a href="#取消fetch-请求" class="headerlink" title="取消fetch()请求"></a>取消fetch()请求</h3><ul>
+<li>fetch()请求发送以后，如果中途想要取消，需要使用AbortController对象<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">let</span> controller <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">AbortController</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> signal <span class="token operator">=</span> controller<span class="token punctuation">.</span>signal<span class="token punctuation">;</span>
+
+<span class="token function">fetch</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span>
+  signal<span class="token operator">:</span> controller<span class="token punctuation">.</span>signal
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+signal<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'abort'</span><span class="token punctuation">,</span>
+  <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'abort!'</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+controller<span class="token punctuation">.</span><span class="token function">abort</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 取消</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>signal<span class="token punctuation">.</span>aborted<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<h2 id="Axios"><a href="#Axios" class="headerlink" title="Axios"></a>Axios</h2><h3 id="GET请求-1"><a href="#GET请求-1" class="headerlink" title="GET请求"></a>GET请求</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// get请求携带参数</span>
 axios<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'/user?ID=5422'</span><span class="token punctuation">)</span>
   <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">response</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>response<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -540,7 +635,7 @@ axios<span class="token punctuation">.</span><span class="token function">get</s
   <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">response</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   response<span class="token punctuation">.</span>data<span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>fs<span class="token punctuation">.</span><span class="token function">createWriteStream</span><span class="token punctuation">(</span><span class="token string">'xxx.jpg'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="POST请求"><a href="#POST请求" class="headerlink" title="POST请求"></a>POST请求</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js">axios<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">'/user'</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span>
+<h3 id="POST请求-1"><a href="#POST请求-1" class="headerlink" title="POST请求"></a>POST请求</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js">axios<span class="token punctuation">.</span><span class="token function">post</span><span class="token punctuation">(</span><span class="token string">'/user'</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span>
     firstName<span class="token operator">:</span> <span class="token string">'三'</span><span class="token punctuation">,</span>
     lastName<span class="token operator">:</span> <span class="token string">'张'</span>
   <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
@@ -777,12 +872,12 @@ axios<span class="token punctuation">.</span><span class="token function">get</s
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/AJAX/">
-                                    <span class="chip bg-color">AJAX</span>
-                                </a>
-                            
                                 <a href="/tags/Axios/">
                                     <span class="chip bg-color">Axios</span>
+                                </a>
+                            
+                                <a href="/tags/AJAX/">
+                                    <span class="chip bg-color">AJAX</span>
                                 </a>
                             
                                 <a href="/tags/Fetch/">
