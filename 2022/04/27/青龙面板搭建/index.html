@@ -398,21 +398,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-11-01
+                    2023-04-06
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    955
+                    1.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    6 分
                 </div>
                 
 
@@ -543,6 +543,60 @@ docker exec -it qinglong ql repo https:&#x2F;&#x2F;github.com&#x2F;6dylan6&#x2F;
 <li>并行执行脚本<pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">docker exec -it qinglong task test.js conc<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ul>
 <p>利用谷歌浏览器获取京东Cookie抓取，cookie值千万不能泄露，设置环境变量，环境变量—&gt;添加变量</p>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">1.查看容器名
+docker ps -a
+2.重启青龙容器
+docker restart 你的容器名
+3.更新青龙（或者直接面板更新）
+docker exec -it qinglong ql update
+4.更新青龙并编译
+docker exec -it qinglong ql restart
+5.拉取自定义仓库，已Faker仓库为例
+docker exec -it qinglong ql repo https:&#x2F;&#x2F;ghproxy.com&#x2F;https:&#x2F;&#x2F;github.com&#x2F;shufflewzc&#x2F;faker2.git &quot;jd_|jx_|gua_|jddj_|getJDCookie&quot; &quot;activity|backUp&quot; &quot;^jd[^_]|USER|ZooFaker_Necklace.js|JDJRValidator_Pure|sign_graphics_validate&quot;
+6.拉取单个脚本，以Faker库的资产变更通知为例
+docker exec -it qinglong ql raw https:&#x2F;&#x2F;github.com&#x2F;shufflewzc&#x2F;faker2&#x2F;blob&#x2F;main&#x2F;jd_bean_change_new.js
+7.导出互助码
+docker exec -it qinglong ql code
+8.通知测试
+docker exec -it qinglong notify test test
+9.立即执行脚本，以资产变更通知为例
+docker exec -it qinglong task jd_bean_change_new.js now
+10.并行执行脚本
+docker exec -it qinglong task jd_bean_change_new.js conc
+11.查看青龙密码 注意你的容器及文件夹名称
+docker exec -it qinglong cat &#x2F;ql&#x2F;config&#x2F;auth.json
+12.删除7天前的所有日志
+docker exec -it qinglong ql rmlog 7
+13.启动青龙bot 前提你已配置好青龙BOT
+docker exec -it qinglong ql bot
+14.进入青龙
+docker exec -it qinglong bash
+15.升级pip版本
+python3 -m pip install --upgrade pip<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">1、解决登录青龙面板时提示的服务异常，请手动执行ql check检查服务状态
+docker exec -it qinglong &#x2F;bin&#x2F;bash ql check
+
+2、安装脚本的时候出现：reason: connect ETIMEDOUT xxxxx:443
+npm config set proxy false
+npm cache clean
+或者
+pnpm config set proxy false
+pnpm cache clean
+
+3、通过命令安装node依赖
+① 进入青龙面板
+docker exec -it qinglong bash
+② xxx 安装依赖名称
+pnpm install xxx
+
+4、Python依赖安装失败解决办法
+① 进入青龙面板
+docker exec -it qinglong bash
+② xxx 安装依赖名称
+pip install -i https:&#x2F;&#x2F;pypi.douban.com&#x2F;simple&#x2F; xxxxxx
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h1 id="tg机器人获取通知"><a href="#tg机器人获取通知" class="headerlink" title="tg机器人获取通知"></a>tg机器人获取通知</h1><h2 id="生成tg机器人"><a href="#生成tg机器人" class="headerlink" title="生成tg机器人"></a>生成tg机器人</h2><ul>
 <li>搜索<code>@BotFather</code>，进入对话框输入<code>/newbot</code>，输入机器人呢称，输入机器人username（以bot结尾）</li>
 <li>生成机器人成功后会发送 user token ，类似：539****961:AAgVexxxxxxxxxqfa</li>

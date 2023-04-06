@@ -6,7 +6,7 @@
   <link href="http://damao2250.com/atom.xml" rel="self"/>
   
   <link href="http://damao2250.com/"/>
-  <updated>2023-02-18T10:58:10.772Z</updated>
+  <updated>2023-03-31T06:12:46.823Z</updated>
   <id>http://damao2250.com/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>无法删除的水印方案</title>
+    <link href="http://damao2250.com/2023/03/31/%E6%97%A0%E6%B3%95%E5%88%A0%E9%99%A4%E7%9A%84%E6%B0%B4%E5%8D%B0%E6%96%B9%E6%A1%88/"/>
+    <id>http://damao2250.com/2023/03/31/%E6%97%A0%E6%B3%95%E5%88%A0%E9%99%A4%E7%9A%84%E6%B0%B4%E5%8D%B0%E6%96%B9%E6%A1%88/</id>
+    <published>2023-03-31T06:11:50.000Z</published>
+    <updated>2023-03-31T06:12:46.823Z</updated>
+    
+    
+    
+    
+    <category term="Vue" scheme="http://damao2250.com/categories/Vue/"/>
+    
+    
+    <category term="Vue" scheme="http://damao2250.com/tags/Vue/"/>
+    
+    <category term="水印" scheme="http://damao2250.com/tags/%E6%B0%B4%E5%8D%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>用css实现防止按钮重复点击</title>
@@ -513,30 +532,6 @@
     <category term="Windows" scheme="http://damao2250.com/tags/Windows/"/>
     
     <category term="SMB" scheme="http://damao2250.com/tags/SMB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>java问题记录</title>
-    <link href="http://damao2250.com/2022/10/10/java%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/"/>
-    <id>http://damao2250.com/2022/10/10/java%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</id>
-    <published>2022-10-10T02:05:30.000Z</published>
-    <updated>2023-01-16T02:39:44.348Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="配置文件路径"><a href="#配置文件路径" class="headerlink" title="配置文件路径"></a>配置文件路径</h2><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 包括：数据库、redis、swagger...</span><span class="token comment">// module/src/main/resources/application-xxx.yml</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><h2 id="查找启动类"><a href="#查找启动类" class="headerlink" title="查找启动类"></a>查找启动类</h2><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// module/src/main/java/org.xxx/xxxSystemApplication</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h2 id="linux-java重启"><a href="#linux-java重启" class="headerlink" title="linux java重启"></a>linux java重启</h2><ul><li>进入jar包所在的目录下<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">cd usr<span class="token operator">/</span>local<span class="token operator">/</span>platform<span class="token operator">/</span>java<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li><li>查看进程<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"><span class="token function">ps</span> <span class="token operator">-</span>ef<span class="token punctuation">|</span>grpe java<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li><li>杀死进程<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"><span class="token function">kill</span> <span class="token operator">-</span>9 31189<span class="token comment"># 31189为进程号</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li><li>重启进程（在Java路径下，可用ls查看对应的启动shell文件，后缀名为.sh）<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"><span class="token punctuation">.</span><span class="token operator">/</span><span class="token function">start</span><span class="token punctuation">.</span>sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li><li>检查进程是否已重启成功<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"><span class="token function">ps</span> <span class="token operator">-</span>ef<span class="token punctuation">|</span>grpe java<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;配置文件路径&quot;&gt;&lt;a href=&quot;#配置文件路径&quot; class=&quot;headerlink&quot; title=&quot;配置文件路径&quot;&gt;&lt;/a&gt;配置文件路径&lt;/h2&gt;&lt;pre class=&quot;line-numbers language-js&quot; data-language=&quot;js&quot;&gt;</summary>
-      
-    
-    
-    
-    <category term="Java" scheme="http://damao2250.com/categories/Java/"/>
-    
-    
-    <category term="Java" scheme="http://damao2250.com/tags/Java/"/>
     
   </entry>
   
