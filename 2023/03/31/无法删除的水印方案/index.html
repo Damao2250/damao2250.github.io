@@ -366,10 +366,6 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Vue/">
-                                <span class="chip bg-color">Vue</span>
-                            </a>
-                        
                             <a href="/tags/%E6%B0%B4%E5%8D%B0/">
                                 <span class="chip bg-color">水印</span>
                             </a>
@@ -382,8 +378,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Vue/" class="post-category">
-                                Vue
+                            <a href="/categories/JavaScript/" class="post-category">
+                                JavaScript
                             </a>
                         
                     </div>
@@ -402,21 +398,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-03-31
+                    2023-04-10
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    531
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    3 分
                 </div>
                 
 
@@ -439,7 +435,138 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h2 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h2><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">class</span> <span class="token class-name">WaterMark</span> <span class="token punctuation">&#123;</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span>text <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">,</span> options <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// 默认样式</span>
+    <span class="token keyword">const</span> defaultStyles <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+      transform<span class="token operator">:</span> <span class="token string">'rotate(-15deg)'</span><span class="token punctuation">,</span>
+      position<span class="token operator">:</span> <span class="token string">'absolute'</span><span class="token punctuation">,</span>
+      overflow<span class="token operator">:</span> <span class="token string">'hidden'</span><span class="token punctuation">,</span>
+      zIndex<span class="token operator">:</span> <span class="token number">9999999</span><span class="token punctuation">,</span>
+      opacity<span class="token operator">:</span> <span class="token number">0.2</span><span class="token punctuation">,</span>
+      fontFamily<span class="token operator">:</span> <span class="token string">'微软雅黑'</span><span class="token punctuation">,</span>
+      color<span class="token operator">:</span> <span class="token string">'black'</span><span class="token punctuation">,</span>
+      textAlign<span class="token operator">:</span> <span class="token string">'center'</span><span class="token punctuation">,</span>
+      padding<span class="token operator">:</span> <span class="token string">'10px 10px'</span><span class="token punctuation">,</span>
+      whiteSpace<span class="token operator">:</span> <span class="token string">'nowrap'</span><span class="token punctuation">,</span>
+      display<span class="token operator">:</span> <span class="token string">'block'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 覆盖默认样式</span>
+    <span class="token keyword">let</span> <span class="token punctuation">&#123;</span> left <span class="token operator">=</span> <span class="token number">220</span><span class="token punctuation">,</span> top <span class="token operator">=</span> <span class="token number">80</span><span class="token punctuation">,</span> fontSize <span class="token operator">=</span> <span class="token number">16</span><span class="token punctuation">,</span> id <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">,</span> styles <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span> <span class="token punctuation">&#125;</span> <span class="token operator">=</span> options
+    <span class="token keyword">this</span><span class="token punctuation">.</span>styles <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token operator">...</span>defaultStyles<span class="token punctuation">,</span> <span class="token operator">...</span>styles <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>text <span class="token operator">=</span> text<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>left <span class="token operator">=</span> <span class="token function">Number</span><span class="token punctuation">(</span>left<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>top <span class="token operator">=</span> <span class="token function">Number</span><span class="token punctuation">(</span>top<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>fontSize <span class="token operator">=</span> <span class="token function">Number</span><span class="token punctuation">(</span>fontSize<span class="token punctuation">)</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>id <span class="token operator">=</span> id<span class="token punctuation">;</span>
+
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">createWatermark</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    window<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'resize'</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>handleResize<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token function">createMaskDiv</span><span class="token punctuation">(</span><span class="token parameter">left<span class="token punctuation">,</span> top</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">const</span> maskDiv <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'div'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    maskDiv<span class="token punctuation">.</span>id <span class="token operator">=</span> <span class="token string">'water_mask_id_0'</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> styles <span class="token operator">=</span> <span class="token punctuation">&#123;</span> <span class="token operator">...</span><span class="token keyword">this</span><span class="token punctuation">.</span>styles<span class="token punctuation">,</span> left<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>left<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">px</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> top<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>top<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">px</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> fontSize<span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span><span class="token keyword">this</span><span class="token punctuation">.</span>fontSize<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">px</span><span class="token template-punctuation string">`</span></span> <span class="token punctuation">&#125;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> key <span class="token keyword">in</span> styles<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      maskDiv<span class="token punctuation">.</span>style<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> styles<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    maskDiv<span class="token punctuation">.</span>innerText <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>text<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> maskDiv<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token function">createWatermark</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">let</span> maskDiv <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">createMaskDiv</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+    document<span class="token punctuation">.</span>body<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>maskDiv<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> width <span class="token operator">=</span> maskDiv<span class="token punctuation">.</span>offsetWidth
+    <span class="token keyword">let</span> height <span class="token operator">=</span> maskDiv<span class="token punctuation">.</span>offsetHeight
+    document<span class="token punctuation">.</span>body<span class="token punctuation">.</span><span class="token function">removeChild</span><span class="token punctuation">(</span>maskDiv<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">const</span> div <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'div'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    div<span class="token punctuation">.</span>id <span class="token operator">=</span> <span class="token string">'eb-watermark'</span><span class="token punctuation">;</span>
+    div<span class="token punctuation">.</span>style<span class="token punctuation">.</span>cssText <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">pointer-events: none !important; display: block !important; visibility: visible !important; position: fixed !important; top: 0 !important; left: 0 !important; opacity: 1 !important; z-index: 0 !important; transform: translateX(0) !important;</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> shadowRoot <span class="token operator">=</span> div<span class="token punctuation">.</span><span class="token function">attachShadow</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> mode<span class="token operator">:</span> <span class="token string">'open'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">let</span> left <span class="token operator">=</span> width <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>left
+    <span class="token keyword">let</span> top <span class="token operator">=</span> height <span class="token operator">+</span> <span class="token keyword">this</span><span class="token punctuation">.</span>top
+
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> window<span class="token punctuation">.</span>innerWidth<span class="token punctuation">;</span> i <span class="token operator">+=</span> left<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;</span> window<span class="token punctuation">.</span>innerHeight<span class="token punctuation">;</span> j <span class="token operator">+=</span> top<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        shadowRoot<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">createMaskDiv</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span> j<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+
+    <span class="token keyword">const</span> observerConfig <span class="token operator">=</span> <span class="token punctuation">&#123;</span> childList<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> subtree<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> attributes<span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span> attributeFilter<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'id'</span><span class="token punctuation">,</span> <span class="token string">'style'</span><span class="token punctuation">]</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 监听DOM改变</span>
+    <span class="token keyword">const</span> observer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MutationObserver</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">handleMutation</span><span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    observer<span class="token punctuation">.</span><span class="token function">observe</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span>body<span class="token punctuation">,</span> observerConfig<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 设置characterData监听元素的innerText改变</span>
+    <span class="token keyword">const</span> shadowRootObserver <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MutationObserver</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">mutations</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">handleShadowRootMutation</span><span class="token punctuation">(</span>mutations<span class="token punctuation">,</span> shadowRoot<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    shadowRootObserver<span class="token punctuation">.</span><span class="token function">observe</span><span class="token punctuation">(</span>shadowRoot<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> <span class="token operator">...</span>observerConfig<span class="token punctuation">,</span> characterData<span class="token operator">:</span> <span class="token boolean">true</span> <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    document<span class="token punctuation">.</span>body<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>div<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token function">handleMutation</span><span class="token punctuation">(</span><span class="token parameter">mutations</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    mutations<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">mutation</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">const</span> watermark <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'eb-watermark'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>mutation<span class="token punctuation">.</span>removedNodes<span class="token punctuation">.</span>length <span class="token operator">></span> <span class="token number">0</span> <span class="token operator">||</span> mutation<span class="token punctuation">.</span>target<span class="token punctuation">.</span>id <span class="token operator">===</span> <span class="token string">'eb-watermark'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>watermark<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+          <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">createWatermark</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+      <span class="token punctuation">&#125;</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>mutation<span class="token punctuation">.</span>type <span class="token operator">===</span> <span class="token string">'attributes'</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>mutation<span class="token punctuation">.</span>target<span class="token punctuation">.</span>id <span class="token operator">===</span> <span class="token string">'eb-watermark'</span> <span class="token operator">||</span> mutation<span class="token punctuation">.</span>attributeName <span class="token operator">===</span> <span class="token string">'style'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>watermark<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+          watermark<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">createWatermark</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">const</span> watermark <span class="token operator">=</span> document<span class="token punctuation">.</span>body<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'#eb-watermark'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>watermark <span class="token operator">||</span> watermark<span class="token punctuation">.</span>parentElement <span class="token operator">!==</span> document<span class="token punctuation">.</span>body <span class="token operator">||</span> <span class="token operator">!</span>watermark<span class="token punctuation">.</span>shadowRoot <span class="token operator">||</span> <span class="token operator">!</span>watermark<span class="token punctuation">.</span>shadowRoot<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'#water_mask_id_0'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>watermark<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        watermark<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">createWatermark</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token function">handleShadowRootMutation</span><span class="token punctuation">(</span><span class="token parameter">mutations<span class="token punctuation">,</span> shadowRoot</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    mutations<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">mutation</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>mutation<span class="token punctuation">.</span>removedNodes<span class="token punctuation">.</span>length <span class="token operator">></span> <span class="token number">0</span> <span class="token operator">||</span> mutation<span class="token punctuation">.</span>type <span class="token operator">===</span> <span class="token string">'attributes'</span> <span class="token operator">||</span> <span class="token punctuation">(</span>mutation<span class="token punctuation">.</span>type <span class="token operator">===</span> <span class="token string">'characterData'</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>mutation<span class="token punctuation">.</span>target<span class="token punctuation">.</span>parentNode <span class="token operator">===</span> shadowRoot <span class="token operator">||</span> mutation<span class="token punctuation">.</span>target<span class="token punctuation">.</span>parentNode<span class="token punctuation">.</span>parentNode <span class="token operator">===</span> shadowRoot<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">const</span> watermark <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'eb-watermark'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>watermark<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+          watermark<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">createWatermark</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+
+  <span class="token function">handleResize</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">const</span> watermark <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'eb-watermark'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>watermark<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      watermark<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">createWatermark</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+
+<span class="token punctuation">&#125;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> WaterMark<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">import</span> WaterMark <span class="token keyword">from</span> <span class="token string">'./watermark'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">new</span> <span class="token class-name">WaterMark</span><span class="token punctuation">(</span><span class="token string">'我是水印啊'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="待优化"><a href="#待优化" class="headerlink" title="待优化"></a>待优化</h2><ul>
+<li>目前只支持插入到body的全屏水印，下一步优化支持指定id的div水印</li>
+</ul>
+
                 
             </div>
             <hr/>
@@ -502,10 +629,6 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/Vue/">
-                                    <span class="chip bg-color">Vue</span>
-                                </a>
                             
                                 <a href="/tags/%E6%B0%B4%E5%8D%B0/">
                                     <span class="chip bg-color">水印</span>
@@ -708,8 +831,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Vue/" class="post-category">
-                                    Vue
+                            <a href="/categories/JavaScript/" class="post-category">
+                                    JavaScript
                                 </a>
                             
                             
@@ -719,10 +842,6 @@
 
                 
                 <div class="card-action article-tags">
-                    
-                    <a href="/tags/Vue/">
-                        <span class="chip bg-color">Vue</span>
-                    </a>
                     
                     <a href="/tags/%E6%B0%B4%E5%8D%B0/">
                         <span class="chip bg-color">水印</span>
