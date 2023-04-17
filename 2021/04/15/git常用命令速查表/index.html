@@ -398,14 +398,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-03-02
+                    2023-04-17
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    623
+                    687
                 </div>
                 
 
@@ -653,6 +653,26 @@
 <tr>
 <td align="left">$ git push –tags</td>
 <td>#上传所有标签</td>
+</tr>
+</tbody></table>
+<h2 id="同步远程已删除的分支"><a href="#同步远程已删除的分支" class="headerlink" title="同步远程已删除的分支"></a>同步远程已删除的分支</h2><table>
+<thead>
+<tr>
+<th align="left">同步远程已删除的分支</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">$ git branch -a</td>
+<td>#查看本地分支和远程所有分支</td>
+</tr>
+<tr>
+<td align="left">$ git remote show origin</td>
+<td>#查看本地分支和追踪情况</td>
+</tr>
+<tr>
+<td align="left">$ git remote prune origin</td>
+<td>#同步远程已删除分支</td>
 </tr>
 </tbody></table>
 <h2 id="常见指令参数说明"><a href="#常见指令参数说明" class="headerlink" title="常见指令参数说明"></a>常见指令参数说明</h2><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"><span class="token comment"># 将本地的分支版本上传到远程仓库</span>
