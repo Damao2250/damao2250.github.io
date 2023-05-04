@@ -398,21 +398,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-04-06
+                    2023-04-26
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.4k
+                    1.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    7 分
                 </div>
                 
 
@@ -465,15 +465,26 @@
 <li>启动容器 </li>
 </ol>
 <ul>
-<li>普通服务器<pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">docker run -dit \
+<li>普通服务器<ul>
+<li>-v $PWD/ql/config:/ql/config   /ql 文件夹名称</li>
+<li>-p 5700:5700 映射的端口</li>
+<li>–name qinglong  –hostname qinglong 容器名字<pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">docker run -dit \
   -v $PWD&#x2F;ql&#x2F;config:&#x2F;ql&#x2F;config \
   -v $PWD&#x2F;ql&#x2F;log:&#x2F;ql&#x2F;log \
   -v $PWD&#x2F;ql&#x2F;db:&#x2F;ql&#x2F;db \
+  -v $PWD&#x2F;ql&#x2F;repo:&#x2F;ql&#x2F;repo \
+  -v $PWD&#x2F;ql&#x2F;raw:&#x2F;ql&#x2F;raw \
+  -v $PWD&#x2F;ql&#x2F;scripts:&#x2F;ql&#x2F;scripts \
+  -v $PWD&#x2F;ql&#x2F;jbot:&#x2F;ql&#x2F;jbot \
+  -v $PWD&#x2F;ql&#x2F;deps:&#x2F;ql&#x2F;deps \
+  -v $PWD&#x2F;ql&#x2F;ninja:&#x2F;ql&#x2F;ninja \
   -p 5700:5700 \
   --name qinglong \
   --hostname qinglong \
-  --restart always \
-  whyour&#x2F;qinglong:latest<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+  --restart unless-stopped \
+  whyour&#x2F;qinglong:latest<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+</li>
 <li>n1等路由器<pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">docker run -dit \
   -v $PWD&#x2F;ql&#x2F;config:&#x2F;ql&#x2F;config \
   -v $PWD&#x2F;ql&#x2F;log:&#x2F;ql&#x2F;log \
@@ -601,6 +612,10 @@ pip install -i https:&#x2F;&#x2F;pypi.douban.com&#x2F;simple&#x2F; xxxxxx
 <li>搜索<code>@BotFather</code>，进入对话框输入<code>/newbot</code>，输入机器人呢称，输入机器人username（以bot结尾）</li>
 <li>生成机器人成功后会发送 user token ，类似：539****961:AAgVexxxxxxxxxqfa</li>
 <li>在搜索栏搜索<code>@userinfobot</code>,点击 Start,第二行Id即为您的UserID（telegramBotUserId）</li>
+</ul>
+<h1 id="傻瓜式安装青龙面板"><a href="#傻瓜式安装青龙面板" class="headerlink" title="傻瓜式安装青龙面板"></a>傻瓜式安装青龙面板</h1><ul>
+<li>linux环境的终端面板，输入如下命令即可完成安装</li>
+<li>命令执行完毕后，docker和面板全部一步安装到位，通过http://你的IP:5700，就可以打开青龙面板<pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">wget -q https:&#x2F;&#x2F;raw.githubusercontents.com&#x2F;Oreomeow&#x2F;VIP&#x2F;main&#x2F;Scripts&#x2F;sh&#x2F;ql.sh -O ql.sh &amp;&amp; bash ql.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ul>
 
                 
