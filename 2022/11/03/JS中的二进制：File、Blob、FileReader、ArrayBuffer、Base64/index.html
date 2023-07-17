@@ -414,7 +414,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-11-03
+                    2023-07-17
                 </div>
                 
 
@@ -588,7 +588,9 @@ dropZone<span class="token punctuation">.</span><span class="token function-vari
 </ul>
 <h2 id="FileReader"><a href="#FileReader" class="headerlink" title="FileReader"></a>FileReader</h2><ul>
 <li>FileReader 是一个异步 API，用于读取文件并提取其内容以供进一步使用。FileReader 可以将 Blob 读取为不同的格式</li>
-<li>注意：FileReader 仅用于以安全的方式从用户（远程）系统读取文件内容，不能用于从文件系统中按路径名简单地读取文件<h3 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> reader <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FileReader</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<li>注意：FileReader 仅用于以安全的方式从用户（远程）系统读取文件内容，不能用于从文件系统中按路径名简单地读取文件</li>
+</ul>
+<h3 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h3><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> reader <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FileReader</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// 对象常用属性：error(读取文件错误)、result(返回文件内容)、readyState(状态)</span>
 
 <span class="token comment">// FileReader 对象提供了以下方法来加载文件：</span>
@@ -596,7 +598,8 @@ dropZone<span class="token punctuation">.</span><span class="token function-vari
 <span class="token comment">//     reader.readAsBinaryString()：读取指定 Blob 中的内容，完成之后，result 属性中将包含所读取文件的原始二进制数据</span>
 <span class="token comment">//     reader.readAsDataURL()：读取指定 Blob 中的内容，完成之后，result 属性中将包含一个data: URL 格式的 Base64 字符串以表示所读取文件的内容</span>
 <span class="token comment">//     reader.readAsText()：读取指定 Blob 中的内容，完成之后，result 属性中将包含一个字符串以表示所读取的文件内容</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="事件处理"><a href="#事件处理" class="headerlink" title="事件处理"></a>事件处理</h3></li>
+
+<h3 id="事件处理"><a href="#事件处理" class="headerlink" title="事件处理"></a>事件处理</h3><ul>
 <li>FileReader 对象常用的事件如下：<ul>
 <li>abort：该事件在读取操作被中断时触发</li>
 <li>error：该事件在读取操作发生错误时触发</li>
@@ -633,10 +636,9 @@ reader<span class="token punctuation">.</span><span class="token function-variab
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">上传进度: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>Math<span class="token punctuation">.</span><span class="token function">round</span><span class="token punctuation">(</span>percent<span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string"> %</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment">// progress 事件提供了两个属性：loaded（已读取量）和total（需读取总量）</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="ArrayBuffer"><a href="#ArrayBuffer" class="headerlink" title="ArrayBuffer"></a>ArrayBuffer</h2></li>
+<span class="token comment">// progress 事件提供了两个属性：loaded（已读取量）和total（需读取总量）</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ul>
-<ul>
+<h2 id="ArrayBuffer"><a href="#ArrayBuffer" class="headerlink" title="ArrayBuffer"></a>ArrayBuffer</h2><ul>
 <li><p>ArrayBuffer 对象用来表示通用的、固定长度的原始二进制数据缓冲区。ArrayBuffer 的内容不能直接操作，只能通过 DataView 对象或 TypedArrray 对象来访问。这些对象用于读取和写入缓冲区内容。</p>
 <ul>
 <li>TypedArray：用来生成内存的视图，通过9个构造函数，可以生成9种数据格式的视图。</li>
@@ -667,8 +669,9 @@ ArrayBuffer<span class="token punctuation">.</span><span class="token function">
 <li>使用 new TypedArray() 方式<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">new</span> <span class="token class-name">Int8Array</span><span class="token punctuation">(</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">new</span> <span class="token class-name">Int8Array</span><span class="token punctuation">(</span>typedArray<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">new</span> <span class="token class-name">Int8Array</span><span class="token punctuation">(</span>object<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">new</span> <span class="token class-name">Int8Array</span><span class="token punctuation">(</span>buffer <span class="token punctuation">[</span><span class="token punctuation">,</span> byteOffset <span class="token punctuation">[</span><span class="token punctuation">,</span> length<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="DataView的属性和方法"><a href="#DataView的属性和方法" class="headerlink" title="DataView的属性和方法"></a>DataView的属性和方法</h3></li>
+<span class="token keyword">new</span> <span class="token class-name">Int8Array</span><span class="token punctuation">(</span>buffer <span class="token punctuation">[</span><span class="token punctuation">,</span> byteOffset <span class="token punctuation">[</span><span class="token punctuation">,</span> length<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<h3 id="DataView的属性和方法"><a href="#DataView的属性和方法" class="headerlink" title="DataView的属性和方法"></a>DataView的属性和方法</h3><ul>
 <li>DataView 视图是一个可以从 二进制 ArrayBuffer 对象中读写多种数值类型的底层接口，使用它时，不用考虑不同平台的字节序问题</li>
 <li>DataView视图提供更多操作选项，而且支持设定字节序。本来，在设计目的上，ArrayBuffer对象的各种TypedArray视图，是用来向网卡、声卡之类的本机设备传送数据，所以使用本机的字节序就可以了；而DataView视图的设计目的，是用来处理网络设备传来的数据，所以大端字节序或小端字节序是可以自行设定的</li>
 <li>new DataView()<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">new</span> <span class="token class-name">DataView</span><span class="token punctuation">(</span>buffer <span class="token punctuation">[</span><span class="token punctuation">,</span> byteOffset <span class="token punctuation">[</span><span class="token punctuation">,</span> byteLength<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  
@@ -711,8 +714,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <li>使用<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 使用toDataURL()方法把 canvas 画布内容生成 base64 编码格式的图片</span>
 <span class="token keyword">const</span> canvas <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'canvas'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
 <span class="token keyword">const</span> ctx <span class="token operator">=</span> canvas<span class="token punctuation">.</span><span class="token function">getContext</span><span class="token punctuation">(</span><span class="token string">"2d"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> dataUrl <span class="token operator">=</span> canvas<span class="token punctuation">.</span><span class="token function">toDataURL</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ul>
+<span class="token keyword">const</span> dataUrl <span class="token operator">=</span> canvas<span class="token punctuation">.</span><span class="token function">toDataURL</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>file<span class="token punctuation">"</span></span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>fileInput<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>preview<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 使用readAsDataURL()方法把上传的文件转为base64格式的data URI，比如上传头像展示</span>
@@ -727,8 +729,7 @@ fileInput<span class="token punctuation">.</span><span class="token function-var
 reader<span class="token punctuation">.</span><span class="token function-variable function">onload</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
   preview<span class="token punctuation">.</span>src <span class="token operator">=</span> e<span class="token punctuation">.</span>target<span class="token punctuation">.</span>result<span class="token punctuation">;</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>target<span class="token punctuation">.</span>result<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<ul>
+<span class="token punctuation">&#125;</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li>一些小的图片都可以使用 base64 格式进行展示，img标签和background的 url 属性都支持使用base64 格式的图片，这样做也可以减少 HTTP 请求</li>
 </ul>
 <h2 id="格式转化"><a href="#格式转化" class="headerlink" title="格式转化"></a>格式转化</h2><ul>
