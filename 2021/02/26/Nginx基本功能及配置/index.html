@@ -398,14 +398,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-04-19
+                    2023-08-28
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    647
+                    713
                 </div>
                 
 
@@ -435,11 +435,15 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Nginx的基本功能及配置"><a href="#Nginx的基本功能及配置" class="headerlink" title="Nginx的基本功能及配置"></a>Nginx的基本功能及配置</h1><h2 id="查找-Nginx-进程"><a href="#查找-Nginx-进程" class="headerlink" title="查找 Nginx 进程"></a>查找 Nginx 进程</h2><pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">ps aux | grep nginx<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="全局查找-Nginx-配置文件"><a href="#全局查找-Nginx-配置文件" class="headerlink" title="全局查找 Nginx 配置文件"></a>全局查找 Nginx 配置文件</h2><ul>
-<li>须切换到根目录下<pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">find &#x2F; -name nginx.conf<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+                <h1 id="Nginx的基本功能及配置"><a href="#Nginx的基本功能及配置" class="headerlink" title="Nginx的基本功能及配置"></a>Nginx的基本功能及配置</h1><h2 id="查找-Nginx-进程-安装目录"><a href="#查找-Nginx-进程-安装目录" class="headerlink" title="查找 Nginx 进程/安装目录"></a>查找 Nginx 进程/安装目录</h2><pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">ps aux | grep nginx<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="查看配置文件-nginx-conf-路径"><a href="#查看配置文件-nginx-conf-路径" class="headerlink" title="查看配置文件 nginx.conf 路径"></a>查看配置文件 nginx.conf 路径</h2><ul>
+<li>条命令也可以用于检查配置文件是否正确<pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">nginx -t<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ul>
+<h2 id="全局查找-Nginx-配置文件"><a href="#全局查找-Nginx-配置文件" class="headerlink" title="全局查找 Nginx 配置文件"></a>全局查找 Nginx 配置文件</h2><pre class="line-numbers language-ps" data-language="ps"><code class="language-ps"># 从 &#x2F; 根目录下查找文件名为 nginx.conf 的文件
+find &#x2F; -name nginx.conf
+# 从 &#x2F;etc 目录下查找文件名为 nginx.conf 的文件
+find &#x2F;etc -name nginx.conf<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="默认的-nginx-配置文件-nginx-conf-内容"><a href="#默认的-nginx-配置文件-nginx-conf-内容" class="headerlink" title="默认的 nginx 配置文件 nginx.conf 内容"></a>默认的 nginx 配置文件 nginx.conf 内容</h2><pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">#user  nobody;
 worker_processes  1;
 
