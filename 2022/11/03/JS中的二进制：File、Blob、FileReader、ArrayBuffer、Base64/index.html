@@ -414,21 +414,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2023-07-17
+                    2024-04-19
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.1k
+                    3.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    12 分
+                    13 分
                 </div>
                 
 
@@ -776,6 +776,29 @@ reader<span class="token punctuation">.</span><span class="token function-variab
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>blob → Object URL</p>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> objectUrl <span class="token operator">=</span> <span class="token constant">URL</span><span class="token punctuation">.</span><span class="token function">createObjectURL</span><span class="token punctuation">(</span>blob<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li><p>Base64转码/解码</p>
+<ul>
+<li>Base64编码和解码可以通过内置的window.btoa()和window.atob()函数来实现</li>
+<li>btoa()和atob()函数只能处理纯文本数据。如果字符串包含二进制数据，需要先将二进制数据转换为Base64字符串，然后再进行编码</li>
+<li>对于非ASCII字符（如中文字符），btoa()和atob()函数可能无法正确处理，在这种情况下，需要先将字符串转换为UTF-8编码的二进制数据，然后再进行Base64编码和解码<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// UTF-8 编码的字符串转换为 Base64</span>
+<span class="token keyword">function</span> <span class="token function">utf8ToBase64</span><span class="token punctuation">(</span><span class="token parameter">str</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> <span class="token function">btoa</span><span class="token punctuation">(</span><span class="token function">unescape</span><span class="token punctuation">(</span><span class="token function">encodeURIComponent</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// Base64 转换为 UTF-8 编码的字符串</span>
+<span class="token keyword">function</span> <span class="token function">base64ToUtf8</span><span class="token punctuation">(</span><span class="token parameter">base64</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> <span class="token function">decodeURIComponent</span><span class="token punctuation">(</span><span class="token function">escape</span><span class="token punctuation">(</span><span class="token function">atob</span><span class="token punctuation">(</span>base64<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token comment">// 示例</span>
+<span class="token keyword">var</span> utf8String <span class="token operator">=</span> <span class="token string">"Hello"</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> base64Encoded <span class="token operator">=</span> <span class="token function">utf8ToBase64</span><span class="token punctuation">(</span>utf8String<span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>base64Encoded<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 输出: SGVsbG8=</span>
+
+<span class="token keyword">var</span> base64Decoded <span class="token operator">=</span> <span class="token function">base64ToUtf8</span><span class="token punctuation">(</span>base64Encoded<span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>base64Decoded<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 输出: Hello</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+</li>
 </ul>
 
                 
