@@ -436,7 +436,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="手动实现"><a href="#手动实现" class="headerlink" title="手动实现"></a>手动实现</h2><ul>
-<li>使用 reduce 方法实现 groupBy 函数来实现将数组中的元素根据某个属性或条件分组</li>
+<li>使用 <code>reduce</code> 方法实现 <code>groupBy</code> 函数来实现将数组中的元素根据某个属性或条件分组</li>
 </ul>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">groupBy</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">array<span class="token punctuation">,</span> key</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">return</span> array<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">result<span class="token punctuation">,</span> element</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
@@ -484,8 +484,8 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 
 <h2 id="原生支持-Object-groupBy"><a href="#原生支持-Object-groupBy" class="headerlink" title="原生支持 Object.groupBy"></a>原生支持 Object.groupBy</h2><ul>
-<li>ECMAScript 2024（ES15）提案已加入 Object.groupBy 方法</li>
-<li>注意目前需要谷歌浏览器117以上的版本才能运行</li>
+<li><code>ECMAScript 2024（ES15）</code>提案已加入 <code>Object.groupBy</code> 方法</li>
+<li>注意目前需要谷歌浏览器<code>117</code>以上的版本才能运行</li>
 </ul>
 <pre class="line-numbers language-js" data-language="js"><code class="language-js">
 <span class="token keyword">const</span> people <span class="token operator">=</span> <span class="token punctuation">[</span>
