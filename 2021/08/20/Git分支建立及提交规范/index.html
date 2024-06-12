@@ -398,21 +398,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-16
+                    2024-06-12
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    1.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    5 分
                 </div>
                 
 
@@ -435,7 +435,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="分支建立规范"><a href="#分支建立规范" class="headerlink" title="分支建立规范"></a>分支建立规范</h1><h2 id="Git主要分支说明："><a href="#Git主要分支说明：" class="headerlink" title="Git主要分支说明："></a>Git主要分支说明：</h2><ul>
+                <h2 id="分支建立规范"><a href="#分支建立规范" class="headerlink" title="分支建立规范"></a>分支建立规范</h2><h3 id="Git主要分支说明："><a href="#Git主要分支说明：" class="headerlink" title="Git主要分支说明："></a>Git主要分支说明：</h3><ul>
 <li>Master<ul>
 <li>主分支，维护发布产品的代码，存储了正式发布的历史版本</li>
 </ul>
@@ -475,11 +475,11 @@
 </ul>
 </li>
 </ul>
-<h1 id="代码提交规范"><a href="#代码提交规范" class="headerlink" title="代码提交规范"></a>代码提交规范</h1><ul>
+<h2 id="代码提交规范-常用"><a href="#代码提交规范-常用" class="headerlink" title="代码提交规范(常用)"></a>代码提交规范(常用)</h2><ul>
 <li>建议经常用命令git status查看当前所在分支并用git log查看当前分支记录，每次提交前与checkout分支时都先查看当前分支再进行下一步操作</li>
 <li>提交信息的说明，禁止无意义的日志语言，如modify，修改xxx文件等，任何修改都应该简要说明</li>
-<li>Commit message格式 <type>: <subject> 注意冒号后面有空格</li>
-<li>type 用于说明 commit 的类别，只允许使用下面7个标识<ul>
+<li>Commit message格式 <code>&lt;type&gt;: &lt;subject&gt;</code> 注意冒号后面有空格</li>
+<li>type 用于说明 commit 的类别，使用下列之一<ul>
 <li>feat：新功能（feature）</li>
 <li>fix：修补bug</li>
 <li>docs：文档（documentation）</li>
@@ -492,6 +492,45 @@
 <li>subject<ul>
 <li>subject是 commit 目的的简短描述，不超过50个字符，且结尾不加句号（.）。</li>
 <li>提交分支合并请求之前的基础原则，如本地编译通过、手工或者自动化验收的测试通过</li>
+</ul>
+</li>
+</ul>
+<h2 id="也可使用约定式提交规范-更详细提交记录"><a href="#也可使用约定式提交规范-更详细提交记录" class="headerlink" title="也可使用约定式提交规范(更详细提交记录)"></a>也可使用约定式提交规范(更详细提交记录)</h2><ul>
+<li>使用约定式提交规范（Conventional Commits），它受到了 Angular 提交准则的启发，并在很大程度上以其为依据。约定式提交规范是一种基于提交消息的轻量级约定。 它提供了一组用于创建清晰的提交历史的简单规则；这使得编写基于规范的自动化工具变得更容易。这个约定与 SemVer 相吻合，在提交信息中描述新特性、bug 修复和破坏性变更。它的 message 格式如下:  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token operator">&lt;</span>type<span class="token operator">></span><span class="token punctuation">(</span><span class="token operator">&lt;</span>scope<span class="token operator">></span><span class="token punctuation">)</span>: <span class="token operator">&lt;</span>subject<span class="token operator">></span>
+<span class="token operator">&lt;</span>BLANK LINE<span class="token operator">></span>
+<span class="token operator">&lt;</span>body<span class="token operator">></span>
+<span class="token operator">&lt;</span>BLANK LINE<span class="token operator">></span>
+<span class="token operator">&lt;</span>footer<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>type<ul>
+<li>type 用于说明 commit 的类别，使用下列之一<ul>
+<li>feat：新功能（feature）</li>
+<li>fix：修补 bug</li>
+<li>docs：文档（documentation）</li>
+<li>style： 格式（不影响代码运行的变动）</li>
+<li>revert：回滚到上一个版本</li>
+<li>refactor：重构（即不是新增功能，也不是修改 bug 的代码变动）</li>
+<li>test：增加测试</li>
+<li>chore：构建过程或辅助工具的变动</li>
+<li>perf：性能优化</li>
+<li>ci：持续集成</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>scope<ul>
+<li>scope 用于说明 commit 影响的范围，比如数据层、控制层、视图层、配置文件等等。如果 commit 影响的范围比较小，可以不写 scope。如果 commit 影响的范围比较大，可以写成*</li>
+</ul>
+</li>
+<li>subject<ul>
+<li>subject 是 commit 目的的简短描述，不超过 50 个字符，结尾不加句号</li>
+</ul>
+</li>
+<li>body<ul>
+<li>body 是对本次 commit 的详细描述，可以分成多行</li>
+</ul>
+</li>
+<li>footer<ul>
+<li>footer 用于不兼容变动或关闭 issue。不兼容变动是指在当前代码库中存在用户代码与之前版本不兼容时，footer 部分以 BREAKING CHANGE 开头，后面是对变动的描述、以及变动理由和迁移方法</li>
 </ul>
 </li>
 </ul>
