@@ -398,21 +398,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-10-04
+                    2024-06-12
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    1.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    5 分
                 </div>
                 
 
@@ -435,25 +435,29 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="A-HC-LC-命名法"><a href="#A-HC-LC-命名法" class="headerlink" title="A/HC/LC 命名法"></a>A/HC/LC 命名法</h1><h2 id="P-A-HC-LC是什么"><a href="#P-A-HC-LC是什么" class="headerlink" title="(P)A/HC/LC是什么"></a>(P)A/HC/LC是什么</h2><pre class="line-numbers language-js" data-language="js"><code class="language-js">prefix<span class="token operator">?</span> <span class="token punctuation">(</span><span class="token constant">P</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token function">action</span> <span class="token punctuation">(</span><span class="token constant">A</span><span class="token punctuation">)</span> <span class="token operator">+</span> high <span class="token function">context</span> <span class="token punctuation">(</span><span class="token constant">HC</span><span class="token punctuation">)</span> <span class="token operator">+</span> low context<span class="token operator">?</span> <span class="token punctuation">(</span><span class="token constant">LC</span><span class="token punctuation">)</span>
+                <h1 id="A-HC-LC-命名法-——-P-A-HC-LC是什么"><a href="#A-HC-LC-命名法-——-P-A-HC-LC是什么" class="headerlink" title="A/HC/LC 命名法 —— (P)A/HC/LC是什么"></a>A/HC/LC 命名法 —— (P)A/HC/LC是什么</h1><pre class="line-numbers language-js" data-language="js"><code class="language-js">prefix<span class="token operator">?</span> <span class="token punctuation">(</span><span class="token constant">P</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token function">action</span> <span class="token punctuation">(</span><span class="token constant">A</span><span class="token punctuation">)</span> <span class="token operator">+</span> high <span class="token function">context</span> <span class="token punctuation">(</span><span class="token constant">HC</span><span class="token punctuation">)</span> <span class="token operator">+</span> low context<span class="token operator">?</span> <span class="token punctuation">(</span><span class="token constant">LC</span><span class="token punctuation">)</span>
 <span class="token comment">// 前缀 + 动作 + 高语境 + 低语境</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h3 id="Prefix"><a href="#Prefix" class="headerlink" title="Prefix"></a>Prefix</h3><ul>
-<li>prefix（前缀）增加函数的可读性<h3 id="is-是什么"><a href="#is-是什么" class="headerlink" title="- is (是什么)"></a>- is (是什么)</h3></li>
+<h2 id="Prefix"><a href="#Prefix" class="headerlink" title="Prefix"></a>Prefix</h2><ul>
+<li>prefix（前缀）增加函数的可读性</li>
+</ul>
+<h3 id="is-是什么"><a href="#is-是什么" class="headerlink" title="- is (是什么)"></a>- is (是什么)</h3><ul>
 <li>描述当前上下文（语境）的特征或状态,通常为布尔值。<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> color <span class="token operator">=</span> <span class="token string">'blue'</span>
 <span class="token keyword">const</span> isBlue <span class="token operator">=</span> <span class="token punctuation">(</span> color <span class="token operator">===</span> <span class="token string">'blue'</span> <span class="token punctuation">)</span> <span class="token comment">// 特征</span>
 <span class="token keyword">const</span> isPresent <span class="token operator">=</span> <span class="token boolean">true</span> <span class="token comment">// 状态</span>
 
 <span class="token keyword">if</span> <span class="token punctuation">(</span>isBlue <span class="token operator">&amp;&amp;</span> isPresent<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>‘Blue is present’<span class="token punctuation">)</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="has-有什么"><a href="#has-有什么" class="headerlink" title="- has (有什么)"></a>- has (有什么)</h3></li>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<h3 id="has-有什么"><a href="#has-有什么" class="headerlink" title="- has (有什么)"></a>- has (有什么)</h3><ul>
 <li>描述当前上下文（语境）是否具有某个特定的值或状态，通常为布尔值<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">/* Bad */</span>
 <span class="token keyword">const</span> isProductsExist <span class="token operator">=</span> <span class="token punctuation">(</span>productsCount <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span>
 <span class="token keyword">const</span> areProductsPresent <span class="token operator">=</span> <span class="token punctuation">(</span>productsCount <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span>
 
 <span class="token comment">/* Good */</span>
-<span class="token keyword">const</span> hasProducts <span class="token operator">=</span> <span class="token punctuation">(</span>productsCount <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="should-应该做什么"><a href="#should-应该做什么" class="headerlink" title="- should (应该做什么)"></a>- should (应该做什么)</h3></li>
+<span class="token keyword">const</span> hasProducts <span class="token operator">=</span> <span class="token punctuation">(</span>productsCount <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<h3 id="should-应该做什么"><a href="#should-应该做什么" class="headerlink" title="- should (应该做什么)"></a>- should (应该做什么)</h3><ul>
 <li>映射具有明确动作的条件语句，通常为布尔值<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">shouldUpdateUrl</span><span class="token punctuation">(</span><span class="token parameter">url<span class="token punctuation">,</span> expectedUrl</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">return</span> <span class="token punctuation">(</span>url <span class="token operator">!==</span> expectedUrl<span class="token punctuation">)</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
@@ -494,13 +498,15 @@ console<span class="token punctuation">.</span><span class="token function">log<
   <span class="token keyword">return</span> filters<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token parameter">name</span> <span class="token operator">=></span> name <span class="token operator">!==</span> filterName<span class="token punctuation">)</span>
 <span class="token punctuation">&#125;</span>
 <span class="token keyword">const</span> selectedFilters <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'price'</span><span class="token punctuation">,</span> <span class="token string">'availability'</span><span class="token punctuation">,</span> <span class="token string">'size'</span><span class="token punctuation">]</span>
-<span class="token function">removeFilter</span><span class="token punctuation">(</span><span class="token string">'price'</span><span class="token punctuation">,</span> selectedFilters<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="delete-删除数据"><a href="#delete-删除数据" class="headerlink" title="- delete (删除数据)"></a>- delete (删除数据)</h3></li>
+<span class="token function">removeFilter</span><span class="token punctuation">(</span><span class="token string">'price'</span><span class="token punctuation">,</span> selectedFilters<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<h3 id="delete-删除数据"><a href="#delete-删除数据" class="headerlink" title="- delete (删除数据)"></a>- delete (删除数据)</h3><ul>
 <li>将某个数据彻底删除, 是物理上的删除.</li>
 <li>假设你是一个文章审核员, 看到一篇不合规的文章, 当你想彻底删除这篇文章并点击 删除文章 按钮的时候, 执行的应该是一个 deletePost 的删除动作, 而不是 removePost<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">deletePost</span><span class="token punctuation">(</span><span class="token parameter">id</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">return</span> database<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span> id <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h3 id="compose-组合数据"><a href="#compose-组合数据" class="headerlink" title="- compose (组合数据)"></a>- compose (组合数据)</h3></li>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<h3 id="compose-组合数据"><a href="#compose-组合数据" class="headerlink" title="- compose (组合数据)"></a>- compose (组合数据)</h3><ul>
 <li>基于现有的数据来创建一个新的数据, 适用于字符串、对象和函数<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">composePageUrl</span><span class="token punctuation">(</span><span class="token parameter">pageName<span class="token punctuation">,</span> pageId</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   <span class="token keyword">return</span> $<span class="token punctuation">&#123;</span>pageName<span class="token punctuation">.</span><span class="token function">toLowerCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#125;</span><span class="token operator">-</span>$<span class="token punctuation">&#123;</span>pageId<span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
@@ -509,8 +515,9 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <li>处理某个动作, 通常用来声明一个回调函数<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">handleLinkClick</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Clicked a link!'</span><span class="token punctuation">)</span>
 <span class="token punctuation">&#125;</span>
-link<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> handleLinkClick<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="最后是-Context"><a href="#最后是-Context" class="headerlink" title="最后是 Context"></a>最后是 Context</h2></li>
+link<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> handleLinkClick<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
+<h2 id="最后是-Context"><a href="#最后是-Context" class="headerlink" title="最后是 Context"></a>最后是 Context</h2><ul>
 <li>context 是一个域, 指代当前函数的执行环境</li>
 <li>函数通常是处理某件事的一个动作, 所以注明函数所属的域, 或者至少注明一个预期的数据类型是很重要的<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">/* 基于内置方法的纯函数 */</span>
 <span class="token keyword">function</span> <span class="token function">filter</span><span class="token punctuation">(</span><span class="token parameter">predicate<span class="token punctuation">,</span> list</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -595,7 +602,121 @@ link<span class="token punctuation">.</span><span class="token function">addEven
 <li>考虑单数和复数形式</li>
 <li>因为一个变量可能拥有单个或多个值, 所以命名的时候也要考虑单数和复数形式.</li>
 </ul>
-<h2 id="参考原文链接"><a href="#参考原文链接" class="headerlink" title="参考原文链接"></a><a target="_blank" rel="noopener" href="https://betterprogramming.pub/a-useful-framework-for-naming-your-classes-functions-and-variables-e7d186e3189f">参考原文链接</a></h2>
+<h2 id="参考原文链接"><a href="#参考原文链接" class="headerlink" title="参考原文链接"></a><a target="_blank" rel="noopener" href="https://betterprogramming.pub/a-useful-framework-for-naming-your-classes-functions-and-variables-e7d186e3189f">参考原文链接</a></h2><h1 id="一些常用命名汇总（摘抄）"><a href="#一些常用命名汇总（摘抄）" class="headerlink" title="一些常用命名汇总（摘抄）"></a>一些常用命名汇总（<a target="_blank" rel="noopener" href="https://www.aug.plus/archives/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83">摘抄</a>）</h1><table>
+<thead>
+<tr>
+<th align="left">动词</th>
+<th>含义</th>
+<th>返回值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">can</td>
+<td>判断是否可执行某个动作（权限）</td>
+<td>布尔值，true：可执行；false：不可执行</td>
+</tr>
+<tr>
+<td align="left">has</td>
+<td>判断是否含有某个值</td>
+<td>布尔值，true：含有；false：不含有</td>
+</tr>
+<tr>
+<td align="left">is</td>
+<td>判断是否为某个值</td>
+<td>布尔值，true：为某个值；false：不为某个值</td>
+</tr>
+<tr>
+<td align="left">get</td>
+<td>获取某个值</td>
+<td>任何值</td>
+</tr>
+<tr>
+<td align="left">set</td>
+<td>设置某个值</td>
+<td>无返回值</td>
+</tr>
+<tr>
+<td align="left">load</td>
+<td>加载某些数据</td>
+<td>视场景定</td>
+</tr>
+<tr>
+<td align="left">search</td>
+<td>搜索某些数据</td>
+<td>视场景定</td>
+</tr>
+<tr>
+<td align="left">validate</td>
+<td>校验、验证某些规则</td>
+<td>无返回值</td>
+</tr>
+<tr>
+<td align="left">query</td>
+<td>查询某些数据</td>
+<td>视场景定</td>
+</tr>
+<tr>
+<td align="left">add</td>
+<td>增加、添加数据</td>
+<td>无返回值</td>
+</tr>
+<tr>
+<td align="left">create</td>
+<td>创建数据</td>
+<td>无返回值</td>
+</tr>
+<tr>
+<td align="left">update</td>
+<td>更新某个数据</td>
+<td>无返回值</td>
+</tr>
+<tr>
+<td align="left">modify</td>
+<td>变更某个数据</td>
+<td>无返回值</td>
+</tr>
+<tr>
+<td align="left">edit</td>
+<td>编辑某个数据</td>
+<td>无返回值</td>
+</tr>
+<tr>
+<td align="left">delete</td>
+<td>删除某个数据</td>
+<td>无返回值</td>
+</tr>
+<tr>
+<td align="left">initialize</td>
+<td>初始化某个数据</td>
+<td>无返回值</td>
+</tr>
+<tr>
+<td align="left">select</td>
+<td>选择某个数据</td>
+<td>视场景定</td>
+</tr>
+<tr>
+<td align="left">cancel</td>
+<td>取消某个操作</td>
+<td>无返回值</td>
+</tr>
+<tr>
+<td align="left">confirm</td>
+<td>确认某个操作</td>
+<td>无返回值</td>
+</tr>
+<tr>
+<td align="left">click</td>
+<td>点击某个元素</td>
+<td>视场景定</td>
+</tr>
+<tr>
+<td align="left">submit</td>
+<td>提交某个数据</td>
+<td>无返回值</td>
+</tr>
+</tbody></table>
+
                 
             </div>
             <hr/>
