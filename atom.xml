@@ -6,7 +6,7 @@
   <link href="http://damao2250.com/atom.xml" rel="self"/>
   
   <link href="http://damao2250.com/"/>
-  <updated>2024-09-30T01:12:47.054Z</updated>
+  <updated>2024-10-14T08:05:24.058Z</updated>
   <id>http://damao2250.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>窄门大道</title>
+    <link href="http://damao2250.com/2024/10/14/%E7%AA%84%E9%97%A8%E5%A4%A7%E9%81%93/"/>
+    <id>http://damao2250.com/2024/10/14/%E7%AA%84%E9%97%A8%E5%A4%A7%E9%81%93/</id>
+    <published>2024-10-14T06:44:27.000Z</published>
+    <updated>2024-10-14T08:05:24.058Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="我们需要的是一份水涨船高的事业"><a href="#我们需要的是一份水涨船高的事业" class="headerlink" title="我们需要的是一份水涨船高的事业"></a>我们需要的是一份水涨船高的事业</h3><p>工作❌  事业✅</p><p>我们需要的并不是一份工作</p><p>而是一份水涨船高的事业</p><p>我们没有选择</p><p>因为随着年龄的增长</p><p>人生的风险是指数增加的</p><p>而不是线性增加的</p><p>走了一个越来越陡峭的线</p><p>增加的速度会非常快</p><p>越到后面你会发现麻绳越来越细</p><p>可能还断了 越断越多 越断越快</p><p>这就是指数增长的风险</p><p>但工资是怎么样的呢</p><p>工资是线性增长的</p><p>这还是在特别理想的情况下</p><p>通常是常数，也就是不变</p><p>可能三年也可能五年都不变</p><p>不但不变，搞不好在当下这个环境还降了</p><p>这种事情你听过吗</p><p>以前是从来没有听过这种事情的</p><p>至少在我们的成长经历中是没有经历过的</p><p>这种线性的增加速度怎么赶得上指数增加速度</p><p>我们没有选择</p><p>我们需要的是一份水涨船高的事业</p><p>我们要去哪里</p><p>我们当然要去更高远处</p><p>但是首先知道在哪里</p><p>然后怎么去</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;我们需要的是一份水涨船高的事业&quot;&gt;&lt;a href=&quot;#我们需要的是一份水涨船高的事业&quot; class=&quot;headerlink&quot; title=&quot;我们需要的是一份水涨船高的事业&quot;&gt;&lt;/a&gt;我们需要的是一份水涨船高的事业&lt;/h3&gt;&lt;p&gt;工作❌  事业✅&lt;/p&gt;
+&lt;p&gt;我们</summary>
+      
+    
+    
+    
+    <category term="窄门大道" scheme="http://damao2250.com/categories/%E7%AA%84%E9%97%A8%E5%A4%A7%E9%81%93/"/>
+    
+    
+    <category term="窄门大道" scheme="http://damao2250.com/tags/%E7%AA%84%E9%97%A8%E5%A4%A7%E9%81%93/"/>
+    
+  </entry>
   
   <entry>
     <title>简易瀑布流布局</title>
@@ -497,33 +522,6 @@
     
     
     <category term="分辨率适配" scheme="http://damao2250.com/tags/%E5%88%86%E8%BE%A8%E7%8E%87%E9%80%82%E9%85%8D/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CF方案</title>
-    <link href="http://damao2250.com/2023/10/27/CF%E6%96%B9%E6%A1%88/"/>
-    <id>http://damao2250.com/2023/10/27/CF%E6%96%B9%E6%A1%88/</id>
-    <published>2023-10-27T07:16:49.000Z</published>
-    <updated>2024-02-21T09:23:55.124Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="1-准备-v2rayN"><a href="#1-准备-v2rayN" class="headerlink" title="1. 准备 v2rayN"></a>1. 准备 v2rayN</h2><ul><li>下载安装 <a href="https://github.com/2dust/v2rayN/releases">v2rayN最新版</a></li></ul><h2 id="2-cloudflare"><a href="#2-cloudflare" class="headerlink" title="2. cloudflare"></a>2. cloudflare</h2><ul><li><p>访问 <a href="https://dash.cloudflare.com/">cloudflare</a>，使用临时邮箱或自己的邮箱注册一个账号</p></li><li><p>临时邮箱：<a href="https://www.linshiyouxiang.net/">https://www.linshiyouxiang.net/</a></p></li><li><p>注册好cloudflare后，选择添加站点，选择workers和pages，然后重新验证邮箱，去邮箱点击验证的链接即可</p></li><li><p>验证邮箱后，点击创建worker，修改worker名称，点击部署，点击配置worker，点击快速编辑</p></li><li><p>进入配置worker页面后，点击快速编辑，把worker.js的代码全部删除，然后复制<a href="https://github.com/zizifn/edgetunnel/blob/main/src/worker-vless.js">部署代码https://github.com/zizifn/edgetunnel/blob/main/src/worker-vless.js</a> 粘贴到worker.js</p></li><li><p>粘贴完worker.js后，需要修改第七行的<code>userID</code>，需要先去<a href="https://1024tools.com/uuid">uuid生成：https://1024tools.com/uuid</a>，生成后选择一组复制粘贴到第七行的<code>userID</code></p></li><li><p>worker.js的第九行的<code>proxyIP</code>，使用下面其中一组代理即可</p><pre class="line-numbers language-none"><code class="language-none">cdn-all.xn--b6gac.eu.orgcdn.xn--b6gac.eu.org cdn-b100.xn--b6gac.eu.org edgetunnel.anycast.eu.org cdn.anycast.eu.org （亚洲地区）<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li><li><p>完成userID和proxyIP配置后，点击保存并部署，部署完后点击 发送 按钮，看右边能正常返回来json说明部署成功</p></li><li><p>将刚刚点击发送的URL与userID拼接成url地址访问，如：<a href="https://worker007.u1-kejy8.workers.dev/299a134c-c7b7-45f8-b8a8-649c86%EF%BC%8C%E7%84%B6%E5%90%8E%E5%B0%86%60vless://%60%E5%BC%80%E5%A4%B4%E7%9A%84%E9%82%A3%E4%B8%80%E8%A1%8C%E5%85%A8%E9%83%A8%E5%A4%8D%E5%88%B6%E5%88%B0v2rayN">https://worker007.u1-kejy8.workers.dev/299a134c-c7b7-45f8-b8a8-649c86，然后将`vless://`开头的那一行全部复制到v2rayN</a></p></li><li><p>打开v2rayN，点击服务器，点击从剪贴板导入批量URL，导入后可以看到节点，然后双击节点，传输层安全选择空，端口改为80或者2052</p></li><li><p>地址需要使用到邮箱IP，使用workers win专用<a href="https://jdssl.top/wp-content/uploads/2023/07/works%E4%B8%93%E7%94%A8ip%E4%BC%98%E9%80%89.zip">ip优选 https://jdssl.top/wp-content/uploads/2023/07/works%E4%B8%93%E7%94%A8ip%E4%BC%98%E9%80%89.zip</a>，下载后打开文件夹，随便双击一个bat结尾的文件，双击前需要确保所有的科学上网工具都是关闭的，地址改为优选IP</p></li><li><p>无法优选ip 可以使用这个（youxuan.jdssl.link）域名在v2ray 填优选ip处填写，把端口改为：80 并把下面的tls关闭</p></li></ul><h2 id="参考：https-blog-taoshuge-eu-org-post-4"><a href="#参考：https-blog-taoshuge-eu-org-post-4" class="headerlink" title="参考：https://blog.taoshuge.eu.org/post/4/"></a>参考：<a href="https://blog.taoshuge.eu.org/post/4/">https://blog.taoshuge.eu.org/post/4/</a></h2>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;1-准备-v2rayN&quot;&gt;&lt;a href=&quot;#1-准备-v2rayN&quot; class=&quot;headerlink&quot; title=&quot;1. 准备 v2rayN&quot;&gt;&lt;/a&gt;1. 准备 v2rayN&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;下载安装 &lt;a href=&quot;https://gith</summary>
-      
-    
-    
-    
-    <category term="cloudflare" scheme="http://damao2250.com/categories/cloudflare/"/>
-    
-    
-    <category term="cloudflare" scheme="http://damao2250.com/tags/cloudflare/"/>
-    
-    <category term="CF" scheme="http://damao2250.com/tags/CF/"/>
     
   </entry>
   
