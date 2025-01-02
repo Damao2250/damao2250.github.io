@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
 </head>
 
 
@@ -405,7 +405,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    424
+                    407
                 </div>
                 
 
@@ -442,8 +442,8 @@
 </li>
 <li><p>两种启用CSP方式</p>
 <ul>
-<li>①通过HTTP头部信息的Content-Security-Policy字段添加指定策略  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Content</span>-<span class="title class_">Security</span>-<span class="title class_">Policy</span>: script-src <span class="string">&#x27;self&#x27;</span>; boject-src <span class="string">&#x27;none&#x27;</span>; style-src cdn.<span class="property">example</span>.<span class="property">org</span> third-party.<span class="property">org</span>; child-src <span class="attr">https</span>:</span><br></pre></td></tr></table></figure></li>
-<li>②通过网页的<meta>标签  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta http-equiv=<span class="string">&#x27;Content-Security-Policy&#x27;</span> content=<span class="string">&quot;script-src &#x27;self&#x27;; boject-src &#x27;none&#x27;; style-src cdn.example.org third-party.org; child-src https:&quot;</span>&gt;</span><br></pre></td></tr></table></figure></li>
+<li>①通过HTTP头部信息的Content-Security-Policy字段添加指定策略<pre class="line-numbers language-js" data-language="js"><code class="language-js">Content<span class="token operator">-</span>Security<span class="token operator">-</span>Policy<span class="token operator">:</span> script<span class="token operator">-</span>src <span class="token string">'self'</span><span class="token punctuation">;</span> boject<span class="token operator">-</span>src <span class="token string">'none'</span><span class="token punctuation">;</span> style<span class="token operator">-</span>src cdn<span class="token punctuation">.</span>example<span class="token punctuation">.</span>org third<span class="token operator">-</span>party<span class="token punctuation">.</span>org<span class="token punctuation">;</span> child<span class="token operator">-</span>src https<span class="token operator">:</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>②通过网页的<meta>标签<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token operator">&lt;</span>meta http<span class="token operator">-</span>equiv<span class="token operator">=</span><span class="token string">'Content-Security-Policy'</span> content<span class="token operator">=</span><span class="token string">"script-src 'self'; boject-src 'none'; style-src cdn.example.org third-party.org; child-src https:"</span><span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ul>
 <ul>
 <li>以上代码的配置信息：</li>
@@ -467,7 +467,7 @@
 </ul>
 </li>
 <li>default-src 选项<ul>
-<li>用来限制各个选项的默认值  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Content</span>-<span class="title class_">Security</span>-<span class="title class_">Policy</span>: <span class="keyword">default</span>-src <span class="string">&#x27;self&#x27;</span></span><br></pre></td></tr></table></figure></li>
+<li>用来限制各个选项的默认值<pre class="line-numbers language-js" data-language="js"><code class="language-js">Content<span class="token operator">-</span>Security<span class="token operator">-</span>Policy<span class="token operator">:</span> <span class="token keyword">default</span><span class="token operator">-</span>src <span class="token string">'self'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ul>
 </li>
 <li>以上代码限制所有资源只能从当前域名加载</li>

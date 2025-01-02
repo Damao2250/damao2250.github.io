@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
 </head>
 
 
@@ -405,7 +405,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    883
+                    871
                 </div>
                 
 
@@ -436,43 +436,68 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="Vue是什么？"><a href="#Vue是什么？" class="headerlink" title="Vue是什么？"></a>Vue是什么？</h2><ul>
-<li>Vue (读音 &#x2F;vjuː&#x2F;，类似于 view) 是一套用于构建用户界面的渐进式框架。<ul>
-<li>渐进式：声明式渲染 -&gt; 组件系统 -&gt; 客户端路由 -&gt; 大规模状态管理 -&gt; 构建工具</li>
+<li><p>Vue (读音 /vjuː/，类似于 view) 是一套用于构建用户界面的渐进式框架。</p>
+<ul>
+<li><p>渐进式：声明式渲染 -&gt; 组件系统 -&gt; 客户端路由 -&gt; 大规模状态管理 -&gt; 构建工具</p>
+</li>
 <li><details>
   <summary>声明式渲染 与 响应式触发</summary>
     使用模板语法 声明式地将数据渲染进DOM，叫声明式渲染。即DOM状态只是数据状态的一个映射。
 
-  如果属性的状态值发生了变化，无须做任何操作，与dom绑定的属性会自动发生改变，叫属性的响应式触发。</details></li>
-<li>组件系统：将一个大型的界面切分成一个一个更小的可控单元，具有可复用性。</li>
-<li>客户端路由：针对单页应用而言，需要有路由让一个URL对应到一个应用的状态。</li>
-<li>状态管理：大型项目设计涉及多个组件之间的数据共享</li>
-<li>构建工具：Vue官方提供了一个构建工具vue-cli，可以快速安装webPack、loader等等包</li>
+<p>  如果属性的状态值发生了变化，无须做任何操作，与dom绑定的属性会自动发生改变，叫属性的响应式触发。</p>
+</details></li>
+<li><p>组件系统：将一个大型的界面切分成一个一个更小的可控单元，具有可复用性。</p>
+</li>
+<li><p>客户端路由：针对单页应用而言，需要有路由让一个URL对应到一个应用的状态。</p>
+</li>
+<li><p>状态管理：大型项目设计涉及多个组件之间的数据共享</p>
+</li>
+<li><p>构建工具：Vue官方提供了一个构建工具vue-cli，可以快速安装webPack、loader等等包</p>
+</li>
 </ul>
 </li>
-<li>Vue是前端三大框架之一<br><img src="https://raw.githubusercontent.com/Damao2250/FileTransfer/master/Vue%E6%B8%90%E8%BF%9B%E5%BC%8F%E6%A1%86%E6%9E%B6.jpeg" alt="渐进式框架"><br>渐进式框架</li>
-</ul>
-<h2 id="Vue的发展历程"><a href="#Vue的发展历程" class="headerlink" title="Vue的发展历程"></a>Vue的发展历程</h2><ul>
-<li>实验阶段（2013 年中到 2014 年 2 月）</li>
-<li>0.x 阶段 (2014 年 2 月到 2015 年 10 月)</li>
-<li>1.x 阶段 (2015 年 10 月到 2016 年 9 月) 发行版名称 [Evangelion]</li>
-<li>2.x 阶段 (2016 年 9 月至今) 发行版名称 [Ghost in the Shell]</li>
-</ul>
-<h2 id="MVVM模式"><a href="#MVVM模式" class="headerlink" title="MVVM模式"></a>MVVM模式</h2><ul>
-<li>MVVM主要把每个页面分成了M（Model）、V（View）、VM（ViewModel）。VM是其中核心，M和V间的调度者。</li>
-<li>M: 保存的是每个页面中单独的数据保存在data里。</li>
-<li>V: 每个页面的html结构。</li>
-<li>VM，一个调度者，分割了M和V，M和V通过中间的VM关联。V想要保存数据到M，都要有VM做中间处理；V想要渲染页面，需要调用VM，VM从M中取数据。</li>
-<li>前端中使用MVVM思想，主要让开发更方便，MVVM提供了数据的双向绑定（由VM提供）。<br><img src="https://raw.githubusercontent.com/Damao2250/FileTransfer/master/1589862758(1).jpg" alt="MVVM模式"></li>
+<li><p>Vue是前端三大框架之一<br><img src="https://raw.githubusercontent.com/Damao2250/FileTransfer/master/Vue%E6%B8%90%E8%BF%9B%E5%BC%8F%E6%A1%86%E6%9E%B6.jpeg" alt="渐进式框架"><br>渐进式框架</p>
+<h2 id="Vue的发展历程"><a href="#Vue的发展历程" class="headerlink" title="Vue的发展历程"></a>Vue的发展历程</h2></li>
+<li><p>实验阶段（2013 年中到 2014 年 2 月）</p>
+</li>
+<li><p>0.x 阶段 (2014 年 2 月到 2015 年 10 月)</p>
+</li>
+<li><p>1.x 阶段 (2015 年 10 月到 2016 年 9 月) 发行版名称 [Evangelion]</p>
+</li>
+<li><p>2.x 阶段 (2016 年 9 月至今) 发行版名称 [Ghost in the Shell]</p>
+<h2 id="MVVM模式"><a href="#MVVM模式" class="headerlink" title="MVVM模式"></a>MVVM模式</h2></li>
+<li><p>MVVM主要把每个页面分成了M（Model）、V（View）、VM（ViewModel）。VM是其中核心，M和V间的调度者。</p>
+</li>
+<li><p>M: 保存的是每个页面中单独的数据保存在data里。</p>
+</li>
+<li><p>V: 每个页面的html结构。</p>
+</li>
+<li><p>VM，一个调度者，分割了M和V，M和V通过中间的VM关联。V想要保存数据到M，都要有VM做中间处理；V想要渲染页面，需要调用VM，VM从M中取数据。</p>
+</li>
+<li><p>前端中使用MVVM思想，主要让开发更方便，MVVM提供了数据的双向绑定（由VM提供）。<br><img src="https://raw.githubusercontent.com/Damao2250/FileTransfer/master/1589862758(1).jpg" alt="MVVM模式"></p>
+</li>
 </ul>
 <p>双向数据绑定</p>
 <ul>
 <li>Vue双向数据绑定是通过数据劫持结合发布订阅模式的方式来实现的，也就是说数据和视图同步，数据发生变化，视图跟着变化，视图变化，数据也随之发生改变；</li>
 <li>核心：关于VUE双向数据绑定，其核心是 Object.defineProperty()方法；</li>
-<li>把一个普通的 JavaScript 对象传入 Vue 实例作为 data 选项，Vue 将遍历此对象所有的 property，并使用 Object.defineProperty 把这些 property 全部转为 getter&#x2F;setter。</li>
+<li>把一个普通的 JavaScript 对象传入 Vue 实例作为 data 选项，Vue 将遍历此对象所有的 property，并使用 Object.defineProperty 把这些 property 全部转为 getter/setter。</li>
 <li>实现数据双向数据绑定<ul>
 <li>1、实现一个数据监听器Observer，能够对数据对象的所有属性进行监听，如有变动可拿到最新值并通知订阅者</li>
 <li>2、实现一个指令解析器Compile，对每个元素节点的指令进行扫描和解析，根据指令模板替换数据，以及绑定相应的更新函数</li>
-<li>3、实现一个Watcher，作为连接Observer和Compile的桥梁，能够订阅并收到每个属性变动的通知，执行指令绑定的相应回调函数，从而更新视图<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;&#125;</span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">defineProperty</span>( obj, <span class="string">&quot;greet&quot;</span>, &#123;</span><br><span class="line">  <span class="attr">get</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>( <span class="string">&quot;调用 get 方法&quot;</span> )</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">set</span>: <span class="keyword">function</span>(<span class="params"> newVal </span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;调用 set 方法，传入的值是：&quot;</span> + newVal );</span><br><span class="line">    obj.<span class="property">say</span> = newVal;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line">obj.<span class="property">greet</span>; <span class="comment">// 调用 get 方法</span></span><br><span class="line">obj.<span class="property">greet</span> = <span class="string">&quot;hello&quot;</span>; <span class="comment">// 调用 set 方法，传入的值是：hello</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj) <span class="comment">// &#123;say: &quot;hello&quot;&#125;</span></span><br></pre></td></tr></table></figure>
+<li>3、实现一个Watcher，作为连接Observer和Compile的桥梁，能够订阅并收到每个属性变动的通知，执行指令绑定的相应回调函数，从而更新视图<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">let</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+Object<span class="token punctuation">.</span><span class="token function">defineProperty</span><span class="token punctuation">(</span> obj<span class="token punctuation">,</span> <span class="token string">"greet"</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span>
+  <span class="token function-variable function">get</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span> <span class="token string">"调用 get 方法"</span> <span class="token punctuation">)</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token function-variable function">set</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span> <span class="token parameter">newVal</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"调用 set 方法，传入的值是："</span> <span class="token operator">+</span> newVal <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    obj<span class="token punctuation">.</span>say <span class="token operator">=</span> newVal<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+obj<span class="token punctuation">.</span>greet<span class="token punctuation">;</span> <span class="token comment">// 调用 get 方法</span>
+obj<span class="token punctuation">.</span>greet <span class="token operator">=</span> <span class="token string">"hello"</span><span class="token punctuation">;</span> <span class="token comment">// 调用 set 方法，传入的值是：hello</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span> <span class="token comment">// &#123;say: "hello"&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <img src="https://raw.githubusercontent.com/Damao2250/FileTransfer/master/Object.defineProperty.png" alt="数据双向绑定"></li>
 </ul>
 </li>

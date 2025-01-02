@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
 </head>
 
 
@@ -405,7 +405,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    304
+                    297
                 </div>
                 
 
@@ -435,9 +435,53 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="使用git同时提交到多个远程库"><a href="#使用git同时提交到多个远程库" class="headerlink" title="使用git同时提交到多个远程库"></a>使用git同时提交到多个远程库</h1><h2 id="法1"><a href="#法1" class="headerlink" title="法1"></a>法1</h2><h1 id="1、添加第一个仓库：-2、添加第二个仓库：-如果还有其他仓库，就以此方式继续添加3、提交"><a href="#1、添加第一个仓库：-2、添加第二个仓库：-如果还有其他仓库，就以此方式继续添加3、提交" class="headerlink" title="1、添加第一个仓库：  2、添加第二个仓库：+ 如果还有其他仓库，就以此方式继续添加3、提交"></a>1、添加第一个仓库：<br>  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin <span class="attr">https</span>:<span class="comment">//gitlab.com/XXX/xxx.git</span></span><br></pre></td></tr></table></figure><br>2、添加第二个仓库：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote set-url --add origin <span class="attr">https</span>:<span class="comment">//github.com/XXX/xxx.git</span></span><br></pre></td></tr></table></figure><br>+ 如果还有其他仓库，就以此方式继续添加<br>3、提交<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git push origin --all</span><br><span class="line"><span class="comment">// or</span></span><br><span class="line">git push</span><br></pre></td></tr></table></figure></h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// tips：</span></span><br><span class="line"><span class="comment">// 打开.git/config，可以看到这样的配置：</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="string">`[remote &quot;origin&quot;]</span></span><br><span class="line"><span class="string">  url = https://gitlab.com/XXX/xxx.git</span></span><br><span class="line"><span class="string">  fetch = +refs/heads/*:refs/remotes/origin/*</span></span><br><span class="line"><span class="string">  url = https://github.com/XXX/xxx.git`</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 刚才的命令其实就是添加了这些配置,也可以不用命令行，可以直接编辑该文件，添加对应的url即可</span></span><br></pre></td></tr></table></figure>
-<h2 id="法2"><a href="#法2" class="headerlink" title="法2"></a>法2</h2><ul>
-<li>直接添加另一个远程仓库地址<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">git remote add [name] [远程库地址]</span><br><span class="line">git push [name]</span><br><span class="line"><span class="comment">// [name] 取个远程库名并连接远程地址  然后push上去      git默认的[name]为origin</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 如：</span></span><br><span class="line"><span class="comment">// git remote add test https://github.com/XXX/xxx.git</span></span><br><span class="line"><span class="comment">// git push test</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 但是想同步两个远程仓库必须同时push &amp;&amp; pull</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// git push origin</span></span><br><span class="line"><span class="comment">// git push test</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// git pull origin</span></span><br><span class="line"><span class="comment">// git pull test</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 查看.gigt中的config文件</span></span><br><span class="line"><span class="string">`[remote &quot;origin&quot;]</span></span><br><span class="line"><span class="string">    url = https://gitlab.com/XXX/xxx.git</span></span><br><span class="line"><span class="string">    fetch = +refs/heads/*:refs/remotes/origin/*</span></span><br><span class="line"><span class="string">[branch &quot;master&quot;]</span></span><br><span class="line"><span class="string">    remote = origin</span></span><br><span class="line"><span class="string">    merge = refs/heads/master</span></span><br><span class="line"><span class="string">[remote &quot;test&quot;]</span></span><br><span class="line"><span class="string">    url = https://github.com/XXX/xxx.git</span></span><br><span class="line"><span class="string">  fetch = +refs/heads/*:refs/remotes/test/*`</span></span><br></pre></td></tr></table></figure></li>
+                <h1 id="使用git同时提交到多个远程库"><a href="#使用git同时提交到多个远程库" class="headerlink" title="使用git同时提交到多个远程库"></a>使用git同时提交到多个远程库</h1><h2 id="法1"><a href="#法1" class="headerlink" title="法1"></a>法1</h2><p>1、添加第一个仓库：<br>  <pre class="line-numbers language-js" data-language="js"><code class="language-js">git remote add origin https<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>gitlab<span class="token punctuation">.</span>com<span class="token operator">/</span><span class="token constant">XXX</span><span class="token operator">/</span>xxx<span class="token punctuation">.</span>git<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><br>2、添加第二个仓库：</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">git remote set<span class="token operator">-</span>url <span class="token operator">--</span>add origin https<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>github<span class="token punctuation">.</span>com<span class="token operator">/</span><span class="token constant">XXX</span><span class="token operator">/</span>xxx<span class="token punctuation">.</span>git<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ul>
+<li>如果还有其他仓库，就以此方式继续添加<br>3、提交<pre class="line-numbers language-js" data-language="js"><code class="language-js">git push origin <span class="token operator">--</span>all
+<span class="token comment">// or</span>
+git push<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+==================================================================<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// tips：</span>
+<span class="token comment">// 打开.git/config，可以看到这样的配置：</span>
+
+
+<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">[remote "origin"]
+  url = https://gitlab.com/XXX/xxx.git
+  fetch = +refs/heads/*:refs/remotes/origin/*
+  url = https://github.com/XXX/xxx.git</span><span class="token template-punctuation string">`</span></span>
+
+
+<span class="token comment">// 刚才的命令其实就是添加了这些配置,也可以不用命令行，可以直接编辑该文件，添加对应的url即可</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="法2"><a href="#法2" class="headerlink" title="法2"></a>法2</h2></li>
+<li>直接添加另一个远程仓库地址<pre class="line-numbers language-js" data-language="js"><code class="language-js">git remote add <span class="token punctuation">[</span>name<span class="token punctuation">]</span> <span class="token punctuation">[</span>远程库地址<span class="token punctuation">]</span>
+git push <span class="token punctuation">[</span>name<span class="token punctuation">]</span>
+<span class="token comment">// [name] 取个远程库名并连接远程地址  然后push上去      git默认的[name]为origin</span>
+
+
+<span class="token comment">// 如：</span>
+<span class="token comment">// git remote add test https://github.com/XXX/xxx.git</span>
+<span class="token comment">// git push test</span>
+
+<span class="token comment">// 但是想同步两个远程仓库必须同时push &amp;&amp; pull</span>
+
+<span class="token comment">// git push origin</span>
+<span class="token comment">// git push test</span>
+
+<span class="token comment">// git pull origin</span>
+<span class="token comment">// git pull test</span>
+
+
+
+<span class="token comment">// 查看.gigt中的config文件</span>
+<span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">[remote "origin"]
+    url = https://gitlab.com/XXX/xxx.git
+    fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "master"]
+    remote = origin
+    merge = refs/heads/master
+[remote "test"]
+    url = https://github.com/XXX/xxx.git
+  fetch = +refs/heads/*:refs/remotes/test/*</span><span class="token template-punctuation string">`</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ul>
 
                 

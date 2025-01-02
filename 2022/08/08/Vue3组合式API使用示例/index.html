@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
 </head>
 
 
@@ -412,7 +412,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    5 分
                 </div>
                 
 
@@ -443,18 +443,14 @@
 <li>watchEffect() - 立即运行一个函数，同时响应式地追踪其依赖，并在依赖更改时重新执行</li>
 <li>watchPostEffect() - watchEffect() 使用 flush: ‘post’ 选项时的别名</li>
 <li>watchSyncEffect() - watchEffect() 使用 flush: ‘sync’ 选项时的别名</li>
-<li>watch() - 侦听一个或多个响应式数据源，并在数据源变化时调用所给的回调函数</li>
-</ul>
-<h3 id="响应式-工具"><a href="#响应式-工具" class="headerlink" title="响应式: 工具"></a>响应式: 工具</h3><ul>
+<li>watch() - 侦听一个或多个响应式数据源，并在数据源变化时调用所给的回调函数<h3 id="响应式-工具"><a href="#响应式-工具" class="headerlink" title="响应式: 工具"></a>响应式: 工具</h3></li>
 <li>isRef() - 检查某个值是否为 ref</li>
 <li>unref() - 如果参数是 ref，则返回内部值，否则返回参数本身</li>
 <li>toRef() - 基于响应式对象上的一个属性，创建一个对应的 ref</li>
 <li>toRefs() - 将一个响应式对象转换为一个普通对象，这个普通对象的每个属性都是指向源对象相应属性的 ref</li>
 <li>isProxy() - 检查一个对象是否是由 reactive()、readonly()、shallowReactive() 或 shallowReadonly() 创建的代理</li>
 <li>isReactive() - 检查一个对象是否是由 reactive() 或 shallowReactive() 创建的代理</li>
-<li>isReadonly() - 检查一个对象是否是由 readonly() 或 shallowReadonly() 创建的代理</li>
-</ul>
-<h3 id="响应式-进阶"><a href="#响应式-进阶" class="headerlink" title="响应式: 进阶"></a>响应式: 进阶</h3><ul>
+<li>isReadonly() - 检查一个对象是否是由 readonly() 或 shallowReadonly() 创建的代理<h3 id="响应式-进阶"><a href="#响应式-进阶" class="headerlink" title="响应式: 进阶"></a>响应式: 进阶</h3></li>
 <li>shallowRef() - ref() 的浅层作用形式</li>
 <li>triggerRef() - 强制触发依赖于一个浅层 ref 的副作用，这通常在对浅引用的内部值进行深度变更后使用</li>
 <li>customRef() - 创建一个自定义的 ref，显式声明对其依赖追踪和更新触发的控制方式</li>
@@ -464,9 +460,7 @@
 <li>markRaw() - 将一个对象标记为不可被转为代理。返回该对象本身</li>
 <li>effectScope() - 创建一个 effect 作用域，可以捕获其中所创建的响应式副作用 (即计算属性和侦听器)，这样捕获到的副作用可以一起处理</li>
 <li>getCurrentScope() - 如果有的话，返回当前活跃的 effect 作用域</li>
-<li>onScopeDispose() - 在当前活跃的 effect 作用域上注册一个处理回调函数</li>
-</ul>
-<h3 id="生命周期钩子"><a href="#生命周期钩子" class="headerlink" title="生命周期钩子"></a>生命周期钩子</h3><ul>
+<li>onScopeDispose() - 在当前活跃的 effect 作用域上注册一个处理回调函数<h3 id="生命周期钩子"><a href="#生命周期钩子" class="headerlink" title="生命周期钩子"></a>生命周期钩子</h3></li>
 <li>onMounted() - 组件挂载完成后执行</li>
 <li>onUpdated() - 更新 DOM 树之后调用</li>
 <li>onUnmounted() - 组件实例被卸载之后调用</li>
@@ -478,13 +472,74 @@
 <li>onRenderTriggered() - 响应式依赖的变更触发了组件渲染时调用</li>
 <li>onActivated() - 若组件实例是 <KeepAlive> 缓存树的一部分，当组件被插入到 DOM 中时调用</li>
 <li>onDeactivated() - 若组件实例是 <KeepAlive> 缓存树的一部分，当组件从 DOM 中被移除时调用</li>
-<li>onServerPrefetch() - 组件实例在服务器上被渲染之前调用</li>
-</ul>
-<h3 id="依赖注入"><a href="#依赖注入" class="headerlink" title="依赖注入"></a>依赖注入</h3><ul>
+<li>onServerPrefetch() - 组件实例在服务器上被渲染之前调用<h3 id="依赖注入"><a href="#依赖注入" class="headerlink" title="依赖注入"></a>依赖注入</h3></li>
 <li>provide() - 提供一个值，可以被后代组件注入</li>
 <li>inject() - 注入一个由祖先组件或整个应用 (通过 app.provide()) 提供的值</li>
 </ul>
-<h2 id="使用示例"><a href="#使用示例" class="headerlink" title="使用示例"></a>使用示例</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup lang=&quot;ts&quot;&gt;</span><br><span class="line">  import &#123; ref, Ref, reactive, isRef, unref, toRef, computed &#125; from &#x27;vue&#x27;;</span><br><span class="line">  const msg = ref(&quot;Hello World&quot;);</span><br><span class="line">  const initial = ref(10);</span><br><span class="line">  const count = ref(0);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  // 更新 ref</span><br><span class="line">  function update(value) &#123;</span><br><span class="line">    count.value = value;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  // 检查`count`是否为一个 ref 对象</span><br><span class="line">  console.log(isRef(count) ? &#x27;是ref对象&#x27; : &#x27;非ref对象&#x27;);</span><br><span class="line"></span><br><span class="line">  // 如果参数是一个ref，则返回内部值，否则返回参数本身</span><br><span class="line">  function initialCount(value: number | Ref&lt;number&gt;) &#123;</span><br><span class="line">    console.log(unref(value) === 10); // 打印true</span><br><span class="line">  &#125;</span><br><span class="line">  initialCount(initial);</span><br><span class="line"></span><br><span class="line">  /**</span><br><span class="line">   * 为源响应式对象上的某个 `property` 新创建一个 `ref`。</span><br><span class="line">   * 然后,`ref` 可以被传递，它会保持对其源`property`的响应式连接。</span><br><span class="line">   * 确保以下输出为true</span><br><span class="line">   */</span><br><span class="line">  const state = reactive(&#123;</span><br><span class="line">    foo: 1,</span><br><span class="line">    bar: 2,</span><br><span class="line">  &#125;);</span><br><span class="line">  const fooRef = toRef(state, &#x27;foo&#x27;);</span><br><span class="line">  // 修改引用将更新原引用</span><br><span class="line">  fooRef.value++;</span><br><span class="line">  console.log(state.foo === 2); // 打印true</span><br><span class="line">  // 修改原引用也会更新`ref`</span><br><span class="line">  state.foo++;</span><br><span class="line">  console.log(fooRef.value === 3); // 打印true</span><br><span class="line"></span><br><span class="line">  //computed 接受一个具有 get 和 set 函数的对象，用来创建可写的 ref 对象。</span><br><span class="line">  const plusOne = computed(&#123;</span><br><span class="line">    get: ()=&gt;&#123;</span><br><span class="line">    return count.value + 1;</span><br><span class="line">    &#125;,</span><br><span class="line">    set: val=&gt;&#123; </span><br><span class="line">    count.value ++;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">  plusOne.value++;</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;h1&gt;&#123;&#123;msg&#125;&#125;&lt;/h1&gt;</span><br><span class="line">    &lt;p&gt;</span><br><span class="line">      &lt;span @click=&quot;update(count - 1)&quot;&gt;-&lt;/span&gt;</span><br><span class="line">      &#123;&#123; count &#125;&#125;</span><br><span class="line">      &lt;span @click=&quot;update(count + 1)&quot;&gt;+&lt;/span&gt;</span><br><span class="line">    &lt;/p&gt;</span><br><span class="line">    &lt;p&gt;</span><br><span class="line">      count：&#123;&#123; count &#125;&#125;，plusOne：&#123;&#123; plusOne &#125;&#125;</span><br><span class="line">    &lt;/p&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="使用示例"><a href="#使用示例" class="headerlink" title="使用示例"></a>使用示例</h2><pre class="line-numbers language-Vue" data-language="Vue"><code class="language-Vue">&lt;script setup lang&#x3D;&quot;ts&quot;&gt;
+  import &#123; ref, Ref, reactive, isRef, unref, toRef, computed &#125; from &#39;vue&#39;;
+  const msg &#x3D; ref(&quot;Hello World&quot;);
+  const initial &#x3D; ref(10);
+  const count &#x3D; ref(0);
+
+
+  &#x2F;&#x2F; 更新 ref
+  function update(value) &#123;
+    count.value &#x3D; value;
+  &#125;
+
+  &#x2F;&#x2F; 检查&#96;count&#96;是否为一个 ref 对象
+  console.log(isRef(count) ? &#39;是ref对象&#39; : &#39;非ref对象&#39;);
+
+  &#x2F;&#x2F; 如果参数是一个ref，则返回内部值，否则返回参数本身
+  function initialCount(value: number | Ref&lt;number&gt;) &#123;
+    console.log(unref(value) &#x3D;&#x3D;&#x3D; 10); &#x2F;&#x2F; 打印true
+  &#125;
+  initialCount(initial);
+
+  &#x2F;**
+   * 为源响应式对象上的某个 &#96;property&#96; 新创建一个 &#96;ref&#96;。
+   * 然后,&#96;ref&#96; 可以被传递，它会保持对其源&#96;property&#96;的响应式连接。
+   * 确保以下输出为true
+   *&#x2F;
+  const state &#x3D; reactive(&#123;
+    foo: 1,
+    bar: 2,
+  &#125;);
+  const fooRef &#x3D; toRef(state, &#39;foo&#39;);
+  &#x2F;&#x2F; 修改引用将更新原引用
+  fooRef.value++;
+  console.log(state.foo &#x3D;&#x3D;&#x3D; 2); &#x2F;&#x2F; 打印true
+  &#x2F;&#x2F; 修改原引用也会更新&#96;ref&#96;
+  state.foo++;
+  console.log(fooRef.value &#x3D;&#x3D;&#x3D; 3); &#x2F;&#x2F; 打印true
+
+  &#x2F;&#x2F;computed 接受一个具有 get 和 set 函数的对象，用来创建可写的 ref 对象。
+  const plusOne &#x3D; computed(&#123;
+    get: ()&#x3D;&gt;&#123;
+    return count.value + 1;
+    &#125;,
+    set: val&#x3D;&gt;&#123; 
+    count.value ++;
+    &#125;
+  &#125;)
+  plusOne.value++;
+
+&lt;&#x2F;script&gt;
+
+&lt;template&gt;
+  &lt;div&gt;
+    &lt;h1&gt;&#123;&#123;msg&#125;&#125;&lt;&#x2F;h1&gt;
+    &lt;p&gt;
+      &lt;span @click&#x3D;&quot;update(count - 1)&quot;&gt;-&lt;&#x2F;span&gt;
+      &#123;&#123; count &#125;&#125;
+      &lt;span @click&#x3D;&quot;update(count + 1)&quot;&gt;+&lt;&#x2F;span&gt;
+    &lt;&#x2F;p&gt;
+    &lt;p&gt;
+      count：&#123;&#123; count &#125;&#125;，plusOne：&#123;&#123; plusOne &#125;&#125;
+    &lt;&#x2F;p&gt;
+  &lt;&#x2F;div&gt;
+&lt;&#x2F;template&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>

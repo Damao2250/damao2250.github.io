@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
 </head>
 
 
@@ -405,7 +405,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    198
+                    192
                 </div>
                 
 
@@ -436,20 +436,51 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="使用两个转换库"><a href="#使用两个转换库" class="headerlink" title="使用两个转换库"></a>使用两个转换库</h2><ul>
-<li>postcss-pxtorem<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">postcss-pxtorem 插件，可以从像素单位生成 rem 单位</span><br></pre></td></tr></table></figure></li>
-<li>amfe-flexible<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">amfe-flexible 是配置可伸缩布局方案，主要是将 1rem 设为 viewWidth/10</span><br><span class="line">PC端设计稿为1920时：1920/10 = 192</span><br><span class="line">移动端设计稿为750时：750/10 = 75</span><br></pre></td></tr></table></figure></li>
+<li>postcss-pxtorem<pre class="line-numbers language-none"><code class="language-none">postcss-pxtorem 插件，可以从像素单位生成 rem 单位<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>amfe-flexible<pre class="line-numbers language-none"><code class="language-none">amfe-flexible 是配置可伸缩布局方案，主要是将 1rem 设为 viewWidth&#x2F;10
+PC端设计稿为1920时：1920&#x2F;10 &#x3D; 192
+移动端设计稿为750时：750&#x2F;10 &#x3D; 75<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
 </ul>
 <h2 id="在项目中配置"><a href="#在项目中配置" class="headerlink" title="在项目中配置"></a>在项目中配置</h2><ul>
 <li><p>1、安装依赖</p>
-<figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install postcss<span class="literal">-pxtorem</span></span><br><span class="line">npm install amfe<span class="literal">-flexible</span></span><br></pre></td></tr></table></figure>
-</li>
+<pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">npm install postcss-pxtorem
+npm install amfe-flexible<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
 <li><p>2、<code>vue.config.js</code>中配置</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> postCssPxToRem = <span class="built_in">require</span>(<span class="string">&#x27;postcss-pxtorem&#x27;</span>)</span><br><span class="line"><span class="comment">// import postCssPxToRem from &#x27;postcss-pxtorem&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">css</span>: &#123;</span><br><span class="line">    <span class="attr">loaderOptions</span>: &#123;</span><br><span class="line">      <span class="attr">postcss</span>: &#123;</span><br><span class="line">        <span class="attr">plugins</span>: [</span><br><span class="line">          <span class="title function_">postCssPxToRem</span>(&#123;</span><br><span class="line">            <span class="attr">rootValue</span>: <span class="number">192</span>, <span class="comment">// 设计稿尺寸 1rem 的大小</span></span><br><span class="line">            <span class="attr">propList</span>: [<span class="string">&#x27;*&#x27;</span>] <span class="comment">// 需要转换的属性列表，*表示全部转换</span></span><br><span class="line">          &#125;)</span><br><span class="line">        ]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> postCssPxToRem <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'postcss-pxtorem'</span><span class="token punctuation">)</span>
+<span class="token comment">// import postCssPxToRem from 'postcss-pxtorem'</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  css<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    loaderOptions<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      postcss<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+        plugins<span class="token operator">:</span> <span class="token punctuation">[</span>
+          <span class="token function">postCssPxToRem</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+            rootValue<span class="token operator">:</span> <span class="token number">192</span><span class="token punctuation">,</span> <span class="token comment">// 设计稿尺寸 1rem 的大小</span>
+            propList<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'*'</span><span class="token punctuation">]</span> <span class="token comment">// 需要转换的属性列表，*表示全部转换</span>
+          <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+        <span class="token punctuation">]</span>
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>或<code>vite.config.ts</code>中配置</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> postCssPxToRem <span class="keyword">from</span> <span class="string">&#x27;postcss-pxtorem&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title function_">defineConfig</span>(&#123;</span><br><span class="line">  <span class="attr">css</span>: &#123;</span><br><span class="line">    <span class="attr">postcss</span>: &#123;</span><br><span class="line">      <span class="attr">plugins</span>: [</span><br><span class="line">        <span class="title function_">postCssPxToRem</span>(&#123;</span><br><span class="line">          <span class="attr">rootValue</span>: <span class="string">&#x27;192&#x27;</span>,</span><br><span class="line">          <span class="attr">propList</span>: [<span class="string">&#x27;*&#x27;</span>]</span><br><span class="line">        &#125;)</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">import</span> postCssPxToRem <span class="token keyword">from</span> <span class="token string">'postcss-pxtorem'</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">defineConfig</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+  css<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    postcss<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      plugins<span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token function">postCssPxToRem</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+          rootValue<span class="token operator">:</span> <span class="token string">'192'</span><span class="token punctuation">,</span>
+          propList<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'*'</span><span class="token punctuation">]</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li><p>3、main.js 中引入</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&#x27;amfe-flexible&#x27;</span></span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">import</span> <span class="token string">'amfe-flexible'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ul>
 
                 

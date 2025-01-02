@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
 </head>
 
 
@@ -405,7 +405,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    190
+                    182
                 </div>
                 
 
@@ -439,13 +439,41 @@
 <li><p>解决方法：</p>
 <ul>
 <li>最外层包一层div</li>
-<li>通过div类名设置样式穿透<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.layout-aside-menu</span> /deep/ <span class="selector-class">.collapse-transition</span> &#123;</span><br><span class="line">  -webkit-<span class="attribute">transition</span>: <span class="number">0s</span> height, <span class="number">0s</span> padding-top, <span class="number">0s</span> padding-bottom;</span><br><span class="line">  <span class="attribute">transition</span>: <span class="number">0s</span> height, <span class="number">0s</span> padding-top, <span class="number">0s</span> padding-bottom;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.layout-aside-menu</span> /deep/ <span class="selector-class">.horizontal-collapse-transition</span> &#123;</span><br><span class="line">  -webkit-<span class="attribute">transition</span>: <span class="number">0s</span> width, <span class="number">0s</span> padding-left, <span class="number">0s</span> padding-right;</span><br><span class="line">  <span class="attribute">transition</span>: <span class="number">0s</span> width, <span class="number">0s</span> padding-left, <span class="number">0s</span> padding-right;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.layout-aside-menu</span> /deep/ <span class="selector-class">.horizontal-collapse-transition</span> <span class="selector-class">.el-submenu__title</span> <span class="selector-class">.el-submenu__icon-arrow</span> &#123;</span><br><span class="line">  -webkit-<span class="attribute">transition</span>: <span class="number">0s</span>;</span><br><span class="line">  <span class="attribute">transition</span>: <span class="number">0s</span>;</span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>通过div类名设置样式穿透<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.layout-aside-menu /deep/ .collapse-transition</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">-webkit-transition</span><span class="token punctuation">:</span> 0s height<span class="token punctuation">,</span> 0s padding-top<span class="token punctuation">,</span> 0s padding-bottom<span class="token punctuation">;</span>
+  <span class="token property">transition</span><span class="token punctuation">:</span> 0s height<span class="token punctuation">,</span> 0s padding-top<span class="token punctuation">,</span> 0s padding-bottom<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token selector">.layout-aside-menu /deep/ .horizontal-collapse-transition</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">-webkit-transition</span><span class="token punctuation">:</span> 0s width<span class="token punctuation">,</span> 0s padding-left<span class="token punctuation">,</span> 0s padding-right<span class="token punctuation">;</span>
+  <span class="token property">transition</span><span class="token punctuation">:</span> 0s width<span class="token punctuation">,</span> 0s padding-left<span class="token punctuation">,</span> 0s padding-right<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+
+<span class="token selector">.layout-aside-menu /deep/ .horizontal-collapse-transition .el-submenu__title .el-submenu__icon-arrow</span> <span class="token punctuation">&#123;</span>
+  <span class="token property">-webkit-transition</span><span class="token punctuation">:</span> 0s<span class="token punctuation">;</span>
+  <span class="token property">transition</span><span class="token punctuation">:</span> 0s<span class="token punctuation">;</span>
+  <span class="token property">opacity</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ul>
 </li>
 <li><p>补充点：</p>
 <ul>
-<li>stylus的样式穿透 使用 <code>&gt;&gt;&gt;</code><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* </span></span><br><span class="line"><span class="comment">  外层 &gt;&gt;&gt; 第三方组件 &#123;</span></span><br><span class="line"><span class="comment">    样式</span></span><br><span class="line"><span class="comment">  &#125; </span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="selector-class">.wrapper</span> &gt;&gt;&gt; <span class="selector-class">.swiper-pagination-bullet-active</span>&#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#fff</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>sass和less的样式穿透 使用 <code>/deep/</code><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">  <span class="comment">/* </span></span><br><span class="line"><span class="comment">    外层 /deep/ 第三方组件 &#123;</span></span><br><span class="line"><span class="comment">      样式</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"><span class="selector-class">.wrapper</span> /deep/ <span class="selector-class">.swiper-pagination-bullet-active</span>&#123;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#fff</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>stylus的样式穿透 使用 <code>&gt;&gt;&gt;</code><pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token comment">/* 
+  外层 >>> 第三方组件 &#123;
+    样式
+  &#125; 
+*/</span>
+<span class="token selector">.wrapper >>> .swiper-pagination-bullet-active</span><span class="token punctuation">&#123;</span>
+  <span class="token property">background</span><span class="token punctuation">:</span> #fff<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>sass和less的样式穿透 使用 <code>/deep/</code><pre class="line-numbers language-css" data-language="css"><code class="language-css">  <span class="token comment">/* 
+    外层 /deep/ 第三方组件 &#123;
+      样式
+    &#125;
+  */</span>
+<span class="token selector">.wrapper /deep/ .swiper-pagination-bullet-active</span><span class="token punctuation">&#123;</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> #fff<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ul>
 </li>
 </ul>

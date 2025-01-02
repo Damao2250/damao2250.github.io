@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
 </head>
 
 
@@ -405,7 +405,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    113
+                    109
                 </div>
                 
 
@@ -437,17 +437,16 @@
             <div id="articleContent">
                 <h2 id="git远程已经删除的分支，在本地环境仍能看到远程分支"><a href="#git远程已经删除的分支，在本地环境仍能看到远程分支" class="headerlink" title="git远程已经删除的分支，在本地环境仍能看到远程分支"></a>git远程已经删除的分支，在本地环境仍能看到远程分支</h2><ol>
 <li><p>使用命令查看本地分支及远程分支</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git bransh -a</span><br></pre></td></tr></table></figure>
-</li>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">git</span> bransh -a<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li><p>查看remote远程分支，还有本地分支与之对应的关系</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote show origin</span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">git</span> remote show origin<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ol>
 <ul>
 <li>远程不存在的分支会提示：<code> stale (use &#39;git remote prune&#39; to remove)</code></li>
 </ul>
 <ol start="3">
-<li>在本地删除远程不存在的分支<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote prune origin</span><br></pre></td></tr></table></figure>
-or<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote prune origin &lt;name&gt;</span><br></pre></td></tr></table></figure></li>
+<li>在本地删除远程不存在的分支<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">git</span> remote prune origin<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+or<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">git</span> remote prune origin <span class="token operator">&lt;</span>name<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ol>
 
                 

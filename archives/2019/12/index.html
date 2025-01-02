@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
 </head>
 
 
@@ -418,7 +418,16 @@
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    Nginx基础命令1234567891011121314151617181920212223242526272829// 启动start nginxnginx.exe// 停止nginx -s stop   // 快速停止，不保存信息ngi
+                                    Nginx基础命令// 启动
+start nginx
+nginx.exe
+
+// 停止
+nginx -s stop   // 快速停止，不保存信息
+nginx -s quit   // 完整有序停止并保存信息
+
+// 重新载入
+nginx 
                                 
                             </div>
                             <div class="publish-info">
@@ -483,7 +492,8 @@
 解决方法：
 
 最外层包一层div
-通过div类名设置样式穿透123456789101112131415.layout-aside-menu /deep/ .collapse-transit
+通过div类名设置样式穿透.layout-aside-menu /deep/ .collapse-transition &#123;
+  -webkit-
                                 
                             </div>
                             <div class="publish-info">
@@ -543,10 +553,8 @@
                             <div class="summary block-with-text">
                                 
                                     Hexo 主题地址
-https://github.com/yscoder/hexo-theme-indigo
-
-问题
-主页的导航栏关闭的×按钮，以及搜索按钮，分享按钮，每次点击出现动画前都会新打开一个about:blank#blocked页
+https://github.com/yscoder/hexo-theme-indigo问题
+主页的导航栏关闭的×按钮，以及搜索按钮，分享按钮，每次点击出现动画前都会新打开一个about:blank#blocked页面。
                                 
                             </div>
                             <div class="publish-info">
@@ -605,7 +613,10 @@ https://github.com/yscoder/hexo-theme-indigo
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646
+                                    /**
+ * @abstract  (同义：@virtual)
+ * 该成员必须由继承者实现（或重写）
+ * This member must be implemented (or overridden) by the inheritor.
                                 
                             </div>
                             <div class="publish-info">

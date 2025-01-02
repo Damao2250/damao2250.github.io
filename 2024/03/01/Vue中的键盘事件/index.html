@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
 </head>
 
 
@@ -405,7 +405,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    192
+                    166
                 </div>
                 
 
@@ -436,18 +436,21 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="字母键"><a href="#字母键" class="headerlink" title="字母键"></a>字母键</h2><ul>
-<li>只有按下q键时才会执行send方法<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input v-<span class="attr">on</span>:keyup.<span class="property">Q</span>=<span class="string">&quot;send&quot;</span> type=<span class="string">&quot;text&quot;</span>&gt;</span><br></pre></td></tr></table></figure></li>
+<li>只有按下q键时才会执行send方法<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token operator">&lt;</span>input v<span class="token operator">-</span>on<span class="token operator">:</span>keyup<span class="token punctuation">.</span><span class="token constant">Q</span><span class="token operator">=</span><span class="token string">"send"</span> type<span class="token operator">=</span><span class="token string">"text"</span><span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ul>
 <h2 id="大写锁定键"><a href="#大写锁定键" class="headerlink" title="大写锁定键"></a>大写锁定键</h2><ul>
-<li>只有按下capslock键时才会执行send方法<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input v-<span class="attr">on</span>:keyup.<span class="property">caps</span>-lock=<span class="string">&quot;send&quot;</span> type=<span class="string">&quot;text&quot;</span>&gt;</span><br></pre></td></tr></table></figure></li>
+<li>只有按下capslock键时才会执行send方法<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token operator">&lt;</span>input v<span class="token operator">-</span>on<span class="token operator">:</span>keyup<span class="token punctuation">.</span>caps<span class="token operator">-</span>lock<span class="token operator">=</span><span class="token string">"send"</span> type<span class="token operator">=</span><span class="token string">"text"</span><span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ul>
 <h2 id="回车键"><a href="#回车键" class="headerlink" title="回车键"></a>回车键</h2><ul>
-<li>只有按下回车键时才会执行 send 方法<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input v-<span class="attr">on</span>:keyup.<span class="property">enter</span>=<span class="string">&quot;send&quot;</span> type=<span class="string">&quot;text&quot;</span>&gt;</span><br></pre></td></tr></table></figure></li>
+<li>只有按下回车键时才会执行 send 方法<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token operator">&lt;</span>input v<span class="token operator">-</span>on<span class="token operator">:</span>keyup<span class="token punctuation">.</span>enter<span class="token operator">=</span><span class="token string">"send"</span> type<span class="token operator">=</span><span class="token string">"text"</span><span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ul>
 <h2 id="Alt-字母组合键"><a href="#Alt-字母组合键" class="headerlink" title="Alt+字母组合键"></a>Alt+字母组合键</h2><ul>
-<li>keyup事件时需要同时按下组合键才会执行send方法<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input v-<span class="attr">on</span>:keyup.<span class="property">Alt</span>.<span class="property">y</span>=<span class="string">&quot;send&quot;</span> type=<span class="string">&quot;text&quot;</span>&gt;</span><br></pre></td></tr></table></figure></li>
+<li>keyup事件时需要同时按下组合键才会执行send方法<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token operator">&lt;</span>input v<span class="token operator">-</span>on<span class="token operator">:</span>keyup<span class="token punctuation">.</span>Alt<span class="token punctuation">.</span>y<span class="token operator">=</span><span class="token string">"send"</span> type<span class="token operator">=</span><span class="token string">"text"</span><span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ul>
-<h2 id="自定义按键"><a href="#自定义按键" class="headerlink" title="自定义按键"></a>自定义按键</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 13是回车键的键码，将他的别名定义为send</span></span><br><span class="line"><span class="title class_">Vue</span>.<span class="property">config</span>.<span class="property">keyCodes</span>.<span class="property">send</span>=<span class="number">13</span></span><br><span class="line"><span class="comment">// 只有按下回车键时才会执行send方法</span></span><br><span class="line">&lt;input v-<span class="attr">on</span>:keydown.<span class="property">send</span>=<span class="string">&quot;send&quot;</span> type=<span class="string">&quot;text&quot;</span>&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="自定义按键"><a href="#自定义按键" class="headerlink" title="自定义按键"></a>自定义按键</h2><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 13是回车键的键码，将他的别名定义为send</span>
+Vue<span class="token punctuation">.</span>config<span class="token punctuation">.</span>keyCodes<span class="token punctuation">.</span>send<span class="token operator">=</span><span class="token number">13</span>
+<span class="token comment">// 只有按下回车键时才会执行send方法</span>
+<span class="token operator">&lt;</span>input v<span class="token operator">-</span>on<span class="token operator">:</span>keydown<span class="token punctuation">.</span>send<span class="token operator">=</span><span class="token string">"send"</span> type<span class="token operator">=</span><span class="token string">"text"</span><span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>

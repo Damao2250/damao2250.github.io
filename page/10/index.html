@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
 </head>
 
 
@@ -317,9 +317,17 @@
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                项目目录规范123456789└─Code├─www.github.com│ ├─project1│ ├─project2│ └─project3└─www.xxx1.com├─project1├─project2└─project3
+                                项目目录规范└─Code
+├─www.github.com
+│ ├─project1
+│ ├─project2
+│ └─project3
+└─www.xxx1.com
+├─project1
+├─project2
+└─project3
 
-项
+项目
                             
                         </div>
                         <div class="publish-info">
@@ -368,8 +376,10 @@
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                Linux 软件装在哪里？1. opt目录123`/opt` 是用来安装附加软件包，是用户级程序目录，相当于 `D:/soft`，`opt`有可选的意思，安装到`/opt`目录下的程序，所有的数据、库文件都会放置在同一个目录下
-2. &#x
+                                Linux 软件装在哪里？1. opt目录`/opt` 是用来安装附加软件包，是用户级程序目录，
+相当于 `D:/soft`，`opt`有可选的意思，
+安装到`/opt`目录下的程序，所有的数据、库文件都会放置在同一个目录下
+2. /usr
                             
                         </div>
                         <div class="publish-info">
@@ -418,7 +428,16 @@
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                Nginx基础命令1234567891011121314151617181920212223242526272829// 启动start nginxnginx.exe// 停止nginx -s stop   // 快速停止，不保存信息ngi
+                                Nginx基础命令// 启动
+start nginx
+nginx.exe
+
+// 停止
+nginx -s stop   // 快速停止，不保存信息
+nginx -s quit   // 完整有序停止并保存信息
+
+// 重新载入
+nginx 
                             
                         </div>
                         <div class="publish-info">
@@ -475,7 +494,8 @@
 解决方法：
 
 最外层包一层div
-通过div类名设置样式穿透123456789101112131415.layout-aside-menu /deep/ .collapse-transit
+通过div类名设置样式穿透.layout-aside-menu /deep/ .collapse-transition &#123;
+  -webkit-
                             
                         </div>
                         <div class="publish-info">
@@ -525,10 +545,8 @@
                         <div class="summary block-with-text">
                             
                                 Hexo 主题地址
-https://github.com/yscoder/hexo-theme-indigo
-
-问题
-主页的导航栏关闭的×按钮，以及搜索按钮，分享按钮，每次点击出现动画前都会新打开一个about:blank#blocked页
+https://github.com/yscoder/hexo-theme-indigo问题
+主页的导航栏关闭的×按钮，以及搜索按钮，分享按钮，每次点击出现动画前都会新打开一个about:blank#blocked页面。
                             
                         </div>
                         <div class="publish-info">
@@ -577,7 +595,10 @@ https://github.com/yscoder/hexo-theme-indigo
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646
+                                /**
+ * @abstract  (同义：@virtual)
+ * 该成员必须由继承者实现（或重写）
+ * This member must be implemented (or overridden) by the inheritor.
                             
                         </div>
                         <div class="publish-info">
@@ -626,7 +647,8 @@ https://github.com/yscoder/hexo-theme-indigo
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                使用git同时提交到多个远程库法11、添加第一个仓库：  1git remote add origin https://gitlab.com/XXX/xxx.git2、添加第二个仓库：1git remote set-url --add or
+                                使用git同时提交到多个远程库法11、添加第一个仓库：  git remote add origin https://gitlab.com/XXX/xxx.git2、添加第二个仓库：
+git remote set-url --add ori
                             
                         </div>
                         <div class="publish-info">
@@ -675,7 +697,13 @@ https://github.com/yscoder/hexo-theme-indigo
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                1. 路由懒加载12345&#123;path: &#x27;/about&#x27;,name: &#x27;about&#x27;,component: () =&gt; import(&#x27;@/views/about/about
+                                1. 路由懒加载&#123;
+path: '/about',
+name: 'about',
+component: () => import('@/views/about/about'),
+&#125;,
+2. 不生成.map 文件
+webp
                             
                         </div>
                         <div class="publish-info">
@@ -787,9 +815,11 @@ https://github.com/yscoder/hexo-theme-indigo
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                安装123npm i vuex// oryarn add vuex
+                                安装npm i vuex
+// or
+yarn add vuex
 Vuex 是什么
-Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化
+Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。
                             
                         </div>
                         <div class="publish-info">
@@ -889,9 +919,8 @@ Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用�
                             
                                 介绍
 GG-editor 插件基于 React 框架，可以创建编辑思维导图、流程图、拓扑图等图形
-项目依赖： react-router-dom, gg-editor, antd
-
-安装所需依赖12345678910111213141516/
+项目依赖： react-router-dom, gg-editor, antd安装所需依赖// 初始化项目
+create-react-app 
                             
                         </div>
                         <div class="publish-info">

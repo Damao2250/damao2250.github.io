@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
 </head>
 
 
@@ -405,7 +405,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    382
+                    377
                 </div>
                 
 
@@ -436,15 +436,19 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h1><ul>
-<li>在js的小数计算中，0.1+0.2&#x3D;0.30000000000000004<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> num1 = <span class="number">0.1</span>;</span><br><span class="line"><span class="keyword">let</span> num2 = <span class="number">0.2</span>;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>( num1 + num2 );</span><br><span class="line"><span class="comment">// 0.30000000000000004 </span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h1 id="为什么"><a href="#为什么" class="headerlink" title="为什么"></a>为什么</h1><ul>
+<li><p>在js的小数计算中，0.1+0.2=0.30000000000000004</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">let</span> num1 <span class="token operator">=</span> <span class="token number">0.1</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> num2 <span class="token operator">=</span> <span class="token number">0.2</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span> num1 <span class="token operator">+</span> num2 <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 0.30000000000000004 </span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h1 id="为什么"><a href="#为什么" class="headerlink" title="为什么"></a>为什么</h1></li>
 <li><p>为什么出现这样的结果，我们把小数转换成计算机能读得懂的二进制就比较明了了</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 0.1 -&gt; 0.1.toString(2) -&gt; 0.0001100110011001100110011001100110011001100110011001101(无限循环…)</span></span><br><span class="line"><span class="comment">// 0.2 -&gt; 0.1.toString(2) -&gt; 0.001100110011001100110011001100110011001100110011001101(无限循环…)</span></span><br></pre></td></tr></table></figure>
-</li>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 0.1 -> 0.1.toString(2) -> 0.0001100110011001100110011001100110011001100110011001101(无限循环…)</span>
+<span class="token comment">// 0.2 -> 0.1.toString(2) -> 0.001100110011001100110011001100110011001100110011001101(无限循环…)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
 <li><p>双精度浮点数的小数部分最多支持 52 位，所以两者相加之后得到这么一串 </p>
 <ul>
-<li>0.0100110011001100110011001100110011001100110011001100</li>
+<li>0.0100110011001100110011001100110011001100110011001100 </li>
 </ul>
 </li>
 <li><p>因浮点数小数位的限制而截断的二进制数字，这时候，我们再把它转换为十进制，就成了 0.30000000000000004</p>
@@ -453,7 +457,17 @@
 <h1 id="如何处理此类问题？"><a href="#如何处理此类问题？" class="headerlink" title="如何处理此类问题？"></a>如何处理此类问题？</h1><ul>
 <li>为了避免产生精度差异，我们要把需要计算的数字乘以 10 的 n 次幂，换算成计算机能够精确识别的整数，然后再除以 10 的 n 次幂，大部分编程语言都是这样处理精度差异的，我们就借用过来处理一下 JS 中的浮点数精度误差。</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">formatNum = <span class="keyword">function</span>(<span class="params"> num, digit </span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> m = <span class="title class_">Math</span>.<span class="title function_">pow</span>( <span class="number">10</span>, digit );</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">parseInt</span>( num * m, <span class="number">10</span> ) / m;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> num1 = <span class="number">0.1</span>;</span><br><span class="line"><span class="keyword">let</span> num2 = <span class="number">0.2</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>( num1 + num2 );</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>( <span class="title function_">formatNum</span>( num1 + num2, <span class="number">1</span>) );</span><br><span class="line"><span class="comment">// Tips:</span></span><br><span class="line"><span class="comment">// pow() 方法可返回 x 的 y 次幂的值。</span></span><br><span class="line"><span class="comment">// parseInt() 函数可解析一个字符串，并返回一个整数。（第二个参数取值2-36，省略该参数或其值为 0，则数字将以 10 为基础来解析。如果它以 “0x” 或 “0X” 开头，将以 16 为基数。）</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token function-variable function">formatNum</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span> <span class="token parameter">num<span class="token punctuation">,</span> digit</span> <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">let</span> m <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">pow</span><span class="token punctuation">(</span> <span class="token number">10</span><span class="token punctuation">,</span> digit <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token function">parseInt</span><span class="token punctuation">(</span> num <span class="token operator">*</span> m<span class="token punctuation">,</span> <span class="token number">10</span> <span class="token punctuation">)</span> <span class="token operator">/</span> m<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">let</span> num1 <span class="token operator">=</span> <span class="token number">0.1</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> num2 <span class="token operator">=</span> <span class="token number">0.2</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span> num1 <span class="token operator">+</span> num2 <span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span> <span class="token function">formatNum</span><span class="token punctuation">(</span> num1 <span class="token operator">+</span> num2<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// Tips:</span>
+<span class="token comment">// pow() 方法可返回 x 的 y 次幂的值。</span>
+<span class="token comment">// parseInt() 函数可解析一个字符串，并返回一个整数。（第二个参数取值2-36，省略该参数或其值为 0，则数字将以 10 为基础来解析。如果它以 “0x” 或 “0X” 开头，将以 16 为基数。）</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
                 
             </div>
             <hr/>

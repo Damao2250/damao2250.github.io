@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
 </head>
 
 
@@ -405,14 +405,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.9k
+                    5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    21 分
+                    22 分
                 </div>
                 
 
@@ -436,37 +436,655 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="Nginx-编译安装配置"><a href="#Nginx-编译安装配置" class="headerlink" title="Nginx 编译安装配置"></a>Nginx 编译安装配置</h1><h2 id="一、安装编译需要的软件依赖"><a href="#一、安装编译需要的软件依赖" class="headerlink" title="一、安装编译需要的软件依赖"></a>一、安装编译需要的软件依赖</h2><ul>
-<li>gcc和gcc-c++<figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install <span class="literal">-y</span> gcc gcc<span class="literal">-c</span>++</span><br></pre></td></tr></table></figure></li>
+<li>gcc和gcc-c++<pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">yum install -y gcc gcc-c++<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ul>
 <h2 id="二、安装Nginx依赖"><a href="#二、安装Nginx依赖" class="headerlink" title="二、安装Nginx依赖"></a>二、安装Nginx依赖</h2><ul>
-<li>pcre-devel、openssl-devel、zlib-devel<figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install <span class="literal">-y</span> pcre pcre<span class="literal">-devel</span> openssl openssl<span class="literal">-devel</span> zlib zlib<span class="literal">-devel</span></span><br></pre></td></tr></table></figure></li>
+<li>pcre-devel、openssl-devel、zlib-devel<pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">yum install -y pcre pcre-devel openssl openssl-devel zlib zlib-devel<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ul>
-<h2 id="三、创建Nginx用户"><a href="#三、创建Nginx用户" class="headerlink" title="三、创建Nginx用户"></a>三、创建Nginx用户</h2><figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd <span class="literal">-s</span> /bin/false <span class="literal">-M</span> nginx</span><br></pre></td></tr></table></figure>
+<h2 id="三、创建Nginx用户"><a href="#三、创建Nginx用户" class="headerlink" title="三、创建Nginx用户"></a>三、创建Nginx用户</h2><pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">useradd -s &#x2F;bin&#x2F;false -M nginx<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h2 id="四、下载Nginx源码"><a href="#四、下载Nginx源码" class="headerlink" title="四、下载Nginx源码"></a>四、下载Nginx源码</h2><figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">wget</span> http://nginx.org/download/nginx<span class="literal">-1</span>.<span class="number">12.0</span>.tar.gz</span><br><span class="line">tar <span class="literal">-zxf</span> nginx<span class="literal">-1</span>.<span class="number">12.0</span>.tar.gz</span><br></pre></td></tr></table></figure>
+<h2 id="四、下载Nginx源码"><a href="#四、下载Nginx源码" class="headerlink" title="四、下载Nginx源码"></a>四、下载Nginx源码</h2><pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">wget http:&#x2F;&#x2F;nginx.org&#x2F;download&#x2F;nginx-1.12.0.tar.gz
+tar -zxf nginx-1.12.0.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<h2 id="五、Nginx编译安装"><a href="#五、Nginx编译安装" class="headerlink" title="五、Nginx编译安装"></a>五、Nginx编译安装</h2><figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 生成make文件</span></span><br><span class="line">./configure <span class="literal">--user</span>=nginx <span class="literal">--group</span>=nginx <span class="literal">--prefix</span>=/etc/nginx<span class="literal">-1</span>.<span class="number">12.0</span> <span class="literal">--with-http_v2_module</span> <span class="literal">--with</span> http_ssl_module <span class="literal">--with-http_sub_module</span> <span class="literal">--with-http_stub_status_module</span> <span class="literal">--with</span> http_gzip_static_module <span class="literal">--with-pcre</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 编译并安装</span></span><br><span class="line">make &amp;&amp; make install</span><br><span class="line"></span><br><span class="line"><span class="comment">## 添加软连接</span></span><br><span class="line">ln <span class="literal">-s</span> /etc/nginx<span class="literal">-1</span>.<span class="number">12.0</span>/ /etc/nginx</span><br><span class="line"></span><br><span class="line"><span class="comment">## 添加环境变量</span></span><br><span class="line">ln <span class="literal">-s</span> /etc/nginx/sbin/* /usr/local/sbin/</span><br></pre></td></tr></table></figure>
+<h2 id="五、Nginx编译安装"><a href="#五、Nginx编译安装" class="headerlink" title="五、Nginx编译安装"></a>五、Nginx编译安装</h2><pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">## 生成make文件
+.&#x2F;configure --user&#x3D;nginx --group&#x3D;nginx --prefix&#x3D;&#x2F;etc&#x2F;nginx-1.12.0 --with-http_v2_module --with http_ssl_module --with-http_sub_module --with-http_stub_status_module --with http_gzip_static_module --with-pcre
 
-<h2 id="六、Nginx目录介绍"><a href="#六、Nginx目录介绍" class="headerlink" title="六、Nginx目录介绍"></a>六、Nginx目录介绍</h2><figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">├── conf <span class="comment">#配置文件目录</span></span><br><span class="line">│ ├── fastcgi.conf</span><br><span class="line">│ ├── fastcgi.conf.default</span><br><span class="line">│ ├── fastcgi_params</span><br><span class="line">│ ├── fastcgi_params.default <span class="comment">#fastcgi *配合php</span></span><br><span class="line">│ ├── koi<span class="literal">-utf</span></span><br><span class="line">│ ├── koi<span class="literal">-win</span></span><br><span class="line">│ ├── mime.types <span class="comment">#mime 媒体类型</span></span><br><span class="line">│ ├── mime.types.default</span><br><span class="line">│ ├── nginx.conf <span class="comment">#nginx主配置文件</span></span><br><span class="line">│ ├── nginx.conf.default</span><br><span class="line">│ ├── scgi_params</span><br><span class="line">│ ├── scgi_params.default</span><br><span class="line">│ ├── uwsgi_params</span><br><span class="line">│ ├── uwsgi_params.default</span><br><span class="line">│ └── win<span class="literal">-utf</span></span><br><span class="line">├── html <span class="comment">#默认站点目录</span></span><br><span class="line">│ ├── <span class="number">50</span>x.html</span><br><span class="line">│ └── index.html</span><br><span class="line">├── logs <span class="comment">#访问日志、错误日志、pid文件目录</span></span><br><span class="line">│ ├── access.log <span class="comment">#访问日志</span></span><br><span class="line">│ ├── error.log <span class="comment">#错误日志</span></span><br><span class="line">│ └── nginx.pid <span class="comment">#pid文件</span></span><br><span class="line">└── sbin <span class="comment">#命令目录</span></span><br><span class="line">└── nginx <span class="comment">#nginx命令文件</span></span><br></pre></td></tr></table></figure>
+## 编译并安装
+make &amp;&amp; make install
 
-<h2 id="七、Nginx-配置文件详解"><a href="#七、Nginx-配置文件详解" class="headerlink" title="七、Nginx 配置文件详解"></a>七、Nginx 配置文件详解</h2><figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#定义Nginx运行的用户和用户组</span></span><br><span class="line">user www www;</span><br><span class="line"></span><br><span class="line"><span class="comment">#nginx进程数，建议设置为等于CPU总核心数。</span></span><br><span class="line">worker_processes <span class="number">8</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">#全局错误日志定义类型，[ debug | info | notice | warn | error | crit ]</span></span><br><span class="line">error_log /usr/local/nginx/logs/error.log info;</span><br><span class="line"></span><br><span class="line"><span class="comment">#进程pid文件</span></span><br><span class="line">pid /usr/local/nginx/logs/nginx.pid;</span><br><span class="line"></span><br><span class="line"><span class="comment">#指定进程可以打开的最大描述符：数目</span></span><br><span class="line"><span class="comment">#工作模式与连接数上限</span></span><br><span class="line"><span class="comment">#这个指令是指当一个nginx进程打开的最多文件描述符数目，理论值应该是最多打开文件数（ulimit -n）与nginx进程数相除，但是nginx分配请求并不是那么均匀，所以最好与ulimit -n 的值保持一致。</span></span><br><span class="line"><span class="comment">#现在在linux 2.6内核下开启文件打开数为65535，worker_rlimit_nofile就相应应该填写65535。</span></span><br><span class="line"><span class="comment">#这是因为nginx调度时分配请求到进程并不是那么的均衡，所以假如填写10240，总并发量达到3-4万时就有进程可能超过10240了，这时会返回502错误。</span></span><br><span class="line">worker_rlimit_nofile <span class="number">65535</span>;</span><br><span class="line"></span><br><span class="line">events</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">#参考事件模型，use [ kqueue | rtsig | epoll | /dev/poll | select | poll ]; epoll模型</span></span><br><span class="line">    <span class="comment">#是Linux 2.6以上版本内核中的高性能网络I/O模型，linux建议epoll，如果跑在FreeBSD上面，就用kqueue模型。</span></span><br><span class="line">    <span class="comment">#补充说明：</span></span><br><span class="line">    <span class="comment">#与apache相类，nginx针对不同的操作系统，有不同的事件模型</span></span><br><span class="line">    <span class="comment">#A）标准事件模型</span></span><br><span class="line">    <span class="comment">#Select、poll属于标准事件模型，如果当前系统不存在更有效的方法，nginx会选择select或poll</span></span><br><span class="line">    <span class="comment">#B）高效事件模型</span></span><br><span class="line">    <span class="comment">#Kqueue：使用于FreeBSD 4.1+, OpenBSD 2.9+, NetBSD 2.0 和 MacOS X.使用双处理器的MacOS X系统使用kqueue可能会造成内核崩溃。</span></span><br><span class="line">    <span class="comment">#Epoll：使用于Linux内核2.6版本及以后的系统。</span></span><br><span class="line">    <span class="comment">#/dev/poll：使用于Solaris 7 11/99+，HP/UX 11.22+ (eventport)，IRIX 6.5.15+ 和 Tru64 UNIX 5.1A+。</span></span><br><span class="line">    <span class="comment">#Eventport：使用于Solaris 10。 为了防止出现内核崩溃的问题， 有必要安装安全补丁。</span></span><br><span class="line">    use epoll;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#单个进程最大连接数（最大连接数=连接数*进程数）</span></span><br><span class="line">    <span class="comment">#根据硬件调整，和前面工作进程配合起来用，尽量大，但是别把cpu跑到100%就行。每个进程允许的最多连接数，理论上每台nginx服务器的最大连接数为。</span></span><br><span class="line">    worker_connections <span class="number">65535</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#keepalive超时时间。</span></span><br><span class="line">    keepalive_timeout <span class="number">60</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#客户端请求头部的缓冲区大小。这个可以根据你的系统分页大小来设置，一般一个请求头的大小不会超过1k，不过由于一般系统分页都要大于1k，所以这里设置为分页大小。</span></span><br><span class="line">    <span class="comment">#分页大小可以用命令getconf PAGESIZE 取得。</span></span><br><span class="line">    <span class="comment">#[root@web001 ~]# getconf PAGESIZE</span></span><br><span class="line">    <span class="comment">#4096</span></span><br><span class="line">    <span class="comment">#但也有client_header_buffer_size超过4k的情况，但是client_header_buffer_size该值必须设置为“系统分页大小”的整倍数。</span></span><br><span class="line">    client_header_buffer_size <span class="number">4</span>k;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#这个将为打开文件指定缓存，默认是没有启用的，max指定缓存数量，建议和打开文件数一致，inactive是指经过多长时间文件没被请求后删除缓存。</span></span><br><span class="line">    open_file_cache max=<span class="number">65535</span> inactive=<span class="number">60</span>s;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#这个是指多长时间检查一次缓存的有效信息。</span></span><br><span class="line">    <span class="comment">#语法:open_file_cache_valid time 默认值:open_file_cache_valid 60 使用字段:http, server,location 这个指令指定了何时需要检查open_file_cache中缓存项目的有效信息.</span></span><br><span class="line">    open_file_cache_valid <span class="number">80</span>s;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#open_file_cache指令中的inactive参数时间内文件的最少使用次数，如果超过这个数字，文件描述符一直是在缓存中打开的，如上例，如果有一个文件在inactive时间内一次没被使用，它将被移除。</span></span><br><span class="line">    <span class="comment">#语法:open_file_cache_min_uses number 默认值:open_file_cache_min_uses 1 使用字段:http, server, location 这个指令指定了在open_file_cache指令无效的参数中一定的时间范围内可以使用的最小文件数,如果使用更大的值,文件描述符在cache中总是打开状态.</span></span><br><span class="line">    open_file_cache_min_uses <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#语法:open_file_cache_errors on | off 默认值:open_file_cache_errors off 使用字段:http, server,location 这个指令指定是否在搜索一个文件是记录cache错误.</span></span><br><span class="line">    open_file_cache_errors on;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#设定http服务器，利用它的反向代理功能提供负载均衡支持</span></span><br><span class="line">http</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">#文件扩展名与文件类型映射表</span></span><br><span class="line">    include mime.types;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#默认文件类型</span></span><br><span class="line">    default_type application/octet<span class="literal">-stream</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#默认编码</span></span><br><span class="line">    <span class="comment">#charset utf-8;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#服务器名字的hash表大小</span></span><br><span class="line">    <span class="comment">#保存服务器名字的hash表是由指令server_names_hash_max_size 和server_names_hash_bucket_size所控制的。参数hash bucket size总是等于hash表的大小，并且是一路处理器缓存大小的倍数。在减少了在内存中的存取次数后，使在处理器中加速查找hash表键值成为可能。如果hash bucket size等于一路处理器缓存的大小，那么在查找键的时候，最坏的情况下在内存中查找的次数为2。第一次是确定存储单元的地址，第二次是在存储单元中查找键 值。因此，如果Nginx给出需要增大hash max size 或 hash bucket size的提示，那么首要的是增大前一个参数的大小.</span></span><br><span class="line">    server_names_hash_bucket_size <span class="number">128</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#客户端请求头部的缓冲区大小。这个可以根据你的系统分页大小来设置，一般一个请求的头部大小不会超过1k，不过由于一般系统分页都要大于1k，所以这里设置为分页大小。分页大小可以用命令getconf PAGESIZE取得。</span></span><br><span class="line">    client_header_buffer_size <span class="number">32</span>k;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#客户请求头缓冲大小。nginx默认会用client_header_buffer_size这个buffer来读取header值，如果header过大，它会使用large_client_header_buffers来读取。</span></span><br><span class="line">    large_client_header_buffers <span class="number">4</span> <span class="number">64</span>k;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#设定通过nginx上传文件的大小</span></span><br><span class="line">    client_max_body_size <span class="number">8</span>m;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#开启高效文件传输模式，sendfile指令指定nginx是否调用sendfile函数来输出文件，对于普通应用设为 on，如果用来进行下载等应用磁盘IO重负载应用，可设置为off，以平衡磁盘与网络I/O处理速度，降低系统的负载。注意：如果图片显示不正常把这个改成off。</span></span><br><span class="line">    <span class="comment">#sendfile指令指定 nginx 是否调用sendfile 函数（zero copy 方式）来输出文件，对于普通应用，必须设为on。如果用来进行下载等应用磁盘IO重负载应用，可设置为off，以平衡磁盘与网络IO处理速度，降低系统uptime。</span></span><br><span class="line">    sendfile on;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#开启目录列表访问，合适下载服务器，默认关闭。</span></span><br><span class="line">    autoindex on;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#此选项允许或禁止使用socke的TCP_CORK的选项，此选项仅在使用sendfile的时候使用</span></span><br><span class="line">    tcp_nopush on;</span><br><span class="line"></span><br><span class="line">    tcp_nodelay on;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#长连接超时时间，单位是秒</span></span><br><span class="line">    keepalive_timeout <span class="number">120</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#FastCGI相关参数是为了改善网站的性能：减少资源占用，提高访问速度。下面参数看字面意思都能理解。</span></span><br><span class="line">    fastcgi_connect_timeout <span class="number">300</span>;</span><br><span class="line">    fastcgi_send_timeout <span class="number">300</span>;</span><br><span class="line">    fastcgi_read_timeout <span class="number">300</span>;</span><br><span class="line">    fastcgi_buffer_size <span class="number">64</span>k;</span><br><span class="line">    fastcgi_buffers <span class="number">4</span> <span class="number">64</span>k;</span><br><span class="line">    fastcgi_busy_buffers_size <span class="number">128</span>k;</span><br><span class="line">    fastcgi_temp_file_write_size <span class="number">128</span>k;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#gzip模块设置</span></span><br><span class="line">    gzip on; <span class="comment">#开启gzip压缩输出</span></span><br><span class="line">    gzip_min_length <span class="number">1</span>k; <span class="comment">#最小压缩文件大小</span></span><br><span class="line">    gzip_buffers <span class="number">4</span> <span class="number">16</span>k; <span class="comment">#压缩缓冲区</span></span><br><span class="line">    gzip_http_version <span class="number">1.0</span>; <span class="comment">#压缩版本（默认1.1，前端如果是squid2.5请使用1.0）</span></span><br><span class="line">    gzip_comp_level <span class="number">2</span>; <span class="comment">#压缩等级</span></span><br><span class="line">    gzip_types text/plain application/x<span class="literal">-javascript</span> text/css application/xml; <span class="comment">#压缩类型，默认就已经包含textml，所以下面就不用再写了，写上去也不会有问题，但是会有一个warn。</span></span><br><span class="line">    gzip_vary on;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#开启限制IP连接数的时候需要使用</span></span><br><span class="line">    <span class="comment">#limit_zone crawler $binary_remote_addr 10m;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">#负载均衡配置</span></span><br><span class="line">    upstream xxxxxx.com &#123;</span><br><span class="line">        <span class="comment">#upstream的负载均衡，weight是权重，可以根据机器配置定义权重。weigth参数表示权值，权值越高被分配到的几率越大。</span></span><br><span class="line">        server <span class="number">192.168</span>.<span class="number">13.43</span>:<span class="number">8080</span> weight=<span class="number">3</span>;</span><br><span class="line">        server <span class="number">192.168</span>.<span class="number">13.44</span>:<span class="number">8080</span> weight=<span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">#nginx的upstream目前支持4种方式的分配</span></span><br><span class="line">        <span class="comment">#1、轮询（默认）</span></span><br><span class="line">        <span class="comment">#每个请求按时间顺序逐一分配到不同的后端服务器，如果后端服务器down掉，能自动剔除。</span></span><br><span class="line">        <span class="comment">#2、weight</span></span><br><span class="line">        <span class="comment">#指定轮询几率，weight和访问比率成正比，用于后端服务器性能不均的情况。</span></span><br><span class="line">        <span class="comment">#例如：</span></span><br><span class="line">        <span class="comment">#upstream bakend &#123;</span></span><br><span class="line">        <span class="comment"># server 192.168.0.14 weight=10;</span></span><br><span class="line">        <span class="comment"># server 192.168.0.15 weight=10;</span></span><br><span class="line">        <span class="comment">#&#125;</span></span><br><span class="line">        <span class="comment">#2、ip_hash</span></span><br><span class="line">        <span class="comment">#每个请求按访问ip的hash结果分配，这样每个访客固定访问一个后端服务器，可以解决session的问题。</span></span><br><span class="line">        <span class="comment">#例如：</span></span><br><span class="line">        <span class="comment">#upstream bakend &#123;</span></span><br><span class="line">        <span class="comment"># ip_hash;</span></span><br><span class="line">        <span class="comment"># server 192.168.0.14:88;</span></span><br><span class="line">        <span class="comment"># server 192.168.0.15:80;</span></span><br><span class="line">        <span class="comment">#&#125;</span></span><br><span class="line">        <span class="comment">#3、fair（第三方）</span></span><br><span class="line">        <span class="comment">#按后端服务器的响应时间来分配请求，响应时间短的优先分配。</span></span><br><span class="line">        <span class="comment">#upstream backend &#123;</span></span><br><span class="line">        <span class="comment"># server server1;</span></span><br><span class="line">        <span class="comment"># server server2;</span></span><br><span class="line">        <span class="comment"># fair;</span></span><br><span class="line">        <span class="comment">#&#125;</span></span><br><span class="line">        <span class="comment">#4、url_hash（第三方）</span></span><br><span class="line">        <span class="comment">#按访问url的hash结果来分配请求，使每个url定向到同一个后端服务器，后端服务器为缓存时比较有效。</span></span><br><span class="line">        <span class="comment">#例：在upstream中加入hash语句，server语句中不能写入weight等其他的参数，hash_method是使用的hash算法</span></span><br><span class="line">        <span class="comment">#upstream backend &#123;</span></span><br><span class="line">        <span class="comment"># server squid1:3128;</span></span><br><span class="line">        <span class="comment"># server squid2:3128;</span></span><br><span class="line">        <span class="comment"># hash $request_uri;</span></span><br><span class="line">        <span class="comment"># hash_method crc32;</span></span><br><span class="line">        <span class="comment">#&#125;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">#tips:</span></span><br><span class="line">        <span class="comment">#upstream bakend&#123;#定义负载均衡设备的Ip及设备状态&#125;&#123;</span></span><br><span class="line">        <span class="comment"># ip_hash;</span></span><br><span class="line">        <span class="comment"># server 127.0.0.1:9090 down;</span></span><br><span class="line">        <span class="comment"># server 127.0.0.1:8080 weight=2;</span></span><br><span class="line">        <span class="comment"># server 127.0.0.1:6060;</span></span><br><span class="line">        <span class="comment"># server 127.0.0.1:7070 backup;</span></span><br><span class="line">        <span class="comment">#&#125;</span></span><br><span class="line">        <span class="comment">#在需要使用负载均衡的server中增加 proxy_pass http://bakend/;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">#每个设备的状态设置为:</span></span><br><span class="line">        <span class="comment">#1.down表示单前的server暂时不参与负载</span></span><br><span class="line">        <span class="comment">#2.weight为weight越大，负载的权重就越大。</span></span><br><span class="line">        <span class="comment">#3.max_fails：允许请求失败的次数默认为1.当超过最大次数时，返回proxy_next_upstream模块定义的错误</span></span><br><span class="line">        <span class="comment">#4.fail_timeout:max_fails次失败后，暂停的时间。</span></span><br><span class="line">        <span class="comment">#5.backup： 其它所有的非backup机器down或者忙的时候，请求backup机器。所以这台机器压力会最轻。</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">#nginx支持同时设置多组的负载均衡，用来给不用的server来使用。</span></span><br><span class="line">        <span class="comment">#client_body_in_file_only设置为On 可以讲client post过来的数据记录到文件中用来做debug</span></span><br><span class="line">        <span class="comment">#client_body_temp_path设置记录文件的目录 可以设置最多3层目录</span></span><br><span class="line">        <span class="comment">#location对URL进行匹配.可以进行重定向或者进行新的代理 负载均衡</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">#虚拟主机的配置</span></span><br><span class="line">    server</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">#监听端口</span></span><br><span class="line">        listen <span class="number">80</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">#域名可以有多个，用空格隔开</span></span><br><span class="line">        server_name www.xxxxxx.com xxxxxx.com;</span><br><span class="line">        index index.html index.htm index.php;</span><br><span class="line">        root /<span class="keyword">data</span>/www;</span><br><span class="line"></span><br><span class="line">        <span class="comment">#对******进行负载均衡</span></span><br><span class="line">        location ~ .*.(php|php5)?<span class="variable">$</span></span><br><span class="line">        &#123;</span><br><span class="line">            fastcgi_pass <span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">9000</span>;</span><br><span class="line">            fastcgi_index index.php;</span><br><span class="line">            include fastcgi.conf;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">#图片缓存时间设置</span></span><br><span class="line">        location ~ .*.(gif|jpg|jpeg|png|bmp|swf)<span class="variable">$</span></span><br><span class="line">        &#123;</span><br><span class="line">            expires <span class="number">10</span>d;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">#JS和CSS缓存时间设置</span></span><br><span class="line">        location ~ .*.(js|css)?<span class="variable">$</span></span><br><span class="line">        &#123;</span><br><span class="line">            expires <span class="number">1</span><span class="built_in">h</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">#日志格式设定</span></span><br><span class="line">        <span class="comment">#$remote_addr与$http_x_forwarded_for用以记录客户端的ip地址；</span></span><br><span class="line">        <span class="comment">#$remote_user：用来记录客户端用户名称；</span></span><br><span class="line">        <span class="comment">#$time_local： 用来记录访问时间与时区；</span></span><br><span class="line">        <span class="comment">#$request： 用来记录请求的url与http协议；</span></span><br><span class="line">        <span class="comment">#$status： 用来记录请求状态；成功是200，</span></span><br><span class="line">        <span class="comment">#$body_bytes_sent ：记录发送给客户端文件主体内容大小；</span></span><br><span class="line">        <span class="comment">#$http_referer：用来记录从那个页面链接访问过来的；</span></span><br><span class="line">        <span class="comment">#$http_user_agent：记录客户浏览器的相关信息；</span></span><br><span class="line">        <span class="comment">#通常web服务器放在反向代理的后面，这样就不能获取到客户的IP地址了，通过$remote_add拿到的IP地址是反向代理服务器的iP地址。反向代理服务器在转发请求的http头信息中，可以增加x_forwarded_for信息，用以记录原有客户端的IP地址和原来客户端的请求的服务器地址。</span></span><br><span class="line">        log_format access <span class="string">&#x27;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &#x27;</span></span><br><span class="line">        <span class="string">&#x27;$status $body_bytes_sent &quot;$http_referer&quot; &#x27;</span></span><br><span class="line">        <span class="string">&#x27;&quot;$http_user_agent&quot; $http_x_forwarded_for&#x27;</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">#定义本虚拟主机的访问日志</span></span><br><span class="line">        access_log /usr/local/nginx/logs/host.access.log main;</span><br><span class="line">        access_log /usr/local/nginx/logs/host.access.<span class="number">404</span>.log log404;</span><br><span class="line"></span><br><span class="line">        <span class="comment">#对 &quot;/&quot; 启用反向代理</span></span><br><span class="line">        location / &#123;</span><br><span class="line">            proxy_pass http://<span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">88</span>;</span><br><span class="line">            proxy_redirect off;</span><br><span class="line">            proxy_set_header X<span class="literal">-Real-IP</span> <span class="variable">$remote_addr</span>;</span><br><span class="line"></span><br><span class="line">            <span class="comment">#后端的Web服务器可以通过X-Forwarded-For获取用户真实IP</span></span><br><span class="line">            proxy_set_header X<span class="literal">-Forwarded-For</span> <span class="variable">$proxy_add_x_forwarded_for</span>;</span><br><span class="line"></span><br><span class="line">            <span class="comment">#以下是一些反向代理的配置，可选。</span></span><br><span class="line">            proxy_set_header Host <span class="variable">$host</span>;</span><br><span class="line"></span><br><span class="line">            <span class="comment">#允许客户端请求的最大单文件字节数</span></span><br><span class="line">            client_max_body_size <span class="number">10</span>m;</span><br><span class="line"></span><br><span class="line">            <span class="comment">#缓冲区代理缓冲用户端请求的最大字节数，</span></span><br><span class="line">            <span class="comment">#如果把它设置为比较大的数值，例如256k，那么，无论使用firefox还是IE浏览器，来提交任意小于256k的图片，都很正常。如果注释该指令，使用默认的client_body_buffer_size设置，也就是操作系统页面大小的两倍，8k或者16k，问题就出现了。</span></span><br><span class="line">            <span class="comment">#无论使用firefox4.0还是IE8.0，提交一个比较大，200k左右的图片，都返回500 Internal Server Error错误</span></span><br><span class="line">            client_body_buffer_size <span class="number">128</span>k;</span><br><span class="line"></span><br><span class="line">            <span class="comment">#表示使nginx阻止HTTP应答代码为400或者更高的应答。</span></span><br><span class="line">            proxy_intercept_errors on;</span><br><span class="line"></span><br><span class="line">            <span class="comment">#后端服务器连接的超时时间_发起握手等候响应超时时间</span></span><br><span class="line">            <span class="comment">#nginx跟后端服务器连接超时时间(代理连接超时)</span></span><br><span class="line">            proxy_connect_timeout <span class="number">90</span>;</span><br><span class="line"></span><br><span class="line">            <span class="comment">#后端服务器数据回传时间(代理发送超时)</span></span><br><span class="line">            <span class="comment">#后端服务器数据回传时间_就是在规定时间之内后端服务器必须传完所有的数据</span></span><br><span class="line">            proxy_send_timeout <span class="number">90</span>;</span><br><span class="line"></span><br><span class="line">            <span class="comment">#连接成功后，后端服务器响应时间(代理接收超时)</span></span><br><span class="line">            <span class="comment">#连接成功后_等候后端服务器响应时间_其实已经进入后端的排队之中等候处理（也可以说是后端服务器处理请求的时间）</span></span><br><span class="line">            proxy_read_timeout <span class="number">90</span>;</span><br><span class="line"></span><br><span class="line">            <span class="comment">#设置代理服务器（nginx）保存用户头信息的缓冲区大小</span></span><br><span class="line">            <span class="comment">#设置从被代理服务器读取的第一部分应答的缓冲区大小，通常情况下这部分应答中包含一个小的应答头，默认情况下这个值的大小为指令proxy_buffers中指定的一个缓冲区的大小，不过可以将其设置为更小</span></span><br><span class="line">            proxy_buffer_size <span class="number">4</span>k;</span><br><span class="line"></span><br><span class="line">            <span class="comment">#proxy_buffers缓冲区，网页平均在32k以下的设置</span></span><br><span class="line">            <span class="comment">#设置用于读取应答（来自被代理服务器）的缓冲区数目和大小，默认情况也为分页大小，根据操作系统的不同可能是4k或者8k</span></span><br><span class="line">            proxy_buffers <span class="number">4</span> <span class="number">32</span>k;</span><br><span class="line"></span><br><span class="line">            <span class="comment">#高负荷下缓冲大小（proxy_buffers*2）</span></span><br><span class="line">            proxy_busy_buffers_size <span class="number">64</span>k;</span><br><span class="line"></span><br><span class="line">            <span class="comment">#设置在写入proxy_temp_path时数据的大小，预防一个工作进程在传递文件时阻塞太长</span></span><br><span class="line">            <span class="comment">#设定缓存文件夹大小，大于这个值，将从upstream服务器传</span></span><br><span class="line">            proxy_temp_file_write_size <span class="number">64</span>k;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">#设定查看Nginx状态的地址</span></span><br><span class="line">        location /NginxStatus &#123;</span><br><span class="line">            stub_status on;</span><br><span class="line">            access_log on;</span><br><span class="line">            auth_basic <span class="string">&quot;NginxStatus&quot;</span>;</span><br><span class="line">            auth_basic_user_file confpasswd;</span><br><span class="line">            <span class="comment">#htpasswd文件的内容可以用apache提供的htpasswd工具来产生。</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">#本地动静分离反向代理配置</span></span><br><span class="line">        <span class="comment">#所有jsp的页面均交由tomcat或resin处理</span></span><br><span class="line">        location ~ .(jsp|jspx|<span class="keyword">do</span>)?<span class="variable">$</span> &#123;</span><br><span class="line">            proxy_set_header Host <span class="variable">$host</span>;</span><br><span class="line">            proxy_set_header X<span class="literal">-Real-IP</span> <span class="variable">$remote_addr</span>;</span><br><span class="line">            proxy_set_header X<span class="literal">-Forwarded-For</span> <span class="variable">$proxy_add_x_forwarded_for</span>;</span><br><span class="line">            proxy_pass http://<span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">8080</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">#所有静态文件由nginx直接读取不经过tomcat或resin</span></span><br><span class="line">        location ~ .*.(htm|html|gif|jpg|jpeg|png|bmp|swf|ioc|rar|zip|txt|flv|mid|doc|ppt|</span><br><span class="line">        pdf|xls|mp3|wma)<span class="variable">$</span></span><br><span class="line">        &#123;</span><br><span class="line">            expires <span class="number">15</span>d;</span><br><span class="line">        &#125;</span><br><span class="line">        location ~ .*.(js|css)?</span><br><span class="line">        &#123;</span><br><span class="line">            expires <span class="number">1</span><span class="built_in">h</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+## 添加软连接
+ln -s &#x2F;etc&#x2F;nginx-1.12.0&#x2F; &#x2F;etc&#x2F;nginx
+
+## 添加环境变量
+ln -s &#x2F;etc&#x2F;nginx&#x2F;sbin&#x2F;* &#x2F;usr&#x2F;local&#x2F;sbin&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="六、Nginx目录介绍"><a href="#六、Nginx目录介绍" class="headerlink" title="六、Nginx目录介绍"></a>六、Nginx目录介绍</h2><pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">├── conf #配置文件目录
+│ ├── fastcgi.conf
+│ ├── fastcgi.conf.default
+│ ├── fastcgi_params
+│ ├── fastcgi_params.default #fastcgi *配合php
+│ ├── koi-utf
+│ ├── koi-win
+│ ├── mime.types #mime 媒体类型
+│ ├── mime.types.default
+│ ├── nginx.conf #nginx主配置文件
+│ ├── nginx.conf.default
+│ ├── scgi_params
+│ ├── scgi_params.default
+│ ├── uwsgi_params
+│ ├── uwsgi_params.default
+│ └── win-utf
+├── html #默认站点目录
+│ ├── 50x.html
+│ └── index.html
+├── logs #访问日志、错误日志、pid文件目录
+│ ├── access.log #访问日志
+│ ├── error.log #错误日志
+│ └── nginx.pid #pid文件
+└── sbin #命令目录
+└── nginx #nginx命令文件<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="七、Nginx-配置文件详解"><a href="#七、Nginx-配置文件详解" class="headerlink" title="七、Nginx 配置文件详解"></a>七、Nginx 配置文件详解</h2><pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">#定义Nginx运行的用户和用户组
+user www www;
+
+#nginx进程数，建议设置为等于CPU总核心数。
+worker_processes 8;
+
+#全局错误日志定义类型，[ debug | info | notice | warn | error | crit ]
+error_log &#x2F;usr&#x2F;local&#x2F;nginx&#x2F;logs&#x2F;error.log info;
+
+#进程pid文件
+pid &#x2F;usr&#x2F;local&#x2F;nginx&#x2F;logs&#x2F;nginx.pid;
+
+#指定进程可以打开的最大描述符：数目
+#工作模式与连接数上限
+#这个指令是指当一个nginx进程打开的最多文件描述符数目，理论值应该是最多打开文件数（ulimit -n）与nginx进程数相除，但是nginx分配请求并不是那么均匀，所以最好与ulimit -n 的值保持一致。
+#现在在linux 2.6内核下开启文件打开数为65535，worker_rlimit_nofile就相应应该填写65535。
+#这是因为nginx调度时分配请求到进程并不是那么的均衡，所以假如填写10240，总并发量达到3-4万时就有进程可能超过10240了，这时会返回502错误。
+worker_rlimit_nofile 65535;
+
+events
+&#123;
+    #参考事件模型，use [ kqueue | rtsig | epoll | &#x2F;dev&#x2F;poll | select | poll ]; epoll模型
+    #是Linux 2.6以上版本内核中的高性能网络I&#x2F;O模型，linux建议epoll，如果跑在FreeBSD上面，就用kqueue模型。
+    #补充说明：
+    #与apache相类，nginx针对不同的操作系统，有不同的事件模型
+    #A）标准事件模型
+    #Select、poll属于标准事件模型，如果当前系统不存在更有效的方法，nginx会选择select或poll
+    #B）高效事件模型
+    #Kqueue：使用于FreeBSD 4.1+, OpenBSD 2.9+, NetBSD 2.0 和 MacOS X.使用双处理器的MacOS X系统使用kqueue可能会造成内核崩溃。
+    #Epoll：使用于Linux内核2.6版本及以后的系统。
+    #&#x2F;dev&#x2F;poll：使用于Solaris 7 11&#x2F;99+，HP&#x2F;UX 11.22+ (eventport)，IRIX 6.5.15+ 和 Tru64 UNIX 5.1A+。
+    #Eventport：使用于Solaris 10。 为了防止出现内核崩溃的问题， 有必要安装安全补丁。
+    use epoll;
+
+    #单个进程最大连接数（最大连接数&#x3D;连接数*进程数）
+    #根据硬件调整，和前面工作进程配合起来用，尽量大，但是别把cpu跑到100%就行。每个进程允许的最多连接数，理论上每台nginx服务器的最大连接数为。
+    worker_connections 65535;
+
+    #keepalive超时时间。
+    keepalive_timeout 60;
+
+    #客户端请求头部的缓冲区大小。这个可以根据你的系统分页大小来设置，一般一个请求头的大小不会超过1k，不过由于一般系统分页都要大于1k，所以这里设置为分页大小。
+    #分页大小可以用命令getconf PAGESIZE 取得。
+    #[root@web001 ~]# getconf PAGESIZE
+    #4096
+    #但也有client_header_buffer_size超过4k的情况，但是client_header_buffer_size该值必须设置为“系统分页大小”的整倍数。
+    client_header_buffer_size 4k;
+
+    #这个将为打开文件指定缓存，默认是没有启用的，max指定缓存数量，建议和打开文件数一致，inactive是指经过多长时间文件没被请求后删除缓存。
+    open_file_cache max&#x3D;65535 inactive&#x3D;60s;
+
+    #这个是指多长时间检查一次缓存的有效信息。
+    #语法:open_file_cache_valid time 默认值:open_file_cache_valid 60 使用字段:http, server,location 这个指令指定了何时需要检查open_file_cache中缓存项目的有效信息.
+    open_file_cache_valid 80s;
+
+    #open_file_cache指令中的inactive参数时间内文件的最少使用次数，如果超过这个数字，文件描述符一直是在缓存中打开的，如上例，如果有一个文件在inactive时间内一次没被使用，它将被移除。
+    #语法:open_file_cache_min_uses number 默认值:open_file_cache_min_uses 1 使用字段:http, server, location 这个指令指定了在open_file_cache指令无效的参数中一定的时间范围内可以使用的最小文件数,如果使用更大的值,文件描述符在cache中总是打开状态.
+    open_file_cache_min_uses 1;
+
+    #语法:open_file_cache_errors on | off 默认值:open_file_cache_errors off 使用字段:http, server,location 这个指令指定是否在搜索一个文件是记录cache错误.
+    open_file_cache_errors on;
+&#125;
+
+
+#设定http服务器，利用它的反向代理功能提供负载均衡支持
+http
+&#123;
+    #文件扩展名与文件类型映射表
+    include mime.types;
+
+    #默认文件类型
+    default_type application&#x2F;octet-stream;
+
+    #默认编码
+    #charset utf-8;
+
+    #服务器名字的hash表大小
+    #保存服务器名字的hash表是由指令server_names_hash_max_size 和server_names_hash_bucket_size所控制的。参数hash bucket size总是等于hash表的大小，并且是一路处理器缓存大小的倍数。在减少了在内存中的存取次数后，使在处理器中加速查找hash表键值成为可能。如果hash bucket size等于一路处理器缓存的大小，那么在查找键的时候，最坏的情况下在内存中查找的次数为2。第一次是确定存储单元的地址，第二次是在存储单元中查找键 值。因此，如果Nginx给出需要增大hash max size 或 hash bucket size的提示，那么首要的是增大前一个参数的大小.
+    server_names_hash_bucket_size 128;
+
+    #客户端请求头部的缓冲区大小。这个可以根据你的系统分页大小来设置，一般一个请求的头部大小不会超过1k，不过由于一般系统分页都要大于1k，所以这里设置为分页大小。分页大小可以用命令getconf PAGESIZE取得。
+    client_header_buffer_size 32k;
+
+    #客户请求头缓冲大小。nginx默认会用client_header_buffer_size这个buffer来读取header值，如果header过大，它会使用large_client_header_buffers来读取。
+    large_client_header_buffers 4 64k;
+
+    #设定通过nginx上传文件的大小
+    client_max_body_size 8m;
+
+    #开启高效文件传输模式，sendfile指令指定nginx是否调用sendfile函数来输出文件，对于普通应用设为 on，如果用来进行下载等应用磁盘IO重负载应用，可设置为off，以平衡磁盘与网络I&#x2F;O处理速度，降低系统的负载。注意：如果图片显示不正常把这个改成off。
+    #sendfile指令指定 nginx 是否调用sendfile 函数（zero copy 方式）来输出文件，对于普通应用，必须设为on。如果用来进行下载等应用磁盘IO重负载应用，可设置为off，以平衡磁盘与网络IO处理速度，降低系统uptime。
+    sendfile on;
+
+    #开启目录列表访问，合适下载服务器，默认关闭。
+    autoindex on;
+
+    #此选项允许或禁止使用socke的TCP_CORK的选项，此选项仅在使用sendfile的时候使用
+    tcp_nopush on;
+
+    tcp_nodelay on;
+
+    #长连接超时时间，单位是秒
+    keepalive_timeout 120;
+
+    #FastCGI相关参数是为了改善网站的性能：减少资源占用，提高访问速度。下面参数看字面意思都能理解。
+    fastcgi_connect_timeout 300;
+    fastcgi_send_timeout 300;
+    fastcgi_read_timeout 300;
+    fastcgi_buffer_size 64k;
+    fastcgi_buffers 4 64k;
+    fastcgi_busy_buffers_size 128k;
+    fastcgi_temp_file_write_size 128k;
+
+    #gzip模块设置
+    gzip on; #开启gzip压缩输出
+    gzip_min_length 1k; #最小压缩文件大小
+    gzip_buffers 4 16k; #压缩缓冲区
+    gzip_http_version 1.0; #压缩版本（默认1.1，前端如果是squid2.5请使用1.0）
+    gzip_comp_level 2; #压缩等级
+    gzip_types text&#x2F;plain application&#x2F;x-javascript text&#x2F;css application&#x2F;xml; #压缩类型，默认就已经包含textml，所以下面就不用再写了，写上去也不会有问题，但是会有一个warn。
+    gzip_vary on;
+
+    #开启限制IP连接数的时候需要使用
+    #limit_zone crawler $binary_remote_addr 10m;
+
+
+    #负载均衡配置
+    upstream xxxxxx.com &#123;
+        #upstream的负载均衡，weight是权重，可以根据机器配置定义权重。weigth参数表示权值，权值越高被分配到的几率越大。
+        server 192.168.13.43:8080 weight&#x3D;3;
+        server 192.168.13.44:8080 weight&#x3D;2;
+
+        #nginx的upstream目前支持4种方式的分配
+        #1、轮询（默认）
+        #每个请求按时间顺序逐一分配到不同的后端服务器，如果后端服务器down掉，能自动剔除。
+        #2、weight
+        #指定轮询几率，weight和访问比率成正比，用于后端服务器性能不均的情况。
+        #例如：
+        #upstream bakend &#123;
+        # server 192.168.0.14 weight&#x3D;10;
+        # server 192.168.0.15 weight&#x3D;10;
+        #&#125;
+        #2、ip_hash
+        #每个请求按访问ip的hash结果分配，这样每个访客固定访问一个后端服务器，可以解决session的问题。
+        #例如：
+        #upstream bakend &#123;
+        # ip_hash;
+        # server 192.168.0.14:88;
+        # server 192.168.0.15:80;
+        #&#125;
+        #3、fair（第三方）
+        #按后端服务器的响应时间来分配请求，响应时间短的优先分配。
+        #upstream backend &#123;
+        # server server1;
+        # server server2;
+        # fair;
+        #&#125;
+        #4、url_hash（第三方）
+        #按访问url的hash结果来分配请求，使每个url定向到同一个后端服务器，后端服务器为缓存时比较有效。
+        #例：在upstream中加入hash语句，server语句中不能写入weight等其他的参数，hash_method是使用的hash算法
+        #upstream backend &#123;
+        # server squid1:3128;
+        # server squid2:3128;
+        # hash $request_uri;
+        # hash_method crc32;
+        #&#125;
+
+        #tips:
+        #upstream bakend&#123;#定义负载均衡设备的Ip及设备状态&#125;&#123;
+        # ip_hash;
+        # server 127.0.0.1:9090 down;
+        # server 127.0.0.1:8080 weight&#x3D;2;
+        # server 127.0.0.1:6060;
+        # server 127.0.0.1:7070 backup;
+        #&#125;
+        #在需要使用负载均衡的server中增加 proxy_pass http:&#x2F;&#x2F;bakend&#x2F;;
+
+        #每个设备的状态设置为:
+        #1.down表示单前的server暂时不参与负载
+        #2.weight为weight越大，负载的权重就越大。
+        #3.max_fails：允许请求失败的次数默认为1.当超过最大次数时，返回proxy_next_upstream模块定义的错误
+        #4.fail_timeout:max_fails次失败后，暂停的时间。
+        #5.backup： 其它所有的非backup机器down或者忙的时候，请求backup机器。所以这台机器压力会最轻。
+
+        #nginx支持同时设置多组的负载均衡，用来给不用的server来使用。
+        #client_body_in_file_only设置为On 可以讲client post过来的数据记录到文件中用来做debug
+        #client_body_temp_path设置记录文件的目录 可以设置最多3层目录
+        #location对URL进行匹配.可以进行重定向或者进行新的代理 负载均衡
+    &#125;
+
+
+    #虚拟主机的配置
+    server
+    &#123;
+        #监听端口
+        listen 80;
+
+        #域名可以有多个，用空格隔开
+        server_name www.xxxxxx.com xxxxxx.com;
+        index index.html index.htm index.php;
+        root &#x2F;data&#x2F;www;
+
+        #对******进行负载均衡
+        location ~ .*.(php|php5)?$
+        &#123;
+            fastcgi_pass 127.0.0.1:9000;
+            fastcgi_index index.php;
+            include fastcgi.conf;
+        &#125;
+
+        #图片缓存时间设置
+        location ~ .*.(gif|jpg|jpeg|png|bmp|swf)$
+        &#123;
+            expires 10d;
+        &#125;
+
+        #JS和CSS缓存时间设置
+        location ~ .*.(js|css)?$
+        &#123;
+            expires 1h;
+        &#125;
+
+        #日志格式设定
+        #$remote_addr与$http_x_forwarded_for用以记录客户端的ip地址；
+        #$remote_user：用来记录客户端用户名称；
+        #$time_local： 用来记录访问时间与时区；
+        #$request： 用来记录请求的url与http协议；
+        #$status： 用来记录请求状态；成功是200，
+        #$body_bytes_sent ：记录发送给客户端文件主体内容大小；
+        #$http_referer：用来记录从那个页面链接访问过来的；
+        #$http_user_agent：记录客户浏览器的相关信息；
+        #通常web服务器放在反向代理的后面，这样就不能获取到客户的IP地址了，通过$remote_add拿到的IP地址是反向代理服务器的iP地址。反向代理服务器在转发请求的http头信息中，可以增加x_forwarded_for信息，用以记录原有客户端的IP地址和原来客户端的请求的服务器地址。
+        log_format access &#39;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &#39;
+        &#39;$status $body_bytes_sent &quot;$http_referer&quot; &#39;
+        &#39;&quot;$http_user_agent&quot; $http_x_forwarded_for&#39;;
+
+        #定义本虚拟主机的访问日志
+        access_log &#x2F;usr&#x2F;local&#x2F;nginx&#x2F;logs&#x2F;host.access.log main;
+        access_log &#x2F;usr&#x2F;local&#x2F;nginx&#x2F;logs&#x2F;host.access.404.log log404;
+
+        #对 &quot;&#x2F;&quot; 启用反向代理
+        location &#x2F; &#123;
+            proxy_pass http:&#x2F;&#x2F;127.0.0.1:88;
+            proxy_redirect off;
+            proxy_set_header X-Real-IP $remote_addr;
+
+            #后端的Web服务器可以通过X-Forwarded-For获取用户真实IP
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+
+            #以下是一些反向代理的配置，可选。
+            proxy_set_header Host $host;
+
+            #允许客户端请求的最大单文件字节数
+            client_max_body_size 10m;
+
+            #缓冲区代理缓冲用户端请求的最大字节数，
+            #如果把它设置为比较大的数值，例如256k，那么，无论使用firefox还是IE浏览器，来提交任意小于256k的图片，都很正常。如果注释该指令，使用默认的client_body_buffer_size设置，也就是操作系统页面大小的两倍，8k或者16k，问题就出现了。
+            #无论使用firefox4.0还是IE8.0，提交一个比较大，200k左右的图片，都返回500 Internal Server Error错误
+            client_body_buffer_size 128k;
+
+            #表示使nginx阻止HTTP应答代码为400或者更高的应答。
+            proxy_intercept_errors on;
+
+            #后端服务器连接的超时时间_发起握手等候响应超时时间
+            #nginx跟后端服务器连接超时时间(代理连接超时)
+            proxy_connect_timeout 90;
+
+            #后端服务器数据回传时间(代理发送超时)
+            #后端服务器数据回传时间_就是在规定时间之内后端服务器必须传完所有的数据
+            proxy_send_timeout 90;
+
+            #连接成功后，后端服务器响应时间(代理接收超时)
+            #连接成功后_等候后端服务器响应时间_其实已经进入后端的排队之中等候处理（也可以说是后端服务器处理请求的时间）
+            proxy_read_timeout 90;
+
+            #设置代理服务器（nginx）保存用户头信息的缓冲区大小
+            #设置从被代理服务器读取的第一部分应答的缓冲区大小，通常情况下这部分应答中包含一个小的应答头，默认情况下这个值的大小为指令proxy_buffers中指定的一个缓冲区的大小，不过可以将其设置为更小
+            proxy_buffer_size 4k;
+
+            #proxy_buffers缓冲区，网页平均在32k以下的设置
+            #设置用于读取应答（来自被代理服务器）的缓冲区数目和大小，默认情况也为分页大小，根据操作系统的不同可能是4k或者8k
+            proxy_buffers 4 32k;
+
+            #高负荷下缓冲大小（proxy_buffers*2）
+            proxy_busy_buffers_size 64k;
+
+            #设置在写入proxy_temp_path时数据的大小，预防一个工作进程在传递文件时阻塞太长
+            #设定缓存文件夹大小，大于这个值，将从upstream服务器传
+            proxy_temp_file_write_size 64k;
+        &#125;
+
+        #设定查看Nginx状态的地址
+        location &#x2F;NginxStatus &#123;
+            stub_status on;
+            access_log on;
+            auth_basic &quot;NginxStatus&quot;;
+            auth_basic_user_file confpasswd;
+            #htpasswd文件的内容可以用apache提供的htpasswd工具来产生。
+        &#125;
+
+        #本地动静分离反向代理配置
+        #所有jsp的页面均交由tomcat或resin处理
+        location ~ .(jsp|jspx|do)?$ &#123;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_pass http:&#x2F;&#x2F;127.0.0.1:8080;
+        &#125;
+
+        #所有静态文件由nginx直接读取不经过tomcat或resin
+        location ~ .*.(htm|html|gif|jpg|jpeg|png|bmp|swf|ioc|rar|zip|txt|flv|mid|doc|ppt|
+        pdf|xls|mp3|wma)$
+        &#123;
+            expires 15d;
+        &#125;
+        location ~ .*.(js|css)?
+        &#123;
+            expires 1h;
+        &#125;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="location匹配模式以及顺序"><a href="#location匹配模式以及顺序" class="headerlink" title="location匹配模式以及顺序"></a>location匹配模式以及顺序</h3><ul>
-<li>location &#x3D; &#x2F;uri  &#x3D;开头表示精确匹配，只有完全匹配上才能生效</li>
-<li>location ^~ &#x2F;uri  ^~ 开头对URL路径进行前缀匹配，并且在正则之前</li>
+<li>location = /uri  =开头表示精确匹配，只有完全匹配上才能生效</li>
+<li>location ^~ /uri  ^~ 开头对URL路径进行前缀匹配，并且在正则之前</li>
 <li>location ~ pattern  ~开头表示区分大小写的正则匹配</li>
 <li>location ~* pattern  ~*开头表示不区分大小写的正则匹配</li>
-<li>location &#x2F;uri  不带任何修饰符，也表示前缀匹配，但是在正则匹配之后</li>
-<li>location &#x2F;  通用匹配，任何未匹配到其它location的请求都会匹配到，相当于switch中的default</li>
+<li>location /uri  不带任何修饰符，也表示前缀匹配，但是在正则匹配之后</li>
+<li>location /  通用匹配，任何未匹配到其它location的请求都会匹配到，相当于switch中的default</li>
 </ul>
-<h2 id="八、Nginx常用命令"><a href="#八、Nginx常用命令" class="headerlink" title="八、Nginx常用命令"></a>八、Nginx常用命令</h2><h3 id="检查配置文件"><a href="#检查配置文件" class="headerlink" title="检查配置文件"></a>检查配置文件</h3><figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx <span class="literal">-t</span></span><br></pre></td></tr></table></figure>
-<h3 id="指定其他配置文件启动nginx"><a href="#指定其他配置文件启动nginx" class="headerlink" title="指定其他配置文件启动nginx"></a>指定其他配置文件启动nginx</h3><figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx <span class="literal">-c</span> file</span><br></pre></td></tr></table></figure>
-<h3 id="启动nginx"><a href="#启动nginx" class="headerlink" title="启动nginx"></a>启动nginx</h3><figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx</span><br></pre></td></tr></table></figure>
-<h3 id="停止nginx"><a href="#停止nginx" class="headerlink" title="停止nginx"></a>停止nginx</h3><figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 快速停止nginx</span></span><br><span class="line">nginx <span class="literal">-s</span> stop</span><br><span class="line"></span><br><span class="line"><span class="comment">## 平滑停止nginx</span></span><br><span class="line">nginx <span class="literal">-s</span> quit</span><br></pre></td></tr></table></figure>
-<h3 id="重启nginx"><a href="#重启nginx" class="headerlink" title="重启nginx"></a>重启nginx</h3><figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 平滑重载所有配置</span></span><br><span class="line">nginx <span class="literal">-s</span> reload</span><br></pre></td></tr></table></figure>
+<h2 id="八、Nginx常用命令"><a href="#八、Nginx常用命令" class="headerlink" title="八、Nginx常用命令"></a>八、Nginx常用命令</h2><h3 id="检查配置文件"><a href="#检查配置文件" class="headerlink" title="检查配置文件"></a>检查配置文件</h3><pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">nginx -t<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="指定其他配置文件启动nginx"><a href="#指定其他配置文件启动nginx" class="headerlink" title="指定其他配置文件启动nginx"></a>指定其他配置文件启动nginx</h3><pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">nginx -c file<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="启动nginx"><a href="#启动nginx" class="headerlink" title="启动nginx"></a>启动nginx</h3><pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">nginx<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="停止nginx"><a href="#停止nginx" class="headerlink" title="停止nginx"></a>停止nginx</h3><pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">## 快速停止nginx
+nginx -s stop
 
-<h2 id="九、配置示例"><a href="#九、配置示例" class="headerlink" title="九、配置示例"></a>九、配置示例</h2><h3 id="web服务器"><a href="#web服务器" class="headerlink" title="web服务器"></a>web服务器</h3><figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#user nobody;</span></span><br><span class="line">worker_processes auto;</span><br><span class="line"><span class="comment">#worker_cpu_affinity auto;</span></span><br><span class="line">worker_rlimit_nofile <span class="number">655350</span>;</span><br><span class="line"><span class="comment">#pid logs/nginx.pid;</span></span><br><span class="line">error_log /<span class="keyword">data</span>/logs/nginx/error.log error;</span><br><span class="line"></span><br><span class="line">events &#123;</span><br><span class="line">    use epoll;</span><br><span class="line">    worker_connections <span class="number">655350</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">http &#123;</span><br><span class="line">    include mime.types;</span><br><span class="line">    default_type application/octet<span class="literal">-stream</span>;</span><br><span class="line">    charset utf<span class="literal">-8</span>;</span><br><span class="line">    log_format main <span class="string">&#x27;$remote_addr $server_addr $remote_user [$time_local] $host &#x27;</span></span><br><span class="line">                    <span class="string">&#x27;&quot;$request&quot; $status $body_bytes_sent $request_time $upstream_response_time &#x27;</span></span><br><span class="line">                    <span class="string">&#x27;&quot;$http_referer&quot; &quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&#x27;</span>;</span><br><span class="line">                    access_log /<span class="keyword">data</span>/logs/nginx/access.log main;</span><br><span class="line">    </span><br><span class="line">    sendfile on;</span><br><span class="line">    keepalive_timeout <span class="number">90000</span>;</span><br><span class="line">    server_names_hash_max_size <span class="number">1024</span>;</span><br><span class="line">    server_names_hash_bucket_size <span class="number">512</span>;</span><br><span class="line">    client_header_buffer_size <span class="number">16</span>k;</span><br><span class="line">    large_client_header_buffers <span class="number">4</span> <span class="number">64</span>k;</span><br><span class="line">    client_header_timeout <span class="number">300</span>m;</span><br><span class="line">    client_body_timeout <span class="number">300</span>m;</span><br><span class="line">    send_timeout <span class="number">300</span>m;</span><br><span class="line">    tcp_nopush on;</span><br><span class="line">    tcp_nodelay on;</span><br><span class="line">    client_max_body_size <span class="number">100</span>M;</span><br><span class="line">    client_body_buffer_size <span class="number">50</span>m;</span><br><span class="line">    proxy_connect_timeout <span class="number">5</span>;</span><br><span class="line">    proxy_send_timeout <span class="number">15</span>;</span><br><span class="line">    proxy_read_timeout <span class="number">15</span>;</span><br><span class="line">    proxy_buffer_size <span class="number">256</span>k;</span><br><span class="line">    proxy_buffers <span class="number">8</span> <span class="number">256</span>k;</span><br><span class="line">    proxy_busy_buffers_size <span class="number">256</span>k;</span><br><span class="line">    proxy_temp_file_write_size <span class="number">256</span>k;</span><br><span class="line">    proxy_intercept_errors on;</span><br><span class="line">    proxy_headers_hash_max_size <span class="number">512</span>;</span><br><span class="line">    proxy_headers_hash_bucket_size <span class="number">256</span>;</span><br><span class="line">    variables_hash_max_size <span class="number">512</span>;</span><br><span class="line">    variables_hash_bucket_size <span class="number">128</span>;</span><br><span class="line"></span><br><span class="line">    gzip on;</span><br><span class="line">    gzip_min_length <span class="number">1100</span>;</span><br><span class="line">    gzip_buffers <span class="number">4</span> <span class="number">8</span>k;</span><br><span class="line">    gzip_comp_level <span class="number">3</span>;</span><br><span class="line">    gzip_http_version <span class="number">1.0</span>;</span><br><span class="line">    gzip_types text/plain application/x<span class="literal">-javascript</span> application/json application/javascript</span><br><span class="line">    text/css application/xml text/javascript application/x<span class="literal">-httpd-php</span> image/jpeg image/gif image/png;</span><br><span class="line"></span><br><span class="line">    output_buffers <span class="number">1</span> <span class="number">32</span>k;</span><br><span class="line">    postpone_output <span class="number">1460</span>;</span><br><span class="line"></span><br><span class="line">    gzip_vary on;</span><br><span class="line">    map_hash_max_size <span class="number">102400</span>;</span><br><span class="line">    map_hash_bucket_size <span class="number">256</span>;</span><br><span class="line"></span><br><span class="line">    fastcgi_intercept_errors on;</span><br><span class="line">    server &#123;</span><br><span class="line">        listen <span class="number">80</span>;</span><br><span class="line">        server_name xxxxxx.com;</span><br><span class="line">        location / &#123;</span><br><span class="line">            root /<span class="keyword">data</span>/www;</span><br><span class="line">            index index.html index.htm;</span><br><span class="line">        &#125;</span><br><span class="line">        access_log /<span class="keyword">data</span>/logs/nginx/access.log;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h3><figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#user nobody;</span></span><br><span class="line">worker_processes auto;</span><br><span class="line"><span class="comment">#worker_cpu_affinity auto;</span></span><br><span class="line">worker_rlimit_nofile <span class="number">655350</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">#pid logs/nginx.pid;</span></span><br><span class="line">error_log /<span class="keyword">data</span>/logs/nginx/error.log error;</span><br><span class="line"></span><br><span class="line">events &#123;</span><br><span class="line">    use epoll;</span><br><span class="line">    worker_connections <span class="number">655350</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">http &#123;</span><br><span class="line">    include mime.types;</span><br><span class="line">    default_type application/octet<span class="literal">-stream</span>;</span><br><span class="line">    charset utf<span class="literal">-8</span>;</span><br><span class="line">    log_format main <span class="string">&#x27;$remote_addr $server_addr $remote_user [$time_local] $host &#x27;</span></span><br><span class="line">                    <span class="string">&#x27;&quot;$request&quot; $status $body_bytes_sent $request_time $upstream_response_time &#x27;</span></span><br><span class="line">                    <span class="string">&#x27;&quot;$http_referer&quot; &quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&#x27;</span>;</span><br><span class="line">                    access_log /<span class="keyword">data</span>/logs/nginx/access.log main;</span><br><span class="line">    </span><br><span class="line">    sendfile on;</span><br><span class="line">    keepalive_timeout <span class="number">90000</span>;</span><br><span class="line">    server_names_hash_max_size <span class="number">1024</span>;</span><br><span class="line">    server_names_hash_bucket_size <span class="number">512</span>;</span><br><span class="line">    client_header_buffer_size <span class="number">16</span>k;</span><br><span class="line">    large_client_header_buffers <span class="number">4</span> <span class="number">64</span>k;</span><br><span class="line">    client_header_timeout <span class="number">300</span>m;</span><br><span class="line">    client_body_timeout <span class="number">300</span>m;</span><br><span class="line">    send_timeout <span class="number">300</span>m;</span><br><span class="line">    tcp_nopush on;</span><br><span class="line">    tcp_nodelay on;</span><br><span class="line">    client_max_body_size <span class="number">100</span>M;</span><br><span class="line">    client_body_buffer_size <span class="number">50</span>m;</span><br><span class="line">    proxy_connect_timeout <span class="number">5</span>;</span><br><span class="line">    proxy_send_timeout <span class="number">15</span>;</span><br><span class="line">    proxy_read_timeout <span class="number">15</span>;</span><br><span class="line">    proxy_buffer_size <span class="number">256</span>k;</span><br><span class="line">    proxy_buffers <span class="number">8</span> <span class="number">256</span>k;</span><br><span class="line">    proxy_busy_buffers_size <span class="number">256</span>k;</span><br><span class="line">    proxy_temp_file_write_size <span class="number">256</span>k;</span><br><span class="line">    proxy_intercept_errors on;</span><br><span class="line">    proxy_headers_hash_max_size <span class="number">512</span>;</span><br><span class="line">    proxy_headers_hash_bucket_size <span class="number">256</span>;</span><br><span class="line">    variables_hash_max_size <span class="number">512</span>;</span><br><span class="line">    variables_hash_bucket_size <span class="number">128</span>;</span><br><span class="line"></span><br><span class="line">    gzip on;</span><br><span class="line">    gzip_min_length <span class="number">1100</span>;</span><br><span class="line">    gzip_buffers <span class="number">4</span> <span class="number">8</span>k;</span><br><span class="line">    gzip_comp_level <span class="number">3</span>;</span><br><span class="line">    gzip_http_version <span class="number">1.0</span>;</span><br><span class="line">    gzip_types text/plain application/x<span class="literal">-javascript</span> application/json application/javascript</span><br><span class="line">    text/css application/xml text/javascript application/x<span class="literal">-httpd-php</span> image/jpeg image/gif image/png;</span><br><span class="line"></span><br><span class="line">    output_buffers <span class="number">1</span> <span class="number">32</span>k;</span><br><span class="line">    postpone_output <span class="number">1460</span>;</span><br><span class="line"></span><br><span class="line">    gzip_vary on;</span><br><span class="line">    map_hash_max_size <span class="number">102400</span>;</span><br><span class="line">    map_hash_bucket_size <span class="number">256</span>;</span><br><span class="line"></span><br><span class="line">    fastcgi_intercept_errors on;</span><br><span class="line"></span><br><span class="line">    upstream xxxxxx.com&#123;</span><br><span class="line">        server <span class="number">192.168</span>.<span class="number">13.43</span>:<span class="number">8080</span>;</span><br><span class="line">        server <span class="number">192.168</span>.<span class="number">13.44</span>:<span class="number">8080</span>;</span><br><span class="line">        check interval=<span class="number">3000</span> rise=<span class="number">2</span> fall=<span class="number">3</span> timeout=<span class="number">3000</span> <span class="built_in">type</span>=http;</span><br><span class="line">    &#125;</span><br><span class="line">    server &#123;</span><br><span class="line">        listen <span class="number">80</span>;</span><br><span class="line">        server_name xxxxxx.com;</span><br><span class="line">        location / &#123;</span><br><span class="line">            proxy_pass http://xxxxxx.com;</span><br><span class="line">            proxy_set_header Host <span class="variable">$host</span>;</span><br><span class="line">            proxy_redirect off;</span><br><span class="line">            proxy_set_header X<span class="literal">-Real-IP</span> <span class="variable">$remote_addr</span>;</span><br><span class="line">            proxy_set_header X<span class="literal">-Forwarded-For</span> <span class="variable">$proxy_add_x_forwarded_for</span>;</span><br><span class="line">            proxy_connect_timeout <span class="number">60</span>;</span><br><span class="line">            proxy_read_timeout <span class="number">600</span>;</span><br><span class="line">            proxy_send_timeout <span class="number">600</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        access_log /<span class="keyword">data</span>/logs/nginx/access.log;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="动静分离"><a href="#动静分离" class="headerlink" title="动静分离"></a>动静分离</h3><figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#user nobody;</span></span><br><span class="line">worker_processes auto;</span><br><span class="line"><span class="comment">#worker_cpu_affinity auto;</span></span><br><span class="line">worker_rlimit_nofile <span class="number">655350</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">#pid logs/nginx.pid;</span></span><br><span class="line">error_log /<span class="keyword">data</span>/logs/nginx/error.log error;</span><br><span class="line"></span><br><span class="line">events &#123;</span><br><span class="line">    use epoll;</span><br><span class="line">    worker_connections <span class="number">655350</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">http &#123;</span><br><span class="line">    include mime.types;</span><br><span class="line">    default_type application/octet<span class="literal">-stream</span>;</span><br><span class="line">    charset utf<span class="literal">-8</span>;</span><br><span class="line">    log_format main <span class="string">&#x27;$remote_addr $server_addr $remote_user [$time_local] $host &#x27;</span></span><br><span class="line">                    <span class="string">&#x27;&quot;$request&quot; $status $body_bytes_sent $request_time $upstream_response_time &#x27;</span></span><br><span class="line">                    <span class="string">&#x27;&quot;$http_referer&quot; &quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&#x27;</span>;</span><br><span class="line">                    access_log /<span class="keyword">data</span>/logs/nginx/access.log main;</span><br><span class="line"></span><br><span class="line">    sendfile on;</span><br><span class="line">    keepalive_timeout <span class="number">90000</span>;</span><br><span class="line">    server_names_hash_max_size <span class="number">1024</span>;</span><br><span class="line">    server_names_hash_bucket_size <span class="number">512</span>;</span><br><span class="line">    client_header_buffer_size <span class="number">16</span>k;</span><br><span class="line">    large_client_header_buffers <span class="number">4</span> <span class="number">64</span>k;</span><br><span class="line">    client_header_timeout <span class="number">300</span>m;</span><br><span class="line">    client_body_timeout <span class="number">300</span>m;</span><br><span class="line">    send_timeout <span class="number">300</span>m;</span><br><span class="line">    tcp_nopush on;</span><br><span class="line">    tcp_nodelay on;</span><br><span class="line">    client_max_body_size <span class="number">100</span>M;</span><br><span class="line">    client_body_buffer_size <span class="number">50</span>m;</span><br><span class="line">    proxy_connect_timeout <span class="number">5</span>;</span><br><span class="line">    proxy_send_timeout <span class="number">15</span>;</span><br><span class="line">    proxy_read_timeout <span class="number">15</span>;</span><br><span class="line">    proxy_buffer_size <span class="number">256</span>k;</span><br><span class="line">    proxy_buffers <span class="number">8</span> <span class="number">256</span>k;</span><br><span class="line">    proxy_busy_buffers_size <span class="number">256</span>k;</span><br><span class="line">    proxy_temp_file_write_size <span class="number">256</span>k;</span><br><span class="line">    proxy_intercept_errors on;</span><br><span class="line">    proxy_headers_hash_max_size <span class="number">512</span>;</span><br><span class="line">    proxy_headers_hash_bucket_size <span class="number">256</span>;</span><br><span class="line">    variables_hash_max_size <span class="number">512</span>;</span><br><span class="line">    variables_hash_bucket_size <span class="number">128</span>;</span><br><span class="line"></span><br><span class="line">    gzip on;</span><br><span class="line">    gzip_min_length <span class="number">1100</span>;</span><br><span class="line">    gzip_buffers <span class="number">4</span> <span class="number">8</span>k;</span><br><span class="line">    gzip_comp_level <span class="number">3</span>;</span><br><span class="line">    gzip_http_version <span class="number">1.0</span>;</span><br><span class="line">    gzip_types text/plain application/x<span class="literal">-javascript</span> application/json application/javascript</span><br><span class="line">    text/css application/xml text/javascript application/x<span class="literal">-httpd-php</span> image/jpeg image/gif image/png;</span><br><span class="line"></span><br><span class="line">    output_buffers <span class="number">1</span> <span class="number">32</span>k;</span><br><span class="line">    postpone_output <span class="number">1460</span>;</span><br><span class="line"></span><br><span class="line">    gzip_vary on;</span><br><span class="line">    map_hash_max_size <span class="number">102400</span>;</span><br><span class="line">    map_hash_bucket_size <span class="number">256</span>;</span><br><span class="line"></span><br><span class="line">    fastcgi_intercept_errors on;</span><br><span class="line">    upstream xxxxxx.com&#123;</span><br><span class="line">        server <span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">10179</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    server &#123;</span><br><span class="line">        listen <span class="number">80</span>;</span><br><span class="line">        server_name xxxxxx.com;</span><br><span class="line">        location /api &#123;</span><br><span class="line">            proxy_pass http://xxxxxx.com;</span><br><span class="line">            proxy_set_header Host <span class="variable">$host</span>;</span><br><span class="line">            proxy_redirect off;</span><br><span class="line">            proxy_set_header X<span class="literal">-Real-IP</span> <span class="variable">$remote_addr</span>;</span><br><span class="line">            proxy_set_header X<span class="literal">-Forwarded-For</span> <span class="variable">$proxy_add_x_forwarded_for</span>;</span><br><span class="line">            proxy_connect_timeout <span class="number">60</span>;</span><br><span class="line">            proxy_read_timeout <span class="number">600</span>;</span><br><span class="line">            proxy_send_timeout <span class="number">600</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        location ~ .(jsp|jspx|<span class="keyword">do</span>)?<span class="variable">$</span> &#123;</span><br><span class="line">            proxy_set_header Host <span class="variable">$host</span>;</span><br><span class="line">            proxy_set_header X<span class="literal">-Real-IP</span> <span class="variable">$remote_addr</span>;</span><br><span class="line">            proxy_set_header X<span class="literal">-Forwarded-For</span> <span class="variable">$proxy_add_x_forwarded_for</span>;</span><br><span class="line">            proxy_pass http://xxxxxx.com;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">#所有静态文件由nginx直接读取不经过tomcat或resin</span></span><br><span class="line">        location ~ .*.(htm|html|gif|jpg|jpeg|png|bmp|swf|ioc|rar|zip|txt|flv|mid|doc|ppt|</span><br><span class="line">        pdf|xls|mp3|wma)<span class="variable">$</span></span><br><span class="line">        &#123;</span><br><span class="line">            expires <span class="number">15</span>d;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        location ~ .*.(js|css)?<span class="variable">$</span></span><br><span class="line">        &#123;</span><br><span class="line">            expires <span class="number">1</span><span class="built_in">h</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        access_log /<span class="keyword">data</span>/logs/nginx/access.log;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+## 平滑停止nginx
+nginx -s quit<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="重启nginx"><a href="#重启nginx" class="headerlink" title="重启nginx"></a>重启nginx</h3><pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">## 平滑重载所有配置
+nginx -s reload<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h2 id="九、配置示例"><a href="#九、配置示例" class="headerlink" title="九、配置示例"></a>九、配置示例</h2><h3 id="web服务器"><a href="#web服务器" class="headerlink" title="web服务器"></a>web服务器</h3><pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">#user nobody;
+worker_processes auto;
+#worker_cpu_affinity auto;
+worker_rlimit_nofile 655350;
+#pid logs&#x2F;nginx.pid;
+error_log &#x2F;data&#x2F;logs&#x2F;nginx&#x2F;error.log error;
+
+events &#123;
+    use epoll;
+    worker_connections 655350;
+&#125;
+
+http &#123;
+    include mime.types;
+    default_type application&#x2F;octet-stream;
+    charset utf-8;
+    log_format main &#39;$remote_addr $server_addr $remote_user [$time_local] $host &#39;
+                    &#39;&quot;$request&quot; $status $body_bytes_sent $request_time $upstream_response_time &#39;
+                    &#39;&quot;$http_referer&quot; &quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&#39;;
+                    access_log &#x2F;data&#x2F;logs&#x2F;nginx&#x2F;access.log main;
+    
+    sendfile on;
+    keepalive_timeout 90000;
+    server_names_hash_max_size 1024;
+    server_names_hash_bucket_size 512;
+    client_header_buffer_size 16k;
+    large_client_header_buffers 4 64k;
+    client_header_timeout 300m;
+    client_body_timeout 300m;
+    send_timeout 300m;
+    tcp_nopush on;
+    tcp_nodelay on;
+    client_max_body_size 100M;
+    client_body_buffer_size 50m;
+    proxy_connect_timeout 5;
+    proxy_send_timeout 15;
+    proxy_read_timeout 15;
+    proxy_buffer_size 256k;
+    proxy_buffers 8 256k;
+    proxy_busy_buffers_size 256k;
+    proxy_temp_file_write_size 256k;
+    proxy_intercept_errors on;
+    proxy_headers_hash_max_size 512;
+    proxy_headers_hash_bucket_size 256;
+    variables_hash_max_size 512;
+    variables_hash_bucket_size 128;
+
+    gzip on;
+    gzip_min_length 1100;
+    gzip_buffers 4 8k;
+    gzip_comp_level 3;
+    gzip_http_version 1.0;
+    gzip_types text&#x2F;plain application&#x2F;x-javascript application&#x2F;json application&#x2F;javascript
+    text&#x2F;css application&#x2F;xml text&#x2F;javascript application&#x2F;x-httpd-php image&#x2F;jpeg image&#x2F;gif image&#x2F;png;
+
+    output_buffers 1 32k;
+    postpone_output 1460;
+
+    gzip_vary on;
+    map_hash_max_size 102400;
+    map_hash_bucket_size 256;
+
+    fastcgi_intercept_errors on;
+    server &#123;
+        listen 80;
+        server_name xxxxxx.com;
+        location &#x2F; &#123;
+            root &#x2F;data&#x2F;www;
+            index index.html index.htm;
+        &#125;
+        access_log &#x2F;data&#x2F;logs&#x2F;nginx&#x2F;access.log;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h3><pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">#user nobody;
+worker_processes auto;
+#worker_cpu_affinity auto;
+worker_rlimit_nofile 655350;
+
+#pid logs&#x2F;nginx.pid;
+error_log &#x2F;data&#x2F;logs&#x2F;nginx&#x2F;error.log error;
+
+events &#123;
+    use epoll;
+    worker_connections 655350;
+&#125;
+
+http &#123;
+    include mime.types;
+    default_type application&#x2F;octet-stream;
+    charset utf-8;
+    log_format main &#39;$remote_addr $server_addr $remote_user [$time_local] $host &#39;
+                    &#39;&quot;$request&quot; $status $body_bytes_sent $request_time $upstream_response_time &#39;
+                    &#39;&quot;$http_referer&quot; &quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&#39;;
+                    access_log &#x2F;data&#x2F;logs&#x2F;nginx&#x2F;access.log main;
+    
+    sendfile on;
+    keepalive_timeout 90000;
+    server_names_hash_max_size 1024;
+    server_names_hash_bucket_size 512;
+    client_header_buffer_size 16k;
+    large_client_header_buffers 4 64k;
+    client_header_timeout 300m;
+    client_body_timeout 300m;
+    send_timeout 300m;
+    tcp_nopush on;
+    tcp_nodelay on;
+    client_max_body_size 100M;
+    client_body_buffer_size 50m;
+    proxy_connect_timeout 5;
+    proxy_send_timeout 15;
+    proxy_read_timeout 15;
+    proxy_buffer_size 256k;
+    proxy_buffers 8 256k;
+    proxy_busy_buffers_size 256k;
+    proxy_temp_file_write_size 256k;
+    proxy_intercept_errors on;
+    proxy_headers_hash_max_size 512;
+    proxy_headers_hash_bucket_size 256;
+    variables_hash_max_size 512;
+    variables_hash_bucket_size 128;
+
+    gzip on;
+    gzip_min_length 1100;
+    gzip_buffers 4 8k;
+    gzip_comp_level 3;
+    gzip_http_version 1.0;
+    gzip_types text&#x2F;plain application&#x2F;x-javascript application&#x2F;json application&#x2F;javascript
+    text&#x2F;css application&#x2F;xml text&#x2F;javascript application&#x2F;x-httpd-php image&#x2F;jpeg image&#x2F;gif image&#x2F;png;
+
+    output_buffers 1 32k;
+    postpone_output 1460;
+
+    gzip_vary on;
+    map_hash_max_size 102400;
+    map_hash_bucket_size 256;
+
+    fastcgi_intercept_errors on;
+
+    upstream xxxxxx.com&#123;
+        server 192.168.13.43:8080;
+        server 192.168.13.44:8080;
+        check interval&#x3D;3000 rise&#x3D;2 fall&#x3D;3 timeout&#x3D;3000 type&#x3D;http;
+    &#125;
+    server &#123;
+        listen 80;
+        server_name xxxxxx.com;
+        location &#x2F; &#123;
+            proxy_pass http:&#x2F;&#x2F;xxxxxx.com;
+            proxy_set_header Host $host;
+            proxy_redirect off;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_connect_timeout 60;
+            proxy_read_timeout 600;
+            proxy_send_timeout 600;
+        &#125;
+        access_log &#x2F;data&#x2F;logs&#x2F;nginx&#x2F;access.log;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="动静分离"><a href="#动静分离" class="headerlink" title="动静分离"></a>动静分离</h3><pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">#user nobody;
+worker_processes auto;
+#worker_cpu_affinity auto;
+worker_rlimit_nofile 655350;
+
+#pid logs&#x2F;nginx.pid;
+error_log &#x2F;data&#x2F;logs&#x2F;nginx&#x2F;error.log error;
+
+events &#123;
+    use epoll;
+    worker_connections 655350;
+&#125;
+
+http &#123;
+    include mime.types;
+    default_type application&#x2F;octet-stream;
+    charset utf-8;
+    log_format main &#39;$remote_addr $server_addr $remote_user [$time_local] $host &#39;
+                    &#39;&quot;$request&quot; $status $body_bytes_sent $request_time $upstream_response_time &#39;
+                    &#39;&quot;$http_referer&quot; &quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&#39;;
+                    access_log &#x2F;data&#x2F;logs&#x2F;nginx&#x2F;access.log main;
+
+    sendfile on;
+    keepalive_timeout 90000;
+    server_names_hash_max_size 1024;
+    server_names_hash_bucket_size 512;
+    client_header_buffer_size 16k;
+    large_client_header_buffers 4 64k;
+    client_header_timeout 300m;
+    client_body_timeout 300m;
+    send_timeout 300m;
+    tcp_nopush on;
+    tcp_nodelay on;
+    client_max_body_size 100M;
+    client_body_buffer_size 50m;
+    proxy_connect_timeout 5;
+    proxy_send_timeout 15;
+    proxy_read_timeout 15;
+    proxy_buffer_size 256k;
+    proxy_buffers 8 256k;
+    proxy_busy_buffers_size 256k;
+    proxy_temp_file_write_size 256k;
+    proxy_intercept_errors on;
+    proxy_headers_hash_max_size 512;
+    proxy_headers_hash_bucket_size 256;
+    variables_hash_max_size 512;
+    variables_hash_bucket_size 128;
+
+    gzip on;
+    gzip_min_length 1100;
+    gzip_buffers 4 8k;
+    gzip_comp_level 3;
+    gzip_http_version 1.0;
+    gzip_types text&#x2F;plain application&#x2F;x-javascript application&#x2F;json application&#x2F;javascript
+    text&#x2F;css application&#x2F;xml text&#x2F;javascript application&#x2F;x-httpd-php image&#x2F;jpeg image&#x2F;gif image&#x2F;png;
+
+    output_buffers 1 32k;
+    postpone_output 1460;
+
+    gzip_vary on;
+    map_hash_max_size 102400;
+    map_hash_bucket_size 256;
+
+    fastcgi_intercept_errors on;
+    upstream xxxxxx.com&#123;
+        server 127.0.0.1:10179;
+    &#125;
+
+    server &#123;
+        listen 80;
+        server_name xxxxxx.com;
+        location &#x2F;api &#123;
+            proxy_pass http:&#x2F;&#x2F;xxxxxx.com;
+            proxy_set_header Host $host;
+            proxy_redirect off;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_connect_timeout 60;
+            proxy_read_timeout 600;
+            proxy_send_timeout 600;
+        &#125;
+        location ~ .(jsp|jspx|do)?$ &#123;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_pass http:&#x2F;&#x2F;xxxxxx.com;
+        &#125;
+
+        #所有静态文件由nginx直接读取不经过tomcat或resin
+        location ~ .*.(htm|html|gif|jpg|jpeg|png|bmp|swf|ioc|rar|zip|txt|flv|mid|doc|ppt|
+        pdf|xls|mp3|wma)$
+        &#123;
+            expires 15d;
+        &#125;
+        
+        location ~ .*.(js|css)?$
+        &#123;
+            expires 1h;
+        &#125;
+        access_log &#x2F;data&#x2F;logs&#x2F;nginx&#x2F;access.log;
+    &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>

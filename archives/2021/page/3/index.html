@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
 </head>
 
 
@@ -418,7 +418,13 @@
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    根据Vue的生命周期说出console打印出来的值1234567891011121314151617181920212223242526272829303132333435export default &#123;  data() &#12
+                                    根据Vue的生命周期说出console打印出来的值export default &#123;
+  data() &#123;
+    num1: 1,
+    num2: 2,
+  &#125;,
+  computed: &#123;
+  
                                 
                             </div>
                             <div class="publish-info">
@@ -477,7 +483,13 @@
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    判断数组是否包含某个值12345let arr = [&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;];console.log(arr.includes(&#x27;d&#x27;));// fals
+                                    判断数组是否包含某个值let arr = ['a', 'b', 'c'];
+console.log(arr.includes('d'));
+// false
+console.log(arr.includes('b'));
+// true
+
+
                                 
                             </div>
                             <div class="publish-info">
@@ -544,9 +556,11 @@
                             <div class="summary block-with-text">
                                 
                                     什么是柯里化
-柯里化就是把一个多参数的函数转换为一系列只带单个参数的函数
+柯里化就是把一个多参数的函数转换为一系列只带单个参数的函数未柯里化前的函数function multiply(a, b, c)&#123;
+  return a * b * c;
+&#125;
 
-未柯里化前的函数123456function multiply(a, b, c)&#123;  return a * b * c;&#125;let res = m
+let res = multi
                                 
                             </div>
                             <div class="publish-info">
@@ -605,8 +619,39 @@
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    Tips|Tips	|        ||:—-	|  ——-  ||master： |默认开发分支	|Head：默认开发分支的指针（快照）||origin： |默认远程版本库	|Head^：Head的父提交|
-创建版本库|创建版本库		|
+                                    Tips
+
+
+Tips
+
+
+
+
+master：
+默认开发分支
+
+
+origin：
+默认远程版本库
+
+
+创建版本库
+
+
+创建版本库
+
+
+
+
+$ git clone 
+#克隆远程版本库
+
+
+$ git init
+#初始化本地版本库
+
+
+修改和提
                                 
                             </div>
                             <div class="publish-info">
@@ -669,9 +714,8 @@
 主要用于登录验证
 纯前端验证（滑着过瘾）目前无法与后端进行校验
 封装还可以优化
-直接看代码吧
-
-slider组件123456789101112131415161
+直接看代码吧slider组件// slider/index.vue'
+&lt;t
                                 
                             </div>
                             <div class="publish-info">
@@ -732,8 +776,9 @@ slider组件123456789101112131415161
                                 
                                     为什么会出现？
 首先了解两个像素：设备的 物理像素[设备像素] &amp; 虚拟像素[CSS像素] &amp; 逻辑像素[设备独立像素]
+
 物理像素：移动设备出厂时，不同设备的屏幕自带的不同屏幕像素，也称硬件像素；
-虚拟像素：即css中记录的
+虚拟像素：即css中记录
                                 
                             </div>
                             <div class="publish-info">
@@ -797,7 +842,9 @@ slider组件123456789101112131415161
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    A&#x2F;HC&#x2F;LC 命名法 —— (P)A&#x2F;HC&#x2F;LC是什么12prefix? (P) + action (A) + high context (HC) + low context? (LC)// 前缀 
+                                    A/HC/LC 命名法 —— (P)A/HC/LC是什么prefix? (P) + action (A) + high context (HC) + low context? (LC)
+// 前缀 + 动作 + 高语境 + 低语境
+Pref
                                 
                             </div>
                             <div class="publish-info">
@@ -861,11 +908,11 @@ slider组件123456789101112131415161
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    Nginx的基本功能及配置查找 Nginx 进程&#x2F;安装目录1ps aux | grep nginx
+                                    Nginx的基本功能及配置查找 Nginx 进程/安装目录ps aux | grep nginx
 查看配置文件 nginx.conf 路径
-条命令也可以用于检查配置文件是否正确1nginx -t
+条命令也可以用于检查配置文件是否正确nginx -t
 
-全局查找 Nginx 配置文件
+全局查找 Nginx 配置文件# 从 &#x
                                 
                             </div>
                             <div class="publish-info">
@@ -924,11 +971,10 @@ slider组件123456789101112131415161
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    ‘@&#x2F;‘ 引入组件报红问题
-使用 ‘@&#x2F;xxx&#x2F;xxx’ 引入组件，vetur报红 找不到module，但是可以正常运行问题
-解决办法：1.把项目目录放工作区根目录；2.项目一定排列在第一位
-
-引入第三方包报红
+                                    ‘@/‘ 引入组件报红问题
+使用 ‘@/xxx/xxx’ 引入组件，vetur报红 找不到module，但是可以正常运行问题
+解决办法：1.把项目目录放工作区根目录；2.项目一定排列在第一位引入第三方包报红
+引入第三方库 报红找不到modu
                                 
                             </div>
                             <div class="publish-info">

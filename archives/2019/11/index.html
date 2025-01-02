@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
 </head>
 
 
@@ -418,7 +418,8 @@
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    使用git同时提交到多个远程库法11、添加第一个仓库：  1git remote add origin https://gitlab.com/XXX/xxx.git2、添加第二个仓库：1git remote set-url --add or
+                                    使用git同时提交到多个远程库法11、添加第一个仓库：  git remote add origin https://gitlab.com/XXX/xxx.git2、添加第二个仓库：
+git remote set-url --add ori
                                 
                             </div>
                             <div class="publish-info">
@@ -477,7 +478,13 @@
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    1. 路由懒加载12345&#123;path: &#x27;/about&#x27;,name: &#x27;about&#x27;,component: () =&gt; import(&#x27;@/views/about/about
+                                    1. 路由懒加载&#123;
+path: '/about',
+name: 'about',
+component: () => import('@/views/about/about'),
+&#125;,
+2. 不生成.map 文件
+webp
                                 
                             </div>
                             <div class="publish-info">
@@ -607,9 +614,11 @@
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    安装123npm i vuex// oryarn add vuex
+                                    安装npm i vuex
+// or
+yarn add vuex
 Vuex 是什么
-Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化
+Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。
                                 
                             </div>
                             <div class="publish-info">
@@ -729,9 +738,8 @@ Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。它采用�
                                 
                                     介绍
 GG-editor 插件基于 React 框架，可以创建编辑思维导图、流程图、拓扑图等图形
-项目依赖： react-router-dom, gg-editor, antd
-
-安装所需依赖12345678910111213141516/
+项目依赖： react-router-dom, gg-editor, antd安装所需依赖// 初始化项目
+create-react-app 
                                 
                             </div>
                             <div class="publish-info">
@@ -858,10 +866,13 @@ React Router 包含3个库, react-router、react-router-dom、和 react-router-n
 创建 .github.io 仓库
 
 全局安装hexo
-1npm install -g hexo
+npm install -g hexo
 初始化项目
-1234// 构建 hexo 项目hexo init// 启动服务hexo s
-连接到 G
+// 构建 hexo 项目
+hexo init
+// 启动服务
+hexo s
+连接到 Git
                                 
                             </div>
                             <div class="publish-info">

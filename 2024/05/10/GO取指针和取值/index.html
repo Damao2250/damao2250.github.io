@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
 </head>
 
 
@@ -413,7 +413,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    256
+                    251
                 </div>
                 
 
@@ -445,7 +445,50 @@
             <div id="articleContent">
                 <ul>
 <li>GO取值和取指针的操作<ul>
-<li><code>*</code>是取值，即获取指针指向的值；<code>&amp;</code>取指针，即获取变量的地址<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">package main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line">func <span class="title function_">main</span>(<span class="params"></span>) &#123;</span><br><span class="line">	<span class="comment">// 取值 start</span></span><br><span class="line">	<span class="keyword">var</span> a int = <span class="number">666</span></span><br><span class="line">	<span class="keyword">var</span> b int = a  <span class="comment">// a是值传递，b取到的是a的值</span></span><br><span class="line">	fmt.<span class="title class_">Println</span>(b) <span class="comment">// 输出：666</span></span><br><span class="line">	<span class="comment">// 取值 end</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// a的类型 start</span></span><br><span class="line">	fmt.<span class="title class_">Printf</span>(<span class="string">&quot;a的类型为：: %T\n&quot;</span>, a) <span class="comment">// a的类型为：: int</span></span><br><span class="line">	<span class="comment">// a的类型 end</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// 取指针 start</span></span><br><span class="line">	<span class="keyword">var</span> c *int = &amp;a <span class="comment">// c取到的是a的地址，c是一个指针，指向a的地址</span></span><br><span class="line">	fmt.<span class="title class_">Println</span>(c)  <span class="comment">// 输出：0xc00000a0b8</span></span><br><span class="line">	<span class="comment">// 取指针 end</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// 指针类型 start</span></span><br><span class="line">	fmt.<span class="title class_">Printf</span>(<span class="string">&quot;c的指针类型为：: %T\n&quot;</span>, c) <span class="comment">// c的指针类型为：: *int</span></span><br><span class="line">	<span class="comment">// 指针类型 end</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// 通过指针取值 start</span></span><br><span class="line">	fmt.<span class="title class_">Println</span>(*c) <span class="comment">// 输出：666</span></span><br><span class="line">	<span class="comment">// 通过指针取值 end</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// 修改指针指向的值 start</span></span><br><span class="line">	*c = <span class="number">789</span></span><br><span class="line">	fmt.<span class="title class_">Println</span>(*c) <span class="comment">// 输出：789</span></span><br><span class="line">	<span class="comment">// 修改指针指向的值 end</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// 指针作为参数传递并参与运算</span></span><br><span class="line">	<span class="title function_">sum1</span>(c)</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func <span class="title function_">sum1</span>(<span class="params">params *int</span>) &#123;</span><br><span class="line">	fmt.<span class="title class_">Println</span>(*params) <span class="comment">// 输出：789</span></span><br><span class="line">	*params = *params + <span class="number">1</span></span><br><span class="line">	fmt.<span class="title class_">Println</span>(*params) <span class="comment">// 输出：790</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li><code>*</code>是取值，即获取指针指向的值；<code>&amp;</code>取指针，即获取变量的地址<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">package</span> main
+
+<span class="token keyword">import</span> <span class="token string">"fmt"</span>
+
+func <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	<span class="token comment">// 取值 start</span>
+	<span class="token keyword">var</span> a int <span class="token operator">=</span> <span class="token number">666</span>
+	<span class="token keyword">var</span> b int <span class="token operator">=</span> a  <span class="token comment">// a是值传递，b取到的是a的值</span>
+	fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span> <span class="token comment">// 输出：666</span>
+	<span class="token comment">// 取值 end</span>
+
+	<span class="token comment">// a的类型 start</span>
+	fmt<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">"a的类型为：: %T\n"</span><span class="token punctuation">,</span> a<span class="token punctuation">)</span> <span class="token comment">// a的类型为：: int</span>
+	<span class="token comment">// a的类型 end</span>
+
+	<span class="token comment">// 取指针 start</span>
+	<span class="token keyword">var</span> c <span class="token operator">*</span>int <span class="token operator">=</span> <span class="token operator">&amp;</span>a <span class="token comment">// c取到的是a的地址，c是一个指针，指向a的地址</span>
+	fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span>  <span class="token comment">// 输出：0xc00000a0b8</span>
+	<span class="token comment">// 取指针 end</span>
+
+	<span class="token comment">// 指针类型 start</span>
+	fmt<span class="token punctuation">.</span><span class="token function">Printf</span><span class="token punctuation">(</span><span class="token string">"c的指针类型为：: %T\n"</span><span class="token punctuation">,</span> c<span class="token punctuation">)</span> <span class="token comment">// c的指针类型为：: *int</span>
+	<span class="token comment">// 指针类型 end</span>
+
+	<span class="token comment">// 通过指针取值 start</span>
+	fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token operator">*</span>c<span class="token punctuation">)</span> <span class="token comment">// 输出：666</span>
+	<span class="token comment">// 通过指针取值 end</span>
+
+	<span class="token comment">// 修改指针指向的值 start</span>
+	<span class="token operator">*</span>c <span class="token operator">=</span> <span class="token number">789</span>
+	fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token operator">*</span>c<span class="token punctuation">)</span> <span class="token comment">// 输出：789</span>
+	<span class="token comment">// 修改指针指向的值 end</span>
+
+	<span class="token comment">// 指针作为参数传递并参与运算</span>
+	<span class="token function">sum1</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span>
+
+<span class="token punctuation">&#125;</span>
+
+func <span class="token function">sum1</span><span class="token punctuation">(</span><span class="token parameter">params <span class="token operator">*</span>int</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+	fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token operator">*</span>params<span class="token punctuation">)</span> <span class="token comment">// 输出：789</span>
+	<span class="token operator">*</span>params <span class="token operator">=</span> <span class="token operator">*</span>params <span class="token operator">+</span> <span class="token number">1</span>
+	fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token operator">*</span>params<span class="token punctuation">)</span> <span class="token comment">// 输出：790</span>
+<span class="token punctuation">&#125;</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ul>
 </li>
 </ul>

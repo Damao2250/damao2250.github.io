@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
 </head>
 
 
@@ -409,7 +409,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    333
+                    300
                 </div>
                 
 
@@ -440,17 +440,35 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h2><ul>
-<li>需要安装两个依赖highlight.js、@highlightjs&#x2F;vue-plugin</li>
+<li>需要安装两个依赖highlight.js、@highlightjs/vue-plugin</li>
 </ul>
-<figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 基础依赖</span></span><br><span class="line">npm install <span class="literal">--save</span> highlight.js</span><br><span class="line"><span class="comment">## 支持vue3的依赖</span></span><br><span class="line">npm install <span class="literal">--save</span> @highlightjs/vue<span class="literal">-plugin</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">## 基础依赖
+npm install --save highlight.js
+## 支持vue3的依赖
+npm install --save @highlightjs&#x2F;vue-plugin<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="在main-js引入和注册highlight"><a href="#在main-js引入和注册highlight" class="headerlink" title="在main.js引入和注册highlight"></a>在main.js引入和注册highlight</h2><ul>
 <li>引入需要引入：样式、依赖包、支持组件</li>
-<li>在main主入口引入样式为全局统一都使用这个样式，也可以在单独的页面引入你想要的样式，样式效果参考官网：<a target="_blank" rel="noopener" href="https://highlightjs.org/static/demo/">https://highlightjs.org/static/demo/</a><br>更改 import ‘highlight.js&#x2F;styles&#x2F;atom-one-dark.css’, 把’atom-one-dark’改成官网提供的theme样式即可</li>
+<li>在main主入口引入样式为全局统一都使用这个样式，也可以在单独的页面引入你想要的样式，样式效果参考官网：<a target="_blank" rel="noopener" href="https://highlightjs.org/static/demo/">https://highlightjs.org/static/demo/</a><br>更改 import ‘highlight.js/styles/atom-one-dark.css’, 把’atom-one-dark’改成官网提供的theme样式即可</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/main.js </span></span><br><span class="line"><span class="keyword">import</span> &#123; createApp &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">App</span> <span class="keyword">from</span> <span class="string">&#x27;./App.vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;highlight.js/styles/atom-one-dark.css&#x27;</span> <span class="comment">// 样式 </span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;highlight.js/lib/common&#x27;</span> <span class="comment">// 依赖包</span></span><br><span class="line"><span class="keyword">import</span> hljsVuePlugin <span class="keyword">from</span> <span class="string">&#x27;@highlightjs/vue-plugin&#x27;</span> <span class="comment">// 支持vue3的组件</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">createApp</span>(<span class="title class_">App</span>)</span><br><span class="line">app.<span class="title function_">use</span>(hljsVuePlugin) <span class="comment">// 引入代码高亮，并进行全局注册</span></span><br><span class="line">app.<span class="title function_">mount</span>(<span class="string">&#x27;#app&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// src/main.js </span>
+<span class="token keyword">import</span> <span class="token punctuation">&#123;</span> createApp <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'vue'</span>
+<span class="token keyword">import</span> App <span class="token keyword">from</span> <span class="token string">'./App.vue'</span>
+<span class="token keyword">import</span> <span class="token string">'highlight.js/styles/atom-one-dark.css'</span> <span class="token comment">// 样式 </span>
+<span class="token keyword">import</span> <span class="token string">'highlight.js/lib/common'</span> <span class="token comment">// 依赖包</span>
+<span class="token keyword">import</span> hljsVuePlugin <span class="token keyword">from</span> <span class="token string">'@highlightjs/vue-plugin'</span> <span class="token comment">// 支持vue3的组件</span>
 
-<h2 id="使用高亮插件"><a href="#使用高亮插件" class="headerlink" title="使用高亮插件"></a>使用高亮插件</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 把数据绑定到 `code` 属性</span></span><br><span class="line">&lt;highlightjs autodetect :code=<span class="string">&quot;highlightCode&quot;</span> /&gt;</span><br><span class="line"><span class="comment">// 或者直接将显示的代码写到 `code`中</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">highlightjs</span> <span class="attr">language</span>=<span class="string">&#x27;javascript&#x27;</span> <span class="attr">code</span>=<span class="string">&quot;console.log(&#x27;test&#x27;);&quot;</span> /&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 特别注意：代码中存在&#x27;&lt;script&gt;&lt;/script&gt;&#x27;时，需用反斜杠转义：&#x27;&lt;script&gt;&lt;\/script&gt;&#x27;</span></span><br><span class="line"><span class="comment">// 使用language指定具体的语言，如javascript、xml，省略时highlightjs会自动识别对应的语言</span></span><br></pre></td></tr></table></figure>
+<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token function">createApp</span><span class="token punctuation">(</span>App<span class="token punctuation">)</span>
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>hljsVuePlugin<span class="token punctuation">)</span> <span class="token comment">// 引入代码高亮，并进行全局注册</span>
+app<span class="token punctuation">.</span><span class="token function">mount</span><span class="token punctuation">(</span><span class="token string">'#app'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="使用高亮插件"><a href="#使用高亮插件" class="headerlink" title="使用高亮插件"></a>使用高亮插件</h2><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 把数据绑定到 `code` 属性</span>
+<span class="token operator">&lt;</span>highlightjs autodetect <span class="token operator">:</span>code<span class="token operator">=</span><span class="token string">"highlightCode"</span> <span class="token operator">/</span><span class="token operator">></span>
+<span class="token comment">// 或者直接将显示的代码写到 `code`中</span>
+<span class="token operator">&lt;</span>highlightjs language<span class="token operator">=</span><span class="token string">'javascript'</span> code<span class="token operator">=</span><span class="token string">"console.log('test');"</span> <span class="token operator">/</span><span class="token operator">></span>
+
+<span class="token comment">// 特别注意：代码中存在'&lt;script>&lt;/script>'时，需用反斜杠转义：'&lt;script>&lt;\/script>'</span>
+<span class="token comment">// 使用language指定具体的语言，如javascript、xml，省略时highlightjs会自动识别对应的语言</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>

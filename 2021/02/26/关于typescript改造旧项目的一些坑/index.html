@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
 </head>
 
 
@@ -405,7 +405,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    522
+                    467
                 </div>
                 
 
@@ -435,30 +435,59 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="‘-‘-引入组件报红问题"><a href="#‘-‘-引入组件报红问题" class="headerlink" title="‘@&#x2F;‘ 引入组件报红问题"></a>‘@&#x2F;‘ 引入组件报红问题</h2><ul>
-<li>使用 ‘@&#x2F;xxx&#x2F;xxx’ 引入组件，vetur报红 找不到module，但是可以正常运行问题</li>
-<li>解决办法：1.把项目目录放工作区根目录；2.项目一定排列在第一位</li>
-</ul>
-<h2 id="引入第三方包报红"><a href="#引入第三方包报红" class="headerlink" title="引入第三方包报红"></a>引入第三方包报红</h2><ul>
+                <h2 id="‘-‘-引入组件报红问题"><a href="#‘-‘-引入组件报红问题" class="headerlink" title="‘@/‘ 引入组件报红问题"></a>‘@/‘ 引入组件报红问题</h2><ul>
+<li>使用 ‘@/xxx/xxx’ 引入组件，vetur报红 找不到module，但是可以正常运行问题</li>
+<li>解决办法：1.把项目目录放工作区根目录；2.项目一定排列在第一位<h2 id="引入第三方包报红"><a href="#引入第三方包报红" class="headerlink" title="引入第三方包报红"></a>引入第三方包报红</h2></li>
 <li>引入第三方库 报红找不到module，无法正常使用包，如qs、jQuery</li>
-<li>解决办法1：使用@types进行包管理，然后正常引入<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm i @types/qs</span><br><span class="line"><span class="keyword">import</span> qs <span class="keyword">from</span> <span class="string">&#x27;qs&#x27;</span></span><br></pre></td></tr></table></figure></li>
+<li>解决办法1：使用@types进行包管理，然后正常引入<pre class="line-numbers language-js" data-language="js"><code class="language-js">npm i @types<span class="token operator">/</span>qs
+<span class="token keyword">import</span> qs <span class="token keyword">from</span> <span class="token string">'qs'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
 <li>解决办法2：有些包不能用@types管理，自己写声明 XX.d.ts  不推荐</li>
 </ul>
-<h2 id="router配置里引入component组件的时候必须添加-vue后缀"><a href="#router配置里引入component组件的时候必须添加-vue后缀" class="headerlink" title="router配置里引入component组件的时候必须添加.vue后缀"></a>router配置里引入component组件的时候必须添加.vue后缀</h2><h2 id="Element表单验证报红问题"><a href="#Element表单验证报红问题" class="headerlink" title="Element表单验证报红问题"></a>Element表单验证报红问题</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 报错信息如下</span></span><br><span class="line"><span class="comment">// Property &#x27;validate&#x27; does not exist on type &#x27;Vue | Element | Vue[] | Element[]&#x27;.</span></span><br><span class="line"><span class="comment">// Property &#x27;validate&#x27; does not exist on type &#x27;Vue&#x27;.</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 解决办法</span></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Form</span> &#125; <span class="keyword">from</span> <span class="string">&quot;element-ui&quot;</span>;</span><br><span class="line">( <span class="variable language_">this</span>.<span class="property">$refs</span>.<span class="property">loginForm</span> <span class="keyword">as</span> <span class="title class_">Form</span> ).<span class="title function_">validate</span>(<span class="function">(<span class="params">valid: boolean </span>) =&gt;</span> &#123;</span><br><span class="line">  ...</span><br><span class="line"> &#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果不引入Form，把Form换成any也可以，但是typescript会报警告⚠</span></span><br></pre></td></tr></table></figure>
+<h2 id="router配置里引入component组件的时候必须添加-vue后缀"><a href="#router配置里引入component组件的时候必须添加-vue后缀" class="headerlink" title="router配置里引入component组件的时候必须添加.vue后缀"></a>router配置里引入component组件的时候必须添加.vue后缀</h2><h2 id="Element表单验证报红问题"><a href="#Element表单验证报红问题" class="headerlink" title="Element表单验证报红问题"></a>Element表单验证报红问题</h2><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 报错信息如下</span>
+<span class="token comment">// Property 'validate' does not exist on type 'Vue | Element | Vue[] | Element[]'.</span>
+<span class="token comment">// Property 'validate' does not exist on type 'Vue'.</span>
+
+<span class="token comment">// 解决办法</span>
+<span class="token keyword">import</span> <span class="token punctuation">&#123;</span> Form <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">"element-ui"</span><span class="token punctuation">;</span>
+<span class="token punctuation">(</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$refs<span class="token punctuation">.</span>loginForm <span class="token keyword">as</span> Form <span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">validate</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">valid<span class="token operator">:</span> boolean</span> <span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  <span class="token operator">...</span>
+ <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// 如果不引入Form，把Form换成any也可以，但是typescript会报警告⚠</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
-<li>使用axios封装的请求，然后解构请求结果报错<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 报错信息</span></span><br><span class="line"><span class="comment">// Property &#x27;XXX&#x27; does not exist on type &#x27;AxiosResponse&lt;any&gt;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 解决办法</span></span><br><span class="line"><span class="comment">// 新建axios.d.ts文案，添加如下内容，重启项目</span></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> axios <span class="keyword">from</span> <span class="string">&#x27;axios&#x27;</span></span><br><span class="line"></span><br><span class="line">declare <span class="variable language_">module</span> <span class="string">&#x27;axios&#x27;</span> &#123;</span><br><span class="line">  interface <span class="title class_">AxiosInstance</span> &#123;</span><br><span class="line">    (<span class="attr">config</span>: <span class="title class_">AxiosRequestConfig</span>): <span class="title class_">Promise</span>&lt;any&gt;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">@typescript/esline 报错 xxx_x is not <span class="keyword">in</span> camel <span class="keyword">case</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="关闭esline驼峰校验"><a href="#关闭esline驼峰校验" class="headerlink" title="关闭esline驼峰校验"></a>关闭esline驼峰校验</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在.eslinetrc.js中配置如下：</span></span><br><span class="line"><span class="attr">rules</span>: &#123;</span><br><span class="line">  ...</span><br><span class="line">  <span class="string">&#x27;@typescript-eslint/camelcase&#x27;</span>: <span class="string">&#x27;off&#x27;</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="TS使用”require”报错"><a href="#TS使用”require”报错" class="headerlink" title="TS使用”require”报错"></a>TS使用”require”报错</h2><ul>
-<li>提示报错信息：Cannot find name ‘require’. Do you need to install type definitions for node? Try ‘npm i –save-dev @types&#x2F;node’</li>
+<li>使用axios封装的请求，然后解构请求结果报错<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 报错信息</span>
+<span class="token comment">// Property 'XXX' does not exist on type 'AxiosResponse&lt;any>'</span>
+
+<span class="token comment">// 解决办法</span>
+<span class="token comment">// 新建axios.d.ts文案，添加如下内容，重启项目</span>
+<span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> axios <span class="token keyword">from</span> <span class="token string">'axios'</span>
+
+declare module <span class="token string">'axios'</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">interface</span> <span class="token class-name">AxiosInstance</span> <span class="token punctuation">&#123;</span>
+    <span class="token punctuation">(</span>config<span class="token operator">:</span> AxiosRequestConfig<span class="token punctuation">)</span><span class="token operator">:</span> Promise<span class="token operator">&lt;</span>any<span class="token operator">></span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+@typescript<span class="token operator">/</span>esline 报错 xxx_x is not <span class="token keyword">in</span> camel <span class="token keyword">case</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="关闭esline驼峰校验"><a href="#关闭esline驼峰校验" class="headerlink" title="关闭esline驼峰校验"></a>关闭esline驼峰校验</h2><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 在.eslinetrc.js中配置如下：</span>
+rules<span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+  <span class="token operator">...</span>
+  <span class="token string">'@typescript-eslint/camelcase'</span><span class="token operator">:</span> <span class="token string">'off'</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="TS使用”require”报错"><a href="#TS使用”require”报错" class="headerlink" title="TS使用”require”报错"></a>TS使用”require”报错</h2></li>
+<li>提示报错信息：Cannot find name ‘require’. Do you need to install type definitions for node? Try ‘npm i –save-dev @types/node’</li>
 <li>解决方案：<ul>
-<li>1.安装@types&#x2F;node，npm i –save-dev @types&#x2F;node；</li>
+<li>1.安装@types/node，npm i –save-dev @types/node；</li>
 <li>2.在tsconfig.json中的compilerOptions中的types添加”node”；</li>
-<li>3.在使用require前面添加declare var require:any</li>
+<li>3.在使用require前面添加declare var require:any<h2 id="TS使用”this-xxx”报错"><a href="#TS使用”this-xxx”报错" class="headerlink" title="TS使用”this.xxx”报错"></a>TS使用”this.xxx”报错</h2><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 使用"this.$router.push("/xxx")" => Property '$router' does not exist on type 'Experiment'.</span>
+<span class="token comment">// 解决：</span>
+<span class="token punctuation">(</span><span class="token keyword">this</span> <span class="token keyword">as</span> any<span class="token punctuation">)</span><span class="token punctuation">.</span>$router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token string">"/xxx"</span><span class="token punctuation">)</span>
+<span class="token keyword">this</span><span class="token punctuation">.</span>$refs<span class="token punctuation">.</span><span class="token parameter">mainVideo</span> <span class="token operator">=></span> Property <span class="token string">'clientWidth'</span> does not exist on type <span class="token string">'Vue | Element | Vue[] | Element[]'</span><span class="token punctuation">.</span>
+<span class="token comment">// Property 'clientWidth' does not exist on type 'Vue'</span>
+<span class="token comment">// 解决：</span>
+<span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>$refs<span class="token punctuation">.</span>mainVideo <span class="token keyword">as</span> any<span class="token punctuation">)</span><span class="token punctuation">.</span>clientWidth<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ul>
 </li>
 </ul>
-<h2 id="TS使用”this-xxx”报错"><a href="#TS使用”this-xxx”报错" class="headerlink" title="TS使用”this.xxx”报错"></a>TS使用”this.xxx”报错</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用&quot;this.$router.push(&quot;/xxx&quot;)&quot; =&gt; Property &#x27;$router&#x27; does not exist on type &#x27;Experiment&#x27;.</span></span><br><span class="line"><span class="comment">// 解决：</span></span><br><span class="line">(<span class="variable language_">this</span> <span class="keyword">as</span> any).<span class="property">$router</span>.<span class="title function_">push</span>(<span class="string">&quot;/xxx&quot;</span>)</span><br><span class="line"><span class="variable language_">this</span>.<span class="property">$refs</span>.<span class="property">mainVideo</span> =&gt; <span class="title class_">Property</span> <span class="string">&#x27;clientWidth&#x27;</span> does not exist on type <span class="string">&#x27;Vue | Element | Vue[] | Element[]&#x27;</span>.</span><br><span class="line"><span class="comment">// Property &#x27;clientWidth&#x27; does not exist on type &#x27;Vue&#x27;</span></span><br><span class="line"><span class="comment">// 解决：</span></span><br><span class="line">(<span class="variable language_">this</span>.<span class="property">$refs</span>.<span class="property">mainVideo</span> <span class="keyword">as</span> any).<span class="property">clientWidth</span></span><br></pre></td></tr></table></figure>
 
                 
             </div>

@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
 </head>
 
 
@@ -418,10 +418,11 @@
                         <div class="card-content article-content">
                             <div class="summary block-with-text">
                                 
-                                    查看firewall服务状态1$ systemctl status firewalld
+                                    查看firewall服务状态$ systemctl status firewalld
 
 出现 Active: active (running) 表示防火墙启动状态
 出现 Active: inactive (dead)  表示防火墙关闭状态
+
                                 
                             </div>
                             <div class="publish-info">
@@ -483,8 +484,10 @@
                             <div class="summary block-with-text">
                                 
                                     查看路由表
-Windows下查看命令1route PRINT
-123456789101112131415161718192021222324252627282930313233343536373839====================
+Windows下查看命令route PRINT
+===========================================================================
+接口列表
+  8...9e 
                                 
                             </div>
                             <div class="publish-info">
@@ -545,7 +548,13 @@ Windows下查看命令1route PRINT
                                 
                                     
 GO取值和取指针的操作
-*是取值，即获取指针指向的值；&amp;取指针，即获取变量的地址123456789101112131415161718192021222324252627282930313233343536373839404142
+*是取值，即获取指针指向的值；&amp;取指针，即获取变量的地址package main
+
+import "fmt"
+
+func main() &#123;
+	// 取值 start
+	var a int = 66
                                 
                             </div>
                             <div class="publish-info">

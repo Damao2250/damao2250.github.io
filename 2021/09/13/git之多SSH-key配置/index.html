@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
 </head>
 
 
@@ -405,7 +405,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    491
+                    490
                 </div>
                 
 
@@ -436,25 +436,65 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="1-生成SSH-Key"><a href="#1-生成SSH-Key" class="headerlink" title="1. 生成SSH-Key"></a>1. 生成SSH-Key</h2><ul>
-<li>Windows系统请使用Git bash操作<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生成第一个SSH-Key</span></span><br><span class="line">$ ssh-keygen -t rsa -C <span class="string">&quot;你的邮箱” -f ~/.ssh/id_rsa_one</span></span><br><span class="line"><span class="string"># 生成第二个SSH-Key</span></span><br><span class="line"><span class="string">$ ssh-keygen -t rsa -C &quot;</span><span class="string">&quot;你的邮箱”” -f ~/.ssh/id_rsa_two</span></span><br></pre></td></tr></table></figure></li>
+<li>Windows系统请使用Git bash操作<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 生成第一个SSH-Key</span>
+$ ssh-keygen -t rsa -C <span class="token string">"你的邮箱” -f ~/.ssh/id_rsa_one
+# 生成第二个SSH-Key
+$ ssh-keygen -t rsa -C "</span>"你的邮箱”” -f ~/.ssh/id_rsa_two<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
 <li>创建完成之后 我们在.ssh的根目录下可以看到文件<ul>
 <li>C:\Users\Administrator.ssh 或者 C:\Users\电脑用户名.ssh</li>
 </ul>
 </li>
 </ul>
-<h2 id="2-添加私钥"><a href="#2-添加私钥" class="headerlink" title="2. 添加私钥"></a>2. 添加私钥</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在终端中执行</span></span><br><span class="line"></span><br><span class="line">$ ssh-add ~/.ssh/id_rsa_gitlab</span><br><span class="line">$ ssh-add ~/.ssh/id_rsa_github</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果执行ssh-add时提示 Could not open a connection to your authentication agent</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 可以先执行命令:</span></span><br><span class="line">$ ssh-agent bash</span><br><span class="line"></span><br><span class="line"><span class="comment"># 然后再重新运行ssh-add命令即可</span></span><br><span class="line"><span class="comment"># 添加成功会出现提示：</span></span><br><span class="line"><span class="comment"># Identity added 等字样</span></span><br></pre></td></tr></table></figure>
-<h2 id="3-查看私钥列表是否存在"><a href="#3-查看私钥列表是否存在" class="headerlink" title="3. 查看私钥列表是否存在"></a>3. 查看私钥列表是否存在</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-add -l</span><br><span class="line"></span><br><span class="line"><span class="comment"># 当我们可以看到2条私钥的时候就证明安装成功了</span></span><br></pre></td></tr></table></figure>
+<h2 id="2-添加私钥"><a href="#2-添加私钥" class="headerlink" title="2. 添加私钥"></a>2. 添加私钥</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 在终端中执行</span>
+
+$ ssh-add ~/.ssh/id_rsa_gitlab
+$ ssh-add ~/.ssh/id_rsa_github
+
+<span class="token comment"># 如果执行ssh-add时提示 Could not open a connection to your authentication agent</span>
+
+<span class="token comment"># 可以先执行命令:</span>
+$ ssh-agent <span class="token function">bash</span>
+
+<span class="token comment"># 然后再重新运行ssh-add命令即可</span>
+<span class="token comment"># 添加成功会出现提示：</span>
+<span class="token comment"># Identity added 等字样</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="3-查看私钥列表是否存在"><a href="#3-查看私钥列表是否存在" class="headerlink" title="3. 查看私钥列表是否存在"></a>3. 查看私钥列表是否存在</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ ssh-add -l
+
+<span class="token comment"># 当我们可以看到2条私钥的时候就证明安装成功了</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h2 id="4-修改配置文件config"><a href="#4-修改配置文件config" class="headerlink" title="4. 修改配置文件config"></a>4. 修改配置文件config</h2><ul>
 <li>若.ssh目录(就是私钥所在的文件夹)下无config文件，那就需要自己创建config文件（可用vs code创建）</li>
-<li>创建后添加一下内容：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># gitlab</span></span><br><span class="line">Host gitlab.com</span><br><span class="line">HostName gitlab.com</span><br><span class="line">PreferredAuthentications publickey</span><br><span class="line">IdentityFile ~/.ssh/id_rsa_gitlab</span><br><span class="line"><span class="comment"># github</span></span><br><span class="line">Host github.com</span><br><span class="line">HostName github.com</span><br><span class="line">PreferredAuthentications publickey</span><br><span class="line">IdentityFile ~/.ssh/id_rsa_github</span><br></pre></td></tr></table></figure></li>
+<li>创建后添加一下内容：<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># gitlab</span>
+Host gitlab.com
+HostName gitlab.com
+PreferredAuthentications publickey
+IdentityFile ~/.ssh/id_rsa_gitlab
+<span class="token comment"># github</span>
+Host github.com
+HostName github.com
+PreferredAuthentications publickey
+IdentityFile ~/.ssh/id_rsa_github<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ul>
 <h2 id="5-在gitlab、github网站中设置SSH-keys"><a href="#5-在gitlab、github网站中设置SSH-keys" class="headerlink" title="5. 在gitlab、github网站中设置SSH keys"></a>5. 在gitlab、github网站中设置SSH keys</h2><ul>
 <li>在gitlab、github网站中找到用户设置，找到SSH keys</li>
 <li>在.ssh的根目录中找到对应网站的.pub结尾的文件，用记事本打开，然后复制内容到对应网站保存即可</li>
 </ul>
-<h2 id="6-用ssh命令测试验证"><a href="#6-用ssh命令测试验证" class="headerlink" title="6. 用ssh命令测试验证"></a>6. 用ssh命令测试验证</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T git@gitlab.com</span><br><span class="line">$ ssh -T git@github.com</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果出现 Are you sure you want to continue connecting? </span></span><br><span class="line"><span class="comment"># 直接输入 yes</span></span><br><span class="line"><span class="comment"># 然后重复上面的命令</span></span><br><span class="line"><span class="comment"># 验证通过会有类似“Welconme”或者“Hi”的欢迎字样</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果出现 ssh: connect to host github.com port 22: Connection timed out</span></span><br><span class="line"><span class="comment"># 请确认第四步是否完成：修改配置文件config</span></span><br><span class="line"><span class="comment"># 完成后重新执行：用ssh命令测试验证</span></span><br><span class="line"><span class="comment"># 出现：Are you sure you want to continue connecting (yes/no/[fingerprint])?</span></span><br><span class="line"><span class="comment"># 只输入yes，在重新&#x27;用ssh命令测试验&#x27;证即可</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="6-用ssh命令测试验证"><a href="#6-用ssh命令测试验证" class="headerlink" title="6. 用ssh命令测试验证"></a>6. 用ssh命令测试验证</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">ssh</span> -T git@gitlab.com
+$ <span class="token function">ssh</span> -T git@github.com
 
-<h2 id="7-清空私钥列表"><a href="#7-清空私钥列表" class="headerlink" title="7. 清空私钥列表"></a>7. 清空私钥列表</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-add -D</span><br></pre></td></tr></table></figure>
+<span class="token comment"># 如果出现 Are you sure you want to continue connecting? </span>
+<span class="token comment"># 直接输入 yes</span>
+<span class="token comment"># 然后重复上面的命令</span>
+<span class="token comment"># 验证通过会有类似“Welconme”或者“Hi”的欢迎字样</span>
+
+
+<span class="token comment"># 如果出现 ssh: connect to host github.com port 22: Connection timed out</span>
+<span class="token comment"># 请确认第四步是否完成：修改配置文件config</span>
+<span class="token comment"># 完成后重新执行：用ssh命令测试验证</span>
+<span class="token comment"># 出现：Are you sure you want to continue connecting (yes/no/[fingerprint])?</span>
+<span class="token comment"># 只输入yes，在重新'用ssh命令测试验'证即可</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="7-清空私钥列表"><a href="#7-清空私钥列表" class="headerlink" title="7. 清空私钥列表"></a>7. 清空私钥列表</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ ssh-add -D<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
                 
             </div>

@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
 </head>
 
 
@@ -409,7 +409,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    326
+                    321
                 </div>
                 
 
@@ -443,16 +443,18 @@
 <li><code>fork</code>是’分叉’、’复制’的意思，<code>fork</code>可以复制出一个仓库的新拷贝，包含了原有库中的所有提交记录</li>
 <li><code>fork</code>后这个代码库是完全独立的，可以在自己的库中做任何修改，也可以向原来的库提交合并请求</li>
 </ul>
-<h3 id="clone自己仓库中的项目到本地"><a href="#clone自己仓库中的项目到本地" class="headerlink" title="clone自己仓库中的项目到本地"></a>clone自己仓库中的项目到本地</h3><pre><code><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span> git clone 自己仓库中fork过来的项目地址</span><br></pre></td></tr></table></figure>
+<h3 id="clone自己仓库中的项目到本地"><a href="#clone自己仓库中的项目到本地" class="headerlink" title="clone自己仓库中的项目到本地"></a>clone自己仓库中的项目到本地</h3><pre><code><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">$ git clone 自己仓库中fork过来的项目地址<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </code></pre>
-<h3 id="创建修改分支"><a href="#创建修改分支" class="headerlink" title="创建修改分支"></a>创建修改分支</h3><pre><code><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建并切换到自己要修改的分支，一般修改分支名应为：bugfix/xxx</span></span><br><span class="line"><span class="variable">$</span> git checkout <span class="literal">-b</span> 分支名</span><br></pre></td></tr></table></figure>
+<h3 id="创建修改分支"><a href="#创建修改分支" class="headerlink" title="创建修改分支"></a>创建修改分支</h3><pre><code><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"><span class="token comment"># 创建并切换到自己要修改的分支，一般修改分支名应为：bugfix/xxx</span>
+$ git checkout <span class="token operator">-</span>b 分支名<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </code></pre>
 <h3 id="修改相应内容"><a href="#修改相应内容" class="headerlink" title="修改相应内容"></a>修改相应内容</h3><ul>
 <li>修正错误内容</li>
 </ul>
-<h3 id="提交代码"><a href="#提交代码" class="headerlink" title="提交代码"></a>提交代码</h3><pre><code><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span> git add .</span><br><span class="line"><span class="variable">$</span> git commit <span class="literal">-m</span> <span class="string">&quot;fix：xxx&quot;</span></span><br></pre></td></tr></table></figure>
+<h3 id="提交代码"><a href="#提交代码" class="headerlink" title="提交代码"></a>提交代码</h3><pre><code><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">$ git add <span class="token punctuation">.</span>
+$ git commit <span class="token operator">-</span>m <span class="token string">"fix：xxx"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </code></pre>
-<h3 id="推送到远程"><a href="#推送到远程" class="headerlink" title="推送到远程"></a>推送到远程</h3><pre><code><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span> git push <span class="literal">-u</span> origin bugfix/xxx</span><br></pre></td></tr></table></figure>
+<h3 id="推送到远程"><a href="#推送到远程" class="headerlink" title="推送到远程"></a>推送到远程</h3><pre><code><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">$ git push <span class="token operator">-</span>u origin bugfix<span class="token operator">/</span>xxx<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </code></pre>
 <h3 id="创建PR"><a href="#创建PR" class="headerlink" title="创建PR"></a>创建PR</h3><ul>
 <li>GitHub仓库上方 <code>Compare &amp; pull request</code> 按钮，创建一个PR</li>

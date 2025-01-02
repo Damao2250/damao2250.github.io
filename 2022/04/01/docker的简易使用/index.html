@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
 </head>
 
 
@@ -409,7 +409,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    789
+                    781
                 </div>
                 
 
@@ -441,50 +441,71 @@
             <div id="articleContent">
                 <h1 id="在CentOS上使用Docker"><a href="#在CentOS上使用Docker" class="headerlink" title="在CentOS上使用Docker"></a>在CentOS上使用Docker</h1><h2 id="设置仓库"><a href="#设置仓库" class="headerlink" title="设置仓库"></a>设置仓库</h2><ul>
 <li>在新主机上首次安装 Docker Engine-Community 之前，需要设置 Docker 仓库。之后，您可以从仓库安装和更新 Docker。</li>
-<li>安装所需的软件包。yum-utils 提供了 yum-config-manager ，并且 device mapper 存储驱动程序需要 device-mapper-persistent-data 和 lvm2。<figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span> sudo yum install <span class="literal">-y</span> yum<span class="literal">-utils</span> \</span><br><span class="line">  device<span class="literal">-mapper-persistent-data</span> \</span><br><span class="line">  lvm2</span><br></pre></td></tr></table></figure></li>
-<li>设置完之后，根据需求指定稳定的仓库地址（建议使用国内源）<figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 官方源地址</span></span><br><span class="line"><span class="variable">$</span> sudo yum<span class="literal">-config-manager</span> \</span><br><span class="line">    <span class="literal">--add-repo</span> \</span><br><span class="line">    https://download.docker.com/linux/centos/docker<span class="literal">-ce</span>.repo</span><br><span class="line"></span><br><span class="line"><span class="comment"># 国内源地址</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 阿里云</span></span><br><span class="line"><span class="variable">$</span> sudo yum<span class="literal">-config-manager</span> \</span><br><span class="line">    <span class="literal">--add-repo</span> \</span><br><span class="line">    http://mirrors.aliyun.com/docker<span class="literal">-ce</span>/linux/centos/docker<span class="literal">-ce</span>.repo</span><br><span class="line">    </span><br><span class="line"><span class="comment"># 清华大学源</span></span><br><span class="line"><span class="variable">$</span> sudo yum<span class="literal">-config-manager</span> \</span><br><span class="line">    <span class="literal">--add-repo</span> \</span><br><span class="line">    https://mirrors.tuna.tsinghua.edu.cn/docker<span class="literal">-ce</span>/linux/centos/docker<span class="literal">-ce</span>.repo</span><br></pre></td></tr></table></figure></li>
+<li>安装所需的软件包。yum-utils 提供了 yum-config-manager ，并且 device mapper 存储驱动程序需要 device-mapper-persistent-data 和 lvm2。<pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">$ sudo yum install -y yum-utils \
+  device-mapper-persistent-data \
+  lvm2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+<li>设置完之后，根据需求指定稳定的仓库地址（建议使用国内源）<pre class="line-numbers language-ps" data-language="ps"><code class="language-ps"># 官方源地址
+$ sudo yum-config-manager \
+    --add-repo \
+    https:&#x2F;&#x2F;download.docker.com&#x2F;linux&#x2F;centos&#x2F;docker-ce.repo
+
+# 国内源地址
+
+# 阿里云
+$ sudo yum-config-manager \
+    --add-repo \
+    http:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;docker-ce&#x2F;linux&#x2F;centos&#x2F;docker-ce.repo
+    
+# 清华大学源
+$ sudo yum-config-manager \
+    --add-repo \
+    https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;docker-ce&#x2F;linux&#x2F;centos&#x2F;docker-ce.repo<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
 </ul>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 按安装最新版docker</span></span><br><span class="line"><span class="variable">$</span> sudo yum install docker<span class="literal">-ce</span> docker<span class="literal">-ce-cli</span> containerd.io</span><br></pre></td></tr></table></figure>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><pre class="line-numbers language-ps" data-language="ps"><code class="language-ps"># 按安装最新版docker
+$ sudo yum install docker-ce docker-ce-cli containerd.io<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<h2 id="启动docker"><a href="#启动docker" class="headerlink" title="启动docker"></a>启动docker</h2><figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启动 Docker (启动守护进程)</span></span><br><span class="line"><span class="variable">$</span> sudo systemctl <span class="built_in">start</span> docker</span><br></pre></td></tr></table></figure>
+<h2 id="启动docker"><a href="#启动docker" class="headerlink" title="启动docker"></a>启动docker</h2><pre class="line-numbers language-ps" data-language="ps"><code class="language-ps"># 启动 Docker (启动守护进程)
+$ sudo systemctl start docker<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<h2 id="查看容器"><a href="#查看容器" class="headerlink" title="查看容器"></a>查看容器</h2><figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span> docker <span class="built_in">ps</span></span><br><span class="line"><span class="comment"># or 查看所有</span></span><br><span class="line"><span class="variable">$</span> docker <span class="built_in">ps</span> <span class="literal">-a</span></span><br></pre></td></tr></table></figure>
+<h2 id="查看容器"><a href="#查看容器" class="headerlink" title="查看容器"></a>查看容器</h2><pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">$ docker ps
+# or 查看所有
+$ docker ps -a<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="启动一个容器"><a href="#启动一个容器" class="headerlink" title="启动一个容器"></a>启动一个容器</h2><figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span> docker <span class="built_in">start</span> &lt;CONTAINER ID&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="启动一个容器"><a href="#启动一个容器" class="headerlink" title="启动一个容器"></a>启动一个容器</h2><pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">$ docker start &lt;CONTAINER ID&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h2 id="停止一个容器"><a href="#停止一个容器" class="headerlink" title="停止一个容器"></a>停止一个容器</h2><figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span> docker stop &lt;CONTAINER ID&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="停止一个容器"><a href="#停止一个容器" class="headerlink" title="停止一个容器"></a>停止一个容器</h2><pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">$ docker stop &lt;CONTAINER ID&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h2 id="重启一个容器"><a href="#重启一个容器" class="headerlink" title="重启一个容器"></a>重启一个容器</h2><figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span> docker restart &lt;CONTAINER ID&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="重启一个容器"><a href="#重启一个容器" class="headerlink" title="重启一个容器"></a>重启一个容器</h2><pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">$ docker restart &lt;CONTAINER ID&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h2 id="进入容器"><a href="#进入容器" class="headerlink" title="进入容器"></a>进入容器</h2><figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 退出时容器停止</span></span><br><span class="line"><span class="variable">$</span> docker attach &lt;CONTAINER ID&gt;</span><br><span class="line"><span class="comment"># 退出时容器不停止（推荐）</span></span><br><span class="line"><span class="variable">$</span> docker exec &lt;CONTAINER ID&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="进入容器"><a href="#进入容器" class="headerlink" title="进入容器"></a>进入容器</h2><pre class="line-numbers language-ps" data-language="ps"><code class="language-ps"># 退出时容器停止
+$ docker attach &lt;CONTAINER ID&gt;
+# 退出时容器不停止（推荐）
+$ docker exec &lt;CONTAINER ID&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="退出容器"><a href="#退出容器" class="headerlink" title="退出容器"></a>退出容器</h2><figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span> <span class="keyword">exit</span></span><br></pre></td></tr></table></figure>
+<h2 id="退出容器"><a href="#退出容器" class="headerlink" title="退出容器"></a>退出容器</h2><pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">$ exit<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h2 id="卸载-docker"><a href="#卸载-docker" class="headerlink" title="卸载 docker"></a>卸载 docker</h2><ul>
-<li>删除安装包<figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span> yum remove docker<span class="literal">-ce</span></span><br></pre></td></tr></table></figure></li>
-<li>删除镜像、容器、配置文件等内容<figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span> <span class="built_in">rm</span> <span class="literal">-rf</span> /var/lib/docker</span><br></pre></td></tr></table></figure></li>
+<li>删除安装包<pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">$ yum remove docker-ce<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>删除镜像、容器、配置文件等内容<pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">$ rm -rf &#x2F;var&#x2F;lib&#x2F;docker<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ul>
 <h2 id="使用docker安装nginx"><a href="#使用docker安装nginx" class="headerlink" title="使用docker安装nginx"></a>使用docker安装nginx</h2><ul>
 <li><p>获取nginx镜像列表</p>
-<figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span> docker search nginx</span><br></pre></td></tr></table></figure>
-</li>
+<pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">$ docker search nginx<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li><p>拉取nginx镜像到本地，使用第一个默认的’nginx’</p>
-<figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span> docker pull nginx</span><br></pre></td></tr></table></figure>
-</li>
+<pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">$ docker pull nginx<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li><p>查看拉取到本地的nginx镜像</p>
-<figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span> docker images nginx</span><br></pre></td></tr></table></figure>
-</li>
+<pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">$ docker images nginx<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 <li><p>创建并启动nginx容器</p>
 <ul>
 <li>-d 指定容器以守护进程方式在后台运行</li>
 <li>–name 指定容器名称，此处我指定的是docker_nginx</li>
 <li>-p 指定主机与容器内部的端口号映射关系，格式 -p</li>
 <li><code>[宿主机端口号]:[容器内部端口]</code>，此处使用主机80端口，映射容器80端口</li>
-<li>1276 是nginx的镜像IMAGE ID前4位<figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span> docker run <span class="literal">-d</span> <span class="literal">--name</span> docker_nginx <span class="literal">-p</span> <span class="number">80</span>:<span class="number">80</span> <span class="number">1276</span></span><br></pre></td></tr></table></figure></li>
+<li>1276 是nginx的镜像IMAGE ID前4位<pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">$ docker run -d --name docker_nginx -p 80:80 1276<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ul>
 </li>
 <li><p>查看到正在运行的容器</p>
-<figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span> docker <span class="built_in">ps</span></span><br></pre></td></tr></table></figure></li>
+<pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">$ docker ps<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ul>
 <h3 id="修改nginx的配置文件"><a href="#修改nginx的配置文件" class="headerlink" title="修改nginx的配置文件"></a>修改nginx的配置文件</h3><ul>
 <li>1、每次都进入到nginx容器内部修改<ul>
@@ -492,13 +513,14 @@
 <li>exec 命令代表附着到运行着的容器内部</li>
 <li>-it 是 -i 与 -t两个参数合并写法，-i -t 标志着为我们指定的容器创建了TTY并捕捉了STDIN</li>
 <li>xxxx 是我们要进入的容器Id的前4位</li>
-<li>&#x2F;bin&#x2F;bash 指定了执行命令的shell</li>
+<li>/bin/bash 指定了执行命令的shell</li>
 </ul>
 </li>
-<li>进入到nginx容器内部后，我们可以cd &#x2F;etc&#x2F;nginx，可以看到相关的nginx配置文件都在&#x2F;etc&#x2F;nginx目录下</li>
-<li>而nginx容器内的默认首页html文件目录为&#x2F;usr&#x2F;share&#x2F;nginx&#x2F;html</li>
-<li>日志文件位于&#x2F;var&#x2F;log&#x2F;nginx</li>
-<li>nginx容器内默认没有vim编辑器<figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span> apt<span class="literal">-get</span> update</span><br><span class="line"><span class="variable">$</span> apt<span class="literal">-get</span> install vim</span><br></pre></td></tr></table></figure></li>
+<li>进入到nginx容器内部后，我们可以cd /etc/nginx，可以看到相关的nginx配置文件都在/etc/nginx目录下</li>
+<li>而nginx容器内的默认首页html文件目录为/usr/share/nginx/html</li>
+<li>日志文件位于/var/log/nginx</li>
+<li>nginx容器内默认没有vim编辑器<pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">$ apt-get update
+$ apt-get install vim<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
 <li>容器内编辑nginx.conf配置文件</li>
 <li>执行exit命令我们可以从容器内部退出</li>
 </ul>
