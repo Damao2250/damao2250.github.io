@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
 </head>
 
 
@@ -405,7 +405,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.8k
+                    1.9k
                 </div>
                 
 
@@ -445,32 +445,15 @@
 <li><p>帮助我们将界面分成了各个独立的小块，每一个块就是组件，这些组件之间可以组合、嵌套，构成整体页面</p>
 </li>
 <li><p>React 类组件使用一个名为 render() 的方法或者函数组件return，接收输入的数据并返回需要展示的内容</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">class</span> <span class="token class-name">HelloMessage</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token punctuation">&#123;</span>
-  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">return</span> <span class="token punctuation">(</span>
-      <span class="token operator">&lt;</span>div<span class="token operator">></span>
-        Hello <span class="token punctuation">&#123;</span><span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span>name<span class="token punctuation">&#125;</span>
-      <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
-    <span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span>
-
-ReactDOM<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span>
-  <span class="token operator">&lt;</span>HelloMessage name<span class="token operator">=</span><span class="token string">"Taylor"</span> <span class="token operator">/</span><span class="token operator">></span><span class="token punctuation">,</span>
-  document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'hello-example'</span><span class="token punctuation">)</span>
-<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">HelloMessage</span> <span class="keyword">extends</span> <span class="title class_ inherited__">React.Component</span> &#123;</span><br><span class="line">  <span class="title function_">render</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        Hello &#123;this.props.name&#125;</span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title class_">ReactDOM</span>.<span class="title function_">render</span>(</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">HelloMessage</span> <span class="attr">name</span>=<span class="string">&quot;Taylor&quot;</span> /&gt;</span></span>,</span><br><span class="line">  <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;hello-example&#x27;</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure></li>
+</ul>
 <h2 id="二、特性"><a href="#二、特性" class="headerlink" title="二、特性"></a>二、特性</h2><p>React特性有很多，如：</p>
-</li>
-<li><p>JSX语法</p>
-</li>
-<li><p>单向数据绑定</p>
-</li>
-<li><p>虚拟DOM</p>
-</li>
-<li><p>声明式编程</p>
-</li>
-<li><p>Component</p>
-</li>
+<ul>
+<li>JSX语法</li>
+<li>单向数据绑定</li>
+<li>虚拟DOM</li>
+<li>声明式编程</li>
+<li>Component</li>
 </ul>
 <p>着重介绍下声明式编程及Component</p>
 <h3 id="声明式编程"><a href="#声明式编程" class="headerlink" title="声明式编程"></a>声明式编程</h3><ul>
@@ -481,24 +464,9 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">ren
 <li><p>如实现一个标记的地图：</p>
 </li>
 <li><p>通过命令式创建地图、创建标记、以及在地图上添加的标记的步骤如下：</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 创建地图</span>
-<span class="token keyword">const</span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map<span class="token punctuation">.</span>map</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'map'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span>
-    zoom<span class="token operator">:</span> <span class="token number">4</span><span class="token punctuation">,</span>
-    center<span class="token operator">:</span> <span class="token punctuation">&#123;</span>lat<span class="token punctuation">,</span>lng<span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment">// 创建标记</span>
-<span class="token keyword">const</span> marker <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map<span class="token punctuation">.</span>marker</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
-    position<span class="token operator">:</span> <span class="token punctuation">&#123;</span>lat<span class="token punctuation">,</span> lng<span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-    title<span class="token operator">:</span> <span class="token string">'Hello Marker'</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment">// 地图上添加标记</span>
-marker<span class="token punctuation">.</span><span class="token function">setMap</span><span class="token punctuation">(</span>map<span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建地图</span></span><br><span class="line"><span class="keyword">const</span> map = <span class="keyword">new</span> <span class="title class_">Map</span>.<span class="title function_">map</span>(<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;map&#x27;</span>), &#123;</span><br><span class="line">    <span class="attr">zoom</span>: <span class="number">4</span>,</span><br><span class="line">    <span class="attr">center</span>: &#123;lat,lng&#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建标记</span></span><br><span class="line"><span class="keyword">const</span> marker = <span class="keyword">new</span> <span class="title class_">Map</span>.<span class="title function_">marker</span>(&#123;</span><br><span class="line">    <span class="attr">position</span>: &#123;lat, lng&#125;,</span><br><span class="line">    <span class="attr">title</span>: <span class="string">&#x27;Hello Marker&#x27;</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 地图上添加标记</span></span><br><span class="line">marker.<span class="title function_">setMap</span>(map);</span><br></pre></td></tr></table></figure>
 <p>而用React实现上述功能则如下：</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token operator">&lt;</span>Map zoom<span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token number">4</span><span class="token punctuation">&#125;</span> center<span class="token operator">=</span><span class="token punctuation">&#123;</span>lat<span class="token punctuation">,</span> lng<span class="token punctuation">&#125;</span><span class="token operator">></span>
-    <span class="token operator">&lt;</span>Marker position<span class="token operator">=</span><span class="token punctuation">&#123;</span>lat<span class="token punctuation">,</span> lng<span class="token punctuation">&#125;</span> title<span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token string">'Hello Marker'</span><span class="token punctuation">&#125;</span><span class="token operator">/</span><span class="token operator">></span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>Map<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="title class_">Map</span> zoom=&#123;<span class="number">4</span>&#125; center=&#123;lat, lng&#125;&gt;</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">Marker</span> <span class="attr">position</span>=<span class="string">&#123;lat,</span> <span class="attr">lng</span>&#125; <span class="attr">title</span>=<span class="string">&#123;</span>&#x27;<span class="attr">Hello</span> <span class="attr">Marker</span>&#x27;&#125;/&gt;</span></span></span><br><span class="line">&lt;/<span class="title class_">Map</span>&gt;</span><br></pre></td></tr></table></figure>
 <p>声明式编程方式使得React组件很容易使用，最终的代码简单易于维护</p>
 </li>
 </ul>
@@ -508,31 +476,9 @@ marker<span class="token punctuation">.</span><span class="token function">setMa
 <li><p>组件可以是一个函数或者是一个类，接受数据输入，处理它并返回在UI中呈现的React元素</p>
 </li>
 <li><p>函数式组件（无状态组件）如下：</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">Header</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">return</span><span class="token punctuation">(</span>
-        <span class="token operator">&lt;</span>Jumbotron style<span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span>backgroundColor<span class="token operator">:</span><span class="token string">'orange'</span><span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span><span class="token operator">></span>
-            <span class="token operator">&lt;</span>h1<span class="token operator">></span><span class="token constant">TODO</span> App<span class="token operator">&lt;</span><span class="token operator">/</span>h1<span class="token operator">></span>
-        <span class="token operator">&lt;</span><span class="token operator">/</span>Jumbotron<span class="token operator">></span>
-    <span class="token punctuation">)</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">Header</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">    <span class="keyword">return</span>(</span><br><span class="line">        <span class="language-xml"><span class="tag">&lt;<span class="name">Jumbotron</span> <span class="attr">style</span>=<span class="string">&#123;&#123;backgroundColor:</span>&#x27;<span class="attr">orange</span>&#x27;&#125;&#125;&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">h1</span>&gt;</span>TODO App<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">Jumbotron</span>&gt;</span></span></span><br><span class="line">    )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li><p>类组件（有状态组件）如下：</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">class</span> <span class="token class-name">Dashboard</span> <span class="token keyword">extends</span> <span class="token class-name">React<span class="token punctuation">.</span>Component</span> <span class="token punctuation">&#123;</span>
-    <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-        <span class="token keyword">super</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-        <span class="token keyword">this</span><span class="token punctuation">.</span>state <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
-
-        <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">&#125;</span>
-    <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">return</span> <span class="token punctuation">(</span>
-            <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"dashboard"</span><span class="token operator">></span> 
-                <span class="token operator">&lt;</span>ToDoForm <span class="token operator">/</span><span class="token operator">></span>
-                <span class="token operator">&lt;</span>ToDolist <span class="token operator">/</span><span class="token operator">></span>
-            <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
-        <span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Dashboard</span> <span class="keyword">extends</span> <span class="title class_ inherited__">React.Component</span> &#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params">props</span>)&#123;</span><br><span class="line">        <span class="variable language_">super</span>(props);</span><br><span class="line"></span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">state</span> = &#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_">render</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> (</span><br><span class="line">            <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">className</span>=<span class="string">&quot;dashboard&quot;</span>&gt;</span> </span></span><br><span class="line"><span class="language-xml">                <span class="tag">&lt;<span class="name">ToDoForm</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">                <span class="tag">&lt;<span class="name">ToDolist</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>一个组件该有的特点如下：</p>
 </li>
 <li><p>可组合：个组件易于和其它组件一起使用，或者嵌套在另一个组件内部</p>
@@ -540,35 +486,30 @@ marker<span class="token punctuation">.</span><span class="token function">setMa
 <li><p>可重用：每个组件都是具有独立功能的，它可以被使用在多个UI场景</p>
 </li>
 <li><p>可维护：每个小的组件仅仅包含自身的逻辑，更容易被理解和维护</p>
-<h2 id="三、优势"><a href="#三、优势" class="headerlink" title="三、优势"></a>三、优势</h2></li>
-<li><p>通过上面的初步了解，可以感受到React存在的优势：</p>
-<ul>
+</li>
+</ul>
+<h2 id="三、优势"><a href="#三、优势" class="headerlink" title="三、优势"></a>三、优势</h2><ul>
+<li>通过上面的初步了解，可以感受到React存在的优势：<ul>
 <li>高效灵活</li>
 <li>声明式的设计，简单使用</li>
 <li>组件式开发，提高代码复用率</li>
-<li>单向响应的数据流会比双向绑定的更安全，速度更快<h1 id="Real-DOM-与-Virtual-DOM-的区别？有何优缺点？"><a href="#Real-DOM-与-Virtual-DOM-的区别？有何优缺点？" class="headerlink" title="Real DOM 与 Virtual DOM 的区别？有何优缺点？"></a>Real DOM 与 Virtual DOM 的区别？有何优缺点？</h1><h2 id="一、是什么-1"><a href="#一、是什么-1" class="headerlink" title="一、是什么"></a>一、是什么</h2></li>
+<li>单向响应的数据流会比双向绑定的更安全，速度更快</li>
 </ul>
 </li>
+</ul>
+<h1 id="Real-DOM-与-Virtual-DOM-的区别？有何优缺点？"><a href="#Real-DOM-与-Virtual-DOM-的区别？有何优缺点？" class="headerlink" title="Real DOM 与 Virtual DOM 的区别？有何优缺点？"></a>Real DOM 与 Virtual DOM 的区别？有何优缺点？</h1><h2 id="一、是什么-1"><a href="#一、是什么-1" class="headerlink" title="一、是什么"></a>一、是什么</h2><ul>
 <li><p>Real DOM，真实DOM， 意思为文档对象模型，是一个结构化文本的抽象，在页面渲染出的每一个结点都是一个真实DOM结构，如下：</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"root"</span><span class="token operator">></span>
-  <span class="token operator">&lt;</span>h1<span class="token operator">></span>Hello world<span class="token operator">&lt;</span><span class="token operator">/</span>h1<span class="token operator">></span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">&quot;root&quot;</span>&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello world<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></li>
 <li><p>Virtual Dom，本质上是以 JavaScript 对象形式存在的对 DOM 的描述</p>
 </li>
 <li><p>创建虚拟DOM目的就是为了更好将虚拟的节点渲染到页面视图中，虚拟DOM对象的节点与真实DOM的属性一一照应</p>
 </li>
 <li><p>在React中，JSX是其一大特性，可以让你在JS中通过使用XML的方式去直接声明界面的DOM结构</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> vDom <span class="token operator">=</span> <span class="token operator">&lt;</span>h1<span class="token operator">></span>Hello World<span class="token operator">&lt;</span><span class="token operator">/</span>h1<span class="token operator">></span> <span class="token comment">// 创建h1标签，右边千万不能加引号</span>
-<span class="token keyword">const</span> root <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'root'</span><span class="token punctuation">)</span> <span class="token comment">// 找到&lt;div id="root">&lt;/div>节点</span>
-ReactDOM<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span>vDom<span class="token punctuation">,</span> root<span class="token punctuation">)</span> <span class="token comment">// 把创建的h1标签渲染到root节点上</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> vDom = <span class="language-xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello World<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span> <span class="comment">// 创建h1标签，右边千万不能加引号</span></span><br><span class="line"><span class="keyword">const</span> root = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;root&#x27;</span>) <span class="comment">// 找到&lt;div id=&quot;root&quot;&gt;&lt;/div&gt;节点</span></span><br><span class="line"><span class="title class_">ReactDOM</span>.<span class="title function_">render</span>(vDom, root) <span class="comment">// 把创建的h1标签渲染到root节点上</span></span><br></pre></td></tr></table></figure></li>
 <li><p>上述中，ReactDOM.render()用于将你创建好的虚拟DOM节点插入到某个真实节点上，并渲染到页面上</p>
 </li>
 <li><p>JSX实际是一种语法糖，在使用过程中会被babel进行编译转化成JS代码，上述VDOM转化为如下：</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> vDom <span class="token operator">=</span> React<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span>
-  <span class="token string">'h1'</span>， 
-  <span class="token punctuation">&#123;</span> className<span class="token operator">:</span> <span class="token string">'hClass'</span><span class="token punctuation">,</span> id<span class="token operator">:</span> <span class="token string">'hId'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-  <span class="token string">'hello world'</span>
-<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> vDom = <span class="title class_">React</span>.<span class="title function_">createElement</span>(</span><br><span class="line">  <span class="string">&#x27;h1&#x27;</span>， </span><br><span class="line">  &#123; <span class="attr">className</span>: <span class="string">&#x27;hClass&#x27;</span>, <span class="attr">id</span>: <span class="string">&#x27;hId&#x27;</span> &#125;,</span><br><span class="line">  <span class="string">&#x27;hello world&#x27;</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure></li>
 <li><p>可以看到，JSX就是为了简化直接调用React.createElement() 方法：</p>
 </li>
 <li><p>第一个参数是标签名，例如h1、span、table…</p>
@@ -614,11 +555,11 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">ren
 </li>
 <li>缺点：<ul>
 <li>在一些性能要求极高的应用中虚拟 DOM 无法进行针对性的极致优化</li>
-<li>首次渲染大量DOM时，由于多了一层虚拟DOM的计算，速度比正常稍慢<h1 id="React生命周期有哪些不同的阶段？每个阶段对应的方法是？"><a href="#React生命周期有哪些不同的阶段？每个阶段对应的方法是？" class="headerlink" title="React生命周期有哪些不同的阶段？每个阶段对应的方法是？"></a>React生命周期有哪些不同的阶段？每个阶段对应的方法是？</h1><h1 id="对State-和-Porps的理解？有何区别？"><a href="#对State-和-Porps的理解？有何区别？" class="headerlink" title="对State 和 Porps的理解？有何区别？"></a>对State 和 Porps的理解？有何区别？</h1><h1 id="super-和-super-props-有何区别？"><a href="#super-和-super-props-有何区别？" class="headerlink" title="super() 和 super(props) 有何区别？"></a>super() 和 super(props) 有何区别？</h1><h1 id="React中的setState执行机制？"><a href="#React中的setState执行机制？" class="headerlink" title="React中的setState执行机制？"></a>React中的setState执行机制？</h1><h1 id="对React的执行机制如何理解？"><a href="#对React的执行机制如何理解？" class="headerlink" title="对React的执行机制如何理解？"></a>对React的执行机制如何理解？</h1><h1 id="React事件绑定方式有哪些？有何区别？"><a href="#React事件绑定方式有哪些？有何区别？" class="headerlink" title="React事件绑定方式有哪些？有何区别？"></a>React事件绑定方式有哪些？有何区别？</h1><h1 id="React构建组件的方式有哪些？有何区别？"><a href="#React构建组件的方式有哪些？有何区别？" class="headerlink" title="React构建组件的方式有哪些？有何区别？"></a>React构建组件的方式有哪些？有何区别？</h1><h1 id="React中组件通信方式有哪些？"><a href="#React中组件通信方式有哪些？" class="headerlink" title="React中组件通信方式有哪些？"></a>React中组件通信方式有哪些？</h1><h1 id="React中的key有什么作用？"><a href="#React中的key有什么作用？" class="headerlink" title="React中的key有什么作用？"></a>React中的key有什么作用？</h1><h1 id="对React-refs的理解？有何应用场景？"><a href="#对React-refs的理解？有何应用场景？" class="headerlink" title="对React refs的理解？有何应用场景？"></a>对React refs的理解？有何应用场景？</h1><h1 id="对React中类组件和函数组件的理解？有何区别？"><a href="#对React中类组件和函数组件的理解？有何区别？" class="headerlink" title="对React中类组件和函数组件的理解？有何区别？"></a>对React中类组件和函数组件的理解？有何区别？</h1></li>
+<li>首次渲染大量DOM时，由于多了一层虚拟DOM的计算，速度比正常稍慢</li>
 </ul>
 </li>
 </ul>
-<p><a href="#">来源：JS每日一题</a></p>
+<h1 id="React生命周期有哪些不同的阶段？每个阶段对应的方法是？"><a href="#React生命周期有哪些不同的阶段？每个阶段对应的方法是？" class="headerlink" title="React生命周期有哪些不同的阶段？每个阶段对应的方法是？"></a>React生命周期有哪些不同的阶段？每个阶段对应的方法是？</h1><h1 id="对State-和-Porps的理解？有何区别？"><a href="#对State-和-Porps的理解？有何区别？" class="headerlink" title="对State 和 Porps的理解？有何区别？"></a>对State 和 Porps的理解？有何区别？</h1><h1 id="super-和-super-props-有何区别？"><a href="#super-和-super-props-有何区别？" class="headerlink" title="super() 和 super(props) 有何区别？"></a>super() 和 super(props) 有何区别？</h1><h1 id="React中的setState执行机制？"><a href="#React中的setState执行机制？" class="headerlink" title="React中的setState执行机制？"></a>React中的setState执行机制？</h1><h1 id="对React的执行机制如何理解？"><a href="#对React的执行机制如何理解？" class="headerlink" title="对React的执行机制如何理解？"></a>对React的执行机制如何理解？</h1><h1 id="React事件绑定方式有哪些？有何区别？"><a href="#React事件绑定方式有哪些？有何区别？" class="headerlink" title="React事件绑定方式有哪些？有何区别？"></a>React事件绑定方式有哪些？有何区别？</h1><h1 id="React构建组件的方式有哪些？有何区别？"><a href="#React构建组件的方式有哪些？有何区别？" class="headerlink" title="React构建组件的方式有哪些？有何区别？"></a>React构建组件的方式有哪些？有何区别？</h1><h1 id="React中组件通信方式有哪些？"><a href="#React中组件通信方式有哪些？" class="headerlink" title="React中组件通信方式有哪些？"></a>React中组件通信方式有哪些？</h1><h1 id="React中的key有什么作用？"><a href="#React中的key有什么作用？" class="headerlink" title="React中的key有什么作用？"></a>React中的key有什么作用？</h1><h1 id="对React-refs的理解？有何应用场景？"><a href="#对React-refs的理解？有何应用场景？" class="headerlink" title="对React refs的理解？有何应用场景？"></a>对React refs的理解？有何应用场景？</h1><h1 id="对React中类组件和函数组件的理解？有何区别？"><a href="#对React中类组件和函数组件的理解？有何区别？" class="headerlink" title="对React中类组件和函数组件的理解？有何区别？"></a>对React中类组件和函数组件的理解？有何区别？</h1><p><a href="#">来源：JS每日一题</a></p>
 
                 
             </div>
@@ -1045,7 +986,7 @@ ReactDOM<span class="token punctuation">.</span><span class="token function">ren
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2024</span>
+                <span id="year">2019-2025</span>
             
             <span id="year">2019</span>
             <a href="https://github.com/damao2250" target="_blank">Damao</a>

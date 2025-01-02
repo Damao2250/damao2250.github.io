@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
 </head>
 
 
@@ -409,14 +409,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    444
+                    450
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -439,142 +439,19 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="for循环-for-in循环"><a href="#for循环-for-in循环" class="headerlink" title="for循环/for-in循环"></a>for循环/for-in循环</h2><ul>
-<li><code>for</code>/<code>for-in</code> 循环可以使用 <code>break</code>/<code>continue</code> 跳出循环</li>
+                <h2 id="for循环-for-in循环"><a href="#for循环-for-in循环" class="headerlink" title="for循环&#x2F;for-in循环"></a>for循环&#x2F;for-in循环</h2><ul>
+<li><code>for</code>&#x2F;<code>for-in</code> 循环可以使用 <code>break</code>&#x2F;<code>continue</code> 跳出循环</li>
 <li><code>break</code> 是终止当前循环</li>
-<li><code>continue</code> 是结束本次循环，后面的循环会继续执行<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">let</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-  <span class="token keyword">if</span><span class="token punctuation">(</span>i <span class="token operator">===</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token keyword">break</span><span class="token punctuation">;</span> <span class="token comment">// break或continue</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
-<span class="token comment">// break 输出（）</span>
-<span class="token number">1</span>
-<span class="token number">2</span>
-<span class="token comment">// continue 输出</span>
-<span class="token number">1</span>
-<span class="token number">2</span>
-<span class="token number">4</span>
-<span class="token number">5</span>
-
-<span class="token keyword">let</span> obj <span class="token operator">=</span> <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'whh'</span><span class="token punctuation">,</span> age<span class="token operator">:</span> <span class="token string">'24'</span><span class="token punctuation">,</span> sex<span class="token operator">:</span> <span class="token string">'male'</span> <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
-<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">let</span> key <span class="token keyword">in</span> obj<span class="token punctuation">)</span><span class="token punctuation">&#123;</span>
-  <span class="token keyword">if</span><span class="token punctuation">(</span>key <span class="token operator">===</span> <span class="token string">'age'</span><span class="token punctuation">)</span> <span class="token keyword">continue</span><span class="token punctuation">;</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> obj<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
-<span class="token comment">// 输出</span>
-name whh
-sex male<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><code>continue</code> 是结束本次循环，后面的循环会继续执行<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr.<span class="property">length</span>; i++)&#123;</span><br><span class="line">  <span class="keyword">if</span>(i === <span class="number">2</span>) <span class="keyword">break</span>; <span class="comment">// break或continue</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(arr[i]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// break 输出（）</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="comment">// continue 输出</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">5</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> obj = &#123; <span class="attr">name</span>: <span class="string">&#x27;whh&#x27;</span>, <span class="attr">age</span>: <span class="string">&#x27;24&#x27;</span>, <span class="attr">sex</span>: <span class="string">&#x27;male&#x27;</span> &#125;;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> key <span class="keyword">in</span> obj)&#123;</span><br><span class="line">  <span class="keyword">if</span>(key === <span class="string">&#x27;age&#x27;</span>) <span class="keyword">continue</span>;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(key, obj[key]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 输出</span></span><br><span class="line">name whh</span><br><span class="line">sex male</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h2 id="forEach循环"><a href="#forEach循环" class="headerlink" title="forEach循环"></a>forEach循环</h2><ul>
 <li><p>利用 <code>return</code> 在特定时机跳出当前循环，后面的循环会继续执行</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">let</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-arr<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">item</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-  <span class="token keyword">if</span><span class="token punctuation">(</span>item <span class="token operator">===</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">return</span><span class="token punctuation">;</span>
-  <span class="token punctuation">&#125;</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
-<span class="token comment">// 输出</span>
-<span class="token number">1</span>
-<span class="token number">3</span>
-<span class="token number">4</span>
-<span class="token number">5</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line">arr.<span class="title function_">forEach</span>(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span>(item === <span class="number">2</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(item);</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 输出</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">5</span></span><br></pre></td></tr></table></figure>
+</li>
 <li><p>利用 <code>try…catch</code> 在特定时机抛出异常达到跳出整个循环的效果</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">let</span> arr <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">,</span> key<span class="token punctuation">;</span>
-<span class="token keyword">try</span> <span class="token punctuation">&#123;</span>
-  arr<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">item</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span>item <span class="token operator">===</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-      key <span class="token operator">=</span> item<span class="token punctuation">;</span> <span class="token comment">// 记录跳出循环时机</span>
-      <span class="token keyword">throw</span> <span class="token function">Error</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
-<span class="token punctuation">&#125;</span> <span class="token keyword">catch</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-  <span class="token comment">// 跳出循环后要做的操作</span>
-  <span class="token operator">...</span>
-<span class="token punctuation">&#125;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'跳出循环时机：'</span> <span class="token operator">+</span> key<span class="token punctuation">)</span><span class="token punctuation">;</span>
- 
-<span class="token comment">// 结果</span>
-<span class="token number">1</span>
-跳出循环时机：<span class="token number">2</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>], key;</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  arr.<span class="title function_">forEach</span>(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(item === <span class="number">2</span>) &#123;</span><br><span class="line">      key = item; <span class="comment">// 记录跳出循环时机</span></span><br><span class="line">      <span class="keyword">throw</span> <span class="title class_">Error</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(item);</span><br><span class="line">  &#125;)</span><br><span class="line">&#125; <span class="keyword">catch</span>(error) &#123;</span><br><span class="line">  <span class="comment">// 跳出循环后要做的操作</span></span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;跳出循环时机：&#x27;</span> + key);</span><br><span class="line"> </span><br><span class="line"><span class="comment">// 结果</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line">跳出循环时机：<span class="number">2</span></span><br></pre></td></tr></table></figure></li>
 </ul>
-<h2 id="汇总"><a href="#汇总" class="headerlink" title="汇总"></a>汇总</h2><table>
-<thead>
-<tr>
-<th align="left">序号</th>
-<th>方法</th>
-<th>break</th>
-<th>continue</th>
-<th>return</th>
-<th>return true</th>
-<th>return false</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">1</td>
-<td>for循环</td>
-<td>成功</td>
-<td>跳出本次循环</td>
-<td>不合法</td>
-<td>不合法</td>
-<td>不合法</td>
-</tr>
-<tr>
-<td align="left">2</td>
-<td>Array.forEach()</td>
-<td>不合法</td>
-<td>不合法</td>
-<td>跳出本次循环</td>
-<td>跳出本次循环</td>
-<td>跳出本次循环</td>
-</tr>
-<tr>
-<td align="left">3</td>
-<td>for…in</td>
-<td>成功</td>
-<td>跳出本次循环</td>
-<td>不合法</td>
-<td>不合法</td>
-<td>不合法</td>
-</tr>
-<tr>
-<td align="left">4</td>
-<td>Array.map()</td>
-<td>不合法</td>
-<td>不合法</td>
-<td>跳出本次循环</td>
-<td>跳出本次循环</td>
-<td>跳出本次循环</td>
-</tr>
-<tr>
-<td align="left">5</td>
-<td>Array.some()</td>
-<td>不合法</td>
-<td>不合法</td>
-<td>跳出本次循环</td>
-<td>成功</td>
-<td>跳出本次循环</td>
-</tr>
-<tr>
-<td align="left">6</td>
-<td>Array.every()</td>
-<td>不合法</td>
-<td>不合法</td>
-<td>成功</td>
-<td>跳出本次循环</td>
-<td>成功</td>
-</tr>
-<tr>
-<td align="left">7</td>
-<td>Array.filter()</td>
-<td>不合法</td>
-<td>不合法</td>
-<td>跳出本次循环</td>
-<td>跳出本次循环</td>
-<td>跳出本次循环</td>
-</tr>
-</tbody></table>
+<h2 id="汇总"><a href="#汇总" class="headerlink" title="汇总"></a>汇总</h2><p>|序号	   |方法	    |break	    |continue	   |return	  |return true|return false|<br>|:—-	|  ——-  |  ——-  |  ——-  |  ——-  |  ——-  |  ——-  |<br>|1	|for循环  |成功  |跳出本次循环|不合法  |不合法  |不合法|<br>|2	|Array.forEach()	|不合法	|不合法	|跳出本次循环	|跳出本次循环	|跳出本次循环|<br>|3	|for…in	|成功	|跳出本次循环	|不合法	|不合法	|不合法|<br>|4	|Array.map()	|不合法	|不合法	|跳出本次循环	|跳出本次循环	|跳出本次循环|<br>|5	|Array.some()	|不合法	|不合法	|跳出本次循环	|成功	|跳出本次循环|<br>|6	|Array.every()	|不合法	|不合法	|成功	|跳出本次循环	|成功|<br>|7	|Array.filter()	|不合法	|不合法	|跳出本次循环	|跳出本次循环	|跳出本次循环|</p>
 
                 
             </div>
@@ -1013,7 +890,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2024</span>
+                <span id="year">2019-2025</span>
             
             <span id="year">2019</span>
             <a href="https://github.com/damao2250" target="_blank">Damao</a>

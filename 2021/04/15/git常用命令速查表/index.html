@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
 </head>
 
 
@@ -405,7 +405,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    687
+                    710
                 </div>
                 
 
@@ -435,255 +435,19 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h2><table>
-<thead>
-<tr>
-<th align="left">Tips</th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">master：</td>
-<td>默认开发分支</td>
-</tr>
-<tr>
-<td align="left">origin：</td>
-<td>默认远程版本库</td>
-</tr>
-</tbody></table>
-<h2 id="创建版本库"><a href="#创建版本库" class="headerlink" title="创建版本库"></a>创建版本库</h2><table>
-<thead>
-<tr>
-<th align="left">创建版本库</th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">$ git clone <url></td>
-<td>#克隆远程版本库</td>
-</tr>
-<tr>
-<td align="left">$ git init</td>
-<td>#初始化本地版本库</td>
-</tr>
-</tbody></table>
-<h2 id="修改和提交"><a href="#修改和提交" class="headerlink" title="修改和提交"></a>修改和提交</h2><table>
-<thead>
-<tr>
-<th align="left">修改和提交</th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">$ git status</td>
-<td>#查看当前修改状况</td>
-</tr>
-<tr>
-<td align="left">$ git diff</td>
-<td>#查看变更的内容</td>
-</tr>
-<tr>
-<td align="left">$ git add .</td>
-<td>#把所有修改的文件添加到缓存（跟踪文件）</td>
-</tr>
-<tr>
-<td align="left">$ git add <file></td>
-<td>#把指定的文件添加到缓存</td>
-</tr>
-<tr>
-<td align="left">$ git mv <old_file> <new_file></td>
-<td>#修改文件名</td>
-</tr>
-<tr>
-<td align="left">$ git rm <file></td>
-<td>#删除文件</td>
-</tr>
-<tr>
-<td align="left">$ git rm –cached <file></td>
-<td>#停止跟踪文件但不删除</td>
-</tr>
-<tr>
-<td align="left">$ git commit -m “message”</td>
-<td>#提交所有更新过的文件</td>
-</tr>
-<tr>
-<td align="left">$ git commit –amend</td>
-<td>#修改最后一次提交</td>
-</tr>
-</tbody></table>
-<h2 id="查看提交历史"><a href="#查看提交历史" class="headerlink" title="查看提交历史"></a>查看提交历史</h2><table>
-<thead>
-<tr>
-<th align="left">查看提交历史</th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">$ git log</td>
-<td>#查看提交历史</td>
-</tr>
-<tr>
-<td align="left">$ git log -p <file></td>
-<td>#查看指定文件提交历史</td>
-</tr>
-<tr>
-<td align="left">$ git blame <file></td>
-<td>#以列表的方式查看指定文件提交历史</td>
-</tr>
-</tbody></table>
-<h2 id="撤销"><a href="#撤销" class="headerlink" title="撤销"></a>撤销</h2><table>
-<thead>
-<tr>
-<th align="left">撤销</th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">$ git reset –hard HEAD</td>
-<td>#撤销工作目录中所有未提交文件的修改内容</td>
-</tr>
-<tr>
-<td align="left">$ git checkout HEAD <file></td>
-<td>#撤销指定未提交文件的修改内容</td>
-</tr>
-<tr>
-<td align="left">$ git revert <commit></td>
-<td>#撤销指定的提交</td>
-</tr>
-</tbody></table>
-<h2 id="分支与标签"><a href="#分支与标签" class="headerlink" title="分支与标签"></a>分支与标签</h2><table>
-<thead>
-<tr>
-<th align="left">分支与标签</th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">$ git branch</td>
-<td>#显示所有本地分支</td>
-</tr>
-<tr>
-<td align="left">$ git branch -r</td>
-<td>#显示所有远程分支</td>
-</tr>
-<tr>
-<td align="left">$ git branch -a</td>
-<td>#显示所有本地和远程分支</td>
-</tr>
-<tr>
-<td align="left">$ git checkout &lt;branch/tag&gt;</td>
-<td>#切换到指定分支或标签</td>
-</tr>
-<tr>
-<td align="left">$ git branch <new_branch></td>
-<td>#创建新分支</td>
-</tr>
-<tr>
-<td align="left">$ git checkout -b <new_branch></td>
-<td>#创建并切换到新分支</td>
-</tr>
-<tr>
-<td align="left">$ git branch -d <branch></td>
-<td>#删除本地分支</td>
-</tr>
-<tr>
-<td align="left">$ git tag</td>
-<td>#显示所有本地标签</td>
-</tr>
-<tr>
-<td align="left">$ git tag <tagname></td>
-<td>#基于最新提交创建标签</td>
-</tr>
-<tr>
-<td align="left">$ git tag -d <tagname></td>
-<td>#删除标签</td>
-</tr>
-</tbody></table>
-<h2 id="合并与衍合"><a href="#合并与衍合" class="headerlink" title="合并与衍合"></a>合并与衍合</h2><table>
-<thead>
-<tr>
-<th align="left">合并与衍合</th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">$ git merge <branch></td>
-<td>#合并指定分支到当前分支</td>
-</tr>
-<tr>
-<td align="left">$ git rebase <branch></td>
-<td>#衍合指定分支到当前分支</td>
-</tr>
-</tbody></table>
-<h2 id="远程操作"><a href="#远程操作" class="headerlink" title="远程操作"></a>远程操作</h2><table>
-<thead>
-<tr>
-<th align="left">远程操作</th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">$ git remote -v</td>
-<td>#查看远程版本库信息</td>
-</tr>
-<tr>
-<td align="left">$ git remote show <remote></td>
-<td>#查看指定远程版本库信息</td>
-</tr>
-<tr>
-<td align="left">$ git remote add <remote> <url></td>
-<td>#添加远程版本库</td>
-</tr>
-<tr>
-<td align="left">$ git fetch <remote></td>
-<td>#从远程库获取代码</td>
-</tr>
-<tr>
-<td align="left">$ git pull <remote> <branch></td>
-<td>#从远程库拉去代码并快速合并</td>
-</tr>
-<tr>
-<td align="left">$ git push <remote> <branch></td>
-<td>#上传代码到远程库并快速合并</td>
-</tr>
-<tr>
-<td align="left">$ git push <remote> -d &lt;branch/tag&gt;</td>
-<td>#删除远程分支或标签</td>
-</tr>
-<tr>
-<td align="left">$ git push –tags</td>
-<td>#上传所有标签</td>
-</tr>
-</tbody></table>
-<h2 id="同步远程已删除的分支"><a href="#同步远程已删除的分支" class="headerlink" title="同步远程已删除的分支"></a>同步远程已删除的分支</h2><table>
-<thead>
-<tr>
-<th align="left">同步远程已删除的分支</th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">$ git branch -a</td>
-<td>#查看本地分支和远程所有分支</td>
-</tr>
-<tr>
-<td align="left">$ git remote show origin</td>
-<td>#查看本地分支和追踪情况</td>
-</tr>
-<tr>
-<td align="left">$ git remote prune origin</td>
-<td>#同步远程已删除分支</td>
-</tr>
-</tbody></table>
-<h2 id="常见指令参数说明"><a href="#常见指令参数说明" class="headerlink" title="常见指令参数说明"></a>常见指令参数说明</h2><pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"><span class="token comment"># 将本地的分支版本上传到远程仓库</span>
-<span class="token comment"># 其中参数 -u 创建了一个上游跟踪连接</span>
-<span class="token comment"># 第一次推送某个新分支到远程仓库时，它用来将本地新分支同步到线上</span>
-
-$ git push <span class="token operator">-</span>u origin master<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                <h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h2><p>|Tips	|        |<br>|:—-	|  ——-  |<br>|master： |默认开发分支	|Head：默认开发分支的指针（快照）|<br>|origin： |默认远程版本库	|Head^：Head的父提交|</p>
+<h2 id="创建版本库"><a href="#创建版本库" class="headerlink" title="创建版本库"></a>创建版本库</h2><p>|创建版本库		|        |<br>|:—-	|  ——-  |<br>|$ git clone <url>	|#克隆远程版本库|<br>|$ git init	|#初始化本地版本库|</p>
+<h2 id="修改和提交"><a href="#修改和提交" class="headerlink" title="修改和提交"></a>修改和提交</h2><p>|修改和提交		|        |<br>|:—-	|  ——-  |<br>|$ git status	|#查看当前修改状况|<br>|$ git diff	|#查看变更的内容|<br>|$ git add .	|#把所有修改的文件添加到缓存（跟踪文件）|<br>|$ git add <file>	|#把指定的文件添加到缓存|<br>|$ git mv <old_file> <new_file>	|#修改文件名|<br>|$ git rm <file>	|#删除文件|<br>|$ git rm –cached <file>	|#停止跟踪文件但不删除|<br>|$ git commit -m “message”	|#提交所有更新过的文件|<br>|$ git commit –amend	|#修改最后一次提交|</p>
+<h2 id="查看提交历史"><a href="#查看提交历史" class="headerlink" title="查看提交历史"></a>查看提交历史</h2><p>|查看提交历史		|        |<br>|:—-	|  ——-  |<br>|$ git log	|#查看提交历史|<br>|$ git log -p <file>	|#查看指定文件提交历史|<br>|$ git blame <file>	|#以列表的方式查看指定文件提交历史|</p>
+<h2 id="撤销"><a href="#撤销" class="headerlink" title="撤销"></a>撤销</h2><p>|撤销	|        |<br>|:—-	|  ——-  |	<br>|$ git reset –hard HEAD	|#撤销工作目录中所有未提交文件的修改内容|<br>|$ git checkout HEAD <file>	|#撤销指定未提交文件的修改内容|<br>|$ git revert <commit>	|#撤销指定的提交|</p>
+<h2 id="分支与标签"><a href="#分支与标签" class="headerlink" title="分支与标签"></a>分支与标签</h2><p>|分支与标签		|        |<br>|:—-	|  ——-  |<br>|$ git branch	|#显示所有本地分支|<br>|$ git branch -r	|#显示所有远程分支|<br>|$ git branch -a	|#显示所有本地和远程分支|<br>|$ git checkout &lt;branch&#x2F;tag&gt;	|#切换到指定分支或标签|<br>|$ git branch <new_branch>	|#创建新分支|<br>|$ git checkout -b <new_branch>	|#创建并切换到新分支|<br>|$ git branch -d <branch>	|#删除本地分支|<br>|$ git tag	|#显示所有本地标签<br>|$ git tag <tagname>	|#基于最新提交创建标签|<br>|$ git tag -d <tagname>	|#删除标签|</p>
+<h2 id="合并与衍合"><a href="#合并与衍合" class="headerlink" title="合并与衍合"></a>合并与衍合</h2><p>|合并与衍合		|        |<br>|:—-	|  ——-  |<br>|$ git merge <branch>	|#合并指定分支到当前分支|<br>|$ git rebase <branch>	|#衍合指定分支到当前分支|</p>
+<h2 id="远程操作"><a href="#远程操作" class="headerlink" title="远程操作"></a>远程操作</h2><p>|远程操作		|        |<br>|:—-	|  ——-  |<br>|$ git remote -v	|#查看远程版本库信息|<br>|$ git remote show <remote>	|#查看指定远程版本库信息|<br>|$ git remote add <remote> <url>	|#添加远程版本库|<br>|$ git fetch <remote>	|#从远程库获取代码|<br>|$ git pull <remote> <branch>	|#从远程库拉去代码并快速合并|<br>|$ git push <remote> <branch>	|#上传代码到远程库并快速合并|<br>|$ git push <remote> -d &lt;branch&#x2F;tag&gt;	|#删除远程分支或标签|<br>|$ git push –tags	|#上传所有标签|</p>
+<h2 id="同步远程已删除的分支"><a href="#同步远程已删除的分支" class="headerlink" title="同步远程已删除的分支"></a>同步远程已删除的分支</h2><p>|同步远程已删除的分支		|        |<br>|:—-	|  ——-  |<br>|$ git branch -a	|#查看本地分支和远程所有分支|<br>|$ git remote show origin	|#查看本地分支和追踪情况|<br>|$ git remote prune origin	|#同步远程已删除分支|</p>
+<h2 id="常见指令参数说明"><a href="#常见指令参数说明" class="headerlink" title="常见指令参数说明"></a>常见指令参数说明</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将本地的分支版本上传到远程仓库</span></span><br><span class="line"><span class="comment"># 其中参数 -u 创建了一个上游跟踪连接</span></span><br><span class="line"><span class="comment"># 第一次推送某个新分支到远程仓库时，它用来将本地新分支同步到线上</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$</span> git push <span class="literal">-u</span> origin master</span><br></pre></td></tr></table></figure>
 
 <h2 id="特殊操作"><a href="#特殊操作" class="headerlink" title="特殊操作"></a>特殊操作</h2><ul>
-<li>git合并特定commits到另一个分支<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">$ git checkout &lt;branch>
-$ git cherry<span class="token operator">-</span>pick &lt;commit><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li>git合并特定commits到另一个分支<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$</span> git checkout &lt;branch&gt;</span><br><span class="line"><span class="variable">$</span> git cherry<span class="literal">-pick</span> &lt;commit&gt;</span><br></pre></td></tr></table></figure></li>
 </ul>
 
                 
@@ -1099,7 +863,7 @@ $ git cherry<span class="token operator">-</span>pick &lt;commit><span aria-hidd
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2024</span>
+                <span id="year">2019-2025</span>
             
             <span id="year">2019</span>
             <a href="https://github.com/damao2250" target="_blank">Damao</a>

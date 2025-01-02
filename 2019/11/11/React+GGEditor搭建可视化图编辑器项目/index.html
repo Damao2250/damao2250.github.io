@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
 </head>
 
 
@@ -409,7 +409,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    294
+                    337
                 </div>
                 
 
@@ -441,77 +441,12 @@
             <div id="articleContent">
                 <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><ul>
 <li>GG-editor 插件基于 React 框架，可以创建编辑思维导图、流程图、拓扑图等图形</li>
-<li>项目依赖： <code>react-router-dom, gg-editor, antd</code><h2 id="安装所需依赖"><a href="#安装所需依赖" class="headerlink" title="安装所需依赖"></a>安装所需依赖</h2><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 初始化项目</span>
-create<span class="token operator">-</span>react<span class="token operator">-</span>app ggeditore
-<span class="token comment">// 安装依赖</span>
-npm i react<span class="token operator">-</span>router<span class="token operator">-</span>dom
-npm i gg<span class="token operator">-</span>editor
-npm i antd
-<span class="token comment">// or</span>
-yarn add react<span class="token operator">-</span>router<span class="token operator">-</span>dom
-yarn add gg<span class="token operator">-</span>editor
-yarn add antd
-
-<span class="token comment">// 安装 gg-editor</span>
-<span class="token comment">// 不要安装 bate 的版本</span>
-npm i gg<span class="token operator">-</span>editor@<span class="token number">2.0</span><span class="token number">.4</span>
-<span class="token comment">// or</span>
-yarn add gg<span class="token operator">-</span>editor@<span class="token number">2.0</span><span class="token number">.4</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// Flow</span>
-<span class="token keyword">import</span> GGEditor<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> Flow <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'gg-editor'</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> data <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
-  nodes<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">&#123;</span>
-    type<span class="token operator">:</span> <span class="token string">'node'</span><span class="token punctuation">,</span>
-    size<span class="token operator">:</span> <span class="token string">'70*70'</span><span class="token punctuation">,</span>
-    shape<span class="token operator">:</span> <span class="token string">'flow-circle'</span><span class="token punctuation">,</span>
-    color<span class="token operator">:</span> <span class="token string">'#FA8C16'</span><span class="token punctuation">,</span>
-    label<span class="token operator">:</span> <span class="token string">'起止节点'</span><span class="token punctuation">,</span>
-    x<span class="token operator">:</span> <span class="token number">55</span><span class="token punctuation">,</span>
-    y<span class="token operator">:</span> <span class="token number">55</span><span class="token punctuation">,</span>
-    id<span class="token operator">:</span> <span class="token string">'ea1184e8'</span><span class="token punctuation">,</span>
-    index<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
-  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span>
-    type<span class="token operator">:</span> <span class="token string">'node'</span><span class="token punctuation">,</span>
-    size<span class="token operator">:</span> <span class="token string">'70*70'</span><span class="token punctuation">,</span>
-    shape<span class="token operator">:</span> <span class="token string">'flow-circle'</span><span class="token punctuation">,</span>
-    color<span class="token operator">:</span> <span class="token string">'#FA8C16'</span><span class="token punctuation">,</span>
-    label<span class="token operator">:</span> <span class="token string">'结束节点'</span><span class="token punctuation">,</span>
-    x<span class="token operator">:</span> <span class="token number">55</span><span class="token punctuation">,</span>
-    y<span class="token operator">:</span> <span class="token number">255</span><span class="token punctuation">,</span>
-    id<span class="token operator">:</span> <span class="token string">'481fbb1a'</span><span class="token punctuation">,</span>
-    index<span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
-  <span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-  edges<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">&#123;</span>
-    source<span class="token operator">:</span> <span class="token string">'ea1184e8'</span><span class="token punctuation">,</span>
-    sourceAnchor<span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
-    target<span class="token operator">:</span> <span class="token string">'481fbb1a'</span><span class="token punctuation">,</span>
-    targetAnchor<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
-    id<span class="token operator">:</span> <span class="token string">'7989ac70'</span><span class="token punctuation">,</span>
-    index<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
-  <span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
-
-<span class="token operator">&lt;</span>GGEditor<span class="token operator">></span>
-  <span class="token operator">&lt;</span>Flow style<span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span> width<span class="token operator">:</span> <span class="token number">500</span><span class="token punctuation">,</span> height<span class="token operator">:</span> <span class="token number">500</span> <span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span> data<span class="token operator">=</span><span class="token punctuation">&#123;</span>data<span class="token punctuation">&#125;</span> <span class="token operator">/</span><span class="token operator">></span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>GGEditor<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// Mind</span>
-<span class="token keyword">import</span> GGEditor<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span> Mind <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'gg-editor'</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> data <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
-  roots<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">&#123;</span>
-    label<span class="token operator">:</span> <span class="token string">'中心主题'</span><span class="token punctuation">,</span>
-    children<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">&#123;</span>
-      label<span class="token operator">:</span> <span class="token string">'分支主题 1'</span><span class="token punctuation">,</span>
-    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span>
-      label<span class="token operator">:</span> <span class="token string">'分支主题 2'</span><span class="token punctuation">,</span>
-    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span>
-      label<span class="token operator">:</span> <span class="token string">'分支主题 3'</span><span class="token punctuation">,</span>
-    <span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-  <span class="token punctuation">&#125;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
-<span class="token operator">&lt;</span>GGEditor<span class="token operator">></span>
-  <span class="token operator">&lt;</span>Mind style<span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token punctuation">&#123;</span> width<span class="token operator">:</span> <span class="token number">500</span><span class="token punctuation">,</span> height<span class="token operator">:</span> <span class="token number">500</span> <span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span> data<span class="token operator">=</span><span class="token punctuation">&#123;</span>data<span class="token punctuation">&#125;</span> <span class="token operator">/</span><span class="token operator">></span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>GGEditor<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="高阶用法（可编辑）"><a href="#高阶用法（可编辑）" class="headerlink" title="高阶用法（可编辑）"></a>高阶用法（可编辑）</h2></li>
+<li>项目依赖： <code>react-router-dom, gg-editor, antd</code></li>
+</ul>
+<h2 id="安装所需依赖"><a href="#安装所需依赖" class="headerlink" title="安装所需依赖"></a>安装所需依赖</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 初始化项目</span></span><br><span class="line">create-react-app ggeditore</span><br><span class="line"><span class="comment">// 安装依赖</span></span><br><span class="line">npm i react-router-dom</span><br><span class="line">npm i gg-editor</span><br><span class="line">npm i antd</span><br><span class="line"><span class="comment">// or</span></span><br><span class="line">yarn add react-router-dom</span><br><span class="line">yarn add gg-editor</span><br><span class="line">yarn add antd</span><br><span class="line"></span><br><span class="line"><span class="comment">// 安装 gg-editor</span></span><br><span class="line"><span class="comment">// 不要安装 bate 的版本</span></span><br><span class="line">npm i gg-editor@<span class="number">2.0</span><span class="number">.4</span></span><br><span class="line"><span class="comment">// or</span></span><br><span class="line">yarn add gg-editor@<span class="number">2.0</span><span class="number">.4</span></span><br></pre></td></tr></table></figure>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Flow</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">GGEditor</span>, &#123; <span class="title class_">Flow</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;gg-editor&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> data = &#123;</span><br><span class="line">  <span class="attr">nodes</span>: [&#123;</span><br><span class="line">    <span class="attr">type</span>: <span class="string">&#x27;node&#x27;</span>,</span><br><span class="line">    <span class="attr">size</span>: <span class="string">&#x27;70*70&#x27;</span>,</span><br><span class="line">    <span class="attr">shape</span>: <span class="string">&#x27;flow-circle&#x27;</span>,</span><br><span class="line">    <span class="attr">color</span>: <span class="string">&#x27;#FA8C16&#x27;</span>,</span><br><span class="line">    <span class="attr">label</span>: <span class="string">&#x27;起止节点&#x27;</span>,</span><br><span class="line">    <span class="attr">x</span>: <span class="number">55</span>,</span><br><span class="line">    <span class="attr">y</span>: <span class="number">55</span>,</span><br><span class="line">    <span class="attr">id</span>: <span class="string">&#x27;ea1184e8&#x27;</span>,</span><br><span class="line">    <span class="attr">index</span>: <span class="number">0</span>,</span><br><span class="line">  &#125;, &#123;</span><br><span class="line">    <span class="attr">type</span>: <span class="string">&#x27;node&#x27;</span>,</span><br><span class="line">    <span class="attr">size</span>: <span class="string">&#x27;70*70&#x27;</span>,</span><br><span class="line">    <span class="attr">shape</span>: <span class="string">&#x27;flow-circle&#x27;</span>,</span><br><span class="line">    <span class="attr">color</span>: <span class="string">&#x27;#FA8C16&#x27;</span>,</span><br><span class="line">    <span class="attr">label</span>: <span class="string">&#x27;结束节点&#x27;</span>,</span><br><span class="line">    <span class="attr">x</span>: <span class="number">55</span>,</span><br><span class="line">    <span class="attr">y</span>: <span class="number">255</span>,</span><br><span class="line">    <span class="attr">id</span>: <span class="string">&#x27;481fbb1a&#x27;</span>,</span><br><span class="line">    <span class="attr">index</span>: <span class="number">2</span>,</span><br><span class="line">  &#125;],</span><br><span class="line">  <span class="attr">edges</span>: [&#123;</span><br><span class="line">    <span class="attr">source</span>: <span class="string">&#x27;ea1184e8&#x27;</span>,</span><br><span class="line">    <span class="attr">sourceAnchor</span>: <span class="number">2</span>,</span><br><span class="line">    <span class="attr">target</span>: <span class="string">&#x27;481fbb1a&#x27;</span>,</span><br><span class="line">    <span class="attr">targetAnchor</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="attr">id</span>: <span class="string">&#x27;7989ac70&#x27;</span>,</span><br><span class="line">    <span class="attr">index</span>: <span class="number">1</span>,</span><br><span class="line">  &#125;],</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">GGEditor</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;<span class="name">Flow</span> <span class="attr">style</span>=<span class="string">&#123;&#123;</span> <span class="attr">width:</span> <span class="attr">500</span>, <span class="attr">height:</span> <span class="attr">500</span> &#125;&#125; <span class="attr">data</span>=<span class="string">&#123;data&#125;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">GGEditor</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Mind</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">GGEditor</span>, &#123; <span class="title class_">Mind</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;gg-editor&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> data = &#123;</span><br><span class="line">  <span class="attr">roots</span>: [&#123;</span><br><span class="line">    <span class="attr">label</span>: <span class="string">&#x27;中心主题&#x27;</span>,</span><br><span class="line">    <span class="attr">children</span>: [&#123;</span><br><span class="line">      <span class="attr">label</span>: <span class="string">&#x27;分支主题 1&#x27;</span>,</span><br><span class="line">    &#125;, &#123;</span><br><span class="line">      <span class="attr">label</span>: <span class="string">&#x27;分支主题 2&#x27;</span>,</span><br><span class="line">    &#125;, &#123;</span><br><span class="line">      <span class="attr">label</span>: <span class="string">&#x27;分支主题 3&#x27;</span>,</span><br><span class="line">    &#125;],</span><br><span class="line">  &#125;],</span><br><span class="line">&#125;;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">GGEditor</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;<span class="name">Mind</span> <span class="attr">style</span>=<span class="string">&#123;&#123;</span> <span class="attr">width:</span> <span class="attr">500</span>, <span class="attr">height:</span> <span class="attr">500</span> &#125;&#125; <span class="attr">data</span>=<span class="string">&#123;data&#125;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">GGEditor</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="高阶用法（可编辑）"><a href="#高阶用法（可编辑）" class="headerlink" title="高阶用法（可编辑）"></a>高阶用法（可编辑）</h2><ul>
 <li>详细请看Github代码: <a target="_blank" rel="noopener" href="https://github.com/damao2250">https://github.com/damao2250</a></li>
 </ul>
 
@@ -936,7 +871,7 @@ yarn add gg<span class="token operator">-</span>editor@<span class="token number
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2024</span>
+                <span id="year">2019-2025</span>
             
             <span id="year">2019</span>
             <a href="https://github.com/damao2250" target="_blank">Damao</a>

@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
 </head>
 
 
@@ -409,7 +409,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    233
+                    234
                 </div>
                 
 
@@ -439,37 +439,30 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="查看firewall服务状态"><a href="#查看firewall服务状态" class="headerlink" title="查看firewall服务状态"></a>查看firewall服务状态</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ systemctl status firewalld<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+                <h2 id="查看firewall服务状态"><a href="#查看firewall服务状态" class="headerlink" title="查看firewall服务状态"></a>查看firewall服务状态</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ systemctl status firewalld</span><br></pre></td></tr></table></figure>
 <ul>
 <li>出现 Active: active (running) 表示防火墙启动状态</li>
 <li>出现 Active: inactive (dead)  表示防火墙关闭状态</li>
-<li>出现 Unit firewalld.service could not be found. 表示没有找到防火墙，需要先安装<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># Ubuntu</span>
-<span class="token function">apt</span> <span class="token function">install</span> firewalld
-<span class="token comment"># CentOS</span>
-yum <span class="token function">install</span> firewalld<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="查看firewall的状态"><a href="#查看firewall的状态" class="headerlink" title="查看firewall的状态"></a>查看firewall的状态</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">firewall-cmd --state<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>出现 Unit firewalld.service could not be found. 表示没有找到防火墙，需要先安装<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Ubuntu</span></span><br><span class="line">apt install firewalld</span><br><span class="line"><span class="comment"># CentOS</span></span><br><span class="line">yum install firewalld</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h2 id="开启、重启、关闭、firewalld-service服务"><a href="#开启、重启、关闭、firewalld-service服务" class="headerlink" title="开启、重启、关闭、firewalld.service服务"></a>开启、重启、关闭、firewalld.service服务</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 开启</span>
-$ <span class="token function">service</span> firewalld start
-<span class="token comment"># 重启</span>
-$ <span class="token function">service</span> firewalld restart
-<span class="token comment"># 关闭</span>
-$ <span class="token function">service</span> firewalld stop<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="查看firewall的状态"><a href="#查看firewall的状态" class="headerlink" title="查看firewall的状态"></a>查看firewall的状态</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --state</span><br></pre></td></tr></table></figure>
+
+<h2 id="开启、重启、关闭、firewalld-service服务"><a href="#开启、重启、关闭、firewalld-service服务" class="headerlink" title="开启、重启、关闭、firewalld.service服务"></a>开启、重启、关闭、firewalld.service服务</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 开启</span></span><br><span class="line">$ service firewalld start</span><br><span class="line"><span class="comment"># 重启</span></span><br><span class="line">$ service firewalld restart</span><br><span class="line"><span class="comment"># 关闭</span></span><br><span class="line">$ service firewalld stop</span><br></pre></td></tr></table></figure>
 
 <h2 id="查询端口是否开放"><a href="#查询端口是否开放" class="headerlink" title="查询端口是否开放"></a>查询端口是否开放</h2><ul>
-<li>yes 表示开放 no表示不开放<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ firewall-cmd --query-port<span class="token operator">=</span><span class="token number">8080</span>/tcp<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>yes 表示开放 no表示不开放<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ firewall-cmd --query-port=8080/tcp</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h2 id="开放80端口"><a href="#开放80端口" class="headerlink" title="开放80端口"></a>开放80端口</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ firewall-cmd --permanent --add-port<span class="token operator">=</span><span class="token number">80</span>/tcp<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="开放80端口"><a href="#开放80端口" class="headerlink" title="开放80端口"></a>开放80端口</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ firewall-cmd --permanent --add-port=80/tcp</span><br></pre></td></tr></table></figure>
 
-<h2 id="移除端口"><a href="#移除端口" class="headerlink" title="移除端口"></a>移除端口</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ firewall-cmd --permanent --remove-port<span class="token operator">=</span><span class="token number">8080</span>/tcp<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="移除端口"><a href="#移除端口" class="headerlink" title="移除端口"></a>移除端口</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ firewall-cmd --permanent --remove-port=8080/tcp</span><br></pre></td></tr></table></figure>
 
-<h2 id="查看已开放的端口"><a href="#查看已开放的端口" class="headerlink" title="查看已开放的端口"></a>查看已开放的端口</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">netstat</span> -anp<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="查看已开放的端口"><a href="#查看已开放的端口" class="headerlink" title="查看已开放的端口"></a>查看已开放的端口</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -anp</span><br></pre></td></tr></table></figure>
 
-<h2 id="设置开机自启"><a href="#设置开机自启" class="headerlink" title="设置开机自启"></a>设置开机自启</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">systemctl <span class="token builtin class-name">enable</span> firewalld.service<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="设置开机自启"><a href="#设置开机自启" class="headerlink" title="设置开机自启"></a>设置开机自启</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">enable</span> firewalld.service</span><br></pre></td></tr></table></figure>
 
-<h2 id="设置关闭开机自启动"><a href="#设置关闭开机自启动" class="headerlink" title="设置关闭开机自启动"></a>设置关闭开机自启动</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">systemctl disable firewalld.service<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="设置关闭开机自启动"><a href="#设置关闭开机自启动" class="headerlink" title="设置关闭开机自启动"></a>设置关闭开机自启动</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl <span class="built_in">disable</span> firewalld.service</span><br></pre></td></tr></table></figure>
 
-<h2 id="重启防火墙-修改配置后要重启防火墙"><a href="#重启防火墙-修改配置后要重启防火墙" class="headerlink" title="重启防火墙(修改配置后要重启防火墙)"></a>重启防火墙(修改配置后要重启防火墙)</h2><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ firewall-cmd --reload<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="重启防火墙-修改配置后要重启防火墙"><a href="#重启防火墙-修改配置后要重启防火墙" class="headerlink" title="重启防火墙(修改配置后要重启防火墙)"></a>重启防火墙(修改配置后要重启防火墙)</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ firewall-cmd --reload</span><br></pre></td></tr></table></figure>
 <ul>
 <li>firwall-cmd：是Linux提供的操作firewall的一个工具；</li>
 <li>–permanent：表示设置为持久；</li>
@@ -893,7 +886,7 @@ $ <span class="token function">service</span> firewalld stop<span aria-hidden="t
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2024</span>
+                <span id="year">2019-2025</span>
             
             <span id="year">2019</span>
             <a href="https://github.com/damao2250" target="_blank">Damao</a>

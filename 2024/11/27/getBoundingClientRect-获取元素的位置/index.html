@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
 </head>
 
 
@@ -409,7 +409,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    479
+                    498
                 </div>
                 
 
@@ -443,82 +443,37 @@
 <li>用于获取元素的位置以及大小相关的信息</li>
 <li>DOM 元素的一个方法，返回一个 DOMRect 对象，包含元素的大小及其相对于视口的位置</li>
 </ul>
-<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><pre class="line-numbers language-js" data-language="js"><code class="language-js">element<span class="token punctuation">.</span>getBoundingClientRect（）<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">element.<span class="property">getBoundingClientRect</span>（）</span><br></pre></td></tr></table></figure>
 
 <h2 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h2><ul>
 <li>有 6 个属性：top，<code>lef</code>，<code>right</code>，<code>bottom</code>，<code>width</code>，<code>height</code></li>
 </ul>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token punctuation">&#123;</span>
-  bottom：<span class="token number">353</span><span class="token punctuation">,</span>   <span class="token comment">//元素底部距离窗口顶部的距离 (等于 y + height)</span>
-  height<span class="token operator">:</span> <span class="token number">24</span><span class="token punctuation">,</span>    <span class="token comment">//元素的高度</span>
-  left<span class="token operator">:</span> <span class="token number">428</span><span class="token punctuation">,</span>     <span class="token comment">//元素左侧距离窗口左侧的距离</span>
-  right<span class="token operator">:</span> <span class="token number">1140</span><span class="token punctuation">,</span>   <span class="token comment">//元素右侧距离窗口左侧的距离(等于 x + width)</span>
-  top<span class="token operator">:</span> <span class="token number">329</span><span class="token punctuation">,</span>      <span class="token comment">//元素顶部距离窗口的距离</span>
-  width<span class="token operator">:</span> <span class="token number">712</span><span class="token punctuation">,</span>    <span class="token comment">//元素的宽度</span>
-  x<span class="token operator">:</span> <span class="token number">428</span><span class="token punctuation">,</span>        <span class="token comment">//元素左上角相对于视口的横坐标</span>
-  y<span class="token operator">:</span> <span class="token number">329</span>         <span class="token comment">//元素左上角相对于视口的纵坐标</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  bottom：<span class="number">353</span>,   <span class="comment">//元素底部距离窗口顶部的距离 (等于 y + height)</span></span><br><span class="line">  <span class="attr">height</span>: <span class="number">24</span>,    <span class="comment">//元素的高度</span></span><br><span class="line">  <span class="attr">left</span>: <span class="number">428</span>,     <span class="comment">//元素左侧距离窗口左侧的距离</span></span><br><span class="line">  <span class="attr">right</span>: <span class="number">1140</span>,   <span class="comment">//元素右侧距离窗口左侧的距离(等于 x + width)</span></span><br><span class="line">  <span class="attr">top</span>: <span class="number">329</span>,      <span class="comment">//元素顶部距离窗口的距离</span></span><br><span class="line">  <span class="attr">width</span>: <span class="number">712</span>,    <span class="comment">//元素的宽度</span></span><br><span class="line">  <span class="attr">x</span>: <span class="number">428</span>,        <span class="comment">//元素左上角相对于视口的横坐标</span></span><br><span class="line">  <span class="attr">y</span>: <span class="number">329</span>         <span class="comment">//元素左上角相对于视口的纵坐标</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="应用：检查元素是否在视口内"><a href="#应用：检查元素是否在视口内" class="headerlink" title="应用：检查元素是否在视口内"></a>应用：检查元素是否在视口内</h2><ul>
 <li>获取元素位置</li>
 </ul>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">isElementVisible</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">el</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-  <span class="token keyword">const</span> rect <span class="token operator">=</span> el<span class="token punctuation">.</span><span class="token function">getBoundingClientRect</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">isElementVisible</span> = (<span class="params">el</span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> rect = el.<span class="title function_">getBoundingClientRect</span>()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>获取浏览器窗口的宽高</li>
 </ul>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">isElementVisible</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">el</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-  <span class="token keyword">const</span> rect <span class="token operator">=</span> el<span class="token punctuation">.</span><span class="token function">getBoundingClientRect</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-  <span class="token keyword">const</span> vWidth <span class="token operator">=</span> window<span class="token punctuation">.</span>innerWidth <span class="token operator">||</span> document<span class="token punctuation">.</span>documentElement<span class="token punctuation">.</span>clientWidth
-  <span class="token keyword">const</span> vHeight <span class="token operator">=</span> window<span class="token punctuation">.</span>innerHeight <span class="token operator">||</span> document<span class="token punctuation">.</span>documentElement<span class="token punctuation">.</span>clientHeight
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">isElementVisible</span> = (<span class="params">el</span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> rect = el.<span class="title function_">getBoundingClientRect</span>()</span><br><span class="line">  <span class="keyword">const</span> vWidth = <span class="variable language_">window</span>.<span class="property">innerWidth</span> || <span class="variable language_">document</span>.<span class="property">documentElement</span>.<span class="property">clientWidth</span></span><br><span class="line">  <span class="keyword">const</span> vHeight = <span class="variable language_">window</span>.<span class="property">innerHeight</span> || <span class="variable language_">document</span>.<span class="property">documentElement</span>.<span class="property">clientHeight</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>确认元素是否在视口内条件</li>
 </ul>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// rect.right &lt; 0 ||</span>
-<span class="token comment">// rect.bottom &lt; 0 ||</span>
-<span class="token comment">// rect.left > vWidth ||</span>
-<span class="token comment">// rect.top > vHeight</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// rect.right &lt; 0 ||</span></span><br><span class="line"><span class="comment">// rect.bottom &lt; 0 ||</span></span><br><span class="line"><span class="comment">// rect.left &gt; vWidth ||</span></span><br><span class="line"><span class="comment">// rect.top &gt; vHeight</span></span><br></pre></td></tr></table></figure>
 
 <p><img src="https://raw.githubusercontent.com/Damao2250/FileTransfer/master/getBoundingClientRect-%E7%A4%BA%E6%84%8F%E5%9B%BE.jpg" alt="getBoundingClientRect-示意图"></p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">isElementVisible</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">el</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-  <span class="token keyword">const</span> rect <span class="token operator">=</span> el<span class="token punctuation">.</span><span class="token function">getBoundingClientRect</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-  <span class="token keyword">const</span> vWidth <span class="token operator">=</span> window<span class="token punctuation">.</span>innerWidth <span class="token operator">||</span> document<span class="token punctuation">.</span>documentElement<span class="token punctuation">.</span>clientWidth
-  <span class="token keyword">const</span> vHeight <span class="token operator">=</span> window<span class="token punctuation">.</span>innerHeight <span class="token operator">||</span> document<span class="token punctuation">.</span>documentElement<span class="token punctuation">.</span>clientHeight
-  <span class="token keyword">if</span> <span class="token punctuation">(</span>
-    rect<span class="token punctuation">.</span>right <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token operator">||</span>
-    rect<span class="token punctuation">.</span>bottom <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token operator">||</span>
-    rect<span class="token punctuation">.</span>left <span class="token operator">></span> vWidth <span class="token operator">||</span>
-    rect<span class="token punctuation">.</span>top <span class="token operator">></span> vHeight
-  <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">return</span> <span class="token boolean">false</span>
-  <span class="token punctuation">&#125;</span>
-  <span class="token keyword">return</span> <span class="token boolean">true</span>
-<span class="token punctuation">&#125;</span>
-<span class="token comment">// getBoundingClientRect 方法会使浏览器发生回流和重绘，性能消耗稍大，但兼容性比 Intersection Observer 要好</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">isElementVisible</span> = (<span class="params">el</span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> rect = el.<span class="title function_">getBoundingClientRect</span>()</span><br><span class="line">  <span class="keyword">const</span> vWidth = <span class="variable language_">window</span>.<span class="property">innerWidth</span> || <span class="variable language_">document</span>.<span class="property">documentElement</span>.<span class="property">clientWidth</span></span><br><span class="line">  <span class="keyword">const</span> vHeight = <span class="variable language_">window</span>.<span class="property">innerHeight</span> || <span class="variable language_">document</span>.<span class="property">documentElement</span>.<span class="property">clientHeight</span></span><br><span class="line">  <span class="keyword">if</span> (</span><br><span class="line">    rect.<span class="property">right</span> &lt; <span class="number">0</span> ||</span><br><span class="line">    rect.<span class="property">bottom</span> &lt; <span class="number">0</span> ||</span><br><span class="line">    rect.<span class="property">left</span> &gt; vWidth ||</span><br><span class="line">    rect.<span class="property">top</span> &gt; vHeight</span><br><span class="line">  ) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// getBoundingClientRect 方法会使浏览器发生回流和重绘，性能消耗稍大，但兼容性比 Intersection Observer 要好</span></span><br></pre></td></tr></table></figure>
 
 <ul>
 <li><p>Intersection Observer 方案</p>
 <ul>
 <li>Intersection Observer API 提供了一种异步检测目标元素与祖先元素或 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Glossary/Viewport">viewport</a> 相交情况变化的方法。在目标元素与视口或者其他指定元素发生交集时和触发配置的回调函数。</li>
 </ul>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 获取要监测的元素</span>
-<span class="token keyword">const</span> boxes <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">".box"</span><span class="token punctuation">)</span>
-
-<span class="token comment">// 创建观察者，配置回调函数</span>
-<span class="token comment">// 通过 isIntersecting 属性判断元素与视口是否相交</span>
-<span class="token keyword">const</span> observer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">IntersectionObserver</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">entries<span class="token punctuation">,</span> observer</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-  entries<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">entry</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>entry<span class="token punctuation">.</span>target<span class="token punctuation">,</span> entry<span class="token punctuation">.</span>isIntersecting <span class="token operator">?</span> <span class="token string">"visible"</span> <span class="token operator">:</span> <span class="token string">"invisible"</span><span class="token punctuation">)</span>
-  <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
-
-boxes<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">box</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-  observer<span class="token punctuation">.</span><span class="token function">observe</span><span class="token punctuation">(</span>box<span class="token punctuation">)</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取要监测的元素</span></span><br><span class="line"><span class="keyword">const</span> boxes = <span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&quot;.box&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建观察者，配置回调函数</span></span><br><span class="line"><span class="comment">// 通过 isIntersecting 属性判断元素与视口是否相交</span></span><br><span class="line"><span class="keyword">const</span> observer = <span class="keyword">new</span> <span class="title class_">IntersectionObserver</span>(<span class="function">(<span class="params">entries, observer</span>) =&gt;</span> &#123;</span><br><span class="line">  entries.<span class="title function_">forEach</span>(<span class="function">(<span class="params">entry</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(entry.<span class="property">target</span>, entry.<span class="property">isIntersecting</span> ? <span class="string">&quot;visible&quot;</span> : <span class="string">&quot;invisible&quot;</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">boxes.<span class="title function_">forEach</span>(<span class="function">(<span class="params">box</span>) =&gt;</span> &#123;</span><br><span class="line">  observer.<span class="title function_">observe</span>(box)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li>
 </ul>
 
                 
@@ -938,7 +893,7 @@ boxes<span class="token punctuation">.</span><span class="token function">forEac
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2024</span>
+                <span id="year">2019-2025</span>
             
             <span id="year">2019</span>
             <a href="https://github.com/damao2250" target="_blank">Damao</a>

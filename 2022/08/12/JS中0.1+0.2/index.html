@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
 </head>
 
 
@@ -405,7 +405,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    589
+                    601
                 </div>
                 
 
@@ -444,7 +444,7 @@
 </li>
 <li><p>阶码：指数+1023（最后转为二进制格式，若不足11位，则在前面补0）</p>
 </li>
-<li><p>1023称为偏移量：2 ^ (位数-1) - 1，此处js浮点数的阶码位数为11，所以：2 ^ 10 - 1 = 1023</p>
+<li><p>1023称为偏移量：2 ^ (位数-1) - 1，此处js浮点数的阶码位数为11，所以：2 ^ 10 - 1 &#x3D; 1023</p>
 </li>
 <li><p>以0.1为例：</p>
 <ul>
@@ -453,50 +453,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="二、实现-0-1-0-2-0-3"><a href="#二、实现-0-1-0-2-0-3" class="headerlink" title="二、实现 0.1+0.2===0.3"></a>二、实现 0.1+0.2===0.3</h2><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">binaryStrToNum</span><span class="token punctuation">(</span><span class="token parameter">str</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span> 
-    <span class="token comment">// 1、获取符号位</span>
-    <span class="token keyword">let</span> sign <span class="token operator">=</span> str<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment">// 2、获取阶码（1~11【包含11】）</span>
-    <span class="token keyword">let</span> exponent <span class="token operator">=</span> str<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">12</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment">// 3、获取小数位</span>
-    <span class="token keyword">let</span> m <span class="token operator">=</span> str<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">let</span> sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-
-    <span class="token comment">// 注意：在尾数中，计算是从第一位开始的，一共有52位，其实还包含一个隐藏位（上面已经提了），这个隐藏位的计算结果始终是1（计算方式：1 * 2 ^ 0），这个也必须累加到计算结果中</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>m<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">let</span> c <span class="token operator">=</span> m<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>c <span class="token operator">==</span> <span class="token string">"1"</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            sum <span class="token operator">+=</span> Math<span class="token punctuation">.</span><span class="token function">pow</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token punctuation">(</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">&#125;</span>
-
-    <span class="token comment">// 4、计算结果，公式为：-1 ^ 符号 * 2 ^ (阶码-1023) * sum</span>
-    <span class="token keyword">return</span> Math<span class="token punctuation">.</span><span class="token function">pow</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token operator">+</span>sign<span class="token punctuation">)</span> <span class="token operator">*</span> Math<span class="token punctuation">.</span><span class="token function">pow</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token function">parseInt</span><span class="token punctuation">(</span>exponent<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1023</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">+</span> sum<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
-
-<span class="token comment">// 《0.1》</span>
-<span class="token comment">// const r1 = binaryStrToNum("0011111110111001100110011001100110011001100110011001100110011010");</span>
-<span class="token comment">// console.log(r1);</span>
-
-<span class="token comment">// 《0.2》</span>
-<span class="token comment">// 1.1 00110011 00110011 00110011 00110011 00110011 00110011 010 x 2 ^ -3 = 0 01111111100 1001100110011001100110011001100110011001100110011010</span>
-<span class="token comment">// const r2 = binaryStrToNum("0011111111001001100110011001100110011001100110011001100110011010");</span>
-<span class="token comment">// console.log(r2);</span>
-
-<span class="token comment">/**
- *《0.1 + 0.2》
- * 先对其进行计算（保留52位，第53位为0时，舍弃；为1时，进1）：
- * 0.00011 00110011 00110011 00110011 00110011 00110011 00110011 010 + 0.00110 01100110 01100110 01100110 01100110 01100110 01100110 10
- * = 0.01001 10011001 10011001 10011001 10011001 10011001 10011001 110
- * = 1.001 10011001 10011001 10011001 10011001 10011001 10011001 110 x 2 ^ -2【在此次计算中，尾数变成了53位，因此要进行舍取】
- * = 1.001 10011001 10011001 10011001 10011001 10011001 10011010 0 x 2 ^ -2【取小数52位】
- * 转为二进制格式 =>：0 01111111101 0011001100110011001100110011001100110011001100110100
- */</span>
-<span class="token keyword">const</span> r3 <span class="token operator">=</span> <span class="token function">binaryStrToNum</span><span class="token punctuation">(</span><span class="token string">"0011111111010011001100110011001100110011001100110011001100110100"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>r3<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 0.30000000000000004</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>r3 <span class="token operator">==</span> <span class="token punctuation">(</span><span class="token number">0.1</span> <span class="token operator">+</span> <span class="token number">0.2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="二、实现-0-1-0-2-0-3"><a href="#二、实现-0-1-0-2-0-3" class="headerlink" title="二、实现 0.1+0.2&#x3D;&#x3D;&#x3D;0.3"></a>二、实现 0.1+0.2&#x3D;&#x3D;&#x3D;0.3</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">binaryStrToNum</span>(<span class="params">str</span>) &#123; </span><br><span class="line">    <span class="comment">// 1、获取符号位</span></span><br><span class="line">    <span class="keyword">let</span> sign = str.<span class="title function_">charAt</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="comment">// 2、获取阶码（1~11【包含11】）</span></span><br><span class="line">    <span class="keyword">let</span> exponent = str.<span class="title function_">slice</span>(<span class="number">1</span>, <span class="number">12</span>);</span><br><span class="line">    <span class="comment">// 3、获取小数位</span></span><br><span class="line">    <span class="keyword">let</span> m = str.<span class="title function_">slice</span>(<span class="number">12</span>);</span><br><span class="line">    <span class="keyword">let</span> sum = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 注意：在尾数中，计算是从第一位开始的，一共有52位，其实还包含一个隐藏位（上面已经提了），这个隐藏位的计算结果始终是1（计算方式：1 * 2 ^ 0），这个也必须累加到计算结果中</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;m.<span class="property">length</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">let</span> c = m.<span class="title function_">charAt</span>(i);</span><br><span class="line">        <span class="keyword">if</span> (c == <span class="string">&quot;1&quot;</span>) &#123;</span><br><span class="line">            sum += <span class="title class_">Math</span>.<span class="title function_">pow</span>(<span class="number">2</span>, -(i + <span class="number">1</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 4、计算结果，公式为：-1 ^ 符号 * 2 ^ (阶码-1023) * sum</span></span><br><span class="line">    <span class="keyword">return</span> <span class="title class_">Math</span>.<span class="title function_">pow</span>(-<span class="number">1</span>, +sign) * <span class="title class_">Math</span>.<span class="title function_">pow</span>(<span class="number">2</span>, <span class="built_in">parseInt</span>(exponent, <span class="number">2</span>) - <span class="number">1023</span>) * (<span class="number">1</span> + sum);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 《0.1》</span></span><br><span class="line"><span class="comment">// const r1 = binaryStrToNum(&quot;0011111110111001100110011001100110011001100110011001100110011010&quot;);</span></span><br><span class="line"><span class="comment">// console.log(r1);</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 《0.2》</span></span><br><span class="line"><span class="comment">// 1.1 00110011 00110011 00110011 00110011 00110011 00110011 010 x 2 ^ -3 = 0 01111111100 1001100110011001100110011001100110011001100110011010</span></span><br><span class="line"><span class="comment">// const r2 = binaryStrToNum(&quot;0011111111001001100110011001100110011001100110011001100110011010&quot;);</span></span><br><span class="line"><span class="comment">// console.log(r2);</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *《0.1 + 0.2》</span></span><br><span class="line"><span class="comment"> * 先对其进行计算（保留52位，第53位为0时，舍弃；为1时，进1）：</span></span><br><span class="line"><span class="comment"> * 0.00011 00110011 00110011 00110011 00110011 00110011 00110011 010 + 0.00110 01100110 01100110 01100110 01100110 01100110 01100110 10</span></span><br><span class="line"><span class="comment"> * = 0.01001 10011001 10011001 10011001 10011001 10011001 10011001 110</span></span><br><span class="line"><span class="comment"> * = 1.001 10011001 10011001 10011001 10011001 10011001 10011001 110 x 2 ^ -2【在此次计算中，尾数变成了53位，因此要进行舍取】</span></span><br><span class="line"><span class="comment"> * = 1.001 10011001 10011001 10011001 10011001 10011001 10011010 0 x 2 ^ -2【取小数52位】</span></span><br><span class="line"><span class="comment"> * 转为二进制格式 =&gt;：0 01111111101 0011001100110011001100110011001100110011001100110100</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> r3 = <span class="title function_">binaryStrToNum</span>(<span class="string">&quot;0011111111010011001100110011001100110011001100110011001100110100&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(r3); <span class="comment">// 0.30000000000000004</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(r3 == (<span class="number">0.1</span> + <span class="number">0.2</span>)); <span class="comment">// true</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
                 
             </div>
@@ -915,7 +872,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2024</span>
+                <span id="year">2019-2025</span>
             
             <span id="year">2019</span>
             <a href="https://github.com/damao2250" target="_blank">Damao</a>

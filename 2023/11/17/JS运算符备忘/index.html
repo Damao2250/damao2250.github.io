@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
 </head>
 
 
@@ -409,7 +409,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    561
+                    565
                 </div>
                 
 
@@ -441,113 +441,30 @@
             <div id="articleContent">
                 <h2 id="链判断运算符"><a href="#链判断运算符" class="headerlink" title="链判断运算符 ?."></a>链判断运算符 <code>?.</code></h2><ul>
 <li><p>读取对象内部的某个属性时，判断上层对象是否存在</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 读取message data.result.state.message</span>
-
-<span class="token comment">// 正常写法</span>
-<span class="token keyword">const</span> message <span class="token operator">=</span> <span class="token punctuation">(</span> data <span class="token operator">&amp;&amp;</span> data<span class="token punctuation">.</span>result <span class="token operator">&amp;&amp;</span> data<span class="token punctuation">.</span>result<span class="token punctuation">.</span>state <span class="token operator">&amp;&amp;</span> data<span class="token punctuation">.</span>result<span class="token punctuation">.</span>state<span class="token punctuation">.</span>message <span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token string">""</span>
-
-<span class="token comment">// 链判断运算符写法</span>
-<span class="token keyword">const</span> message <span class="token operator">=</span> data<span class="token operator">?.</span>result<span class="token operator">?.</span>state<span class="token operator">?.</span>message <span class="token operator">||</span> <span class="token string">""</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 读取message data.result.state.message</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 正常写法</span></span><br><span class="line"><span class="keyword">const</span> message = ( data &amp;&amp; data.<span class="property">result</span> &amp;&amp; data.<span class="property">result</span>.<span class="property">state</span> &amp;&amp; data.<span class="property">result</span>.<span class="property">state</span>.<span class="property">message</span> ) || <span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 链判断运算符写法</span></span><br><span class="line"><span class="keyword">const</span> message = data?.<span class="property">result</span>?.<span class="property">state</span>?.<span class="property">message</span> || <span class="string">&quot;&quot;</span></span><br></pre></td></tr></table></figure></li>
 <li><p>三元运算符<code>?:</code>也常用于判断对象是否存在</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// state.code</span>
-
-<span class="token keyword">const</span> code <span class="token operator">=</span> state <span class="token operator">?</span> state<span class="token punctuation">.</span>code <span class="token operator">:</span> <span class="token string">""</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// state.code</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> code = state ? state.<span class="property">code</span> : <span class="string">&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+</li>
 <li><p><code>?.</code>运算符常见形式</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js">a<span class="token operator">?.</span>b
-<span class="token comment">// 等同于</span>
-a <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">?</span> <span class="token keyword">undefined</span> <span class="token operator">:</span> a<span class="token punctuation">.</span>b
-
-a<span class="token operator">?.</span><span class="token punctuation">[</span>x<span class="token punctuation">]</span>
-<span class="token comment">// 等同于</span>
-a <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">?</span> <span class="token keyword">undefined</span> <span class="token operator">:</span> a<span class="token punctuation">[</span>x<span class="token punctuation">]</span>
-
-a<span class="token operator">?.</span><span class="token function">b</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token comment">// 等同于</span>
-a <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">?</span> <span class="token keyword">undefined</span> <span class="token operator">:</span> a<span class="token punctuation">.</span><span class="token function">b</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-
-a<span class="token operator">?.</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token comment">// 等同于</span>
-a <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">?</span> <span class="token keyword">undefined</span> <span class="token operator">:</span> <span class="token function">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">a?.<span class="property">b</span></span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line">a == <span class="literal">null</span> ? <span class="literal">undefined</span> : a.<span class="property">b</span></span><br><span class="line"></span><br><span class="line">a?.[x]</span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line">a == <span class="literal">null</span> ? <span class="literal">undefined</span> : a[x]</span><br><span class="line"></span><br><span class="line">a?.<span class="title function_">b</span>()</span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line">a == <span class="literal">null</span> ? <span class="literal">undefined</span> : a.<span class="title function_">b</span>()</span><br><span class="line"></span><br><span class="line">a?.()</span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line">a == <span class="literal">null</span> ? <span class="literal">undefined</span> : <span class="title function_">a</span>()</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h2 id="Null-判断运算符-、"><a href="#Null-判断运算符-、" class="headerlink" title="Null 判断运算符 ||、??"></a>Null 判断运算符 <code>||</code>、<code>??</code></h2><ul>
 <li><p>如果某个属性的值是<code>null</code>或<code>undefined</code>，有时候需要为它们指定默认值</p>
 </li>
 <li><p>常见做法是通过<code>||</code>运算符指定默认值，但是属性的值如果为空字符串或<code>false</code>或<code>0</code>，默认值也会生效，如下</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> value <span class="token operator">=</span> data<span class="token punctuation">.</span>value <span class="token operator">||</span> <span class="token string">"123"</span>
-<span class="token comment">// 当data.value等于null、undefine、false、0或空值的时候value的值都是'123'</span>
-<span class="token comment">// 这样会导致无法判断false、0或者空值</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> value = data.<span class="property">value</span> || <span class="string">&quot;123&quot;</span></span><br><span class="line"><span class="comment">// 当data.value等于null、undefine、false、0或空值的时候value的值都是&#x27;123&#x27;</span></span><br><span class="line"><span class="comment">// 这样会导致无法判断false、0或者空值</span></span><br></pre></td></tr></table></figure>
+</li>
 <li><p>通过<code>??</code>运算符，只有值为<code>null</code>或<code>undefined</code>时，才会返回右侧的值</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">const</span> value <span class="token operator">=</span> data<span class="token punctuation">.</span>value <span class="token operator">??</span> <span class="token string">"123"</span>
-<span class="token comment">// 当data.value等于null、undefine的时候value的值才是'123'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> value = data.<span class="property">value</span> ?? <span class="string">&quot;123&quot;</span></span><br><span class="line"><span class="comment">// 当data.value等于null、undefine的时候value的值才是&#x27;123&#x27;</span></span><br></pre></td></tr></table></figure></li>
 </ul>
-<h2 id="逻辑赋值运算符-、-amp-amp-、"><a href="#逻辑赋值运算符-、-amp-amp-、" class="headerlink" title="逻辑赋值运算符 ||=、&amp;&amp;=、??="></a>逻辑赋值运算符 <code>||=</code>、<code>&amp;&amp;=</code>、<code>??=</code></h2><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 或赋值运算符</span>
-x <span class="token operator">||=</span> y
-<span class="token comment">// 等同于</span>
-x <span class="token operator">||</span> <span class="token punctuation">(</span>x <span class="token operator">=</span> y<span class="token punctuation">)</span>
-
-<span class="token comment">// 与赋值运算符</span>
-x <span class="token operator">&amp;&amp;=</span> y
-<span class="token comment">// 等同于</span>
-x <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>x <span class="token operator">=</span> y<span class="token punctuation">)</span>
-
-<span class="token comment">// Null 赋值运算符</span>
-x <span class="token operator">??=</span> y
-<span class="token comment">// 等同于</span>
-x <span class="token operator">??</span> <span class="token punctuation">(</span>x <span class="token operator">=</span> y<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="逻辑赋值运算符-、-、"><a href="#逻辑赋值运算符-、-、" class="headerlink" title="逻辑赋值运算符 ||=、&amp;&amp;=、??="></a>逻辑赋值运算符 <code>||=</code>、<code>&amp;&amp;=</code>、<code>??=</code></h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 或赋值运算符</span></span><br><span class="line">x ||= y</span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line">x || (x = y)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 与赋值运算符</span></span><br><span class="line">x &amp;&amp;= y</span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line">x &amp;&amp; (x = y)</span><br><span class="line"></span><br><span class="line"><span class="comment">// Null 赋值运算符</span></span><br><span class="line">x ??= y</span><br><span class="line"><span class="comment">// 等同于</span></span><br><span class="line">x ?? (x = y)</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li><p>写法对比</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 老的写法</span>
-user<span class="token punctuation">.</span>id <span class="token operator">=</span> user<span class="token punctuation">.</span>id <span class="token operator">||</span> <span class="token number">1</span><span class="token punctuation">;</span>
-
-<span class="token comment">// 新的写法</span>
-user<span class="token punctuation">.</span>id <span class="token operator">||=</span> <span class="token number">1</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 老的写法</span></span><br><span class="line">user.<span class="property">id</span> = user.<span class="property">id</span> || <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 新的写法</span></span><br><span class="line">user.<span class="property">id</span> ||= <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>示例</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// ||=  值为 null、undefined、false、0或空时取默认值</span>
-<span class="token keyword">let</span> user <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
-  id<span class="token operator">:</span> <span class="token number">0</span>
-<span class="token punctuation">&#125;</span>
-user<span class="token punctuation">.</span>id <span class="token operator">||=</span> <span class="token number">1</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>user<span class="token punctuation">.</span>id<span class="token punctuation">)</span> <span class="token comment">// 1</span>
-
-<span class="token keyword">let</span> user <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
-  id<span class="token operator">:</span> <span class="token number">9</span>
-<span class="token punctuation">&#125;</span>
-user<span class="token punctuation">.</span>id <span class="token operator">||=</span> <span class="token number">1</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>user<span class="token punctuation">.</span>id<span class="token punctuation">)</span> <span class="token comment">// 9</span>
-
-<span class="token comment">// &amp;&amp;= 与上面相反，值不为 null、undefined、false、0或空时取默认值</span>
-<span class="token keyword">let</span> user <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
-  id<span class="token operator">:</span> <span class="token number">0</span>
-<span class="token punctuation">&#125;</span>
-user<span class="token punctuation">.</span>id <span class="token operator">&amp;&amp;=</span> <span class="token number">1</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>user<span class="token punctuation">.</span>id<span class="token punctuation">)</span> <span class="token comment">// 0</span>
-
-<span class="token keyword">let</span> user <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
-  id<span class="token operator">:</span> <span class="token number">9</span>
-<span class="token punctuation">&#125;</span>
-user<span class="token punctuation">.</span>id <span class="token operator">&amp;&amp;=</span> <span class="token number">1</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>user<span class="token punctuation">.</span>id<span class="token punctuation">)</span> <span class="token comment">// 1</span>
-
-<span class="token comment">// ??=  ,值为 null undefined 时取默认值</span>
-<span class="token keyword">let</span> user <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
-  id<span class="token operator">:</span> <span class="token number">0</span>
-<span class="token punctuation">&#125;</span>
-user<span class="token punctuation">.</span>id <span class="token operator">??=</span> <span class="token number">1</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>user<span class="token punctuation">.</span>id<span class="token punctuation">)</span> <span class="token comment">// 0</span>
-
-<span class="token keyword">let</span> user <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
-  id<span class="token operator">:</span> <span class="token number">9</span>
-<span class="token punctuation">&#125;</span>
-user<span class="token punctuation">.</span>id <span class="token operator">??=</span> <span class="token number">1</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>user<span class="token punctuation">.</span>id<span class="token punctuation">)</span> <span class="token comment">// 9</span>
-
-<span class="token keyword">let</span> user <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
-  id<span class="token operator">:</span> <span class="token keyword">null</span>
-<span class="token punctuation">&#125;</span>
-user<span class="token punctuation">.</span>id <span class="token operator">??=</span> <span class="token number">1</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>user<span class="token punctuation">.</span>id<span class="token punctuation">)</span> <span class="token comment">// 1</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ||=  值为 null、undefined、false、0或空时取默认值</span></span><br><span class="line"><span class="keyword">let</span> user = &#123;</span><br><span class="line">  <span class="attr">id</span>: <span class="number">0</span></span><br><span class="line">&#125;</span><br><span class="line">user.<span class="property">id</span> ||= <span class="number">1</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(user.<span class="property">id</span>) <span class="comment">// 1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> user = &#123;</span><br><span class="line">  <span class="attr">id</span>: <span class="number">9</span></span><br><span class="line">&#125;</span><br><span class="line">user.<span class="property">id</span> ||= <span class="number">1</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(user.<span class="property">id</span>) <span class="comment">// 9</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// &amp;&amp;= 与上面相反，值不为 null、undefined、false、0或空时取默认值</span></span><br><span class="line"><span class="keyword">let</span> user = &#123;</span><br><span class="line">  <span class="attr">id</span>: <span class="number">0</span></span><br><span class="line">&#125;</span><br><span class="line">user.<span class="property">id</span> &amp;&amp;= <span class="number">1</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(user.<span class="property">id</span>) <span class="comment">// 0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> user = &#123;</span><br><span class="line">  <span class="attr">id</span>: <span class="number">9</span></span><br><span class="line">&#125;</span><br><span class="line">user.<span class="property">id</span> &amp;&amp;= <span class="number">1</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(user.<span class="property">id</span>) <span class="comment">// 1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ??=  ,值为 null undefined 时取默认值</span></span><br><span class="line"><span class="keyword">let</span> user = &#123;</span><br><span class="line">  <span class="attr">id</span>: <span class="number">0</span></span><br><span class="line">&#125;</span><br><span class="line">user.<span class="property">id</span> ??= <span class="number">1</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(user.<span class="property">id</span>) <span class="comment">// 0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> user = &#123;</span><br><span class="line">  <span class="attr">id</span>: <span class="number">9</span></span><br><span class="line">&#125;</span><br><span class="line">user.<span class="property">id</span> ??= <span class="number">1</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(user.<span class="property">id</span>) <span class="comment">// 9</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> user = &#123;</span><br><span class="line">  <span class="attr">id</span>: <span class="literal">null</span></span><br><span class="line">&#125;</span><br><span class="line">user.<span class="property">id</span> ??= <span class="number">1</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(user.<span class="property">id</span>) <span class="comment">// 1</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
 </ul>
 <h2 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h2><ul>
 <li><code>&amp;&amp;</code>与、<code>!!</code>或、<code>!</code>非，<code>!!</code>非的取反</li>
@@ -980,7 +897,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2024</span>
+                <span id="year">2019-2025</span>
             
             <span id="year">2019</span>
             <a href="https://github.com/damao2250" target="_blank">Damao</a>

@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
 </head>
 
 
@@ -405,7 +405,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    113
+                    116
                 </div>
                 
 
@@ -435,18 +435,16 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="配置文件路径"><a href="#配置文件路径" class="headerlink" title="配置文件路径"></a>配置文件路径</h2><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 包括：数据库、redis、swagger...</span>
-<span class="token comment">// module/src/main/resources/application-xxx.yml</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+                <h2 id="配置文件路径"><a href="#配置文件路径" class="headerlink" title="配置文件路径"></a>配置文件路径</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 包括：数据库、redis、swagger...</span></span><br><span class="line"><span class="comment">// module/src/main/resources/application-xxx.yml</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="查找启动类"><a href="#查找启动类" class="headerlink" title="查找启动类"></a>查找启动类</h2><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// module/src/main/java/org.xxx/xxxSystemApplication</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="查找启动类"><a href="#查找启动类" class="headerlink" title="查找启动类"></a>查找启动类</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// module/src/main/java/org.xxx/xxxSystemApplication</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="linux-java重启"><a href="#linux-java重启" class="headerlink" title="linux java重启"></a>linux java重启</h2><ul>
-<li>进入jar包所在的目录下<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell">cd usr<span class="token operator">/</span>local<span class="token operator">/</span>platform<span class="token operator">/</span>java<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>查看进程<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"><span class="token function">ps</span> <span class="token operator">-</span>ef<span class="token punctuation">|</span>grpe java<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>杀死进程<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"><span class="token function">kill</span> <span class="token operator">-</span>9 31189
-<span class="token comment"># 31189为进程号</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
-<li>重启进程（在Java路径下，可用ls查看对应的启动shell文件，后缀名为.sh）<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"><span class="token punctuation">.</span><span class="token operator">/</span><span class="token function">start</span><span class="token punctuation">.</span>sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>检查进程是否已重启成功<pre class="line-numbers language-powershell" data-language="powershell"><code class="language-powershell"><span class="token function">ps</span> <span class="token operator">-</span>ef<span class="token punctuation">|</span>grpe java<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>进入jar包所在的目录下<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> usr/local/platform/java</span><br></pre></td></tr></table></figure></li>
+<li>查看进程<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ps</span> <span class="literal">-ef</span>|grpe java</span><br></pre></td></tr></table></figure></li>
+<li>杀死进程<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">kill</span> <span class="literal">-9</span> <span class="number">31189</span></span><br><span class="line"><span class="comment"># 31189为进程号</span></span><br></pre></td></tr></table></figure></li>
+<li>重启进程（在Java路径下，可用ls查看对应的启动shell文件，后缀名为.sh）<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./start.sh</span><br></pre></td></tr></table></figure></li>
+<li>检查进程是否已重启成功<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ps</span> <span class="literal">-ef</span>|grpe java</span><br></pre></td></tr></table></figure></li>
 </ul>
 
                 
@@ -870,7 +868,7 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2024</span>
+                <span id="year">2019-2025</span>
             
             <span id="year">2019</span>
             <a href="https://github.com/damao2250" target="_blank">Damao</a>

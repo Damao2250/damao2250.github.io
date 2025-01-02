@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
 </head>
 
 
@@ -405,14 +405,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    436
+                    423
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    1 分
                 </div>
                 
 
@@ -435,43 +435,16 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h1><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 安装docker</span>
-yum <span class="token function">install</span> docker -y
-
-<span class="token comment"># 查看docker版本</span>
-docker -v<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                <h1 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装docker</span></span><br><span class="line">yum install docker -y</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看docker版本</span></span><br><span class="line">docker -v</span><br></pre></td></tr></table></figure>
 <h1 id="自动部署时需要的Dockerfile"><a href="#自动部署时需要的Dockerfile" class="headerlink" title="自动部署时需要的Dockerfile"></a>自动部署时需要的Dockerfile</h1><ul>
 <li>编写Dockerfile时文件名就为Dockerfile，不需要要任何后缀，编写完后放到项目根目录下</li>
-<li>版本1<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token constant">FROM</span> docker<span class="token punctuation">.</span>dm<span class="token operator">-</span>ai<span class="token punctuation">.</span>cn<span class="token operator">/</span><span class="token keyword">public</span><span class="token operator">/</span>node<span class="token operator">:</span><span class="token number">10</span><span class="token operator">-</span>frontend<span class="token operator">-</span><span class="token number">0.01</span>
-<span class="token constant">WORKDIR</span> <span class="token operator">/</span>app
-<span class="token constant">ADD</span> <span class="token punctuation">.</span> <span class="token punctuation">.</span>
-<span class="token constant">RUN</span> npm config <span class="token keyword">set</span> registry https<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>npm<span class="token punctuation">.</span>dm<span class="token operator">-</span>ai<span class="token punctuation">.</span>cn<span class="token operator">/</span>repository<span class="token operator">/</span>npm <span class="token operator">&amp;&amp;</span> npm i <span class="token operator">&amp;&amp;</span> npm run build
-
-<span class="token constant">FROM</span> docker<span class="token punctuation">.</span>dm<span class="token operator">-</span>ai<span class="token punctuation">.</span>cn<span class="token operator">/</span><span class="token keyword">public</span><span class="token operator">/</span>nginx<span class="token operator">:</span><span class="token number">1.17</span>
-<span class="token constant">ENV</span> <span class="token constant">TZ</span><span class="token operator">=</span>Asia<span class="token operator">/</span>Shanghai
-<span class="token constant">WORKDIR</span> <span class="token operator">/</span>www
-<span class="token constant">COPY</span> –from<span class="token operator">=</span><span class="token number">0</span> <span class="token operator">/</span>app<span class="token operator">/</span>dist <span class="token operator">/</span>www
-<span class="token constant">COPY</span> –from<span class="token operator">=</span><span class="token number">0</span> <span class="token operator">/</span>app<span class="token operator">/</span>nginx<span class="token punctuation">.</span>conf <span class="token operator">/</span>etc<span class="token operator">/</span>nginx<span class="token operator">/</span>conf<span class="token punctuation">.</span>d<span class="token operator">/</span><span class="token keyword">default</span><span class="token punctuation">.</span>conf
-<span class="token constant">EXPOSE</span> <span class="token number">80</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li>版本2（嘉熙版本）<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token constant">FROM</span> docker<span class="token punctuation">.</span>dm<span class="token operator">-</span>ai<span class="token punctuation">.</span>cn<span class="token operator">/</span><span class="token keyword">public</span><span class="token operator">/</span>node<span class="token operator">:</span><span class="token number">14</span>
-
-<span class="token constant">WORKDIR</span> <span class="token operator">/</span>app
-<span class="token constant">COPY</span> <span class="token punctuation">.</span> <span class="token punctuation">.</span>
-<span class="token constant">RUN</span> npm config <span class="token keyword">set</span> registry https<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>npm<span class="token punctuation">.</span>dm<span class="token operator">-</span>ai<span class="token punctuation">.</span>cn<span class="token operator">/</span>repository<span class="token operator">/</span>npm<span class="token operator">/</span> \
-  <span class="token operator">&amp;&amp;</span> npm config <span class="token keyword">set</span> sass_binary_site https<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>npm<span class="token punctuation">.</span>taobao<span class="token punctuation">.</span>org<span class="token operator">/</span>mirrors<span class="token operator">/</span>node<span class="token operator">-</span>sass<span class="token operator">/</span> \
-  <span class="token operator">&amp;&amp;</span> npm i <span class="token operator">&amp;&amp;</span> npm run build
-
-<span class="token constant">FROM</span> docker<span class="token punctuation">.</span>dm<span class="token operator">-</span>ai<span class="token punctuation">.</span>cn<span class="token operator">/</span><span class="token keyword">public</span><span class="token operator">/</span>nginx<span class="token operator">:</span><span class="token number">1.17</span>
-<span class="token constant">ENV</span> <span class="token constant">TZ</span><span class="token operator">=</span>Asia<span class="token operator">/</span>Shanghai
-<span class="token constant">COPY</span> <span class="token operator">--</span>from<span class="token operator">=</span><span class="token number">0</span> <span class="token operator">/</span>app<span class="token operator">/</span>dist <span class="token operator">/</span>usr<span class="token operator">/</span>share<span class="token operator">/</span>nginx<span class="token operator">/</span>html
-<span class="token constant">COPY</span> <span class="token operator">--</span>from<span class="token operator">=</span><span class="token number">0</span> <span class="token operator">/</span>app<span class="token operator">/</span>nginx<span class="token punctuation">.</span>conf <span class="token operator">/</span>etc<span class="token operator">/</span>nginx<span class="token operator">/</span>conf<span class="token punctuation">.</span>d<span class="token operator">/</span><span class="token keyword">default</span><span class="token punctuation">.</span>conf
-<span class="token constant">EXPOSE</span> <span class="token number">80</span>
-<span class="token constant">CMD</span> nginx <span class="token operator">-</span>g <span class="token string">"daemon off;"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>版本1<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable constant_">FROM</span> docker.<span class="property">dm</span>-ai.<span class="property">cn</span>/public/<span class="attr">node</span>:<span class="number">10</span>-frontend-<span class="number">0.01</span></span><br><span class="line"><span class="variable constant_">WORKDIR</span> /app</span><br><span class="line"><span class="variable constant_">ADD</span> . .</span><br><span class="line"><span class="variable constant_">RUN</span> npm config set registry <span class="attr">https</span>:<span class="comment">//npm.dm-ai.cn/repository/npm &amp;&amp; npm i &amp;&amp; npm run build</span></span><br><span class="line"></span><br><span class="line"><span class="variable constant_">FROM</span> docker.<span class="property">dm</span>-ai.<span class="property">cn</span>/public/<span class="attr">nginx</span>:<span class="number">1.17</span></span><br><span class="line"><span class="variable constant_">ENV</span> <span class="variable constant_">TZ</span>=<span class="title class_">Asia</span>/<span class="title class_">Shanghai</span></span><br><span class="line"><span class="variable constant_">WORKDIR</span> /www</span><br><span class="line"><span class="variable constant_">COPY</span> –<span class="keyword">from</span>=<span class="number">0</span> /app/dist /www</span><br><span class="line"><span class="variable constant_">COPY</span> –<span class="keyword">from</span>=<span class="number">0</span> /app/nginx.<span class="property">conf</span> /etc/nginx/conf.<span class="property">d</span>/<span class="keyword">default</span>.<span class="property">conf</span></span><br><span class="line"><span class="variable constant_">EXPOSE</span> <span class="number">80</span></span><br></pre></td></tr></table></figure></li>
+<li>版本2（嘉熙版本）<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable constant_">FROM</span> docker.<span class="property">dm</span>-ai.<span class="property">cn</span>/public/<span class="attr">node</span>:<span class="number">14</span></span><br><span class="line"></span><br><span class="line"><span class="variable constant_">WORKDIR</span> /app</span><br><span class="line"><span class="variable constant_">COPY</span> . .</span><br><span class="line"><span class="variable constant_">RUN</span> npm config set registry <span class="attr">https</span>:<span class="comment">//npm.dm-ai.cn/repository/npm/ \</span></span><br><span class="line">  &amp;&amp; npm config set sass_binary_site <span class="attr">https</span>:<span class="comment">//npm.taobao.org/mirrors/node-sass/ \</span></span><br><span class="line">  &amp;&amp; npm i &amp;&amp; npm run build</span><br><span class="line"></span><br><span class="line"><span class="variable constant_">FROM</span> docker.<span class="property">dm</span>-ai.<span class="property">cn</span>/public/<span class="attr">nginx</span>:<span class="number">1.17</span></span><br><span class="line"><span class="variable constant_">ENV</span> <span class="variable constant_">TZ</span>=<span class="title class_">Asia</span>/<span class="title class_">Shanghai</span></span><br><span class="line"><span class="variable constant_">COPY</span> --<span class="keyword">from</span>=<span class="number">0</span> /app/dist /usr/share/nginx/html</span><br><span class="line"><span class="variable constant_">COPY</span> --<span class="keyword">from</span>=<span class="number">0</span> /app/nginx.<span class="property">conf</span> /etc/nginx/conf.<span class="property">d</span>/<span class="keyword">default</span>.<span class="property">conf</span></span><br><span class="line"><span class="variable constant_">EXPOSE</span> <span class="number">80</span></span><br><span class="line"><span class="variable constant_">CMD</span> nginx -g <span class="string">&quot;daemon off;&quot;</span></span><br></pre></td></tr></table></figure></li>
 <li>npm config set registry <a target="_blank" rel="noopener" href="https://xxx/">https://xxx</a> —&gt; 设置镜像源地址</li>
-<li>COPY –from=0 &lt;源路径&gt; &lt;目标路径&gt; —&gt; 从指定目录复制文件到指定路径</li>
+<li>COPY –from&#x3D;0 &lt;源路径&gt; &lt;目标路径&gt; —&gt; 从指定目录复制文件到指定路径</li>
 <li>EXPOSE —&gt; 声明端口</li>
 <li>使用nginx -g “daemon off;”启动nginx容器的原因<ul>
-<li>背景：Docker 容器启动时，默认会把容器内部第一个进程，也就是pid=1的程序，作为docker容器是否正在运行的依据，如果 docker 容器pid=1的进程挂了，那么docker容器便会直接退出。</li>
+<li>背景：Docker 容器启动时，默认会把容器内部第一个进程，也就是pid&#x3D;1的程序，作为docker容器是否正在运行的依据，如果 docker 容器pid&#x3D;1的进程挂了，那么docker容器便会直接退出。</li>
 <li>原因：nginx默认是以后台模式启动的，Docker未执行自定义的CMD之前，nginx的pid是1，执行到CMD之后，nginx就在后台运行，bash或sh脚本的pid变成了1。所以一旦执行完自定义CMD，nginx容器也就退出了。为了保持nginx的容器不退出，应该关闭nginx后台运行</li>
 </ul>
 </li>
@@ -890,7 +863,7 @@ docker -v<span aria-hidden="true" class="line-numbers-rows"><span></span><span><
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2024</span>
+                <span id="year">2019-2025</span>
             
             <span id="year">2019</span>
             <a href="https://github.com/damao2250" target="_blank">Damao</a>

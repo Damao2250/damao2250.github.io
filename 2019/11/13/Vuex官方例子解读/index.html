@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
 </head>
 
 
@@ -405,7 +405,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    446
+                    455
                 </div>
                 
 
@@ -435,11 +435,11 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><pre class="line-numbers language-js" data-language="js"><code class="language-js">npm i vuex
-<span class="token comment">// or</span>
-yarn add vuex<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+                <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm i vuex</span><br><span class="line"><span class="comment">// or</span></span><br><span class="line">yarn add vuex</span><br></pre></td></tr></table></figure>
 <h2 id="Vuex-是什么"><a href="#Vuex-是什么" class="headerlink" title="Vuex 是什么"></a>Vuex 是什么</h2><ul>
-<li>Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。<br>它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。<h2 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a>核心概念</h2></li>
+<li>Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式。<br>它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。</li>
+</ul>
+<h2 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a>核心概念</h2><ul>
 <li>State<ul>
 <li>单一状态树，用一个对象就包含了全部的应用层级状态</li>
 </ul>
@@ -460,46 +460,11 @@ yarn add vuex<span aria-hidden="true" class="line-numbers-rows"><span></span><sp
 <li>将 store 分割成模块（module）。每个模块拥有自己的 state、mutation、action、getter</li>
 </ul>
 </li>
-<li>官方购物车项目结构<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">├── index.html
-├── main.js
-├── api
-│   └── <span class="token punctuation">..</span>. <span class="token comment"># 抽取出API请求</span>
-├── components
-│   ├── App.vue
-│   └── <span class="token punctuation">..</span>.
-└── store
-    ├── index.js          <span class="token comment"># 我们组装模块并导出 store 的地方</span>
-    ├── actions.js        <span class="token comment"># 根级别的 action</span>
-    ├── mutations.js      <span class="token comment"># 根级别的 mutation</span>
-    └── modules
-        ├── cart.js       <span class="token comment"># 购物车模块</span>
-        └── products.js   <span class="token comment"># 产品模块</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h2></li>
+<li>官方购物车项目结构<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">├── index.html</span><br><span class="line">├── main.js</span><br><span class="line">├── api</span><br><span class="line">│   └── ... <span class="comment"># 抽取出API请求</span></span><br><span class="line">├── components</span><br><span class="line">│   ├── App.vue</span><br><span class="line">│   └── ...</span><br><span class="line">└── store</span><br><span class="line">    ├── index.js          <span class="comment"># 我们组装模块并导出 store 的地方</span></span><br><span class="line">    ├── actions.js        <span class="comment"># 根级别的 action</span></span><br><span class="line">    ├── mutations.js      <span class="comment"># 根级别的 mutation</span></span><br><span class="line">    └── modules</span><br><span class="line">        ├── cart.js       <span class="comment"># 购物车模块</span></span><br><span class="line">        └── products.js   <span class="comment"># 产品模块</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h2><ul>
 <li>在 mutation-types.js 中定义类型常量，默认全部大写 —&gt; 把常量放在单独的文件中可以让你的代码合作者或者迭代者对整个 app 包含的 mutation 一目了然</li>
-<li>Vuex- Action的 { commit }<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// Vuex 中 使用 Action 处理异步请求时，常规写法如下</span>
-<span class="token function-variable function">getMenuAction</span><span class="token operator">:</span><span class="token punctuation">(</span><span class="token parameter">context</span><span class="token punctuation">)</span> <span class="token operator">=></span><span class="token punctuation">&#123;</span>
-    context<span class="token punctuation">.</span><span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">'SET_MENU_LIST'</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token string">'承保2'</span><span class="token punctuation">,</span><span class="token string">'核保2'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-<span class="token punctuation">&#125;</span>
-<span class="token comment">// 我们也可以使用如下简化写法，如下</span>
-actions<span class="token operator">:</span><span class="token punctuation">&#123;</span>
-    <span class="token function-variable function">getMenuAction</span><span class="token operator">:</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">&#123;</span>commit<span class="token punctuation">&#125;</span></span><span class="token punctuation">)</span> <span class="token operator">=></span><span class="token punctuation">&#123;</span>
-        <span class="token function">commit</span><span class="token punctuation">(</span>‘<span class="token constant">SET_MENU_LIST</span>’<span class="token punctuation">,</span><span class="token punctuation">[</span>‘承保<span class="token number">2</span>’<span class="token punctuation">,</span>’核保<span class="token number">2</span>’<span class="token punctuation">]</span><span class="token punctuation">)</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span>
-
-<span class="token comment">// &#123; commit &#125; 是变量解构赋值</span>
-context <span class="token operator">=</span> <span class="token punctuation">&#123;</span> 
-    dispatch<span class="token operator">:</span> local<span class="token punctuation">.</span>dispatch<span class="token punctuation">,</span>
-    commit<span class="token operator">:</span> local<span class="token punctuation">.</span>commit<span class="token punctuation">,</span>
-    getters<span class="token operator">:</span> local<span class="token punctuation">.</span>getters<span class="token punctuation">,</span>
-    state<span class="token operator">:</span> local<span class="token punctuation">.</span>state<span class="token punctuation">,</span>
-    rootGetters<span class="token operator">:</span> store<span class="token punctuation">.</span>getters<span class="token punctuation">,</span>
-    rootState<span class="token operator">:</span> store<span class="token punctuation">.</span>state
-<span class="token punctuation">&#125;</span>
-<span class="token comment">// 常规写法 context.commit = context.local.commit</span>
-<span class="token comment">// 使用变量解构赋值后 &#123; commit &#125; 相当于 commit= context.commit</span>
-
-<span class="token comment">// state 同理</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>Vuex- Action的 { commit }<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Vuex 中 使用 Action 处理异步请求时，常规写法如下</span></span><br><span class="line"><span class="attr">getMenuAction</span>:<span class="function">(<span class="params">context</span>) =&gt;</span>&#123;</span><br><span class="line">    context.<span class="title function_">commit</span>(<span class="string">&#x27;SET_MENU_LIST&#x27;</span>,[<span class="string">&#x27;承保2&#x27;</span>,<span class="string">&#x27;核保2&#x27;</span>])</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 我们也可以使用如下简化写法，如下</span></span><br><span class="line"><span class="attr">actions</span>:&#123;</span><br><span class="line">    <span class="attr">getMenuAction</span>:<span class="function">(<span class="params">&#123;commit&#125;</span>) =&gt;</span>&#123;</span><br><span class="line">        <span class="title function_">commit</span>(‘<span class="variable constant_">SET_MENU_LIST</span>’,[‘承保<span class="number">2</span>’,’核保<span class="number">2</span>’])</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// &#123; commit &#125; 是变量解构赋值</span></span><br><span class="line">context = &#123; </span><br><span class="line">    <span class="attr">dispatch</span>: local.<span class="property">dispatch</span>,</span><br><span class="line">    <span class="attr">commit</span>: local.<span class="property">commit</span>,</span><br><span class="line">    <span class="attr">getters</span>: local.<span class="property">getters</span>,</span><br><span class="line">    <span class="attr">state</span>: local.<span class="property">state</span>,</span><br><span class="line">    <span class="attr">rootGetters</span>: store.<span class="property">getters</span>,</span><br><span class="line">    <span class="attr">rootState</span>: store.<span class="property">state</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 常规写法 context.commit = context.local.commit</span></span><br><span class="line"><span class="comment">// 使用变量解构赋值后 &#123; commit &#125; 相当于 commit= context.commit</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// state 同理</span></span><br></pre></td></tr></table></figure></li>
 </ul>
 
                 
@@ -919,7 +884,7 @@ context <span class="token operator">=</span> <span class="token punctuation">&#
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2024</span>
+                <span id="year">2019-2025</span>
             
             <span id="year">2019</span>
             <a href="https://github.com/damao2250" target="_blank">Damao</a>

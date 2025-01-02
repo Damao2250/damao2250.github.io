@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
 </head>
 
 
@@ -405,7 +405,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    304
+                    317
                 </div>
                 
 
@@ -440,16 +440,27 @@
 <li>Vue in:readme 表示在项目readme中搜索 Vue 关键字</li>
 <li>Vue in:description 表示在 项目描述中搜索 Vue 关键字</li>
 <li>Vue in:USERNAME 表示在USERNAME中搜索 Vue 关键字</li>
-<li>Vue in:ORGNAME 表示在组织或机构名中搜索 Vue 关键字<h2 id="2-按照项目大小搜索"><a href="#2-按照项目大小搜索" class="headerlink" title="2.按照项目大小搜索"></a>2.按照项目大小搜索</h2></li>
-<li>size:&gt;=5000 Vue 搜索大小超过5M 的包含 Vue 关键字项目<h2 id="3-按照Stars量搜索"><a href="#3-按照Stars量搜索" class="headerlink" title="3.按照Stars量搜索"></a>3.按照Stars量搜索</h2></li>
+<li>Vue in:ORGNAME 表示在组织或机构名中搜索 Vue 关键字</li>
+</ul>
+<h2 id="2-按照项目大小搜索"><a href="#2-按照项目大小搜索" class="headerlink" title="2.按照项目大小搜索"></a>2.按照项目大小搜索</h2><ul>
+<li>size:&gt;&#x3D;5000 Vue 搜索大小超过5M 的包含 Vue 关键字项目</li>
+</ul>
+<h2 id="3-按照Stars量搜索"><a href="#3-按照Stars量搜索" class="headerlink" title="3.按照Stars量搜索"></a>3.按照Stars量搜索</h2><ul>
 <li>stars:&gt;1000 搜索Stars量大于1000的项目</li>
 <li>Vue stars:&gt;1000 搜索Stars量大于1000的Vue项目</li>
-<li>language:Vue stars:&gt;10000搜索开发语言为Vue且stars数大于10000的所有项目<h2 id="4-按照语言搜索"><a href="#4-按照语言搜索" class="headerlink" title="4.按照语言搜索"></a>4.按照语言搜索</h2></li>
-<li>language:Vue location:china 搜索国内的开发者，语言限定为Vue<h2 id="5-Github高级搜索"><a href="#5-Github高级搜索" class="headerlink" title="5.Github高级搜索"></a>5.Github高级搜索</h2></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/search/advanced">https://github.com/search/advanced</a><h2 id="6-每天-每周-每月热门"><a href="#6-每天-每周-每月热门" class="headerlink" title="6.每天/每周/每月热门"></a>6.每天/每周/每月热门</h2></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/trending">https://github.com/trending</a><h2 id="7-git如何统计代码行数"><a href="#7-git如何统计代码行数" class="headerlink" title="7.git如何统计代码行数"></a>7.git如何统计代码行数</h2></li>
-<li>git中有个中自带的查询提交行数的命令<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ <span class="token function">git</span> log --since<span class="token operator">=</span><span class="token number">2018</span>-01-01 --until<span class="token operator">=</span><span class="token number">2018</span>-12-31 --author<span class="token operator">=</span><span class="token string">"like"</span> --pretty<span class="token operator">=</span>tformat: --numstat <span class="token operator">|</span> <span class="token function">gawk</span> <span class="token string">'&#123; add += $1 ; subs += $2 ; loc += $1 - $2 &#125; END &#123; printf "added lines: %s removed lines : %s total lines: %s\n",add,subs,loc &#125;'</span> -
-<span class="token comment"># 设置对应时间段，--author后面改成自己的名字或空</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li>language:Vue stars:&gt;10000搜索开发语言为Vue且stars数大于10000的所有项目</li>
+</ul>
+<h2 id="4-按照语言搜索"><a href="#4-按照语言搜索" class="headerlink" title="4.按照语言搜索"></a>4.按照语言搜索</h2><ul>
+<li>language:Vue location:china 搜索国内的开发者，语言限定为Vue</li>
+</ul>
+<h2 id="5-Github高级搜索"><a href="#5-Github高级搜索" class="headerlink" title="5.Github高级搜索"></a>5.Github高级搜索</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/search/advanced">https://github.com/search/advanced</a></li>
+</ul>
+<h2 id="6-每天-每周-每月热门"><a href="#6-每天-每周-每月热门" class="headerlink" title="6.每天&#x2F;每周&#x2F;每月热门"></a>6.每天&#x2F;每周&#x2F;每月热门</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/trending">https://github.com/trending</a></li>
+</ul>
+<h2 id="7-git如何统计代码行数"><a href="#7-git如何统计代码行数" class="headerlink" title="7.git如何统计代码行数"></a>7.git如何统计代码行数</h2><ul>
+<li>git中有个中自带的查询提交行数的命令<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">log</span> --since=2018-01-01 --<span class="keyword">until</span>=2018-12-31 --author=<span class="string">&quot;like&quot;</span> --pretty=tformat: --numstat | gawk <span class="string">&#x27;&#123; add += $1 ; subs += $2 ; loc += $1 - $2 &#125; END &#123; printf &quot;added lines: %s removed lines : %s total lines: %s\n&quot;,add,subs,loc &#125;&#x27;</span> -</span><br><span class="line"><span class="comment"># 设置对应时间段，--author后面改成自己的名字或空</span></span><br></pre></td></tr></table></figure></li>
 </ul>
 
                 
@@ -865,7 +876,7 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2024</span>
+                <span id="year">2019-2025</span>
             
             <span id="year">2019</span>
             <a href="https://github.com/damao2250" target="_blank">Damao</a>

@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
 </head>
 
 
@@ -405,7 +405,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    541
+                    550
                 </div>
                 
 
@@ -436,66 +436,29 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h1 id="为什么会出现？"><a href="#为什么会出现？" class="headerlink" title="为什么会出现？"></a>为什么会出现？</h1><ul>
-<li><p>首先了解两个像素：设备的 物理像素[设备像素] &amp; 虚拟像素[CSS像素] &amp; 逻辑像素[设备独立像素]</p>
-<ul>
+<li>首先了解两个像素：设备的 物理像素[设备像素] &amp; 虚拟像素[CSS像素] &amp; 逻辑像素[设备独立像素]<ul>
 <li>物理像素：移动设备出厂时，不同设备的屏幕自带的不同屏幕像素，也称硬件像素；</li>
 <li>虚拟像素：即css中记录的像素</li>
 <li>逻辑像素：计算机坐标系统中的一个点，是由程序使用的虚拟像素(比如: CSS 像素)，这个点没有固定大小，越小越清晰，可由相关系统转换为物理像素</li>
 </ul>
 </li>
-<li><p>devicePixelRatio（DPR）：反应css中的像素与设备的像素比</p>
-<ul>
+<li>devicePixelRatio（DPR）：反应css中的像素与设备的像素比<ul>
 <li>DPR为设备像素（物理像素）和设备独立像素（逻辑像素）的比例</li>
-<li>DPR = 物理像素 / 独立设备像素</li>
+<li>DPR &#x3D; 物理像素 &#x2F; 独立设备像素</li>
 </ul>
 </li>
-<li><p>1px变粗的原因：</p>
-<ul>
-<li>viewport的设置和屏幕物理分辨率是按比例而不是相同的. 移动端window对象有个devicePixelRatio属性,它表示设备物理像素和css像素的比例, 在retina屏的iphone手机上, 这个值为2或3,css里写的1px长度映射到物理像素上就有2px或3px那么长<h1 id="如何解决（最佳解决方案）？"><a href="#如何解决（最佳解决方案）？" class="headerlink" title="如何解决（最佳解决方案）？"></a>如何解决（最佳解决方案）？</h1></li>
+<li>1px变粗的原因：<ul>
+<li>viewport的设置和屏幕物理分辨率是按比例而不是相同的. 移动端window对象有个devicePixelRatio属性,它表示设备物理像素和css像素的比例, 在retina屏的iphone手机上, 这个值为2或3,css里写的1px长度映射到物理像素上就有2px或3px那么长</li>
 </ul>
 </li>
+</ul>
+<h1 id="如何解决（最佳解决方案）？"><a href="#如何解决（最佳解决方案）？" class="headerlink" title="如何解决（最佳解决方案）？"></a>如何解决（最佳解决方案）？</h1><ul>
 <li><p>transform: scale(0.5) 方案</p>
 <ul>
-<li>设置height: 1px，根据媒体查询结合transform缩放为相应尺寸<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">div</span> <span class="token punctuation">&#123;</span>
-    <span class="token property">height</span><span class="token punctuation">:</span>1px<span class="token punctuation">;</span>
-    <span class="token property">background</span><span class="token punctuation">:</span>#000<span class="token punctuation">;</span>
-    <span class="token property">-webkit-transform</span><span class="token punctuation">:</span> <span class="token function">scaleY</span><span class="token punctuation">(</span>0.5<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token property">-webkit-transform-origin</span><span class="token punctuation">:</span>0 0<span class="token punctuation">;</span>
-    <span class="token property">overflow</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li>用::after和::befor,设置border-bottom：1px solid #000,然后在缩放-webkit-transform: scaleY(0.5);可以实现两根边线的需求<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">div::after</span><span class="token punctuation">&#123;</span>
-    <span class="token property">content</span><span class="token punctuation">:</span><span class="token string">''</span><span class="token punctuation">;</span>
-    <span class="token property">width</span><span class="token punctuation">:</span>100%<span class="token punctuation">;</span>
-    <span class="token property">border-bottom</span><span class="token punctuation">:</span>1px solid #000<span class="token punctuation">;</span>
-    <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">scaleY</span><span class="token punctuation">(</span>0.5<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li>用::after设置border：1px solid #000; width:200%; height:200%,然后再缩放scaleY(0.5); 优点可以实现圆角，京东就是这么实现的，缺点是按钮添加active比较麻烦<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.div::after</span> <span class="token punctuation">&#123;</span>
-    <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">;</span>
-    <span class="token property">width</span><span class="token punctuation">:</span> 200%<span class="token punctuation">;</span>
-    <span class="token property">height</span><span class="token punctuation">:</span> 200%<span class="token punctuation">;</span>
-    <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
-    <span class="token property">top</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
-    <span class="token property">left</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
-    <span class="token property">border</span><span class="token punctuation">:</span> 1px solid #bfbfbf<span class="token punctuation">;</span>
-    <span class="token property">border-radius</span><span class="token punctuation">:</span> 4px<span class="token punctuation">;</span>
-    <span class="token property">-webkit-transform</span><span class="token punctuation">:</span> <span class="token function">scale</span><span class="token punctuation">(</span>0.5<span class="token punctuation">,</span>0.5<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">scale</span><span class="token punctuation">(</span>0.5<span class="token punctuation">,</span>0.5<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token property">-webkit-transform-origin</span><span class="token punctuation">:</span> top left<span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li>媒体查询 + transfrom<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token comment">/* 2倍屏 */</span>
-<span class="token atrule"><span class="token rule">@media</span> <span class="token keyword">only</span> screen <span class="token keyword">and</span> <span class="token punctuation">(</span><span class="token property">-webkit-min-device-pixel-ratio</span><span class="token punctuation">:</span> 2.0<span class="token punctuation">)</span></span> <span class="token punctuation">&#123;</span>
-    <span class="token selector">.border-bottom::after</span> <span class="token punctuation">&#123;</span>
-        <span class="token property">-webkit-transform</span><span class="token punctuation">:</span> <span class="token function">scaleY</span><span class="token punctuation">(</span>0.5<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">scaleY</span><span class="token punctuation">(</span>0.5<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span>
-<span class="token comment">/* 3倍屏 */</span>
-<span class="token atrule"><span class="token rule">@media</span> <span class="token keyword">only</span> screen <span class="token keyword">and</span> <span class="token punctuation">(</span><span class="token property">-webkit-min-device-pixel-ratio</span><span class="token punctuation">:</span> 3.0<span class="token punctuation">)</span></span> <span class="token punctuation">&#123;</span>
-    <span class="token selector">.border-bottom::after</span> <span class="token punctuation">&#123;</span>
-        <span class="token property">-webkit-transform</span><span class="token punctuation">:</span> <span class="token function">scaleY</span><span class="token punctuation">(</span>0.33<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">scaleY</span><span class="token punctuation">(</span>0.33<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>设置height: 1px，根据媒体查询结合transform缩放为相应尺寸  <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>:<span class="number">1px</span>;</span><br><span class="line">    <span class="attribute">background</span>:<span class="number">#000</span>;</span><br><span class="line">    -webkit-<span class="attribute">transform</span>: <span class="built_in">scaleY</span>(<span class="number">0.5</span>);</span><br><span class="line">    -webkit-<span class="attribute">transform-origin</span>:<span class="number">0</span> <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>用::after和::befor,设置border-bottom：1px solid #000,然后在缩放-webkit-transform: scaleY(0.5);可以实现两根边线的需求  <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span><span class="selector-pseudo">::after</span>&#123;</span><br><span class="line">    <span class="attribute">content</span>:<span class="string">&#x27;&#x27;</span>;</span><br><span class="line">    <span class="attribute">width</span>:<span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">border-bottom</span>:<span class="number">1px</span> solid <span class="number">#000</span>;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">scaleY</span>(<span class="number">0.5</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>用::after设置border：1px solid #000; width:200%; height:200%,然后再缩放scaleY(0.5); 优点可以实现圆角，京东就是这么实现的，缺点是按钮添加active比较麻烦  <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.div</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200%</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">200%</span>;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#bfbfbf</span>;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">4px</span>;</span><br><span class="line">    -webkit-<span class="attribute">transform</span>: <span class="built_in">scale</span>(<span class="number">0.5</span>,<span class="number">0.5</span>);</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">scale</span>(<span class="number">0.5</span>,<span class="number">0.5</span>);</span><br><span class="line">    -webkit-<span class="attribute">transform-origin</span>: top left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>媒体查询 + transfrom  <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 2倍屏 */</span></span><br><span class="line"><span class="keyword">@media</span> <span class="keyword">only</span> screen <span class="keyword">and</span> (<span class="attribute">-webkit-min-device-pixel-ratio</span>: <span class="number">2.0</span>) &#123;</span><br><span class="line">    <span class="selector-class">.border-bottom</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">        -webkit-<span class="attribute">transform</span>: <span class="built_in">scaleY</span>(<span class="number">0.5</span>);</span><br><span class="line">        <span class="attribute">transform</span>: <span class="built_in">scaleY</span>(<span class="number">0.5</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 3倍屏 */</span></span><br><span class="line"><span class="keyword">@media</span> <span class="keyword">only</span> screen <span class="keyword">and</span> (<span class="attribute">-webkit-min-device-pixel-ratio</span>: <span class="number">3.0</span>) &#123;</span><br><span class="line">    <span class="selector-class">.border-bottom</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">        -webkit-<span class="attribute">transform</span>: <span class="built_in">scaleY</span>(<span class="number">0.33</span>);</span><br><span class="line">        <span class="attribute">transform</span>: <span class="built_in">scaleY</span>(<span class="number">0.33</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
 </ul>
@@ -913,7 +876,7 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2024</span>
+                <span id="year">2019-2025</span>
             
             <span id="year">2019</span>
             <a href="https://github.com/damao2250" target="_blank">Damao</a>

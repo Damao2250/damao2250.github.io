@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
 </head>
 
 
@@ -405,14 +405,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    368
+                    412
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -438,79 +438,14 @@
                 <h2 id="手动实现"><a href="#手动实现" class="headerlink" title="手动实现"></a>手动实现</h2><ul>
 <li>使用 <code>reduce</code> 方法实现 <code>groupBy</code> 函数来实现将数组中的元素根据某个属性或条件分组</li>
 </ul>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">const</span> <span class="token function-variable function">groupBy</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">array<span class="token punctuation">,</span> key</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-  <span class="token keyword">return</span> array<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">result<span class="token punctuation">,</span> element</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-    <span class="token comment">// 使用 key 函数获取分组的键</span>
-    <span class="token keyword">const</span> groupKey <span class="token operator">=</span> <span class="token function">key</span><span class="token punctuation">(</span>element<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    
-    <span class="token comment">// 如果结果对象中没有这个键，就创建一个空数组</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>result<span class="token punctuation">[</span>groupKey<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-      result<span class="token punctuation">[</span>groupKey<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-    
-    <span class="token comment">// 将元素添加到对应的数组中</span>
-    result<span class="token punctuation">[</span>groupKey<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>element<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    
-    <span class="token keyword">return</span> result<span class="token punctuation">;</span>
-  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
-
-<span class="token keyword">const</span> people <span class="token operator">=</span> <span class="token punctuation">[</span>
-  <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'John'</span><span class="token punctuation">,</span> age<span class="token operator">:</span> <span class="token number">20</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-  <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Jane'</span><span class="token punctuation">,</span> age<span class="token operator">:</span> <span class="token number">20</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-  <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Jim'</span><span class="token punctuation">,</span> age<span class="token operator">:</span> <span class="token number">30</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-  <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Joan'</span><span class="token punctuation">,</span> age<span class="token operator">:</span> <span class="token number">30</span> <span class="token punctuation">&#125;</span>
-<span class="token punctuation">]</span><span class="token punctuation">;</span>
-
-<span class="token comment">// 使用 groupBy 方法</span>
-<span class="token keyword">const</span> peopleByAge <span class="token operator">=</span> <span class="token function">groupBy</span><span class="token punctuation">(</span>people<span class="token punctuation">,</span> <span class="token parameter">person</span> <span class="token operator">=></span> person<span class="token punctuation">.</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>peopleByAge<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment">// `groupBy` 函数接收两个参数：一个数组和一个函数，这个函数用于从数组的每个元素中提取分组的键。</span>
-<span class="token comment">// `reduce` 方法遍历数组，为每个不同的键创建一个新数组，并将具有相同键的元素添加到对应的数组中。</span>
-<span class="token comment">// 输出</span>
-
-<span class="token punctuation">&#123;</span>
-  <span class="token string">'20'</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-    <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'John'</span><span class="token punctuation">,</span> age<span class="token operator">:</span> <span class="token number">20</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-    <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Jane'</span><span class="token punctuation">,</span> age<span class="token operator">:</span> <span class="token number">20</span> <span class="token punctuation">&#125;</span>
-  <span class="token punctuation">]</span><span class="token punctuation">,</span>
-  <span class="token string">'30'</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-    <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Jim'</span><span class="token punctuation">,</span> age<span class="token operator">:</span> <span class="token number">30</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-    <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Joan'</span><span class="token punctuation">,</span> age<span class="token operator">:</span> <span class="token number">30</span> <span class="token punctuation">&#125;</span>
-  <span class="token punctuation">]</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">groupBy</span> = (<span class="params">array, key</span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">return</span> array.<span class="title function_">reduce</span>(<span class="function">(<span class="params">result, element</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 使用 key 函数获取分组的键</span></span><br><span class="line">    <span class="keyword">const</span> groupKey = <span class="title function_">key</span>(element);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 如果结果对象中没有这个键，就创建一个空数组</span></span><br><span class="line">    <span class="keyword">if</span> (!result[groupKey]) &#123;</span><br><span class="line">      result[groupKey] = [];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 将元素添加到对应的数组中</span></span><br><span class="line">    result[groupKey].<span class="title function_">push</span>(element);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">  &#125;, &#123;&#125;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> people = [</span><br><span class="line">  &#123; <span class="attr">name</span>: <span class="string">&#x27;John&#x27;</span>, <span class="attr">age</span>: <span class="number">20</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">name</span>: <span class="string">&#x27;Jane&#x27;</span>, <span class="attr">age</span>: <span class="number">20</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">name</span>: <span class="string">&#x27;Jim&#x27;</span>, <span class="attr">age</span>: <span class="number">30</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">name</span>: <span class="string">&#x27;Joan&#x27;</span>, <span class="attr">age</span>: <span class="number">30</span> &#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用 groupBy 方法</span></span><br><span class="line"><span class="keyword">const</span> peopleByAge = <span class="title function_">groupBy</span>(people, <span class="function"><span class="params">person</span> =&gt;</span> person.<span class="property">age</span>);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(peopleByAge);</span><br><span class="line"></span><br><span class="line"><span class="comment">// `groupBy` 函数接收两个参数：一个数组和一个函数，这个函数用于从数组的每个元素中提取分组的键。</span></span><br><span class="line"><span class="comment">// `reduce` 方法遍历数组，为每个不同的键创建一个新数组，并将具有相同键的元素添加到对应的数组中。</span></span><br><span class="line"><span class="comment">// 输出</span></span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&#x27;20&#x27;</span>: [</span><br><span class="line">    &#123; <span class="attr">name</span>: <span class="string">&#x27;John&#x27;</span>, <span class="attr">age</span>: <span class="number">20</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">name</span>: <span class="string">&#x27;Jane&#x27;</span>, <span class="attr">age</span>: <span class="number">20</span> &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="string">&#x27;30&#x27;</span>: [</span><br><span class="line">    &#123; <span class="attr">name</span>: <span class="string">&#x27;Jim&#x27;</span>, <span class="attr">age</span>: <span class="number">30</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">name</span>: <span class="string">&#x27;Joan&#x27;</span>, <span class="attr">age</span>: <span class="number">30</span> &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 <h2 id="原生支持-Object-groupBy"><a href="#原生支持-Object-groupBy" class="headerlink" title="原生支持 Object.groupBy"></a>原生支持 Object.groupBy</h2><ul>
 <li><code>ECMAScript 2024（ES15）</code>提案已加入 <code>Object.groupBy</code> 方法</li>
 <li>注意目前需要谷歌浏览器<code>117</code>以上的版本才能运行</li>
 </ul>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js">
-<span class="token keyword">const</span> people <span class="token operator">=</span> <span class="token punctuation">[</span>
-  <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'John'</span><span class="token punctuation">,</span> age<span class="token operator">:</span> <span class="token number">20</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-  <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Jane'</span><span class="token punctuation">,</span> age<span class="token operator">:</span> <span class="token number">20</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-  <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Jim'</span><span class="token punctuation">,</span> age<span class="token operator">:</span> <span class="token number">30</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-  <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Joan'</span><span class="token punctuation">,</span> age<span class="token operator">:</span> <span class="token number">30</span> <span class="token punctuation">&#125;</span>
-<span class="token punctuation">]</span><span class="token punctuation">;</span>
-
-<span class="token comment">// 调用</span>
-<span class="token keyword">const</span> peopleByAge <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">groupBy</span><span class="token punctuation">(</span>people<span class="token punctuation">,</span> <span class="token parameter">person</span> <span class="token operator">=></span> person<span class="token punctuation">.</span>age<span class="token punctuation">)</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>peopleByAge<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment">// 输出</span>
-<span class="token punctuation">&#123;</span>
-  <span class="token string">'20'</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-    <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'John'</span><span class="token punctuation">,</span> age<span class="token operator">:</span> <span class="token number">20</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-    <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Jane'</span><span class="token punctuation">,</span> age<span class="token operator">:</span> <span class="token number">20</span> <span class="token punctuation">&#125;</span>
-  <span class="token punctuation">]</span><span class="token punctuation">,</span>
-  <span class="token string">'30'</span><span class="token operator">:</span> <span class="token punctuation">[</span>
-    <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Jim'</span><span class="token punctuation">,</span> age<span class="token operator">:</span> <span class="token number">30</span> <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-    <span class="token punctuation">&#123;</span> name<span class="token operator">:</span> <span class="token string">'Joan'</span><span class="token punctuation">,</span> age<span class="token operator">:</span> <span class="token number">30</span> <span class="token punctuation">&#125;</span>
-  <span class="token punctuation">]</span>
-<span class="token punctuation">&#125;</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">const</span> people = [</span><br><span class="line">  &#123; <span class="attr">name</span>: <span class="string">&#x27;John&#x27;</span>, <span class="attr">age</span>: <span class="number">20</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">name</span>: <span class="string">&#x27;Jane&#x27;</span>, <span class="attr">age</span>: <span class="number">20</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">name</span>: <span class="string">&#x27;Jim&#x27;</span>, <span class="attr">age</span>: <span class="number">30</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">name</span>: <span class="string">&#x27;Joan&#x27;</span>, <span class="attr">age</span>: <span class="number">30</span> &#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 调用</span></span><br><span class="line"><span class="keyword">const</span> peopleByAge = <span class="title class_">Object</span>.<span class="title function_">groupBy</span>(people, <span class="function"><span class="params">person</span> =&gt;</span> person.<span class="property">age</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(peopleByAge);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 输出</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&#x27;20&#x27;</span>: [</span><br><span class="line">    &#123; <span class="attr">name</span>: <span class="string">&#x27;John&#x27;</span>, <span class="attr">age</span>: <span class="number">20</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">name</span>: <span class="string">&#x27;Jane&#x27;</span>, <span class="attr">age</span>: <span class="number">20</span> &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="string">&#x27;30&#x27;</span>: [</span><br><span class="line">    &#123; <span class="attr">name</span>: <span class="string">&#x27;Jim&#x27;</span>, <span class="attr">age</span>: <span class="number">30</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">name</span>: <span class="string">&#x27;Joan&#x27;</span>, <span class="attr">age</span>: <span class="number">30</span> &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
                 
             </div>
@@ -933,7 +868,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2024</span>
+                <span id="year">2019-2025</span>
             
             <span id="year">2019</span>
             <a href="https://github.com/damao2250" target="_blank">Damao</a>

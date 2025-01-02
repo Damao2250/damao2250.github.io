@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
 </head>
 
 
@@ -405,14 +405,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    347
+                    405
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -435,97 +435,20 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="1-路由懒加载"><a href="#1-路由懒加载" class="headerlink" title="1. 路由懒加载"></a>1. 路由懒加载</h2><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token punctuation">&#123;</span>
-path<span class="token operator">:</span> <span class="token string">'/about'</span><span class="token punctuation">,</span>
-name<span class="token operator">:</span> <span class="token string">'about'</span><span class="token punctuation">,</span>
-<span class="token function-variable function">component</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'@/views/about/about'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                <h2 id="1-路由懒加载"><a href="#1-路由懒加载" class="headerlink" title="1. 路由懒加载"></a>1. 路由懒加载</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"><span class="attr">path</span>: <span class="string">&#x27;/about&#x27;</span>,</span><br><span class="line"><span class="attr">name</span>: <span class="string">&#x27;about&#x27;</span>,</span><br><span class="line"><span class="attr">component</span>: <span class="function">() =&gt;</span> <span class="keyword">import</span>(<span class="string">&#x27;@/views/about/about&#x27;</span>),</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
 <h2 id="2-不生成-map-文件"><a href="#2-不生成-map-文件" class="headerlink" title="2. 不生成.map 文件"></a>2. 不生成.map 文件</h2><ul>
-<li>webpack默认会生成map文件，map文件是用来调试代码的。此外，这里还要注意sourcemap的配置分 开发（dev）和线上（build）两个地方配置，开发我们就不管了，就用默认的，线上我们是不需要这个代码的。<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 配置 vue.config.js</span>
-module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
-  productionSourceMap<span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>webpack默认会生成map文件，map文件是用来调试代码的。此外，这里还要注意sourcemap的配置分 开发（dev）和线上（build）两个地方配置，开发我们就不管了，就用默认的，线上我们是不需要这个代码的。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 配置 vue.config.js</span></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">productionSourceMap</span>: <span class="literal">false</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h2 id="3-Element组件按需加载"><a href="#3-Element组件按需加载" class="headerlink" title="3. Element组件按需加载"></a>3. Element组件按需加载</h2><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 安装 babel-plugin-component：</span>
-npm install babel<span class="token operator">-</span>plugin<span class="token operator">-</span>component <span class="token operator">-</span><span class="token constant">D</span>
-<span class="token comment">// 修改babel.config.js</span>
-module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
-  presets<span class="token operator">:</span> <span class="token punctuation">[</span>
-  <span class="token punctuation">[</span>
-    <span class="token string">'@vue/app'</span><span class="token punctuation">,</span>
-    <span class="token punctuation">&#123;</span>
-      useBuiltIns<span class="token operator">:</span> <span class="token string">"entry"</span>
-    <span class="token punctuation">&#125;</span>
-  <span class="token punctuation">]</span>
-  <span class="token punctuation">]</span><span class="token punctuation">,</span>
-  plugins<span class="token operator">:</span> <span class="token punctuation">[</span>
-    <span class="token punctuation">[</span>
-      <span class="token string">"component"</span><span class="token punctuation">,</span>
-      <span class="token punctuation">&#123;</span>
-        <span class="token string">"libraryName"</span><span class="token operator">:</span> <span class="token string">"element-ui"</span><span class="token punctuation">,</span>
-        <span class="token string">"styleLibraryName"</span><span class="token operator">:</span> <span class="token string">"theme-chalk"</span>
-      <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">]</span>
-  <span class="token punctuation">]</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="4-echart优化"><a href="#4-echart优化" class="headerlink" title="4. echart优化"></a>4. echart优化</h2><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 安装 babel-plugin-equire</span>
-npm install babel<span class="token operator">-</span>plugin<span class="token operator">-</span>equire <span class="token operator">-</span><span class="token constant">D</span>
-<span class="token comment">// 修改babel.config.js</span>
-module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
-  plugins<span class="token operator">:</span> <span class="token punctuation">[</span>
-    <span class="token string">'equire'</span>
-  <span class="token punctuation">]</span><span class="token punctuation">,</span>
-  <span class="token comment">// others</span>
-<span class="token punctuation">&#125;</span>
-<span class="token comment">// 新建echarts.js</span>
-<span class="token keyword">const</span> echarts <span class="token operator">=</span> <span class="token function">equire</span><span class="token punctuation">(</span><span class="token punctuation">[</span>
-  <span class="token string">'title'</span><span class="token punctuation">,</span>
-  <span class="token string">'legend'</span><span class="token punctuation">,</span>
-  <span class="token string">'grid'</span><span class="token punctuation">,</span>
-  <span class="token string">'line'</span><span class="token punctuation">,</span>
-  <span class="token string">'bar'</span><span class="token punctuation">,</span>
-  <span class="token string">'pie'</span><span class="token punctuation">,</span>
-  <span class="token comment">// others</span>
-<span class="token punctuation">]</span><span class="token punctuation">)</span>
-<span class="token keyword">export</span> <span class="token keyword">default</span> echarts<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="3-Element组件按需加载"><a href="#3-Element组件按需加载" class="headerlink" title="3. Element组件按需加载"></a>3. Element组件按需加载</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 安装 babel-plugin-component：</span></span><br><span class="line">npm install babel-plugin-component -D</span><br><span class="line"><span class="comment">// 修改babel.config.js</span></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">presets</span>: [</span><br><span class="line">  [</span><br><span class="line">    <span class="string">&#x27;@vue/app&#x27;</span>,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">useBuiltIns</span>: <span class="string">&quot;entry&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">plugins</span>: [</span><br><span class="line">    [</span><br><span class="line">      <span class="string">&quot;component&quot;</span>,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="string">&quot;libraryName&quot;</span>: <span class="string">&quot;element-ui&quot;</span>,</span><br><span class="line">        <span class="string">&quot;styleLibraryName&quot;</span>: <span class="string">&quot;theme-chalk&quot;</span></span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="4-echart优化"><a href="#4-echart优化" class="headerlink" title="4. echart优化"></a>4. echart优化</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 安装 babel-plugin-equire</span></span><br><span class="line">npm install babel-plugin-equire -D</span><br><span class="line"><span class="comment">// 修改babel.config.js</span></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">plugins</span>: [</span><br><span class="line">    <span class="string">&#x27;equire&#x27;</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="comment">// others</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 新建echarts.js</span></span><br><span class="line"><span class="keyword">const</span> echarts = <span class="title function_">equire</span>([</span><br><span class="line">  <span class="string">&#x27;title&#x27;</span>,</span><br><span class="line">  <span class="string">&#x27;legend&#x27;</span>,</span><br><span class="line">  <span class="string">&#x27;grid&#x27;</span>,</span><br><span class="line">  <span class="string">&#x27;line&#x27;</span>,</span><br><span class="line">  <span class="string">&#x27;bar&#x27;</span>,</span><br><span class="line">  <span class="string">&#x27;pie&#x27;</span>,</span><br><span class="line">  <span class="comment">// others</span></span><br><span class="line">])</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> echarts</span><br></pre></td></tr></table></figure>
 <ul>
-<li>或者<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 新建echarts.js</span>
-<span class="token keyword">import</span> echarts <span class="token keyword">from</span> <span class="token string">'echarts/lib/echarts'</span>
-
-<span class="token keyword">import</span> <span class="token string">'echarts/lib/chart/line'</span>
-<span class="token keyword">import</span> <span class="token string">'echarts/lib/chart/lines'</span>
-<span class="token keyword">import</span> <span class="token string">'echarts/lib/chart/radar'</span>
-<span class="token keyword">import</span> <span class="token string">'echarts/lib/component/legend'</span>
-<span class="token keyword">import</span> <span class="token string">'echarts/lib/component/tooltip'</span>
-<span class="token keyword">import</span> <span class="token string">'echarts/lib/component/grid'</span>
-
-<span class="token keyword">export</span> <span class="token keyword">default</span> echarts<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 然后再到需要引用echarts的页面进行引入</span>
-<span class="token keyword">import</span> echarts <span class="token keyword">from</span> <span class="token string">'../echarts'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li>或者<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 新建echarts.js</span></span><br><span class="line"><span class="keyword">import</span> echarts <span class="keyword">from</span> <span class="string">&#x27;echarts/lib/echarts&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;echarts/lib/chart/line&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;echarts/lib/chart/lines&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;echarts/lib/chart/radar&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;echarts/lib/component/legend&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;echarts/lib/component/tooltip&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;echarts/lib/component/grid&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> echarts</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 然后再到需要引用echarts的页面进行引入</span></span><br><span class="line"><span class="keyword">import</span> echarts <span class="keyword">from</span> <span class="string">&#x27;../echarts&#x27;</span>;</span><br></pre></td></tr></table></figure></li>
 </ul>
 <h2 id="5-图片的压缩合并"><a href="#5-图片的压缩合并" class="headerlink" title="5. 图片的压缩合并"></a>5. 图片的压缩合并</h2><ul>
 <li><a target="_blank" rel="noopener" href="https://tinypng.com/">无损压缩图片：https://tinypng.com/</a></li>
 </ul>
-<h2 id="6-添加分析工具"><a href="#6-添加分析工具" class="headerlink" title="6. 添加分析工具"></a>6. 添加分析工具</h2><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 安装</span>
-npm i webpack<span class="token operator">-</span>bundle<span class="token operator">-</span>analyzer
-<span class="token comment">// 在 vue.config.js 中添加</span>
-module<span class="token punctuation">.</span>exports<span class="token operator">=</span><span class="token punctuation">&#123;</span>
-  <span class="token function-variable function">chainWebpack</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">config</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-    <span class="token comment">/* 添加分析工具 */</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">NODE_ENV</span> <span class="token operator">===</span> <span class="token string">'production'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>process<span class="token punctuation">.</span>env<span class="token punctuation">.</span>npm_config_report<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-      config
-      <span class="token punctuation">.</span><span class="token function">plugin</span><span class="token punctuation">(</span><span class="token string">'webpack-bundle-analyzer'</span><span class="token punctuation">)</span>
-      <span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'webpack-bundle-analyzer'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>BundleAnalyzerPlugin<span class="token punctuation">)</span>
-      <span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-      config<span class="token punctuation">.</span>plugins<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span><span class="token string">'prefetch'</span><span class="token punctuation">)</span>
-      <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">&#125;</span>
-  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
-<span class="token punctuation">&#125;</span>
-
-<span class="token comment">// 启动</span>
-npm run build –report<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="6-添加分析工具"><a href="#6-添加分析工具" class="headerlink" title="6. 添加分析工具"></a>6. 添加分析工具</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 安装</span></span><br><span class="line">npm i webpack-bundle-analyzer</span><br><span class="line"><span class="comment">// 在 vue.config.js 中添加</span></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span>=&#123;</span><br><span class="line">  <span class="attr">chainWebpack</span>: <span class="function">(<span class="params">config</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">/* 添加分析工具 */</span></span><br><span class="line">    <span class="keyword">if</span> (process.<span class="property">env</span>.<span class="property">NODE_ENV</span> === <span class="string">&#x27;production&#x27;</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (process.<span class="property">env</span>.<span class="property">npm_config_report</span>) &#123;</span><br><span class="line">      config</span><br><span class="line">      .<span class="title function_">plugin</span>(<span class="string">&#x27;webpack-bundle-analyzer&#x27;</span>)</span><br><span class="line">      .<span class="title function_">use</span>(<span class="built_in">require</span>(<span class="string">&#x27;webpack-bundle-analyzer&#x27;</span>).<span class="property">BundleAnalyzerPlugin</span>)</span><br><span class="line">      .<span class="title function_">end</span>()</span><br><span class="line">      config.<span class="property">plugins</span>.<span class="title function_">delete</span>(<span class="string">&#x27;prefetch&#x27;</span>)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 启动</span></span><br><span class="line">npm run build –report</span><br></pre></td></tr></table></figure>
 
                 
             </div>
@@ -944,7 +867,7 @@ npm run build –report<span aria-hidden="true" class="line-numbers-rows"><span>
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2024</span>
+                <span id="year">2019-2025</span>
             
             <span id="year">2019</span>
             <a href="https://github.com/damao2250" target="_blank">Damao</a>

@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
 </head>
 
 
@@ -405,7 +405,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    264
+                    268
                 </div>
                 
 
@@ -435,30 +435,9 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="匹配数字或版本号"><a href="#匹配数字或版本号" class="headerlink" title="匹配数字或版本号"></a>匹配数字或版本号</h1><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// a.b（eg: 1.0, 1.100, 甚至 1.1000）</span>
-<span class="token comment">// a.b.c (eg: 1.1.1, 1.12.1, 甚至 1.121.1)</span>
-<span class="token comment">// a（a可能>5位）</span>
-
-<span class="token comment">// 不限长度版本</span>
-<span class="token keyword">var</span> Reg <span class="token operator">=</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">^\d+$|^\d+\.\d+$|^\d+(\.\d+)&#123;1,2&#125;$</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">;</span>
-<span class="token comment">// 限制长度（每一位版本号应该是一位数）</span>
-<span class="token keyword">var</span> Reg <span class="token operator">=</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">^\d$|^\d\.\d$|^\d(\.\d)&#123;1,2&#125;$</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="正数的正则表达式"><a href="#正数的正则表达式" class="headerlink" title="正数的正则表达式"></a>正数的正则表达式</h1><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 正数的正则表达式(包括0，小数保留两位)：</span>
-<span class="token keyword">var</span> Reg <span class="token operator">=</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">^((0&#123;1&#125;\.\d&#123;1,2&#125;)|([1-9]\d*\.&#123;1&#125;\d&#123;1,2&#125;)|([1-9]+\d*)|0)$</span><span class="token regex-delimiter">/</span></span>
-
-<span class="token comment">// 正数的正则表达式(不包括0，小数保留两位)：</span>
-<span class="token keyword">var</span> Reg <span class="token operator">=</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">^((0&#123;1&#125;\.\d&#123;1,2&#125;)|([1-9]\d*\.&#123;1&#125;\d&#123;1,2&#125;)|([1-9]+\d*))$</span><span class="token regex-delimiter">/</span></span>
-
-<span class="token comment">// 正整数的正则表达式(包括0)：</span>
-<span class="token keyword">var</span> Reg <span class="token operator">=</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">^[+]&#123;0,1&#125;(\d+)$</span><span class="token regex-delimiter">/</span></span>
-
-<span class="token comment">// 正整数的正则表达式(不包括0)：</span>
-<span class="token keyword">var</span> Reg <span class="token operator">=</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">^[1-9]\d*$</span><span class="token regex-delimiter">/</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="折扣正则表达式"><a href="#折扣正则表达式" class="headerlink" title="折扣正则表达式"></a>折扣正则表达式</h1><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 折扣（0-1）的小数的正则表达式(包括1)：</span>
-<span class="token keyword">var</span> Reg <span class="token operator">=</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">^(0\.\d+|1)$</span><span class="token regex-delimiter">/</span></span>
-
-<span class="token comment">// 折扣（0-1）的小数的正则表达式(不包括1)：</span>
-<span class="token keyword">var</span> Reg <span class="token operator">=</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">^(0\.\d+)$</span><span class="token regex-delimiter">/</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                <h1 id="匹配数字或版本号"><a href="#匹配数字或版本号" class="headerlink" title="匹配数字或版本号"></a>匹配数字或版本号</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// a.b（eg: 1.0, 1.100, 甚至 1.1000）</span></span><br><span class="line"><span class="comment">// a.b.c (eg: 1.1.1, 1.12.1, 甚至 1.121.1)</span></span><br><span class="line"><span class="comment">// a（a可能&gt;5位）</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 不限长度版本</span></span><br><span class="line"><span class="keyword">var</span> <span class="title class_">Reg</span> = <span class="regexp">/^\d+$|^\d+\.\d+$|^\d+(\.\d+)&#123;1,2&#125;$/</span>;</span><br><span class="line"><span class="comment">// 限制长度（每一位版本号应该是一位数）</span></span><br><span class="line"><span class="keyword">var</span> <span class="title class_">Reg</span> = <span class="regexp">/^\d$|^\d\.\d$|^\d(\.\d)&#123;1,2&#125;$/</span>;</span><br></pre></td></tr></table></figure>
+<h1 id="正数的正则表达式"><a href="#正数的正则表达式" class="headerlink" title="正数的正则表达式"></a>正数的正则表达式</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 正数的正则表达式(包括0，小数保留两位)：</span></span><br><span class="line"><span class="keyword">var</span> <span class="title class_">Reg</span> = <span class="regexp">/^((0&#123;1&#125;\.\d&#123;1,2&#125;)|([1-9]\d*\.&#123;1&#125;\d&#123;1,2&#125;)|([1-9]+\d*)|0)$/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 正数的正则表达式(不包括0，小数保留两位)：</span></span><br><span class="line"><span class="keyword">var</span> <span class="title class_">Reg</span> = <span class="regexp">/^((0&#123;1&#125;\.\d&#123;1,2&#125;)|([1-9]\d*\.&#123;1&#125;\d&#123;1,2&#125;)|([1-9]+\d*))$/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 正整数的正则表达式(包括0)：</span></span><br><span class="line"><span class="keyword">var</span> <span class="title class_">Reg</span> = <span class="regexp">/^[+]&#123;0,1&#125;(\d+)$/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 正整数的正则表达式(不包括0)：</span></span><br><span class="line"><span class="keyword">var</span> <span class="title class_">Reg</span> = <span class="regexp">/^[1-9]\d*$/</span></span><br></pre></td></tr></table></figure>
+<h1 id="折扣正则表达式"><a href="#折扣正则表达式" class="headerlink" title="折扣正则表达式"></a>折扣正则表达式</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 折扣（0-1）的小数的正则表达式(包括1)：</span></span><br><span class="line"><span class="keyword">var</span> <span class="title class_">Reg</span> = <span class="regexp">/^(0\.\d+|1)$/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 折扣（0-1）的小数的正则表达式(不包括1)：</span></span><br><span class="line"><span class="keyword">var</span> <span class="title class_">Reg</span> = <span class="regexp">/^(0\.\d+)$/</span></span><br></pre></td></tr></table></figure>
                 
             </div>
             <hr/>
@@ -876,7 +855,7 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2024</span>
+                <span id="year">2019-2025</span>
             
             <span id="year">2019</span>
             <a href="https://github.com/damao2250" target="_blank">Damao</a>

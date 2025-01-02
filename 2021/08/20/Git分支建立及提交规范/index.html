@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
 </head>
 
 
@@ -412,7 +412,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    6 分
                 </div>
                 
 
@@ -446,10 +446,10 @@
 </li>
 <li>Feature<ul>
 <li>开自Develop分支，主要用于开发新功能，开发者根据自己负责模块自行维护，模块开发完成并自测通过后，代码合入Develop分支，新功能提交应该从不直接与master分支交互</li>
-<li>命名规范为：feature/#…，每一个功能都应对应一个issue，…即为issue号</li>
+<li>命名规范为：feature&#x2F;#…，每一个功能都应对应一个issue，…即为issue号</li>
 <li>开发中的合并代码采用rebase方法（可以使分支的提交历史看上去更简洁，详细可见rebase与merge的对比），具体方法如下：<ul>
-<li>新建feature分支：git checkout develop， git branch feature/#…， git checkout feature/#…</li>
-<li>feature分支开发一段功能后：git add.， git commit -m “…”， git checkout develop， git pull origin develop， git checkout feature/#…， git rebase develop（代码依次为提交本次代码，添加提交信息，切换到develop分支并拉取最新分支，切换回feature分支，rebase develop分支）</li>
+<li>新建feature分支：git checkout develop， git branch feature&#x2F;#…， git checkout feature&#x2F;#…</li>
+<li>feature分支开发一段功能后：git add.， git commit -m “…”， git checkout develop， git pull origin develop， git checkout feature&#x2F;#…， git rebase develop（代码依次为提交本次代码，添加提交信息，切换到develop分支并拉取最新分支，切换回feature分支，rebase develop分支）</li>
 <li>在rebase develop分支时，可能会产生conflict，此时仍在rebase过程中，这时需要手动修改代码解决冲突，然后解决完该次冲突（rebase会对比每次未合入develop分支的提交，可能每次提交都会有冲突）后，再执行git add.，git rebase –continue命令，rebase完成后，即可push代码。</li>
 <li>多个分支同时开发时，应当频繁地将测试后可运行的feature分支更新到dev分支，每次更新dev分支时通知其他开发人员，拉取最新的dev分支，将自己正在开发的分支rebase dev分支。这样可以避免较长时间没有进行rebase而导致的冲突较多问题。</li>
 </ul>
@@ -458,12 +458,12 @@
 </li>
 <li>Bugfix<ul>
 <li>开自Develop分支或者Release分支，主要用于修复当前开发中的功能的已知bug；每一个已发现的bug都应该在gitlab中记录issue，并定期更新当前解决进展，如有有价值的思考或独特的解决方法，可以在issue中评论并在wiki的技术知识库或个人空间博文中进行记录。</li>
-<li>命名规范为：bugfix/#…</li>
+<li>命名规范为：bugfix&#x2F;#…</li>
 </ul>
 </li>
 <li>Hotfix<ul>
 <li>开自Master分支，主要用于修复当前已发布版本的已知bug；解决bug时注意事项参考Bugfix。这是唯一可以直接从master分支fork出来的分支。修复完成，修改应该马上合并回master分支和develop分支（当前的发布分支），master分支应该用新的版本号打好Tag。为Bug修复使用专门分支，让团队可以处理掉问题而不用打断其它工作或是等待下一个发布循环。你可以把它想成是一个直接在master分支上处理的临时发布。</li>
-<li>命名规范为：hotfix/#…</li>
+<li>命名规范为：hotfix&#x2F;#…</li>
 </ul>
 </li>
 <li>Release<ul>
@@ -471,7 +471,7 @@
 <li>合并Release分支到Master；</li>
 <li>给Master打上对应版本的标签tag；</li>
 <li>Release回归，这些从新建发布分支以来的做的修改要合并回develop分支。</li>
-<li>命名规范为：release/…，…即为版本号</li>
+<li>命名规范为：release&#x2F;…，…即为版本号</li>
 </ul>
 </li>
 </ul>
@@ -496,11 +496,7 @@
 </li>
 </ul>
 <h2 id="也可使用约定式提交规范-更详细提交记录"><a href="#也可使用约定式提交规范-更详细提交记录" class="headerlink" title="也可使用约定式提交规范(更详细提交记录)"></a>也可使用约定式提交规范(更详细提交记录)</h2><ul>
-<li>使用约定式提交规范（Conventional Commits），它受到了 Angular 提交准则的启发，并在很大程度上以其为依据。约定式提交规范是一种基于提交消息的轻量级约定。 它提供了一组用于创建清晰的提交历史的简单规则；这使得编写基于规范的自动化工具变得更容易。这个约定与 SemVer 相吻合，在提交信息中描述新特性、bug 修复和破坏性变更。它的 message 格式如下:  <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token operator">&lt;</span>type<span class="token operator">></span><span class="token punctuation">(</span><span class="token operator">&lt;</span>scope<span class="token operator">></span><span class="token punctuation">)</span>: <span class="token operator">&lt;</span>subject<span class="token operator">></span>
-<span class="token operator">&lt;</span>BLANK LINE<span class="token operator">></span>
-<span class="token operator">&lt;</span>body<span class="token operator">></span>
-<span class="token operator">&lt;</span>BLANK LINE<span class="token operator">></span>
-<span class="token operator">&lt;</span>footer<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>使用约定式提交规范（Conventional Commits），它受到了 Angular 提交准则的启发，并在很大程度上以其为依据。约定式提交规范是一种基于提交消息的轻量级约定。 它提供了一组用于创建清晰的提交历史的简单规则；这使得编写基于规范的自动化工具变得更容易。这个约定与 SemVer 相吻合，在提交信息中描述新特性、bug 修复和破坏性变更。它的 message 格式如下:  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="built_in">type</span>&gt;(&lt;scope&gt;): &lt;subject&gt;</span><br><span class="line">&lt;BLANK LINE&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;BLANK LINE&gt;</span><br><span class="line">&lt;footer&gt;</span><br></pre></td></tr></table></figure></li>
 <li>type<ul>
 <li>type 用于说明 commit 的类别，使用下列之一<ul>
 <li>feat：新功能（feature）</li>
@@ -948,7 +944,7 @@
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2024</span>
+                <span id="year">2019-2025</span>
             
             <span id="year">2019</span>
             <a href="https://github.com/damao2250" target="_blank">Damao</a>

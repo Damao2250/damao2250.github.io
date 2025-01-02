@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
 </head>
 
 
@@ -405,7 +405,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    242
+                    235
                 </div>
                 
 
@@ -439,52 +439,28 @@
 <li><p>创建 <github Name>.github.io 仓库</p>
 </li>
 <li><p>全局安装hexo</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js">npm install <span class="token operator">-</span>g hexo<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo</span><br></pre></td></tr></table></figure></li>
 <li><p>初始化项目</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 构建 hexo 项目</span>
-hexo init
-<span class="token comment">// 启动服务</span>
-hexo s<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 构建 hexo 项目</span></span><br><span class="line">hexo init</span><br><span class="line"><span class="comment">// 启动服务</span></span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure></li>
 <li><p>连接到 GitHub</p>
 </li>
 </ol>
 <ul>
-<li>修改根目录下 _congif.yml<pre class="line-numbers language-ps" data-language="ps"><code class="language-ps"># Deployment
-## Docs: https:&#x2F;&#x2F;hexo.io&#x2F;docs&#x2F;deployment.html
-deploy:
-type: git
-repo: &lt;你的仓库地址&gt; #　如：https:&#x2F;&#x2F;github.com&#x2F;Damao2250&#x2F;damao2250.github.io
-branch: master<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>修改根目录下 _congif.yml<figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/deployment.html</span></span><br><span class="line">deploy:</span><br><span class="line"><span class="built_in">type</span>: git</span><br><span class="line">repo: &lt;你的仓库地址&gt; <span class="comment">#　如：https://github.com/Damao2250/damao2250.github.io</span></span><br><span class="line">branch: master</span><br></pre></td></tr></table></figure></li>
 </ul>
 <ol start="5">
-<li>自动部署到 GitHub<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 安装部署工具</span>
-npm install hexo<span class="token operator">-</span>deployer<span class="token operator">-</span>git <span class="token operator">--</span>save
-
-<span class="token comment">// 自动部署</span>
-hexo clean
-hexo deploy
-
-<span class="token comment">// 打开 &lt;github Name>.github.io  查看效果</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>自动部署到 GitHub<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 安装部署工具</span></span><br><span class="line">npm install hexo-deployer-git --save</span><br><span class="line"></span><br><span class="line"><span class="comment">// 自动部署</span></span><br><span class="line">hexo clean</span><br><span class="line">hexo deploy</span><br><span class="line"></span><br><span class="line"><span class="comment">// 打开 &lt;github Name&gt;.github.io  查看效果</span></span><br></pre></td></tr></table></figure></li>
 <li>部署简化</li>
 </ol>
 <ul>
-<li>修改 package.json<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// package.json</span>
-“build”<span class="token operator">:</span> “hexo clean <span class="token operator">&amp;</span> hexo deploy”
-<span class="token comment">// 部署命令</span>
-npm run build<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>修改 package.json<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// package.json</span></span><br><span class="line">“build”: “hexo clean &amp; hexo deploy”</span><br><span class="line"><span class="comment">// 部署命令</span></span><br><span class="line">npm run build</span><br></pre></td></tr></table></figure></li>
 </ul>
 <ol start="7">
-<li>发布新文章<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// [layout] 为布局，可选项为 `post`、`page`、`draft`，这将决定文章所在文件路径。</span>
-<span class="token comment">// &lt;title> 为文章标题</span>
-<span class="token comment">// 如 hexo new post 这是一个文章标题</span>
-hexo <span class="token keyword">new</span> <span class="token punctuation">[</span>layout<span class="token punctuation">]</span> <span class="token operator">&lt;</span>title<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>发布新文章<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// [layout] 为布局，可选项为 `post`、`page`、`draft`，这将决定文章所在文件路径。</span></span><br><span class="line"><span class="comment">// &lt;title&gt; 为文章标题</span></span><br><span class="line"><span class="comment">// 如 hexo new post 这是一个文章标题</span></span><br><span class="line">hexo <span class="keyword">new</span> [layout] &lt;title&gt;</span><br></pre></td></tr></table></figure></li>
 <li>更换主题</li>
 </ol>
 <ul>
-<li>下载主题 -&gt; 更换主题<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 下载到themes文件夹下</span>
-git clone https<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>github<span class="token punctuation">.</span>com<span class="token operator">/</span>KevinOfNeu<span class="token operator">/</span>hexo<span class="token operator">-</span>theme<span class="token operator">-</span>xoxo xoxo
-<span class="token comment">// 修改 _config.yml 配置</span>
-theme<span class="token operator">:</span> xoxo<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>下载主题 -&gt; 更换主题<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 下载到themes文件夹下</span></span><br><span class="line">git clone <span class="attr">https</span>:<span class="comment">//github.com/KevinOfNeu/hexo-theme-xoxo xoxo</span></span><br><span class="line"><span class="comment">// 修改 _config.yml 配置</span></span><br><span class="line"><span class="attr">theme</span>: xoxo</span><br></pre></td></tr></table></figure></li>
 </ul>
 
                 
@@ -904,7 +880,7 @@ theme<span class="token operator">:</span> xoxo<span aria-hidden="true" class="l
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2024</span>
+                <span id="year">2019-2025</span>
             
             <span id="year">2019</span>
             <a href="https://github.com/damao2250" target="_blank">Damao</a>

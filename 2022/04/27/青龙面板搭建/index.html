@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
+<meta name="generator" content="Hexo 7.3.0"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
 </head>
 
 
@@ -449,62 +449,32 @@
 <li>确保docker已经安装，详细安装docker看<a target="_blank" rel="noopener" href="https://damao2250.github.io/2022/04/01/docker%E7%9A%84%E7%AE%80%E6%98%93%E4%BD%BF%E7%94%A8/">docker的简易使用</a></li>
 </ul>
 </li>
-<li>拉取并启动容器 <pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">docker run -dit \
-  -v $PWD&#x2F;ql&#x2F;config:&#x2F;ql&#x2F;config \
-  -v $PWD&#x2F;ql&#x2F;log:&#x2F;ql&#x2F;log \
-  -v $PWD&#x2F;ql&#x2F;db:&#x2F;ql&#x2F;db \
-  -p 5700:5700 \
-  --name qinglong \
-  --hostname qinglong \
-  --restart always \
-  whyour&#x2F;qinglong:latest<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>拉取并启动容器 <figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">docker run <span class="literal">-dit</span> \</span><br><span class="line">  <span class="literal">-v</span> <span class="variable">$PWD</span>/ql/config:/ql/config \</span><br><span class="line">  <span class="literal">-v</span> <span class="variable">$PWD</span>/ql/log:/ql/log \</span><br><span class="line">  <span class="literal">-v</span> <span class="variable">$PWD</span>/ql/db:/ql/db \</span><br><span class="line">  <span class="literal">-p</span> <span class="number">5700</span>:<span class="number">5700</span> \</span><br><span class="line">  <span class="literal">--name</span> qinglong \</span><br><span class="line">  <span class="literal">--hostname</span> qinglong \</span><br><span class="line">  <span class="literal">--restart</span> always \</span><br><span class="line">  whyour/qinglong:latest</span><br></pre></td></tr></table></figure></li>
 </ol>
 <h2 id="项目指南"><a href="#项目指南" class="headerlink" title="项目指南"></a>项目指南</h2><ol>
-<li>拉取镜像/更新镜像<pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">docker pull whyour&#x2F;qinglong:latest<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>删除镜像<pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">docker rmi whyour&#x2F;qinglong:latest<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>启动容器 </li>
+<li>拉取镜像&#x2F;更新镜像  <figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull whyour/qinglong:latest</span><br></pre></td></tr></table></figure></li>
+<li>删除镜像  <figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rmi whyour/qinglong:latest</span><br></pre></td></tr></table></figure></li>
+<li>启动容器</li>
 </ol>
 <ul>
 <li>普通服务器<ul>
-<li>-v $PWD/ql/config:/ql/config   /ql 文件夹名称</li>
+<li>-v $PWD&#x2F;ql&#x2F;config:&#x2F;ql&#x2F;config   &#x2F;ql 文件夹名称</li>
 <li>-p 5700:5700 映射的端口</li>
-<li>–name qinglong  –hostname qinglong 容器名字<pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">docker run -dit \
-  -v $PWD&#x2F;ql&#x2F;config:&#x2F;ql&#x2F;config \
-  -v $PWD&#x2F;ql&#x2F;log:&#x2F;ql&#x2F;log \
-  -v $PWD&#x2F;ql&#x2F;db:&#x2F;ql&#x2F;db \
-  -v $PWD&#x2F;ql&#x2F;repo:&#x2F;ql&#x2F;repo \
-  -v $PWD&#x2F;ql&#x2F;raw:&#x2F;ql&#x2F;raw \
-  -v $PWD&#x2F;ql&#x2F;scripts:&#x2F;ql&#x2F;scripts \
-  -v $PWD&#x2F;ql&#x2F;jbot:&#x2F;ql&#x2F;jbot \
-  -v $PWD&#x2F;ql&#x2F;deps:&#x2F;ql&#x2F;deps \
-  -v $PWD&#x2F;ql&#x2F;ninja:&#x2F;ql&#x2F;ninja \
-  -p 5700:5700 \
-  --name qinglong \
-  --hostname qinglong \
-  --restart unless-stopped \
-  whyour&#x2F;qinglong:latest<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>–name qinglong  –hostname qinglong 容器名字<figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">docker run <span class="literal">-dit</span> \</span><br><span class="line">  <span class="literal">-v</span> <span class="variable">$PWD</span>/ql/config:/ql/config \</span><br><span class="line">  <span class="literal">-v</span> <span class="variable">$PWD</span>/ql/log:/ql/log \</span><br><span class="line">  <span class="literal">-v</span> <span class="variable">$PWD</span>/ql/db:/ql/db \</span><br><span class="line">  <span class="literal">-v</span> <span class="variable">$PWD</span>/ql/repo:/ql/repo \</span><br><span class="line">  <span class="literal">-v</span> <span class="variable">$PWD</span>/ql/raw:/ql/raw \</span><br><span class="line">  <span class="literal">-v</span> <span class="variable">$PWD</span>/ql/scripts:/ql/scripts \</span><br><span class="line">  <span class="literal">-v</span> <span class="variable">$PWD</span>/ql/jbot:/ql/jbot \</span><br><span class="line">  <span class="literal">-v</span> <span class="variable">$PWD</span>/ql/deps:/ql/deps \</span><br><span class="line">  <span class="literal">-v</span> <span class="variable">$PWD</span>/ql/ninja:/ql/ninja \</span><br><span class="line">  <span class="literal">-p</span> <span class="number">5700</span>:<span class="number">5700</span> \</span><br><span class="line">  <span class="literal">--name</span> qinglong \</span><br><span class="line">  <span class="literal">--hostname</span> qinglong \</span><br><span class="line">  <span class="literal">--restart</span> unless<span class="literal">-stopped</span> \</span><br><span class="line">  whyour/qinglong:latest</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
-<li>n1等路由器<pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">docker run -dit \
-  -v $PWD&#x2F;ql&#x2F;config:&#x2F;ql&#x2F;config \
-  -v $PWD&#x2F;ql&#x2F;log:&#x2F;ql&#x2F;log \
-  -v $PWD&#x2F;ql&#x2F;db:&#x2F;ql&#x2F;db \
-  --net host \
-  --name qinglong \
-  --hostname qinglong \
-  --restart always \
-  whyour&#x2F;qinglong:latest<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>n1等路由器<figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">docker run <span class="literal">-dit</span> \</span><br><span class="line">  <span class="literal">-v</span> <span class="variable">$PWD</span>/ql/config:/ql/config \</span><br><span class="line">  <span class="literal">-v</span> <span class="variable">$PWD</span>/ql/log:/ql/log \</span><br><span class="line">  <span class="literal">-v</span> <span class="variable">$PWD</span>/ql/db:/ql/db \</span><br><span class="line">  <span class="literal">--net</span> host \</span><br><span class="line">  <span class="literal">--name</span> qinglong \</span><br><span class="line">  <span class="literal">--hostname</span> qinglong \</span><br><span class="line">  <span class="literal">--restart</span> always \</span><br><span class="line">  whyour/qinglong:latest</span><br></pre></td></tr></table></figure></li>
 </ul>
 <ol start="4">
-<li>删除容器 <pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">docker rm -f qinglong<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>删除容器 <figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">rm</span> <span class="operator">-f</span> qinglong</span><br></pre></td></tr></table></figure></li>
 <li>初次登陆(网页访问)</li>
 </ol>
 <ul>
-<li>初次访问 http://&lt;自己ip&gt;:5700</li>
-<li>使用 admin/adminadmin 登陆，提示已初始化密码</li>
-<li>去自己映射目录config下找 auth.json，查看里面的 password<pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">docker exec -it qinglong cat &#x2F;ql&#x2F;config&#x2F;auth.json<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>初次访问 http:&#x2F;&#x2F;&lt;自己ip&gt;:5700</li>
+<li>使用 admin&#x2F;adminadmin 登陆，提示已初始化密码</li>
+<li>去自己映射目录config下找 auth.json，查看里面的 password<figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec <span class="literal">-it</span> qinglong <span class="built_in">cat</span> /ql/config/auth.json</span><br></pre></td></tr></table></figure></li>
 </ul>
-<p>===================== 京东脚本参考==========================================</p>
+<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 京东脚本参考&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
 <ul>
 <li>第五步初始密码后<ul>
 <li>在面板选择 定时任务-新建任务-填写如下（命令可自行github查找）</li>
@@ -514,17 +484,17 @@
 </li>
 <li>获取京东cookie<ul>
 <li>网页打开京东手机版：m.jd.com，打开F12，切换手机模式，使用验证码登录京东账号</li>
-<li>在Application出找到Cookie，找到pt_key和pt_pin，复制相应的值，然后手动拼接如下：pt_key=xxxx;pt_pin=xxxx;  (xxxx为对应的值)</li>
+<li>在Application出找到Cookie，找到pt_key和pt_pin，复制相应的值，然后手动拼接如下：pt_key&#x3D;xxxx;pt_pin&#x3D;xxxx;  (xxxx为对应的值)</li>
 </ul>
 </li>
 <li>回到青龙面板<ul>
 <li>环境变量-新建环境变量</li>
-<li>名称：JD_COOKIE    （注意名称不能变）   自动拆分：否    值：pt_key=xxxx;pt_pin=xxxx;</li>
+<li>名称：JD_COOKIE    （注意名称不能变）   自动拆分：否    值：pt_key&#x3D;xxxx;pt_pin&#x3D;xxxx;</li>
 <li>定时任务-勾选任务执行测试是否成功</li>
 </ul>
 </li>
 </ul>
-<p>===================== 只做京东的一下可不理会 ================================</p>
+<p>&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D; 只做京东的一下可不理会 &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</p>
 <ol start="6">
 <li>Cookie管理</li>
 </ol>
@@ -537,76 +507,21 @@
 </ol>
 <ul>
 <li>(容器内执行或者新建定时任务时忽略docker exec -it qinglong)</li>
-<li>更新青龙<pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">docker exec -it qinglong ql update<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>更新青龙并编译<pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">docker exec -it qinglong ql restart<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>拉取自定义仓库<pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">&lt;!-- 示例 --&gt;
-docker exec -it qinglong ql repo https:&#x2F;&#x2F;ghproxy.com&#x2F;https:&#x2F;&#x2F;github.com&#x2F;whyour&#x2F;hundun.git &quot;quanx&quot; &quot;tokens|caiyun|didi|donate|fold|Env&quot;
-
-&lt;!-- 可用 --&gt;
-docker exec -it qinglong ql repo https:&#x2F;&#x2F;github.com&#x2F;6dylan6&#x2F;jdpro.git &quot;jd_|jx_|jddj_&quot; &quot;backUp&quot; &quot;^jd[^_]|USER|JD|function|sendNotify&quot;
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li>拉取单个脚本<pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">docker exec -it qinglong ql raw https:&#x2F;&#x2F;ghproxy.com&#x2F;https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;moposmall&#x2F;Script&#x2F;main&#x2F;Me&#x2F;jx_cfd.js<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>删除7天前的所有日志<pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">docker exec -it qinglong ql rmlog 7<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>启动bot<pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">docker exec -it qinglong ql bot<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>导出互助码<pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">docker exec -it qinglong ql code<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>通知测试<pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">docker exec -it qinglong notify test test<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>立即执行脚本<pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">docker exec -it qinglong task test.js now<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>并行执行脚本<pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">docker exec -it qinglong task test.js conc<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>更新青龙<figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec <span class="literal">-it</span> qinglong ql update</span><br></pre></td></tr></table></figure></li>
+<li>更新青龙并编译<figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec <span class="literal">-it</span> qinglong ql restart</span><br></pre></td></tr></table></figure></li>
+<li>拉取自定义仓库<figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!<span class="literal">--</span> 示例 <span class="literal">--</span>&gt;</span><br><span class="line">docker exec <span class="literal">-it</span> qinglong ql repo https://ghproxy.com/https://github.com/whyour/hundun.git <span class="string">&quot;quanx&quot;</span> <span class="string">&quot;tokens|caiyun|didi|donate|fold|Env&quot;</span></span><br><span class="line"></span><br><span class="line">&lt;!<span class="literal">--</span> 可用 <span class="literal">--</span>&gt;</span><br><span class="line">docker exec <span class="literal">-it</span> qinglong ql repo https://github.com/<span class="number">6</span>dylan6/jdpro.git <span class="string">&quot;jd_|jx_|jddj_&quot;</span> <span class="string">&quot;backUp&quot;</span> <span class="string">&quot;^jd[^_]|USER|JD|function|sendNotify&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li>拉取单个脚本<figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec <span class="literal">-it</span> qinglong ql raw https://ghproxy.com/https://raw.githubusercontent.com/moposmall/Script/main/Me/jx_cfd.js</span><br></pre></td></tr></table></figure></li>
+<li>删除7天前的所有日志<figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec <span class="literal">-it</span> qinglong ql rmlog <span class="number">7</span></span><br></pre></td></tr></table></figure></li>
+<li>启动bot<figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec <span class="literal">-it</span> qinglong ql bot</span><br></pre></td></tr></table></figure></li>
+<li>导出互助码<figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec <span class="literal">-it</span> qinglong ql code</span><br></pre></td></tr></table></figure></li>
+<li>通知测试<figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec <span class="literal">-it</span> qinglong notify test test</span><br></pre></td></tr></table></figure></li>
+<li>立即执行脚本<figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec <span class="literal">-it</span> qinglong task test.js now</span><br></pre></td></tr></table></figure></li>
+<li>并行执行脚本<figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec <span class="literal">-it</span> qinglong task test.js conc</span><br></pre></td></tr></table></figure></li>
 </ul>
 <p>利用谷歌浏览器获取京东Cookie抓取，cookie值千万不能泄露，设置环境变量，环境变量—&gt;添加变量</p>
-<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">1.查看容器名
-docker ps -a
-2.重启青龙容器
-docker restart 你的容器名
-3.更新青龙（或者直接面板更新）
-docker exec -it qinglong ql update
-4.更新青龙并编译
-docker exec -it qinglong ql restart
-5.拉取自定义仓库，已Faker仓库为例
-docker exec -it qinglong ql repo https:&#x2F;&#x2F;ghproxy.com&#x2F;https:&#x2F;&#x2F;github.com&#x2F;shufflewzc&#x2F;faker2.git &quot;jd_|jx_|gua_|jddj_|getJDCookie&quot; &quot;activity|backUp&quot; &quot;^jd[^_]|USER|ZooFaker_Necklace.js|JDJRValidator_Pure|sign_graphics_validate&quot;
-6.拉取单个脚本，以Faker库的资产变更通知为例
-docker exec -it qinglong ql raw https:&#x2F;&#x2F;github.com&#x2F;shufflewzc&#x2F;faker2&#x2F;blob&#x2F;main&#x2F;jd_bean_change_new.js
-7.导出互助码
-docker exec -it qinglong ql code
-8.通知测试
-docker exec -it qinglong notify test test
-9.立即执行脚本，以资产变更通知为例
-docker exec -it qinglong task jd_bean_change_new.js now
-10.并行执行脚本
-docker exec -it qinglong task jd_bean_change_new.js conc
-11.查看青龙密码 注意你的容器及文件夹名称
-docker exec -it qinglong cat &#x2F;ql&#x2F;config&#x2F;auth.json
-12.删除7天前的所有日志
-docker exec -it qinglong ql rmlog 7
-13.启动青龙bot 前提你已配置好青龙BOT
-docker exec -it qinglong ql bot
-14.进入青龙
-docker exec -it qinglong bash
-15.升级pip版本
-python3 -m pip install --upgrade pip<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>.查看容器名</span><br><span class="line">docker <span class="built_in">ps</span> <span class="literal">-a</span></span><br><span class="line"><span class="number">2</span>.重启青龙容器</span><br><span class="line">docker restart 你的容器名</span><br><span class="line"><span class="number">3</span>.更新青龙（或者直接面板更新）</span><br><span class="line">docker exec <span class="literal">-it</span> qinglong ql update</span><br><span class="line"><span class="number">4</span>.更新青龙并编译</span><br><span class="line">docker exec <span class="literal">-it</span> qinglong ql restart</span><br><span class="line"><span class="number">5</span>.拉取自定义仓库，已Faker仓库为例</span><br><span class="line">docker exec <span class="literal">-it</span> qinglong ql repo https://ghproxy.com/https://github.com/shufflewzc/faker2.git <span class="string">&quot;jd_|jx_|gua_|jddj_|getJDCookie&quot;</span> <span class="string">&quot;activity|backUp&quot;</span> <span class="string">&quot;^jd[^_]|USER|ZooFaker_Necklace.js|JDJRValidator_Pure|sign_graphics_validate&quot;</span></span><br><span class="line"><span class="number">6</span>.拉取单个脚本，以Faker库的资产变更通知为例</span><br><span class="line">docker exec <span class="literal">-it</span> qinglong ql raw https://github.com/shufflewzc/faker2/blob/main/jd_bean_change_new.js</span><br><span class="line"><span class="number">7</span>.导出互助码</span><br><span class="line">docker exec <span class="literal">-it</span> qinglong ql code</span><br><span class="line"><span class="number">8</span>.通知测试</span><br><span class="line">docker exec <span class="literal">-it</span> qinglong notify test test</span><br><span class="line"><span class="number">9</span>.立即执行脚本，以资产变更通知为例</span><br><span class="line">docker exec <span class="literal">-it</span> qinglong task jd_bean_change_new.js now</span><br><span class="line"><span class="number">10</span>.并行执行脚本</span><br><span class="line">docker exec <span class="literal">-it</span> qinglong task jd_bean_change_new.js conc</span><br><span class="line"><span class="number">11</span>.查看青龙密码 注意你的容器及文件夹名称</span><br><span class="line">docker exec <span class="literal">-it</span> qinglong <span class="built_in">cat</span> /ql/config/auth.json</span><br><span class="line"><span class="number">12</span>.删除<span class="number">7</span>天前的所有日志</span><br><span class="line">docker exec <span class="literal">-it</span> qinglong ql rmlog <span class="number">7</span></span><br><span class="line"><span class="number">13</span>.启动青龙bot 前提你已配置好青龙BOT</span><br><span class="line">docker exec <span class="literal">-it</span> qinglong ql bot</span><br><span class="line"><span class="number">14</span>.进入青龙</span><br><span class="line">docker exec <span class="literal">-it</span> qinglong bash</span><br><span class="line"><span class="number">15</span>.升级pip版本</span><br><span class="line">python3 <span class="literal">-m</span> pip install <span class="literal">--upgrade</span> pip</span><br></pre></td></tr></table></figure>
 
-<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">1、解决登录青龙面板时提示的服务异常，请手动执行ql check检查服务状态
-docker exec -it qinglong &#x2F;bin&#x2F;bash ql check
-
-2、安装脚本的时候出现：reason: connect ETIMEDOUT xxxxx:443
-npm config set proxy false
-npm cache clean
-或者
-pnpm config set proxy false
-pnpm cache clean
-
-3、通过命令安装node依赖
-① 进入青龙面板
-docker exec -it qinglong bash
-② xxx 安装依赖名称
-pnpm install xxx
-
-4、Python依赖安装失败解决办法
-① 进入青龙面板
-docker exec -it qinglong bash
-② xxx 安装依赖名称
-pip install -i https:&#x2F;&#x2F;pypi.douban.com&#x2F;simple&#x2F; xxxxxx
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、解决登录青龙面板时提示的服务异常，请手动执行ql check检查服务状态</span><br><span class="line">docker exec <span class="literal">-it</span> qinglong /bin/bash ql check</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>、安装脚本的时候出现：reason: connect ETIMEDOUT xxxxx:<span class="number">443</span></span><br><span class="line">npm config <span class="built_in">set</span> proxy false</span><br><span class="line">npm cache clean</span><br><span class="line">或者</span><br><span class="line">pnpm config <span class="built_in">set</span> proxy false</span><br><span class="line">pnpm cache clean</span><br><span class="line"></span><br><span class="line"><span class="number">3</span>、通过命令安装node依赖</span><br><span class="line">① 进入青龙面板</span><br><span class="line">docker exec <span class="literal">-it</span> qinglong bash</span><br><span class="line">② xxx 安装依赖名称</span><br><span class="line">pnpm install xxx</span><br><span class="line"></span><br><span class="line"><span class="number">4</span>、Python依赖安装失败解决办法</span><br><span class="line">① 进入青龙面板</span><br><span class="line">docker exec <span class="literal">-it</span> qinglong bash</span><br><span class="line">② xxx 安装依赖名称</span><br><span class="line">pip install <span class="literal">-i</span> https://pypi.douban.com/simple/ xxxxxx</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <h1 id="tg机器人获取通知"><a href="#tg机器人获取通知" class="headerlink" title="tg机器人获取通知"></a>tg机器人获取通知</h1><h2 id="生成tg机器人"><a href="#生成tg机器人" class="headerlink" title="生成tg机器人"></a>生成tg机器人</h2><ul>
 <li>搜索<code>@BotFather</code>，进入对话框输入<code>/newbot</code>，输入机器人呢称，输入机器人username（以bot结尾）</li>
@@ -615,7 +530,7 @@ pip install -i https:&#x2F;&#x2F;pypi.douban.com&#x2F;simple&#x2F; xxxxxx
 </ul>
 <h1 id="傻瓜式安装青龙面板"><a href="#傻瓜式安装青龙面板" class="headerlink" title="傻瓜式安装青龙面板"></a>傻瓜式安装青龙面板</h1><ul>
 <li>linux环境的终端面板，输入如下命令即可完成安装</li>
-<li>命令执行完毕后，docker和面板全部一步安装到位，通过http://你的IP:5700，就可以打开青龙面板<pre class="line-numbers language-ps" data-language="ps"><code class="language-ps">wget -q https:&#x2F;&#x2F;raw.githubusercontents.com&#x2F;Oreomeow&#x2F;VIP&#x2F;main&#x2F;Scripts&#x2F;sh&#x2F;ql.sh -O ql.sh &amp;&amp; bash ql.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>命令执行完毕后，docker和面板全部一步安装到位，通过http:&#x2F;&#x2F;你的IP:5700，就可以打开青龙面板<figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">wget</span> <span class="literal">-q</span> https://raw.githubusercontents.com/Oreomeow/VIP/main/Scripts/sh/ql.sh <span class="literal">-O</span> ql.sh &amp;&amp; bash ql.sh</span><br></pre></td></tr></table></figure></li>
 </ul>
 
                 
@@ -1039,7 +954,7 @@ pip install -i https:&#x2F;&#x2F;pypi.douban.com&#x2F;simple&#x2F; xxxxxx
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2024</span>
+                <span id="year">2019-2025</span>
             
             <span id="year">2019</span>
             <a href="https://github.com/damao2250" target="_blank">Damao</a>
