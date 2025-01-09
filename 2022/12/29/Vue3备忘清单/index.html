@@ -1390,8 +1390,10 @@ declare module <span class="token string">'vue'</span> <span class="token punctu
     }
 
     #rewardModal {
-        width: 320px;
-        height: 350px;
+        min-width: 320px;
+        max-width: 560px;
+        min-height: 350px;
+        max-height: 780px;
     }
 
     #rewardModal .reward-title {
@@ -1423,7 +1425,7 @@ declare module <span class="token string">'vue'</span> <span class="token punctu
 
     #rewardModal .reward-tabs {
         margin: 0 auto;
-        width: 210px;
+        width: auto;
     }
 
     .reward-tabs .tabs {
@@ -1461,6 +1463,16 @@ declare module <span class="token string">'vue'</span> <span class="token punctu
         background-color: #019FE8 !important;
     }
 
+    .reward-tabs .flower-tab .active {
+        color: #fff !important;
+        background-color: #7ebf6d !important;
+    }
+
+    .reward-tabs .sky-tab .active {
+        color: #fff !important;
+        background-color: #569afd !important;
+    }
+
     .reward-tabs .reward-img {
         width: 210px;
         height: 210px;
@@ -1468,24 +1480,32 @@ declare module <span class="token string">'vue'</span> <span class="token punctu
 </style>
 
 <div id="reward">
-    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red" title="点赞不求人">赞</a>
 
     <!-- Modal Structure -->
     <div id="rewardModal" class="modal">
         <div class="modal-content">
             <a class="close modal-close"><i class="fas fa-times"></i></a>
-            <h4 class="reward-title">得闲饮茶啦</h4>
+            <h4 class="reward-title">窄门大道</h4>
             <div class="reward-content">
                 <div class="reward-tabs">
                     <ul class="tabs row">
-                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                        <!-- <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li> -->
+                        <li class="tab col s6 flower-tab waves-effect waves-light"><a href="#flower">我拍的</a></li>
+                        <li class="tab col s6 sky-tab waves-effect waves-light"><a href="#sky">还是我拍的</a></li>
                     </ul>
-                    <div id="alipay">
+                    <!-- <div id="alipay">
                         <img src="/medias/reward/alipay.png" class="reward-img" alt="支付宝打赏二维码">
                     </div>
                     <div id="wechat">
                         <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div> -->
+                    <div id="flower" class="img-item" data-src="/medias/reward/flower-4074956.jpg">
+                        <img src="/medias/reward/flower-4074956.jpg" class="reward-img" style="width: 100%; height: auto;" alt="我拍的">
+                    </div>
+                    <div id="sky" class="img-item" data-src="/medias/reward/sky-5725621.jpg">
+                        <img src="/medias/reward/sky-5725621.jpg" class="reward-img" style="width: 100%; height: auto;" alt="还是我拍的">
                     </div>
                 </div>
             </div>
