@@ -6,7 +6,7 @@
   <link href="http://damao2250.com/atom.xml" rel="self"/>
   
   <link href="http://damao2250.com/"/>
-  <updated>2025-01-02T07:56:11.393Z</updated>
+  <updated>2025-01-21T08:22:29.755Z</updated>
   <id>http://damao2250.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>达摩克利斯之剑</title>
+    <link href="http://damao2250.com/2025/01/21/%E8%BE%BE%E6%91%A9%E5%85%8B%E5%88%A9%E6%96%AF%E4%B9%8B%E5%89%91/"/>
+    <id>http://damao2250.com/2025/01/21/%E8%BE%BE%E6%91%A9%E5%85%8B%E5%88%A9%E6%96%AF%E4%B9%8B%E5%89%91/</id>
+    <published>2025-01-21T08:08:23.000Z</published>
+    <updated>2025-01-21T08:22:29.755Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="典故"><a href="#典故" class="headerlink" title="典故"></a>典故</h2><p>达摩克利斯是公元前 4 世纪意大利叙拉古的僭主狄奥尼修二世的朝臣，他非常喜欢奉承狄奥尼修二世。</p><p>他奉承道：作为一个拥有权力和威信的伟人，狄奥尼修二世实在很幸运。</p><p>狄奥尼修二世提议与他交换一天的身份，那他就可以尝试到首领的命运。</p><p>在晚上举行的宴会里，达摩克利斯非常享受成为国王的感觉。</p><p>当晚餐快结束的时候，他抬头才注意到王位上方仅用一根马鬃悬挂着的利剑。</p><p>他立即失去了对美食和美女的兴趣，并请求僭主放过他，他再也不想得到这样的幸运。</p><h2 id="达摩克利斯之剑"><a href="#达摩克利斯之剑" class="headerlink" title="达摩克利斯之剑"></a>达摩克利斯之剑</h2><ul><li>象征着制约，象征着天谴</li><li>象征着一切权与利的终极：神权</li><li>象征着持有者的神位和权能</li></ul><h2 id="寓意"><a href="#寓意" class="headerlink" title="寓意"></a>寓意</h2><ul><li>国王的幸福和安乐都是假象，极大的财富和权力也意味着巨大的责任和危险</li><li>达摩克利斯之剑代表拥有强大的力量的同时承担着相应的责任</li><li>同时我们做任何事都要去看看那把悬在头顶的达摩克利斯之剑，别让那把剑取走了你的性命</li><li>居安思危，警醒自己</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;典故&quot;&gt;&lt;a href=&quot;#典故&quot; class=&quot;headerlink&quot; title=&quot;典故&quot;&gt;&lt;/a&gt;典故&lt;/h2&gt;&lt;p&gt;达摩克利斯是公元前 4 世纪意大利叙拉古的僭主狄奥尼修二世的朝臣，他非常喜欢奉承狄奥尼修二世。&lt;/p&gt;
+&lt;p&gt;他奉承道：作为一个拥有权力和威</summary>
+      
+    
+    
+    
+    <category term="阅读记录" scheme="http://damao2250.com/categories/%E9%98%85%E8%AF%BB%E8%AE%B0%E5%BD%95/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>记录邻里邦自动签到接口</title>
@@ -495,31 +518,6 @@
     
     
     <category term="groupBy" scheme="http://damao2250.com/tags/groupBy/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Vue中的键盘事件</title>
-    <link href="http://damao2250.com/2024/03/01/Vue%E4%B8%AD%E7%9A%84%E9%94%AE%E7%9B%98%E4%BA%8B%E4%BB%B6/"/>
-    <id>http://damao2250.com/2024/03/01/Vue%E4%B8%AD%E7%9A%84%E9%94%AE%E7%9B%98%E4%BA%8B%E4%BB%B6/</id>
-    <published>2024-03-01T07:50:11.000Z</published>
-    <updated>2024-03-01T07:54:27.161Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="字母键"><a href="#字母键" class="headerlink" title="字母键"></a>字母键</h2><ul><li>只有按下q键时才会执行send方法<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token operator">&lt;</span>input v<span class="token operator">-</span>on<span class="token operator">:</span>keyup<span class="token punctuation">.</span><span class="token constant">Q</span><span class="token operator">=</span><span class="token string">"send"</span> type<span class="token operator">=</span><span class="token string">"text"</span><span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li></ul><h2 id="大写锁定键"><a href="#大写锁定键" class="headerlink" title="大写锁定键"></a>大写锁定键</h2><ul><li>只有按下capslock键时才会执行send方法<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token operator">&lt;</span>input v<span class="token operator">-</span>on<span class="token operator">:</span>keyup<span class="token punctuation">.</span>caps<span class="token operator">-</span>lock<span class="token operator">=</span><span class="token string">"send"</span> type<span class="token operator">=</span><span class="token string">"text"</span><span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li></ul><h2 id="回车键"><a href="#回车键" class="headerlink" title="回车键"></a>回车键</h2><ul><li>只有按下回车键时才会执行 send 方法<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token operator">&lt;</span>input v<span class="token operator">-</span>on<span class="token operator">:</span>keyup<span class="token punctuation">.</span>enter<span class="token operator">=</span><span class="token string">"send"</span> type<span class="token operator">=</span><span class="token string">"text"</span><span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li></ul><h2 id="Alt-字母组合键"><a href="#Alt-字母组合键" class="headerlink" title="Alt+字母组合键"></a>Alt+字母组合键</h2><ul><li>keyup事件时需要同时按下组合键才会执行send方法<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token operator">&lt;</span>input v<span class="token operator">-</span>on<span class="token operator">:</span>keyup<span class="token punctuation">.</span>Alt<span class="token punctuation">.</span>y<span class="token operator">=</span><span class="token string">"send"</span> type<span class="token operator">=</span><span class="token string">"text"</span><span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li></ul><h2 id="自定义按键"><a href="#自定义按键" class="headerlink" title="自定义按键"></a>自定义按键</h2><pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token comment">// 13是回车键的键码，将他的别名定义为send</span>Vue<span class="token punctuation">.</span>config<span class="token punctuation">.</span>keyCodes<span class="token punctuation">.</span>send<span class="token operator">=</span><span class="token number">13</span><span class="token comment">// 只有按下回车键时才会执行send方法</span><span class="token operator">&lt;</span>input v<span class="token operator">-</span>on<span class="token operator">:</span>keydown<span class="token punctuation">.</span>send<span class="token operator">=</span><span class="token string">"send"</span> type<span class="token operator">=</span><span class="token string">"text"</span><span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;字母键&quot;&gt;&lt;a href=&quot;#字母键&quot; class=&quot;headerlink&quot; title=&quot;字母键&quot;&gt;&lt;/a&gt;字母键&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;只有按下q键时才会执行send方法&lt;pre class=&quot;line-numbers language-js&quot; data-</summary>
-      
-    
-    
-    
-    <category term="Vue" scheme="http://damao2250.com/categories/Vue/"/>
-    
-    
-    <category term="键盘事件" scheme="http://damao2250.com/tags/%E9%94%AE%E7%9B%98%E4%BA%8B%E4%BB%B6/"/>
     
   </entry>
   
