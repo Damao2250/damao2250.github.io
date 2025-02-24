@@ -402,7 +402,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2025-02-20
+                    2025-02-24
                 </div>
                 
 
@@ -481,8 +481,13 @@
 <span class="token function">sudo</span> airodump-ng --bssid 00:14:22:01:23:45 -c <span class="token number">6</span> -w capture wlan0mon<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
-<li>这会开始抓取数据包，并将其保存到指定文件，在 airodump-ng 的界面上，看到“WPA handshake: <BSSID>”的提示，表示握手已成功捕获，并生成一个 .cap 文件</li>
+<li><p>这会开始抓取数据包，并将其保存到指定文件，在 airodump-ng 的界面上，看到“WPA handshake: <BSSID>”的提示，表示握手已成功捕获，并生成一个 .cap 文件</p>
+</li>
+<li><p>常见问题：wlan0mon is on channel xx, but the AP uses channel xx，信道不一致，要切换到相同的信道</p>
+</li>
 </ul>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">sudo iwconfig wlan0mon channel xx<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <h4 id="捕获-WPA-握手"><a href="#捕获-WPA-握手" class="headerlink" title="捕获 WPA 握手"></a>捕获 WPA 握手</h4><ul>
 <li>为了破解 WPA/WPA2 密码，你需要捕获一个 WPA 握手（WPA handshake）</li>
 <li>通过使用 Aireplay-ng 来进行 deauthentication 攻击，让客户端断开并重新连接，这样可以强制它重新发送握手包<ul>
