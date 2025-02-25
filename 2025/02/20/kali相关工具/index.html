@@ -402,7 +402,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2025-02-24
+                    2025-02-25
                 </div>
                 
 
@@ -467,7 +467,7 @@
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> airodump-ng wlan0mon<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h4 id="捕获数据包"><a href="#捕获数据包" class="headerlink" title="捕获数据包"></a>捕获数据包</h4><ul>
+<h4 id="捕获数据包-慢"><a href="#捕获数据包-慢" class="headerlink" title="捕获数据包(慢)"></a>捕获数据包(慢)</h4><ul>
 <li>使用 airodump-ng 对特定网络进行定向扫描，捕获握手，语法如下：<ul>
 <li><BSSID> 是目标网络的 BSSID</li>
 <li><channel> 是目标网络的信道</li>
@@ -488,8 +488,7 @@
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> iwconfig wlan0mon channel xx<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h4 id="捕获-WPA-握手"><a href="#捕获-WPA-握手" class="headerlink" title="捕获 WPA 握手"></a>捕获 WPA 握手</h4><ul>
-<li>为了破解 WPA/WPA2 密码，你需要捕获一个 WPA 握手（WPA handshake）</li>
+<h4 id="发起攻击捕获数据包-快"><a href="#发起攻击捕获数据包-快" class="headerlink" title="发起攻击捕获数据包(快)"></a>发起攻击捕获数据包(快)</h4><ul>
 <li>通过使用 Aireplay-ng 来进行 deauthentication 攻击，让客户端断开并重新连接，这样可以强制它重新发送握手包<ul>
 <li>–deauth 10：发送 10 个去认证包（deauth）</li>
 <li>-a：指定目标 AP 的 BSSID</li>
@@ -515,6 +514,8 @@
 <li>aircrack-ng 会自动尝试破解 WEP 密码。如果捕获的数据包足够，它将很快给出密码</li>
 </ul>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> aircrack-ng capture-01.cap<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h4 id="无线网卡退出监听模式"><a href="#无线网卡退出监听模式" class="headerlink" title="无线网卡退出监听模式"></a>无线网卡退出监听模式</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">airmon-ng stop wlan0mon<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <h3 id="Reaver"><a href="#Reaver" class="headerlink" title="Reaver"></a>Reaver</h3><ul>
 <li>专门用于破解 WPS（Wi-Fi Protected Setup） PIN 的工具</li>
