@@ -413,7 +413,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    948
+                    983
                 </div>
                 
 
@@ -472,7 +472,27 @@
 <li><p><code>宏任务(Macrotask)</code>：包括 <code>setTimeout</code>、<code>setInterval</code>、<code>setImmediate</code>（Node.js）、I/O 任务、UI 渲染等。</p>
 </li>
 <li><p><code>微任务(Microtask)</code>：包括 <code>Promise.then</code>、<code>MutationObserver</code>、<code>process.nextTick</code>（Node.js）。</p>
-<p><strong>注意：Promise 本身是一个同步函数，但它的回调（then、catch、finally）是异步执行的</strong></p>
+<ul>
+<li><p><strong>注意：Promise 本身是一个同步函数，但它的回调（then、catch、finally）是异步执行的</strong></p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js">console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Start"</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> promise <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Inside Promise"</span><span class="token punctuation">)</span>
+  <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">"Resolved"</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+
+promise<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"End"</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 输出:</span>
+Start
+Inside Promise
+End
+Resolved<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ul>
 </li>
 </ul>
 <h3 id="宏任务与微任务的执行顺序"><a href="#宏任务与微任务的执行顺序" class="headerlink" title="宏任务与微任务的执行顺序"></a>宏任务与微任务的执行顺序</h3><p>事件循环在执行任务时，会优先处理微任务队列中的任务。具体执行顺序如下：</p>
