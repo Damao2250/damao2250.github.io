@@ -402,14 +402,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2025-05-09
+                    2025-05-13
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    425
+                    434
                 </div>
                 
 
@@ -439,39 +439,33 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <ol>
-<li>图床是什么</li>
-</ol>
-<ul>
+                <h3 id="图床是什么"><a href="#图床是什么" class="headerlink" title="图床是什么"></a>图床是什么</h3><ul>
 <li>图床,是专门储存图片的空间,同时允许你为图片创建链接的网上空间</li>
 </ul>
-<ol start="2">
-<li>图床可以干什么</li>
-</ol>
-<ul>
-<li>使用Markdown写作用到图片时，不可避免的就要用到图床，可以方便快捷的使用图片链接，在自己博客中插入的图片链接就可以随时随地在线预览了，并且不会因为任何意外原因无法查看</li>
+<h3 id="图床可以干什么"><a href="#图床可以干什么" class="headerlink" title="图床可以干什么"></a>图床可以干什么</h3><ul>
+<li>使用 Markdown 写作用到图片时，不可避免的就要用到图床，可以方便快捷的使用图片链接，在自己博客中插入的图片链接就可以随时随地在线预览了，并且不会因为任何意外原因无法查看</li>
 </ul>
-<ol start="3">
-<li>搭建一个简易的图床 （PicGo + Github）</li>
-</ol>
-<ul>
-<li><p>下载PicGo：<a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/PicGo">https://github.com/Molunerfinn/PicGo</a><br>  <img src="https://raw.githubusercontent.com/Damao2250/FileTransfer/master/%E4%B8%8B%E8%BD%BD1.jpg" alt="下载PicGo1"></p>
-<p>  <img src="https://raw.githubusercontent.com/Damao2250/FileTransfer/master/%E4%B8%8B%E8%BD%BD2.jpg" alt="下载PicGo2"></p>
+<h3 id="搭建一个简易的图床-（PicGo-Github）"><a href="#搭建一个简易的图床-（PicGo-Github）" class="headerlink" title="搭建一个简易的图床 （PicGo + Github）"></a>搭建一个简易的图床 （PicGo + Github）</h3><h4 id="1、下载-PicGo"><a href="#1、下载-PicGo" class="headerlink" title="1、下载 PicGo"></a>1、下载 PicGo</h4><ul>
+<li><p>PicGo：<a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/PicGo">https://github.com/Molunerfinn/PicGo</a><br><img src="https://raw.githubusercontent.com/Damao2250/FileTransfer/master/%E4%B8%8B%E8%BD%BD1.jpg" alt="下载PicGo1"></p>
+<p><img src="https://raw.githubusercontent.com/Damao2250/FileTransfer/master/%E4%B8%8B%E8%BD%BD2.jpg" alt="下载PicGo2"></p>
 </li>
 </ul>
-<ol start="4">
-<li>创建一个公开仓库，</li>
-</ol>
-<ul>
-<li>创建一个公开仓库，点击右上角的个人头像出现下拉菜单，然后点倒数第二项 设置（英文版为 Setting），然后点左侧菜单的最后一个 Developer setting，然后再点左侧菜单的最后一个 Personal access tokens，然后在右侧有一个 Generate new token 的按钮，点击它，然后选择 repo，然后直接拉到最下面点击绿色的按钮 Generate token。之后会生成一个 token 码 ，需要注意的是这个 token 只显示一次！所以可以先把他复制保存的其他地方。其余三项不用填，直接确定然后设为默认图床即可</li>
-<li>注意新版的仓库名不用带<code>.git</code>，即：<code>Damao2250/FileTransfer</code><br>  <img src="https://raw.githubusercontent.com/Damao2250/FileTransfer/master/%E8%AE%BE%E7%BD%AE.jpg" alt="图床设置"></li>
+<h4 id="2、创建仓库"><a href="#2、创建仓库" class="headerlink" title="2、创建仓库"></a>2、创建仓库</h4><ul>
+<li>创建一个公开的个人仓库</li>
 </ul>
-<ol start="5">
-<li>使用</li>
-</ol>
-<ul>
-<li><p>把保存的图片拖到上传区的虚线框里或者直接点击上传即可。提示上传成功之后即可在相册的那栏里看到上传的照片，然后点对应图片下面的文本框似的按钮就可以直接复制外链地址然后粘贴到想要显示图片的地方就可以了<br>  <img src="https://raw.githubusercontent.com/Damao2250/FileTransfer/master/%E8%AE%BE%E7%BD%AE1.jpg" alt="图床使用1"></p>
-<p>  <img src="https://raw.githubusercontent.com/Damao2250/FileTransfer/master/%E8%AE%BE%E7%BD%AE3.jpg" alt="图床使用2"></p>
+<h4 id="3、设置-Token"><a href="#3、设置-Token" class="headerlink" title="3、设置 Token"></a>3、设置 Token</h4><blockquote>
+<p>1、点击页面右上角的个人头像出现下拉菜单，然后点倒数第二项 <code>Setting</code>，（注意不是项目的 Setting）</p>
+<p>2、点左侧菜单的最后一个 <code>Developer setting</code></p>
+<p>3、依此点击 <code>Personal access tokens</code> –&gt; <code>Tokens(classic)</code> –&gt; <code>Generate new token</code> –&gt; <code>Generate new token(classic)</code></p>
+<p>4、然后选择 <code>repo</code>，然后直接拉到最下面点击绿色的按钮 <code>Generate token</code></p>
+<p>5、之后会生成一个 <code>token</code> 码 ，需要注意的是这个 <code>token</code> 只显示一次！所以可以先把他复制保存的其他地方</p>
+<p>回到 picgo 填写仓库名、分支、token 其余可不填，直接确定然后设为默认图床即可</p>
+<p>注意新版的仓库名不用带<code>.git</code>，即：<code>Damao2250/FileTransfer</code></p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/Damao2250/FileTransfer/master/%E8%AE%BE%E7%BD%AE.jpg" alt="图床设置"></p>
+<h4 id="4、使用"><a href="#4、使用" class="headerlink" title="4、使用"></a>4、使用</h4><ul>
+<li><p>把保存的图片拖到上传区的虚线框里或者直接点击上传即可。提示上传成功之后即可在相册的那栏里看到上传的照片，然后点对应图片下面的文本框似的按钮就可以直接复制外链地址然后粘贴到想要显示图片的地方就可以了<br><img src="https://raw.githubusercontent.com/Damao2250/FileTransfer/master/%E8%AE%BE%E7%BD%AE1.jpg" alt="图床使用1"></p>
+<p><img src="https://raw.githubusercontent.com/Damao2250/FileTransfer/master/%E8%AE%BE%E7%BD%AE3.jpg" alt="图床使用2"></p>
 </li>
 </ul>
 
