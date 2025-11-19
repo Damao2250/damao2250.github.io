@@ -6,7 +6,7 @@
   <link href="http://damao2250.com/atom.xml" rel="self"/>
   
   <link href="http://damao2250.com/"/>
-  <updated>2025-07-07T10:06:05.554Z</updated>
+  <updated>2025-11-13T14:12:48.848Z</updated>
   <id>http://damao2250.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Always With Me</title>
+    <link href="http://damao2250.com/2025/11/13/Always-With-Me/"/>
+    <id>http://damao2250.com/2025/11/13/Always-With-Me/</id>
+    <published>2025-11-13T14:12:06.000Z</published>
+    <updated>2025-11-13T14:12:48.848Z</updated>
+    
+    <content type="html"><![CDATA[<p>角落里飘来神秘而动听的歌谣<br>犹如山风中飘忽的耳语<br>犹如一个以“很久很久以前”开头的故事<br>你听不清它讲的什么<br>但却很笃定<br>那定是一个从夏天出发追逐冬季的故事</p><p>有些夜晚<br>从那些冗长慌乱的梦中醒来<br>然而梦的内容却一点儿都想不起来<br>只恍惚记得<br>“我夜里遗落了一个长长的梦，梦里有你”</p><p>随着年龄的增长<br>回忆越来越模糊<br>有时甚至会怀疑<br>记忆中的那些真的发生过吗？<br>就好像忘记了某些非常重要的事情<br>而那些事情只能以梦的形式提醒你</p><p>所以当你听到这首歌<br>希望你听到的是山风中飘忽的耳语<br>希望你听到一个以“很久很久以前”开头的故事<br>也许你听不清具体讲的什么<br>但请你相信<br>那是一个从夏天出发追逐冬季的故事</p><p>当你犹豫选择哪条路时<br>你可能已经启程了好一阵了<br>就像那个名字——寻，千寻，千与千寻<br>《Always With Me》<br>那是你的故事，你，听到了吗？</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;角落里飘来神秘而动听的歌谣&lt;br&gt;犹如山风中飘忽的耳语&lt;br&gt;犹如一个以“很久很久以前”开头的故事&lt;br&gt;你听不清它讲的什么&lt;br&gt;但却很笃定&lt;br&gt;那定是一个从夏天出发追逐冬季的故事&lt;/p&gt;
+&lt;p&gt;有些夜晚&lt;br&gt;从那些冗长慌乱的梦中醒来&lt;br&gt;然而梦的内容却一点儿都想不</summary>
+      
+    
+    
+    
+    <category term="碎碎念" scheme="http://damao2250.com/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
+    
+    
+    <category term="碎碎念" scheme="http://damao2250.com/tags/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
+    
+  </entry>
   
   <entry>
     <title>光之下</title>
@@ -509,32 +534,6 @@
     
     
     <category term="窄门大道" scheme="http://damao2250.com/tags/%E7%AA%84%E9%97%A8%E5%A4%A7%E9%81%93/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>简易瀑布流布局</title>
-    <link href="http://damao2250.com/2024/09/30/%E7%AE%80%E6%98%93%E7%80%91%E5%B8%83%E6%B5%81%E5%B8%83%E5%B1%80/"/>
-    <id>http://damao2250.com/2024/09/30/%E7%AE%80%E6%98%93%E7%80%91%E5%B8%83%E6%B5%81%E5%B8%83%E5%B1%80/</id>
-    <published>2024-09-30T01:07:00.000Z</published>
-    <updated>2025-05-09T04:06:36.969Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style"><span class="token language-css">  <span class="token selector">.container</span> <span class="token punctuation">&#123;</span>    <span class="token property">column-count</span><span class="token punctuation">:</span> 4<span class="token punctuation">;</span> <span class="token comment">/* 定义列数 */</span>    <span class="token property">column-gap</span><span class="token punctuation">:</span> 16px<span class="token punctuation">;</span> <span class="token comment">/* 定义列与列之间的间隙 */</span>  <span class="token punctuation">&#125;</span>  <span class="token selector">.item</span> <span class="token punctuation">&#123;</span>    <span class="token property">background-color</span><span class="token punctuation">:</span> #f2f2f2<span class="token punctuation">;</span>    <span class="token property">padding</span><span class="token punctuation">:</span> 8px<span class="token punctuation">;</span>    <span class="token property">margin-bottom</span><span class="token punctuation">:</span> 16px<span class="token punctuation">;</span> <span class="token comment">/* 定义每项的底部间隙 */</span>    <span class="token property">break-inside</span><span class="token punctuation">:</span> avoid<span class="token punctuation">;</span> <span class="token comment">/* 防止内容被分割到不同的列 */</span>  <span class="token punctuation">&#125;</span></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>container<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>item<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Item 1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>item<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Item 2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>item<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Item 3<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>item<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Item 4<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>item<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Item 5<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>item<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Item 6<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>item<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Item 7<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>item<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Item 8<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>item<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Item 9<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>item<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Item 10<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>item<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Item 11<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>item<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Item 12<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>item<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Item 13<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>item<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Item 14<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>item<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Item 15<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><style>  .container-test {    column-count: 4; /* 定义列数 */    column-gap: 16px; /* 定义列与列之间的间隙 */  }  .item-test {    background-color: #f2f2f2;    padding: 8px;    margin-bottom: 16px; /* 定义每项的底部间隙 */    break-inside: avoid; /* 防止内容被分割到不同的列 */  }</style><div class="container-test">  <div class="item-test">Item 1</div>  <div class="item-test">Item 2 Item 2 Item 2 Item 2 Item 2 Item 2 Item 2 </div>  <div class="item-test">Item 3</div>  <div class="item-test">Item 4 Item 4 Item 4 Item 4 Item 4 Item 4 Item 4 Item 4 Item 4 Item 4 Item 4 </div>  <div class="item-test">Item 5</div>  <div class="item-test">Item 6</div>  <div class="item-test">Item 7</div>  <div class="item-test">Item 8</div>  <div class="item-test">Item 9 Item 9 Item 9 Item 9</div>  <div class="item-test">Item 10</div>  <div class="item-test">Item 11</div>  <div class="item-test">Item 12</div>  <div class="item-test">Item 13</div>  <div class="item-test">Item 14</div>  <div class="item-test">Item 15</div></div>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;代码&quot;&gt;&lt;a href=&quot;#代码&quot; class=&quot;headerlink&quot; title=&quot;代码&quot;&gt;&lt;/a&gt;代码&lt;/h2&gt;&lt;pre class=&quot;line-numbers language-html&quot; data-language=&quot;html&quot;&gt;&lt;code class=</summary>
-      
-    
-    
-    
-    <category term="HTML" scheme="http://damao2250.com/categories/HTML/"/>
-    
-    
-    <category term="CSS" scheme="http://damao2250.com/tags/CSS/"/>
-    
-    <category term="HTML" scheme="http://damao2250.com/tags/HTML/"/>
     
   </entry>
   
