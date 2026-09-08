@@ -1,0 +1,1873 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="创建自己的 Skill, Damao">
+    <meta name="description" content="Coding...">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>创建自己的 Skill | Damao</title>
+    <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 8.1.2"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.jpg" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Damao</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.jpg" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Damao</div>
+        <div class="logo-desc">
+            
+            Coding...
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/damao2250" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Damao
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #24292F;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/damao2250" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Damao" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">创建自己的 Skill</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/AI/">
+                                <span class="chip bg-color">AI</span>
+                            </a>
+                        
+                            <a href="/tags/Skill/">
+                                <span class="chip bg-color">Skill</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/AI/" class="post-category">
+                                AI
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2026-04-07
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2026-09-08
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    3.6k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    14 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="什么是-Skill"><a href="#什么是-Skill" class="headerlink" title="什么是 Skill?"></a>什么是 Skill?</h2><p><strong>Skill</strong> 是一个自定义模块，通过配置文件 (SKILL.md, .instructions.md, .prompt.md 等) 扩展 AI 助手（如 GitHub Copilot、Claude 等）的功能，使其能够执行特定领域的任务。</p>
+<blockquote>
+<p>💡 <strong>重要</strong>：Skill 不仅仅限于 VS Code Copilot，它是一个开放的生态系统。可以用于：</p>
+<ul>
+<li>GitHub Copilot (VS Code、JetBrains IDE 等)</li>
+<li>Claude 和其他 AI 助手</li>
+<li>任何支持 Skill 协议的 AI 平台</li>
+</ul>
+</blockquote>
+<h3 id="类比理解"><a href="#类比理解" class="headerlink" title="类比理解"></a>类比理解</h3><p>如果 AI 助手是一个通用工具，那么 Skill 就像教它一项专门技能：</p>
+<pre class="language-none"><code class="language-none">未使用 Skill: AI 助手是通用对话机器人
+    👤 我想要代码审查
+    🤖 我可以帮你看代码...
+
+使用 Skill: AI 助手成为领域专家
+    👤 审查这段代码
+    🤖 [自动应用审查标准、检查清单、最佳实践...]</code></pre>
+
+<h3 id="Skill-的核心特性"><a href="#Skill-的核心特性" class="headerlink" title="Skill 的核心特性"></a>Skill 的核心特性</h3><h4 id="1-特定用途"><a href="#1-特定用途" class="headerlink" title="1. 特定用途"></a>1. <strong>特定用途</strong></h4><p>每个 Skill 解决一个明确的问题或完成特定的工作：</p>
+<ul>
+<li>🔍 <strong>代码分析</strong> - 检查代码质量</li>
+<li>📝 <strong>文档生成</strong> - 自动写文档</li>
+<li>🐛 <strong>调试助手</strong> - 帮助定位问题</li>
+<li>✅ <strong>测试编写</strong> - 生成测试用例</li>
+<li>🎨 <strong>代码审查</strong> - 执行代码审查</li>
+</ul>
+<h4 id="2-可配置"><a href="#2-可配置" class="headerlink" title="2. 可配置"></a>2. <strong>可配置</strong></h4><p>通过 SKILL.md 定义：</p>
+<ul>
+<li>工作范围和能力</li>
+<li>执行的步骤</li>
+<li>使用的工具</li>
+<li>输出格式</li>
+</ul>
+<h4 id="3-可复用"><a href="#3-可复用" class="headerlink" title="3. 可复用"></a>3. <strong>可复用</strong></h4><p>一旦创建，可以：</p>
+<ul>
+<li>在多个项目中使用</li>
+<li>与团队共享</li>
+<li>社区分享并获取反馈</li>
+<li>不断改进和迭代</li>
+</ul>
+<h4 id="4-集成"><a href="#4-集成" class="headerlink" title="4. 集成"></a>4. <strong>集成</strong></h4><p>可以与各种工具集成：</p>
+<ul>
+<li>外部 API</li>
+<li>代码检查工具</li>
+<li>数据服务</li>
+<li>第三方库</li>
+</ul>
+<h3 id="Skill-vs-普通-Prompt-对比"><a href="#Skill-vs-普通-Prompt-对比" class="headerlink" title="Skill vs 普通 Prompt 对比"></a>Skill vs 普通 Prompt 对比</h3><table>
+<thead>
+<tr>
+<th>特性</th>
+<th>普通 Prompt</th>
+<th>Skill</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>定义方式</td>
+<td>即兴输入</td>
+<td>SKILL.md 配置文件</td>
+</tr>
+<tr>
+<td>可复用性</td>
+<td>每次手动输入</td>
+<td>保存后直接调用</td>
+</tr>
+<tr>
+<td>版本管理</td>
+<td>无</td>
+<td>支持版本控制</td>
+</tr>
+<tr>
+<td>工具使用</td>
+<td>有限</td>
+<td>无限扩展</td>
+</tr>
+<tr>
+<td>性能</td>
+<td>低</td>
+<td>高</td>
+</tr>
+<tr>
+<td>团队共享</td>
+<td>困难</td>
+<td>简单</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="SKILL-结构"><a href="#SKILL-结构" class="headerlink" title="SKILL 结构"></a>SKILL 结构</h2><p>完整的 SKILL.md 由两部分组成：</p>
+<pre class="language-markdown" data-language="markdown"><code class="language-markdown"><span class="token front-matter-block"><span class="token punctuation">---</span>
+<span class="token front-matter yaml language-yaml">[YAML Frontmatter - 元数据]</span>
+<span class="token punctuation">---</span></span>
+
+[Markdown - 文档内容]</code></pre>
+
+<h3 id="YAML-Frontmatter-元数据"><a href="#YAML-Frontmatter-元数据" class="headerlink" title="YAML Frontmatter (元数据)"></a>YAML Frontmatter (元数据)</h3><h4 id="必需字段"><a href="#必需字段" class="headerlink" title="必需字段"></a>必需字段</h4><pre class="language-yaml" data-language="yaml"><code class="language-yaml"><span class="token punctuation">---</span>
+<span class="token key atrule">title</span><span class="token punctuation">:</span> 你的 Skill 名称
+<span class="token key atrule">version</span><span class="token punctuation">:</span> 1.0.0
+<span class="token key atrule">description</span><span class="token punctuation">:</span> 简短描述（一句话）
+<span class="token key atrule">author</span><span class="token punctuation">:</span> 你的名字
+<span class="token punctuation">---</span></code></pre>
+
+<h4 id="常用可选字段"><a href="#常用可选字段" class="headerlink" title="常用可选字段"></a>常用可选字段</h4><pre class="language-yaml" data-language="yaml"><code class="language-yaml"><span class="token punctuation">---</span>
+<span class="token comment"># 基本信息</span>
+<span class="token key atrule">title</span><span class="token punctuation">:</span> Code Review Skill
+<span class="token key atrule">version</span><span class="token punctuation">:</span> 2.5.1
+<span class="token key atrule">description</span><span class="token punctuation">:</span> Automated code review with best practices
+<span class="token key atrule">author</span><span class="token punctuation">:</span> John Doe
+<span class="token key atrule">license</span><span class="token punctuation">:</span> MIT
+
+<span class="token comment"># 分类和标记</span>
+<span class="token key atrule">category</span><span class="token punctuation">:</span> code<span class="token punctuation">-</span>review
+<span class="token key atrule">tags</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> code<span class="token punctuation">-</span>quality
+  <span class="token punctuation">-</span> testing
+  <span class="token punctuation">-</span> best<span class="token punctuation">-</span>practices
+  <span class="token punctuation">-</span> javascript
+
+<span class="token comment"># 能力声明</span>
+<span class="token key atrule">capabilities</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> analyze<span class="token punctuation">-</span>code
+  <span class="token punctuation">-</span> detect<span class="token punctuation">-</span>bugs
+  <span class="token punctuation">-</span> suggest<span class="token punctuation">-</span>improvements
+  <span class="token punctuation">-</span> check<span class="token punctuation">-</span>standards
+
+<span class="token comment"># 依赖声明</span>
+<span class="token key atrule">dependencies</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token key atrule">eslint</span><span class="token punctuation">:</span> <span class="token string">"^8.0"</span>
+  <span class="token punctuation">-</span> <span class="token key atrule">prettier</span><span class="token punctuation">:</span> <span class="token string">"^3.0"</span>
+
+<span class="token comment"># 兼容性</span>
+<span class="token key atrule">compatibility</span><span class="token punctuation">:</span>
+  <span class="token key atrule">vscode</span><span class="token punctuation">:</span> <span class="token string">">=1.80"</span>
+  <span class="token key atrule">copilot</span><span class="token punctuation">:</span> <span class="token string">">=1.0"</span>
+  <span class="token key atrule">node</span><span class="token punctuation">:</span> <span class="token string">">=16.0"</span>
+
+<span class="token comment"># 应用到哪些文件/项目</span>
+<span class="token key atrule">applyTo</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token string">"**/*.js"</span>
+  <span class="token punctuation">-</span> <span class="token string">"**/*.ts"</span>
+  <span class="token punctuation">-</span> <span class="token string">"**/*.jsx"</span>
+  <span class="token punctuation">-</span> <span class="token string">"**/*.tsx"</span>
+<span class="token punctuation">---</span></code></pre>
+
+<h3 id="Markdown-内容结构"><a href="#Markdown-内容结构" class="headerlink" title="Markdown 内容结构"></a>Markdown 内容结构</h3><p>SKILL.md 的 Markdown 部分应该包括以下几个关键部分：</p>
+<h4 id="1-Skill-简介"><a href="#1-Skill-简介" class="headerlink" title="1. Skill 简介"></a>1. Skill 简介</h4><p>简洁地描述 Skill 的作用：</p>
+<pre class="language-markdown" data-language="markdown"><code class="language-markdown"><span class="token title important"><span class="token punctuation">#</span> Code Review Skill</span>
+
+自动审查代码质量，遵循最佳实践。</code></pre>
+
+<h4 id="2-Purpose（目的）"><a href="#2-Purpose（目的）" class="headerlink" title="2. Purpose（目的）"></a>2. Purpose（目的）</h4><p>清楚地说明 Skill 的用途：</p>
+<pre class="language-markdown" data-language="markdown"><code class="language-markdown"><span class="token title important"><span class="token punctuation">##</span> Purpose</span>
+
+<span class="token list punctuation">-</span> 检查代码质量和风格
+<span class="token list punctuation">-</span> 识别潜在 bug 和性能问题
+<span class="token list punctuation">-</span> 验证最佳实践遵循情况
+<span class="token list punctuation">-</span> 提供具体改进建议</code></pre>
+
+<h4 id="3-Keywords（关键词）"><a href="#3-Keywords（关键词）" class="headerlink" title="3. Keywords（关键词）"></a>3. Keywords（关键词）</h4><p>让 AI 助手知道何时应该使用这个 Skill：</p>
+<pre class="language-markdown" data-language="markdown"><code class="language-markdown"><span class="token title important"><span class="token punctuation">##</span> Keywords</span>
+
+<span class="token list punctuation">-</span> code review
+<span class="token list punctuation">-</span> review
+<span class="token list punctuation">-</span> 审查
+<span class="token list punctuation">-</span> CR
+<span class="token list punctuation">-</span> quality check
+<span class="token list punctuation">-</span> bug detection</code></pre>
+
+<h4 id="4-Instructions（指令）"><a href="#4-Instructions（指令）" class="headerlink" title="4. Instructions（指令）"></a>4. Instructions（指令）</h4><p>这是最重要的部分！AI 助手会遵循这些指令：</p>
+<pre class="language-markdown" data-language="markdown"><code class="language-markdown"><span class="token title important"><span class="token punctuation">##</span> Instructions</span>
+
+<span class="token title important"><span class="token punctuation">###</span> Step 1: Understand the Context</span>
+
+<span class="token list punctuation">-</span> Read through the entire code
+<span class="token list punctuation">-</span> Identify the purpose and functionality
+<span class="token list punctuation">-</span> Check for TODOs and FIXMEs
+
+<span class="token title important"><span class="token punctuation">###</span> Step 2: Code Quality Analysis</span>
+
+<span class="token list punctuation">-</span> Check naming conventions
+<span class="token list punctuation">-</span> Verify error handling
+<span class="token list punctuation">-</span> Assess code complexity
+
+<span class="token title important"><span class="token punctuation">###</span> Step 3: Performance Check</span>
+
+<span class="token list punctuation">-</span> Identify potential optimizations
+<span class="token list punctuation">-</span> Check for memory leaks
+<span class="token list punctuation">-</span> Review algorithm efficiency
+
+<span class="token title important"><span class="token punctuation">###</span> Step 4: Security Review</span>
+
+<span class="token list punctuation">-</span> Check input validation
+<span class="token list punctuation">-</span> Verify authentication/authorization
+<span class="token list punctuation">-</span> Look for injection vulnerabilities
+
+<span class="token title important"><span class="token punctuation">###</span> Step 5: Provide Output</span>
+
+<span class="token list punctuation">-</span> List all issues found
+<span class="token list punctuation">-</span> Prioritize by severity
+<span class="token list punctuation">-</span> Provide actionable suggestions</code></pre>
+
+<hr>
+<h2 id="创建-Skill"><a href="#创建-Skill" class="headerlink" title="创建 Skill"></a>创建 Skill</h2><h3 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h3><p>完整的 Skill 项目结构如下：</p>
+<pre class="language-none"><code class="language-none">my-awesome-skill&#x2F;
+├── SKILL.md              # Skill 元数据和指令（最关键）
+├── .instructions.md      # 执行指令（可选，高级用法）
+├── .prompt.md            # 自定义提示（可选）
+├── README.md             # 项目文档
+├── package.json          # 依赖管理（如需要）
+├── examples&#x2F;             # 使用示例
+│   ├── example-1.md
+│   └── example-2.md
+└── templates&#x2F;            # 可复用模板（可选）
+    └── template-1.md</code></pre>
+
+<h3 id="创建步骤"><a href="#创建步骤" class="headerlink" title="创建步骤"></a>创建步骤</h3><h4 id="第-1-步：创建项目目录"><a href="#第-1-步：创建项目目录" class="headerlink" title="第 1 步：创建项目目录"></a>第 1 步：创建项目目录</h4><pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">mkdir</span> my-awesome-skill <span class="token operator">&amp;&amp;</span> <span class="token builtin class-name">cd</span> my-awesome-skill
+<span class="token function">git</span> init</code></pre>
+
+<h4 id="第-2-步：创建-SKILL-md"><a href="#第-2-步：创建-SKILL-md" class="headerlink" title="第 2 步：创建 SKILL.md"></a>第 2 步：创建 SKILL.md</h4><p>在项目根目录创建 <code>SKILL.md</code> 文件，这是 Skill 的核心。YAML 元数据定义了 Skill 的基本信息，Markdown 内容定义了执行逻辑。</p>
+<h4 id="第-3-步：创建-instructions-md-（可选）"><a href="#第-3-步：创建-instructions-md-（可选）" class="headerlink" title="第 3 步：创建 .instructions.md （可选）"></a>第 3 步：创建 .instructions.md （可选）</h4><p>对于复杂的 Skill，可以创建 <code>.instructions.md</code> 来补充详细的执行指令，保持 SKILL.md 的简洁性。</p>
+<h4 id="第-4-步：在开发环境中测试"><a href="#第-4-步：在开发环境中测试" class="headerlink" title="第 4 步：在开发环境中测试"></a>第 4 步：在开发环境中测试</h4><ol>
+<li>在你使用的 IDE（VS Code、JetBrains 等）中打开项目文件夹</li>
+<li>打开 AI 助手的对话窗口（Copilot Chat 或其他）</li>
+<li>输入相关请求，AI 助手会自动加载和应用 Skill</li>
+</ol>
+<h4 id="第-5-步：发布和共享"><a href="#第-5-步：发布和共享" class="headerlink" title="第 5 步：发布和共享"></a>第 5 步：发布和共享</h4><ul>
+<li><strong>分享到 GitHub</strong>：提交到 GitHub 仓库</li>
+<li><strong>社区发布</strong>：发布到 AI Skills 生态</li>
+<li><strong>团队分享</strong>：共享项目文件夹给团队成员</li>
+</ul>
+<hr>
+<h2 id="完整例子：打造一个-JavaScript-代码审查-Skill"><a href="#完整例子：打造一个-JavaScript-代码审查-Skill" class="headerlink" title="完整例子：打造一个 JavaScript 代码审查 Skill"></a>完整例子：打造一个 JavaScript 代码审查 Skill</h2><p>现在让我们创建一个完整的、生产级别的代码审查 Skill。</p>
+<h3 id="SKILL-md"><a href="#SKILL-md" class="headerlink" title="SKILL.md"></a>SKILL.md</h3><pre class="language-yaml" data-language="yaml"><code class="language-yaml"><span class="token punctuation">---</span>
+<span class="token key atrule">title</span><span class="token punctuation">:</span> JavaScript Code Review Skill
+<span class="token key atrule">version</span><span class="token punctuation">:</span> 1.0.0
+<span class="token key atrule">description</span><span class="token punctuation">:</span> Comprehensive JavaScript code review with best practices and performance optimization suggestions
+<span class="token key atrule">author</span><span class="token punctuation">:</span> Your Name
+<span class="token key atrule">license</span><span class="token punctuation">:</span> MIT
+
+<span class="token key atrule">category</span><span class="token punctuation">:</span> code<span class="token punctuation">-</span>review
+<span class="token key atrule">tags</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> javascript
+  <span class="token punctuation">-</span> code<span class="token punctuation">-</span>quality
+  <span class="token punctuation">-</span> best<span class="token punctuation">-</span>practices
+  <span class="token punctuation">-</span> performance
+  <span class="token punctuation">-</span> security
+
+<span class="token key atrule">capabilities</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> code<span class="token punctuation">-</span>analysis
+  <span class="token punctuation">-</span> bug<span class="token punctuation">-</span>detection
+  <span class="token punctuation">-</span> performance<span class="token punctuation">-</span>optimization
+  <span class="token punctuation">-</span> security<span class="token punctuation">-</span>review
+  <span class="token punctuation">-</span> best<span class="token punctuation">-</span>practices<span class="token punctuation">-</span>check
+
+<span class="token key atrule">compatibility</span><span class="token punctuation">:</span>
+  <span class="token key atrule">vscode</span><span class="token punctuation">:</span> <span class="token string">">=1.80"</span>
+  <span class="token key atrule">copilot</span><span class="token punctuation">:</span> <span class="token string">">=1.0"</span>
+  <span class="token key atrule">node</span><span class="token punctuation">:</span> <span class="token string">">=16.0"</span>
+
+<span class="token key atrule">applyTo</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token string">"**/*.js"</span>
+  <span class="token punctuation">-</span> <span class="token string">"**/*.ts"</span>
+  <span class="token punctuation">-</span> <span class="token string">"**/*.jsx"</span>
+  <span class="token punctuation">-</span> <span class="token string">"**/*.tsx"</span>
+<span class="token punctuation">---</span>
+
+<span class="token comment"># JavaScript Code Review Skill</span>
+
+全面的 JavaScript 代码审查，包括质量检查、性能优化和安全审计。
+
+<span class="token comment">## Purpose</span>
+
+这个 Skill 用于：
+<span class="token punctuation">-</span> 检查代码质量和遵循的 JavaScript 最佳实践
+<span class="token punctuation">-</span> 识别潜在的 bug 和性能问题
+<span class="token punctuation">-</span> 提出安全建议
+<span class="token punctuation">-</span> 建议代码改进和重构方案
+<span class="token punctuation">-</span> 验证命名规范和代码风格
+
+<span class="token comment">## Keywords</span>
+
+<span class="token punctuation">-</span> code review
+<span class="token punctuation">-</span> 代码审查
+<span class="token punctuation">-</span> review
+<span class="token punctuation">-</span> javascript review
+<span class="token punctuation">-</span> quality check
+<span class="token punctuation">-</span> bug detection
+<span class="token punctuation">-</span> performance
+<span class="token punctuation">-</span> security check
+<span class="token punctuation">-</span> best practices
+
+<span class="token comment">## Instructions</span>
+
+你是一位经验丰富的 JavaScript 代码审查专家。你的任务是按照以下步骤进行全面的代码审查。
+
+<span class="token comment">### Step 1: 理解代码背景</span>
+首先，阅读整个代码片段，理解：
+<span class="token punctuation">-</span> 代码的主要目的
+<span class="token punctuation">-</span> 使用的库和框架
+<span class="token punctuation">-</span> 代码的执行流程
+<span class="token punctuation">-</span> 任何重要的注释或 TODO
+
+<span class="token comment">### Step 2: 代码质量分析</span>
+检查以下方面：
+<span class="token punctuation">-</span> <span class="token important">**命名规范**：变量、函数和类的命名是否清晰且遵循约定（camelCase、PascalCase）</span>
+<span class="token punctuation">-</span> <span class="token important">**函数复杂度**：函数是否过长？是否可以拆分？</span>
+<span class="token punctuation">-</span> <span class="token important">**代码重复**：是否有重复的代码块可以提取为公共函数？</span>
+<span class="token punctuation">-</span> <span class="token important">**错误处理**：是否有适当的</span> try<span class="token punctuation">-</span>catch 或错误检查？
+<span class="token punctuation">-</span> <span class="token important">**注释和文档**：是否有必要的注释？文档是否完整？</span>
+
+<span class="token comment">### Step 3: 性能检查</span>
+识别潜在的性能问题：
+<span class="token punctuation">-</span> <span class="token important">**不必要的渲染**：React/Vue</span> 中是否有不必要的重新渲染？
+<span class="token punctuation">-</span> <span class="token important">**内存泄漏**：事件监听器是否被正确清理？</span>
+<span class="token punctuation">-</span> <span class="token important">**算法效率**：是否使用了高效的算法？</span>
+<span class="token punctuation">-</span> <span class="token important">**数据结构**：数据结构是否合适？</span>
+<span class="token punctuation">-</span> <span class="token important">**异步操作**：Promise</span> 链是否可以简化为 async/await？
+
+<span class="token comment">### Step 4: 安全审计</span>
+检查安全问题：
+<span class="token punctuation">-</span> <span class="token important">**输入验证**：用户输入是否被验证并清理？</span>
+<span class="token punctuation">-</span> <span class="token important">**XSS</span> 漏洞<span class="token important">**：是否存在</span> XSS 风险（特别是 DOM 操作）？
+<span class="token punctuation">-</span> <span class="token important">**SQL</span> 注入<span class="token important">**：后端代码是否使用参数化查询？</span>
+<span class="token punctuation">-</span> <span class="token important">**敏感信息**：是否有暴露的秘钥或敏感信息？</span>
+<span class="token punctuation">-</span> <span class="token important">**CORS**：API</span> 调用是否正确处理 CORS？
+
+<span class="token comment">### Step 5: 最佳实践检查</span>
+<span class="token punctuation">-</span> <span class="token important">**使用现代</span> JavaScript<span class="token important">**：是否使用了过时的</span> API？
+<span class="token punctuation">-</span> <span class="token important">**类型安全**：是否应该使用</span> TypeScript？
+<span class="token punctuation">-</span> <span class="token important">**测试覆盖**：代码是否有相应的单元测试？</span>
+<span class="token punctuation">-</span> <span class="token important">**模块化**：代码是否模块化和可维护？</span>
+
+<span class="token comment">### Step 6: 给出结果</span>
+按照以下格式输出你的审查结果：
+
+<span class="token comment">## Code Review Report</span>
+
+<span class="token comment">### ✅ 优点（What's Good）</span>
+<span class="token punctuation">-</span> <span class="token punctuation">[</span>优点1<span class="token punctuation">]</span>
+<span class="token punctuation">-</span> <span class="token punctuation">[</span>优点2<span class="token punctuation">]</span>
+<span class="token punctuation">-</span> <span class="token punctuation">...</span>
+
+<span class="token comment">### ❌ 需要改进（Issues Found）</span>
+<span class="token punctuation">|</span> 类型 <span class="token punctuation">|</span> 优先级 <span class="token punctuation">|</span> 问题描述 <span class="token punctuation">|</span> 建议 <span class="token punctuation">|</span>
+<span class="token punctuation">|</span><span class="token punctuation">---</span><span class="token punctuation">---</span><span class="token punctuation">|</span><span class="token punctuation">---</span><span class="token punctuation">---</span><span class="token punctuation">-</span><span class="token punctuation">-</span><span class="token punctuation">|</span><span class="token punctuation">---</span><span class="token punctuation">---</span><span class="token punctuation">-</span><span class="token punctuation">-</span><span class="token punctuation">|</span><span class="token punctuation">---</span><span class="token punctuation">---</span><span class="token punctuation">|</span>
+<span class="token punctuation">|</span> Performance <span class="token punctuation">|</span> High <span class="token punctuation">|</span> <span class="token punctuation">[</span>问题说明<span class="token punctuation">]</span> <span class="token punctuation">|</span> <span class="token punctuation">[</span>改进建议<span class="token punctuation">]</span> <span class="token punctuation">|</span>
+<span class="token punctuation">|</span> Security <span class="token punctuation">|</span> Medium <span class="token punctuation">|</span> <span class="token punctuation">[</span>问题说明<span class="token punctuation">]</span> <span class="token punctuation">|</span> <span class="token punctuation">[</span>改进建议<span class="token punctuation">]</span> <span class="token punctuation">|</span>
+<span class="token punctuation">|</span> Quality <span class="token punctuation">|</span> Low <span class="token punctuation">|</span> <span class="token punctuation">[</span>问题说明<span class="token punctuation">]</span> <span class="token punctuation">|</span> <span class="token punctuation">[</span>改进建议<span class="token punctuation">]</span> <span class="token punctuation">|</span>
+
+<span class="token comment">### 💡 优化建议（Suggestions）</span>
+1. <span class="token punctuation">[</span>建议1及代码示例<span class="token punctuation">]</span>
+2. <span class="token punctuation">[</span>建议2及代码示例<span class="token punctuation">]</span>
+3. <span class="token punctuation">...</span>
+
+<span class="token comment">### 📊 整体评分</span>
+<span class="token punctuation">-</span> <span class="token key atrule">代码质量</span><span class="token punctuation">:</span> 7/10
+<span class="token punctuation">-</span> <span class="token key atrule">性能</span><span class="token punctuation">:</span> 8/10
+<span class="token punctuation">-</span> <span class="token key atrule">安全性</span><span class="token punctuation">:</span> 9/10
+<span class="token punctuation">-</span> <span class="token key atrule">最佳实践</span><span class="token punctuation">:</span> 7/10
+<span class="token punctuation">-</span> <span class="token important">**综合评分:</span> 7.75/10<span class="token important">**</span></code></pre>
+
+<hr>
+<h2 id="更多-Skill-示例"><a href="#更多-Skill-示例" class="headerlink" title="更多 Skill 示例"></a>更多 Skill 示例</h2><p>为了给你更多灵感，这里展示三个不同场景的 Skill 示例。</p>
+<h3 id="示例-2-Vue-组件文档生成-Skill"><a href="#示例-2-Vue-组件文档生成-Skill" class="headerlink" title="示例 2: Vue 组件文档生成 Skill"></a>示例 2: Vue 组件文档生成 Skill</h3><p><strong>使用场景</strong>：自动为 Vue 组件生成文档</p>
+<pre class="language-yaml" data-language="yaml"><code class="language-yaml"><span class="token punctuation">---</span>
+<span class="token key atrule">title</span><span class="token punctuation">:</span> Vue Component Documenter
+<span class="token key atrule">version</span><span class="token punctuation">:</span> 1.0.0
+<span class="token key atrule">description</span><span class="token punctuation">:</span> Auto<span class="token punctuation">-</span>generate documentation for Vue components
+<span class="token key atrule">category</span><span class="token punctuation">:</span> documentation
+<span class="token key atrule">tags</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> vue
+  <span class="token punctuation">-</span> documentation
+  <span class="token punctuation">-</span> auto<span class="token punctuation">-</span>generate
+<span class="token key atrule">applyTo</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token string">"**/components/**/*.vue"</span>
+<span class="token punctuation">---</span>
+
+<span class="token comment"># Vue Component Documenter</span>
+
+自动生成 Vue 组件的 Props、Events、Slots 和用法文档。
+
+<span class="token comment">## Purpose</span>
+<span class="token punctuation">-</span> 提取组件的 Props 定义
+<span class="token punctuation">-</span> 记录 Events 和 Emits
+<span class="token punctuation">-</span> 生成使用示例
+<span class="token punctuation">-</span> 创建完整的组件文档
+
+<span class="token comment">## Keywords</span>
+<span class="token punctuation">-</span> vue component
+<span class="token punctuation">-</span> document
+<span class="token punctuation">-</span> auto<span class="token punctuation">-</span>generate
+<span class="token punctuation">-</span> props
+<span class="token punctuation">-</span> events
+
+<span class="token comment">## Instructions</span>
+
+你是一位 Vue 文档专家。分析给定的 Vue 文件：
+
+1. <span class="token important">**提取组件元数据**：Props、Data、Methods、Computed、Emits</span>
+2. <span class="token important">**分析组件结构**：Template、Script、Style</span> 的组织方式
+3. <span class="token important">**生成文档**：按标准格式输出组件文档</span>
+4. <span class="token important">**添加示例**：为每个</span> Props 和 Event 提供使用示例
+
+输出格式：
+
+```markdown
+<span class="token comment"># 组件名称</span>
+&lt;<span class="token tag">!--</span> 例如：Button、Modal、Form 等 <span class="token punctuation">-</span><span class="token punctuation">-</span><span class="token punctuation">></span>
+
+简短的组件功能描述
+
+<span class="token comment">## Props</span>
+
+<span class="token punctuation">|</span> 名称 <span class="token punctuation">|</span> 类型 <span class="token punctuation">|</span> 默认值 <span class="token punctuation">|</span> 说明 <span class="token punctuation">|</span>
+<span class="token punctuation">|</span><span class="token punctuation">---</span><span class="token punctuation">---</span><span class="token punctuation">|</span><span class="token punctuation">---</span><span class="token punctuation">---</span><span class="token punctuation">|</span><span class="token punctuation">---</span><span class="token punctuation">---</span><span class="token punctuation">-</span><span class="token punctuation">-</span><span class="token punctuation">|</span><span class="token punctuation">---</span><span class="token punctuation">---</span><span class="token punctuation">|</span>
+<span class="token punctuation">|</span> 属性1 <span class="token punctuation">|</span> String <span class="token punctuation">|</span> <span class="token punctuation">-</span> <span class="token punctuation">|</span> 属性说明 <span class="token punctuation">|</span>
+
+<span class="token comment">## Events</span>
+
+<span class="token punctuation">|</span> 事件名 <span class="token punctuation">|</span> 参数 <span class="token punctuation">|</span> 说明 <span class="token punctuation">|</span>
+<span class="token punctuation">|</span><span class="token punctuation">---</span><span class="token punctuation">---</span><span class="token punctuation">-</span><span class="token punctuation">-</span><span class="token punctuation">|</span><span class="token punctuation">---</span><span class="token punctuation">---</span><span class="token punctuation">|</span><span class="token punctuation">---</span><span class="token punctuation">---</span><span class="token punctuation">|</span>
+<span class="token punctuation">|</span> event1 <span class="token punctuation">|</span> <span class="token punctuation">-</span> <span class="token punctuation">|</span> 事件说明 <span class="token punctuation">|</span>
+
+<span class="token comment">## Slots</span>
+
+<span class="token punctuation">|</span> 插槽名 <span class="token punctuation">|</span> 说明 <span class="token punctuation">|</span>
+<span class="token punctuation">|</span><span class="token punctuation">---</span><span class="token punctuation">---</span><span class="token punctuation">-</span><span class="token punctuation">-</span><span class="token punctuation">|</span><span class="token punctuation">---</span><span class="token punctuation">---</span><span class="token punctuation">|</span>
+<span class="token punctuation">|</span> default <span class="token punctuation">|</span> 默认插槽说明 <span class="token punctuation">|</span>
+
+<span class="token comment">## 使用示例</span>
+
+```vue
+&lt;MyComponent
+  <span class="token punctuation">:</span>prop1="value"
+  @event1="handler"
+<span class="token punctuation">></span>
+  &lt;template <span class="token comment">#default></span>
+    插槽内容
+  &lt;/template<span class="token punctuation">></span>
+&lt;/MyComponent<span class="token punctuation">></span></code></pre>
+
+<h3 id="示例-3-单元测试生成-Skill"><a href="#示例-3-单元测试生成-Skill" class="headerlink" title="示例 3: 单元测试生成 Skill"></a>示例 3: 单元测试生成 Skill</h3><p><strong>使用场景</strong>：自动为函数生成单元测试</p>
+<pre class="language-yaml" data-language="yaml"><code class="language-yaml"><span class="token punctuation">---</span>
+<span class="token key atrule">title</span><span class="token punctuation">:</span> Unit Test Generator
+<span class="token key atrule">version</span><span class="token punctuation">:</span> 1.0.0
+<span class="token key atrule">description</span><span class="token punctuation">:</span> Generate comprehensive unit tests for functions
+<span class="token key atrule">category</span><span class="token punctuation">:</span> testing
+<span class="token key atrule">tags</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> testing
+  <span class="token punctuation">-</span> jest
+  <span class="token punctuation">-</span> vitest
+  <span class="token punctuation">-</span> automation
+<span class="token punctuation">---</span>
+
+<span class="token comment"># Unit Test Generator</span>
+
+根据函数逻辑自动生成全面的单元测试用例。
+
+<span class="token comment">## Purpose</span>
+<span class="token punctuation">-</span> 分析函数的输入输出
+<span class="token punctuation">-</span> 识别边界情况
+<span class="token punctuation">-</span> 生成测试用例
+<span class="token punctuation">-</span> 提高测试覆盖率
+
+<span class="token comment">## Keywords</span>
+<span class="token punctuation">-</span> unit test
+<span class="token punctuation">-</span> test case
+<span class="token punctuation">-</span> jest
+<span class="token punctuation">-</span> vitest
+<span class="token punctuation">-</span> testing
+<span class="token punctuation">-</span> coverage
+
+<span class="token comment">## Instructions</span>
+
+你是一位体验丰富的测试工程师。分析函数代码：
+
+1. <span class="token important">**理解函数逻辑**：参数、返回值、副作用</span>
+2. <span class="token important">**识别测试场景**：</span>
+   <span class="token punctuation">-</span> 正常情况 (Happy Path)
+   <span class="token punctuation">-</span> 边界情况 (Boundary Cases)
+   <span class="token punctuation">-</span> 异常情况 (Error Cases)
+3. <span class="token important">**生成测试用例**：完整的</span> Jest/Vitest 测试代码
+4. <span class="token important">**添加注释**：解释每个测试用例的目的</span>
+
+输出单元测试代码，包括：
+<span class="token punctuation">-</span> describe 块
+<span class="token punctuation">-</span> beforeEach/afterEach 设置
+<span class="token punctuation">-</span> 多个 test/it 块
+<span class="token punctuation">-</span> 清晰的断言和期望值</code></pre>
+
+<hr>
+<h2 id="实战应用场景"><a href="#实战应用场景" class="headerlink" title="实战应用场景"></a>实战应用场景</h2><h3 id="场景-1-团队代码审查标准化"><a href="#场景-1-团队代码审查标准化" class="headerlink" title="场景 1: 团队代码审查标准化"></a>场景 1: 团队代码审查标准化</h3><p><strong>问题</strong>：团队代码审查标准不统一，每个人的要求不同</p>
+<p><strong>Skill 解决方案</strong>：</p>
+<pre class="language-none"><code class="language-none">创建 Team Code Review Skill，包含：
+- 公司编码规范检查清单
+- 安全审查标准
+- 性能优化指标
+- 是否使用 TypeScript 等团队规定</code></pre>
+
+<p><strong>效果</strong>：</p>
+<ul>
+<li>🎯 代码审查标准化</li>
+<li>⏱️ 审查时间减少 40%</li>
+<li>📋 自动生成 CR 报告</li>
+</ul>
+<h3 id="场景-2-新人快速学习"><a href="#场景-2-新人快速学习" class="headerlink" title="场景 2: 新人快速学习"></a>场景 2: 新人快速学习</h3><p><strong>问题</strong>：新入职开发者需要快速掌握项目和团队技术栈</p>
+<p><strong>Skill 解决方案</strong>：</p>
+<pre class="language-none"><code class="language-none">创建 Project Onboarding Skill，包含：
+- 项目架构解读
+- 常见问题 Q&amp;A
+- 开发工作流指南
+- 常用命令速查</code></pre>
+
+<p><strong>效果</strong>：</p>
+<ul>
+<li>🚀 新人上手时间从 2 周减少到 3 天</li>
+<li>📚 自动回答常见问题</li>
+<li>🔄 持续更新文档</li>
+</ul>
+<h3 id="场景-3-文档自动生成"><a href="#场景-3-文档自动生成" class="headerlink" title="场景 3: 文档自动生成"></a>场景 3: 文档自动生成</h3><p><strong>问题</strong>：功能变更后，文档经常过时</p>
+<p><strong>Skill 解决方案</strong>：</p>
+<pre class="language-none"><code class="language-none">创建 API Documentation Skill，包含：
+- 自动扫描代码生成 API 文档
+- 生成 Swagger&#x2F;OpenAPI 文档
+- 生成使用示例</code></pre>
+
+<p><strong>效果</strong>：</p>
+<ul>
+<li>📖 文档时刻保持最新</li>
+<li>🤖 0 手工维护成本</li>
+<li>✅ 提高代码文档率</li>
+</ul>
+<hr>
+<h2 id="常见问题与调试"><a href="#常见问题与调试" class="headerlink" title="常见问题与调试"></a>常见问题与调试</h2><h3 id="Q1-为什么-Skill-没有被激活？"><a href="#Q1-为什么-Skill-没有被激活？" class="headerlink" title="Q1: 为什么 Skill 没有被激活？"></a>Q1: 为什么 Skill 没有被激活？</h3><p><strong>可能的原因和解决方案</strong>：</p>
+<pre class="language-none"><code class="language-none">❌ 问题1：SKILL.md 格式错误
+✅ 解决：检查 YAML Frontmatter 是否有效
+   - 确保使用 --- 分隔符
+   - 检查缩进是否使用 2 个空格
+   - 验证字符编码是 UTF-8
+
+❌ 问题2：关键字不匹配
+✅ 解决：检查 Keywords 部分
+   - 添加英文和中文关键字
+   - 关键字要具体而非过于宽泛
+
+❌ 问题3：AI 助手缓存问题
+✅ 解决：
+   - 重新加载 IDE 窗口 (Cmd&#x2F;Ctrl + R)
+   - 关闭并重新打开 AI 助手的对话窗口
+   - 清除开发环境的缓存</code></pre>
+
+<h3 id="Q2-如何调试-Skill-的输出质量？"><a href="#Q2-如何调试-Skill-的输出质量？" class="headerlink" title="Q2: 如何调试 Skill 的输出质量？"></a>Q2: 如何调试 Skill 的输出质量？</h3><p><strong>调试步骤</strong>：</p>
+<pre class="language-none"><code class="language-none">1. 明确你的指令
+   - Instructions 写得越具体，Copilot 输出越好
+   - 包含具体的步骤和格式要求
+   - 提供正反例对比
+
+2. 测试关键词
+   - 用不同的表述测试 Skill 是否能激活
+   - 记录哪些关键字最有效
+
+3. 迭代改进
+   - 根据输出效果调整 Instructions
+   - 添加更多具体的例子
+   - 优化输出格式
+
+4. 使用 .instructions.md
+   - 对于复杂 Skill，将详细指令分离到文件中
+   - 提高可读性和可维护性</code></pre>
+
+<h3 id="Q3-Skill-可以访问项目文件吗？"><a href="#Q3-Skill-可以访问项目文件吗？" class="headerlink" title="Q3: Skill 可以访问项目文件吗？"></a>Q3: Skill 可以访问项目文件吗？</h3><p><strong>回答</strong>：</p>
+<pre class="language-none"><code class="language-none">✅ 可以：
+- 读取项目中的代码文件
+- 查看项目的文件结构
+- 访问打开的编辑器内容
+
+❌ 不能：
+- 自动执行命令（除非通过工具集成）
+- 访问系统环境变量
+- 修改文件（需要用户确认）
+
+💡 最佳实践：
+在 Instructions 中明确你希望 Skill 如何使用项目文件</code></pre>
+
+<h3 id="Q4-多个-Skill-冲突怎么办？"><a href="#Q4-多个-Skill-冲突怎么办？" class="headerlink" title="Q4: 多个 Skill 冲突怎么办？"></a>Q4: 多个 Skill 冲突怎么办？</h3><p><strong>解决方案</strong>：</p>
+<pre class="language-none"><code class="language-none">1. 明确 applyTo 范围
+   只在特定文件类型上激活 Skill
+
+2. 使用特定的关键字
+   避免过于宽泛的关键字
+
+3. 优先级管理
+   通过清晰的命令格式区分不同 Skill
+   例如：
+   &#x2F;review 激活 Code Review Skill
+   &#x2F;doc 激活 Documentation Skill</code></pre>
+
+<hr>
+<h2 id="快速参考-Cheatsheet"><a href="#快速参考-Cheatsheet" class="headerlink" title="快速参考 Cheatsheet"></a>快速参考 Cheatsheet</h2><h3 id="SKILL-md-最小模板"><a href="#SKILL-md-最小模板" class="headerlink" title="SKILL.md 最小模板"></a>SKILL.md 最小模板</h3><pre class="language-yaml" data-language="yaml"><code class="language-yaml"><span class="token punctuation">---</span>
+<span class="token key atrule">title</span><span class="token punctuation">:</span> Your Skill Name
+<span class="token key atrule">version</span><span class="token punctuation">:</span> 1.0.0
+<span class="token key atrule">description</span><span class="token punctuation">:</span> Brief one<span class="token punctuation">-</span>line description
+<span class="token key atrule">author</span><span class="token punctuation">:</span> Your Name
+<span class="token key atrule">category</span><span class="token punctuation">:</span> category<span class="token punctuation">-</span>name
+<span class="token key atrule">tags</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> tag1
+  <span class="token punctuation">-</span> tag2
+<span class="token key atrule">applyTo</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token string">"**/*.ext"</span>
+<span class="token punctuation">---</span>
+
+<span class="token comment"># Your Skill Name</span>
+
+Brief introduction.
+
+<span class="token comment">## Purpose</span>
+<span class="token punctuation">-</span> Goal 1
+<span class="token punctuation">-</span> Goal 2
+
+<span class="token comment">## Keywords</span>
+<span class="token punctuation">-</span> keyword1
+<span class="token punctuation">-</span> 中文关键词
+
+<span class="token comment">## Instructions</span>
+
+You are an expert in <span class="token punctuation">[</span>domain<span class="token punctuation">]</span>.
+
+<span class="token comment">### Step 1: [First step description]</span>
+<span class="token punctuation">-</span> Detail 1
+<span class="token punctuation">-</span> Detail 2
+
+<span class="token comment">### Step 2: [Second step description]</span>
+<span class="token punctuation">-</span> Detail 1
+
+<span class="token comment">### Step 3: Provide Output</span>
+Format and structure of the output.</code></pre>
+
+<h3 id="YAML-Frontmatter-字段速查"><a href="#YAML-Frontmatter-字段速查" class="headerlink" title="YAML Frontmatter 字段速查"></a>YAML Frontmatter 字段速查</h3><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>必需</th>
+<th>说明</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>title</td>
+<td>是</td>
+<td>Skill 名称</td>
+<td>“Code Review”</td>
+</tr>
+<tr>
+<td>version</td>
+<td>是</td>
+<td>版本号</td>
+<td>“1.0.0”</td>
+</tr>
+<tr>
+<td>description</td>
+<td>是</td>
+<td>单行描述</td>
+<td>“Review code quality”</td>
+</tr>
+<tr>
+<td>author</td>
+<td>是</td>
+<td>作者名</td>
+<td>“John Doe”</td>
+</tr>
+<tr>
+<td>category</td>
+<td>否</td>
+<td>分类</td>
+<td>“code-review”</td>
+</tr>
+<tr>
+<td>tags</td>
+<td>否</td>
+<td>标签列表</td>
+<td>[“js”, “quality”]</td>
+</tr>
+<tr>
+<td>applyTo</td>
+<td>否</td>
+<td>适用文件</td>
+<td>[“**&#x2F;*.js”]</td>
+</tr>
+<tr>
+<td>capabilities</td>
+<td>否</td>
+<td>能力列表</td>
+<td>[“analyze”]</td>
+</tr>
+</tbody></table>
+<h3 id="Markdown-内容速查"><a href="#Markdown-内容速查" class="headerlink" title="Markdown 内容速查"></a>Markdown 内容速查</h3><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>必需</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td># Title</td>
+<td>是</td>
+<td>一级标题</td>
+</tr>
+<tr>
+<td>## Purpose</td>
+<td>是</td>
+<td>用途说明（列表形式）</td>
+</tr>
+<tr>
+<td>## Keywords</td>
+<td>是</td>
+<td>关键词（列表形式）</td>
+</tr>
+<tr>
+<td>## Instructions</td>
+<td>是</td>
+<td>执行指令（关键部分）</td>
+</tr>
+<tr>
+<td>## Example</td>
+<td>否</td>
+<td>使用示例</td>
+</tr>
+</tbody></table>
+<h3 id="常用关键字组合"><a href="#常用关键字组合" class="headerlink" title="常用关键字组合"></a>常用关键字组合</h3><pre class="language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># 代码审查</span>
+<span class="token key atrule">keywords</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> code review
+  <span class="token punctuation">-</span> 代码审查
+  <span class="token punctuation">-</span> review
+  <span class="token punctuation">-</span> quality check
+
+<span class="token comment"># 文档生成</span>
+<span class="token key atrule">keywords</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> documentation
+  <span class="token punctuation">-</span> 文档
+  <span class="token punctuation">-</span> doc
+  <span class="token punctuation">-</span> auto generate
+
+<span class="token comment"># 单元测试</span>
+<span class="token key atrule">keywords</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> unit test
+  <span class="token punctuation">-</span> 单元测试
+  <span class="token punctuation">-</span> test case
+  <span class="token punctuation">-</span> jest</code></pre>
+
+<h3 id="三个最重要的文件"><a href="#三个最重要的文件" class="headerlink" title="三个最重要的文件"></a>三个最重要的文件</h3><table>
+<thead>
+<tr>
+<th>文件</th>
+<th>必需</th>
+<th>大小指南</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SKILL.md</td>
+<td>是</td>
+<td>200-500 行</td>
+<td>主要配置和简短指令</td>
+</tr>
+<tr>
+<td>.instructions.md</td>
+<td>否</td>
+<td>100-1000 行</td>
+<td>详细指令（大型 Skill）</td>
+</tr>
+<tr>
+<td>README.md</td>
+<td>否</td>
+<td>50-200 行</td>
+<td>使用说明和示例</td>
+</tr>
+</tbody></table>
+<hr>
+
+                
+            </div>
+            <hr/>
+
+            
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/AI/">
+                                    <span class="chip bg-color">AI</span>
+                                </a>
+                            
+                                <a href="/tags/Skill/">
+                                    <span class="chip bg-color">Skill</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        min-width: 320px;
+        max-width: 560px;
+        min-height: 350px;
+        max-height: 780px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: auto;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .flower-tab .active {
+        color: #fff !important;
+        background-color: #7ebf6d !important;
+    }
+
+    .reward-tabs .sky-tab .active {
+        color: #fff !important;
+        background-color: #569afd !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red" title="点赞不求人">赞</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">窄门大道</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <!-- <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li> -->
+                        <li class="tab col s6 flower-tab waves-effect waves-light"><a href="#flower">我拍的</a></li>
+                        <li class="tab col s6 sky-tab waves-effect waves-light"><a href="#sky">还是我拍的</a></li>
+                    </ul>
+                    <!-- <div id="alipay">
+                        <img src="/medias/reward/alipay.png" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div> -->
+                    <div id="flower" class="img-item" data-src="/medias/reward/flower-4074956.jpg">
+                        <img src="/medias/reward/flower-4074956.jpg" class="reward-img" style="width: 100%; height: auto;" alt="我拍的">
+                    </div>
+                    <div id="sky" class="img-item" data-src="/medias/reward/sky-5725621.jpg">
+                        <img src="/medias/reward/sky-5725621.jpg" class="reward-img" style="width: 100%; height: auto;" alt="还是我拍的">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2026/05/28/%E6%9C%AC%E5%9C%B0%E5%A4%A7%E6%A8%A1%E5%9E%8BAPI%E6%9C%8D%E5%8A%A1%E5%A4%87%E5%BF%98/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/36.jpg" class="responsive-img" alt="本地大模型API服务备忘">
+                        
+                        <span class="card-title">本地大模型API服务备忘</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2026-05-28
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/AI/" class="post-category">
+                                    AI
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/AI/">
+                        <span class="chip bg-color">AI</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%9C%AC%E5%9C%B0%E5%A4%A7%E6%A8%A1%E5%9E%8B/">
+                        <span class="chip bg-color">本地大模型</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2026/04/03/%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%AA%E6%9C%89%E8%B6%A3%E7%9A%84nano-banana%E6%8F%90%E7%A4%BA%E8%AF%8D/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/47.jpg" class="responsive-img" alt="记录一个有趣的nano-banana提示词">
+                        
+                        <span class="card-title">记录一个有趣的nano-banana提示词</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-04-03
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/AI/" class="post-category">
+                                    AI
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%8F%90%E7%A4%BA%E8%AF%8D/">
+                        <span class="chip bg-color">提示词</span>
+                    </a>
+                    
+                    <a href="/tags/Nano-Banana/">
+                        <span class="chip bg-color">Nano Banana</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+
+<!-- 代码块复制 -->
+
+
+<!-- 代码块收缩 -->
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2026</span>
+            
+            <span id="year">2019</span>
+            <a href="https://github.com/damao2250" target="_blank">Damao</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
