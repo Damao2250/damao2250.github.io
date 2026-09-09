@@ -439,7 +439,7 @@
 <h2 id="拉胯的模型"><a href="#拉胯的模型" class="headerlink" title="拉胯的模型"></a>拉胯的模型</h2><p>标准测试里模型亮眼，一上业务就拉胯。原因往往不是模型笨，是它<strong>没背景</strong>：不知道你的产品架构、业务规则、历史对话。</p>
 <p>书里一句话点透：人和模型一样，最重要的都是 Context。中等模型配精心设计的上下文，能压过顶级模型配信息匮乏。</p>
 <p>更狠的是：上下文不只是技术问题，还是<strong>组织问题</strong>。团队知识要是都藏在老人脑子里，Agent 也无计可施。所以构建 AI 原生团队，第一步其实是文档化运动。</p>
-<p>（我的理解：这解释了为什么很多公司 RAG 做不起来——根子在知识没沉淀成文档，而不是检索算法不行。）</p>
+<p>（这解释了为什么很多公司 RAG 做不起来——根子在知识没沉淀成文档，而不是检索算法不行。）</p>
 <h2 id="Agent-怎么调大模型"><a href="#Agent-怎么调大模型" class="headerlink" title="Agent 怎么调大模型"></a>Agent 怎么调大模型</h2><p>先纠正一个错觉：大模型 API 是<strong>无状态</strong>的。每发一次请求，得把完整历史重新发一遍。框架在背后帮你干这事——典型循环就是第 1 章说的 ReAct：请求 → 模型返 tool_calls → 框架执行 → tool 结果回传 → 再请求。</p>
 <p>代码骨架其实就是个 <code>while True</code>：不断往 messages 里追加，模型不再调工具就断。</p>
 <h2 id="KV-Cache-是个隐藏的架构约束"><a href="#KV-Cache-是个隐藏的架构约束" class="headerlink" title="KV Cache 是个隐藏的架构约束"></a>KV Cache 是个隐藏的架构约束</h2><p>这块是生产级 Agent 最容易被忽略的。推理时，算过的 token 的 K&#x2F;V 向量会被缓存（KV Cache），下次同样前缀直接复用，又省又快。前提是：<strong>前缀得一模一样</strong>。</p>
