@@ -3732,31 +3732,6 @@
     
     
     <entry>
-      <title>使用Taro实现微信小程序登录流程</title>
-      <link href="/2019/11/13/%E4%BD%BF%E7%94%A8Taro%E5%AE%9E%E7%8E%B0%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%99%BB%E5%BD%95%E6%B5%81%E7%A8%8B/"/>
-      <url>/2019/11/13/%E4%BD%BF%E7%94%A8Taro%E5%AE%9E%E7%8E%B0%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%99%BB%E5%BD%95%E6%B5%81%E7%A8%8B/</url>
-      
-        <content type="html"><![CDATA[<h2 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h2><pre><code>![小程序登录流程](https://raw.githubusercontent.com/Damao2250/FileTransfer/master/Taro%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%99%BB%E5%BD%95%E6%B5%81%E7%A8%8B.png)</code></pre><h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre><code>1. 调用Taro.login()获取登录凭证code；2. 调用Taro.request()将code传到服务器；3. 服务器端调用微信登录校验接口（appid+appsecret+code），获得session_key+openid；4. 服务器端生成AUTH_TICKET（相当于userId），使用AUTH_TICKET为key，session_key+openid为value的形式存在服 务器，并将AUTH_TICKET传送给客户端；5. 客户端本地存储AUTH_TICKET，登录成功！6. 下次登录时可以用AUTH_TICKET传输到服务器端验证登录态是否过期，未过期则登录成功。</code></pre><h2 id="获取用户信息"><a href="#获取用户信息" class="headerlink" title="获取用户信息"></a>获取用户信息</h2><ul><li>获取用户信息一定要用户主动点击按钮授权</li></ul><pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token operator">&lt;</span>Button openType<span class="token operator">=</span><span class="token string">"getUserInfo"</span> onGetUserInfo<span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token keyword">this</span><span class="token punctuation">.</span>onGetUserInfo<span class="token punctuation">&#125;</span> type<span class="token operator">=</span><span class="token string">"primary"</span><span class="token operator">></span>微信授权登录，获取用户信息<span class="token operator">&lt;</span><span class="token operator">/</span>Button<span class="token operator">></span><span class="token function">onGetUserInfo</span><span class="token punctuation">(</span><span class="token parameter">info</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>info<span class="token punctuation">.</span>detail<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token keyword">if</span> <span class="token punctuation">(</span>info<span class="token punctuation">.</span>detail<span class="token punctuation">.</span>errMsg <span class="token operator">===</span> “getUserInfo<span class="token operator">:</span>ok”<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>    Taro<span class="token punctuation">.</span><span class="token function">showToast</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>        <span class="token literal-property property">title</span><span class="token operator">:</span> ‘授权成功，正在登录…’<span class="token punctuation">,</span>        <span class="token literal-property property">icon</span><span class="token operator">:</span> ‘none’<span class="token punctuation">,</span>        <span class="token literal-property property">mask</span><span class="token operator">:</span> <span class="token boolean">true</span>    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>    <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>        Taro<span class="token punctuation">.</span><span class="token function">showToast</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>            <span class="token literal-property property">title</span><span class="token operator">:</span> ‘未授权<span class="token punctuation">,</span>请授权登录！’<span class="token punctuation">,</span>            <span class="token literal-property property">icon</span><span class="token operator">:</span> ‘none’<span class="token punctuation">,</span>            <span class="token literal-property property">mask</span><span class="token operator">:</span> <span class="token boolean">true</span>        <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>    <span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span></code></pre><h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ul><li>Taro 支持使用 <code>async functions</code> 来让开发者获得不错的异步编程体验，开启 <code>async functions</code> 支持需要安装包 <code>@tarojs/async-await</code></li></ul><pre class="language-ps" data-language="ps"><code class="language-ps">$ yarn add @tarojs&#x2F;async-await# 或者使用 npm$ npm install –save @tarojs&#x2F;async-await</code></pre><ul><li>随后在项目入口文件 <code>app.js</code> 中直接 <code>import</code> ，就可以开始使用 <code>async functions</code> 功能了</li></ul><pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// src/app.js</span><span class="token keyword">import</span> ‘@tarojs<span class="token operator">/</span>async<span class="token operator">-</span><span class="token keyword">await</span>’</code></pre><ul><li>值得注意的事，使用 @tarojs&#x2F;async-await 一定要记得按照 开发前注意: <a href="https://taro-docs.jd.com/taro/docs/before-dev-remind.html">https://taro-docs.jd.com/taro/docs/before-dev-remind.html</a> 中提示的内容进行操作，否则会出现报错</li></ul>]]></content>
-      
-      
-      <categories>
-          
-          <category> Taro </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Taro </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Vuex官方例子解读</title>
       <link href="/2019/11/13/Vuex%E5%AE%98%E6%96%B9%E4%BE%8B%E5%AD%90%E8%A7%A3%E8%AF%BB/"/>
       <url>/2019/11/13/Vuex%E5%AE%98%E6%96%B9%E4%BE%8B%E5%AD%90%E8%A7%A3%E8%AF%BB/</url>
@@ -3774,6 +3749,31 @@
         <tags>
             
             <tag> Vuex </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>使用Taro实现微信小程序登录流程</title>
+      <link href="/2019/11/13/%E4%BD%BF%E7%94%A8Taro%E5%AE%9E%E7%8E%B0%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%99%BB%E5%BD%95%E6%B5%81%E7%A8%8B/"/>
+      <url>/2019/11/13/%E4%BD%BF%E7%94%A8Taro%E5%AE%9E%E7%8E%B0%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%99%BB%E5%BD%95%E6%B5%81%E7%A8%8B/</url>
+      
+        <content type="html"><![CDATA[<h2 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h2><pre><code>![小程序登录流程](https://raw.githubusercontent.com/Damao2250/FileTransfer/master/Taro%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%99%BB%E5%BD%95%E6%B5%81%E7%A8%8B.png)</code></pre><h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><pre><code>1. 调用Taro.login()获取登录凭证code；2. 调用Taro.request()将code传到服务器；3. 服务器端调用微信登录校验接口（appid+appsecret+code），获得session_key+openid；4. 服务器端生成AUTH_TICKET（相当于userId），使用AUTH_TICKET为key，session_key+openid为value的形式存在服 务器，并将AUTH_TICKET传送给客户端；5. 客户端本地存储AUTH_TICKET，登录成功！6. 下次登录时可以用AUTH_TICKET传输到服务器端验证登录态是否过期，未过期则登录成功。</code></pre><h2 id="获取用户信息"><a href="#获取用户信息" class="headerlink" title="获取用户信息"></a>获取用户信息</h2><ul><li>获取用户信息一定要用户主动点击按钮授权</li></ul><pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token operator">&lt;</span>Button openType<span class="token operator">=</span><span class="token string">"getUserInfo"</span> onGetUserInfo<span class="token operator">=</span><span class="token punctuation">&#123;</span><span class="token keyword">this</span><span class="token punctuation">.</span>onGetUserInfo<span class="token punctuation">&#125;</span> type<span class="token operator">=</span><span class="token string">"primary"</span><span class="token operator">></span>微信授权登录，获取用户信息<span class="token operator">&lt;</span><span class="token operator">/</span>Button<span class="token operator">></span><span class="token function">onGetUserInfo</span><span class="token punctuation">(</span><span class="token parameter">info</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>info<span class="token punctuation">.</span>detail<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token keyword">if</span> <span class="token punctuation">(</span>info<span class="token punctuation">.</span>detail<span class="token punctuation">.</span>errMsg <span class="token operator">===</span> “getUserInfo<span class="token operator">:</span>ok”<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>    Taro<span class="token punctuation">.</span><span class="token function">showToast</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>        <span class="token literal-property property">title</span><span class="token operator">:</span> ‘授权成功，正在登录…’<span class="token punctuation">,</span>        <span class="token literal-property property">icon</span><span class="token operator">:</span> ‘none’<span class="token punctuation">,</span>        <span class="token literal-property property">mask</span><span class="token operator">:</span> <span class="token boolean">true</span>    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>    <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>        Taro<span class="token punctuation">.</span><span class="token function">showToast</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>            <span class="token literal-property property">title</span><span class="token operator">:</span> ‘未授权<span class="token punctuation">,</span>请授权登录！’<span class="token punctuation">,</span>            <span class="token literal-property property">icon</span><span class="token operator">:</span> ‘none’<span class="token punctuation">,</span>            <span class="token literal-property property">mask</span><span class="token operator">:</span> <span class="token boolean">true</span>        <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>    <span class="token punctuation">&#125;</span><span class="token punctuation">&#125;</span></code></pre><h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ul><li>Taro 支持使用 <code>async functions</code> 来让开发者获得不错的异步编程体验，开启 <code>async functions</code> 支持需要安装包 <code>@tarojs/async-await</code></li></ul><pre class="language-ps" data-language="ps"><code class="language-ps">$ yarn add @tarojs&#x2F;async-await# 或者使用 npm$ npm install –save @tarojs&#x2F;async-await</code></pre><ul><li>随后在项目入口文件 <code>app.js</code> 中直接 <code>import</code> ，就可以开始使用 <code>async functions</code> 功能了</li></ul><pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// src/app.js</span><span class="token keyword">import</span> ‘@tarojs<span class="token operator">/</span>async<span class="token operator">-</span><span class="token keyword">await</span>’</code></pre><ul><li>值得注意的事，使用 @tarojs&#x2F;async-await 一定要记得按照 开发前注意: <a href="https://taro-docs.jd.com/taro/docs/before-dev-remind.html">https://taro-docs.jd.com/taro/docs/before-dev-remind.html</a> 中提示的内容进行操作，否则会出现报错</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Taro </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Taro </tag>
             
         </tags>
       
