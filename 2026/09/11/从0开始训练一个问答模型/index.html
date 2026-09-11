@@ -1,0 +1,1704 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="从0开始训练一个问答模型, Damao">
+    <meta name="description" content="Coding...">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>从0开始训练一个问答模型 | Damao</title>
+    <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 8.1.2"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.jpg" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Damao</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.jpg" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Damao</div>
+        <div class="logo-desc">
+            
+            Coding...
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/damao2250" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Damao
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #24292F;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/damao2250" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Damao" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/46.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">从0开始训练一个问答模型</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/AI/">
+                                <span class="chip bg-color">AI</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/">
+                                <span class="chip bg-color">大模型</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/AI/" class="post-category">
+                                AI
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2026-09-11
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2026-09-11
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    6.2k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    24 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="从零（From-Scratch）手写大语言模型"><a href="#从零（From-Scratch）手写大语言模型" class="headerlink" title="从零（From Scratch）手写大语言模型"></a>从零（From Scratch）手写大语言模型</h1><p>从0开始不依赖 HuggingFace、Ollama 等现成的大模型封装，使用 PyTorch 完成网络张量运算和自动求导，从零定义网络架构、初始化随机权重，并在自己的消费级显卡上训练出一个约百万参数的字符级语言模型实验。</p>
+<hr>
+<h2 id="一、-核心环境与硬件底座配置"><a href="#一、-核心环境与硬件底座配置" class="headerlink" title="一、 核心环境与硬件底座配置"></a>一、 核心环境与硬件底座配置</h2><p>大模型底层涉及大量的矩阵并行计算，必须打通完全兼容的硬件加速链条。</p>
+<h3 id="1-软件环境基底"><a href="#1-软件环境基底" class="headerlink" title="1. 软件环境基底"></a>1. 软件环境基底</h3><ul>
+<li><strong>Python 版本</strong>：本项目选择 <strong>Python 3.11.x</strong>。实际使用时，应以当前 PyTorch 官方安装页面列出的支持版本为准。</li>
+<li><strong>隔离虚拟环境</strong>：在项目根目录下通过 <code>python -m venv .venv</code> 初始化沙盒环境，并通过 <code>.\.venv\Scripts\Activate.ps1</code> 激活，确保项目依赖不污染全局系统。</li>
+</ul>
+<pre class="language-powershell" data-language="powershell"><code class="language-powershell"><span class="token comment">## 如果报错没找到python 刷新环境变量</span>
+<span class="token variable">$env</span>:Path <span class="token operator">+=</span> <span class="token string">";C:\Users\zhoumao\AppData\Local\Programs\Python\Python311;C:\Users\zhoumao\AppData\Local\Programs\Python\Python311\Scripts"</span></code></pre>
+
+<h3 id="2-Blackwell-架构显卡加速适配"><a href="#2-Blackwell-架构显卡加速适配" class="headerlink" title="2. Blackwell 架构显卡加速适配"></a>2. Blackwell 架构显卡加速适配</h3><p>RTX 5060 属于 Blackwell 架构，对应 NVIDIA 的计算能力 <code>12.0</code>（通常写作 <code>sm_120</code>）。PyTorch 的 CUDA 安装包必须支持当前显卡和驱动环境，但不应该把某一个 CUDA 小版本写成所有机器都必须使用的固定版本。应先查看 PyTorch 官方安装矩阵，再选择可用的 CUDA 构建版本：</p>
+<pre class="language-powershell" data-language="powershell"><code class="language-powershell">pip install torch torchvision torchaudio <span class="token operator">--</span>index-url https:<span class="token operator">/</span><span class="token operator">/</span>download<span class="token punctuation">.</span>pytorch<span class="token punctuation">.</span>org/whl/cu130</code></pre>
+
+<p>上面的 <code>cu130</code> 只是本次实验使用的安装示例，不是 RTX 5060 的唯一要求。实际安装后，应该以 <code>torch.cuda.is_available()</code> 和最小张量运算测试为准。</p>
+<h3 id="3-深度验证-CUDA-硬件加速是否成功"><a href="#3-深度验证-CUDA-硬件加速是否成功" class="headerlink" title="3. 深度验证 CUDA 硬件加速是否成功"></a>3. 深度验证 CUDA 硬件加速是否成功</h3><pre class="language-powershell" data-language="powershell"><code class="language-powershell">python <span class="token operator">-</span>c <span class="token string">"import torch; print('PyTorch 版本:', torch.__version__); print('CUDA 是否可用:', torch.cuda.is_available()); print('当前显卡:', torch.cuda.get_device_name(0) if torch.cuda.is_available() else '无')"</span></code></pre>
+
+<p>完美的输出结果应该是这样的：</p>
+<ul>
+<li>PyTorch 版本: 2.x.x+cu130 (或者你安装的其他可用 CUDA 构建版本)</li>
+<li>CUDA 是否可用: True</li>
+<li>当前显卡: NVIDIA GeForce RTX 5060</li>
+</ul>
+<h2 id="二、先明确目标：我到底在训练什么"><a href="#二、先明确目标：我到底在训练什么" class="headerlink" title="二、先明确目标：我到底在训练什么"></a>二、先明确目标：我到底在训练什么</h2><p>一开始，我给这个项目起的名字是“从0开始训练一个问答模型”。但真正开始写代码之后，必须先把目标拆开：</p>
+<ol>
+<li><strong>从零实现一个语言模型</strong>：理解 Token、Embedding、Attention、Transformer 和训练循环。</li>
+<li><strong>让模型记住几篇文章</strong>：把自己的文章作为训练语料。</li>
+<li><strong>做一个基于文章的问答工具</strong>：用户提问时，系统能够从文章中找到依据并回答。</li>
+</ol>
+<p>这三个目标并不是一回事。</p>
+<p>从零手写的模型，最适合用来学习大语言模型的基本原理；而“基于几篇文章进行可靠问答”，更适合使用<strong>检索增强生成（RAG，Retrieval-Augmented Generation）</strong>。如果只把几篇文章直接喂给一个很小的模型，模型通常只能记住文字表面和问答格式，并不能真正建立一个可靠的知识库。</p>
+<p>所以，这个项目最终采用了两条并行路线：</p>
+<ul>
+<li><code>train.py</code>：从零训练一个教学性质的字符级 Transformer 语言模型。</li>
+<li><code>retriever.py</code> 和 <code>ask.py</code>：建立一个基于文章原文的检索问答基础。</li>
+</ul>
+<p>前者用于理解模型是如何训练的，后者用于逐步构建真正可用的文章问答工具。</p>
+<h2 id="三、从字符开始的-Tokenizer"><a href="#三、从字符开始的-Tokenizer" class="headerlink" title="三、从字符开始的 Tokenizer"></a>三、从字符开始的 Tokenizer</h2><h3 id="1-为什么先使用字符级分词"><a href="#1-为什么先使用字符级分词" class="headerlink" title="1. 为什么先使用字符级分词"></a>1. 为什么先使用字符级分词</h3><p>为了避免一开始就引入复杂的中文分词器或现成的大模型 Tokenizer，我先实现了一个最简单的字符级 Tokenizer。这里的“从零”指 Tokenizer 和模型结构由项目自己实现，并不意味着完全脱离 PyTorch。</p>
+<p>它做的事情很直接：</p>
+<pre class="language-text" data-language="text"><code class="language-text">人工智能
+↓
+[人, 工, 智, 能]
+↓
+[token_id_1, token_id_2, token_id_3, token_id_4]</code></pre>
+
+<p>Tokenizer 负责两件事：</p>
+<ul>
+<li><code>encode()</code>：把文字转换成整数编号。</li>
+<li><code>decode()</code>：把整数编号还原成文字。</li>
+</ul>
+<p>词表由训练语料中出现过的不同字符组成。对于中文短文本来说，字符级方式很容易实现，也方便观察模型到底在预测什么；但它的缺点也非常明显：词表虽然不大，序列却会变得很长，而且模型很难直接理解词语和句子的语义。</p>
+<h3 id="2-处理未知字符和标点差异"><a href="#2-处理未知字符和标点差异" class="headerlink" title="2. 处理未知字符和标点差异"></a>2. 处理未知字符和标点差异</h3><p>最初的版本遇到训练语料中没有出现过的字符时，会直接跳过这个字符。这会导致一个危险的问题：</p>
+<pre class="language-text" data-language="text"><code class="language-text">输入：人工智能一词首次被正式提出是在什么场合？
+实际送入模型：人工智能一词首次被正式提出是在什么合？</code></pre>
+
+<p>用户并不知道输入已经被悄悄修改了。</p>
+<p>后来我加入了四个特殊符号：</p>
+<pre class="language-text" data-language="text"><code class="language-text">&lt;PAD>  补齐序列时使用
+&lt;UNK>  未知字符
+&lt;BOS>  序列开始
+&lt;EOS>  序列结束</code></pre>
+
+<p>未知字符现在会被替换成 <code>&lt;UNK&gt;</code>，并且打印警告，让问题显式暴露出来，而不是静默丢失。</p>
+<p>同时增加了 <code>normalize_text()</code>，在训练和推理时使用同一套文本归一化规则。例如把半角问号转换成中文全角问号，把连续空格压缩成一个空格。这样，下面两个问题在字符层面就不会被当成完全不同的输入：</p>
+<pre class="language-text" data-language="text"><code class="language-text">AI是什么时候确立的?
+AI是什么时候确立的？</code></pre>
+
+<p>下面是从 <code>tokenizer.py</code> 提取出的核心实现，省略了常量定义和部分注释；完整代码仍以项目文件为准：</p>
+<pre class="language-python" data-language="python"><code class="language-python">SPECIAL_TOKENS <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"&lt;PAD>"</span><span class="token punctuation">,</span> <span class="token string">"&lt;UNK>"</span><span class="token punctuation">,</span> <span class="token string">"&lt;BOS>"</span><span class="token punctuation">,</span> <span class="token string">"&lt;EOS>"</span><span class="token punctuation">]</span>
+
+<span class="token keyword">class</span> <span class="token class-name">CharTokenizer</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> text<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">,</span> extra_chars<span class="token punctuation">:</span> <span class="token builtin">str</span> <span class="token operator">=</span> <span class="token boolean">None</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        chars <span class="token operator">=</span> <span class="token builtin">set</span><span class="token punctuation">(</span>text<span class="token punctuation">)</span>
+        <span class="token keyword">if</span> extra_chars<span class="token punctuation">:</span>
+            chars <span class="token operator">|</span><span class="token operator">=</span> <span class="token builtin">set</span><span class="token punctuation">(</span>extra_chars<span class="token punctuation">)</span>
+        chars <span class="token operator">=</span> <span class="token builtin">sorted</span><span class="token punctuation">(</span>chars<span class="token punctuation">)</span>
+
+        vocab <span class="token operator">=</span> SPECIAL_TOKENS <span class="token operator">+</span> chars
+        self<span class="token punctuation">.</span>stoi <span class="token operator">=</span> <span class="token punctuation">&#123;</span>ch<span class="token punctuation">:</span> i <span class="token keyword">for</span> i<span class="token punctuation">,</span> ch <span class="token keyword">in</span> <span class="token builtin">enumerate</span><span class="token punctuation">(</span>vocab<span class="token punctuation">)</span><span class="token punctuation">&#125;</span>
+        self<span class="token punctuation">.</span>itos <span class="token operator">=</span> <span class="token punctuation">&#123;</span>i<span class="token punctuation">:</span> ch <span class="token keyword">for</span> i<span class="token punctuation">,</span> ch <span class="token keyword">in</span> <span class="token builtin">enumerate</span><span class="token punctuation">(</span>vocab<span class="token punctuation">)</span><span class="token punctuation">&#125;</span>
+        self<span class="token punctuation">.</span>unk_id <span class="token operator">=</span> self<span class="token punctuation">.</span>stoi<span class="token punctuation">[</span><span class="token string">"&lt;UNK>"</span><span class="token punctuation">]</span>
+        self<span class="token punctuation">.</span>vocab_size <span class="token operator">=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>vocab<span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">encode</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> s<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">,</span> warn_unknown<span class="token punctuation">:</span> <span class="token builtin">bool</span> <span class="token operator">=</span> <span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        ids <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+        unknown_chars <span class="token operator">=</span> <span class="token builtin">set</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">for</span> c <span class="token keyword">in</span> s<span class="token punctuation">:</span>
+            idx <span class="token operator">=</span> self<span class="token punctuation">.</span>stoi<span class="token punctuation">.</span>get<span class="token punctuation">(</span>c<span class="token punctuation">)</span>
+            <span class="token keyword">if</span> idx <span class="token keyword">is</span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+                idx <span class="token operator">=</span> self<span class="token punctuation">.</span>unk_id
+                unknown_chars<span class="token punctuation">.</span>add<span class="token punctuation">(</span>c<span class="token punctuation">)</span>
+            ids<span class="token punctuation">.</span>append<span class="token punctuation">(</span>idx<span class="token punctuation">)</span>
+
+        <span class="token keyword">if</span> warn_unknown <span class="token keyword">and</span> unknown_chars<span class="token punctuation">:</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span>
+                <span class="token string-interpolation"><span class="token string">f"[分词器警告] 发现未知字符: </span><span class="token interpolation"><span class="token punctuation">&#123;</span><span class="token builtin">sorted</span><span class="token punctuation">(</span>unknown_chars<span class="token punctuation">)</span><span class="token punctuation">&#125;</span></span><span class="token string">"</span></span>
+            <span class="token punctuation">)</span>
+        <span class="token keyword">return</span> ids
+
+    <span class="token keyword">def</span> <span class="token function">decode</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> ids<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> <span class="token string">""</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>self<span class="token punctuation">.</span>itos<span class="token punctuation">.</span>get<span class="token punctuation">(</span>i<span class="token punctuation">,</span> <span class="token string">"&lt;UNK>"</span><span class="token punctuation">)</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> ids<span class="token punctuation">)</span></code></pre>
+
+<p>标点归一化也使用独立函数，训练和推理调用的是同一个函数：</p>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">normalize_text</span><span class="token punctuation">(</span>s<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">str</span><span class="token punctuation">:</span>
+    <span class="token keyword">for</span> half<span class="token punctuation">,</span> full <span class="token keyword">in</span> _HALF_TO_FULL_PUNCT<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        s <span class="token operator">=</span> s<span class="token punctuation">.</span>replace<span class="token punctuation">(</span>half<span class="token punctuation">,</span> full<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> re<span class="token punctuation">.</span>sub<span class="token punctuation">(</span><span class="token string">r"[ \t]+"</span><span class="token punctuation">,</span> <span class="token string">" "</span><span class="token punctuation">,</span> s<span class="token punctuation">)</span></code></pre>
+
+<p>因此，Tokenizer 的最小自测可以这样运行：</p>
+<pre class="language-powershell" data-language="powershell"><code class="language-powershell">python tokenizer<span class="token punctuation">.</span>py</code></pre>
+
+<p>遇到未登录字符时，输出会明确提示，而不是默默删除：</p>
+<pre class="language-text" data-language="text"><code class="language-text">[分词器警告] 发现 1 个训练时没见过的字符: ['场']</code></pre>
+
+<h2 id="四、手写一个类-GPT-的-Transformer"><a href="#四、手写一个类-GPT-的-Transformer" class="headerlink" title="四、手写一个类 GPT 的 Transformer"></a>四、手写一个类 GPT 的 Transformer</h2><p>模型代码位于 <code>model.py</code>。它没有调用 <code>nn.TransformerEncoder</code> 或 <code>nn.MultiheadAttention</code>，而是自己实现了核心计算过程。</p>
+<h3 id="1-Token-Embedding-和位置-Embedding"><a href="#1-Token-Embedding-和位置-Embedding" class="headerlink" title="1. Token Embedding 和位置 Embedding"></a>1. Token Embedding 和位置 Embedding</h3><p>字符编号本身没有语义，模型需要把它转换成一个可以训练的向量：</p>
+<pre class="language-python" data-language="python"><code class="language-python">tok_emb <span class="token operator">=</span> self<span class="token punctuation">.</span>token_embedding_table<span class="token punctuation">(</span>idx<span class="token punctuation">)</span></code></pre>
+
+<p>但是注意力机制本身并不知道字符的先后顺序，因此还需要加入位置向量：</p>
+<pre class="language-python" data-language="python"><code class="language-python">pos_emb <span class="token operator">=</span> self<span class="token punctuation">.</span>position_embedding_table<span class="token punctuation">(</span>
+    torch<span class="token punctuation">.</span>arange<span class="token punctuation">(</span>T<span class="token punctuation">,</span> device<span class="token operator">=</span>idx<span class="token punctuation">.</span>device<span class="token punctuation">)</span>
+<span class="token punctuation">)</span>
+x <span class="token operator">=</span> tok_emb <span class="token operator">+</span> pos_emb</code></pre>
+
+<p>最终模型看到的不是单纯的字符编号，而是“字符内容信息 + 所在位置信息”。</p>
+<h3 id="2-因果自注意力"><a href="#2-因果自注意力" class="headerlink" title="2. 因果自注意力"></a>2. 因果自注意力</h3><p>语言模型的训练目标是：给定前面的内容，预测下一个字符。</p>
+<p>因此，第 <code>i</code> 个位置不能看到未来的字符，否则训练时模型就可以直接偷看答案。代码使用下三角矩阵实现因果掩码：</p>
+<pre class="language-python" data-language="python"><code class="language-python">wei <span class="token operator">=</span> wei<span class="token punctuation">.</span>masked_fill<span class="token punctuation">(</span>
+    self<span class="token punctuation">.</span>tril<span class="token punctuation">[</span><span class="token punctuation">:</span>T<span class="token punctuation">,</span> <span class="token punctuation">:</span>T<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token builtin">float</span><span class="token punctuation">(</span><span class="token string">"-inf"</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span></code></pre>
+
+<p>注意力的核心计算可以概括为：</p>
+<pre class="language-text" data-language="text"><code class="language-text">Q = Query
+K = Key
+V = Value
+
+attention(Q, K, V)
+= softmax(QKᵀ / √d) V</code></pre>
+
+<p>在 <code>model.py</code> 中，单个注意力头的核心前向过程如下；这是与实际实现等价的整理版：</p>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">forward</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    B<span class="token punctuation">,</span> T<span class="token punctuation">,</span> C <span class="token operator">=</span> x<span class="token punctuation">.</span>shape
+
+    k <span class="token operator">=</span> self<span class="token punctuation">.</span>key<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+    q <span class="token operator">=</span> self<span class="token punctuation">.</span>query<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+    v <span class="token operator">=</span> self<span class="token punctuation">.</span>value<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+
+    wei <span class="token operator">=</span> q @ k<span class="token punctuation">.</span>transpose<span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
+    wei <span class="token operator">=</span> wei <span class="token operator">*</span> <span class="token punctuation">(</span>k<span class="token punctuation">.</span>shape<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">**</span> <span class="token operator">-</span><span class="token number">0.5</span><span class="token punctuation">)</span>
+
+    <span class="token comment"># 只能看当前位置以及当前位置之前的内容</span>
+    wei <span class="token operator">=</span> wei<span class="token punctuation">.</span>masked_fill<span class="token punctuation">(</span>
+        self<span class="token punctuation">.</span>tril<span class="token punctuation">[</span><span class="token punctuation">:</span>T<span class="token punctuation">,</span> <span class="token punctuation">:</span>T<span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">,</span>
+        <span class="token builtin">float</span><span class="token punctuation">(</span><span class="token string">"-inf"</span><span class="token punctuation">)</span>
+    <span class="token punctuation">)</span>
+
+    wei <span class="token operator">=</span> F<span class="token punctuation">.</span>softmax<span class="token punctuation">(</span>wei<span class="token punctuation">,</span> dim<span class="token operator">=</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
+    wei <span class="token operator">=</span> self<span class="token punctuation">.</span>dropout<span class="token punctuation">(</span>wei<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> wei @ v</code></pre>
+
+<p>这里的张量形状也很重要：</p>
+<pre class="language-text" data-language="text"><code class="language-text">x:   (batch_size, time, embedding_dim)
+k:   (batch_size, time, head_size)
+q:   (batch_size, time, head_size)
+wei: (batch_size, time, time)
+out: (batch_size, time, head_size)</code></pre>
+
+<p>多头注意力再把多个 Head 的结果拼接回来：</p>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">forward</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> x<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    out <span class="token operator">=</span> torch<span class="token punctuation">.</span>cat<span class="token punctuation">(</span><span class="token punctuation">[</span>h<span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token keyword">for</span> h <span class="token keyword">in</span> self<span class="token punctuation">.</span>heads<span class="token punctuation">]</span><span class="token punctuation">,</span> dim<span class="token operator">=</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
+    out <span class="token operator">=</span> self<span class="token punctuation">.</span>proj<span class="token punctuation">(</span>out<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> self<span class="token punctuation">.</span>dropout<span class="token punctuation">(</span>out<span class="token punctuation">)</span></code></pre>
+
+<p>多个注意力头并行工作，每个头可以学习不同的关注模式；之后再把多个头拼接起来，通过线性层融合。</p>
+<h3 id="3-Transformer-Block"><a href="#3-Transformer-Block" class="headerlink" title="3. Transformer Block"></a>3. Transformer Block</h3><p>每个 Block 包含两部分：</p>
+<ul>
+<li>多头自注意力：让不同位置之间交换信息。</li>
+<li>前馈网络：对每个位置获得的信息进行非线性加工。</li>
+</ul>
+<p>同时使用 LayerNorm 和残差连接：</p>
+<pre class="language-python" data-language="python"><code class="language-python">x <span class="token operator">=</span> x <span class="token operator">+</span> self<span class="token punctuation">.</span>sa<span class="token punctuation">(</span>self<span class="token punctuation">.</span>ln1<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span>
+x <span class="token operator">=</span> x <span class="token operator">+</span> self<span class="token punctuation">.</span>ffwd<span class="token punctuation">(</span>self<span class="token punctuation">.</span>ln2<span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+
+<p>这就是一个简化版的 GPT 风格网络。模型最后通过 <code>lm_head</code> 把隐藏向量映射回整个字符词表，得到每一个字符作为“下一个字符”的概率。</p>
+<p>完整模型的关键部分可以整理成下面这段；实际文件还包含类定义和模块初始化代码：</p>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">forward</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> idx<span class="token punctuation">,</span> targets<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    B<span class="token punctuation">,</span> T <span class="token operator">=</span> idx<span class="token punctuation">.</span>shape
+
+    tok_emb <span class="token operator">=</span> self<span class="token punctuation">.</span>token_embedding_table<span class="token punctuation">(</span>idx<span class="token punctuation">)</span>
+    pos_emb <span class="token operator">=</span> self<span class="token punctuation">.</span>position_embedding_table<span class="token punctuation">(</span>
+        torch<span class="token punctuation">.</span>arange<span class="token punctuation">(</span>T<span class="token punctuation">,</span> device<span class="token operator">=</span>idx<span class="token punctuation">.</span>device<span class="token punctuation">)</span>
+    <span class="token punctuation">)</span>
+    x <span class="token operator">=</span> tok_emb <span class="token operator">+</span> pos_emb
+    x <span class="token operator">=</span> self<span class="token punctuation">.</span>blocks<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+    x <span class="token operator">=</span> self<span class="token punctuation">.</span>ln_f<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+    logits <span class="token operator">=</span> self<span class="token punctuation">.</span>lm_head<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+
+    <span class="token keyword">if</span> targets <span class="token keyword">is</span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+        loss <span class="token operator">=</span> <span class="token boolean">None</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        B<span class="token punctuation">,</span> T<span class="token punctuation">,</span> C <span class="token operator">=</span> logits<span class="token punctuation">.</span>shape
+        logits <span class="token operator">=</span> logits<span class="token punctuation">.</span>view<span class="token punctuation">(</span>B <span class="token operator">*</span> T<span class="token punctuation">,</span> C<span class="token punctuation">)</span>
+        targets <span class="token operator">=</span> targets<span class="token punctuation">.</span>view<span class="token punctuation">(</span>B <span class="token operator">*</span> T<span class="token punctuation">)</span>
+        loss <span class="token operator">=</span> F<span class="token punctuation">.</span>cross_entropy<span class="token punctuation">(</span>logits<span class="token punctuation">,</span> targets<span class="token punctuation">)</span>
+
+    <span class="token keyword">return</span> logits<span class="token punctuation">,</span> loss</code></pre>
+
+<p>这里的 <code>logits</code> 不是文字，而是每个位置对整个词表的打分。例如词表大小是 <code>794</code>，输入长度是 <code>128</code>，那么输出形状就是：</p>
+<pre class="language-text" data-language="text"><code class="language-text">(batch_size, 128, 794)</code></pre>
+
+<p>模型在每一个位置都要从 794 个字符中预测下一个字符。</p>
+<h2 id="五、训练目标：预测下一个字符"><a href="#五、训练目标：预测下一个字符" class="headerlink" title="五、训练目标：预测下一个字符"></a>五、训练目标：预测下一个字符</h2><p><code>train.py</code> 会把所有文章读取后拼接成一段文本，然后随机截取长度为 <code>BLOCK_SIZE</code> 的片段。</p>
+<p>假设输入是：</p>
+<pre class="language-text" data-language="text"><code class="language-text">今天天气</code></pre>
+
+<p>对应的目标就是向右移动一个字符：</p>
+<pre class="language-text" data-language="text"><code class="language-text">天天气很</code></pre>
+
+<p>也就是说，模型在每个位置都尝试预测输入序列中的下一个字符。训练过程包含四步：</p>
+<ol>
+<li>从文章中随机取一个批次。</li>
+<li>前向计算预测结果和交叉熵损失。</li>
+<li><code>loss.backward()</code> 计算梯度。</li>
+<li><code>optimizer.step()</code> 更新模型参数。</li>
+</ol>
+<p>项目中的批处理代码如下：</p>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">get_batch</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> block_size<span class="token punctuation">,</span> batch_size<span class="token punctuation">,</span> device<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    ix <span class="token operator">=</span> torch<span class="token punctuation">.</span>randint<span class="token punctuation">(</span>
+        <span class="token builtin">len</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span> <span class="token operator">-</span> block_size <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span>
+        <span class="token punctuation">(</span>batch_size<span class="token punctuation">,</span><span class="token punctuation">)</span>
+    <span class="token punctuation">)</span>
+    x <span class="token operator">=</span> torch<span class="token punctuation">.</span>stack<span class="token punctuation">(</span><span class="token punctuation">[</span>
+        data<span class="token punctuation">[</span>i<span class="token punctuation">:</span>i <span class="token operator">+</span> block_size<span class="token punctuation">]</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> ix
+    <span class="token punctuation">]</span><span class="token punctuation">)</span>
+    y <span class="token operator">=</span> torch<span class="token punctuation">.</span>stack<span class="token punctuation">(</span><span class="token punctuation">[</span>
+        data<span class="token punctuation">[</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">:</span>i <span class="token operator">+</span> block_size <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token keyword">for</span> i <span class="token keyword">in</span> ix
+    <span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> x<span class="token punctuation">.</span>to<span class="token punctuation">(</span>device<span class="token punctuation">)</span><span class="token punctuation">,</span> y<span class="token punctuation">.</span>to<span class="token punctuation">(</span>device<span class="token punctuation">)</span></code></pre>
+
+<p>训练循环没有交给高层训练框架，核心就是下面这段；反向传播本身由 PyTorch autograd 完成：</p>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">for</span> step <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>MAX_ITERS<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    xb<span class="token punctuation">,</span> yb <span class="token operator">=</span> get_batch<span class="token punctuation">(</span>
+        train_data<span class="token punctuation">,</span>
+        BLOCK_SIZE<span class="token punctuation">,</span>
+        BATCH_SIZE<span class="token punctuation">,</span>
+        DEVICE<span class="token punctuation">,</span>
+    <span class="token punctuation">)</span>
+
+    logits<span class="token punctuation">,</span> loss <span class="token operator">=</span> model<span class="token punctuation">(</span>xb<span class="token punctuation">,</span> yb<span class="token punctuation">)</span>
+
+    optimizer<span class="token punctuation">.</span>zero_grad<span class="token punctuation">(</span>set_to_none<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+    loss<span class="token punctuation">.</span>backward<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    optimizer<span class="token punctuation">.</span>step<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+
+<p>所以这里所谓的“训练”，实际就是不断重复取样、计算 loss、调用自动求导计算梯度，再更新参数。这个项目并没有手工推导或手写每个参数的反向传播公式。</p>
+<p>当前实验使用的主要配置是：</p>
+<pre class="language-python" data-language="python"><code class="language-python">BATCH_SIZE <span class="token operator">=</span> <span class="token number">32</span>
+BLOCK_SIZE <span class="token operator">=</span> <span class="token number">128</span>
+N_EMBD <span class="token operator">=</span> <span class="token number">128</span>
+N_HEAD <span class="token operator">=</span> <span class="token number">4</span>
+N_LAYER <span class="token operator">=</span> <span class="token number">4</span>
+DROPOUT <span class="token operator">=</span> <span class="token number">0.1</span>
+LEARNING_RATE <span class="token operator">=</span> <span class="token number">3e-4</span></code></pre>
+
+<p>模型参数量大约为一百万。这个规模足够用来观察训练过程，但和真正的大语言模型之间仍然有数量级差距。</p>
+<h2 id="六、第一次训练：模型为什么会答对"><a href="#六、第一次训练：模型为什么会答对" class="headerlink" title="六、第一次训练：模型为什么会答对"></a>六、第一次训练：模型为什么会答对</h2><p>最初的训练语料包括原文章和自动扩充的问答文件。训练结束时出现了这样的结果：</p>
+<pre class="language-text" data-language="text"><code class="language-text">train loss: 0.1001
+val loss:   8.3748</code></pre>
+
+<p>训练损失非常低，验证损失却越来越高。这是典型的过拟合。</p>
+<p>模型之所以能够回答类似下面的问题：</p>
+<pre class="language-text" data-language="text"><code class="language-text">问：人工智能一词首次被正式提出是在什么场合？
+答：</code></pre>
+
+<p>并不一定表示它理解了“人工智能起源”这个抽象概念。更可能的情况是，它记住了训练文本中的局部字符模式：</p>
+<pre class="language-text" data-language="text"><code class="language-text">问：人工智能这个概念是什么时候提出的？
+答：1956年，在达特茅斯会议上首次正式提出。</code></pre>
+
+<p>当输入和训练数据足够相似时，字符级模型可以表现得像是在回答问题；但换一种问法，或者询问训练语料中没有的内容，就可能答非所问。</p>
+<p>因此，训练损失下降并不等于问答能力可靠。必须同时观察验证损失，并使用没有直接出现在训练文本中的问题进行测试。</p>
+<h2 id="七、整理语料，而不是盲目增加重复数据"><a href="#七、整理语料，而不是盲目增加重复数据" class="headerlink" title="七、整理语料，而不是盲目增加重复数据"></a>七、整理语料，而不是盲目增加重复数据</h2><p>原来的 <code>qa_augmented.txt</code> 中包含大量相同问题和相同答案，只是改变了少量表达方式。例如同一个“深度学习为什么发展”的答案被重复了很多次。</p>
+<p>这类数据短期内可能提高固定问题的命中率，但也会带来两个问题：</p>
+<ul>
+<li>模型更加依赖固定模板。</li>
+<li>重复答案在检索结果中占据多个位置。</li>
+</ul>
+<p>所以我保留了原始文件用于回溯，但新增了 <code>qa_curated.txt</code>，只保留基于原文章整理的高信息密度问答。</p>
+<p>整理后的问题不再只是简单改写，而是覆盖不同类型：</p>
+<ul>
+<li>事实型：人工智能概念何时正式提出？</li>
+<li>解释型：深度学习为什么快速发展？</li>
+<li>对比型：深度神经网络和早期规则系统有什么不同？</li>
+<li>条件型：为什么统一内存设备不一定更快？</li>
+<li>局限型：大模型为什么不能回答所有问题？</li>
+<li>数值型：文章给出的显存、带宽和参数数据是多少？</li>
+</ul>
+<p>默认训练和检索现在使用：</p>
+<pre class="language-text" data-language="text"><code class="language-text">sample_article.txt
+qa_curated.txt</code></pre>
+
+<p>旧版 <code>qa_augmented.txt</code> 不再参与默认训练和检索，避免重复内容继续污染实验结果。</p>
+<h2 id="八、验证集和提前停止"><a href="#八、验证集和提前停止" class="headerlink" title="八、验证集和提前停止"></a>八、验证集和提前停止</h2><p>第二次训练时，数据量减少到了约 9559 个字符，训练日志如下：</p>
+<pre class="language-text" data-language="text"><code class="language-text">step     0 | train loss 6.8243 | val loss 6.8267
+step   200 | train loss 3.2577 | val loss 5.8143
+step   400 | train loss 2.1408 | val loss 6.0299
+step   600 | train loss 1.4014 | val loss 6.4511
+step   800 | train loss 0.8377 | val loss 6.9806
+验证集连续 3 次变差，提前停止训练</code></pre>
+
+<p>可以看到，验证集最好的结果出现在 <code>step 200</code>。之后训练集损失继续下降，但验证集损失反而持续升高。</p>
+<p>因此训练代码加入了两个保护：</p>
+<ol>
+<li>记录验证集损失最低时的模型参数。</li>
+<li>验证集连续多次变差时提前停止训练。</li>
+</ol>
+<p>最终保存的是验证集表现最好的参数，而不是训练结束时的参数。这样可以避免把明显过拟合的最后一步模型保存下来。</p>
+<p>对应代码如下：</p>
+<pre class="language-python" data-language="python"><code class="language-python">best_val_loss <span class="token operator">=</span> <span class="token builtin">float</span><span class="token punctuation">(</span><span class="token string">"inf"</span><span class="token punctuation">)</span>
+best_state <span class="token operator">=</span> <span class="token boolean">None</span>
+bad_evals <span class="token operator">=</span> <span class="token number">0</span>
+
+<span class="token keyword">if</span> losses<span class="token punctuation">[</span><span class="token string">"val"</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span> best_val_loss<span class="token punctuation">:</span>
+    best_val_loss <span class="token operator">=</span> losses<span class="token punctuation">[</span><span class="token string">"val"</span><span class="token punctuation">]</span>
+    best_state <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+        key<span class="token punctuation">:</span> value<span class="token punctuation">.</span>detach<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>cpu<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>clone<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">for</span> key<span class="token punctuation">,</span> value <span class="token keyword">in</span> model<span class="token punctuation">.</span>state_dict<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+    bad_evals <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token keyword">else</span><span class="token punctuation">:</span>
+    bad_evals <span class="token operator">+=</span> <span class="token number">1</span>
+    <span class="token keyword">if</span> bad_evals <span class="token operator">>=</span> PATIENCE<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"验证集连续变差，提前停止训练"</span><span class="token punctuation">)</span>
+        <span class="token keyword">break</span>
+
+<span class="token keyword">if</span> best_state <span class="token keyword">is</span> <span class="token keyword">not</span> <span class="token boolean">None</span><span class="token punctuation">:</span>
+    model<span class="token punctuation">.</span>load_state_dict<span class="token punctuation">(</span>best_state<span class="token punctuation">)</span></code></pre>
+
+<p>不过，当前的验证集仍然只是按文本末尾切出的 10% 内容，并不是真正独立的问答测试集。更严格的做法应该是单独建立测试问题文件，确保测试问题和训练问题不重复。</p>
+<h2 id="九、为什么没有继续强行训练"><a href="#九、为什么没有继续强行训练" class="headerlink" title="九、为什么没有继续强行训练"></a>九、为什么没有继续强行训练</h2><p>使用当前模型生成下面的问题：</p>
+<pre class="language-powershell" data-language="powershell"><code class="language-powershell">python generate<span class="token punctuation">.</span>py <span class="token operator">--</span>prompt <span class="token string">"问：深度学习为什么发展这么快？`n答："</span></code></pre>
+
+<p>在一次实际运行中得到过类似这样的结果：</p>
+<pre class="language-text" data-language="text"><code class="language-text">答：文章一次内存。
+答：参数里多知识可能在时间到生成答：RToken 5090B...</code></pre>
+
+<p>这不是简单的“训练步数不够”。当前模型同时受到几个因素限制：</p>
+<ul>
+<li>训练语料太少。</li>
+<li>字符级序列很长。</li>
+<li>模型参数量有限。</li>
+<li>问答数据之间存在格式和主题切换。</li>
+<li>生成目标本质上只是预测下一个字符。</li>
+</ul>
+<p>继续增加训练步数，通常只会让模型更牢地记住训练文本，并不一定让它更懂问题。对于当前项目，<code>generate.py</code> 更适合作为观察语言模型行为的实验入口，而不是可靠的问答接口。</p>
+<h2 id="十、从纯生成转向文章检索"><a href="#十、从纯生成转向文章检索" class="headerlink" title="十、从纯生成转向文章检索"></a>十、从纯生成转向文章检索</h2><p>到这里，项目开始从“训练一个小模型”转向“构建一个文章问答系统”。</p>
+<p>真正基于几篇文章进行问答，最重要的第一步不是继续训练，而是先找到和问题相关的原文。</p>
+<p>于是新增了三个文件：</p>
+<pre class="language-text" data-language="text"><code class="language-text">retriever.py     文章切片和检索
+build_index.py   构建索引
+ask.py           命令行查询</code></pre>
+
+<h3 id="1-文章切片"><a href="#1-文章切片" class="headerlink" title="1. 文章切片"></a>1. 文章切片</h3><p>文章先按空行拆分成段落，过长的段落再切成较短的片段，并保留一定重叠内容。</p>
+<p>这样做的原因是：</p>
+<ul>
+<li>整篇文章太长，不方便精确匹配。</li>
+<li>片段太短，可能丢失上下文。</li>
+<li>保留重叠区域，可以减少切分点带来的信息损失。</li>
+</ul>
+<p>实际的切片入口会遍历 <code>data/articles/*.txt</code>，并记录来源文件。下面是从 <code>retriever.py</code> 提取出的核心逻辑：</p>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">load_chunks</span><span class="token punctuation">(</span>data_dir<span class="token operator">=</span><span class="token string">"data/articles"</span><span class="token punctuation">,</span> max_chars<span class="token operator">=</span><span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    chunks <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    seen_text <span class="token operator">=</span> <span class="token builtin">set</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">for</span> path <span class="token keyword">in</span> <span class="token builtin">sorted</span><span class="token punctuation">(</span>Path<span class="token punctuation">(</span>data_dir<span class="token punctuation">)</span><span class="token punctuation">.</span>glob<span class="token punctuation">(</span><span class="token string">"*.txt"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> path<span class="token punctuation">.</span>name <span class="token keyword">in</span> EXCLUDED_FILES<span class="token punctuation">:</span>
+            <span class="token keyword">continue</span>
+
+        text <span class="token operator">=</span> normalize_text<span class="token punctuation">(</span>
+            path<span class="token punctuation">.</span>read_text<span class="token punctuation">(</span>encoding<span class="token operator">=</span><span class="token string">"utf-8"</span><span class="token punctuation">)</span>
+        <span class="token punctuation">)</span>
+        paragraphs <span class="token operator">=</span> re<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">r"\n\s*\n+"</span><span class="token punctuation">,</span> text<span class="token punctuation">)</span>
+
+        <span class="token keyword">for</span> paragraph <span class="token keyword">in</span> paragraphs<span class="token punctuation">:</span>
+            paragraph <span class="token operator">=</span> paragraph<span class="token punctuation">.</span>strip<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token keyword">if</span> <span class="token keyword">not</span> paragraph<span class="token punctuation">:</span>
+                <span class="token keyword">continue</span>
+            <span class="token keyword">for</span> chunk <span class="token keyword">in</span> _split_long_paragraph<span class="token punctuation">(</span>
+                paragraph<span class="token punctuation">,</span>
+                max_chars<span class="token operator">=</span>max_chars<span class="token punctuation">,</span>
+            <span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token keyword">if</span> chunk <span class="token keyword">in</span> seen_text<span class="token punctuation">:</span>
+                    <span class="token keyword">continue</span>
+                seen_text<span class="token punctuation">.</span>add<span class="token punctuation">(</span>chunk<span class="token punctuation">)</span>
+                chunks<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+                    <span class="token string">"source"</span><span class="token punctuation">:</span> path<span class="token punctuation">.</span>name<span class="token punctuation">,</span>
+                    <span class="token string">"text"</span><span class="token punctuation">:</span> chunk<span class="token punctuation">,</span>
+                <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> chunks</code></pre>
+
+<p>这里的 <code>seen_text</code> 是去重的关键。旧版 <code>qa_augmented.txt</code> 中有大量重复问答，因此当前代码还会默认排除它：</p>
+<pre class="language-python" data-language="python"><code class="language-python">EXCLUDED_FILES <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token string">"qa_augmented.txt"</span><span class="token punctuation">&#125;</span></code></pre>
+
+<h3 id="2-字符-n-gram"><a href="#2-字符-n-gram" class="headerlink" title="2. 字符 n-gram"></a>2. 字符 n-gram</h3><p>中文没有直接使用第三方分词库，而是使用字符 unigram 和 bigram：</p>
+<pre class="language-text" data-language="text"><code class="language-text">深度学习
+↓
+深、度、学、习、深度、度学、学习</code></pre>
+
+<p>这种方式实现简单，对中文短问题比较实用，也能处理没有登录词表的新词。</p>
+<p>对应的特征提取代码只有几行：</p>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">_features</span><span class="token punctuation">(</span>text<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    text <span class="token operator">=</span> re<span class="token punctuation">.</span>sub<span class="token punctuation">(</span>
+        <span class="token string">r"\s+"</span><span class="token punctuation">,</span>
+        <span class="token string">""</span><span class="token punctuation">,</span>
+        normalize_text<span class="token punctuation">(</span>text<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">.</span>lower<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+        <span class="token builtin">list</span><span class="token punctuation">(</span>text<span class="token punctuation">)</span>
+        <span class="token operator">+</span> <span class="token punctuation">[</span>
+            text<span class="token punctuation">[</span>i<span class="token punctuation">:</span>i <span class="token operator">+</span> <span class="token number">2</span><span class="token punctuation">]</span>
+            <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>text<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span>
+        <span class="token punctuation">]</span>
+    <span class="token punctuation">)</span></code></pre>
+
+<p>例如输入“深度学习”，会得到字符特征和相邻双字符特征。这样即使问题中出现了训练语料里没有完整收录的新词，也有机会通过字符片段产生匹配。</p>
+<h3 id="3-TF-IDF-检索"><a href="#3-TF-IDF-检索" class="headerlink" title="3. TF-IDF 检索"></a>3. TF-IDF 检索</h3><p>每个文章片段都会被转换成一个向量。查询时，把用户问题也转换成向量，再计算它和每个片段之间的相似度。</p>
+<p>相似度越高，说明片段和问题共享的主题特征越多，排序就越靠前。</p>
+<p>项目没有引入向量数据库，而是直接用 Python 字典保存稀疏向量。下面是片段向量计算的核心逻辑，实际代码还包括类初始化和索引保存：</p>
+<pre class="language-python" data-language="python"><code class="language-python">counts <span class="token operator">=</span> Counter<span class="token punctuation">(</span>_features<span class="token punctuation">(</span>chunk<span class="token punctuation">[</span><span class="token string">"text"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+vector <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+
+<span class="token keyword">for</span> feature<span class="token punctuation">,</span> count <span class="token keyword">in</span> counts<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    idf <span class="token operator">=</span> math<span class="token punctuation">.</span>log<span class="token punctuation">(</span>
+        <span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">+</span> self<span class="token punctuation">.</span>doc_count<span class="token punctuation">)</span>
+        <span class="token operator">/</span> <span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">+</span> self<span class="token punctuation">.</span>df<span class="token punctuation">[</span>feature<span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span>
+    vector<span class="token punctuation">[</span>feature<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">(</span>
+        <span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">+</span> math<span class="token punctuation">.</span>log<span class="token punctuation">(</span>count<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">*</span> idf
+    <span class="token punctuation">)</span>
+
+norm <span class="token operator">=</span> math<span class="token punctuation">.</span>sqrt<span class="token punctuation">(</span>
+    <span class="token builtin">sum</span><span class="token punctuation">(</span>value <span class="token operator">*</span> value <span class="token keyword">for</span> value <span class="token keyword">in</span> vector<span class="token punctuation">.</span>values<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span> <span class="token keyword">or</span> <span class="token number">1.0</span>
+
+vector <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+    key<span class="token punctuation">:</span> value <span class="token operator">/</span> norm
+    <span class="token keyword">for</span> key<span class="token punctuation">,</span> value <span class="token keyword">in</span> vector<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#125;</span></code></pre>
+
+<p>查询时使用同样的公式生成问题向量，再计算余弦相似度：</p>
+<pre class="language-python" data-language="python"><code class="language-python">score <span class="token operator">=</span> <span class="token builtin">sum</span><span class="token punctuation">(</span>
+    query<span class="token punctuation">.</span>get<span class="token punctuation">(</span>key<span class="token punctuation">,</span> <span class="token number">0.0</span><span class="token punctuation">)</span> <span class="token operator">*</span> value
+    <span class="token keyword">for</span> key<span class="token punctuation">,</span> value <span class="token keyword">in</span> vector<span class="token punctuation">.</span>items<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span></code></pre>
+
+<p>最后按得分排序：</p>
+<pre class="language-python" data-language="python"><code class="language-python">scored<span class="token punctuation">.</span>sort<span class="token punctuation">(</span>
+    key<span class="token operator">=</span><span class="token keyword">lambda</span> item<span class="token punctuation">:</span> item<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    reverse<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span></code></pre>
+
+<p>运行索引构建：</p>
+<pre class="language-powershell" data-language="powershell"><code class="language-powershell">python build_index<span class="token punctuation">.</span>py</code></pre>
+
+<p>实际构建后得到：</p>
+<pre class="language-text" data-language="text"><code class="language-text">已索引 154 个去重后的文章片段，保存到 index.json</code></pre>
+
+<h3 id="4-去重和最低相关度"><a href="#4-去重和最低相关度" class="headerlink" title="4. 去重和最低相关度"></a>4. 去重和最低相关度</h3><p>由于旧版问答数据中有很多重复内容，索引阶段会过滤完全相同的片段，查询结果也会再次去重，避免同一段答案占满 <code>top_k</code>。</p>
+<p>同时增加了最低相关度阈值。例如：</p>
+<pre class="language-powershell" data-language="powershell"><code class="language-powershell">python ask<span class="token punctuation">.</span>py <span class="token string">"深度学习为什么发展这么快？"</span></code></pre>
+
+<p>可以得到：</p>
+<pre class="language-text" data-language="text"><code class="language-text">[1] qa_curated.txt 相关度=0.3678
+问：深度学习为什么在21世纪后快速发展？
+答：计算能力提升和大数据积累为深度学习提供了条件，深度神经网络能够从大量数据中自动学习特征。
+
+[2] sample_article.txt 相关度=0.2026
+进入二十一世纪后，随着计算能力的提升和大数据的积累，机器学习尤其是深度学习技术迅速崛起。</code></pre>
+
+<p>第一条是整理后的直接问答，第二条是原文章依据。两者互相印证，说明检索结果是有意义的。</p>
+<p><code>ask.py</code> 并不是把所有片段无条件打印出来，而是使用最低相关度过滤：</p>
+<pre class="language-python" data-language="python"><code class="language-python">results <span class="token operator">=</span> retriever<span class="token punctuation">.</span>search<span class="token punctuation">(</span>
+    args<span class="token punctuation">.</span>question<span class="token punctuation">,</span>
+    args<span class="token punctuation">.</span>top_k<span class="token punctuation">,</span>
+    args<span class="token punctuation">.</span>min_score<span class="token punctuation">,</span>
+<span class="token punctuation">)</span></code></pre>
+
+<p>在检索器内部，核心过滤逻辑可以简化表示为：</p>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">search</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> question<span class="token punctuation">,</span> top_k<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">,</span> min_score<span class="token operator">=</span><span class="token number">0.12</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+    <span class="token keyword">for</span> score<span class="token punctuation">,</span> chunk <span class="token keyword">in</span> scored<span class="token punctuation">:</span>
+        <span class="token keyword">if</span> score <span class="token operator">&lt;</span> min_score<span class="token punctuation">:</span>
+            <span class="token keyword">break</span>
+        results<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+            <span class="token string">"score"</span><span class="token punctuation">:</span> <span class="token builtin">round</span><span class="token punctuation">(</span>score<span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token operator">**</span>chunk<span class="token punctuation">,</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> <span class="token builtin">len</span><span class="token punctuation">(</span>results<span class="token punctuation">)</span> <span class="token operator">>=</span> <span class="token builtin">max</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> top_k<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">break</span>
+    <span class="token keyword">return</span> results</code></pre>
+
+<p>这个阈值不是“理解了问题”的证明，只是一个保守的工程过滤器：相似度太低时宁可不返回，也不把通用句子伪装成答案。</p>
+<p>对于：</p>
+<pre class="language-powershell" data-language="powershell"><code class="language-powershell">python ask<span class="token punctuation">.</span>py <span class="token string">"鸡蛋为什么快？"</span></code></pre>
+
+<p>系统会输出：</p>
+<pre class="language-text" data-language="text"><code class="language-text">文章中没有找到足够相关的依据。</code></pre>
+
+<p>这一步非常重要。一个文章问答系统不应该为了“必须回答”而强行从文章里找一个看起来相近的句子。</p>
+<p>在完善过滤前，类似“你的问题”这样的占位文本可能会因为共享“问题”等常见字符，命中“AI能够回答我们的问题”之类的句子。后来又加入了通用占位问题拦截：</p>
+<pre class="language-text" data-language="text"><code class="language-text">你的问题
+请输入问题
+文章讲了什么</code></pre>
+
+<p>这些输入现在会要求用户提供更具体的问题，而不会伪装成有效检索结果。</p>
+<h2 id="十一、到检索为止，我得到了什么"><a href="#十一、到检索为止，我得到了什么" class="headerlink" title="十一、到检索为止，我得到了什么"></a>十一、到检索为止，我得到了什么</h2><p>到目前为止，这个项目已经完成了一个完整的实验闭环：</p>
+<pre class="language-text" data-language="text"><code class="language-text">文章
+  ↓
+字符级 Tokenizer
+  ↓
+Embedding
+  ↓
+因果自注意力 Transformer
+  ↓
+预测下一个字符
+  ↓
+观察过拟合
+  ↓
+整理问答语料
+  ↓
+文章切片与去重
+  ↓
+TF-IDF 检索原文依据</code></pre>
+
+<p>其中，真正可以用于文章问答的部分已经从“让小模型自由生成”转向了“先检索原文依据”。</p>
+<p>当前推荐的使用方式是：</p>
+<pre class="language-powershell" data-language="powershell"><code class="language-powershell">python build_index<span class="token punctuation">.</span>py
+python ask<span class="token punctuation">.</span>py <span class="token string">"深度学习为什么发展这么快？"</span></code></pre>
+
+<p>这时系统返回的是文章中最相关的证据，而不是没有依据地自由编造答案。</p>
+<p><code>ask.py</code> 的主流程可以简化表示为：</p>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">if</span> Path<span class="token punctuation">(</span>args<span class="token punctuation">.</span>index<span class="token punctuation">)</span><span class="token punctuation">.</span>exists<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    retriever <span class="token operator">=</span> ArticleRetriever<span class="token punctuation">.</span>load<span class="token punctuation">(</span>args<span class="token punctuation">.</span>index<span class="token punctuation">)</span>
+<span class="token keyword">else</span><span class="token punctuation">:</span>
+    retriever <span class="token operator">=</span> ArticleRetriever<span class="token punctuation">(</span>load_chunks<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    retriever<span class="token punctuation">.</span>save<span class="token punctuation">(</span>args<span class="token punctuation">.</span>index<span class="token punctuation">)</span>
+
+results <span class="token operator">=</span> retriever<span class="token punctuation">.</span>search<span class="token punctuation">(</span>
+    args<span class="token punctuation">.</span>question<span class="token punctuation">,</span>
+    args<span class="token punctuation">.</span>top_k<span class="token punctuation">,</span>
+    args<span class="token punctuation">.</span>min_score<span class="token punctuation">,</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">if</span> <span class="token keyword">not</span> results<span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"文章中没有找到足够相关的依据。"</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span>
+
+<span class="token keyword">for</span> number<span class="token punctuation">,</span> result <span class="token keyword">in</span> <span class="token builtin">enumerate</span><span class="token punctuation">(</span>results<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>
+        <span class="token string-interpolation"><span class="token string">f"[</span><span class="token interpolation"><span class="token punctuation">&#123;</span>number<span class="token punctuation">&#125;</span></span><span class="token string">] </span><span class="token interpolation"><span class="token punctuation">&#123;</span>result<span class="token punctuation">[</span><span class="token string">'source'</span><span class="token punctuation">]</span><span class="token punctuation">&#125;</span></span><span class="token string"> "</span></span>
+        <span class="token string-interpolation"><span class="token string">f"相关度=</span><span class="token interpolation"><span class="token punctuation">&#123;</span>result<span class="token punctuation">[</span><span class="token string">'score'</span><span class="token punctuation">]</span><span class="token punctuation">&#125;</span></span><span class="token string">"</span></span>
+    <span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>result<span class="token punctuation">[</span><span class="token string">"text"</span><span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
+
+<h2 id="十二、如何复现实验"><a href="#十二、如何复现实验" class="headerlink" title="十二、如何复现实验"></a>十二、如何复现实验</h2><p>项目根目录下的实际操作顺序如下：</p>
+<pre class="language-powershell" data-language="powershell"><code class="language-powershell"><span class="token punctuation">.</span>\<span class="token punctuation">.</span>venv\Scripts\Activate<span class="token punctuation">.</span>ps1
+python build_index<span class="token punctuation">.</span>py
+python ask<span class="token punctuation">.</span>py <span class="token string">"深度学习为什么发展这么快？"</span>
+
+<span class="token function">del</span> checkpoint<span class="token punctuation">.</span>pt
+python train<span class="token punctuation">.</span>py
+python generate<span class="token punctuation">.</span>py <span class="token operator">--</span>prompt <span class="token string">"问：深度学习为什么发展这么快？`n答："</span></code></pre>
+
+<p>其中，<code>build_index.py</code> 和 <code>ask.py</code> 不依赖已经训练好的 <code>checkpoint.pt</code>；它们使用文章文件直接建立索引。<code>train.py</code> 才会创建新的 <code>checkpoint.pt</code>，而 <code>generate.py</code> 依赖这个 checkpoint。</p>
+<p>当前训练脚本默认排除旧版高重复语料：</p>
+<pre class="language-python" data-language="python"><code class="language-python">EXCLUDED_FILES <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token string">"qa_augmented.txt"</span><span class="token punctuation">&#125;</span></code></pre>
+
+<p>因此默认训练和检索使用的是：</p>
+<pre class="language-text" data-language="text"><code class="language-text">sample_article.txt
+qa_curated.txt</code></pre>
+
+<p>如果增加或修改了文章，需要重新执行 <code>python build_index.py</code>；如果希望字符级模型也学习新文章，则还需要重新执行 <code>python train.py</code>。</p>
+<h2 id="十三、当前阶段的边界"><a href="#十三、当前阶段的边界" class="headerlink" title="十三、当前阶段的边界"></a>十三、当前阶段的边界</h2><p>当前系统已经具备：</p>
+<ul>
+<li>从自己的文章构建本地索引。</li>
+<li>对中文问题进行基础相关性检索。</li>
+<li>过滤完全重复的片段。</li>
+<li>设置最低相关度，减少无关命中。</li>
+<li>在没有足够依据时拒答。</li>
+<li>返回原文来源文件和相关度。</li>
+</ul>
+<p>但它还没有完成：</p>
+<ul>
+<li>把多个原文片段自动整理成自然语言答案。</li>
+<li>处理复杂的跨段落推理。</li>
+<li>使用真正的语义向量模型。</li>
+<li>建立完整的独立问答测试集。</li>
+<li>对答案进行事实一致性评估。</li>
+</ul>
+<p>因此，现阶段最准确的描述是：</p>
+<blockquote>
+<p>这是一个从零手写的字符级语言模型实验，以及一个已经完成基础检索能力的文章问答系统原型。</p>
+</blockquote>
+<p>“检索”解决的是：<strong>应该参考文章中的哪些内容。</strong></p>
+<p>后续的“生成”才负责：<strong>如何把这些内容组织成简洁、自然的答案。</strong></p>
+<p>在没有接入可靠生成模型之前，先把检索依据做好，是比继续堆训练步数更稳妥的一步。</p>
+<h2 id="十四、项目源码压缩包"><a href="#十四、项目源码压缩包" class="headerlink" title="十四、项目源码压缩包"></a>十四、项目源码压缩包</h2><p>项目使用到的完整源码压缩包：</p>
+<p><a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/Damao2250/FileTransfer/master/gpt_from_scratch_retrieval_20260911.zip">下载 gpt_from_scratch_retrieval_20260911.zip</a></p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/AI/">
+                                    <span class="chip bg-color">AI</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%A4%A7%E6%A8%A1%E5%9E%8B/">
+                                    <span class="chip bg-color">大模型</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        min-width: 320px;
+        max-width: 560px;
+        min-height: 350px;
+        max-height: 780px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: auto;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .flower-tab .active {
+        color: #fff !important;
+        background-color: #7ebf6d !important;
+    }
+
+    .reward-tabs .sky-tab .active {
+        color: #fff !important;
+        background-color: #569afd !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red" title="点赞不求人">赞</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">窄门大道</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <!-- <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li> -->
+                        <li class="tab col s6 flower-tab waves-effect waves-light"><a href="#flower">我拍的</a></li>
+                        <li class="tab col s6 sky-tab waves-effect waves-light"><a href="#sky">还是我拍的</a></li>
+                    </ul>
+                    <!-- <div id="alipay">
+                        <img src="/medias/reward/alipay.png" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div> -->
+                    <div id="flower" class="img-item" data-src="/medias/reward/flower-4074956.jpg">
+                        <img src="/medias/reward/flower-4074956.jpg" class="reward-img" style="width: 100%; height: auto;" alt="我拍的">
+                    </div>
+                    <div id="sky" class="img-item" data-src="/medias/reward/sky-5725621.jpg">
+                        <img src="/medias/reward/sky-5725621.jpg" class="reward-img" style="width: 100%; height: auto;" alt="还是我拍的">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2026/09/11/ch4-%E5%B7%A5%E5%85%B7/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="ch4-工具">
+                        
+                        <span class="card-title">ch4-工具</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2026-09-11
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Damao
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">
+                        <span class="chip bg-color">学习记录</span>
+                    </a>
+                    
+                    <a href="/tags/AI/">
+                        <span class="chip bg-color">AI</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2026/09/09/ch3-%E7%94%A8%E6%88%B7%E8%AE%B0%E5%BF%86%E5%92%8C%E7%9F%A5%E8%AF%86%E5%BA%93/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="ch3-用户记忆和知识库">
+                        
+                        <span class="card-title">ch3-用户记忆和知识库</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-09-09
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/ai-agent-book/" class="post-category">
+                                    ai-agent-book
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">
+                        <span class="chip bg-color">学习记录</span>
+                    </a>
+                    
+                    <a href="/tags/AI/">
+                        <span class="chip bg-color">AI</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2026</span>
+            
+            <span id="year">2019</span>
+            <a href="https://github.com/damao2250" target="_blank">Damao</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
