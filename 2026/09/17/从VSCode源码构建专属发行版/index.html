@@ -1,0 +1,1289 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="从VSCode源码构建专属发行版, Damao">
+    <meta name="description" content="Coding...">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>从VSCode源码构建专属发行版 | Damao</title>
+    <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 8.1.2"><link rel="alternate" href="/atom.xml" title="Damao" type="application/atom+xml">
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.jpg" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Damao</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.jpg" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Damao</div>
+        <div class="logo-desc">
+            
+            Coding...
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/damao2250" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Damao
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #24292F;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/damao2250" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Damao" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/36.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">从VSCode源码构建专属发行版</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E6%BA%90%E7%A0%81%E6%9E%84%E5%BB%BA/">
+                                <span class="chip bg-color">源码构建</span>
+                            </a>
+                        
+                            <a href="/tags/VSCode/">
+                                <span class="chip bg-color">VSCode</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%8A%98%E8%85%BE/" class="post-category">
+                                折腾
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2026-09-17
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2026-09-17
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    1.9k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    8 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="从-VS-Code-源码构建自己的-Windows-发行版：Damao-Code"><a href="#从-VS-Code-源码构建自己的-Windows-发行版：Damao-Code" class="headerlink" title="从 VS Code 源码构建自己的 Windows 发行版：Damao Code"></a>从 VS Code 源码构建自己的 Windows 发行版：Damao Code</h1><p>本文记录如何基于 VS Code OSS 源码，构建一个可与官方 VS Code、Code OSS 并存的 Windows x64 用户安装版。最终产物命名为 <strong>Damao Code</strong>，使用默认图标、Open VSX 扩展市场，并关闭遥测。</p>
+<h2 id="一、目标与环境"><a href="#一、目标与环境" class="headerlink" title="一、目标与环境"></a>一、目标与环境</h2><p>目标配置：</p>
+<ul>
+<li>产品名称：<code>Damao Code</code></li>
+<li>内部名称和命令：<code>damao-code</code></li>
+<li>平台：Windows x64</li>
+<li>安装方式：当前用户安装，无需管理员权限</li>
+<li>扩展市场：Open VSX</li>
+<li>遥测：关闭</li>
+<li>自动更新：不配置</li>
+<li>图标：保留 VS Code OSS 默认图标</li>
+<li>并存能力：使用独立数据目录、协议、注册表项和 App ID</li>
+</ul>
+<p>本次使用的主要环境：</p>
+<ul>
+<li>Node.js：<code>24.18.0</code>，与仓库 <code>.nvmrc</code> 一致</li>
+<li>npm：<code>11.16.0</code></li>
+<li>Visual Studio：2026 Community</li>
+<li>Windows SDK：已安装 SignTool</li>
+<li>Inno Setup：由仓库 npm 依赖提供</li>
+</ul>
+<p>构建前应先确认 Node.js 版本：</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">node</span> <span class="token parameter variable">--version</span>
+<span class="token function">cat</span> .nvmrc</code></pre>
+
+<p>VS Code 仓库对 Node.js 版本比较敏感，建议严格使用 <code>.nvmrc</code> 指定的版本。</p>
+<h2 id="二、定制产品信息"><a href="#二、定制产品信息" class="headerlink" title="二、定制产品信息"></a>二、定制产品信息</h2><p>VS Code 的主要品牌配置位于根目录的 <code>product.json</code>。核心修改如下：</p>
+<pre class="language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span>
+  <span class="token property">"nameShort"</span><span class="token operator">:</span> <span class="token string">"Damao Code"</span><span class="token punctuation">,</span>
+  <span class="token property">"nameLong"</span><span class="token operator">:</span> <span class="token string">"Damao Code"</span><span class="token punctuation">,</span>
+  <span class="token property">"applicationName"</span><span class="token operator">:</span> <span class="token string">"damao-code"</span><span class="token punctuation">,</span>
+  <span class="token property">"dataFolderName"</span><span class="token operator">:</span> <span class="token string">".damao-code"</span><span class="token punctuation">,</span>
+  <span class="token property">"sharedDataFolderName"</span><span class="token operator">:</span> <span class="token string">".damao-code-shared"</span><span class="token punctuation">,</span>
+  <span class="token property">"serverApplicationName"</span><span class="token operator">:</span> <span class="token string">"damao-code-server"</span><span class="token punctuation">,</span>
+  <span class="token property">"serverDataFolderName"</span><span class="token operator">:</span> <span class="token string">".damao-code-server"</span><span class="token punctuation">,</span>
+  <span class="token property">"tunnelApplicationName"</span><span class="token operator">:</span> <span class="token string">"damao-code-tunnel"</span><span class="token punctuation">,</span>
+  <span class="token property">"win32DirName"</span><span class="token operator">:</span> <span class="token string">"Damao Code"</span><span class="token punctuation">,</span>
+  <span class="token property">"win32NameVersion"</span><span class="token operator">:</span> <span class="token string">"Damao Code"</span><span class="token punctuation">,</span>
+  <span class="token property">"win32RegValueName"</span><span class="token operator">:</span> <span class="token string">"DamaoCode"</span><span class="token punctuation">,</span>
+  <span class="token property">"win32AppUserModelId"</span><span class="token operator">:</span> <span class="token string">"Damao.Code"</span><span class="token punctuation">,</span>
+  <span class="token property">"win32MutexName"</span><span class="token operator">:</span> <span class="token string">"damaocode"</span><span class="token punctuation">,</span>
+  <span class="token property">"urlProtocol"</span><span class="token operator">:</span> <span class="token string">"damao-code"</span><span class="token punctuation">,</span>
+  <span class="token property">"enableTelemetry"</span><span class="token operator">:</span> <span class="token boolean">false</span>
+<span class="token punctuation">&#125;</span></code></pre>
+
+<p>还需要为以下字段生成自己的 GUID，不能继续使用 Code OSS 的默认值：</p>
+<pre class="language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span>
+  <span class="token property">"win32x64AppId"</span><span class="token operator">:</span> <span class="token string">"&#123;&#123;YOUR-SYSTEM-X64-GUID&#125;"</span><span class="token punctuation">,</span>
+  <span class="token property">"win32arm64AppId"</span><span class="token operator">:</span> <span class="token string">"&#123;&#123;YOUR-SYSTEM-ARM64-GUID&#125;"</span><span class="token punctuation">,</span>
+  <span class="token property">"win32x64UserAppId"</span><span class="token operator">:</span> <span class="token string">"&#123;&#123;YOUR-USER-X64-GUID&#125;"</span><span class="token punctuation">,</span>
+  <span class="token property">"win32arm64UserAppId"</span><span class="token operator">:</span> <span class="token string">"&#123;&#123;YOUR-USER-ARM64-GUID&#125;"</span>
+<span class="token punctuation">&#125;</span></code></pre>
+
+<p>可以在 PowerShell 中生成 GUID：</p>
+<pre class="language-powershell" data-language="powershell"><code class="language-powershell"><span class="token namespace">[guid]</span>::NewGuid<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>ToString<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>ToUpper<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
+
+<p>独立的 App ID、数据目录、URL 协议、互斥锁和注册表名称，是自定义发行版与官方 VS Code 并存的关键。</p>
+<h3 id="配置-Open-VSX"><a href="#配置-Open-VSX" class="headerlink" title="配置 Open VSX"></a>配置 Open VSX</h3><p>Code OSS 发行版不应直接使用微软官方 Visual Studio Marketplace。这里改用 Open VSX：</p>
+<pre class="language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span>
+  <span class="token property">"extensionsGallery"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">"serviceUrl"</span><span class="token operator">:</span> <span class="token string">"https://open-vsx.org/vscode/gallery"</span><span class="token punctuation">,</span>
+    <span class="token property">"itemUrl"</span><span class="token operator">:</span> <span class="token string">"https://open-vsx.org/vscode/item"</span><span class="token punctuation">,</span>
+    <span class="token property">"publisherUrl"</span><span class="token operator">:</span> <span class="token string">"https://open-vsx.org/vscode/publisher"</span><span class="token punctuation">,</span>
+    <span class="token property">"resourceUrlTemplate"</span><span class="token operator">:</span> <span class="token string">"https://open-vsx.org/vscode/asset/&#123;publisher&#125;/&#123;name&#125;/&#123;version&#125;/Microsoft.VisualStudio.Code.WebResources/&#123;path&#125;"</span><span class="token punctuation">,</span>
+    <span class="token property">"extensionUrlTemplate"</span><span class="token operator">:</span> <span class="token string">"https://open-vsx.org/vscode/unpkg/&#123;publisher&#125;/&#123;name&#125;/&#123;version&#125;/&#123;path&#125;"</span><span class="token punctuation">,</span>
+    <span class="token property">"controlUrl"</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
+    <span class="token property">"nlsBaseUrl"</span><span class="token operator">:</span> <span class="token string">""</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+
+<p>如果当前网络不能访问 <code>open-vsx.org</code>，不影响程序本身构建，但运行后的扩展搜索和安装会受到影响。</p>
+<p>修改后先检查 JSON 和差异格式：</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">node</span> <span class="token parameter variable">-e</span> <span class="token string">"JSON.parse(require('fs').readFileSync('product.json', 'utf8')); console.log('OK')"</span>
+<span class="token function">git</span> <span class="token function">diff</span> <span class="token parameter variable">--check</span></code></pre>
+
+<h2 id="三、安装依赖"><a href="#三、安装依赖" class="headerlink" title="三、安装依赖"></a>三、安装依赖</h2><p>正常情况下执行：</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span></code></pre>
+
+<p>本机安装的是 Visual Studio 2026，而仓库工具链只识别 VS 2019&#x2F;2022。可以将 VS 2026 的安装目录通过兼容变量显式传入：</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">export</span> <span class="token assign-left variable">vs2022_install</span><span class="token operator">=</span><span class="token string">'C:\Program Files\Microsoft Visual Studio\18\Community'</span>
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD</span><span class="token operator">=</span><span class="token number">1</span>
+<span class="token function">npm</span> <span class="token function">install</span></code></pre>
+
+<p><code>PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1</code> 只跳过测试用 Chromium 下载，不影响 VS Code 产品运行。</p>
+<h3 id="依赖目录不完整的问题"><a href="#依赖目录不完整的问题" class="headerlink" title="依赖目录不完整的问题"></a>依赖目录不完整的问题</h3><p>本次已有 <code>node_modules</code> 中存在多个不完整 npm 包，典型表现包括：</p>
+<ul>
+<li><code>shiki/dist/langs.mjs</code> 缺失</li>
+<li><code>mermaid/dist/mermaid.d.ts</code> 缺失</li>
+<li>MSAL 的 <code>.d.ts</code> 文件在中间被截断</li>
+<li>原生模块的 <code>.node</code> 文件没有生成</li>
+</ul>
+<p>遇到这种情况，不要通过修改源码或补 <code>any</code> 绕过错误，应根据对应扩展的锁文件干净恢复依赖：</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token parameter variable">--prefix</span> extensions/copilot ci
+<span class="token function">npm</span> <span class="token parameter variable">--prefix</span> extensions/markdown-language-features ci
+<span class="token function">npm</span> <span class="token parameter variable">--prefix</span> extensions/mermaid-markdown-features ci
+<span class="token function">npm</span> <span class="token parameter variable">--prefix</span> extensions/microsoft-authentication ci</code></pre>
+
+<p>Copilot 依赖安装时同样可以跳过 Playwright 浏览器：</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">export</span> <span class="token assign-left variable">PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD</span><span class="token operator">=</span><span class="token number">1</span>
+<span class="token function">npm</span> <span class="token parameter variable">--prefix</span> extensions/copilot <span class="token function">install</span></code></pre>
+
+<p>根目录原生模块缺失时，统一重建比逐个修复更可靠：</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">export</span> <span class="token assign-left variable">vs2022_install</span><span class="token operator">=</span><span class="token string">'C:\Program Files\Microsoft Visual Studio\18\Community'</span>
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD</span><span class="token operator">=</span><span class="token number">1</span>
+<span class="token function">npm</span> rebuild</code></pre>
+
+<p>应重点确认这些 Windows 原生绑定存在：</p>
+<pre class="language-text" data-language="text"><code class="language-text">node_modules/@vscode/policy-watcher/build/Release/vscode-policy-watcher.node
+node_modules/@vscode/spdlog/build/Release/spdlog.node
+node_modules/@vscode/deviceid/build/Release/windows.node
+node_modules/@vscode/windows-registry/build/Release/winregistry.node</code></pre>
+
+<h2 id="四、构建-Windows-x64-产品"><a href="#四、构建-Windows-x64-产品" class="headerlink" title="四、构建 Windows x64 产品"></a>四、构建 Windows x64 产品</h2><p>下载并校验内置扩展后，执行完整构建：</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> run download-builtin-extensions
+<span class="token function">npm</span> run gulp -- vscode-win32-x64</code></pre>
+
+<p>成功后，产品目录通常位于仓库同级目录：</p>
+<pre class="language-text" data-language="text"><code class="language-text">../VSCode-win32-x64/</code></pre>
+
+<p>主程序为：</p>
+<pre class="language-text" data-language="text"><code class="language-text">../VSCode-win32-x64/Damao Code.exe</code></pre>
+
+<h3 id="SignTool-不在-PATH"><a href="#SignTool-不在-PATH" class="headerlink" title="SignTool 不在 PATH"></a>SignTool 不在 PATH</h3><p>Windows 收尾任务会调用 <code>signtool.exe</code>。如果出现：</p>
+<pre class="language-text" data-language="text"><code class="language-text">Error: spawn signtool.exe ENOENT</code></pre>
+
+<p>先定位 Windows SDK 中的 SignTool，再临时加入 <code>PATH</code>：</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">export</span> <span class="token assign-left variable"><span class="token environment constant">PATH</span></span><span class="token operator">=</span><span class="token string">"/c/Program Files (x86)/Windows Kits/10/bin/10.0.28000.0/x64:<span class="token environment constant">$PATH</span>"</span>
+<span class="token function">npm</span> run gulp -- vscode-win32-x64-ci</code></pre>
+
+<p>SDK 版本目录应以本机实际安装版本为准。</p>
+<h3 id="rcedit-错误处理其他平台二进制"><a href="#rcedit-错误处理其他平台二进制" class="headerlink" title="rcedit 错误处理其他平台二进制"></a>rcedit 错误处理其他平台二进制</h3><p>本次收尾阶段还遇到 <code>rcedit</code> 尝试修改 Linux&#x2F;macOS 的 <code>.node</code> 文件：</p>
+<pre class="language-text" data-language="text"><code class="language-text">Unable to load file: ...node-pty/prebuilds/linux-x64/pty.node</code></pre>
+
+<p>原因是产品依赖同时包含多平台预构建文件，而 Windows 资源修补任务扫描了全部 <code>.node</code> 文件。处理方式是在组装 Windows 产品时临时移出 <code>prebuilds/darwin-*</code> 和 <code>prebuilds/linux-*</code> 下的二进制，任务结束后立即恢复。</p>
+<p>不要永久删除这些文件，否则会污染后续其他平台构建。可以使用带 <code>trap</code> 的脚本确保即使命令失败也会恢复文件。</p>
+<h2 id="五、生成用户安装包"><a href="#五、生成用户安装包" class="headerlink" title="五、生成用户安装包"></a>五、生成用户安装包</h2><p>安装器需要 <code>tools/inno_updater.exe</code>，先运行专用任务：</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> run gulp -- vscode-win32-x64-inno-updater</code></pre>
+
+<p>然后生成 Windows x64 用户安装版：</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> run gulp -- vscode-win32-x64-user-setup</code></pre>
+
+<p>安装包输出位置：</p>
+<pre class="language-text" data-language="text"><code class="language-text">.build/win32-x64/user-setup/VSCodeSetup.exe</code></pre>
+
+<p>Inno Setup 可能输出语言文件或架构标识相关警告。只要最后显示 <code>Successful compile</code>，安装包就已经成功生成。</p>
+<h2 id="六、验证产物"><a href="#六、验证产物" class="headerlink" title="六、验证产物"></a>六、验证产物</h2><h3 id="验证版本和架构"><a href="#验证版本和架构" class="headerlink" title="验证版本和架构"></a>验证版本和架构</h3><p>使用产品自带 CLI：</p>
+<pre class="language-powershell" data-language="powershell"><code class="language-powershell">&amp; <span class="token string">'..\VSCode-win32-x64\bin\damao-code.cmd'</span> <span class="token operator">--</span>version</code></pre>
+
+<p>本次输出：</p>
+<pre class="language-text" data-language="text"><code class="language-text">1.139.0
+6182a6ebe7cfcf1ce05126fcd475f66a5650cebc
+x64</code></pre>
+
+<h3 id="验证产品配置"><a href="#验证产品配置" class="headerlink" title="验证产品配置"></a>验证产品配置</h3><p>检查打包后的配置：</p>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">node</span> <span class="token parameter variable">-e</span> <span class="token string">"const p=require('../VSCode-win32-x64/resources/app/product.json'); console.log(&#123;name:p.nameLong, app:p.applicationName, telemetry:p.enableTelemetry, gallery:p.extensionsGallery?.serviceUrl&#125;)"</span></code></pre>
+
+<p>确认以下信息：</p>
+<ul>
+<li>名称为 <code>Damao Code</code></li>
+<li>内部名称为 <code>damao-code</code></li>
+<li>遥测为 <code>false</code></li>
+<li>扩展市场指向 Open VSX</li>
+<li>安装器中的 <code>product.json</code> 包含 <code>&quot;target&quot;: &quot;user&quot;</code></li>
+</ul>
+<h3 id="验证默认图标未变化"><a href="#验证默认图标未变化" class="headerlink" title="验证默认图标未变化"></a>验证默认图标未变化</h3><pre class="language-bash" data-language="bash"><code class="language-bash">sha256sum resources/win32/code.ico
+sha256sum <span class="token punctuation">..</span>/VSCode-win32-x64/resources/app/resources/win32/code.ico</code></pre>
+
+<p>两个哈希应完全一致。</p>
+<h3 id="验证安装包完整性"><a href="#验证安装包完整性" class="headerlink" title="验证安装包完整性"></a>验证安装包完整性</h3><pre class="language-bash" data-language="bash"><code class="language-bash">sha256sum .build/win32-x64/user-setup/VSCodeSetup.exe</code></pre>
+
+<p>本次最终安装包：</p>
+<pre class="language-text" data-language="text"><code class="language-text">文件：.build/win32-x64/user-setup/VSCodeSetup.exe
+大小：约 266 MB
+SHA-256：a18fd73307453128fdb4cf414817af0d710b8468fcaa97927fbb74fd287780f3</code></pre>
+
+<p>最后实际启动便携版，检查主窗口、扩展宿主、终端、内置调试器和 Copilot 是否能够正常加载。</p>
+<h2 id="七、代码签名说明"><a href="#七、代码签名说明" class="headerlink" title="七、代码签名说明"></a>七、代码签名说明</h2><p>本地构建的安装包默认没有 Authenticode 签名，因此 Windows SmartScreen 可能提示“未知发布者”。这不影响程序运行，但正式分发时建议购买代码签名证书，并对主程序和安装器进行签名。</p>
+<p>可以使用 SignTool 检查：</p>
+<pre class="language-powershell" data-language="powershell"><code class="language-powershell">signtool verify <span class="token operator">/</span>pa VSCodeSetup<span class="token punctuation">.</span>exe</code></pre>
+
+<p>出现 <code>No signature found</code> 表示文件未签名，不代表安装包损坏。</p>
+<h2 id="八、最终结果"><a href="#八、最终结果" class="headerlink" title="八、最终结果"></a>八、最终结果</h2><p>最终得到一个能够独立安装和运行的 Windows x64 发行版：</p>
+<ul>
+<li>使用 <code>Damao Code</code> 品牌</li>
+<li>可与官方 VS Code、Code OSS 并存</li>
+<li>使用独立用户数据、共享数据、协议和注册表标识</li>
+<li>使用 Open VSX 扩展市场</li>
+<li>默认关闭遥测和自动更新</li>
+<li>保留默认图标和内置 Copilot</li>
+<li>提供无需管理员权限的用户安装包</li>
+</ul>
+<p>整个过程中最容易被忽略的不是品牌字段，而是构建环境与原生依赖完整性。遇到类型声明、资源文件或 <code>.node</code> 绑定缺失时，应优先修复依赖安装和原生编译环境，再继续打包。这样得到的产物才能通过实际启动验证，而不只是“安装器成功生成”。</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E6%BA%90%E7%A0%81%E6%9E%84%E5%BB%BA/">
+                                    <span class="chip bg-color">源码构建</span>
+                                </a>
+                            
+                                <a href="/tags/VSCode/">
+                                    <span class="chip bg-color">VSCode</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        min-width: 320px;
+        max-width: 560px;
+        min-height: 350px;
+        max-height: 780px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: auto;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .flower-tab .active {
+        color: #fff !important;
+        background-color: #7ebf6d !important;
+    }
+
+    .reward-tabs .sky-tab .active {
+        color: #fff !important;
+        background-color: #569afd !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red" title="点赞不求人">赞</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">窄门大道</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <!-- <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li> -->
+                        <li class="tab col s6 flower-tab waves-effect waves-light"><a href="#flower">我拍的</a></li>
+                        <li class="tab col s6 sky-tab waves-effect waves-light"><a href="#sky">还是我拍的</a></li>
+                    </ul>
+                    <!-- <div id="alipay">
+                        <img src="/medias/reward/alipay.png" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div> -->
+                    <div id="flower" class="img-item" data-src="/medias/reward/flower-4074956.jpg">
+                        <img src="/medias/reward/flower-4074956.jpg" class="reward-img" style="width: 100%; height: auto;" alt="我拍的">
+                    </div>
+                    <div id="sky" class="img-item" data-src="/medias/reward/sky-5725621.jpg">
+                        <img src="/medias/reward/sky-5725621.jpg" class="reward-img" style="width: 100%; height: auto;" alt="还是我拍的">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2026/09/17/%E4%BB%8EClash-Verge-Rev%E6%BA%90%E7%A0%81%E6%9E%84%E5%BB%BA%E4%B8%93%E5%B1%9E%E8%87%AA%E5%B7%B1%E7%9A%84%E7%89%88%E6%9C%AC/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/29.jpg" class="responsive-img" alt="从Clash-Verge-Rev源码构建专属自己的版本">
+                        
+                        <span class="card-title">从Clash-Verge-Rev源码构建专属自己的版本</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2026-09-17
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%98%E8%85%BE/" class="post-category">
+                                    折腾
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Clash-Verge-Rev/">
+                        <span class="chip bg-color">Clash-Verge-Rev</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%BA%90%E7%A0%81%E6%9E%84%E5%BB%BA/">
+                        <span class="chip bg-color">源码构建</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2026/09/11/ch4-%E5%B7%A5%E5%85%B7/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="ch4-工具">
+                        
+                        <span class="card-title">ch4-工具</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-09-11
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Damao
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">
+                        <span class="chip bg-color">学习记录</span>
+                    </a>
+                    
+                    <a href="/tags/AI/">
+                        <span class="chip bg-color">AI</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2026</span>
+            
+            <span id="year">2019</span>
+            <a href="https://github.com/damao2250" target="_blank">Damao</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
