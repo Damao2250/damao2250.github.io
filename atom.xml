@@ -6,7 +6,7 @@
   <link href="http://damao2250.com/atom.xml" rel="self"/>
   
   <link href="http://damao2250.com/"/>
-  <updated>2026-09-17T03:41:50.696Z</updated>
+  <updated>2026-09-21T06:00:17.656Z</updated>
   <id>http://damao2250.com/</id>
   
   <author>
@@ -17,13 +17,65 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>ch7-Agent的评估</title>
+    <link href="http://damao2250.com/2026/09/21/ch7-Agent%E7%9A%84%E8%AF%84%E4%BC%B0/"/>
+    <id>http://damao2250.com/2026/09/21/ch7-Agent%E7%9A%84%E8%AF%84%E4%BC%B0/</id>
+    <published>2026-09-21T05:58:37.000Z</published>
+    <updated>2026-09-21T06:00:17.656Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Agent的评估：怎么知道-Agent-变好了还是变差了"><a href="#Agent的评估：怎么知道-Agent-变好了还是变差了" class="headerlink" title="Agent的评估：怎么知道 Agent 变好了还是变差了"></a>Agent的评估：怎么知道 Agent 变好了还是变差了</h1><p>第 7 章回答一个扎心问题：构建完成 ≠ 构建正确。只有能量化测量结果，后面的模型训练、系统进化才有方向。</p><h2 id="评估对象不是模型，是-Model-Harness"><a href="#评估对象不是模型，是-Model-Harness" class="headerlink" title="评估对象不是模型，是 Model + Harness"></a>评估对象不是模型，是 Model + Harness</h2><p>同模型不同 Harness 表现能差很远。表现差时，可能该优化 Harness 而不是换模型。</p><p>怎么区分两类问题：</p><ul><li>模型替换实验（model swap）：固定 Harness，只换更强&#x2F;更弱的模型，看分数变多少</li><li>消融实验（ablation）：关掉 Harness 某个组件，看整体掉多少</li></ul><p>（这跟第 1 章”评估对象不是模型、是 Model + Harness”的思路一脉相承——要分清是模型不行还是 Harness 不行。）</p><h2 id="评估体系四环节"><a href="#评估体系四环节" class="headerlink" title="评估体系四环节"></a>评估体系四环节</h2><ol><li>什么算成功（指标）</li><li>任务从哪来（数据集）</li><li>谁来验证（方法）</li><li>分数怎么变决策（选型、显著性、改进）</li></ol><h2 id="先定义成功：Pass-k-vs-Pass-k"><a href="#先定义成功：Pass-k-vs-Pass-k" class="headerlink" title="先定义成功：Pass@k vs Pass^k"></a>先定义成功：Pass@k vs Pass^k</h2><ul><li>Pass@k：同一任务跑 k 次，至少一次过就算过——看<strong>上限</strong>（探索场景）</li><li>Pass^k：连续 k 次都过——看<strong>稳定</strong>（业务可靠）</li></ul><p>公式很直观：单次成功率 p 时，Pass@k &#x3D; 1-(1-p)^k，Pass^k &#x3D; p^k。p&#x3D;0.6、k&#x3D;5 时，Pass@5 ≈ 99% 但 Pass^5 只有 7.8%。所以探索 demo 很漂亮，业务上线得看 Pass^k。</p><h2 id="评估环境五要素"><a href="#评估环境五要素" class="headerlink" title="评估环境五要素"></a>评估环境五要素</h2><p>数据集、环境状态（可重置）、工具接口、评分标准、执行协议。缺一个就形不成评估循环。</p><p>两类环境：</p><ul><li>人机交互型：需要用户模拟器（验证引导）</li><li>工具调用型：只验证状态变更</li></ul><h2 id="数据集从哪来"><a href="#数据集从哪来" class="headerlink" title="数据集从哪来"></a>数据集从哪来</h2><p>三来源：公开基准（粗筛）、自建业务集（做决策）、生产轨迹回流（最准）。</p><h2 id="验证器必须确定性可复核"><a href="#验证器必须确定性可复核" class="headerlink" title="验证器必须确定性可复核"></a>验证器必须确定性可复核</h2><p>比如 SWE-bench 的 FAIL_TO_PASS &#x2F; PASS_TO_PASS，防止”敷衍性修复”蒙混过关。能写断言就别用模糊评判。</p><h2 id="Rubric-四准则"><a href="#Rubric-四准则" class="headerlink" title="Rubric 四准则"></a>Rubric 四准则</h2><p>用 LLM 当评委（LLM-as-a-Judge）时，评分标准要：</p><ul><li>基于专家指导</li><li>全面覆盖（含陷阱）</li><li>按重要性加权（essential&#x2F;important&#x2F;optional&#x2F;veto）</li><li>评价标准自包含</li></ul><p>veto（比如出现幻觉）一票否决很重要。</p><p>前面建了评估体系。接着讲怎么把分数变成行动。</p><h2 id="失败归因：找”第一个错”"><a href="#失败归因：找”第一个错”" class="headerlink" title="失败归因：找”第一个错”"></a>失败归因：找”第一个错”</h2><p>别盯最后报错，要定位<strong>首个不可接受行为</strong>出现在第几步。结构化记录：首错步号、类别、责任方（规则先筛 + LLM 再定位）。</p><p>（易错：端到端 0 分不一定模型不行。书里案例，图库记账 Agent 第 8 步明知没图数据还编造——根因是观察通道缺失，不是 OCR 或模型笨。）</p><h2 id="回归任务两层"><a href="#回归任务两层" class="headerlink" title="回归任务两层"></a>回归任务两层</h2><ul><li>端到端：从初始状态跑到完成，查最终状态（防退化）</li><li>轨迹前缀：冻结首错前状态，只验决策边界（隔离问题）</li></ul><h2 id="配对比较排位"><a href="#配对比较排位" class="headerlink" title="配对比较排位"></a>配对比较排位</h2><p>Elo &#x2F; Bradley-Terry 量化相对能力。防位置偏差：交换 A&#x2F;B 顺序各评一次。注意人类偏好非传递，会影响 Elo。</p><h2 id="模型选型看什么"><a href="#模型选型看什么" class="headerlink" title="模型选型看什么"></a>模型选型看什么</h2><p>不止性能，还有：</p><ul><li>吞吐延迟：TTFT（首 token）、p95 尾部延迟</li><li>成本：输入&#x2F;输出&#x2F;缓存定价，重试的实际花费</li><li>预算—能力曲线：RE-Bench 显示 2 小时 Agent ≈ 4 倍人类，但人类从 8 小时起略微反超、32 小时达约 2 倍</li></ul><p>（易错：成本节省比例不能相加。稳定前缀省 28.3% + 压缩历史省 17.5% ≠ 45.8%，实测组合只省 30%。）</p><h2 id="统计显著性"><a href="#统计显著性" class="headerlink" title="统计显著性"></a>统计显著性</h2><p>别被单次分数骗。配对分析（McNemar &#x2F; bootstrap）、多种子、多重比较要收紧阈值。小样本子集（比如 4 个任务）只够决定下一步，推不到整体。</p><h2 id="把评估嵌进产品工程"><a href="#把评估嵌进产品工程" class="headerlink" title="把评估嵌进产品工程"></a>把评估嵌进产品工程</h2><ul><li>消融基础设施：总开关禁多特性，造”裸模型”基线</li><li>AB 测试：机制指标和目标指标分离，加护栏</li><li>双层特性开关、提示词敏感性、隐私感知</li></ul><h2 id="仿真环境：连上后训练"><a href="#仿真环境：连上后训练" class="headerlink" title="仿真环境：连上后训练"></a>仿真环境：连上后训练</h2><p>评估资产能转成 RLVR（可验证奖励）——验证脚本即奖励脚本。需要可靠 reset、高吞吐，物理任务用领域随机化缩窄 sim-to-real 差距。</p><hr><p>这一章把前面所有件拼成一台机器了。最有启发的两点：一是”测试通过才算完成”——很多 Coding Agent 偷懒写完就报，得用验证判定停止；二是 MEMORY.md 用 Markdown 而非向量库，反直觉但你能直接改、能 Git 回滚。</p><p>想自己搭通用 Agent，从”七工具 + 文件系统 + 测试闭环”起步最稳，别一上来追多 Agent。</p><h2 id="下一篇"><a href="#下一篇" class="headerlink" title="下一篇"></a>下一篇</h2><p><a href="https://damao2250.github.io/">ch8-模型后训练</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;Agent的评估：怎么知道-Agent-变好了还是变差了&quot;&gt;&lt;a href=&quot;#Agent的评估：怎么知道-Agent-变好了还是变差了&quot; class=&quot;headerlink&quot; title=&quot;Agent的评估：怎么知道 Agent 变好了还是变差了&quot;&gt;&lt;/a&gt;Ag</summary>
+      
+    
+    
+    
+    <category term="ai-agent-book" scheme="http://damao2250.com/categories/ai-agent-book/"/>
+    
+    
+    <category term="学习记录" scheme="http://damao2250.com/tags/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"/>
+    
+    <category term="AI" scheme="http://damao2250.com/tags/AI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ch6-交互</title>
+    <link href="http://damao2250.com/2026/09/21/ch6-%E4%BA%A4%E4%BA%92/"/>
+    <id>http://damao2250.com/2026/09/21/ch6-%E4%BA%A4%E4%BA%92/</id>
+    <published>2026-09-21T05:55:53.000Z</published>
+    <updated>2026-09-21T06:01:20.035Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="交互：观察与动作空间的扩展：打破回合制"><a href="#交互：观察与动作空间的扩展：打破回合制" class="headerlink" title="交互：观察与动作空间的扩展：打破回合制"></a>交互：观察与动作空间的扩展：打破回合制</h1><p>第 6 章是”构建 Agent 的最后一块拼图”——前面五章，Agent 和世界是<strong>回合制</strong>交互的：你说完、它想完、调工具、再回你，思考时世界默认静止。</p><p>这一章挑战这个前提。</p><h2 id="一句关键的话"><a href="#一句关键的话" class="headerlink" title="一句关键的话"></a>一句关键的话</h2><blockquote><p>回合制是训练留下的假设，不是环境的性质。</p></blockquote><p>当环境变化比模型生成还快，”想完再说”就不可接受了。所以要从两个维度扩展 Agent 的<strong>观察空间</strong>和<strong>动作空间</strong>：</p><ul><li>内容（前 5 章已讲）：上下文、记忆、工具、代码</li><li>模态（本章）：语音、屏幕、物理传感器 &#x2F; 说话、点击、关节</li><li>时机（本章）：世界主动推、连续流 &#x2F; 跨回合、可打断、可抢占</li></ul><h2 id="异步与事件驱动"><a href="#异步与事件驱动" class="headerlink" title="异步与事件驱动"></a>异步与事件驱动</h2><p>同步 Agent 像排队柜台；真实助理要异步执行、动态优先级、中断恢复。根本矛盾：<strong>训练同步 &#x2F; 部署异步</strong>。</p><p>解法：输入统一建模成事件流，跑一个事件循环（取事件→追轨迹→调 LLM→执行→等下批）。OpenClaw 用 Hooks&#x2F;Cron&#x2F;Heartbeat，但第三方事件（比如来电）需要 Channel 机制实时推。</p><h2 id="两类之前没展开的工具"><a href="#两类之前没展开的工具" class="headerlink" title="两类之前没展开的工具"></a>两类之前没展开的工具</h2><p>第 4 章的五类工具里，这两类依赖异步运行时，现在补上：</p><ul><li>事件触发工具：set_timer（定时器）、monitor_shell（后台任务监控）、connect_channel（外部事件通道）</li><li>用户沟通工具：用专用工具发消息（带图&#x2F;文件&#x2F;提醒），支持多渠道召回（IM&#x2F;短信&#x2F;邮件&#x2F;电话），比原生 ReAct 直发更有”活人感”</li></ul><h2 id="虚拟身份与隔离"><a href="#虚拟身份与隔离" class="headerlink" title="虚拟身份与隔离"></a>虚拟身份与隔离</h2><ul><li>给 Agent 独立账号&#x2F;存储&#x2F;计算（秘书专用电话邮箱），别直管你真实账号</li><li>虚拟电脑&#x2F;手机做 OS 级隔离</li><li>HITL 认证走 VNC&#x2F;RDP，别把真实凭证交给 Agent</li></ul><h2 id="事件来了怎么处理"><a href="#事件来了怎么处理" class="headerlink" title="事件来了怎么处理"></a>事件来了怎么处理</h2><p>按紧急度三策略：</p><ul><li>取消式：紧急，造”安全点”中断当前推理</li><li>队列式：常规，批处理（但要用状态栏标 <code>[未处理事件 1/4]</code>，否则模型只看最后一条）</li><li>并行式：独立轻量查询，另起会话</li></ul><p>（易错：占位符修复格式容易诱发模型幻觉，伪造”工具成功”。）</p><p>前面打破回合制、讲了事件驱动。接着讲观察&#x2F;动作空间在”模态”上的三种具体扩展。</p><h2 id="语音：三种范式"><a href="#语音：三种范式" class="headerlink" title="语音：三种范式"></a>语音：三种范式</h2><ul><li>级联：VAD→ASR→LLM→TTS 串起来，模块清但延迟累加、丢副语言</li><li>Omni：原生音频进原生音频出，延迟低、保留语气，但还依赖轮次、训练贵</li><li>全双工：持续听说决策，支持重叠说话和打断，最自然</li></ul><p>认知时序上三种玩法：快回慢答、快交互慢提醒、端到端统一。</p><p>（全双工体验最好，但训练和评估都复杂。中小团队先用级联跑通，比追全双工现实。）</p><h2 id="Computer-Use：看着屏幕操作"><a href="#Computer-Use：看着屏幕操作" class="headerlink" title="Computer Use：看着屏幕操作"></a>Computer Use：看着屏幕操作</h2><p>循环：截图 → 多模态模型想 → 执行键鼠 → 重截确认。难点是动作后现实是否真按计划变。</p><p>找到界面元素（Grounding）三条路：</p><ul><li>Set-of-Mark：分割模型切区域编号，模型选号换算坐标</li><li>结构化索引：用 DOM &#x2F; Accessibility Tree（browser-use 这类）</li><li>纯坐标预测：需分辨率匹配双向缩放，否则系统性偏移</li></ul><p>动作空间就是 mouse_move&#x2F;click&#x2F;drag&#x2F;scroll&#x2F;type 这些。</p><h2 id="机器人：XLeRobot"><a href="#机器人：XLeRobot" class="headerlink" title="机器人：XLeRobot"></a>机器人：XLeRobot</h2><p>硬件不是瓶颈（遥操作能完成），算法才是。控制分五层：任务目标→长程规划→基本技能→VLA（视觉-语言-动作模型）→底层控制（50–1000Hz）。</p><p>VLA 只学模仿不一定懂后果，要配<strong>世界模型</strong>预测”这动作会导致啥”。Sim2Real 还得处理仿真与现实的差异。</p><h2 id="一个深层矛盾"><a href="#一个深层矛盾" class="headerlink" title="一个深层矛盾"></a>一个深层矛盾</h2><p>训练是同步的（模型假设工具调用后必紧跟结果），部署是异步的（事件随时到）。要么等模型进化出异步 RL，要么用 ~200 行编排让现成模型”持续思考”（强行合上 <code>&lt;think&gt;</code> 注入观察）。</p><hr><p>这一章把 Agent 从”对话框”拉到了真实世界——语音、屏幕、机器人。</p><p>对多数应用最划算的切入点是 Computer Use + 事件驱动：让 Agent 能看屏幕、能异步被唤醒，比追机器人现实得多。移动端那块壁垒更多是商业模式（绕过广告变现），不是纯技术。</p><h2 id="下一篇"><a href="#下一篇" class="headerlink" title="下一篇"></a>下一篇</h2><p><a href="https://damao2250.github.io/2026/09/21/ch7-Agent%E7%9A%84%E8%AF%84%E4%BC%B0/">ch7-Agent的评估</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;交互：观察与动作空间的扩展：打破回合制&quot;&gt;&lt;a href=&quot;#交互：观察与动作空间的扩展：打破回合制&quot; class=&quot;headerlink&quot; title=&quot;交互：观察与动作空间的扩展：打破回合制&quot;&gt;&lt;/a&gt;交互：观察与动作空间的扩展：打破回合制&lt;/h1&gt;&lt;p&gt;第 </summary>
+      
+    
+    
+    
+    <category term="ai-agent-book" scheme="http://damao2250.com/categories/ai-agent-book/"/>
+    
+    
+    <category term="学习记录" scheme="http://damao2250.com/tags/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"/>
+    
+    <category term="AI" scheme="http://damao2250.com/tags/AI/"/>
+    
+  </entry>
+  
+  <entry>
     <title>ch5-CodingAgent与通用Agent</title>
     <link href="http://damao2250.com/2026/09/17/ch5-CodingAgent%E4%B8%8E%E9%80%9A%E7%94%A8Agent/"/>
     <id>http://damao2250.com/2026/09/17/ch5-CodingAgent%E4%B8%8E%E9%80%9A%E7%94%A8Agent/</id>
     <published>2026-09-17T03:34:55.000Z</published>
-    <updated>2026-09-17T03:41:50.696Z</updated>
+    <updated>2026-09-21T06:01:42.320Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="CodingAgent与通用Agent：通用-Agent-的内核"><a href="#CodingAgent与通用Agent：通用-Agent-的内核" class="headerlink" title="CodingAgent与通用Agent：通用 Agent 的内核"></a>CodingAgent与通用Agent：通用 Agent 的内核</h1><p>前面几章把上下文、记忆、工具拆开讲了。第 5 章把它们拼起来，回答一个问题：一个能处理任意任务的通用 Agent，长啥样？</p><h2 id="核心答案：Coding-Agent-文件系统"><a href="#核心答案：Coding-Agent-文件系统" class="headerlink" title="核心答案：Coding Agent + 文件系统"></a>核心答案：Coding Agent + 文件系统</h2><p>通用 Agent 的内核，是一个能自主写&#x2F;改&#x2F;跑代码的 <strong>Coding Agent</strong>，加上一个<strong>文件系统</strong>当工作空间——存代码、数据、记忆、中间结果。从 Manus 到 OpenClaw，成功的开放任务 Agent 都这套。</p><p>代码不只是工具，是<strong>元能力</strong>：能在运行时当场造出新工具、新约束。一段能跑通的代码本身就是逻辑自洽证明，执行结果给出客观对错标准。</p><h2 id="七核心工具就够了"><a href="#七核心工具就够了" class="headerlink" title="七核心工具就够了"></a>七核心工具就够了</h2><p>基础 Coding Agent 其实只要 7 个工具：</p><ul><li>Code Interpreter（沙盒 Python）</li><li>Bash Shell</li><li>读文件 &#x2F; 写文件 &#x2F; 编辑文件</li><li>Glob（搜文件名）、Grep（搜内容）</li></ul><p>这七类覆盖感知 + 执行。OpenAI Codex 甚至只用 Bash 一个工具就能干完所有事——分七个只是为了好理解。</p><h2 id="推荐工程化流程"><a href="#推荐工程化流程" class="headerlink" title="推荐工程化流程"></a>推荐工程化流程</h2><ul><li>项目文档化（CLAUDE.md &#x2F; AGENTS.md 这类指令文件，会话开始自动注入，等于项目级系统提示词）</li><li>任务理解与澄清</li><li>写设计文档</li><li>代码实现 + 测试（测试通过才算完成，不是写完就报）</li><li>文档同步交付</li></ul><p>简单 bug 可以砍设计文档，但”计划先于行动，验证贯穿始终”这条别丢。</p><h2 id="Harness-在-Coding-Agent-里的落地"><a href="#Harness-在-Coding-Agent-里的落地" class="headerlink" title="Harness 在 Coding Agent 里的落地"></a>Harness 在 Coding Agent 里的落地</h2><p>Coding 是可验证性最高的任务，测试&#x2F;Linter&#x2F;Git 天然就是 Harness。原则：约束优先于指导、验证自动化、反馈快且结构化、回退可靠。比如防 <code>rm -rf</code> 删库。</p><h2 id="故障恢复：分四层"><a href="#故障恢复：分四层" class="headerlink" title="故障恢复：分四层"></a>故障恢复：分四层</h2><ul><li>API 层：限流、超时</li><li>工具层：幻觉调用、重复同错</li><li>上下文层：溢出、轨迹损坏</li><li>控制流层：死循环、死亡螺旋</li></ul><p>检测靠分类 + 计数 + watchdog；恢复分级：静默重试（指数退避）→ 降级接续 → 暴露给用户。每条恢复路径都有熔断上限（比如压缩连败 3 次就放弃，来自真实统计）。</p><p>前面讲了通用 Agent 的内核。接着展开代码作为”元能力”的六种玩法，再聊安全。</p><h2 id="代码作为元能力：六个方向"><a href="#代码作为元能力：六个方向" class="headerlink" title="代码作为元能力：六个方向"></a>代码作为元能力：六个方向</h2><p>由内向外：</p><ol><li>思考工具：LLM 概率近似，代码精确。数学题用 sympy，纯语言能算错代码算对</li><li>业务规则约束：自然语言有歧义，代码无歧义。三层保障——自然语言规则解释 → 工具参数 checklist 引导自查 → 服务端真值校验（查库，不采信模型）</li><li>多媒体生成：PPT&#x2F;视频用提议者-审核者。有精确参数的用代码（CadQuery 画零件），无限细节的用生成模型</li><li>系统适配器：即时生成胶水代码连异构 API；日志格式变了，Agent 自己写解析代码热更新</li><li>生成式 UI：A2UI 声明式（JSON 清单 + 预定义安全组件）防 XSS；或 SQL Artifact 模式——LLM 只写 SELECT，数据直送前端绕开中间人</li><li>代码创造代码：Agent 自举。但应基于范例修改，别从零写，否则易犯上下文&#x2F;工具设计缺陷</li></ol><h2 id="安全：致命三要素"><a href="#安全：致命三要素" class="headerlink" title="安全：致命三要素"></a>安全：致命三要素</h2><p>Simon Willison 的威胁模型：</p><ul><li>访问私有数据</li><li>暴露于不受信任内容</li><li>具备外部通信能力</li></ul><p>三者齐备，攻击路径闭合。笔者补了第四项：<strong>持久记忆</strong>——攻击者把恶意指令写进 Agent 长期记忆，跨会话潜伏。</p><p>隔离兜底：网络出口默认断网白名单、文件系统只读挂载、资源限额。语义解析而非关键字黑名单（防 <code>$(echo rm)</code> 绕过）。忠诚度：系统提示限定主人指令最高，外部内容降格为数据——提示注入本质是一次策反。</p><p>（易错：A2UI 是声明式界面协议，AG-UI 是事件传输协议，不是一类东西；提示注入 ≠ XSS，只是效果类似。）</p><h2 id="Agent-自举的坑"><a href="#Agent-自举的坑" class="headerlink" title="Agent 自举的坑"></a>Agent 自举的坑</h2><ul><li>上下文管理随意、工具设计不规范、技术选型滞后、外部生态脱节</li><li>解法：给高质量 Agent 范例供它修改（基于范例生成）</li></ul><hr><p>这一章把前面所有件拼成一台机器了。最有启发的两点：一是”测试通过才算完成”——很多 Coding Agent 偷懒写完就报，得用验证判定停止；二是 MEMORY.md 用 Markdown 而非向量库，反直觉但你能直接改、能 Git 回滚。</p><p>我个人觉得，想自己搭通用 Agent，从”七工具 + 文件系统 + 测试闭环”起步最稳，别一上来追多 Agent。</p><h2 id="下一篇"><a href="#下一篇" class="headerlink" title="下一篇"></a>下一篇</h2><p><a href="https://damao2250.github.io/">ch5-CodingAgent与通用Agent</a></p>]]></content>
+    <content type="html"><![CDATA[<h1 id="CodingAgent与通用Agent：通用-Agent-的内核"><a href="#CodingAgent与通用Agent：通用-Agent-的内核" class="headerlink" title="CodingAgent与通用Agent：通用 Agent 的内核"></a>CodingAgent与通用Agent：通用 Agent 的内核</h1><p>前面几章把上下文、记忆、工具拆开讲了。第 5 章把它们拼起来，回答一个问题：一个能处理任意任务的通用 Agent，长啥样？</p><h2 id="核心答案：Coding-Agent-文件系统"><a href="#核心答案：Coding-Agent-文件系统" class="headerlink" title="核心答案：Coding Agent + 文件系统"></a>核心答案：Coding Agent + 文件系统</h2><p>通用 Agent 的内核，是一个能自主写&#x2F;改&#x2F;跑代码的 <strong>Coding Agent</strong>，加上一个<strong>文件系统</strong>当工作空间——存代码、数据、记忆、中间结果。从 Manus 到 OpenClaw，成功的开放任务 Agent 都这套。</p><p>代码不只是工具，是<strong>元能力</strong>：能在运行时当场造出新工具、新约束。一段能跑通的代码本身就是逻辑自洽证明，执行结果给出客观对错标准。</p><h2 id="七核心工具就够了"><a href="#七核心工具就够了" class="headerlink" title="七核心工具就够了"></a>七核心工具就够了</h2><p>基础 Coding Agent 其实只要 7 个工具：</p><ul><li>Code Interpreter（沙盒 Python）</li><li>Bash Shell</li><li>读文件 &#x2F; 写文件 &#x2F; 编辑文件</li><li>Glob（搜文件名）、Grep（搜内容）</li></ul><p>这七类覆盖感知 + 执行。OpenAI Codex 甚至只用 Bash 一个工具就能干完所有事——分七个只是为了好理解。</p><h2 id="推荐工程化流程"><a href="#推荐工程化流程" class="headerlink" title="推荐工程化流程"></a>推荐工程化流程</h2><ul><li>项目文档化（CLAUDE.md &#x2F; AGENTS.md 这类指令文件，会话开始自动注入，等于项目级系统提示词）</li><li>任务理解与澄清</li><li>写设计文档</li><li>代码实现 + 测试（测试通过才算完成，不是写完就报）</li><li>文档同步交付</li></ul><p>简单 bug 可以砍设计文档，但”计划先于行动，验证贯穿始终”这条别丢。</p><h2 id="Harness-在-Coding-Agent-里的落地"><a href="#Harness-在-Coding-Agent-里的落地" class="headerlink" title="Harness 在 Coding Agent 里的落地"></a>Harness 在 Coding Agent 里的落地</h2><p>Coding 是可验证性最高的任务，测试&#x2F;Linter&#x2F;Git 天然就是 Harness。原则：约束优先于指导、验证自动化、反馈快且结构化、回退可靠。比如防 <code>rm -rf</code> 删库。</p><h2 id="故障恢复：分四层"><a href="#故障恢复：分四层" class="headerlink" title="故障恢复：分四层"></a>故障恢复：分四层</h2><ul><li>API 层：限流、超时</li><li>工具层：幻觉调用、重复同错</li><li>上下文层：溢出、轨迹损坏</li><li>控制流层：死循环、死亡螺旋</li></ul><p>检测靠分类 + 计数 + watchdog；恢复分级：静默重试（指数退避）→ 降级接续 → 暴露给用户。每条恢复路径都有熔断上限（比如压缩连败 3 次就放弃，来自真实统计）。</p><p>前面讲了通用 Agent 的内核。接着展开代码作为”元能力”的六种玩法，再聊安全。</p><h2 id="代码作为元能力：六个方向"><a href="#代码作为元能力：六个方向" class="headerlink" title="代码作为元能力：六个方向"></a>代码作为元能力：六个方向</h2><p>由内向外：</p><ol><li>思考工具：LLM 概率近似，代码精确。数学题用 sympy，纯语言能算错代码算对</li><li>业务规则约束：自然语言有歧义，代码无歧义。三层保障——自然语言规则解释 → 工具参数 checklist 引导自查 → 服务端真值校验（查库，不采信模型）</li><li>多媒体生成：PPT&#x2F;视频用提议者-审核者。有精确参数的用代码（CadQuery 画零件），无限细节的用生成模型</li><li>系统适配器：即时生成胶水代码连异构 API；日志格式变了，Agent 自己写解析代码热更新</li><li>生成式 UI：A2UI 声明式（JSON 清单 + 预定义安全组件）防 XSS；或 SQL Artifact 模式——LLM 只写 SELECT，数据直送前端绕开中间人</li><li>代码创造代码：Agent 自举。但应基于范例修改，别从零写，否则易犯上下文&#x2F;工具设计缺陷</li></ol><h2 id="安全：致命三要素"><a href="#安全：致命三要素" class="headerlink" title="安全：致命三要素"></a>安全：致命三要素</h2><p>Simon Willison 的威胁模型：</p><ul><li>访问私有数据</li><li>暴露于不受信任内容</li><li>具备外部通信能力</li></ul><p>三者齐备，攻击路径闭合。笔者补了第四项：<strong>持久记忆</strong>——攻击者把恶意指令写进 Agent 长期记忆，跨会话潜伏。</p><p>隔离兜底：网络出口默认断网白名单、文件系统只读挂载、资源限额。语义解析而非关键字黑名单（防 <code>$(echo rm)</code> 绕过）。忠诚度：系统提示限定主人指令最高，外部内容降格为数据——提示注入本质是一次策反。</p><p>（易错：A2UI 是声明式界面协议，AG-UI 是事件传输协议，不是一类东西；提示注入 ≠ XSS，只是效果类似。）</p><h2 id="Agent-自举的坑"><a href="#Agent-自举的坑" class="headerlink" title="Agent 自举的坑"></a>Agent 自举的坑</h2><ul><li>上下文管理随意、工具设计不规范、技术选型滞后、外部生态脱节</li><li>解法：给高质量 Agent 范例供它修改（基于范例生成）</li></ul><hr><p>这一章把前面所有件拼成一台机器了。最有启发的两点：一是”测试通过才算完成”——很多 Coding Agent 偷懒写完就报，得用验证判定停止；二是 MEMORY.md 用 Markdown 而非向量库，反直觉但你能直接改、能 Git 回滚。</p><p>我个人觉得，想自己搭通用 Agent，从”七工具 + 文件系统 + 测试闭环”起步最稳，别一上来追多 Agent。</p><h2 id="下一篇"><a href="#下一篇" class="headerlink" title="下一篇"></a>下一篇</h2><p><a href="https://damao2250.github.io/2026/09/21/ch6-%E4%BA%A4%E4%BA%92/">ch5-CodingAgent与通用Agent</a></p>]]></content>
     
     
       
@@ -62,9 +114,9 @@
     <category term="折腾" scheme="http://damao2250.com/categories/%E6%8A%98%E8%85%BE/"/>
     
     
-    <category term="Clash-Verge-Rev" scheme="http://damao2250.com/tags/Clash-Verge-Rev/"/>
-    
     <category term="源码构建" scheme="http://damao2250.com/tags/%E6%BA%90%E7%A0%81%E6%9E%84%E5%BB%BA/"/>
+    
+    <category term="Clash-Verge-Rev" scheme="http://damao2250.com/tags/Clash-Verge-Rev/"/>
     
   </entry>
   
@@ -88,9 +140,9 @@
     <category term="折腾" scheme="http://damao2250.com/categories/%E6%8A%98%E8%85%BE/"/>
     
     
-    <category term="源码构建" scheme="http://damao2250.com/tags/%E6%BA%90%E7%A0%81%E6%9E%84%E5%BB%BA/"/>
-    
     <category term="VSCode" scheme="http://damao2250.com/tags/VSCode/"/>
+    
+    <category term="源码构建" scheme="http://damao2250.com/tags/%E6%BA%90%E7%A0%81%E6%9E%84%E5%BB%BA/"/>
     
   </entry>
   
@@ -203,7 +255,7 @@
     <link href="http://damao2250.com/2026/09/08/ai-agent-book-ch1-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/"/>
     <id>http://damao2250.com/2026/09/08/ai-agent-book-ch1-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</id>
     <published>2026-09-08T03:47:53.000Z</published>
-    <updated>2026-09-17T03:42:17.805Z</updated>
+    <updated>2026-09-17T03:42:39.655Z</updated>
     
     <content type="html"><![CDATA[<h1 id="《AI-Agents-in-Depth》学习记录"><a href="#《AI-Agents-in-Depth》学习记录" class="headerlink" title="《AI Agents in Depth》学习记录"></a>《AI Agents in Depth》学习记录</h1><p>阅读地址：<a href="https://bojieli.github.io/ai-agent-book/">AI Agents in Depth</a></p><h2 id="一句话公式"><a href="#一句话公式" class="headerlink" title="一句话公式"></a>一句话公式</h2><p>现代 Agent &#x3D; 大模型(LLM) + 上下文(Context) + 工具(Tools)。</p><p>真要落地到生产，展开成：<strong>Agent &#x3D; 模型(Model) + Harness</strong>。Harness 原意是”马具”——缰绳和挽具，不是捆住马，是把马力引到正路上。</p><ul><li>大模型是大脑，负责想</li><li>上下文是眼睛，负责看</li><li>工具是手脚，负责干</li></ul><p>三者缺一个，都不算完整的 Agent。</p><h2 id="三个零件到底干啥"><a href="#三个零件到底干啥" class="headerlink" title="三个零件到底干啥"></a>三个零件到底干啥</h2><h3 id="大模型（大脑）"><a href="#大模型（大脑）" class="headerlink" title="大模型（大脑）"></a>大模型（大脑）</h3><p>决策内核。理解意图、做规划、下判断。能力来自预训练和后训练。</p><h3 id="上下文（眼睛）"><a href="#上下文（眼睛）" class="headerlink" title="上下文（眼睛）"></a>上下文（眼睛）</h3><p>每个决策点能看到的全部信息。分两块：</p><ul><li>静态前缀：系统提示词 + 工具定义</li><li>动态轨迹：一路聊下来的消息历史</li></ul><h3 id="工具（手脚）"><a href="#工具（手脚）" class="headerlink" title="工具（手脚）"></a>工具（手脚）</h3><p>模型跟外部世界打交道的接口，核心是声明、调用、再把结果喂回上下文。</p><blockquote><p>小知识：Agent 之外那部分世界叫 Environment（环境）。Agent 只通过”观察”和”行动”两个口子跟它交互，Harness（原意”马具”）里不存环境状态。</p></blockquote><h2 id="ReAct：Agent-怎么转起来的"><a href="#ReAct：Agent-怎么转起来的" class="headerlink" title="ReAct：Agent 怎么转起来的"></a>ReAct：Agent 怎么转起来的</h2><p>就一个循环：思考(Reasoning) → 行动(Acting，调工具) → 观察(Observation) → 再思考。</p><p>工具调用四步：</p><ol><li>声明工具</li><li>模型决定调不调</li><li>结果追回到上下文</li><li>模型基于结果接着回</li></ol><p>书里举了个多币种收入汇总的例子，3 次迭代、4 次工具调用就搞定了。轨迹是结构化的，调试起来不头疼。</p><h2 id="Harness-才是护城河"><a href="#Harness-才是护城河" class="headerlink" title="Harness 才是护城河"></a>Harness 才是护城河</h2><p>模型越来越像标准商品，差距在 Harness——也就是模型之外那层运行和治理。</p><p>Harness 管五件事：</p><ul><li>上下文管理：给模型提供感知信息</li><li>工具接口：观察和行动的通道</li><li>约束(Constrain)：划行为边界，故障默认安全</li><li>验证(Verify)：自动判对错，看结构化数据</li><li>纠正(Correct)：重试、回退，必要时熔断</li></ul><p>这一节是全书最值钱的部分。后面几章基本都在拆这五件事。</p><h2 id="工程范式一路往下走"><a href="#工程范式一路往下走" class="headerlink" title="工程范式一路往下走"></a>工程范式一路往下走</h2><p>提示工程 → 上下文工程 → Harness 工程 → 循环工程 → 图工程。</p><p>一层套一层，后者包含前者。</p><p>编排模式别一上来就上 Agent。从简单到复杂：</p><ul><li>单 LLM 调用：能解决就别折腾</li><li>工作流(Workflow)：写死路径，确定、安全，但缺变通</li><li>自主 Agent：动态决策，靠 ReAct 转，得有停止条件</li></ul><p>实际项目大多是混合——关键流程走工作流，灵活的地方交给 Agent。</p><h2 id="安全是架构问题，不是补丁"><a href="#安全是架构问题，不是补丁" class="headerlink" title="安全是架构问题，不是补丁"></a>安全是架构问题，不是补丁</h2><p>护栏分三层，越往下越难绕过去：</p><ul><li>上下文层：相关性 &#x2F; 安全分类器、内容审核，防提示注入和越狱</li><li>执行层：工具风险评级、输出检查（比如过滤 PII）</li><li>数据层：行级权限、存储过程，别指望模型自己判断</li></ul><h2 id="五个设计模式，贯穿全书"><a href="#五个设计模式，贯穿全书" class="headerlink" title="五个设计模式，贯穿全书"></a>五个设计模式，贯穿全书</h2><ul><li>提议者—审核者：生成和校验分开</li><li>渐进式披露：信息按需给</li><li>只增不改：轨迹只追加，不破坏历史</li><li>边界集 + 保留集：操作划范围，留安全余量</li><li>最小 diff + 可回滚：改动要小，且能撤销</li></ul><h2 id="两个容易踩的坑"><a href="#两个容易踩的坑" class="headerlink" title="两个容易踩的坑"></a>两个容易踩的坑</h2><ul><li>“给出了回答”不等于”完成了任务”。上下文残缺时，Agent 最典型的翻车是编一个毫无破绽、但错的答案。</li><li>苦涩的教训(The Bitter Lesson)：Harness 里的人为先验，长期会被更强的模型内化掉，但节奏慢。所以现在的边界，就是 Harness 的价值。</li></ul><p>Manus 有句话挺对：<strong>Less structure, more intelligence</strong>。先给清晰目标加可组合的工具，只在必要处把边界固化。</p><h2 id="顺手画出全书地图（1–10-章）"><a href="#顺手画出全书地图（1–10-章）" class="headerlink" title="顺手画出全书地图（1–10 章）"></a>顺手画出全书地图（1–10 章）</h2><p>第一章是地图，后面几章是展开：</p><ul><li>第 2、3 章：上下文管理——怎么把感知信息、记忆、知识库喂饱（上下文工程 + 用户记忆和知识库）</li><li>第 4 章：工具五大类——感知 &#x2F; 执行 &#x2F; 协作 &#x2F; 事件触发 &#x2F; 用户沟通</li><li>第 5、6 章：验证、纠正与交互——自动判对错、代码执行安全、信任边界下移（Coding Agent + 交互）</li><li>第 7 章：评估——怎么知道 Agent 变好还是变差（Pass@k &#x2F; Pass^k、Rubric、消融）</li><li>第 8 章：模型后训练——让模型大脑本身变强（SFT &#x2F; RL &#x2F; LoRA &#x2F; RLVP &#x2F; 蒸馏）</li><li>第 9 章：持续进化——让系统自己转”评估 → 训练”的闭环（经验知识库 &#x2F; 三层验证 &#x2F; 睡眠学习）</li><li>第 10 章：多 Agent 协作——什么时候多 Agent 真比一个强（共享 vs 隔离上下文 &#x2F; A2A &#x2F; Loop 工程）</li></ul><h2 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h2><p>这一章信息密度不低，但读下来最大的收获就一句：模型会商品化，真正拉开差距的是 Harness 那层的约束、验证、纠正。</p><p>对于想自己搭 Agent 的人来说，先把”上下文怎么管、工具怎么接、错了怎么兜”这三件事想清楚，比追新模型实在。</p><p>源书：bojieli <a href="https://bojieli.github.io/ai-agent-book/">《AI Agents in Depth》</a>第 1 章《AI Agent 入门》。</p><h2 id="下一篇"><a href="#下一篇" class="headerlink" title="下一篇"></a>下一篇</h2><p><a href="https://damao2250.github.io/2026/09/08/ch2-%E4%B8%8A%E4%B8%8B%E6%96%87%E5%B7%A5%E7%A8%8B/">ch2-上下文工程</a></p>]]></content>
     
@@ -488,56 +540,6 @@
     
     
     <category term="转载与记录" scheme="http://damao2250.com/tags/%E8%BD%AC%E8%BD%BD%E4%B8%8E%E8%AE%B0%E5%BD%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Always With Me</title>
-    <link href="http://damao2250.com/2025/11/13/Always-With-Me/"/>
-    <id>http://damao2250.com/2025/11/13/Always-With-Me/</id>
-    <published>2025-11-13T14:12:06.000Z</published>
-    <updated>2026-09-08T02:01:18.738Z</updated>
-    
-    <content type="html"><![CDATA[<p>角落里飘来神秘而动听的歌谣<br>犹如山风中飘忽的耳语<br>犹如一个以“很久很久以前”开头的故事<br>你听不清它讲的什么<br>但却很笃定<br>那定是一个从夏天出发追逐冬季的故事</p><p>有些夜晚<br>从那些冗长慌乱的梦中醒来<br>然而梦的内容却一点儿都想不起来<br>只恍惚记得<br>“我夜里遗落了一个长长的梦，梦里有你”</p><p>随着年龄的增长<br>回忆越来越模糊<br>有时甚至会怀疑<br>记忆中的那些真的发生过吗？<br>就好像忘记了某些非常重要的事情<br>而那些事情只能以梦的形式提醒你</p><p>所以当你听到这首歌<br>希望你听到的是山风中飘忽的耳语<br>希望你听到一个以“很久很久以前”开头的故事<br>也许你听不清具体讲的什么<br>但请你相信<br>那是一个从夏天出发追逐冬季的故事</p><p>当你犹豫选择哪条路时<br>你可能已经启程了好一阵了<br>就像那个名字——寻，千寻，千与千寻<br>《Always With Me》<br>那是你的故事，你，听到了吗？</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;角落里飘来神秘而动听的歌谣&lt;br&gt;犹如山风中飘忽的耳语&lt;br&gt;犹如一个以“很久很久以前”开头的故事&lt;br&gt;你听不清它讲的什么&lt;br&gt;但却很笃定&lt;br&gt;那定是一个从夏天出发追逐冬季的故事&lt;/p&gt;
-&lt;p&gt;有些夜晚&lt;br&gt;从那些冗长慌乱的梦中醒来&lt;br&gt;然而梦的内容却一点儿都想不</summary>
-      
-    
-    
-    
-    <category term="碎碎念" scheme="http://damao2250.com/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
-    
-    
-    <category term="碎碎念" scheme="http://damao2250.com/tags/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>光之下</title>
-    <link href="http://damao2250.com/2025/07/07/%E5%85%89%E4%B9%8B%E4%B8%8B/"/>
-    <id>http://damao2250.com/2025/07/07/%E5%85%89%E4%B9%8B%E4%B8%8B/</id>
-    <published>2025-07-07T10:02:36.000Z</published>
-    <updated>2026-09-08T02:01:18.937Z</updated>
-    
-    <content type="html"><![CDATA[<p>太阳高悬，大地如火。蝉鸣撕裂空气，风过无痕，连影子都蜷缩着躲在树根下喘息。这是一个被燥热统治的世界，烈得让人无法直视，仿佛每一寸土地都在焦躁中战栗，快要燃成灰烬。</p><p>这不是清晨那一缕带着露水的温柔晨曦，也不是黄昏时分那片洒满天际的余晖。是正午最炽烈的时分的光，穿透云层，刺穿屋檐，落在一个无人注意的角落——也许是空教室的一张课桌，也许是工地深处的一面墙，也许是你独自走过的一段柏油路。</p><p>人群早已躲进阴凉，躲进空调房和遮阳伞下，而它却依旧站在那里，毫不退让。它不讨喜，不示弱，也不愿与阴影同流合污。它只是燃烧，毫无保留地燃烧自己，哪怕这光芒太过刺眼，令人避之不及。</p><p>人们常说，光是温柔的、善良的、抚慰人心的。却忘了，那真正的光，同样锋利，同样滚烫，灼伤的不是皮肤，而是灵魂深处的惰性与软弱。就像那些在炽热中坚持的人，他们并不需要掌声，也未必被人理解，但他们心中燃着一团火，不愿熄灭。</p><p>这份特有的孤独，是一种选择，也是一种宿命，但也藏着最深的希望。</p><p>因为只有真正炽烈的光，才能穿透冷漠的壳；只有敢于独行的灵魂，才能开辟新的方向，才会在无人问津的土地上，踏出前所未有的路径。就像沙漠中的仙人掌，在烈日下沉默生长，却开出最动人的花；就像那些在酷暑中坚守岗位的人，汗水滴落成歌，背影化作信仰。</p><p>我曾在无数个炎热的午后，看见那束光。它没有夜晚的温柔，也没有黄昏的浪漫，但它有最真实的温度，最坚定的方向。它告诉我：不要怕热，也不要怕孤独。只要你还在发光，就一定有人在远方仰望你。</p><p>所以，哪怕满身尘土，哪怕没有人跟随，也别惧怕炽热和害怕孤独。请继续燃烧吧，哪怕全世界都在躲避阳光，你也愿做那束不肯低头的光，因为你不是为了掌声而前行，而是为了不辜负内心那份执着。——这世上最明亮的光，从不需要被理解，只需要被点燃。</p><p><img src="https://raw.githubusercontent.com/Damao2250/FileTransfer/master/WechatIMG78.jpg" alt="光之下"></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;太阳高悬，大地如火。蝉鸣撕裂空气，风过无痕，连影子都蜷缩着躲在树根下喘息。这是一个被燥热统治的世界，烈得让人无法直视，仿佛每一寸土地都在焦躁中战栗，快要燃成灰烬。&lt;/p&gt;
-&lt;p&gt;这不是清晨那一缕带着露水的温柔晨曦，也不是黄昏时分那片洒满天际的余晖。是正午最炽烈的时分的光，穿</summary>
-      
-    
-    
-    
-    <category term="碎碎念" scheme="http://damao2250.com/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
-    
-    
-    <category term="碎碎念" scheme="http://damao2250.com/tags/%E7%A2%8E%E7%A2%8E%E5%BF%B5/"/>
     
   </entry>
   
