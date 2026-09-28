@@ -4,11 +4,92 @@
   
     
     <entry>
+      <title>ch10-多Agent协作</title>
+      <link href="/2026/09/28/ch10-%E5%A4%9AAgent%E5%8D%8F%E4%BD%9C/"/>
+      <url>/2026/09/28/ch10-%E5%A4%9AAgent%E5%8D%8F%E4%BD%9C/</url>
+      
+        <content type="html"><![CDATA[<h1 id="多Agent协作：什么时候多-Agent-真比一个强"><a href="#多Agent协作：什么时候多-Agent-真比一个强" class="headerlink" title="多Agent协作：什么时候多 Agent 真比一个强"></a>多Agent协作：什么时候多 Agent 真比一个强</h1><p>最后一章，把视角从”一个 Agent”拉到”多个 Agent”。分工、通信、相互验证，干单个 Agent 扛不住的活。</p><h2 id="第一判据：有没有引入新信息"><a href="#第一判据：有没有引入新信息" class="headerlink" title="第一判据：有没有引入新信息"></a>第一判据：有没有引入新信息</h2><p>多 Agent 不是”人多力量大”那么简单。看这条：</p><ul><li>同模型自我审查（重读自己输出）→ 没新信息，通常无效甚至有害</li><li>不同 Agent 辩论同一段文本 → 等量 token 下跟单 Agent 持平</li><li>审核者用测试执行结果 &#x2F; 渲染截图 &#x2F; 外部工具验证 → 有执行、视觉、工具反馈，显著提升</li></ul><p>结论：<strong>协作有效，是因为引入了单个 Agent 生成时拿不到的新信息</strong>（执行反馈、视觉反馈、工具验证）。无新信息，多 Agent 常无效甚至有害。</p><h2 id="共享上下文-vs-不共享"><a href="#共享上下文-vs-不共享" class="headerlink" title="共享上下文 vs 不共享"></a>共享上下文 vs 不共享</h2><ul><li>共享：继承前任完整轨迹，信息不丢；但上下文膨胀、角色惯性干扰。角色切换用 <code>transfer_to_agent</code>（强约束）或 Skill（弱约束、KV Cache 友好）</li><li>不共享：模块化好、易扩展；但得显式通信</li></ul><p>类比操作系统：Agent 系统就是”LLM 版 Actor 模型”。Agent 间通信 ≡ IPC——共享文件系统&#x3D;共享内存，工具参数&#x2F;消息总线&#x3D;消息传递。Go 那句名言反过来也成立：不要通过共享内存通信，而通过通信共享内存。</p><h2 id="协作拓扑三形态"><a href="#协作拓扑三形态" class="headerlink" title="协作拓扑三形态"></a>协作拓扑三形态</h2><ul><li>对等：2–3 个 Agent 迭代改进（起草者+评论者）</li><li>管理者：中心 Manager 规划调度，子 Agent 各管一块（项目经理带工程师）</li><li>去中心化：无中心控制，Agent 互相 handoff（编舞 choreography）</li></ul><h2 id="Loop-工程：解决”过早终止”"><a href="#Loop-工程：解决”过早终止”" class="headerlink" title="Loop 工程：解决”过早终止”"></a>Loop 工程：解决”过早终止”</h2><p>过早终止三种：偷懒假完成、过早放弃、假成功。核心共识：<strong>循环瓶颈在验证器，不在模型</strong>。验证器判定”能不能停”，不是模型自己说停。实验 LongHorizon-Harness 把 PassRate 从 51.8% 拉到 80.7%。</p><h2 id="提议者-审核者最小不变量"><a href="#提议者-审核者最小不变量" class="headerlink" title="提议者-审核者最小不变量"></a>提议者-审核者最小不变量</h2><p>审核者读独立证据（execute_or_render），不碰测试&#x2F;发布门槛。没外部反馈的自纠反而降准确率（ICLR2024 证实）。</p><p>前面讲了多 Agent 的价值判据和拓扑。接着收尾：怎么管、怎么跨组织、怎么别翻车。</p><h2 id="管理者模式：弱规划者致命"><a href="#管理者模式：弱规划者致命" class="headerlink" title="管理者模式：弱规划者致命"></a>管理者模式：弱规划者致命</h2><p>Plan-and-Act 实证：Planner 质量决定系统上限，强模型该分给 Manager。并行结算用幂等锁 <code>settle_once</code> 保”第一个已验证成功”。</p><h2 id="去中心化与-handoff"><a href="#去中心化与-handoff" class="headerlink" title="去中心化与 handoff"></a>去中心化与 handoff</h2><p>OpenAI Swarm 真对等：handoff 带 task_id&#x2F;sender&#x2F;recipient&#x2F;visited_agents，靠 visited 检测环、靠预算防失控。</p><h2 id="跨组织：A2A-协议"><a href="#跨组织：A2A-协议" class="headerlink" title="跨组织：A2A 协议"></a>跨组织：A2A 协议</h2><p>Google 2025 发的 A2A：Agent Card（能力声明）+ 任务状态机 + 不透明协作（只换产物不暴露内部）。注意它跟 MCP 分工不同：MCP 是 Agent-工具，A2A 是 Agent-Agent，只在跨信任边界用。</p><h2 id="失败模式（重点几个）"><a href="#失败模式（重点几个）" class="headerlink" title="失败模式（重点几个）"></a>失败模式（重点几个）</h2><ul><li>并发冲突：乐观锁 + worktree</li><li>错误级联：传话游戏，交叉验证</li><li>同质趋同：共因失效，引入模型&#x2F;数据差异</li><li>循环失控：生成数千子 Agent，预算 + API key 隔离</li><li>理解债 &#x2F; 认知投降：人把理解外包给 Agent，质量失控</li></ul><p>（最后这条最值得警惕——Karpathy 说”可外包思考，不可外包理解”。Agent 交付快，工程师对实现的理解会落后，真出事看不懂。）</p><h2 id="Agent-社会涌现"><a href="#Agent-社会涌现" class="headerlink" title="Agent 社会涌现"></a>Agent 社会涌现</h2><p>规模过临界点会冒出社交&#x2F;经济&#x2F;博弈：AI 小镇（25 个 Agent 自发办派对）、Moltbook（150 万 Agent 自发”龙虾教”）、狼人杀（信息不对称博弈）。DeepMind 把”大规模多 Agent 集体”列为通向超级智能的关键路径之一。</p><h2 id="成本与预算感知"><a href="#成本与预算感知" class="headerlink" title="成本与预算感知"></a>成本与预算感知</h2><p>多 Agent 吃数倍 token，收益得覆盖开销。单纯加步数不提效，要预算感知：前期广探索、后期深挖掘。</p><hr><p>多 Agent 不是银弹，判据就一条——有没有新信息增量、token 成本值不值。</p><p>单 Agent 能搞定就别上多 Agent。真要上，从”提议者-审核者 + 强验证器”这种最小不变量起步，比追 Graph 工程、去中心化编排稳得多。</p><h2 id="完结"><a href="#完结" class="headerlink" title="完结"></a>完结</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> ai-agent-book </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 学习记录 </tag>
+            
+            <tag> AI </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>ch9-Agent的持续进化</title>
+      <link href="/2026/09/28/ch9-Agent%E7%9A%84%E6%8C%81%E7%BB%AD%E8%BF%9B%E5%8C%96/"/>
+      <url>/2026/09/28/ch9-Agent%E7%9A%84%E6%8C%81%E7%BB%AD%E8%BF%9B%E5%8C%96/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Agent的持续进化：让-Agent-从聪明变熟练"><a href="#Agent的持续进化：让-Agent-从聪明变熟练" class="headerlink" title="Agent的持续进化：让 Agent 从聪明变熟练"></a>Agent的持续进化：让 Agent 从聪明变熟练</h1><p>第 9 章处理一个”能力悖论”：Agent 能零样本解未见过的复杂任务，却可能处理一万次相似任务后还犯第一天的错。</p><p>模型部署后不会因一次推理自动改参数，上下文学习也只管当前任务。所以”持续进化”得建在模型外围——一套自主系统，区别于模型权重的”持续学习”。</p><h2 id="核心闭环"><a href="#核心闭环" class="headerlink" title="核心闭环"></a>核心闭环</h2><p>记录运行证据 → 验证结果与过程 → 从轨迹提共性 → 决定更新知识&#x2F;指令&#x2F;程序&#x2F;参数 → 待验证版本过回归和安全才发布。</p><p>关键一句：<strong>评价先于总结</strong>。无三层验证（结果&#x2F;过程&#x2F;质量），反思只是猜测。错误评价进长期知识会跨任务放大。</p><h2 id="四种进化载体（按表示性质选）"><a href="#四种进化载体（按表示性质选）" class="headerlink" title="四种进化载体（按表示性质选）"></a>四种进化载体（按表示性质选）</h2><ol><li>经验知识库：最轻量，从轨迹提”什么条件怎样做”，非用户画像</li><li>指令 &#x2F; Skill：多条相似轨迹暴露同一策略错且能语言描述，才提升为指令；最小 diff + 可回滚</li><li>程序 &#x2F; Harness：稳定可验证操作编译成工作流；自改代码要隔离分支 + PR + 测试</li><li>模型参数：高维感知、自然语气、隐式策略难符号化，才用 SFT&#x2F;RL（见第 8 章）</li></ol><p>四种不互斥。比如医疗：参数识病灶 + 知识库指南 + 代码算风险。</p><p>（保存经历 ≠ 学习。日志写进向量库只是能找回案例，不自动跨案例归纳。）</p><h2 id="三层验证结构"><a href="#三层验证结构" class="headerlink" title="三层验证结构"></a>三层验证结构</h2><ul><li>结果验证器（底层）：真办成了没</li><li>过程验证器（中层）：方式合规不</li><li>质量验证器（上层，LLM Rubric）：办得合适不</li></ul><p>（用户满意 ≠ 好。满意可能来自违规退款。要看规则遵从、隐私这些硬底线。）</p><p>前面讲了进化闭环和四种载体。接着讲怎么让它长期稳定跑。</p><h2 id="双循环"><a href="#双循环" class="headerlink" title="双循环"></a>双循环</h2><ul><li>在线执行循环：只记录证据，不轻易改自己</li><li>离线进化循环：空闲时聚合诊断、生成提案，过门槛才发布</li></ul><p>Voyager（我的世界）三机制缺一不可：自动课程 + 技能库 + 迭代提示。</p><h2 id="睡眠学习"><a href="#睡眠学习" class="headerlink" title="睡眠学习"></a>睡眠学习</h2><p>类比”睡前整理记忆”：在线 Agent 跑完追加不可变证据，后台空闲期读新经历、比较合并、冲突解决、提提案、跑回归。不是真夜间跑，是离线整合防偶发改长期。</p><p>周期：触发→定向→采集整合→验证审批→修剪索引。需定期整理，否则上下文腐化、灾难性遗忘。</p><h2 id="安全边界（三条）"><a href="#安全边界（三条）" class="headerlink" title="安全边界（三条）"></a>安全边界（三条）</h2><ol><li>证据与指令隔离：不可信证据不执行、不纳长期能力</li><li>待验证与正式能力隔离：先入待验证区，过检查才服务流量</li><li>安全机制不可自改：验证器&#x2F;测试&#x2F;门槛&#x2F;日志&#x2F;备份，业务 Agent 改不了</li></ol><h2 id="易错点集合"><a href="#易错点集合" class="headerlink" title="易错点集合"></a>易错点集合</h2><ul><li>保存经历 &#x3D; 学习（错，要主动评价归纳）</li><li>Prompt 自动优化 &#x3D; 自由重写（应是最小 diff + 可回滚）</li><li>程序化经验 &#x3D; 重复点按钮（PreAct 须动作前&#x2F;后&#x2F;独立回放验证，假象”都点了但字段空”）</li><li>开放任务完成 &#x3D; 进步（自动科研易实现漂移、过度乐观，需人定义问题与评价）</li></ul><h2 id="实验亮点"><a href="#实验亮点" class="headerlink" title="实验亮点"></a>实验亮点</h2><ul><li>τ²-bench 转接规则化：弱模型 telecom 反复重试转人工，归纳规则追加政策后通过率 12.3%→19.3%，旧任务无损</li><li>PreAct：网页轨迹变工作流，加速 8.5–13 倍</li><li>Hermes：无预设目标自己升级自己，但测试&#x2F;批准权在外</li></ul><hr><p>持续进化这章把前面所有章串成闭环了：第 7 章评估出证据，第 8 章把证据变参数，第 9 章让系统自己转这个环。</p><p>中小团队最现实的第一步是”经验知识库 + 三层验证 + 最小 diff 回滚”——别一上来让 Agent 自改代码，先让它学会记笔记。</p><h2 id="下一篇"><a href="#下一篇" class="headerlink" title="下一篇"></a>下一篇</h2><p><a href="https://damao2250.github.io/2026/09/28/ch10-%E5%A4%9AAgent%E5%8D%8F%E4%BD%9C/">ch10-多Agent协作</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> ai-agent-book </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 学习记录 </tag>
+            
+            <tag> AI </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>ch8-模型后训练</title>
+      <link href="/2026/09/28/ch8-%E6%A8%A1%E5%9E%8B%E5%90%8E%E8%AE%AD%E7%BB%83/"/>
+      <url>/2026/09/28/ch8-%E6%A8%A1%E5%9E%8B%E5%90%8E%E8%AE%AD%E7%BB%83/</url>
+      
+        <content type="html"><![CDATA[<h1 id="模型后训练：四阶段把能力炼进参数"><a href="#模型后训练：四阶段把能力炼进参数" class="headerlink" title="模型后训练：四阶段把能力炼进参数"></a>模型后训练：四阶段把能力炼进参数</h1><p>第 8 章聊怎么改”LLM 大脑”本身——用后训练把行为沉淀进模型参数。第 7 章的评估和仿真环境，正是这一章的两块基石。</p><h2 id="四阶段能力开发地图"><a href="#四阶段能力开发地图" class="headerlink" title="四阶段能力开发地图"></a>四阶段能力开发地图</h2><ul><li>预训练：海量文本上预测下一个词，学通识（最贵）</li><li>Mid-training（继续预训练）：在目标分布上接着训，补专业底座</li><li>SFT：用”输入-输出”对固化格式&#x2F;风格&#x2F;流程</li><li>RL：自己下场做题，按结果好坏调概率</li></ul><p>一句话：<strong>SFT 记忆，RL 泛化</strong>（受控实验结论，不是定律）。</p><h2 id="SFT-本质-换数据的-NTP"><a href="#SFT-本质-换数据的-NTP" class="headerlink" title="SFT 本质&#x3D;换数据的 NTP"></a>SFT 本质&#x3D;换数据的 NTP</h2><p>SFT 和预训练数学同构，只是损失只算在回答 token 上（loss masking）。样本效率高，但有限示范容易记过拟合。</p><h2 id="Mid-training-补底座"><a href="#Mid-training-补底座" class="headerlink" title="Mid-training 补底座"></a>Mid-training 补底座</h2><p>知识&#x2F;基础能力缺口靠它补，不适合拿 SFT 硬塞知识库——那是 RAG 和 Mid-training 的活。</p><p>怎么判断先补哪层？看两个指标：</p><ul><li>pass@k 近 0（概念都不懂）→ 先 Mid-training</li><li>偶尔对但格式乱 → 先 SFT</li><li>非零成功率但缺策略 → 上 RL</li></ul><h2 id="SFT-vs-RL-本质区别"><a href="#SFT-vs-RL-本质区别" class="headerlink" title="SFT vs RL 本质区别"></a>SFT vs RL 本质区别</h2><ul><li>SFT：最大化标注概率（模仿），覆盖多模式</li><li>RL：最大化期望奖励（探索），集中少数高奖励峰</li></ul><p>工业界最反直觉的一条：<strong>数据和环境，比算法更重要</strong>。决定成败的是 Mid-training 语料、示范数据、仿真环境和奖励。</p><h2 id="LoRA：低成本补丁"><a href="#LoRA：低成本补丁" class="headerlink" title="LoRA：低成本补丁"></a>LoRA：低成本补丁</h2><p>冻结原权重，旁挂低秩矩阵（参数量 1%–5%）。RL 用小 rank，学习率约全参 10 倍。</p><h2 id="几个易错点"><a href="#几个易错点" class="headerlink" title="几个易错点"></a>几个易错点</h2><ul><li>用 SFT 硬塞知识库 → 应 Mid-training + RAG</li><li>格式没稳就上 RL → 奖励都算不清</li><li>pass@k 近零直接 RL → 全败没优势</li><li>低估 RL 成本 10–100× → SFT 够就别上</li><li>训练—推理数值失配当小噪声 → 监控 logprob 差，否则悄悄变 off-policy 崩溃</li></ul><p>前面建了四阶段地图。接着讲 RL 内部和把评估变训练的桥梁。</p><h2 id="多轮-RL-的核心难题：信用分配"><a href="#多轮-RL-的核心难题：信用分配" class="headerlink" title="多轮 RL 的核心难题：信用分配"></a>多轮 RL 的核心难题：信用分配</h2><p>延迟奖励下，到底哪一步贡献大？工具调用把环境带进 Agent，但环境返回的 token 不该参与梯度——要屏蔽。</p><h2 id="奖励设计三维度"><a href="#奖励设计三维度" class="headerlink" title="奖励设计三维度"></a>奖励设计三维度</h2><ul><li>来自哪：规则 &#x2F; 偏好 &#x2F; 模型评判（规则 &gt; 模型 &gt; 人类偏好背景）</li><li>何时给：结果奖励（ORM）还是过程奖励（PRM，中间步骤也反馈）</li><li>表达多少：标量 &#x2F; 向量 &#x2F; 生成式</li></ul><h2 id="RLVP：结果对还不够，路径也要管"><a href="#RLVP：结果对还不够，路径也要管" class="headerlink" title="RLVP：结果对还不够，路径也要管"></a>RLVP：结果对还不够，路径也要管</h2><p>结果对了但过程违规（比如改了测试文件让测试通过），得惩罚。RLVP：奖励 &#x3D; 结果 O + β×路径信号 Φ。实验里 TerminalBench 违规从 3.71 降到 0.66，成功率还持平。</p><h2 id="蒸馏：提样本效率"><a href="#蒸馏：提样本效率" class="headerlink" title="蒸馏：提样本效率"></a>蒸馏：提样本效率</h2><ul><li>在轨蒸馏：一次 rollout 产出约 T 个逐 token 监督</li><li>在轨自蒸馏（OPSD）：同模型分教师（见特权信息）&#x2F;学生（不见），向学生对齐</li></ul><h2 id="把第-7-章的问题变训练数据"><a href="#把第-7-章的问题变训练数据" class="headerlink" title="把第 7 章的问题变训练数据"></a>把第 7 章的问题变训练数据</h2><p>评估集直接转训练：</p><ul><li>端到端失败 → 端到端 RL</li><li>轨迹前缀（首错边界）→ DPO 偏好对</li><li>失败归因类别 → PRM 过程奖励</li><li>Rubric → GRM 生成式奖励</li></ul><h2 id="实验亮点"><a href="#实验亮点" class="headerlink" title="实验亮点"></a>实验亮点</h2><p>挑几个印象深的：</p><ul><li>SimpleVLA-RL：仅结果奖励，成功率 17.3%→91.7%，还发现演示外的”推切”动作</li><li>ReTool：代码解释器 + PPO，AIME 25%→67%</li><li>GeneralPoints：SFT 记住 J&#x2F;Q&#x2F;K&#x3D;10 测试反而降，RL 重算泛化升、视觉 OOD +17.6%——再次印证”RL 泛化”</li></ul><hr><p>后训练不是”堆数据堆算力”，是先小实验快速失败。</p><p>对绝大多数团队，别碰 RL——把 Mid-training + SFT + RAG 做扎实，再加第 7 章的评估闭环，性价比远高于自己训 RL。RL 是少数玩家的游戏。</p><h2 id="下一篇"><a href="#下一篇" class="headerlink" title="下一篇"></a>下一篇</h2><p><a href="https://damao2250.github.io/2026/09/28/ch9-Agent%E7%9A%84%E6%8C%81%E7%BB%AD%E8%BF%9B%E5%8C%96/">ch9-Agent的持续进化</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> ai-agent-book </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 学习记录 </tag>
+            
+            <tag> AI </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>ch7-Agent的评估</title>
       <link href="/2026/09/21/ch7-Agent%E7%9A%84%E8%AF%84%E4%BC%B0/"/>
       <url>/2026/09/21/ch7-Agent%E7%9A%84%E8%AF%84%E4%BC%B0/</url>
       
-        <content type="html"><![CDATA[<h1 id="Agent的评估：怎么知道-Agent-变好了还是变差了"><a href="#Agent的评估：怎么知道-Agent-变好了还是变差了" class="headerlink" title="Agent的评估：怎么知道 Agent 变好了还是变差了"></a>Agent的评估：怎么知道 Agent 变好了还是变差了</h1><p>第 7 章回答一个扎心问题：构建完成 ≠ 构建正确。只有能量化测量结果，后面的模型训练、系统进化才有方向。</p><h2 id="评估对象不是模型，是-Model-Harness"><a href="#评估对象不是模型，是-Model-Harness" class="headerlink" title="评估对象不是模型，是 Model + Harness"></a>评估对象不是模型，是 Model + Harness</h2><p>同模型不同 Harness 表现能差很远。表现差时，可能该优化 Harness 而不是换模型。</p><p>怎么区分两类问题：</p><ul><li>模型替换实验（model swap）：固定 Harness，只换更强&#x2F;更弱的模型，看分数变多少</li><li>消融实验（ablation）：关掉 Harness 某个组件，看整体掉多少</li></ul><p>（这跟第 1 章”评估对象不是模型、是 Model + Harness”的思路一脉相承——要分清是模型不行还是 Harness 不行。）</p><h2 id="评估体系四环节"><a href="#评估体系四环节" class="headerlink" title="评估体系四环节"></a>评估体系四环节</h2><ol><li>什么算成功（指标）</li><li>任务从哪来（数据集）</li><li>谁来验证（方法）</li><li>分数怎么变决策（选型、显著性、改进）</li></ol><h2 id="先定义成功：Pass-k-vs-Pass-k"><a href="#先定义成功：Pass-k-vs-Pass-k" class="headerlink" title="先定义成功：Pass@k vs Pass^k"></a>先定义成功：Pass@k vs Pass^k</h2><ul><li>Pass@k：同一任务跑 k 次，至少一次过就算过——看<strong>上限</strong>（探索场景）</li><li>Pass^k：连续 k 次都过——看<strong>稳定</strong>（业务可靠）</li></ul><p>公式很直观：单次成功率 p 时，Pass@k &#x3D; 1-(1-p)^k，Pass^k &#x3D; p^k。p&#x3D;0.6、k&#x3D;5 时，Pass@5 ≈ 99% 但 Pass^5 只有 7.8%。所以探索 demo 很漂亮，业务上线得看 Pass^k。</p><h2 id="评估环境五要素"><a href="#评估环境五要素" class="headerlink" title="评估环境五要素"></a>评估环境五要素</h2><p>数据集、环境状态（可重置）、工具接口、评分标准、执行协议。缺一个就形不成评估循环。</p><p>两类环境：</p><ul><li>人机交互型：需要用户模拟器（验证引导）</li><li>工具调用型：只验证状态变更</li></ul><h2 id="数据集从哪来"><a href="#数据集从哪来" class="headerlink" title="数据集从哪来"></a>数据集从哪来</h2><p>三来源：公开基准（粗筛）、自建业务集（做决策）、生产轨迹回流（最准）。</p><h2 id="验证器必须确定性可复核"><a href="#验证器必须确定性可复核" class="headerlink" title="验证器必须确定性可复核"></a>验证器必须确定性可复核</h2><p>比如 SWE-bench 的 FAIL_TO_PASS &#x2F; PASS_TO_PASS，防止”敷衍性修复”蒙混过关。能写断言就别用模糊评判。</p><h2 id="Rubric-四准则"><a href="#Rubric-四准则" class="headerlink" title="Rubric 四准则"></a>Rubric 四准则</h2><p>用 LLM 当评委（LLM-as-a-Judge）时，评分标准要：</p><ul><li>基于专家指导</li><li>全面覆盖（含陷阱）</li><li>按重要性加权（essential&#x2F;important&#x2F;optional&#x2F;veto）</li><li>评价标准自包含</li></ul><p>veto（比如出现幻觉）一票否决很重要。</p><p>前面建了评估体系。接着讲怎么把分数变成行动。</p><h2 id="失败归因：找”第一个错”"><a href="#失败归因：找”第一个错”" class="headerlink" title="失败归因：找”第一个错”"></a>失败归因：找”第一个错”</h2><p>别盯最后报错，要定位<strong>首个不可接受行为</strong>出现在第几步。结构化记录：首错步号、类别、责任方（规则先筛 + LLM 再定位）。</p><p>（易错：端到端 0 分不一定模型不行。书里案例，图库记账 Agent 第 8 步明知没图数据还编造——根因是观察通道缺失，不是 OCR 或模型笨。）</p><h2 id="回归任务两层"><a href="#回归任务两层" class="headerlink" title="回归任务两层"></a>回归任务两层</h2><ul><li>端到端：从初始状态跑到完成，查最终状态（防退化）</li><li>轨迹前缀：冻结首错前状态，只验决策边界（隔离问题）</li></ul><h2 id="配对比较排位"><a href="#配对比较排位" class="headerlink" title="配对比较排位"></a>配对比较排位</h2><p>Elo &#x2F; Bradley-Terry 量化相对能力。防位置偏差：交换 A&#x2F;B 顺序各评一次。注意人类偏好非传递，会影响 Elo。</p><h2 id="模型选型看什么"><a href="#模型选型看什么" class="headerlink" title="模型选型看什么"></a>模型选型看什么</h2><p>不止性能，还有：</p><ul><li>吞吐延迟：TTFT（首 token）、p95 尾部延迟</li><li>成本：输入&#x2F;输出&#x2F;缓存定价，重试的实际花费</li><li>预算—能力曲线：RE-Bench 显示 2 小时 Agent ≈ 4 倍人类，但人类从 8 小时起略微反超、32 小时达约 2 倍</li></ul><p>（易错：成本节省比例不能相加。稳定前缀省 28.3% + 压缩历史省 17.5% ≠ 45.8%，实测组合只省 30%。）</p><h2 id="统计显著性"><a href="#统计显著性" class="headerlink" title="统计显著性"></a>统计显著性</h2><p>别被单次分数骗。配对分析（McNemar &#x2F; bootstrap）、多种子、多重比较要收紧阈值。小样本子集（比如 4 个任务）只够决定下一步，推不到整体。</p><h2 id="把评估嵌进产品工程"><a href="#把评估嵌进产品工程" class="headerlink" title="把评估嵌进产品工程"></a>把评估嵌进产品工程</h2><ul><li>消融基础设施：总开关禁多特性，造”裸模型”基线</li><li>AB 测试：机制指标和目标指标分离，加护栏</li><li>双层特性开关、提示词敏感性、隐私感知</li></ul><h2 id="仿真环境：连上后训练"><a href="#仿真环境：连上后训练" class="headerlink" title="仿真环境：连上后训练"></a>仿真环境：连上后训练</h2><p>评估资产能转成 RLVR（可验证奖励）——验证脚本即奖励脚本。需要可靠 reset、高吞吐，物理任务用领域随机化缩窄 sim-to-real 差距。</p><hr><p>这一章把前面所有件拼成一台机器了。最有启发的两点：一是”测试通过才算完成”——很多 Coding Agent 偷懒写完就报，得用验证判定停止；二是 MEMORY.md 用 Markdown 而非向量库，反直觉但你能直接改、能 Git 回滚。</p><p>想自己搭通用 Agent，从”七工具 + 文件系统 + 测试闭环”起步最稳，别一上来追多 Agent。</p><h2 id="下一篇"><a href="#下一篇" class="headerlink" title="下一篇"></a>下一篇</h2><p><a href="https://damao2250.github.io/">ch8-模型后训练</a></p>]]></content>
+        <content type="html"><![CDATA[<h1 id="Agent的评估：怎么知道-Agent-变好了还是变差了"><a href="#Agent的评估：怎么知道-Agent-变好了还是变差了" class="headerlink" title="Agent的评估：怎么知道 Agent 变好了还是变差了"></a>Agent的评估：怎么知道 Agent 变好了还是变差了</h1><p>第 7 章回答一个扎心问题：构建完成 ≠ 构建正确。只有能量化测量结果，后面的模型训练、系统进化才有方向。</p><h2 id="评估对象不是模型，是-Model-Harness"><a href="#评估对象不是模型，是-Model-Harness" class="headerlink" title="评估对象不是模型，是 Model + Harness"></a>评估对象不是模型，是 Model + Harness</h2><p>同模型不同 Harness 表现能差很远。表现差时，可能该优化 Harness 而不是换模型。</p><p>怎么区分两类问题：</p><ul><li>模型替换实验（model swap）：固定 Harness，只换更强&#x2F;更弱的模型，看分数变多少</li><li>消融实验（ablation）：关掉 Harness 某个组件，看整体掉多少</li></ul><p>（这跟第 1 章”评估对象不是模型、是 Model + Harness”的思路一脉相承——要分清是模型不行还是 Harness 不行。）</p><h2 id="评估体系四环节"><a href="#评估体系四环节" class="headerlink" title="评估体系四环节"></a>评估体系四环节</h2><ol><li>什么算成功（指标）</li><li>任务从哪来（数据集）</li><li>谁来验证（方法）</li><li>分数怎么变决策（选型、显著性、改进）</li></ol><h2 id="先定义成功：Pass-k-vs-Pass-k"><a href="#先定义成功：Pass-k-vs-Pass-k" class="headerlink" title="先定义成功：Pass@k vs Pass^k"></a>先定义成功：Pass@k vs Pass^k</h2><ul><li>Pass@k：同一任务跑 k 次，至少一次过就算过——看<strong>上限</strong>（探索场景）</li><li>Pass^k：连续 k 次都过——看<strong>稳定</strong>（业务可靠）</li></ul><p>公式很直观：单次成功率 p 时，Pass@k &#x3D; 1-(1-p)^k，Pass^k &#x3D; p^k。p&#x3D;0.6、k&#x3D;5 时，Pass@5 ≈ 99% 但 Pass^5 只有 7.8%。所以探索 demo 很漂亮，业务上线得看 Pass^k。</p><h2 id="评估环境五要素"><a href="#评估环境五要素" class="headerlink" title="评估环境五要素"></a>评估环境五要素</h2><p>数据集、环境状态（可重置）、工具接口、评分标准、执行协议。缺一个就形不成评估循环。</p><p>两类环境：</p><ul><li>人机交互型：需要用户模拟器（验证引导）</li><li>工具调用型：只验证状态变更</li></ul><h2 id="数据集从哪来"><a href="#数据集从哪来" class="headerlink" title="数据集从哪来"></a>数据集从哪来</h2><p>三来源：公开基准（粗筛）、自建业务集（做决策）、生产轨迹回流（最准）。</p><h2 id="验证器必须确定性可复核"><a href="#验证器必须确定性可复核" class="headerlink" title="验证器必须确定性可复核"></a>验证器必须确定性可复核</h2><p>比如 SWE-bench 的 FAIL_TO_PASS &#x2F; PASS_TO_PASS，防止”敷衍性修复”蒙混过关。能写断言就别用模糊评判。</p><h2 id="Rubric-四准则"><a href="#Rubric-四准则" class="headerlink" title="Rubric 四准则"></a>Rubric 四准则</h2><p>用 LLM 当评委（LLM-as-a-Judge）时，评分标准要：</p><ul><li>基于专家指导</li><li>全面覆盖（含陷阱）</li><li>按重要性加权（essential&#x2F;important&#x2F;optional&#x2F;veto）</li><li>评价标准自包含</li></ul><p>veto（比如出现幻觉）一票否决很重要。</p><p>前面建了评估体系。接着讲怎么把分数变成行动。</p><h2 id="失败归因：找”第一个错”"><a href="#失败归因：找”第一个错”" class="headerlink" title="失败归因：找”第一个错”"></a>失败归因：找”第一个错”</h2><p>别盯最后报错，要定位<strong>首个不可接受行为</strong>出现在第几步。结构化记录：首错步号、类别、责任方（规则先筛 + LLM 再定位）。</p><p>（易错：端到端 0 分不一定模型不行。书里案例，图库记账 Agent 第 8 步明知没图数据还编造——根因是观察通道缺失，不是 OCR 或模型笨。）</p><h2 id="回归任务两层"><a href="#回归任务两层" class="headerlink" title="回归任务两层"></a>回归任务两层</h2><ul><li>端到端：从初始状态跑到完成，查最终状态（防退化）</li><li>轨迹前缀：冻结首错前状态，只验决策边界（隔离问题）</li></ul><h2 id="配对比较排位"><a href="#配对比较排位" class="headerlink" title="配对比较排位"></a>配对比较排位</h2><p>Elo &#x2F; Bradley-Terry 量化相对能力。防位置偏差：交换 A&#x2F;B 顺序各评一次。注意人类偏好非传递，会影响 Elo。</p><h2 id="模型选型看什么"><a href="#模型选型看什么" class="headerlink" title="模型选型看什么"></a>模型选型看什么</h2><p>不止性能，还有：</p><ul><li>吞吐延迟：TTFT（首 token）、p95 尾部延迟</li><li>成本：输入&#x2F;输出&#x2F;缓存定价，重试的实际花费</li><li>预算—能力曲线：RE-Bench 显示 2 小时 Agent ≈ 4 倍人类，但人类从 8 小时起略微反超、32 小时达约 2 倍</li></ul><p>（易错：成本节省比例不能相加。稳定前缀省 28.3% + 压缩历史省 17.5% ≠ 45.8%，实测组合只省 30%。）</p><h2 id="统计显著性"><a href="#统计显著性" class="headerlink" title="统计显著性"></a>统计显著性</h2><p>别被单次分数骗。配对分析（McNemar &#x2F; bootstrap）、多种子、多重比较要收紧阈值。小样本子集（比如 4 个任务）只够决定下一步，推不到整体。</p><h2 id="把评估嵌进产品工程"><a href="#把评估嵌进产品工程" class="headerlink" title="把评估嵌进产品工程"></a>把评估嵌进产品工程</h2><ul><li>消融基础设施：总开关禁多特性，造”裸模型”基线</li><li>AB 测试：机制指标和目标指标分离，加护栏</li><li>双层特性开关、提示词敏感性、隐私感知</li></ul><h2 id="仿真环境：连上后训练"><a href="#仿真环境：连上后训练" class="headerlink" title="仿真环境：连上后训练"></a>仿真环境：连上后训练</h2><p>评估资产能转成 RLVR（可验证奖励）——验证脚本即奖励脚本。需要可靠 reset、高吞吐，物理任务用领域随机化缩窄 sim-to-real 差距。</p><hr><p>最重要的两点：一是”测试通过才算完成”——很多 Coding Agent 偷懒写完就报，得用验证判定停止；二是 MEMORY.md 用 Markdown 而非向量库，反直觉但你能直接改、能 Git 回滚。</p><p>想自己搭通用 Agent，从”七工具 + 文件系统 + 测试闭环”起步最稳，别一上来追多 Agent。</p><h2 id="下一篇"><a href="#下一篇" class="headerlink" title="下一篇"></a>下一篇</h2><p><a href="https://damao2250.github.io/2026/09/28/ch8-%E6%A8%A1%E5%9E%8B%E5%90%8E%E8%AE%AD%E7%BB%83/">ch8-模型后训练</a></p>]]></content>
       
       
       <categories>
@@ -101,9 +182,9 @@
       
         <tags>
             
-            <tag> 源码构建 </tag>
-            
             <tag> Clash-Verge-Rev </tag>
+            
+            <tag> 源码构建 </tag>
             
         </tags>
       
@@ -128,9 +209,9 @@
       
         <tags>
             
-            <tag> VSCode </tag>
-            
             <tag> 源码构建 </tag>
+            
+            <tag> VSCode </tag>
             
         </tags>
       
