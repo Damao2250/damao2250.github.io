@@ -402,7 +402,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2026-09-08
+                    2026-09-28
                 </div>
                 
 
@@ -442,7 +442,7 @@
                 <h2 id="setup函数"><a href="#setup函数" class="headerlink" title="setup函数"></a>setup函数</h2><ul>
 <li>setup用于定义变量和方法</li>
 <li>ref用于声明简单数据类型，如：String Number Boolean</li>
-<li>reactive用来声明复杂数据类型，如：Array Objec</li>
+<li>reactive用来声明复杂数据类型，如：Array Object</li>
 <li>是使用Composition API的入口<ul>
 <li>Composition API的主要思想，将它们定义为从新的setup函数返回的JavaScript变量，而不是从组件的功能（如：data、methods、computed等）定义为对象的属性</li>
 <li>Composition API 代替 Vue Mixins （解决命名冲突、隐式依赖、代码重用等问题）</li>
@@ -454,12 +454,12 @@
 <li>在setup中没有this</li>
 <li>接收props作为第一个参数，如果props为对象，可通过watchEffect监视其变化</li>
 <li>接收context作为第二个参数，这个对象包含attrs、slots、emit三个属性</li>
-<li>context非响应式，可以直接解构使用 setup(props,{attr,slots,emit}){}</li>
+<li>context非响应式，可以直接解构使用 setup(props,{attrs,slots,emit}){}</li>
 <li>执行setup函数时可以访问：props、attrs、slots、emit，不可以访问：data、computed、methods</li>
 </ul>
 <pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">import</span> <span class="token punctuation">&#123;</span> ref<span class="token punctuation">,</span> reactive<span class="token punctuation">,</span> toRefs<span class="token punctuation">,</span> isRef <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'vue'</span>
 
-<span class="token keyword">export</span> defalut <span class="token punctuation">&#123;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">&#123;</span>
   <span class="token literal-property property">props</span><span class="token operator">:</span><span class="token punctuation">&#123;</span>
     <span class="token literal-property property">title</span><span class="token operator">:</span> String
   <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
@@ -467,7 +467,7 @@
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>props<span class="token punctuation">.</span>title<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 不能直接解构</span>
     <span class="token keyword">const</span> <span class="token punctuation">&#123;</span> title <span class="token punctuation">&#125;</span> <span class="token operator">=</span> <span class="token function">toRefs</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span>
     <span class="token keyword">let</span> count <span class="token operator">=</span> <span class="token function">ref</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token comment">// 声明简单数据类型</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>count<span class="token punctuation">.</span>valeu<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>count<span class="token punctuation">.</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span> 
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">isRef</span><span class="token punctuation">(</span>count<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 判断是否为ref创建出来的对象</span>
     <span class="token keyword">let</span> arr <span class="token operator">=</span> <span class="token function">reactive</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment">// 声明复杂数据类型</span>
     <span class="token keyword">let</span> <span class="token function-variable function">addOne</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
@@ -481,7 +481,7 @@
     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>context<span class="token punctuation">.</span>slots<span class="token punctuation">)</span>
 
     <span class="token comment">// 触发时间（方法）</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>content<span class="token punctuation">.</span>emit<span class="token punctuation">)</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>context<span class="token punctuation">.</span>emit<span class="token punctuation">)</span>
 
     <span class="token keyword">return</span> <span class="token punctuation">&#123;</span> <span class="token comment">// 必须返回 模板中才能使用</span>
       count<span class="token punctuation">,</span> arr<span class="token punctuation">,</span> addOne

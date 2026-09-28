@@ -398,7 +398,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2026-09-08
+                    2026-09-28
                 </div>
                 
 
@@ -512,7 +512,7 @@
 <h3 id="props"><a href="#props" class="headerlink" title="@props"></a>@props</h3><ul>
 <li>组件接收属性的装饰器，如下使用：</li>
 </ul>
-<pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">import</span> <span class="token punctuation">&#123;</span>Component<span class="token punctuation">,</span>Vue<span class="token punctuation">,</span>Prop<span class="token punctuation">&#125;</span> from vue<span class="token operator">-</span>property<span class="token operator">-</span>decorator<span class="token punctuation">;</span>
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">import</span> <span class="token punctuation">&#123;</span>Component<span class="token punctuation">,</span>Vue<span class="token punctuation">,</span>Prop<span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">'vue-property-decorator'</span><span class="token punctuation">;</span>
 
 @Component
 <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">YourComponent</span> <span class="token keyword">extends</span> <span class="token class-name">Vue</span> <span class="token punctuation">&#123;</span>
@@ -526,7 +526,7 @@
      <span class="token literal-property property">type</span><span class="token operator">:</span> String<span class="token punctuation">,</span> <span class="token comment">// type: [String , Number]</span>
      <span class="token keyword">default</span><span class="token operator">:</span> <span class="token string">'default value'</span><span class="token punctuation">,</span> <span class="token comment">// 一般为String或Number</span>
       <span class="token comment">//如果是对象或数组的话。默认值从一个工厂函数中返回</span>
-      <span class="token comment">// defatult: () => &#123;</span>
+      <span class="token comment">// default: () => &#123;</span>
       <span class="token comment">//     return ['a','b']</span>
       <span class="token comment">// &#125;</span>
      <span class="token literal-property property">required</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>

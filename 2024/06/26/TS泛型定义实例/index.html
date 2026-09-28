@@ -402,14 +402,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2026-09-08
+                    2026-09-28
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    829
+                    830
                 </div>
                 
 
@@ -449,7 +449,7 @@
 <li>泛型函数两种调用方式：</li>
 </ul>
 <pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 指定传入参数类型</span>
-<span class="token comment">// 事实没必要使用尖括号（&lt;>）来明确地传入类型</span>
+<span class="token comment">// 事实上没必要使用尖括号（&lt;>）来明确地传入类型</span>
 <span class="token keyword">let</span> output <span class="token operator">=</span> identity<span class="token operator">&lt;</span>string<span class="token operator">></span><span class="token punctuation">(</span><span class="token string">"myString"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 较常用，使用 类型推论，推断传入类型和返回类型</span>
 <span class="token comment">// 编译器可以查看myString的值，然后把T设置为它的类型</span>
@@ -489,7 +489,7 @@
 <span class="token keyword">let</span> <span class="token literal-property property">myIdentity</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span><span class="token operator">&lt;</span><span class="token constant">T</span><span class="token operator">></span><span class="token punctuation">(</span>arg<span class="token operator">:</span> <span class="token constant">T</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token constant">T</span><span class="token punctuation">&#125;</span> <span class="token operator">=</span> identity<span class="token punctuation">;</span></code></pre>
 
 <ul>
-<li>上面例子里的对象字面量可以拿出来做为一个接口</li>
+<li>上面例子里的对象字面量可以拿出来作为一个接口</li>
 </ul>
 <pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">interface</span> <span class="token class-name">GenericIdentityFn</span> <span class="token punctuation">&#123;</span>
   <span class="token operator">&lt;</span><span class="token constant">T</span><span class="token operator">></span><span class="token punctuation">(</span>arg<span class="token operator">:</span> <span class="token constant">T</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token constant">T</span><span class="token punctuation">;</span>

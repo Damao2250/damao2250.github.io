@@ -398,7 +398,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2026-09-08
+                    2026-09-28
                 </div>
                 
 
@@ -439,7 +439,7 @@
 <li>每个 <code>Go</code> 程序都由包构成</li>
 <li>程序都从 <code>main</code> 包开始运行</li>
 <li>下面的程序通过导入路径 <code>&quot;fmt&quot;</code> 和 <code>&quot;math/rand&quot;</code> 来使用这两个包</li>
-<li>按照约定，包名与导入路径的最后一个元素一致，例如，<code>&quot;math/rand&quot;</code> 包中的源码均以 <code>package rand</code> 语句开始。就像 <code>mian</code> 包以 <code>package main</code> 开始</li>
+<li>按照约定，包名与导入路径的最后一个元素一致，例如，<code>&quot;math/rand&quot;</code> 包中的源码均以 <code>package rand</code> 语句开始。就像 <code>main</code> 包以 <code>package main</code> 开始</li>
 </ul>
 <pre class="language-go" data-language="go"><code class="language-go"><span class="token keyword">package</span> main
 
@@ -540,7 +540,7 @@
 
 <h2 id="带名字的返回值"><a href="#带名字的返回值" class="headerlink" title="带名字的返回值"></a>带名字的返回值</h2><ul>
 <li><code>Go</code> 的返回值可被命名，它们会被视作定义在函数顶部的变量。</li>
-<li>返回值的命名应当能反应其含义，它可以作为文档使用。</li>
+<li>返回值的命名应当能反映其含义，它可以作为文档使用。</li>
 <li>没有参数的 <code>return</code> 语句会直接返回已命名的返回值，也就是「裸」返回值。</li>
 <li>裸返回语句应当仅用在下面这样的短函数中。在长的函数中它们会影响代码的可读性。</li>
 <li>命名返回值确定返回值为 <code>int</code> 类型</li>
@@ -723,7 +723,7 @@ g <span class="token operator">:=</span> <span class="token number">0.867</span>
 <h2 id="数值常量"><a href="#数值常量" class="headerlink" title="数值常量"></a>数值常量</h2><ul>
 <li>数值常量是高精度的值。</li>
 <li>一个未指定类型的常量由上下文来决定其类型。</li>
-<li>再试着一下输出 <code>needInt(Big)</code> 吧。</li>
+<li>再试一下输出 <code>needInt(Big)</code> 吧。</li>
 <li>（<code>int</code> 类型可以存储最大 <code>64</code> 位的整数，根据平台不同有时会更小。）</li>
 </ul>
 <pre class="language-go" data-language="go"><code class="language-go"><span class="token keyword">package</span> main

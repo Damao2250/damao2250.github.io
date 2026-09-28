@@ -398,7 +398,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2026-09-08
+                    2026-09-28
                 </div>
                 
 
@@ -441,7 +441,7 @@
 <span class="token function-variable function">component</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'@/views/about/about'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">,</span></code></pre>
 <h2 id="2-不生成-map-文件"><a href="#2-不生成-map-文件" class="headerlink" title="2. 不生成.map 文件"></a>2. 不生成.map 文件</h2><ul>
-<li>webpack默认会生成map文件，map文件是用来调试代码的。此外，这里还要注意sourcemap的配置分 开发（dev）和线上（build）两个地方配置，开发我们就不管了，就用默认的，线上我们是不需要这个代码的。</li>
+<li>webpack默认会生成map文件，map文件是用来调试代码的。此外，这里还要注意sourcemap的配置分为开发环境（dev）和线上环境（build）两个部分。开发环境使用默认配置即可，线上环境不需要这个代码。</li>
 </ul>
 <pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">// 配置 vue.config.js</span>
 module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">&#123;</span>

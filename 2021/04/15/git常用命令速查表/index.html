@@ -398,7 +398,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2026-09-08
+                    2026-09-28
                 </div>
                 
 
@@ -442,7 +442,7 @@
 <h2 id="撤销"><a href="#撤销" class="headerlink" title="撤销"></a>撤销</h2><p>|撤销	|        |<br>|:—-	|  ——-  |	<br>|$ git reset –hard HEAD	|#撤销工作目录中所有未提交文件的修改内容|<br>|$ git checkout HEAD <file>	|#撤销指定未提交文件的修改内容|<br>|$ git revert <commit>	|#撤销指定的提交|</p>
 <h2 id="分支与标签"><a href="#分支与标签" class="headerlink" title="分支与标签"></a>分支与标签</h2><p>|分支与标签		|        |<br>|:—-	|  ——-  |<br>|$ git branch	|#显示所有本地分支|<br>|$ git branch -r	|#显示所有远程分支|<br>|$ git branch -a	|#显示所有本地和远程分支|<br>|$ git checkout &lt;branch&#x2F;tag&gt;	|#切换到指定分支或标签|<br>|$ git branch <new_branch>	|#创建新分支|<br>|$ git checkout -b <new_branch>	|#创建并切换到新分支|<br>|$ git branch -d <branch>	|#删除本地分支|<br>|$ git tag	|#显示所有本地标签<br>|$ git tag <tagname>	|#基于最新提交创建标签|<br>|$ git tag -d <tagname>	|#删除标签|</p>
 <h2 id="合并与衍合"><a href="#合并与衍合" class="headerlink" title="合并与衍合"></a>合并与衍合</h2><p>|合并与衍合		|        |<br>|:—-	|  ——-  |<br>|$ git merge <branch>	|#合并指定分支到当前分支|<br>|$ git rebase <branch>	|#衍合指定分支到当前分支|</p>
-<h2 id="远程操作"><a href="#远程操作" class="headerlink" title="远程操作"></a>远程操作</h2><p>|远程操作		|        |<br>|:—-	|  ——-  |<br>|$ git remote -v	|#查看远程版本库信息|<br>|$ git remote show <remote>	|#查看指定远程版本库信息|<br>|$ git remote add <remote> <url>	|#添加远程版本库|<br>|$ git fetch <remote>	|#从远程库获取代码|<br>|$ git pull <remote> <branch>	|#从远程库拉去代码并快速合并|<br>|$ git push <remote> <branch>	|#上传代码到远程库并快速合并|<br>|$ git push <remote> -d &lt;branch&#x2F;tag&gt;	|#删除远程分支或标签|<br>|$ git push –tags	|#上传所有标签|</p>
+<h2 id="远程操作"><a href="#远程操作" class="headerlink" title="远程操作"></a>远程操作</h2><p>|远程操作		|        |<br>|:—-	|  ——-  |<br>|$ git remote -v	|#查看远程版本库信息|<br>|$ git remote show <remote>	|#查看指定远程版本库信息|<br>|$ git remote add <remote> <url>	|#添加远程版本库|<br>|$ git fetch <remote>	|#从远程库获取代码|<br>|$ git pull <remote> <branch>	|#从远程库拉取代码并快速合并|<br>|$ git push <remote> <branch>	|#上传代码到远程库并快速合并|<br>|$ git push <remote> -d &lt;branch&#x2F;tag&gt;	|#删除远程分支或标签|<br>|$ git push –tags	|#上传所有标签|</p>
 <h2 id="同步远程已删除的分支"><a href="#同步远程已删除的分支" class="headerlink" title="同步远程已删除的分支"></a>同步远程已删除的分支</h2><p>|同步远程已删除的分支		|        |<br>|:—-	|  ——-  |<br>|$ git branch -a	|#查看本地分支和远程所有分支|<br>|$ git remote show origin	|#查看本地分支和追踪情况|<br>|$ git remote prune origin	|#同步远程已删除分支|</p>
 <h2 id="常见指令参数说明"><a href="#常见指令参数说明" class="headerlink" title="常见指令参数说明"></a>常见指令参数说明</h2><pre class="language-powershell" data-language="powershell"><code class="language-powershell"><span class="token comment"># 将本地的分支版本上传到远程仓库</span>
 <span class="token comment"># 其中参数 -u 创建了一个上游跟踪连接</span>
